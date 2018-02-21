@@ -1,0 +1,132 @@
+#*****Notes***************************************************************************
+
+#Projectiles and offensive special effects. 
+
+#*****Settings***************************************************************************
+
+#*****icons*****
+#*****General*****
+
+name         	proj0001    					
+type	     	obstacle						
+health	     	1000
+antigravity  	1						
+alpha	     	1
+candamage    	none
+offscreenkill 	200
+noatflash 		1 
+flash			none
+blockflash		none
+mp				1000
+mprate			0
+komap			1 1
+
+#Immune to all attacks; responce to getting hit is be fully scripted.
+notgrab  1
+defense all    0 1000 0 1000 1000 0 0
+defense burn   0 1000 0 1000 1000 0 0
+defense shock  0 1000 0 1000 1000 0 0
+defense freeze 0 1000 0 1000 1000 0 0
+
+onspawnscript		data/scripts/z_spawn.c
+onkillscript		data/scripts/z_kill.c
+didhitscript		data/scripts/hit0003.c
+takedamagescript	data/scripts/dama0003.c
+#animationscript	data/scripts/z_blank.c
+
+#*****Alternates*******
+
+palette			data/chars/misc/effects/effe0007/0001 	#0:	Andy Hishoken.
+alternatepal	data/chars/misc/effects/wind0001/0001 	#1:	KO Map.
+alternatepal	data/chars/misc/effects/wind0001/0001	#2: Tornado
+
+#*****Basic********************************************************************************
+
+anim idle	
+	
+	delay	1
+	offset	0 0
+		frame	data/chars/misc/blan0001
+		
+anim follow1
+
+	#Tornado
+
+	loop	  1 0 7
+	landframe 8 dust0002
+	
+	delay	4
+	offset	43 135
+	attack    35 10 15 125 0 0 0 1 0
+	bbox	  35 10 15 125
+	noreflect 1
+		frame	data/chars/misc/effects/wind0001/0001	
+		frame	data/chars/misc/effects/wind0001/0002	
+		frame	data/chars/misc/effects/wind0001/0003
+		frame	data/chars/misc/effects/wind0001/0004
+		frame	data/chars/misc/effects/wind0001/0005
+		frame	data/chars/misc/effects/wind0001/0006
+		frame	data/chars/misc/effects/wind0001/0007
+		frame	data/chars/misc/effects/wind0001/0008
+	delay	8
+	attack	0
+	bbox	0
+		frame	data/chars/misc/effects/wind0001/0009
+		frame	data/chars/misc/effects/wind0001/0010
+		frame	data/chars/misc/effects/wind0001/0012
+		frame	data/chars/misc/effects/wind0001/0013
+		frame	data/chars/misc/effects/wind0001/0014
+		frame	data/chars/misc/effects/wind0001/0015
+
+anim follow2
+
+	#Tornado hits		
+	
+	delay	8
+	offset	43 135	
+	attack	0
+	bbox	0
+		frame	data/chars/misc/effects/wind0001/0009
+		frame	data/chars/misc/effects/wind0001/0010
+		frame	data/chars/misc/effects/wind0001/0012
+		frame	data/chars/misc/effects/wind0001/0013
+		frame	data/chars/misc/effects/wind0001/0014
+		frame	data/chars/misc/effects/wind0001/0015
+		
+anim follow4		
+
+	#CVS Geese close blast (small)
+	#Andy: Hishoken
+
+	forcedirection -1
+	fastattack 	1
+
+	delay	  2
+	offset 	  85 100	
+	attack	  50 50 60  50 0 0 0 1 0
+	bbox	  50 50 60  60
+	noreflect 1
+
+		frame	data/chars/misc/effects/effe0007/0001	
+		frame	data/chars/misc/effects/effe0007/0002
+		frame	data/chars/misc/effects/effe0007/0003
+	attack	  40 50 170 50 0 0 0 1 0
+	bbox	  40 50 170 50
+		frame	data/chars/misc/effects/effe0007/0004
+		frame	data/chars/misc/effects/effe0007/0005
+		frame	data/chars/misc/effects/effe0007/0006
+		frame	data/chars/misc/effects/effe0007/0007
+	attack	  50 50 60  50 0 0 0 1 0
+	bbox	  50 50 60  60
+		frame	data/chars/misc/effects/effe0007/0008
+		frame	data/chars/misc/effects/effe0007/0009
+		frame	data/chars/misc/effects/effe0007/0010
+	attack	0
+	bbox	0
+		frame	data/chars/misc/effects/effe0007/0011
+		frame	data/chars/misc/effects/effe0007/0012
+		frame	data/chars/misc/effects/effe0007/0013
+		frame	data/chars/misc/effects/effe0007/0014
+		frame	data/chars/misc/effects/effe0007/0015
+		frame	data/chars/misc/effects/effe0007/0016	
+		

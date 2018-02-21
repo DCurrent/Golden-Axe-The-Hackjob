@@ -1,0 +1,92 @@
+loadingbg data/bgs/duel/loading.gif  -80 -240 480 0 -100
+# duel
+music		data/music/rock~1.ogg
+bossmusic   data/music/showdown.bor
+
+background	data/bgs/duel/duelbg.gif 0 0 0 0 0 0 1 1
+
+panel		data/bgs/duel/duel.gif none none
+
+order	a
+
+settime 0
+notime  1
+
+load meat
+
+
+levelscript data/levels/duel/lvinit.c
+
+palette data/bgs/duel/pals/duelbg1.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg2.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg3.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg4.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg5.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg6.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg7.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg8.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg9.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg10.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg11.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg12.act 0 1 0 0 0 1
+
+wall -1 1 0 0
+wall 531 1000 0 0 1000 1000 2000 2000
+
+hole  -1 1 0 0
+
+# player1 spawn position
+spawn1  240 30
+spawn1  240 30
+spawn1  240 30
+
+light 256 -128
+at 0
+group 21 23
+at 0
+setpalette 1
+at 0
+
+group 1 1
+at 0
+
+spawn Amazon
+map 2
+health 100
+coords 50 195
+#weapon chickenlegs
+at 0
+
+spawn Amazon
+health 100
+coords 50 195
+#weapon chickenlegs
+at 0
+
+spawn Amazon
+health 100
+map	1
+coords 50 195
+#weapon chickenlegs
+at 0
+
+spawn Amazon
+health 100
+map	2
+coords 50 195
+#weapon chickenlegs
+weapon blue_dragon
+at 0
+
+group 1 1
+at 0
+
+#spawn	Bad_Brother
+#health  200
+#coords	-10 190
+#at	0
+
+#spawn a_npc
+#health 10000
+#coords 200 190
+#at 0

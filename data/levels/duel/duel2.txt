@@ -1,0 +1,503 @@
+loadingbg data/bgs/duel/loading.gif  -80 -240 480 0 -100
+# duel
+music		data/music/battle~1.bor
+bossmusic   data/music/showdown.bor
+
+background	data/bgs/duel/duelbg.gif 0 0 0 0 0 0 1 1
+
+panel		data/bgs/duel/duel.gif none none
+
+order	a
+
+settime 0
+notime  1
+
+load meat
+load amardrag
+load amachick
+load lonrdrag
+load lonchick
+load henrdrag
+load henchick
+load a_rdrag
+load a_chick
+load t_rdrag
+load t_chick
+load g_rdrag
+load g_chick
+
+levelscript data/levels/duel/lvinit.c
+
+palette data/bgs/duel/pals/duelbg1.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg2.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg3.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg4.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg5.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg6.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg7.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg8.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg9.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg10.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg11.act 0 1 0 0 0 1
+palette data/bgs/duel/pals/duelbg12.act 0 1 0 0 0 1
+
+wall -1 1 0 0
+wall 531 1000 0 0 1000 1000 2000 2000
+
+hole  -1 1 0 0
+
+# player1 spawn position
+spawn1  240 30
+spawn1  240 30
+spawn1  240 30
+
+light 256 -128
+at 0
+group 21 23
+at 0
+setpalette 1
+at 0
+
+#-----------npc-----------
+spawn a_npc
+coords 240 190
+at 0
+
+spawn g_npc
+coords 240 230
+at 0
+
+spawn t_npc
+coords 240 210
+at 0
+
+#---------group 0----------
+#--------20 spectators-----
+spawn longmoan
+aggression -40
+health 16
+map 2
+coords 480 185
+at 0
+
+
+spawn longmoan
+aggression -40
+health 16
+map 2
+coords 490 190
+at 0
+
+
+spawn Heninger
+aggression -40
+health 16
+map 4
+coords 470 195
+at 0
+
+
+spawn longmoan
+aggression -40
+health 16
+map 2
+coords 478 230
+at 0
+
+
+spawn amazon
+aggression -40
+health 16
+map 2
+coords 500 184
+at 0
+
+
+spawn longmoan
+aggression -40
+health 16
+map 2
+coords 466 200
+at 0
+
+
+spawn longmoan
+aggression -40
+health 16
+flip 1
+map 2
+coords 0 188
+at 0
+
+
+spawn longmoan
+aggression -40
+health 16
+map 2
+coords 480 184
+at 0
+
+
+spawn heninger
+aggression -40
+health 16
+flip 1
+map 4
+coords 20 184
+at 0
+
+
+spawn longmoan
+aggression -40
+health 16
+flip 1
+map 2
+coords -10 200
+at 0
+
+
+spawn longmoan
+aggression -40
+health 16
+flip 1
+map 2
+coords 0 238
+at 0
+
+
+spawn amazon
+aggression -40
+health 16
+flip 1
+map 2
+coords 15 220
+at 0
+
+
+spawn longmoan
+aggression -40
+health 16
+flip 1
+map 2
+coords -30 220
+at 0
+
+
+spawn heninger
+aggression -40
+health 16
+flip 1
+map 4
+coords 10 240
+at 0
+
+
+spawn heninger
+aggression -40
+health 16
+map 4
+coords -10 190
+at 0
+
+
+spawn longmoan
+aggression -40
+health 16
+map 2
+coords 480 198
+at 0
+
+
+spawn longmoan
+aggression -40
+health 16
+flip 1
+map 2
+coords -40 200
+at 0
+
+
+spawn heninger
+aggression -40
+health 16
+map 4
+coords 510 234
+at 0
+
+
+spawn heninger
+aggression -40
+health 16
+flip 1
+map 4
+coords 20 230
+at 0
+
+
+spawn amazon
+aggression -40
+health 16
+coords 530 200
+at 0
+
+
+#---------group 1----------
+spawn	longmoan
+weapon Chickenlegs
+health  64
+coords	530 184
+at	0
+
+#group 21 22
+#at 0
+#setpalette 2
+#at 0
+#---------group 2----------
+spawn	Heninger
+coords	-50 184
+flip 1
+health  64
+at	0
+
+spawn	Heninger
+coords	530 220
+map 3
+health  64
+at	0
+
+group 21 23
+at 0
+#setpalette 3
+#at 0
+#---------group 3----------
+spawn	Heninger
+weapon  Red_Dragon
+map     2
+health  64
+coords	530 184
+at	0
+
+#group 21 22
+#at 0
+#setpalette 4
+#at 0
+#---------group 4----------
+spawn	Skeleton
+coords	-50 184
+flip 1
+health  64
+at	0
+
+spawn	Skeleton
+coords	530 200
+health  64
+at	0
+
+spawn	palette_changer
+coords	0 0
+spawnscript data/levels/duel/dawn.c
+at	0
+group 21 24
+at 0
+#setpalette 5
+#at 0
+#---------group 5----------
+spawn	Longmoan
+health 96
+map 1
+flip 1
+coords	-40 184
+at	0
+
+spawn	Longmoan
+health 96
+map 1
+flip 1
+coords	-50 200
+at	0
+
+#group 22 23
+#at 0
+#setpalette 6
+#at 0
+#---------group 6----------
+spawn	Amazon
+map 2
+weapon Red_Dragon
+health  64
+coords	530 184
+at	0
+
+spawn	Amazon
+weapon Red_Dragon
+health  64
+coords	530 200
+at	0
+
+group 21 23
+at 0
+#setpalette 7
+#at 0
+#---------group 7----------
+spawn	longmoan
+spawnscript data/levels/duel/dark.c
+health 96
+aggression 100
+map 3
+coords	200 190
+at	0
+
+spawn	longmoan
+health 96
+aggression 100
+map 3
+flip 1
+coords	230 230
+at	0
+
+spawn	Heninger
+health 96
+aggression 100
+map 5
+coords	260 230
+at	0
+
+group 21 23
+at 0
+#setpalette 8
+#at 0
+#---------group 8----------
+spawn	Skeleton
+health 64
+map 2
+aggression 100
+coords	420 190
+at	0
+
+spawn	Skeleton
+health 64
+map 2
+aggression 100
+coords	240 240
+at	0
+
+spawn	Skeleton
+health 64
+map 2
+flip 1
+spawnscript data/levels/duel/dark.c
+aggression 100
+coords	60 190
+at	0
+
+group 21 22
+at 0
+#setpalette 9
+#at 0
+#---------group 9----------
+spawn	Bad_Brother
+health 128
+coords	520 188
+at	0
+
+spawn	Bad_Brother
+health 128
+coords	530 220
+at	0
+
+group 21 22
+at 0
+#--------group bonus-------
+spawn	Thief
+alias GreenThief
+map 1
+health 2
+coords	500 200
+at	0
+
+spawn	Thief
+alias GreenThief
+map 1
+health 1
+coords	-20 210
+at	0
+
+group 21 24
+at 0
+#setpalette 10
+#at 0
+#---------group 10----------
+spawn longmoan
+map 2
+health 64
+flip 1
+coords -50 190
+at 0
+
+spawn Heninger
+map 4
+health 64
+flip 1
+coords -50 240
+at 0
+
+spawn longmoan
+map 2
+health 64
+flip 1
+coords -40 200
+at 0
+
+spawn	Bitter
+map 1
+health 192
+coords	530 190
+at	0
+
+spawn	palette_changer
+coords	0 0
+spawnscript data/levels/duel/sunset.c
+at	0
+group 21 22
+at 0
+#setpalette 11
+#at 0
+#---------group 11----------
+spawn	Bad_Brother
+health 128
+flip 1
+map 2
+aggression 50
+coords	-50 188
+at	0
+
+spawn	Bad_Brother
+health 128
+map 1
+flip 1
+aggression 80
+coords	-50 230
+at	0
+
+group 21 22
+at 0
+setpalette 12
+at 0
+light -320 192
+at 0
+#---------group 12----------
+spawn	Bitter
+spawnscript data/levels/duel/wake.c
+aggression 35
+health 192
+boss 1
+flip 1
+coords	-50 188
+at	0
+
+spawn	Bitter
+aggression 35
+health 192
+boss 1
+coords	530 210
+at	0

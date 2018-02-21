@@ -1,0 +1,29 @@
+blackbox	64 64 64
+#blackbox	{R}	{G}	{B}
+#		~Determines the color of the 'shadow' around the lifebar and the bar at 500 health.
+
+whitebox	255 255 255
+#whitebox	{R}	{G}	{B}
+#		~Determines the color of the outline around the lifebar and the bar at 600 health and up.
+
+color25         198 0 0
+color50         230 99 0
+color100        247 214 0
+color200        247 247 148
+color300        173 195 123
+color400        107 130 57
+color500        82 97 33
+#color{#}	{R}	{G}	{B}
+#		~{#} must be 25, 50, 100, 200, 300, 400, or 500.
+#		~There's no space between "color" and {#} in color{#}.
+#		~{#} is the health value at which the color will be displayed
+#		~color500 is also used as the background of the lifebar, and is displayed with transparency.
+
+colormagic	0  65  231
+#colormagic	{R}	{G}	{B}
+#		~Controls the color of the MP bar.
+
+colormagic2	128  128  128
+#colormagic2	{R}	{G}	{B}
+#		~When a player's MP bar is longer than their health, the extra MP is overlaid on top of the first bar in this color, like with health.
+shadowcolor 128 128 128

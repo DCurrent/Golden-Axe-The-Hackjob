@@ -1,0 +1,29 @@
+#Fall heavy.
+
+name			fallh
+type			none
+shadow			0
+antigravity		100
+lifespan    	2
+alpha			1			
+speedf			0.75		#Size adjustment.
+nodrop			0			#<max> random rotation range?
+guardpoints		1			#Type of oneshot.
+noatflash		0			#Secondary entity?
+jugglepoints	226			#Alternate spawn sound group.
+
+onspawnscript 	data/scripts/spaw0002.c
+onkillscript  	data/scripts/z_kill.c
+
+anim idle
+	loop	0
+	delay	5
+	offset	75 35
+		frame	data/chars/misc/effects/dust0001/0001
+		frame	data/chars/misc/effects/dust0001/0002
+		frame	data/chars/misc/effects/dust0001/0003
+		frame	data/chars/misc/effects/dust0001/0004
+		frame	data/chars/misc/effects/dust0001/0005
+		frame	data/chars/misc/effects/dust0001/0006
+		frame	data/chars/misc/effects/dust0001/0007
+	

@@ -1,0 +1,29 @@
+#escaped version
+name Female_Villager2
+type none
+speed 7
+gfxshadow 1
+shadow 2
+nolife 1
+antigravity 100
+
+anim spawn
+    
+    offset 32 53
+    delay 1
+    #move 6
+	frame   data/chars/villager/female/r0.gif
+        
+anim walk
+    loop 1
+    offset 32 53
+    delay 9
+    #move 6
+	frame   data/chars/villager/female/r0.gif
+	frame   data/chars/villager/female/r1.gif
+	frame   data/chars/villager/female/r2.gif
+	frame   data/chars/villager/female/r3.gif
+	frame   data/chars/villager/female/r4.gif
+	frame   data/chars/villager/female/r3.gif
+	frame   data/chars/villager/female/r2.gif
+	frame   data/chars/villager/female/r1.gif

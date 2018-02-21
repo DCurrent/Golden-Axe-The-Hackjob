@@ -1,0 +1,112 @@
+# the king and the princess
+name king
+type none
+gfxshadow 1
+shadow 0
+animationscript data/scripts/vars/constants.h
+globalmap 0
+
+anim spawn
+
+offset 100 260
+delay 10
+@script
+void self = getlocalvar("self");
+int x = getentityproperty(self, "x");
+int z = getentityproperty(self, "z");
+int a = getentityproperty(self, "a")-4;
+changeentityproperty(self, "position", x, z, a);
+changeentityproperty(self, "base", a);
+@end_script
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+
+anim idle
+loop 1
+offset 100 260
+delay 10
+@script
+if(getglobalvar("release")==1)
+{
+    setglobalvar("release", NULL());
+    changeentityproperty(getlocalvar("self"), "animation", A_SLEEP);
+}
+@end_script
+frame data/bgs/castle/king/1
+
+anim sleep
+
+offset 100 260
+delay 10
+@script
+if(frame<8)
+{
+    void self = getlocalvar("self");
+    int x = getentityproperty(self, "x");
+    int z = getentityproperty(self, "z");
+    int a = getentityproperty(self, "a")-4;
+    changeentityproperty(self, "position", x, z, a);
+    changeentityproperty(self, "base", a);
+}
+@end_script
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+frame data/bgs/castle/king/1
+
+delay 5
+frame data/bgs/castle/king/2
+frame data/bgs/castle/king/3
+frame data/bgs/castle/king/4
+frame data/bgs/castle/king/5
+frame data/bgs/castle/king/6
+frame data/bgs/castle/king/7
+frame data/bgs/castle/king/8
+frame data/bgs/castle/king/9
+delay 14
+frame data/bgs/castle/king/10
+frame data/bgs/castle/king/11
+frame data/bgs/castle/king/12
+frame data/bgs/castle/king/13
+frame data/bgs/castle/king/14
+frame data/bgs/castle/king/15
+frame data/bgs/castle/king/16
+frame data/bgs/castle/king/17
+frame data/bgs/castle/king/18
+frame data/bgs/castle/king/19
+frame data/bgs/castle/king/20
+frame data/bgs/castle/king/21
+frame data/bgs/castle/king/22
+frame data/bgs/castle/king/23
+frame data/bgs/castle/king/24
+frame data/bgs/castle/king/25
+frame data/bgs/castle/king/26
+frame data/bgs/castle/king/27
+frame data/bgs/castle/king/28
+frame data/bgs/castle/king/101
+frame data/bgs/castle/king/102
+frame data/bgs/castle/king/103
+delay 500
+frame data/bgs/castle/king/104
+# blow up the dummy boss
+@cmd damageentity getglobalvar("dummy") getglobalvar("dummy") 10000
+frame data/bgs/castle/king/104
+

@@ -1,0 +1,54 @@
+#*****Notes***************************************************************************
+#Level 1 hyper spark.
+
+#*****Settings***************************************************************************
+
+#*****icons*****
+#*****General*****
+
+name         	hype0001				
+type	     	text
+subtype	     	noskip   						
+health	     	100						
+antigravity  	100
+alpha	     	1
+lifespan     	2
+guardpoints	1
+speedf		1
+
+onspawnscript	data/scripts/spaw0002.c
+onkillscript	data/scripts/z_kill.c
+
+anim idle
+	
+	delay	2
+	offset	320 240	
+		frame	data/chars/misc/effects/effe0003/0001
+		frame	data/chars/misc/effects/effe0003/0002
+		frame	data/chars/misc/effects/effe0003/0003
+		frame	data/chars/misc/effects/effe0003/0004
+		frame	data/chars/misc/effects/effe0003/0005
+		frame	data/chars/misc/effects/effe0003/0006
+		frame	data/chars/misc/effects/effe0003/0007
+		frame	data/chars/misc/effects/effe0003/0008
+		frame	data/chars/misc/effects/effe0003/0009
+		frame	data/chars/misc/effects/effe0003/0010
+		frame	data/chars/misc/effects/effe0003/0011
+		frame	data/chars/misc/effects/effe0003/0012
+		frame	data/chars/misc/effects/effe0003/0013
+		frame	data/chars/misc/effects/effe0003/0014
+		frame	data/chars/misc/effects/effe0003/0015
+		frame	data/chars/misc/effects/effe0003/0016
+		frame	data/chars/misc/effects/effe0003/0017
+		frame	data/chars/misc/effects/effe0003/0018
+		frame	data/chars/misc/effects/effe0003/0019
+		frame	data/chars/misc/effects/effe0003/0020
+		frame	data/chars/misc/effects/effe0003/0031
+		frame	data/chars/misc/effects/effe0003/0032
+		frame	data/chars/misc/effects/effe0003/0033
+		frame	data/chars/misc/effects/effe0003/0034
+		frame	data/chars/misc/effects/effe0003/0035
+		frame	data/chars/misc/effects/effe0003/0036
+		frame	data/chars/misc/effects/effe0003/0037
+		frame	data/chars/misc/effects/effe0003/0038
+		frame	data/chars/misc/effects/effe0003/0039

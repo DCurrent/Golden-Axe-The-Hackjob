@@ -1,0 +1,5 @@
+/*
+
+Blank script to allow use of animation script inserts when no functions are needed.
+
+*/

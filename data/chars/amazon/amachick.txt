@@ -1,0 +1,650 @@
+# Amazon on chickenlegs
+
+name			amachick
+speed			10
+running 		20 5 1 1 0
+dust			fallm landm jumpm
+gfxshadow 		1
+shadow			3
+animal  		2
+grabforce 		1
+grabdistance 		36
+aimove 			chase
+grabfinish 		1
+bflash			bflash
+komap			4 1
+
+animationscript 	data/scripts/z_ani.c
+didblockscript		data/scripts/z_block.c				#Block incoming attack.
+didhitscript 		data/scripts/z_hit.c				#Hit another entity.
+keyscript		data/scripts/z_key.c				#Controlling player press/release key.
+onblockascript		data/scripts/z_blocka.c				#Movement (rise/fall) blocked by platform.
+onblockoscript		data/scripts/z_blocko.c				#Movement blocked by obstacle.
+onblocksscript		data/scripts/z_blocks.c				#Movement blocked by screen boundary.
+onblockwscript		data/scripts/z_blockw.c				#Movement blocked by wall.
+onblockzscript		data/scripts/z_blockz.c				#Movement blocked by Z boundary.
+ondeathscript		data/scripts/z_death.c				#Killed by damage.
+onfallscript		data/scripts/z_fall.c				#Fall status set.
+onkillscript		data/scripts/z_kill.c				#Removed from playfield.
+onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.
+onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
+onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
+onpainscript		data/scripts/z_pain.c				#Pain status set.
+onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
+script			data/scripts/z_script.c				#Entity updated.
+takedamagescript	data/scripts/z_damage.c				#Damaged.
+thinkscript		data/scripts/z_think.c				#Entity AI updates.
+
+com			a2 	freespecial2		#Backstep.
+com			d u j 	freespecial3		#Highjump up.
+com			u d j 	freespecial4		#Highjump down.
+
+modelflag 		1
+weapons 		amachick amardrag amabdrag
+aggression 		60
+#nolife  		1
+jumpmove		0 1
+
+palette 		data/chars/amazon/chicken/0001			#green
+alternatepal 	data/chars/amazon/chicken/aapa0001  	#red
+alternatepal 	data/chars/amazon/chicken/aapa0002  	#purple
+alternatepal 	data/chars/amazon/chicken/aapa0003  	#dark
+
+anim follow100
+
+	offset	0 0
+	frame	data/chars/amazon/chicken/ico0001   #AI icon.
+	frame	data/chars/amazon/chicken/ico0002	#AI icon (pain).
+
+anim spawn
+
+	delay	1
+	offset	78 142
+    	bbox    66 80 34 64
+	
+		frame	data/chars/amazon/chicken/0015
+	delay	15
+		frame	data/chars/amazon/chicken/0015
+
+anim idle
+
+	range  50 350
+
+	loop	1
+	delay	14
+	offset	78 142
+    	bbox    66 80 34 64
+		frame	data/chars/amazon/chicken/0015
+		frame	data/chars/amazon/chicken/0016
+		frame	data/chars/amazon/chicken/0017
+		frame	data/chars/amazon/chicken/0016
+
+anim get
+
+	delay	20
+	offset	78 142
+		frame	data/chars/amazon/chicken/0025
+		frame	data/chars/amazon/chicken/0026
+	@cmd	soun0005 ENT_SELF VOI_ATK 1 1 "C" 0
+		frame	data/chars/amazon/chicken/0027
+
+anim walk
+
+    	loop    1
+    	delay   10
+    	offset  80 142
+    	bbox    64 80 30 60
+	@script
+	void vSelf = getlocalvar("self");
+	if(getentityproperty(vSelf, "invincible")==1)
+	{
+    		ai0003(vSelf);
+	}
+	else
+	{
+    		ai0002();
+	}
+	@end_script
+		frame	data/chars/amazon/chicken/0028
+		frame	data/chars/amazon/chicken/0029
+		frame	data/chars/amazon/chicken/0030
+		frame	data/chars/amazon/chicken/0031
+
+anim up
+
+    	loop    1
+    	delay   10
+    	offset  82 142
+    	bbox    70 78 28 60
+	@script
+		ai0002();
+	@end_script
+		frame	data/chars/amazon/chicken/0032
+		frame	data/chars/amazon/chicken/0033
+		frame	data/chars/amazon/chicken/0034
+		frame	data/chars/amazon/chicken/0035
+
+anim run
+
+    	loop    1
+    	delay   6
+	offset	78 142
+    	bbox    66 80 34 64
+		frame	data/chars/amazon/chicken/0020
+		frame	data/chars/amazon/chicken/0021
+		frame	data/chars/amazon/chicken/0022
+		frame	data/chars/amazon/chicken/0023
+
+anim runattack
+
+    	range 80 180
+    	followanim 2
+    	followcond 1
+    	jumpframe  1 2 3 0 jumpm
+    	landframe  2 landm
+	hitflash  hithcut
+
+	delay   6
+	offset	78 142
+   	bbox    68 66 34 54
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/amazon/chicken/0019
+    	bbox    67 70 34 54
+    	delay   -1000
+    	attack1	99 98 26 37 8 1 1
+		frame	data/chars/amazon/chicken/0024
+	attack1	0
+    	delay   10
+    	bbox    68 66 34 54
+	@cmd velo0001 2 0 0
+		frame	data/chars/amazon/chicken/0019
+    	delay   1
+	@cmd velo0001 0 0 0
+		frame	data/chars/amazon/chicken/0019
+
+anim attackboth
+
+	#Dismount
+
+    	weaponframe 3 0
+	loop	0
+	delay	20
+	offset	78 142
+		frame	data/chars/amazon/chicken/0015
+		frame	data/chars/amazon/chicken/0026
+		frame	data/chars/amazon/chicken/0025
+		frame	data/chars/amazon/chicken/0025
+
+anim attackup
+
+	#sidestep.
+
+	jumpframe 1 2 -0.2 -1 jumpm
+
+	delay	10
+	offset	88 139
+    	bbox    68 66 34 54
+		frame	data/chars/amazon/chicken/0019
+	delay	-1000
+    	bbox    68 58 34 54
+	offset  88  142
+	@cmd	jump0003 0 0 0
+		frame	data/chars/amazon/chicken/0018
+
+anim attackdown
+
+	#sidestep.
+
+	jumpframe 1 2 -0.2 1 jumpm
+
+	delay	10
+	offset	88 139
+    	bbox    68 66 34 54
+		frame	data/chars/amazon/chicken/0019
+	delay	-1000
+   	bbox    68 58 34 54
+	offset  88  142
+	@cmd	jump0003 0 0 0
+		frame	data/chars/amazon/chicken/0018
+
+anim  chargeattack
+
+
+	chargetime	3
+	range  		0  70
+
+	delay	10
+	offset	78 142
+    	bbox    0
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/amazon/chicken/0011
+	delay	175
+	@cmd 	proj0003 "effe0001" 1 1 1 0 0 0 0 0 19 A_FOLLOW7
+		frame	data/chars/amazon/chicken/0012
+	delay	10
+	bbox    68 66 34 54
+		frame	data/chars/amazon/chicken/0011
+
+anim Upper
+
+	#For AI, perform chargeattack.
+
+	delay	1
+    	offset	78 142
+    	bbox    0
+	@cmd	changeentityproperty getlocalvar("self") "animation" A_CHARGEATK
+		frame	data/chars/amazon/chicken/0015
+
+anim attack1
+
+	range   	0 70
+	flipframe 	4
+	hitflash  	hitm
+
+	delay	6
+	offset	82 142
+   	bbox    68 79 31 55
+	attack1	41 129 28 18 16 1
+		frame	data/chars/amazon/chicken/0007
+	offset	76 142
+   	bbox    60 79 31 55
+	attack1	52 126 48 24 16 1
+	@cmd	bind0008 "landm" "mute" 0 1 0 0 0 0 0 0 1					#Dust.
+	@cmd	soun0005 ENT_SELF SND_WIFFM -1 1 0 0
+		frame	data/chars/amazon/chicken/0008
+	offset	78 142
+	attack1	85 123 38 22 16 1
+		frame	data/chars/amazon/chicken/0009
+	delay	10
+	attack1	87 116 66 22 16 1
+		frame	data/chars/amazon/chicken/0010
+	delay	15
+	attack	0
+		frame	data/chars/amazon/chicken/0016
+	delay	12
+    	bbox    66 80 34 64
+		frame	data/chars/amazon/chicken/0007
+		frame	data/chars/amazon/chicken/0008
+		frame	data/chars/amazon/chicken/0009
+	@cmd	dir0001
+		frame	data/chars/amazon/chicken/0016
+
+anim grab
+
+    	delay   1
+	offset	82 142
+    	bbox    66 80 34 64
+    	@cmd stal0001 1000
+	@cmd seal0001 1 1000
+		frame	data/chars/amazon/chicken/0013
+
+anim grabattack
+
+	offset	82 142
+    	bbox    66 80 34 64
+	delay	8
+	@cmd	ani0012	A_GRABATK2 A_GRABATK2
+		frame	data/chars/amazon/chicken/0036
+	@cmd	bind0003 "amaz0001" "blur" -1 1 0 0 1 1 7
+		frame	data/chars/amazon/chicken/0037
+	@cmd stal0001 1000
+	@cmd seal0001 1 1000
+	attack1 99 90 12 26 4
+	dropv 0 0 0
+	delay	2
+		frame	data/chars/amazon/chicken/0038
+		frame	data/chars/amazon/chicken/0038
+	attack1	0
+		frame	data/chars/amazon/chicken/0038
+		frame	data/chars/amazon/chicken/0038
+		frame	data/chars/amazon/chicken/0038
+		frame	data/chars/amazon/chicken/0038
+		frame	data/chars/amazon/chicken/0038
+		frame	data/chars/amazon/chicken/0038
+		frame	data/chars/amazon/chicken/0038
+		frame	data/chars/amazon/chicken/0038
+		frame	data/chars/amazon/chicken/0038
+		frame	data/chars/amazon/chicken/0038
+	delay	8
+		frame	data/chars/amazon/chicken/0039
+		frame	data/chars/amazon/chicken/0040
+
+anim grabattack2
+
+	#Worm Toss.
+
+    	delay		8
+   	offset		82 142
+   	bbox    	0
+	jumpframe       10 0 -0.3 0
+
+	@cmd  	bind0014 1 0								#Initialize bind variable.
+	@cmd  	dama0004 0 0 0 10 ATK_1 0 0 0 0 0 0 1 -1			#Put into falling state.
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 165 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/amazon/chicken/0013
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 15 170 -1 DIR_ADJ_OPP AC_DEFPOSE G_TLTDN 0
+		frame	data/chars/amazon/chicken/0007
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 0 160 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDN 0
+		frame	data/chars/amazon/chicken/0008
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -50 170 -1 DIR_ADJ_OPP AC_DEFPOSE G_FALUPT 0
+		frame	data/chars/amazon/chicken/0006
+	delay	12
+	@cmd	bind0008 "impm" "impm" 0 1 -30 0 0 0 0 0 1				#Dust
+	@cmd	dama0004 0 0 7 10 ATK_7 1 2.2 1 0 0 0 0 0		#Apply damage.
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -50 170 -1 DIR_ADJ_OPP AC_DEFPOSE G_DWNUPP 0
+		frame	data/chars/amazon/chicken/0006
+	delay	8
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 0 160 -1 DIR_ADJ_OPP AC_DEFPOSE G_VERDN 0
+		frame	data/chars/amazon/chicken/0007
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 40 170 -1 DIR_ADJ_SAME AC_DEFPOSE G_FALUPT 0
+		frame	data/chars/amazon/chicken/0007
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 60 165 -1 DIR_ADJ_SAME AC_DEFPOSE G_FALUP 0
+		frame	data/chars/amazon/chicken/0003
+	delay 	30
+	@cmd	bind0018 0 0 0 0 0 0								#Wall failsafe.
+	@cmd	bind0008 "impm" "impm" 0 1 30 0 0 0 0 0 1					#Dust.
+	@cmd	dama0004 0 0 7 10 ATK_7 1 2.2 1 0 0 0 0 0		#Apply damage.
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 50 165 -1 DIR_ADJ_SAME AC_DEFPOSE G_DWNUPP 0
+		frame	data/chars/amazon/chicken/0003
+	delay	10
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 40 0 -1 DIR_ADJ_SAME AC_DEFPOSE G_RELEASE 0							#Release bind.
+	@cmd	dama0004 0 -2 0 10 ATK_6 1 2.6 1 0 0 0 0 0		#Put into exit ani and apply any damage on landing values.
+		frame	data/chars/amazon/chicken/0020
+	delay	10
+	offset	78 142
+    	bbox    66 80 34 64
+		frame	data/chars/amazon/chicken/0023
+		frame	data/chars/amazon/chicken/0022
+		frame	data/chars/amazon/chicken/0021
+		frame	data/chars/amazon/chicken/0020
+
+anim grabbackward
+
+	#Ostrich Throw, A.K.A. Spinning Chicken Driver >:)
+
+    	Loop 		1 7 13
+    	flipframe	6
+    	jumpframe 	2 4 -1 0 jumpm
+    	landframe   	13 impm
+
+    	delay	10
+    	offset	82 142
+    	bbox    0
+    	@cmd  	bind0014 1 0								#Initialize bind variable.
+	@cmd  	dama0004 0 0 0 10 ATK_1 0 0 0 0 0 0 1 -1			#Put into falling state.
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 	165 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
+		frame	data/chars/amazon/chicken/0013
+    	delay	8
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 150 -1 DIR_ADJ_OPP AC_DEFPOSE G_EX3 0
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/amazon/chicken/0001
+    @cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 40 190 -1 DIR_ADJ_SAME AC_DEFPOSE G_HORDN 0
+		frame	data/chars/amazon/chicken/0002
+	delay	5
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 50 170 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDN 0
+		frame	data/chars/amazon/chicken/0002
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 35 170 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDN 0
+	offset  82  170
+		frame	data/chars/amazon/chicken/0033
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -35 170 -1 DIR_ADJ_OPP AC_DEFPOSE G_VERDN 0
+		frame	data/chars/amazon/chicken/0006
+	offset	82 142
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 50 170 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDN 0
+		frame	data/chars/amazon/chicken/0002
+	offset  82  170
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 30 170 1 DIR_ADJ_SAME AC_DEFPOSE G_VERDN 0
+		frame  data/chars/amazon/chicken/0029
+	offset  82  175
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -50 170 1 DIR_ADJ_OPP AC_DEFPOSE G_VERDN 0
+	@cmd	soun0005 ENT_SELF SND_EFF6 -1 1 0 0
+		frame  data/chars/amazon/chicken/0004
+	offset	100 150
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -50 170 -1 DIR_ADJ_OPP AC_DEFPOSE G_VERDN 0
+		frame	data/chars/amazon/chicken/0005
+	offset  82  170
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -35 170 -1 DIR_ADJ_OPP AC_DEFPOSE G_VERDN 0
+		frame  data/chars/amazon/chicken/0006
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 35 170 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDN 0
+	@cmd	soun0005 ENT_SELF SND_EFF6 -1 1 0 0
+		frame  data/chars/amazon/chicken/0033
+	offset	82 142
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 50 170 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDN 0
+		frame	data/chars/amazon/chicken/0002
+	delay	30
+	@cmd	bind0018 0 0 0 0 0 0								#Wall failsafe.
+	@cmd	bind0008 "impm" "mute" 0 1 30 0 0 0 0 0 1					#Dust.
+	@cmd	dama0004 0 0 18 10 ATK_1 1 2.2 1 0 0 0 0 0		#Apply damage.
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 40 138 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDNP 0
+		frame	data/chars/amazon/chicken/0003
+	delay	10
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 45 147 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDN 0
+		frame	data/chars/amazon/chicken/0003
+	delay	15
+		frame	data/chars/amazon/chicken/0003
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 30 0 -1 DIR_ADJ_SAME AC_DEFPOSE G_RELEASE 0							#Release bind.
+	@cmd	dama0004 0 -2 0 10 ATK_7 1 2.6 1 0 0 0 0 0		#Apply damage, falling properties and final animation values.
+	@cmd	ani0009 0 A_FOLLOW3 0
+		frame	data/chars/amazon/chicken/0003
+
+anim freespecial2
+
+	#Backstep.
+
+	energycost 0 0 -2	#AI cannot use.
+
+	jumpframe 1 0 -3 0
+	delay   6
+	offset	78 142
+    	bbox    0
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/amazon/chicken/0023
+		frame	data/chars/amazon/chicken/0022
+	bbox    66 80 34 64
+		frame	data/chars/amazon/chicken/0021
+		frame	data/chars/amazon/chicken/0020
+		frame	data/chars/amazon/chicken/0023
+		frame	data/chars/amazon/chicken/0022
+		frame	data/chars/amazon/chicken/0021
+		frame	data/chars/amazon/chicken/0020
+
+anim freespecial3
+
+	#Highjump up.
+
+	energycost 0 0 -2	#AI cannot use.
+
+	jumpframe 1  5  0.05  -0.3 jumpm
+
+	delay	20
+	offset	88 139
+    	bbox    68 66 34 54
+		frame	data/chars/amazon/chicken/0019
+	delay	-1000
+    	bbox    68 58 34 54
+	offset  88  142
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	jump0003 0 0 0
+		frame	data/chars/amazon/chicken/0018
+
+anim freespecial4
+
+	#Highjump down.
+
+	energycost 0 0 -2	#AI cannot use.
+
+	jumpframe 1  5  0.05  0.3 jumpm
+
+	delay	20
+	offset	88 139
+    	bbox    68 66 34 54
+		frame	data/chars/amazon/chicken/0019
+	delay	-1000
+    	bbox    68 58 34 54
+	offset  88  142
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	jump0003 0 0 0
+		frame	data/chars/amazon/chicken/0018
+
+anim freespecial5
+
+	#Lateral jump attack up (for AI).
+
+	range     	0 100
+	rangez    	-80 -30
+	rangeb	  	-10 10
+    	jumpframe 	1  3  0.8  -1 jumpm
+	hitflash  	hithcut
+
+	delay	20
+	offset	88 139
+    	bbox    68 66 34 54
+		frame	data/chars/amazon/chicken/0019
+	bbox    68 58 34 54
+	offset  88  142
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	jump0003 0 0 0
+		frame	data/chars/amazon/chicken/0018
+	attack1	99 98 26 37 10 1 1
+		frame	data/chars/amazon/chicken/0024
+
+anim freespecial6
+
+	#Lateral jump attack down (for AI).
+
+	range     	0 100
+	rangez    	30 80
+	rangeb	  	-10 10
+    	jumpframe 	1  3  0.8  1 jumpm
+	hitflash  	hithcut
+
+	delay	20
+	offset	88 139
+    	bbox    68 66 34 54
+		frame	data/chars/amazon/chicken/0019
+	bbox    68 58 34 54
+	offset  88  142
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	jump0003 0 0 0
+		frame	data/chars/amazon/chicken/0018
+	attack1	99 98 26 37 10 1 1
+		frame	data/chars/amazon/chicken/0024
+
+anim follow1
+
+	#Block reaction.
+
+	counterrange 	0 1 1 0
+	followanim 	1
+
+	delay	20
+	offset	78 142
+    	bbox    66 80 34 64
+		frame	data/chars/amazon/chicken/0012
+	delay	10
+		frame	data/chars/amazon/chicken/0011
+
+anim follow2
+
+	#Runattack bounce.
+
+	jumpframe 0 1 0
+    	landframe 2 landm
+	hitflash  hithcut
+
+	offset	78 142
+    	bbox    68 66 34 54
+	delay	1
+	attack1	99 98 26 37 8 1 1
+		frame	data/chars/amazon/chicken/0024
+	attack1	0
+	delay	-1000
+		frame	data/chars/amazon/chicken/0024
+	delay	12
+	offset  88  139
+		frame	data/chars/amazon/chicken/0019
+
+anim follow3
+
+	#Ostrich throw bounce.
+
+	jumpframe 1 2.5 -1
+	landframe 2 landm
+
+	offset	78 142
+    	bbox    68 66 34 54
+	delay	1
+		frame	data/chars/amazon/chicken/0003
+	delay	-1000
+	offset	88 142
+		frame	data/chars/amazon/chicken/0018
+	delay	12
+	offset  88  139
+		frame	data/chars/amazon/chicken/0019
+
+anim jump
+
+	range   10 64
+
+    	delay	10
+    	offset	88 142
+    	bbox    68 58 34 54
+		frame	data/chars/amazon/chicken/0018
+
+
+anim jumpdelay
+
+    	delay 	12
+    	offset	88 139
+   	bbox    71 68 30 57
+		frame	data/chars/amazon/chicken/0019
+
+anim jumpland
+
+    	delay 	12
+    	offset	88 139
+    	bbox    71 69 30 56
+		frame	data/chars/amazon/chicken/0019
+
+anim jumpattack
+
+    	range 0 0
+    	hitflash  hithcut
+
+    	delay   6
+    	offset	78 142
+   	bbox    68 66 34 54
+   	attack1  99  98  26  37  8  1
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/amazon/chicken/0024
+
+anim runjumpattack
+
+	range 0 0
+    	jumpframe 0 -1 2 0
+    	hitflash  hithcut
+
+	delay   6
+    	offset	78 142
+   	bbox    68 66 34 54
+	attack1	99 98 26 37 12 1
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/amazon/chicken/0024
+
+
+anim block
+
+	#Normal block isn't working here. Using counter as a quick fix.
+
+	counterrange 	0 2 1 0
+	followanim 	1
+
+	delay	10
+	offset	78 142
+    	bbox    66 80 34 64
+		frame	data/chars/amazon/chicken/0011
+	delay	20
+		frame	data/chars/amazon/chicken/0012
+	delay	10
+		frame	data/chars/amazon/chicken/0011

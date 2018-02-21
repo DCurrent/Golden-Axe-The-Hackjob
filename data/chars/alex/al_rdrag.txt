@@ -1,0 +1,633 @@
+# Alex on red dragon
+
+icon			data/chars/alex/hud
+
+name			al_rdrag
+health			98
+speed			10
+running 		20 5 1 1 0
+dust			fallm landm jumpm
+gfxshadow 		1
+shadow			3
+animal  		2
+grabforce 		1
+grabdistance 		36
+aimove 			chase
+grabfinish 		1
+bflash			bflash
+
+animationscript 	data/scripts/z_ani.c
+didblockscript		data/scripts/z_block.c				#Block incoming attack.
+didhitscript 		data/scripts/z_hit.c				#Hit another entity.
+keyscript		data/scripts/z_key.c				#Controlling player press/release key.
+onblockascript		data/scripts/z_blocka.c				#Movement (rise/fall) blocked by platform.
+onblockoscript		data/scripts/z_blocko.c				#Movement blocked by obstacle.
+onblocksscript		data/scripts/z_blocks.c				#Movement blocked by screen boundary.
+onblockwscript		data/scripts/z_blockw.c				#Movement blocked by wall.				
+onblockzscript		data/scripts/z_blockz.c				#Movement blocked by Z boundary.				
+ondeathscript		data/scripts/z_death.c				#Killed by damage.
+onfallscript		data/scripts/z_fall.c				#Fall status set.
+onkillscript		data/scripts/z_kill.c				#Removed from playfield.
+onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.
+onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
+onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
+onpainscript		data/scripts/z_pain.c				#Pain status set.
+onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
+script			data/scripts/z_script.c				#Entity updated.
+takedamagescript	data/scripts/z_damage.c				#Damaged.
+thinkscript		data/scripts/z_think.c				#Entity AI updates.
+
+com			a2 	freespecial2		#Backstep.
+com			d u j 	freespecial3		#Highjump up.
+com			u d j 	freespecial4		#Highjump down.
+
+modelflag 		1
+weapons 		al_chick al_rdrag al_bdrag
+aggression 		60
+#nolife  		1
+#jumpmove		0 1
+
+palette			data/chars/alex/dragon/pals/r0	#Default.
+alternatepal		data/chars/alex/dragon/pals/r1	#Red.
+alternatepal		data/chars/alex/dragon/pals/r2	#Gold.
+alternatepal		data/chars/alex/dragon/pals/r3	#Grey.
+alternatepal		data/chars/alex/dragon/pals/r4	#Black.
+alternatepal		data/chars/alex/dragon/pals/r5	#Dark.
+
+stats 			1 4				#Battle cry sound count.
+
+anim spawn
+	
+	
+	delay	1
+	offset	80 142
+    	bbox    69 70 21 47
+		frame	data/chars/alex/dragon/0017
+	delay	25
+		frame	data/chars/alex/dragon/0017
+
+anim idle
+	
+	loop	1
+	delay	20
+	offset	80 142
+    	bbox    66 68 24 47
+	@cmd stat0003
+		frame	data/chars/alex/dragon/0018
+		frame	data/chars/alex/dragon/0017
+		frame	data/chars/alex/dragon/0016
+		frame	data/chars/alex/dragon/0017
+
+anim walk
+    	
+	loop    1
+    	delay   10
+    	offset  80 142
+    	bbox    74 74 20 54
+	@script
+	void vSelf = getlocalvar("self");
+	if(getentityproperty(vSelf, "invincible")==1)
+	{
+    		ai0003(vSelf);
+	}
+	else
+	{
+    		ai0002();
+	}
+	@end_script
+		frame	data/chars/alex/dragon/0029
+		frame	data/chars/alex/dragon/0030
+		frame	data/chars/alex/dragon/0031
+		frame	data/chars/alex/dragon/0032
+
+anim get
+		
+	delay	20
+	offset	80 142
+		frame	data/chars/alex/dragon/0026
+		frame	data/chars/alex/dragon/0027
+	@cmd	soun0005 ENT_SELF VOI_ATK 0 1 "D" 0
+		frame	data/chars/alex/dragon/0028
+
+anim up
+
+    	loop    1
+    	delay   10
+    	offset  80 142
+    	bbox    64 72 22 54
+	@script
+		ai0002();
+	@end_script
+		frame	data/chars/alex/dragon/0033
+		frame	data/chars/alex/dragon/0034
+		frame	data/chars/alex/dragon/0035
+		frame	data/chars/alex/dragon/0036
+
+anim run
+
+    	loop    1
+    	delay   6
+	offset	80 142
+    	bbox    64 72 22 54	
+		frame	data/chars/alex/dragon/0021
+		frame	data/chars/alex/dragon/0022
+		frame	data/chars/alex/dragon/0023
+		frame	data/chars/alex/dragon/0024
+
+anim runattack
+
+    	range 		80 180
+    	followanim 	2
+    	followcond 	1
+    	jumpframe  	0 2 3 0 jumpm
+    	landframe 	2 landm
+    	hitflash 	hithcut
+
+	delay	8
+	offset	80 142
+    	bbox    64 56 27 46
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/alex/dragon/0019
+	delay	1000
+    	bbox    65 68 26 54
+   	attack1	80 96 54 28 8 1 1
+		frame	data/chars/alex/dragon/0025
+	attack1	0
+	delay	6
+    	bbox    64 72 22 54
+	@cmd velo0001 2.8 0 0
+		frame	data/chars/alex/dragon/0024
+	@cmd velo0001 2 0 0
+		frame	data/chars/alex/dragon/0023
+	@cmd velo0001 1 0 0
+		frame	data/chars/alex/dragon/0022
+	@cmd velo0001 0.5 0 0
+		frame	data/chars/alex/dragon/0021
+	delay	1
+	@cmd velo0001 0 0 0
+		frame	data/chars/alex/dragon/0021
+
+anim attackboth
+		
+    	weaponframe 3 0
+	delay	20
+	offset	80 142
+		frame	data/chars/alex/dragon/0018
+		frame	data/chars/alex/dragon/0028
+		frame	data/chars/alex/dragon/0027
+		frame	data/chars/alex/dragon/0026
+
+anim attackup
+
+    	#sidestep.
+
+    	jumpframe 0 0 0.2 -1.5
+
+    	delay   5
+    	offset  80 142
+    	bbox    0
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/alex/dragon/0033
+		frame	data/chars/alex/dragon/0034
+    		frame	data/chars/alex/dragon/0035
+    	bbox    64 72 22 54
+		frame	data/chars/alex/dragon/0036
+		frame	data/chars/alex/dragon/0033
+		frame	data/chars/alex/dragon/0034
+		frame	data/chars/alex/dragon/0035
+		frame	data/chars/alex/dragon/0036
+
+
+anim attackdown
+
+    	#sidestep.
+
+    	jumpframe 0 0 0.2 1.5
+
+    	delay   5
+    	offset  80 142
+    	bbox    0
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/alex/dragon/0029
+		frame	data/chars/alex/dragon/0030
+    		frame	data/chars/alex/dragon/0031
+    	bbox    64 72 22 54
+		frame	data/chars/alex/dragon/0032
+		frame	data/chars/alex/dragon/0029
+		frame	data/chars/alex/dragon/0030
+		frame	data/chars/alex/dragon/0031
+		frame	data/chars/alex/dragon/0032
+
+anim chargeattack
+
+	#Seeker ball	
+		
+	delay	15
+    	offset	80 142
+    	bbox    65 69 24 54
+    		frame	data/chars/alex/dragon/0003
+	delay	8
+		frame	data/chars/alex/dragon/0004
+	@cmd 	proj0003 "chasball" -2 32 -1 1 0 0
+		frame	data/chars/alex/dragon/0005
+		frame	data/chars/alex/dragon/0004
+	@cmd 	proj0003 "chasball" -2 32 -1 1 0 0
+		frame	data/chars/alex/dragon/0005
+		frame	data/chars/alex/dragon/0004
+	@cmd 	proj0003 "chasball" -2 32 -1 1 0 0
+		frame	data/chars/alex/dragon/0005
+		frame	data/chars/alex/dragon/0004
+    	delay   10
+		frame	data/chars/alex/dragon/0003
+    	delay   30
+    	bbox    66 68 24 47
+		frame	data/chars/alex/dragon/0017
+
+anim Upper
+
+	#For AI, jump up and headbutt.
+
+	jumpframe 	1  4  0.1  0 jumpm
+    	dropframe 	3
+	hitflash  	hithcut
+    
+    	delay	12
+    	offset	80 142
+		frame	data/chars/alex/dragon/0003
+    	bbox    64 56 27 46    	
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/alex/dragon/0019
+    	delay	15
+    	bbox    65 54 26 46
+		frame	data/chars/alex/dragon/0020
+	delay	-1000
+	attack1	80 96 54 28 12 1 1
+	@cmd	jump0003 0 0 0
+		frame	data/chars/alex/dragon/0025		
+		
+anim attack1
+
+	#Fireball.
+    	
+    	range   60 400
+		
+	delay	10
+    	offset	80 142
+   	bbox    65 69 24 54
+	@cmd	ani0001 0 A_CHARGEATK 0 0 0 -1 20 0 0			#AI has 20% chance of using CHARGEATTACK instead.
+		frame	data/chars/alex/dragon/0003
+	delay	8
+		frame	data/chars/alex/dragon/0004
+	@cmd 	proj0003 "fireball" -2 32 -1 1 0 0
+		frame	data/chars/alex/dragon/0005
+		frame	data/chars/alex/dragon/0004
+    	delay   10
+		frame	data/chars/alex/dragon/0003
+    	delay   30
+   	bbox    66 68 24 47
+		frame	data/chars/alex/dragon/0017			
+
+anim freespecial2
+
+    	#Backstep.
+
+	range	  	1 -1
+    	jumpframe 	1 2 -2 0 jumpm
+    	dropframe 	2
+    
+    	delay	12
+    	offset	80 142
+		frame	data/chars/alex/dragon/0003
+    	bbox    64 56 27 46
+	delay	-1000
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+    		frame	data/chars/alex/dragon/0019
+    	bbox    64 56 27 46
+    	@cmd	jump0003 0 0 0
+		frame	data/chars/alex/dragon/0020
+
+anim freespecial3
+
+    	#Highjump up.
+	
+	range 		1 -1			
+    	jumpframe 	1  5  0.05  -0.3 jumpm
+    	dropframe 	2
+    
+    	delay	20
+    	offset	80 142
+		frame	data/chars/alex/dragon/0003
+    	bbox    64 56 27 46
+	delay	-1000
+    	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/alex/dragon/0019
+    	bbox    64 56 27 46
+    	@cmd	jump0003 0 0 0
+		frame	data/chars/alex/dragon/0020
+
+anim freespecial4
+
+    	#Highjump down.
+
+   	range 		1 -1 
+    	jumpframe 	1  5  0.05  0.3 jumpm
+    	dropframe 	2
+   
+    	delay	20
+    	offset	80 142
+		frame	data/chars/alex/dragon/0003
+    	bbox    64 56 27 46
+	delay	-1000
+    	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/alex/dragon/0019
+    	bbox    64 56 27 46
+       	@cmd	jump0003 0 0 0
+		frame	data/chars/alex/dragon/0020
+
+anim freespecial5
+
+    	#Lateral jump attack up (for AI).
+	
+	range     	0 100
+	rangez    	-80 -30
+	rangeb	  	-10 10
+    	jumpframe 	1  3  0.8  -1 jumpm
+    	dropframe 	3
+	hitflash  	hithcut
+    
+    	delay	20
+    	offset	80 142
+		frame	data/chars/alex/dragon/0003
+    	bbox    64 56 27 46    	
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/alex/dragon/0019
+    	delay	15
+    	bbox    65 54 26 46
+		frame	data/chars/alex/dragon/0020
+	delay	-1000
+	attack1	80 96 54 28 12 1 1
+	@cmd	jump0003 0 0 0
+		frame	data/chars/alex/dragon/0025 
+
+anim freespecial6
+
+    	#Lateral jump attack down (for AI).
+	
+	range     	0 100
+	rangez    	30 80
+	rangeb	  	-10 10
+    	jumpframe 	1  3  0.8  1 jumpm
+    	dropframe 	3
+	hitflash  	hithcut
+    
+    	delay	20
+    	offset	80 142
+		frame	data/chars/alex/dragon/0003
+    	bbox    64 56 27 46    	
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/alex/dragon/0019
+    	delay	15
+    	bbox    65 54 26 46
+		frame	data/chars/alex/dragon/0020
+	delay	-1000
+	attack1	80 96 54 28 12 1 1
+	@cmd	jump0003 0 0 0
+		frame	data/chars/alex/dragon/0025 
+
+anim follow1
+
+	#Block reaction.
+
+	counterrange 	0 1 1 0
+	followanim 	1
+
+	delay	20
+	offset	80 142
+    	bbox    75 73 54 56
+		frame	data/chars/alex/dragon/0008.png
+	delay	10
+		frame	data/chars/alex/dragon/0007.png
+
+anim follow2
+
+	#runattack bounce.
+
+    	jumpframe 	0 1 0
+    	landframe 	3 landm
+	hitflash 	hithcut
+
+	offset	80 142
+	delay	2
+
+	attack1	80 96 54 28 8 1 1
+    	bbox    65 68 26 54
+		frame	data/chars/alex/dragon/0025
+	attack1	0
+	delay	8
+		frame	data/chars/alex/dragon/0025
+	delay	-1000
+   	bbox    64 56 27 46
+	@cmd	jump0003 A_JUMP 0 0
+		frame	data/chars/alex/dragon/0020
+
+anim jumpdelay
+
+	delay	12
+	offset	80 142
+		frame	data/chars/alex/dragon/0003
+
+anim jumpland
+
+	delay	12
+	offset	80 142
+		frame	data/chars/alex/dragon/0003
+
+anim jump
+    	
+	range   10 80
+	dropframe 1
+	
+	delay	-1000
+	offset	80 142
+    	bbox    64 56 27 46
+		frame	data/chars/alex/dragon/0019
+    	bbox    65 54 26 46
+		frame	data/chars/alex/dragon/0020
+    
+anim runjump
+    	
+	range   10 100
+	dropframe 1
+	
+	delay	-1000
+	offset	80 142
+    	bbox    64 56 27 46
+		frame	data/chars/alex/dragon/0019
+    	bbox    65 54 26 46
+		frame	data/chars/alex/dragon/0020
+    	
+anim jumpattack
+
+	range		1 -1
+	hitflash 	hithcut
+    	
+    	delay	8
+    	offset	80 142
+    	bbox    65 68 26 54
+   	attack10 80 96 54 28 12 1 1
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/alex/dragon/0025
+
+anim runjumpattack
+
+	range		1 -1
+	hitflash 	hithcut
+    	jumpframe 	0 -1 2 0
+
+    	delay	8
+    	offset	80 142
+    	bbox    65 68 26 54
+   	attack10 80 96 54 28 16 1 1
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/alex/dragon/0025
+
+anim grab
+
+    	delay   16
+	offset	80 142
+   	bbox    68 66 34 54
+		frame	data/chars/alex/dragon/0011
+    	@cmd stal0001 1000
+	@cmd seal0001 1 1000
+		frame	data/chars/alex/dragon/0011
+
+anim grabattack
+
+	#Snack. >:)
+
+    	hitflash    bitem
+
+    	offset	80 142
+    	bbox    68 66 34 54
+    	# 1
+    	delay   10
+    	@cmd stal0001 1000
+	@cmd seal0001 1 1000
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/alex/dragon/0011
+    	delay   20
+		frame	data/chars/alex/dragon/0012
+    	delay   5
+		frame	data/chars/alex/dragon/0011
+    	delay   12
+    	attack10  101 101 24 24 4 0 1
+		frame	data/chars/alex/dragon/0013
+    	attack1  0 0 0 0 0
+    	# 2
+    	delay   10
+		frame	data/chars/alex/dragon/0011
+    	delay   20
+		frame	data/chars/alex/dragon/0012
+    	delay   5
+		frame	data/chars/alex/dragon/0011
+    	delay   12
+    	attack10  101 101 24 24 4 0 0
+		frame	data/chars/alex/dragon/0013
+
+
+anim grabattack2
+
+	#Lift and blast    	
+
+	delay	12
+    	offset	80 142
+    	bbox    0
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+    	@cmd  	bind0014 1 0									#Initialize bind variable.		
+	@cmd  	dama0004 0 0 0 10 ATK_1 0 0 0 0 0 0 1 -1				#Put into falling state.
+	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF 0 45 167 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
+		frame	data/chars/alex/dragon/0003
+    @cmd  	bind0010 FLAG_MODE_0 ENT_SELF 0 65 145 -1 DIR_ADJ_SAME AC_DEFPOSE G_EX3 0
+		frame	data/chars/alex/dragon/0004
+	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF 0 40 180 -1 DIR_ADJ_SAME AC_DEFPOSE G_EX3 0
+	delay	20
+    		frame	data/chars/alex/dragon/0014
+    	delay	40
+	@cmd	soun0005 ENT_SELF SND_EFF2 -1 1 0 0
+	@cmd	bind0018 0 0 0 0 0 0									#Wall failsafe.
+	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF 0 10 40 -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0								#Release bind and restore AI control.
+   	@cmd	dama0004 0 -2 20 10 ATK_BURN -1 1 0 0			#Apply damage.
+	@cmd	bind0008 "effe0001" "effe0001" 14 1 15 80 1 0 A_FOLLOW2 0 1	#Spawn effect.
+		frame	data/chars/alex/dragon/0015
+    	delay   12
+		frame	data/chars/alex/dragon/0014
+    	delay   30
+    	bbox    66 68 24 47
+		frame	data/chars/alex/dragon/0017
+
+anim grabbackward
+
+	#Mangle
+
+	delay	10
+	offset	80 142
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd  	bind0014 1 0								#Initialize bind variable.		
+	@cmd  dama0004 0 0 0 10 ATK_1 0 0 0 0 0 0 1 1			#Put into falling state.
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 30 165 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
+		frame	data/chars/alex/dragon/0009
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 45 165 -1 DIR_ADJ_SAME AC_DEFPOSE G_HELDP 0
+		frame	data/chars/alex/dragon/0012
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 65 190 -1 DIR_ADJ_SAME AC_DEFPOSE G_HORUP 0
+		frame	data/chars/alex/dragon/0003
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 0  220 -1 DIR_ADJ_OPP AC_DEFPOSE G_VERDN 0
+		frame	data/chars/alex/dragon/0010
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 65 190 -1 DIR_ADJ_SAME AC_DEFPOSE G_HORUP 0
+		frame	data/chars/alex/dragon/0003
+	@cmd	bind0008 "flash" "flash" 0 2 40 40 0 0 0 0 1					#Flash.
+	@cmd	dama0004 0 0 5 10 ATK_1 1 2.2 1 0 0 0 0 0		#Apply damage.
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 55 160 -1 DIR_ADJ_SAME AC_DEFPOSE G_HELDP 0
+		frame	data/chars/alex/dragon/0009
+	delay	10
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 65 190 -1 DIR_ADJ_SAME AC_DEFPOSE G_HORUP 0
+		frame	data/chars/alex/dragon/0003
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 0  220 -1 DIR_ADJ_OPP AC_DEFPOSE G_VERDN 0
+		frame	data/chars/alex/dragon/0010
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 65 190 -1 DIR_ADJ_SAME AC_DEFPOSE G_HORUP 0
+		frame	data/chars/alex/dragon/0003
+	@cmd	bind0008 "flash" "flash" 0 2 40 40 0 0 0 0 1					#Flash.
+	@cmd	dama0004 0 0 5 10 ATK_1 1 2.2 1 0 0 0 0 0		#Apply damage.
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 55 160 -1 DIR_ADJ_SAME AC_DEFPOSE G_HELDP 0
+		frame	data/chars/alex/dragon/0009
+	delay	9
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 70 185 -1 DIR_ADJ_SAME AC_DEFPOSE G_HORDN 0
+		frame	data/chars/alex/dragon/0003
+	delay	30
+	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF								#Sound.
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 15 60 -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0							#Release bind.
+	@cmd	dama0004 0 -2 5 10 ATK_5 -1 1 0 0		#Apply damage.
+		frame	data/chars/alex/dragon/0010
+	delay   12
+		frame	data/chars/alex/dragon/0014
+    	delay   30
+    	bbox    66 68 24 47
+		frame	data/chars/alex/dragon/0017
+
+
+anim block
+
+	#Normal block isn't working here. Using counter as a quick fix.	
+
+	counterrange 	0 2 1 0
+	followanim 	1
+
+	delay	10
+	offset	80 142
+    	bbox    71 70 59 55
+		frame	data/chars/alex/dragon/0007.png
+	delay	30
+		frame	data/chars/alex/dragon/0008.png
+	delay	10
+		frame	data/chars/alex/dragon/0007.png
+	
+

@@ -1,0 +1,264 @@
+#*****Notes***************************************************************************
+
+#Bound effects; spawned in synch with main enitity to produce transparent blur effect.
+
+#*****Settings***************************************************************************
+
+#*****icons*****
+#*****General*****
+
+name	     ax0001     
+type	     none   	
+health	     100	
+#speed	     10		
+alpha	     1		
+
+#*****Alternates*******
+
+palette	 	data/chars/ax/effects/0001
+
+#*****Basic********************************************************************************
+
+anim spawn
+	
+	delay	1
+	offset	75 150
+		frame	data/chars/misc/blan0001
+
+#anim waiting
+#anim select
+#anim faint
+#anim sleep
+#anim walk
+#anim backwalk
+#anim up 
+#anim down 
+#anim run
+#anim get
+#anim duck
+#anim charge
+#anim dodge
+
+#*****Attack*******************************************************************************
+
+anim attack1
+	
+	delay	-1000
+	offset	60 99
+		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blan0001
+		frame  	data/chars/ax/effects/0015
+		frame	data/chars/ax/effects/0016
+		frame	data/chars/ax/effects/0017
+		frame	data/chars/ax/effects/0018
+		frame	data/chars/ax/effects/0019
+		frame	data/chars/ax/effects/0020
+		frame	data/chars/ax/effects/0021
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+anim follow3    
+	
+	offset	60 99
+	delay	-1000	
+		frame	data/chars/ax/effects/0016	
+		frame	data/chars/ax/effects/0022
+		frame	data/chars/ax/effects/0023
+		frame	data/chars/ax/effects/0024
+		frame	data/chars/ax/effects/0025
+		frame	data/chars/ax/effects/0026
+		frame	data/chars/ax/effects/0027
+		frame	data/chars/ax/effects/0028
+		frame	data/chars/ax/effects/0029
+		frame	data/chars/ax/effects/0030
+		frame	data/chars/ax/effects/0031	
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+		
+
+anim attack2
+	
+	delay	-1000
+	offset	60 99	
+	
+		frame	data/chars/misc/blan0001
+		frame  data/chars/ax/effects/0007		
+		frame  data/chars/ax/effects/0008
+		frame  data/chars/ax/effects/0009		
+		frame  data/chars/ax/effects/0010
+		frame  data/chars/ax/effects/0011
+		frame  data/chars/ax/effects/0012
+		frame  data/chars/ax/effects/0013
+		frame  data/chars/ax/effects/0014
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001			
+		
+anim  chargeattack
+
+		delay  -1000
+		offset  60  99		
+	frame	data/chars/misc/blan0001
+	
+	frame	data/chars/misc/blan0001
+	frame  	data/chars/ax/effects/0032
+	frame  	data/chars/ax/effects/0033
+	frame  	data/chars/ax/effects/0034
+	frame  	data/chars/ax/effects/0035
+	frame  	data/chars/ax/effects/0032
+	frame  	data/chars/ax/effects/0033
+	frame  	data/chars/ax/effects/0034
+	frame  	data/chars/ax/effects/0035
+	frame  	data/chars/ax/effects/0032
+	frame  	data/chars/ax/effects/0033
+	frame  	data/chars/ax/effects/0034
+	frame  	data/chars/ax/effects/0035
+		offset  60  101		
+	frame	data/chars/misc/blan0001
+		move  30
+		offset  60  100
+	frame	data/chars/misc/blan0001		
+	
+	frame  data/chars/ax/effects/0001
+	frame  data/chars/ax/effects/0002
+	frame  data/chars/ax/effects/0003
+	frame  data/chars/ax/effects/0004
+	frame  data/chars/ax/effects/0005
+	frame  data/chars/ax/effects/0006
+		@cmd	killentity getlocalvar("self")
+	frame	data/chars/misc/blan0001	
+	
+anim jumpattack
+	
+	delay	-1000
+	offset	60 99	
+		frame  data/chars/misc/blan0001
+		frame  data/chars/ax/effects/0066
+		frame  data/chars/ax/effects/0067
+		frame  data/chars/ax/effects/0068
+		frame  data/chars/ax/effects/0069
+	
+		frame  data/chars/ax/effects/0070
+		frame  data/chars/ax/effects/0071
+		frame  data/chars/ax/effects/0072
+		frame  data/chars/ax/effects/0073
+		frame  data/chars/ax/effects/0074
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+anim runjumpattack
+	
+	delay	-1000
+	offset	60 99	
+		frame  data/chars/misc/blan0001
+		frame  data/chars/ax/effects/0066
+		frame  data/chars/ax/effects/0067
+		frame  data/chars/ax/effects/0068
+		frame  data/chars/ax/effects/0069
+	
+		frame  data/chars/ax/effects/0070
+		frame  data/chars/ax/effects/0071
+		frame  data/chars/ax/effects/0072
+		frame  data/chars/ax/effects/0073
+		frame  data/chars/ax/effects/0074
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+anim  freespecial	
+	
+	#Power swing.
+
+		offset  60  99
+		delay  -1000
+	frame	data/chars/misc/blan0001
+	frame	data/chars/misc/blan0001
+		
+	frame	data/chars/misc/blan0001
+	frame	data/chars/misc/blan0001
+	frame	data/chars/misc/blan0001
+	frame	data/chars/misc/blan0001
+	frame	data/chars/misc/blan0001
+		
+	frame  data/chars/ax/effects/0081
+	frame  data/chars/ax/effects/0082
+		
+	frame  data/chars/ax/effects/0083
+		
+	frame  data/chars/ax/effects/0084
+		
+	frame  data/chars/ax/effects/0085
+		
+	frame  data/chars/ax/effects/0086
+	frame  data/chars/ax/effects/0087
+	frame  data/chars/ax/effects/0088
+	frame  data/chars/ax/effects/0089
+	frame  data/chars/ax/effects/0090
+	frame  data/chars/ax/effects/0091
+	frame  data/chars/ax/effects/0092
+	frame  data/chars/ax/effects/0093
+	frame  data/chars/ax/effects/0094
+	frame  data/chars/ax/effects/0095		
+		@cmd	killentity getlocalvar("self")
+	frame	data/chars/misc/blan0001
+
+anim freespecial5
+	
+	#Rise attack follow up
+	
+	offset	60 99
+	delay	-1000
+		frame  data/chars/ax/a21.png	
+		frame  data/chars/ax/effects/0036	
+		frame  data/chars/ax/effects/0037	
+		frame  data/chars/ax/effects/0076    	
+		frame  data/chars/ax/effects/0077    	
+		frame  data/chars/ax/effects/0078
+		frame  data/chars/ax/effects/0079
+		frame  data/chars/ax/effects/0080	
+		@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001		
+	
+anim riseattack
+    	
+	offset	60 99
+	delay	-1000
+		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blan0001
+    		frame  data/chars/ax/effects/0036
+		frame  data/chars/ax/effects/0037
+		frame  data/chars/ax/effects/0038
+		frame  data/chars/ax/effects/0039
+		frame  data/chars/ax/effects/0040
+		frame  data/chars/ax/effects/0041
+		frame  data/chars/ax/effects/0042
+		frame  data/chars/ax/effects/0043
+		frame  data/chars/ax/effects/0044
+		frame  data/chars/ax/effects/0045
+		frame  data/chars/ax/effects/0046
+		frame  data/chars/ax/effects/0047
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+anim attackboth
+    	offset	60 98
+	delay	-1000
+    		frame  data/chars/ax/effects/0048    		
+		frame  data/chars/ax/effects/0049	
+		frame  data/chars/ax/effects/0050			
+		frame  data/chars/ax/effects/0051		
+		frame  data/chars/ax/effects/0052
+    		frame  data/chars/ax/effects/0053
+		frame  data/chars/ax/effects/0054
+		frame  data/chars/ax/effects/0055
+		frame  data/chars/ax/effects/0056
+		frame  data/chars/ax/effects/0057
+		frame  data/chars/ax/effects/0058
+		frame  data/chars/ax/effects/0059
+		frame  data/chars/ax/effects/0060
+		frame  data/chars/ax/effects/0061
+		frame  data/chars/ax/effects/0062
+		frame  data/chars/ax/effects/0063
+		frame  data/chars/ax/effects/0064
+		frame  data/chars/ax/effects/0065
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+

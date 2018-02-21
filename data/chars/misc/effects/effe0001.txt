@@ -1,0 +1,450 @@
+#*****Notes***************************************************************************
+
+#General special effects. 
+
+#*****Settings***************************************************************************
+
+#*****icons*****
+#*****General*****
+
+name         	effe0001
+type	     	none
+health	     	100
+antigravity  	100
+alpha	     	1
+aggression   	0
+remove		0
+	
+#*****Player Specific*****
+#*****NPC/Enemy Specific*****
+#*****Inert Specfic*****
+#*****Sub Entites*****
+#*****Scripts*****
+
+#onspawnscript		data/scripts/z_spawn.c
+onkillscript		data/scripts/z_kill.c
+animationscript		data/scripts/com/soun0005.h
+didhitscript		data/scripts/hit0003.c
+
+#*****Alternates*******
+
+palette		data/chars/misc/effects/fire0012/0001 		#0:	Ground impact.
+alternatepal	data/chars/misc/effects/fire0012/0001 		#1: 	KO (do not use, activates random color on spawn).
+alternatepal	data/chars/misc/effects/fire0012/0001 		#2: 	Burning body flames, burn fatality, CVS Kyo fire effects.
+alternatepal	data/chars/misc/effects/elec0004/0001 		#3: 	Shock (shock fatality).
+alternatepal	data/chars/misc/effects/effe0017/0001		#4: 	Freeze (reserved).
+alternatepal	data/chars/misc/effects/effe0017/0001		#5: 	Poison.
+alternatepal	data/chars/misc/effects/fire0012/0001		#6: 	Reserved.
+alternatepal	data/chars/misc/effects/fire0012/0001		#7: 	Reserved.
+alternatepal	data/chars/misc/effects/fire0012/0001		#8: 	Reserved.
+alternatepal	data/chars/misc/effects/fire0012/0001 		#9: 	Reserved.
+alternatepal	data/chars/misc/effects/fire0012/0001 		#10: 	Reserved.
+alternatepal	data/chars/misc/effects/effe0017/0001 		#11: 	CVS2 Iori fire column (purple)
+alternatepal	data/chars/misc/effects/effe0017/aapa0001	#12: 	CVS2 Iori fire column (blue)
+alternatepal	data/chars/misc/effects/effe0017/aapa0002	#13:	CVS2 Iori fire column (red)
+alternatepal	data/chars/misc/effects/fire0019/0001		#14:	CVS2 Kyo grab explode.
+alternatepal	data/chars/misc/effects/fire0001/0001		#15:	CVS2 Yoga blast.
+alternatepal	data/chars/misc/effects/fire0002/0001		#16:	CVS2 Yoga stream.
+alternatepal	data/chars/misc/effects/fire0003/0001		#17:	CVS2 Yoga fire.
+alternatepal	data/chars/misc/effects/fire0004/0001		#18:	CVS2 Yoga fire impact.
+alternatepal	data/chars/misc/effects/elec0005/aapa0001	#19:	CVS2 Blanka Electric (blue).
+alternatepal	data/chars/misc/effects/bow0001/0006		#20:	Tower of Doom arrow.
+
+#*****Commands*****************************************************************************
+#*****Basic********************************************************************************
+
+anim idle
+
+	#Filler.
+
+	delay	3
+	offset	90 110	
+	frame	data/chars/misc/blan0001
+
+#*****Attack*******************************************************************************
+#*****Special******************************************************************************
+#*****Followups****************************************************************************
+#*****Grappling****************************************************************************
+#*****Jumping******************************************************************************
+#*****Injury and Defence*******************************************************************
+
+anim follow1
+
+	#Alex's magic summons
+	
+	subentity screen
+	spawnframe 0 240 0 0 1
+
+	offset  92  250
+	delay  	8
+		frame  data/chars/misc/effects/effe0017/0001
+		frame  data/chars/misc/effects/effe0017/0002
+		frame  data/chars/misc/effects/effe0017/0003
+		frame  data/chars/misc/effects/effe0017/0004
+		frame  data/chars/misc/effects/effe0017/0005
+		frame  data/chars/misc/effects/effe0017/0006
+		frame  data/chars/misc/effects/effe0017/0007
+		frame  data/chars/misc/effects/effe0017/0008
+		frame  data/chars/misc/effects/effe0017/0009
+		frame  data/chars/misc/effects/effe0017/0010		
+		frame  data/chars/misc/effects/effe0017/0011
+		frame  data/chars/misc/effects/effe0017/0012
+
+anim  follow2
+
+	#CVS2 Kyo lift and explode.
+	#-Dragon's lift and explode.
+
+	delay	2
+	offset  31  32
+		frame  data/chars/misc/effects/fire0019/0001
+		frame  data/chars/misc/effects/fire0019/0002
+		frame  data/chars/misc/effects/fire0019/0003
+		frame  data/chars/misc/effects/fire0019/0004
+		frame  data/chars/misc/effects/fire0019/0005
+		frame  data/chars/misc/effects/fire0019/0006
+		frame  data/chars/misc/effects/fire0019/0007
+		frame  data/chars/misc/effects/fire0019/0008
+		frame  data/chars/misc/effects/fire0019/0009
+		frame  data/chars/misc/effects/fire0019/0010
+		frame  data/chars/misc/effects/fire0019/0011
+		frame  data/chars/misc/effects/fire0019/0012
+		frame  data/chars/misc/effects/fire0019/0013
+		frame  data/chars/misc/effects/fire0019/0014
+		frame  data/chars/misc/effects/fire0019/0015
+		frame  data/chars/misc/effects/fire0019/0016
+		frame  data/chars/misc/effects/fire0019/0017
+		frame  data/chars/misc/effects/fire0019/0018
+		frame  data/chars/misc/effects/fire0019/0019
+		frame  data/chars/misc/effects/fire0019/0020
+		frame  data/chars/misc/effects/fire0019/0021
+		frame  data/chars/misc/effects/fire0019/0022
+		frame  data/chars/misc/effects/fire0019/0023
+		frame  data/chars/misc/effects/fire0019/0024
+		frame  data/chars/misc/effects/fire0019/0025
+		frame  data/chars/misc/effects/fire0019/0026
+
+anim follow3
+
+	#CVS2 Dhalsiem Yoga blast.	
+	#-Blue dragon's fire breath.
+	
+	hitflash steam
+
+	offset -40 0
+    	delay   5    	
+	@cmd	soun0005 ENT_SELF SND_EFF3 -1 1 0 0
+	@cmd changeentityproperty getlocalvar("self") "autokill" 1
+	burn  5  1  21  14  16  2  1
+    		frame	data/chars/misc/effects/fire0001/0001
+		frame	data/chars/misc/effects/fire0001/0002
+	burn  6  1  45  22  16  2  1
+		frame	data/chars/misc/effects/fire0001/0003
+	burn  6  3  56  24  16  2  1
+		frame	data/chars/misc/effects/fire0001/0004
+		frame	data/chars/misc/effects/fire0001/0005
+	burn  6  3  72  30  16  2  1
+		frame	data/chars/misc/effects/fire0001/0006
+		frame	data/chars/misc/effects/fire0001/0007
+		frame	data/chars/misc/effects/fire0001/0008
+		frame	data/chars/misc/effects/fire0001/0009
+		frame	data/chars/misc/effects/fire0001/0010
+		frame	data/chars/misc/effects/fire0001/0021
+		frame	data/chars/misc/effects/fire0001/0022
+		frame	data/chars/misc/effects/fire0001/0023
+		frame	data/chars/misc/effects/fire0001/0024
+	burn  18  4  54  25  16  2  1
+		frame	data/chars/misc/effects/fire0001/0025
+		frame	data/chars/misc/effects/fire0001/0026
+		frame	data/chars/misc/effects/fire0001/0027
+	burn  34  7  42  21  16  2  1
+		frame	data/chars/misc/effects/fire0001/0028
+		frame	data/chars/misc/effects/fire0001/0029
+	Attack1  0
+		frame	data/chars/misc/effects/fire0001/0030
+		frame	data/chars/misc/effects/fire0001/0031
+		frame	data/chars/misc/effects/fire0001/0032
+		frame	data/chars/misc/effects/fire0001/0033
+		frame	data/chars/misc/effects/fire0001/0034
+
+anim follow4
+
+	#CVS2 Dhalsiem Yoga stream.
+    #-Blue Dragon's "charged" fire breath.
+
+    hitflash	steam	
+	
+	offset	-38 65
+    delay   6    
+    @cmd	soun0005 ENT_SELF SND_EFF4 -1 1 0 0
+	@cmd	changeentityproperty getlocalvar("self") "autokill" 1
+		frame	data/chars/misc/effects/fire0002/0001
+	burn  14  73  17  14  35  2  1  0  0  25
+		frame	data/chars/misc/effects/fire0002/0002
+		frame	data/chars/misc/effects/fire0002/0003
+	burn  19  57  32  36  35  2  1  0  0  25
+		frame	data/chars/misc/effects/fire0002/0004
+	burn  24  39  38  58  35  2  1  0  0  25
+		frame	data/chars/misc/effects/fire0002/0005
+	burn  20  22  48  77  35  2  1  0  0  25
+		frame	data/chars/misc/effects/fire0002/0006
+		frame	data/chars/misc/effects/fire0002/0007
+		frame	data/chars/misc/effects/fire0002/0008
+		frame	data/chars/misc/effects/fire0002/0009
+		frame	data/chars/misc/effects/fire0002/0010
+		frame	data/chars/misc/effects/fire0002/0021
+		frame	data/chars/misc/effects/fire0002/0022
+		frame	data/chars/misc/effects/fire0002/0023
+		frame	data/chars/misc/effects/fire0002/0024
+		frame	data/chars/misc/effects/fire0002/0025
+		frame	data/chars/misc/effects/fire0002/0026
+		frame	data/chars/misc/effects/fire0002/0027
+		frame	data/chars/misc/effects/fire0002/0028
+		frame	data/chars/misc/effects/fire0002/0029
+		frame	data/chars/misc/effects/fire0002/0030
+		frame	data/chars/misc/effects/fire0002/0031
+		frame	data/chars/misc/effects/fire0002/0032
+		frame	data/chars/misc/effects/fire0002/0033
+		frame	data/chars/misc/effects/fire0002/0034
+		frame	data/chars/misc/effects/fire0002/0035
+		frame	data/chars/misc/effects/fire0002/0036
+		frame	data/chars/misc/effects/fire0002/0037
+	burn  22  35  41  65  35  2  1  0  0  25
+		frame	data/chars/misc/effects/fire0002/0038
+	burn  25  49  38  47  35  2  1  0  0  25
+		frame	data/chars/misc/effects/fire0002/0039
+	burn  26  65  27  26  35  2  1  0  0  25
+		frame	data/chars/misc/effects/fire0002/0040
+		frame	data/chars/misc/effects/fire0002/0041
+		frame	data/chars/misc/effects/fire0002/0042
+	Attack1  0
+		frame	data/chars/misc/effects/fire0002/0043
+		frame	data/chars/misc/effects/fire0002/0044
+		frame	data/chars/misc/effects/fire0002/0045		
+
+anim follow5
+
+	#CVS2 Yoga Fire
+	#-Red Dragon Fireball.
+
+	hitflash   steam
+        followanim 1
+        followcond 1
+	
+	loop	1
+	offset	28 35
+	delay	5
+    	forcedirection -1
+    	burn    13 15 28 38 16 1
+	@script
+		changeentityproperty(getlocalvar("self"), "aggression", -1);
+		changeentityproperty(getlocalvar("self"), "aimove", AI_CHASE);
+	@end_script
+		frame	data/chars/misc/effects/fire0003/0001
+		frame	data/chars/misc/effects/fire0003/0002
+		frame	data/chars/misc/effects/fire0003/0003
+		frame	data/chars/misc/effects/fire0003/0004
+		frame	data/chars/misc/effects/fire0003/0005
+		frame	data/chars/misc/effects/fire0003/0006
+		frame	data/chars/misc/effects/fire0003/0007
+		frame	data/chars/misc/effects/fire0003/0008
+		frame	data/chars/misc/effects/fire0003/0009
+		frame	data/chars/misc/effects/fire0003/0010
+		frame	data/chars/misc/effects/fire0003/0011
+		frame	data/chars/misc/effects/fire0003/0012
+		frame	data/chars/misc/effects/fire0003/0013
+		frame	data/chars/misc/effects/fire0003/0014
+		frame	data/chars/misc/effects/fire0003/0015
+		frame	data/chars/misc/effects/fire0003/0016
+		frame	data/chars/misc/effects/fire0003/0017
+
+anim follow6
+
+	#CVS2 Yoga Fire Impact
+	#-Red Dragon Fireball impact.
+
+	delay	4
+	offset 47 62
+    		frame 	data/chars/misc/effects/fire0004/0001
+		frame 	data/chars/misc/effects/fire0004/0002
+   		frame 	data/chars/misc/effects/fire0004/0003
+		frame 	data/chars/misc/effects/fire0004/0004
+		frame 	data/chars/misc/effects/fire0004/0005
+		frame 	data/chars/misc/effects/fire0004/0006
+		frame 	data/chars/misc/effects/fire0004/0007
+		frame 	data/chars/misc/effects/fire0004/0008
+		frame 	data/chars/misc/effects/fire0004/0009
+		frame 	data/chars/misc/effects/fire0004/0010
+		frame 	data/chars/misc/effects/fire0004/0011
+		frame 	data/chars/misc/effects/fire0004/0012
+		frame 	data/chars/misc/effects/fire0004/0013
+		frame 	data/chars/misc/effects/fire0004/0014
+		frame 	data/chars/misc/effects/fire0004/0015
+		frame 	data/chars/misc/effects/fire0004/0016
+
+anim follow7
+
+	#CVS2 Blanka ball electric
+	#-Chicken Leg elec shell.
+
+	hitflash   steam
+
+	delay	8
+	offset 82 125
+	@cmd changeentityproperty getlocalvar("self") "autokill" 1
+		frame 	data/chars/misc/effects/elec0005/0047
+	offset 82 108
+	shock	20 20 105 105 30 2 1
+    		frame 	data/chars/misc/effects/elec0005/0071
+	@cmd	soun0005 ENT_SELF SND_HITELM -1 1 0 0
+		frame 	data/chars/misc/effects/elec0005/0072
+   		frame 	data/chars/misc/effects/elec0005/0073
+		frame 	data/chars/misc/effects/elec0005/0074
+		frame 	data/chars/misc/effects/elec0005/0075
+		frame 	data/chars/misc/effects/elec0005/0076
+		frame 	data/chars/misc/effects/elec0005/0077
+		frame 	data/chars/misc/effects/elec0005/0078
+		frame 	data/chars/misc/effects/elec0005/0079
+		frame 	data/chars/misc/effects/elec0005/0080
+		frame 	data/chars/misc/effects/elec0005/0081
+		frame 	data/chars/misc/effects/elec0005/0082
+		frame 	data/chars/misc/effects/elec0005/0083
+		frame 	data/chars/misc/effects/elec0005/0084
+		frame 	data/chars/misc/effects/elec0005/0085
+		frame 	data/chars/misc/effects/elec0005/0086
+		frame 	data/chars/misc/effects/elec0005/0071
+		frame 	data/chars/misc/effects/elec0005/0072
+   		frame 	data/chars/misc/effects/elec0005/0073
+	attack	0
+	offset 82 125
+		frame 	data/chars/misc/effects/elec0005/0047
+	offset 82 142
+		frame 	data/chars/misc/effects/elec0005/0040
+		frame 	data/chars/misc/effects/elec0005/0039
+		frame 	data/chars/misc/effects/elec0005/0038
+		frame 	data/chars/misc/effects/elec0005/0037
+
+anim follow8
+
+	#Tower of Doom arrow
+	
+	delay	10
+	offset  27  30
+	attack9  0  24  53  10  6  0  0  0  15
+	bbox  0  25  53  9
+	@script
+		void vSelf = getlocalvar("self");
+		
+		changeentityproperty(vSelf, "aggression", -1);
+		changeentityproperty(vSelf, "alpha", 0);
+	@end_script
+		frame	data/chars/misc/effects/bow0001/0006
+
+anim bpain
+
+	#Body burning.
+
+	loop	1
+	delay	8
+	offset	100 165
+		frame	data/chars/misc/effects/fire0012/0001
+		frame	data/chars/misc/effects/fire0012/0002
+		frame	data/chars/misc/effects/fire0012/0003
+		frame	data/chars/misc/effects/fire0012/0004
+		frame	data/chars/misc/effects/fire0012/0005
+		frame	data/chars/misc/effects/fire0012/0006
+		frame	data/chars/misc/effects/fire0012/0007
+		frame	data/chars/misc/effects/fire0012/0008
+
+anim burn
+
+	#Body burning.	
+
+	loop	1
+	delay	8
+	offset	100 150
+		frame	data/chars/misc/effects/fire0013/0001
+		frame	data/chars/misc/effects/fire0013/0002
+		frame	data/chars/misc/effects/fire0013/0003
+		frame	data/chars/misc/effects/fire0013/0004
+		frame	data/chars/misc/effects/fire0013/0005
+		frame	data/chars/misc/effects/fire0013/0006
+		frame	data/chars/misc/effects/fire0013/0007
+		frame	data/chars/misc/effects/fire0013/0008
+
+anim bdie
+
+	#Body burning.
+
+	loop	1
+	delay	8
+	offset	100 150
+		frame	data/chars/misc/effects/fire0013/0001
+		frame	data/chars/misc/effects/fire0013/0002
+		frame	data/chars/misc/effects/fire0013/0003
+		frame	data/chars/misc/effects/fire0013/0004
+		frame	data/chars/misc/effects/fire0013/0005
+		frame	data/chars/misc/effects/fire0013/0006
+		frame	data/chars/misc/effects/fire0013/0007
+		frame	data/chars/misc/effects/fire0013/0008
+
+anim  spain
+	
+	loop	1 1 10
+	offset  81  50
+	delay  	3
+	@cmd	soun0005 ENT_SELF SND_HITELM -1 1 0 0
+		frame 	data/chars/misc/effects/elec0004/0001
+		frame	data/chars/misc/effects/elec0004/0001
+		frame	data/chars/misc/effects/elec0004/0002
+		frame	data/chars/misc/effects/elec0004/0003
+		frame	data/chars/misc/effects/elec0004/0004
+		frame	data/chars/misc/effects/elec0004/0005
+		frame	data/chars/misc/effects/elec0004/0006
+		frame	data/chars/misc/effects/elec0004/0007
+		frame	data/chars/misc/effects/elec0004/0008
+		frame	data/chars/misc/effects/elec0004/0009
+
+anim  shock
+	
+	loop	1 1 10
+	offset  81  50
+	delay  	3
+	@cmd	soun0005 ENT_SELF SND_HITELM -1 1 0 0
+		frame 	data/chars/misc/effects/elec0004/0001
+		frame	data/chars/misc/effects/elec0004/0001
+		frame	data/chars/misc/effects/elec0004/0002
+		frame	data/chars/misc/effects/elec0004/0003
+		frame	data/chars/misc/effects/elec0004/0004
+		frame	data/chars/misc/effects/elec0004/0005
+		frame	data/chars/misc/effects/elec0004/0006
+		frame	data/chars/misc/effects/elec0004/0007
+		frame	data/chars/misc/effects/elec0004/0008
+		frame	data/chars/misc/effects/elec0004/0009
+
+anim  sdie
+	
+	loop	1 1 10
+	offset  81  50
+	delay  	3
+	@cmd	soun0005 ENT_SELF SND_HITELM -1 1 0 0
+		frame 	data/chars/misc/effects/elec0004/0001
+		frame	data/chars/misc/effects/elec0004/0001
+		frame	data/chars/misc/effects/elec0004/0002
+		frame	data/chars/misc/effects/elec0004/0003
+		frame	data/chars/misc/effects/elec0004/0004
+		frame	data/chars/misc/effects/elec0004/0005
+		frame	data/chars/misc/effects/elec0004/0006
+		frame	data/chars/misc/effects/elec0004/0007
+		frame	data/chars/misc/effects/elec0004/0008
+		frame	data/chars/misc/effects/elec0004/0009
+
+#Always make sure to include a single blank line at bottom of file.
+
+#*****Footer********************************************************************************
+
+
+
+
+
+

@@ -1,0 +1,142 @@
+frame  data/chars/misc/effects/elec0001/0001.png
+		frame  data/chars/misc/effects/elec0001/0002.png
+		frame  data/chars/misc/effects/elec0001/0003.png
+		frame  data/chars/misc/effects/elec0001/0004.png
+		frame  data/chars/misc/effects/elec0001/0005.png
+		frame  data/chars/misc/effects/elec0001/0006.png
+		frame  data/chars/misc/effects/elec0001/0007.png
+		frame  data/chars/misc/effects/elec0001/0008.png
+		frame  data/chars/misc/effects/elec0001/0009.png
+		frame  data/chars/misc/effects/elec0001/0010.png
+		
+		frame  data/chars/misc/effects/elec0001/0011.png
+		frame  data/chars/misc/effects/elec0001/0012.png
+		frame  data/chars/misc/effects/elec0001/0013.png
+		frame  data/chars/misc/effects/elec0001/0014.png
+		frame  data/chars/misc/effects/elec0001/0015.png
+		frame  data/chars/misc/effects/elec0001/0016.png
+		frame  data/chars/misc/effects/elec0001/0017.png
+		frame  data/chars/misc/effects/elec0001/0018.png
+		frame  data/chars/misc/effects/elec0001/0019.png
+		frame  data/chars/misc/effects/elec0001/0020.png
+
+		frame  data/chars/misc/effects/elec0001/0021.png
+		frame  data/chars/misc/effects/elec0001/0022.png
+		frame  data/chars/misc/effects/elec0001/0023.png
+		frame  data/chars/misc/effects/elec0001/0024.png
+		frame  data/chars/misc/effects/elec0001/0025.png
+		frame  data/chars/misc/effects/elec0001/0026.png
+		frame  data/chars/misc/effects/elec0001/0027.png
+		frame  data/chars/misc/effects/elec0001/0028.png
+		frame  data/chars/misc/effects/elec0001/0029.png
+		frame  data/chars/misc/effects/elec0001/0030.png
+		
+		frame  data/chars/misc/effects/elec0001/0041.png
+		frame  data/chars/misc/effects/elec0001/0042.png
+		frame  data/chars/misc/effects/elec0001/0043.png
+		frame  data/chars/misc/effects/elec0001/0044.png
+		frame  data/chars/misc/effects/elec0001/0045.png
+		frame  data/chars/misc/effects/elec0001/0046.png
+		frame  data/chars/misc/effects/elec0001/0047.png
+		frame  data/chars/misc/effects/elec0001/0048.png
+		frame  data/chars/misc/effects/elec0001/0049.png
+		frame  data/chars/misc/effects/elec0001/0050.png
+
+		frame  data/chars/misc/effects/elec0001/0061.png
+		frame  data/chars/misc/effects/elec0001/0062.png
+		frame  data/chars/misc/effects/elec0001/0063.png
+		frame  data/chars/misc/effects/elec0001/0064.png
+		frame  data/chars/misc/effects/elec0001/0065.png
+		frame  data/chars/misc/effects/elec0001/0066.png
+		frame  data/chars/misc/effects/elec0001/0067.png
+		frame  data/chars/misc/effects/elec0001/0068.png
+		frame  data/chars/misc/effects/elec0001/0069.png
+		frame  data/chars/misc/effects/elec0001/0070.png
+
+		frame  data/chars/misc/effects/elec0001/0081.png
+		frame  data/chars/misc/effects/elec0001/0082.png
+		frame  data/chars/misc/effects/elec0001/0083.png
+		frame  data/chars/misc/effects/elec0001/0084.png
+		frame  data/chars/misc/effects/elec0001/0085.png
+		frame  data/chars/misc/effects/elec0001/0086.png
+		frame  data/chars/misc/effects/elec0001/0087.png
+		frame  data/chars/misc/effects/elec0001/0088.png
+		frame  data/chars/misc/effects/elec0001/0089.png
+		frame  data/chars/misc/effects/elec0001/0090.png
+
+		frame  data/chars/misc/effects/elec0001/0091.png
+		frame  data/chars/misc/effects/elec0001/0092.png
+		frame  data/chars/misc/effects/elec0001/0093.png
+		frame  data/chars/misc/effects/elec0001/0094.png
+		frame  data/chars/misc/effects/elec0001/0095.png
+		frame  data/chars/misc/effects/elec0001/0096.png
+		frame  data/chars/misc/effects/elec0001/0097.png
+		frame  data/chars/misc/effects/elec0001/0098.png
+		frame  data/chars/misc/effects/elec0001/0099.png
+		frame  data/chars/misc/effects/elec0001/0100.png
+
+		frame  data/chars/misc/effects/elec0001/0101.png
+		frame  data/chars/misc/effects/elec0001/0102.png
+		frame  data/chars/misc/effects/elec0001/0103.png
+		frame  data/chars/misc/effects/elec0001/0104.png
+		frame  data/chars/misc/effects/elec0001/0105.png
+		frame  data/chars/misc/effects/elec0001/0106.png
+		frame  data/chars/misc/effects/elec0001/0107.png
+		frame  data/chars/misc/effects/elec0001/0108.png
+		frame  data/chars/misc/effects/elec0001/0109.png
+		frame  data/chars/misc/effects/elec0001/0110.png
+
+		frame  data/chars/misc/effects/elec0001/0111.png
+		frame  data/chars/misc/effects/elec0001/0112.png
+		frame  data/chars/misc/effects/elec0001/0113.png
+		frame  data/chars/misc/effects/elec0001/0114.png
+		frame  data/chars/misc/effects/elec0001/0115.png
+		frame  data/chars/misc/effects/elec0001/0116.png
+		frame  data/chars/misc/effects/elec0001/0117.png
+		frame  data/chars/misc/effects/elec0001/0118.png
+		frame  data/chars/misc/effects/elec0001/0119.png
+		frame  data/chars/misc/effects/elec0001/0120.png
+
+		frame  data/chars/misc/effects/elec0001/0121.png
+		frame  data/chars/misc/effects/elec0001/0122.png
+		frame  data/chars/misc/effects/elec0001/0123.png
+		frame  data/chars/misc/effects/elec0001/0124.png
+		frame  data/chars/misc/effects/elec0001/0125.png
+		frame  data/chars/misc/effects/elec0001/0126.png
+		frame  data/chars/misc/effects/elec0001/0127.png
+		frame  data/chars/misc/effects/elec0001/0128.png
+		frame  data/chars/misc/effects/elec0001/0129.png
+		frame  data/chars/misc/effects/elec0001/0130.png
+
+		frame  data/chars/misc/effects/elec0001/0131.png
+		frame  data/chars/misc/effects/elec0001/0132.png
+		frame  data/chars/misc/effects/elec0001/0133.png
+		frame  data/chars/misc/effects/elec0001/0134.png
+		frame  data/chars/misc/effects/elec0001/0135.png
+		frame  data/chars/misc/effects/elec0001/0136.png
+		frame  data/chars/misc/effects/elec0001/0137.png
+		frame  data/chars/misc/effects/elec0001/0138.png
+		frame  data/chars/misc/effects/elec0001/0139.png
+		frame  data/chars/misc/effects/elec0001/0140.png
+
+		frame  data/chars/misc/effects/elec0001/0141.png
+		frame  data/chars/misc/effects/elec0001/0142.png
+		frame  data/chars/misc/effects/elec0001/0143.png
+		frame  data/chars/misc/effects/elec0001/0144.png
+		frame  data/chars/misc/effects/elec0001/0145.png
+		frame  data/chars/misc/effects/elec0001/0146.png
+		frame  data/chars/misc/effects/elec0001/0147.png
+		frame  data/chars/misc/effects/elec0001/0148.png
+		frame  data/chars/misc/effects/elec0001/0149.png
+		frame  data/chars/misc/effects/elec0001/0150.png
+
+		frame  data/chars/misc/effects/elec0001/0151.png
+		frame  data/chars/misc/effects/elec0001/0152.png
+		frame  data/chars/misc/effects/elec0001/0153.png
+		frame  data/chars/misc/effects/elec0001/0154.png
+		frame  data/chars/misc/effects/elec0001/0155.png
+		frame  data/chars/misc/effects/elec0001/0156.png
+		frame  data/chars/misc/effects/elec0001/0157.png
+		frame  data/chars/misc/effects/elec0001/0158.png
+		frame  data/chars/misc/effects/elec0001/0159.png
+		frame  data/chars/misc/effects/elec0001/0160.png

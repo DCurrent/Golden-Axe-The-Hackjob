@@ -1,0 +1,31 @@
+# flying rock
+
+name rock
+type item
+gfxshadow 1
+shadow 1
+candamage enemy
+
+script data/chars/misc/rock.c
+
+anim spawn
+    
+    quakeframe 0 1 3
+    offset 36 36
+    delay 64
+    attack 0 0 73 73 48 1 0 1
+    attackz 36
+    frame data/chars/misc/rock/1
+@cmd killentity getlocalvar("self")
+    frame data/chars/misc/rock/1
+
+anim respawn
+    
+    quakeframe 0 1 4
+    offset 36 36
+    delay 64
+    attack 0 0 73 73 48 1 0 1
+    attackz 36
+    frame data/chars/misc/rock/2
+@cmd killentity getlocalvar("self")
+    frame data/chars/misc/rock/2

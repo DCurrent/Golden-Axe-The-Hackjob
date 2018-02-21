@@ -1,0 +1,47 @@
+#Tyris Flare's level4 magic, fire drop
+
+name firedrop
+type item
+#gfxshadow 1
+shadow 0
+lifespan 3
+candamage enemy
+
+alpha 1
+
+script data/chars/misc/light2.c
+
+anim spawn
+    
+    delay 1
+    offset 40 78
+    sound   data/sounds/burn.wav
+    frame data/chars/misc/fire4/1
+
+
+anim idle
+    subentity steam
+    spawnframe 1
+    loop 1
+    delay 5
+    offset 40 78
+@script
+void self = getlocalvar("self");
+int x = getentityproperty(self,"x");
+int z = getentityproperty(self,"z");
+int wall = checkwall(x, z);
+if(!checkhole(x, z) || wall)
+{
+    changeentityproperty(self, "position", x, z, wall); 
+    changeentityproperty(self, "base",wall); 
+}
+@end_script
+    attack 0 0 80 88 48 1 1 0
+    attackz 40
+    hitflash steam
+    movez -2
+    frame data/chars/misc/fire4/1
+    frame data/chars/misc/fire4/2
+    frame data/chars/misc/fire4/3
+    frame data/chars/misc/fire4/4
+

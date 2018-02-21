@@ -1,0 +1,50 @@
+# flying feather 
+name feather
+type none
+gfxshadow 1
+shadow 0
+
+animationscript data/scripts/vars/constants.h
+
+globalmap 1
+
+#type 0
+anim spawn
+loop 1
+offset 23 22
+delay 10
+@script
+void self = getlocalvar("self");
+if(rand()%2==0){changeentityproperty(self, "animation", A_IDLE);}
+else{changeentityproperty(self, "animation", A_SLEEP);}
+if(getentityproperty(self, "a")<0)
+{killentity(self);}
+@end_script
+frame data/bgs/fiend/feather/1.gif
+
+#type 2
+anim idle
+loop 1
+offset 23 22
+delay 10
+@script
+void self = getlocalvar("self");
+changeentityproperty(self, "velocity", -2.4+rand()%10/100, 0.6, 0);
+if(getentityproperty(self, "a")<0)
+{killentity(self);}
+@end_script
+frame data/bgs/fiend/feather/1.gif
+
+#type 2
+anim sleep
+loop 1
+offset 23 22
+delay 10
+@script
+void self = getlocalvar("self");
+changeentityproperty(self, "velocity", -2.4+rand()%10/100, 0.6, 0);
+if(getentityproperty(self, "a")<0)
+{killentity(self);}
+@end_script
+frame data/bgs/fiend/feather/2.gif
+

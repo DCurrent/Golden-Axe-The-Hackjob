@@ -1,0 +1,38 @@
+# Bite medium
+
+name			bitem
+type			none
+shadow			0
+antigravity		100
+lifespan    	2
+alpha			2
+speedf			0.5			#Size adjustment.
+nodrop			0			#<max> random rotation range.
+guardpoints		1			#Type of oneshot.
+noatflash		0			#Secondary entity.
+jugglepoints	234			#Alternate spawn sound group.
+
+onspawnscript 	data/scripts/spaw0002.c
+onkillscript  	data/scripts/z_kill.c
+
+anim idle
+	flipframe 1
+
+	delay	3
+	offset	190 140
+		frame	data/chars/misc/effects/bloo0002/0001
+		frame	data/chars/misc/effects/bloo0002/0002
+		frame	data/chars/misc/effects/bloo0002/0003
+		frame	data/chars/misc/effects/bloo0002/0004
+		frame	data/chars/misc/effects/bloo0002/0005
+		frame	data/chars/misc/effects/bloo0002/0006
+		frame	data/chars/misc/effects/bloo0002/0007
+		frame	data/chars/misc/effects/bloo0002/0008
+		frame	data/chars/misc/effects/bloo0002/0009
+		frame	data/chars/misc/effects/bloo0002/0010
+		frame	data/chars/misc/effects/bloo0002/0011
+	@cmd killentity getlocalvar("self")	#Sometimes autokill doesn't work if another entity is being spawned.
+		frame	data/chars/misc/effects/bloo0001/0011
+
+
+

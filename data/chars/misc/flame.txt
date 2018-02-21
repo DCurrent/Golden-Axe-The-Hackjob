@@ -1,0 +1,77 @@
+#Tyris Flare's level6 magic, fire dragon's gaint flame animation
+
+name flame
+type none
+setlayer 1001
+shadow 0
+candamage enemy
+
+script data/chars/misc/flame.c
+
+globalmap 1
+
+anim spawn
+    
+    delay 6
+    offset 0 -76
+    frame data/chars/misc/flame/1
+    offset 0 -66
+    frame data/chars/misc/flame/2
+    offset 0 -56
+    frame data/chars/misc/flame/3
+    offset 0 -46
+    frame data/chars/misc/flame/4
+    offset 0 -36
+    frame data/chars/misc/flame/5
+    offset 0 -26
+    frame data/chars/misc/flame/6
+
+anim idle
+    
+    delay 6
+    sound data/sounds/burn2.wav
+    burn  0 0 480 240 80 1 1 0
+    attackz 1000
+    hitflash steam
+    offset 0 -26
+    frame data/chars/misc/flame/1
+    frame data/chars/misc/flame/2
+    frame data/chars/misc/flame/3
+    frame data/chars/misc/flame/4
+    frame data/chars/misc/flame/5
+    frame data/chars/misc/flame/6
+    frame data/chars/misc/flame/1
+    frame data/chars/misc/flame/2
+    frame data/chars/misc/flame/3
+    frame data/chars/misc/flame/4
+    frame data/chars/misc/flame/5
+    frame data/chars/misc/flame/6
+    frame data/chars/misc/flame/1
+    frame data/chars/misc/flame/2
+    frame data/chars/misc/flame/3
+    frame data/chars/misc/flame/4
+    frame data/chars/misc/flame/5
+    frame data/chars/misc/flame/6
+    frame data/chars/misc/flame/1
+    frame data/chars/misc/flame/2
+    frame data/chars/misc/flame/3
+    frame data/chars/misc/flame/4
+    frame data/chars/misc/flame/5
+    frame data/chars/misc/flame/6
+    frame data/chars/misc/flame/1
+    frame data/chars/misc/flame/2
+    frame data/chars/misc/flame/3
+    frame data/chars/misc/flame/4
+    frame data/chars/misc/flame/5
+    frame data/chars/misc/flame/6
+    frame data/chars/misc/flame/1
+    offset 0 -36
+    frame data/chars/misc/flame/2
+    offset 0 -46
+    frame data/chars/misc/flame/3
+    offset 0 -56
+    frame data/chars/misc/flame/4
+    offset 0 -66
+    frame data/chars/misc/flame/5
+    offset 0 -76
+    frame data/chars/misc/flame/6

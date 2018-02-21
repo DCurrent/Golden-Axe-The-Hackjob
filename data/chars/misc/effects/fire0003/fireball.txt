@@ -1,0 +1,77 @@
+name    	fireball
+type    	none
+subtype 	arrow
+speed   	10
+toflip  	1
+nolife  	1
+remove  	0
+alpha   	1
+stealth 	1
+antigravity	100
+load 		fireexpl
+
+animationscript data/scripts/z_ani.c
+didhitscript	data/scripts/hit0003.c
+
+anim idle
+	
+	hitflash   steam
+        followanim 1
+        followcond 1
+	fastattack 1
+
+	loop	1
+	offset	28 35
+	delay	5
+    	forcedirection -1
+    	burn    14 15 27 40 16 1
+		frame	data/chars/misc/effects/fire0003/0001.png
+		frame	data/chars/misc/effects/fire0003/0002.png
+		frame	data/chars/misc/effects/fire0003/0003.png
+		frame	data/chars/misc/effects/fire0003/0004.png
+		frame	data/chars/misc/effects/fire0003/0005.png
+		frame	data/chars/misc/effects/fire0003/0006.png
+		frame	data/chars/misc/effects/fire0003/0007.png
+		frame	data/chars/misc/effects/fire0003/0008.png
+		frame	data/chars/misc/effects/fire0003/0009.png
+		frame	data/chars/misc/effects/fire0003/0010.png
+		frame	data/chars/misc/effects/fire0003/0011.png
+		frame	data/chars/misc/effects/fire0003/0012.png
+		frame	data/chars/misc/effects/fire0003/0013.png
+		frame	data/chars/misc/effects/fire0003/0014.png
+		frame	data/chars/misc/effects/fire0003/0015.png
+		frame	data/chars/misc/effects/fire0003/0016.png
+		frame	data/chars/misc/effects/fire0003/0017.png
+
+anim spawn
+    
+    	offset 0 0
+	delay   1
+	@cmd	soun0005 ENT_SELF SND_EFF1 -1 1 0 0
+    		frame   data/chars/misc/blan0001
+    	move    58
+    		frame   data/chars/misc/blan0001
+
+anim follow1
+        
+    	offset  28 48
+    	delay   1
+
+	@cmd	soun0005 ENT_SELF SND_EFF2 -1 1 0 0
+	@cmd bind0008 "effe0001" "effe0001" 18 1 0 10 0 0 A_FOLLOW6 0 1
+	@cmd killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+	
+anim fall
+    	
+    	offset  28 48
+    	delay   1
+
+	@cmd	soun0005 ENT_SELF SND_EFF2 -1 1 0 0
+	@cmd bind0008 "effe0001" "effe0001" 18 1 0 10 0 0 A_FOLLOW6 0 1
+	@cmd killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001	
+
+
+
+

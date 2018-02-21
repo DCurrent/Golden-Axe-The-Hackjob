@@ -1,0 +1,47 @@
+# escaped thief
+name	escthief
+type item
+speed  10
+gfxshadow 1
+shadow  1
+nolife  1
+
+palette		data/chars/thief/e1		#Blue.
+alternatepal	data/chars/thief/aapa0002	#Green.
+alternatepal	data/chars/thief/aapa0003	#Grey
+
+animationscript  data/chars/thief/scripts/ani.c
+
+anim spawn
+	loop	1
+	offset	56 81
+	delay	2
+	@script
+		ai0006(0,0,0,0,0,0);
+	@end_script
+		frame	data/chars/thief/e1
+		frame	data/chars/thief/e2
+		frame	data/chars/thief/e3
+		frame	data/chars/thief/e2
+		frame	data/chars/thief/e1
+		frame	data/chars/thief/e6
+		frame	data/chars/thief/e7
+		frame	data/chars/thief/e6
+
+
+anim respawn
+	loop	1
+	offset	56 81
+	delay	2
+	@script
+		ai0006(0,0,0,0,0,0);
+	@end_script
+		frame	data/chars/thief/r1
+		frame	data/chars/thief/r2
+		frame	data/chars/thief/r3
+		frame	data/chars/thief/r2
+		frame	data/chars/thief/r1
+		frame	data/chars/thief/r6
+		frame	data/chars/thief/r7
+		frame	data/chars/thief/r6
+   

@@ -1,0 +1,62 @@
+#Thrown axe
+
+name    	amaz0002
+type    	none
+speed   	12
+gfxshadow 	1
+shadow  	1
+toflip  	1
+nolife  	1
+remove  	1
+antigravity 	100
+offscreenkill	150
+
+animationscript	data/scripts/com/soun0005.h
+
+palette 	data/chars/amazon/0001		#green
+
+anim spawn
+
+	delay	3
+	offset	8 8
+		frame data/chars/amazon/effects/axe/0001.png
+
+anim idle
+
+	forcedirection -1
+	fastattack		1		#So multiple axes can hit in series
+	hitflash		cuth
+
+	loop	1
+	offset	21 22
+	delay	2
+    	attack 	12 11 17 22 10 1
+	bbox  	12  12  17  20
+	@cmd	soun0005 ENT_SELF SND_EFF6 -1 1 0 0
+		frame  data/chars/amazon/effects/axe/0001.png		
+		frame  data/chars/amazon/effects/axe/0002.png		
+		frame  data/chars/amazon/effects/axe/0003.png
+	offset  17  22		
+		frame  data/chars/amazon/effects/axe/0004.png
+	offset  21  22		
+	@cmd	soun0005 ENT_SELF SND_EFF6 -1 1 0 0
+		frame  data/chars/amazon/effects/axe/0005.png		
+		frame  data/chars/amazon/effects/axe/0006.png		
+		frame  data/chars/amazon/effects/axe/0007.png		
+		frame  data/chars/amazon/effects/axe/0008.png
+
+anim attack1
+
+	offset	8 8
+	delay	10
+    		frame	data/chars/amazon/effects/axe/0003.png
+
+anim attack2
+
+	offset	8 8
+	delay	1
+    		frame	data/chars/misc/blan0001
+
+
+
+

@@ -1,0 +1,87 @@
+#Tyris Flare's level 5 magic
+
+name flare
+type pshot
+nomove 1
+speedf 0
+death 1
+nodieblink 2
+remove 0
+shadow 0
+lifespan 2
+candamage enemy
+
+animationscript data/chars/misc/flare.c
+
+anim spawn
+@script
+void self = getlocalvar("self");
+int zoom = 256*(frame+1)/14;
+spawnmeteor();
+setdrawmethod(self, 1, zoom, zoom);
+@end_script
+    
+    delay 5
+    offset 112 80
+    sound data/sounds/lava.wav
+    burn 0 0 224 128 64 1 1 0
+    frame data/chars/misc/fire5/1
+    frame data/chars/misc/fire5/2
+    frame data/chars/misc/fire5/3
+    frame data/chars/misc/fire5/4
+    frame data/chars/misc/fire5/5
+    frame data/chars/misc/fire5/6
+    frame data/chars/misc/fire5/7
+    frame data/chars/misc/fire5/8
+    frame data/chars/misc/fire5/9
+    frame data/chars/misc/fire5/10
+    frame data/chars/misc/fire5/11
+    frame data/chars/misc/fire5/12
+    frame data/chars/misc/fire5/13
+    frame data/chars/misc/fire5/14
+
+
+anim idle
+@script
+spawnmeteor();
+@end_script
+    loop 1
+    delay 5
+    offset 112 80
+    burn 0 0 224 128 64 1 1 0
+    attackz 100
+    frame data/chars/misc/fire5/1
+    frame data/chars/misc/fire5/2
+    frame data/chars/misc/fire5/3
+    frame data/chars/misc/fire5/4
+    frame data/chars/misc/fire5/5
+    frame data/chars/misc/fire5/6
+    frame data/chars/misc/fire5/7
+    frame data/chars/misc/fire5/8
+    frame data/chars/misc/fire5/9
+    frame data/chars/misc/fire5/10
+    frame data/chars/misc/fire5/11
+    frame data/chars/misc/fire5/12
+    frame data/chars/misc/fire5/13
+    frame data/chars/misc/fire5/14
+
+anim death
+@script
+void self = getlocalvar("self");
+if(frame==4) {killentity(self);return;}
+else
+{
+    int zoom = 256*(5-frame)/5;
+    spawnmeteor();
+    setdrawmethod(self, 1, zoom, zoom);
+}
+@end_script
+    
+    offset 112 80
+    delay 10
+    frame data/chars/misc/fire5/1
+    frame data/chars/misc/fire5/2
+    frame data/chars/misc/fire5/3
+    frame data/chars/misc/fire5/4
+    frame data/chars/misc/fire5/5
+

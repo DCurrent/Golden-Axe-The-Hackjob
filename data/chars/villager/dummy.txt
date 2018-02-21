@@ -1,0 +1,16 @@
+# SE
+name Dummy_Villager
+type none
+
+anim spawn
+     
+     delay 1
+     sound data/sounds/villag~1.wav
+     frame data/chars/misc/empty.gif
+     movea  2000
+     frame data/chars/misc/empty.gif
+
+anim idle
+     
+     delay 1000
+     frame data/chars/misc/empty.gif

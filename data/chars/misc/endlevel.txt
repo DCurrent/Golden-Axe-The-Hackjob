@@ -1,0 +1,21 @@
+# endlevel
+
+name	endlevel
+type	endlevel
+grabdistance 100
+shadow	0
+
+anim spawn
+	loop	1
+	delay	12
+	offset	0 0
+	bbox	-32 -32 32 32
+	frame	data/chars/misc/empty.gif
+
+anim idle
+	loop	1
+	delay	12
+	offset	0 0
+	bbox	-32 -32 32 32
+	frame	data/chars/misc/empty.gif
+

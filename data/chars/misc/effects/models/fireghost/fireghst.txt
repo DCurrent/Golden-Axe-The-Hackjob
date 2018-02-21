@@ -1,0 +1,62 @@
+#Tyris Flare's level3 magic, fire ghost
+
+name fireghost
+type pshot
+speed 8
+subtype chase
+shadow 0 #shadow for a ghost?
+remove 0
+lifespan 30
+candamage enemy
+hostile enemy
+
+alpha 1
+
+load steam
+
+script data/chars/misc/rock.c
+
+
+anim idle
+    subentity steam
+    spawnframe 1
+    loop 1
+    delay 6
+    offset 74 96
+    seta 32
+    hitflash steam
+    hitfx data/sounds/burn.wav	
+    burn 0 0 148 100 32 1 1 0
+    frame data/chars/misc/effects/fire0025/0001
+    frame data/chars/misc/effects/fire0025/0002
+    frame data/chars/misc/effects/fire0025/0003
+
+anim walk
+    subentity steam
+    spawnframe 1
+    loop 1
+    delay 6
+    offset 74 96
+    seta 32
+    hitflash steam
+    hitfx data/sounds/burn.wav	
+    burn 0 0 148 100 32 1 1 0
+    frame data/chars/misc/effects/fire0025/0001
+    frame data/chars/misc/effects/fire0025/0002
+    frame data/chars/misc/effects/fire0025/0003
+
+anim up
+    subentity steam
+    spawnframe 1
+    loop 1
+    delay 6
+    seta 32
+    offset 74 96
+    hitflash steam
+    hitfx data/sounds/burn.wav	
+    burn 0 0 148 100 32 1 1 0
+    frame data/chars/misc/effects/fire0025/0004
+    frame data/chars/misc/effects/fire0025/0005
+    frame data/chars/misc/effects/fire0025/0006
+
+

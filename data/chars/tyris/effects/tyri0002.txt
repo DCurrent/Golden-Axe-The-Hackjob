@@ -1,0 +1,86 @@
+#Thrown sword
+
+name    	tyri0002
+type    	none
+speed   	12
+gfxshadow 	1
+shadow  	1
+toflip  	1
+nolife  	1
+remove  	0
+antigravity 	100
+offscreenkill	150
+
+animationscript	data/chars/tyris/scripts/ani.c
+onkillscript	data/chars/tyris/effects/z_kill.c
+#didhitscript	data/chars/tyris/effects/z_hit.c
+
+
+palette 	data/chars/tyris/0001		#default
+
+anim spawn
+
+	delay	1
+	offset	15 15
+		frame data/chars/tyris/effects/0069.png
+
+anim idle
+
+	range			-10 10
+	forcedirection -1
+	fastattack		1		
+	hitflash		cuth
+	followanim		1
+	followcond		1
+	#Too hard to do charge attacks, let's go ahead and let sword rip through multiple targets.
+
+	loop	1
+	offset	15 15
+	delay	2
+    	attack10 	12 11 17 22 10 1
+	bbox  	12  12  17  20
+	@script
+		ai0007(0, 0, 175, A_FSPECIAL3, A_FOLLOW1, 0, 0, 0, 0);
+	@end_script
+	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
+		frame  data/chars/tyris/effects/0067.png		
+		frame  data/chars/tyris/effects/0068.png		
+		frame  data/chars/tyris/effects/0069.png
+	offset  15  15		
+		frame  data/chars/tyris/effects/0070.png
+	offset  15  15		
+	#	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
+		frame  data/chars/tyris/effects/0071.png		
+		frame  data/chars/tyris/effects/0072.png		
+		frame  data/chars/tyris/effects/0073.png		
+		frame  data/chars/tyris/effects/0074.png
+
+anim follow1
+
+	range			-10 10
+	forcedirection -1
+	fastattack		1		
+	hitflash		cuth
+	flipframe		0
+	loop	1 1
+	
+	offset	15 15
+	delay	2
+    	attack10 	12 11 17 22 10 1
+	bbox  	12  12  17  20
+	@script
+		ai0007(0, 0, 175, A_FSPECIAL3, A_FOLLOW1, 0, 0, 0, 0);
+	@end_script
+		frame  data/chars/tyris/effects/0067.png
+	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
+		frame  data/chars/tyris/effects/0074.png		
+		frame  data/chars/tyris/effects/0073.png		
+		frame  data/chars/tyris/effects/0072.png
+	offset  15  15		
+		frame  data/chars/tyris/effects/0071.png
+	offset  15  15		
+	#	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
+		frame  data/chars/tyris/effects/0070.png		
+		frame  data/chars/tyris/effects/0069.png		
+		frame  data/chars/tyris/effects/0068.png		
+		frame  data/chars/tyris/effects/0067.png

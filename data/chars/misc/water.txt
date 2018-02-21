@@ -1,0 +1,36 @@
+# turtle village water 
+
+name	water
+type	none
+nomove 1
+shadow	0
+antigravity 100
+globalmap 1
+
+anim spawn
+	loop	0
+	delay	10
+    offset	0 60
+    frame data/bgs/turtle/water/1.gif
+    offset	0 66
+    frame data/bgs/turtle/water/2.gif
+    offset	0 72
+    frame data/bgs/turtle/water/3.gif
+    offset	0 78
+    frame data/bgs/turtle/water/4.gif
+    offset	0 84
+    frame data/bgs/turtle/water/5.gif
+    offset	0 90
+    frame data/bgs/turtle/water/6.gif
+
+anim idle
+	loop	1
+	delay	10
+    offset	0 96
+    frame data/bgs/turtle/water/1.gif
+    frame data/bgs/turtle/water/2.gif
+    frame data/bgs/turtle/water/3.gif
+    frame data/bgs/turtle/water/4.gif
+    frame data/bgs/turtle/water/5.gif
+    frame data/bgs/turtle/water/6.gif
+

@@ -1,0 +1,74 @@
+# Hit flash
+
+name			Flash
+type			none
+shadow			0
+antigravity		100
+lifespan    	2
+alpha			2			
+speedf			0.5			#Size adjustment.
+nodrop			0			#<max> random rotation range.
+guardpoints		1			#Type of oneshot.
+noatflash		0			#Secondary entity.
+jugglepoints	213			#Alternate spawn sound group.
+
+onspawnscript 	data/scripts/spaw0002.c
+onkillscript  	data/scripts/z_kill.c
+
+anim idle
+	flipframe 1	
+
+	delay	1
+	offset	100 100	
+		frame	data/chars/misc/effects/bloo0001/0001
+		frame	data/chars/misc/effects/bloo0001/0002
+		frame	data/chars/misc/effects/bloo0001/0003	
+		frame	data/chars/misc/effects/bloo0001/0004
+		frame	data/chars/misc/effects/bloo0001/0005	
+		frame	data/chars/misc/effects/bloo0001/0006
+		frame	data/chars/misc/effects/bloo0001/0007
+		frame	data/chars/misc/effects/bloo0001/0008
+		frame	data/chars/misc/effects/bloo0001/0009	
+		frame	data/chars/misc/effects/bloo0001/0010
+		frame	data/chars/misc/effects/bloo0001/0011
+		frame	data/chars/misc/effects/bloo0001/0012
+		frame	data/chars/misc/effects/bloo0001/0013	
+		frame	data/chars/misc/effects/bloo0001/0014
+		frame	data/chars/misc/effects/bloo0001/0015
+		frame	data/chars/misc/effects/bloo0001/0016
+		frame	data/chars/misc/effects/bloo0001/0017
+		frame	data/chars/misc/effects/bloo0001/0018
+		frame	data/chars/misc/effects/bloo0001/0019
+		frame	data/chars/misc/effects/bloo0001/0020
+		frame	data/chars/misc/effects/bloo0001/0021
+		frame	data/chars/misc/effects/bloo0001/0022
+		frame	data/chars/misc/effects/bloo0001/0023	
+		frame	data/chars/misc/effects/bloo0001/0024
+		frame	data/chars/misc/effects/bloo0001/0025	
+		frame	data/chars/misc/effects/bloo0001/0026
+		frame	data/chars/misc/effects/bloo0001/0027
+		frame	data/chars/misc/effects/bloo0001/0028
+		frame	data/chars/misc/effects/bloo0001/0029	
+		frame	data/chars/misc/effects/bloo0001/0030
+	delay	2	
+		frame	data/chars/misc/effects/bloo0001/0031
+		frame	data/chars/misc/effects/bloo0001/0032
+		frame	data/chars/misc/effects/bloo0001/0033	
+		frame	data/chars/misc/effects/bloo0001/0034
+		frame	data/chars/misc/effects/bloo0001/0035	
+		frame	data/chars/misc/effects/bloo0001/0036
+		frame	data/chars/misc/effects/bloo0001/0037
+		frame	data/chars/misc/effects/bloo0001/0038
+		frame	data/chars/misc/effects/bloo0001/0039	
+		frame	data/chars/misc/effects/bloo0001/0040
+		frame	data/chars/misc/effects/bloo0001/0041
+		frame	data/chars/misc/effects/bloo0001/0042
+		frame	data/chars/misc/effects/bloo0001/0043	
+		frame	data/chars/misc/effects/bloo0001/0044
+		frame	data/chars/misc/effects/bloo0001/0045	
+		frame	data/chars/misc/effects/bloo0001/0046
+	@cmd killentity getlocalvar("self")	#Sometimes autokill doesn't work if another entity is being spawned.
+		frame	data/chars/misc/effects/bloo0001/0046
+
+
+

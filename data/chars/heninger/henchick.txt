@@ -1,0 +1,204 @@
+# Heninger on chickenlegs
+
+name	henchick
+health	32
+speed	9
+running 19
+gfxshadow 1
+shadow	3
+aggression -20
+throwdamage 8
+grabdistance 30
+animal  2
+nolife  1
+
+animationscript 	data/scripts/z_ani.c
+didblockscript		data/scripts/z_block.c				#Block incoming attack.
+didhitscript 		data/scripts/z_hit.c				#Hit another entity.
+keyscript			data/scripts/z_key.c				#Controlling player press/release key.
+onblockascript		data/scripts/z_blocka.c				#Movement (rise/fall) blocked by platform.
+onblockoscript		data/scripts/z_blocko.c				#Movement blocked by obstacle.
+onblocksscript		data/scripts/z_blocks.c				#Movement blocked by screen boundary.
+onblockwscript		data/scripts/z_blockw.c				#Movement blocked by wall.				
+onblockzscript		data/scripts/z_blockz.c				#Movement blocked by Z boundary.				
+ondeathscript		data/scripts/z_death.c				#Killed by damage.
+onfallscript		data/scripts/z_fall.c				#Fall status set.
+onkillscript		data/scripts/z_kill.c				#Removed from playfield.
+onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.
+onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
+onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
+onpainscript		data/scripts/z_pain.c				#Pain status set.
+onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
+script				data/scripts/z_script.c				#Entity updated.
+takedamagescript	data/scripts/z_damage.c				#Damaged.
+thinkscript			data/scripts/z_think.c				#Entity AI updates.
+
+aimove chase
+
+weapons henchick henrdrag henbdrag
+
+modelflag 1
+
+
+palette data/chars/heninger/chicken/map.gif       # white
+
+alternatepal data/chars/heninger/chicken/map1.gif # red
+alternatepal data/chars/heninger/chicken/map2.gif # purple
+alternatepal data/chars/heninger/chicken/map3.gif # grayblue
+alternatepal data/chars/heninger/chicken/map4.gif # golden
+alternatepal data/chars/heninger/chicken/map5.gif # dark
+
+anim follow100
+	
+	offset	0 0
+	frame	data/chars/heninger/ico0001	#AI icon.
+	frame	data/chars/heninger/ico0002	#AI icon (pain).
+
+anim idle
+	loop	1
+	delay	25
+	offset	78 140
+    bbox    64 80 30 60
+	frame	data/chars/heninger/chicken/idle2.gif
+
+anim get
+	loop	0
+	delay	20
+	offset	78 142
+	frame	data/chars/heninger/chicken/ride1.gif
+	frame	data/chars/heninger/chicken/ride2.gif
+
+anim spawn
+
+	loop	0
+	delay	1
+	offset	78 140
+    bbox    64 80 30 60
+	frame	data/chars/heninger/chicken/idle2.gif
+	delay	25
+	frame	data/chars/heninger/chicken/idle2.gif
+
+anim walk
+@script
+void self = getlocalvar("self");
+if(getentityproperty(self, "invincible")==1)
+{
+    scre0001(self);
+}
+else
+{
+    ai0002();
+}
+@end_script
+    loop    1
+    delay   10
+    offset  80 140
+    bbox    64 80 30 60
+	frame	data/chars/heninger/chicken/wd1.gif
+	frame	data/chars/heninger/chicken/wd2.gif
+	frame	data/chars/heninger/chicken/wd3.gif
+	frame	data/chars/heninger/chicken/wd4.gif
+
+
+anim up
+@script
+ai0002();
+@end_script
+    loop    1
+    delay   10
+    offset  82 140
+    bbox    70 78 28 60
+	frame	data/chars/heninger/chicken/wu1.gif
+	frame	data/chars/heninger/chicken/wu2.gif
+	frame	data/chars/heninger/chicken/wu3.gif
+	frame	data/chars/heninger/chicken/wu4.gif
+
+anim run
+	loop	1
+	delay	4
+	offset	78 142
+    bbox    66 80 34 64
+	frame	data/chars/heninger/chicken/r1.gif
+	frame	data/chars/heninger/chicken/r2.gif
+	frame	data/chars/heninger/chicken/r3.gif
+	frame	data/chars/heninger/chicken/r4.gif
+
+anim runattack
+    range 80 180
+    followanim 2
+    followcond 1
+    jumpframe  1 2 3
+    landframe  2
+	loop	0
+    delay   6
+	offset	78 142
+    bbox    68 66 34 54
+	frame	data/chars/heninger/chicken/land.gif
+    bbox    67 70 34 54
+    delay   1000
+    
+	attack	99 98 26 37 8 1 1
+	frame	data/chars/heninger/chicken/ra2.gif
+	attack	0
+    delay   10
+    bbox    68 66 34 54
+@cmd velo0001 2 0 0
+	frame	data/chars/heninger/chicken/land.gif
+    delay   1
+@cmd velo0001 0 0 0
+	frame	data/chars/heninger/chicken/land.gif
+
+# deflect
+anim follow2
+    jumpframe 0 1 0
+	loop	0
+	offset	78 142
+    bbox    68 66 34 54
+	delay	1
+	attack	99 98 26 37 8 1 1
+	frame	data/chars/heninger/chicken/ra2.gif
+	attack	0
+	delay	6
+	frame	data/chars/heninger/chicken/ra2.gif
+	delay	12
+	frame	data/chars/heninger/chicken/land.gif
+
+anim jump
+    range   10 64
+	loop	0
+	delay	10
+	offset	78 142
+    bbox    68 66 34 54
+	frame	data/chars/heninger/chicken/land.gif
+	delay	70
+    bbox    68 58 34 54
+	frame	data/chars/heninger/chicken/j.gif
+    bbox    68 66 34 54
+	frame	data/chars/heninger/chicken/land.gif
+
+anim attack1
+    range   30 70
+	loop	0
+    flipframe 4
+	delay	6
+	offset	82 140
+    bbox    68 79 31 55
+    
+	attack	41 129 28 18 16 1 0 1
+	frame	data/chars/heninger/chicken/a1.gif
+	offset	76 140
+    bbox    60 79 31 55
+	attack	52 126 48 24 16 1 1 1
+	frame	data/chars/heninger/chicken/a2.gif
+	offset	78 140
+	attack	85 123 38 22 16 1 1 1
+	frame	data/chars/heninger/chicken/a3.gif
+	attack	87 116 66 22 16 1 1 1
+	frame	data/chars/heninger/chicken/a4.gif
+	attack	0 0 0 0 0
+	offset	78 140
+    bbox    66 80 34 64
+	frame	data/chars/heninger/chicken/idle2.gif
+
+
+

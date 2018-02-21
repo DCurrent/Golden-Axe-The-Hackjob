@@ -1,0 +1,15 @@
+# campfire
+
+name	cfire
+type	none
+nomove  1
+shadow	0
+antigravity 100
+
+anim idle
+	loop	1
+	delay	12
+	offset	16 26
+		frame	data/chars/misc/effects/fire0028/0001
+		frame	data/chars/misc/effects/fire0028/0002
+		frame	data/chars/misc/effects/fire0028/0003

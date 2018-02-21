@@ -1,0 +1,28 @@
+name dummy
+type enemy
+aimove nomove
+aiattack noattack
+nomove 1 1
+falldie 1
+noquake 1
+health 1
+shadow 0
+
+anim idle
+
+delay 1000
+@script
+if(getglobalvar("dummy")==NULL())
+{
+    setglobalvar("dummy", getlocalvar("self"));
+}
+@end_script
+frame data/chars/misc/blan0001
+
+anim death
+
+delay 100
+frame data/chars/misc/blan0001
+
+	
+

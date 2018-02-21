@@ -1,0 +1,214 @@
+loadingbg data/bgs/wilder/loading.png  -80 -240 480 0 -100
+# Wilderness - survival version
+music		data/music/wilder~1
+bossmusic       data/music/battle~1
+
+background	data/bgs/wilder/stg1_bg 0.5 0.5 0 0 0 0 1 1
+# water		data/bgs/grid/water		15
+
+panel		data/bgs/wilder/stg1 none none
+# panel		data/bgs/grid/normal02 none none
+
+order	a
+
+setweap 4
+
+settime 0
+notime  1
+
+load pc_skeleton
+load Male_Villager2
+load amachick
+load lonchick
+load henchick
+load time
+
+levelscript data/levels/wilderne/lvinit.c
+endlevelscript data/levels/wilderne/end.c
+
+palette data/bgs/wilder/pals/mist1.act 0 1 0 0 0 1         #1
+
+palette data/bgs/wilder/pals/mist3.act 0 1 0 0 0 1          #2
+palette data/bgs/wilder/pals/mist5.act 0 1 0 0 0 1          #3
+palette data/bgs/wilder/pals/mist7.act 0 1 0 0 0 1          #4
+palette data/bgs/wilder/pals/sunny.act 0 1 0 0 0 1         #5
+
+palette data/bgs/wilder/pals/sunset2.act 0 1 0 0 0 1        #6
+palette data/bgs/wilder/pals/sunset4.act 0 1 0 0 0 1        #7
+palette data/bgs/wilder/pals/sunset6.act 0 1 0 0 0 1       #8
+palette data/bgs/wilder/pals/sunset8.act 0 1 0 0 0 1       #9
+
+# player1 spawn position
+spawn1  64 60
+spawn2  64 80
+spawn3  64 100
+
+# walls/platforms 
+wall    1164 90 0 0 1400 1400 80 400
+wall    664 112 0 0 512 498 44 400
+wall    -936 140 0 0 1606 1616 100 400
+wall    726 160 0 28 394 364 64 50
+
+
+#palette change
+setpalette 1
+at 0
+
+light 256 -128
+at 0
+
+
+spawn	Longmoan
+map 2
+coords	600 160
+health  16
+at 0
+
+
+wait
+at 0
+
+
+spawn Heninger
+map 2
+coords -100 175
+at 80
+
+spawn	Longmoan
+coords	520 180
+health  16
+at 80
+
+wait
+at 80
+
+spawn	Heninger
+map 3
+coords	520 200
+health  32
+at 90
+
+spawn	Longmoan
+coords	580 170
+health  32
+at 90
+
+wait
+at 120
+
+spawn Thief
+alias GrayThief
+map 2
+health 1
+coords 500 175
+at 200
+
+spawn palette_changer
+spawnscript data/levels/wilderne/mist.c
+coords 0 0
+at 200
+
+wait
+at 200
+
+
+spawn Amazon
+coords 600 130 80
+map 2
+weapon Chickenlegs
+at 354
+
+# group
+spawn	Male_Villager
+flip 1
+coords	480 200
+at	354
+
+spawn	Longmoan
+spawnscript data/levels/wilderne/stomp.c
+coords	500 200
+at	354
+# end group
+
+
+wait
+at 441
+
+spawn Longmoan
+health 16
+coords -80 210
+at 600
+
+spawn Heninger
+map 2
+health 16
+coords 510 130 20
+at 600
+
+wait
+at 600
+
+spawn Thief
+alias GrayThief
+map 2
+health 1
+coords 500 210
+at 800
+
+spawn Thief
+alias GrayThief
+map 2
+health 1
+coords 520 130
+at 820
+
+wait
+at 820
+
+spawn palette_changer
+spawnscript data/levels/wilderne/sunset.c
+coords 0 0
+at 900
+
+#----test spawn
+
+spawn   Kid_Villager
+coords	490 200
+at	950
+
+# group
+spawn	Male_Villager
+flip 1
+coords	480 180
+at	960
+
+spawn	Longmoan
+spawnscript data/levels/wilderne/stomp.c
+boss 1
+coords	500 180
+at	960
+# end group
+
+spawn	Longmoan
+boss 1
+coords	580 160
+weapon Chickenlegs
+at	960
+
+spawn	Bad_Brother
+alias	badbros
+boss    1
+coords	530 160
+at	960
+
+
+spawn	Bad_Brother
+alias	badbros
+boss    1
+coords	530 180
+at	960
+
+
+
+
+

@@ -1,0 +1,37 @@
+#scrolling sky background animation
+
+name sky
+type none
+shadow 0
+setlayer -10
+antigravity 100
+globalmap 1
+
+anim spawn
+
+offset 0 0
+delay 1
+frame data/bgs/fiend/sky/1
+
+anim idle
+loop 1
+offset 0 0
+delay 3
+frame data/bgs/fiend/sky/1
+frame data/bgs/fiend/sky/2
+frame data/bgs/fiend/sky/3
+frame data/bgs/fiend/sky/4
+frame data/bgs/fiend/sky/5
+frame data/bgs/fiend/sky/6
+frame data/bgs/fiend/sky/7
+frame data/bgs/fiend/sky/8
+frame data/bgs/fiend/sky/9
+frame data/bgs/fiend/sky/10
+frame data/bgs/fiend/sky/11
+frame data/bgs/fiend/sky/12
+frame data/bgs/fiend/sky/12
+frame data/bgs/fiend/sky/13
+frame data/bgs/fiend/sky/14
+frame data/bgs/fiend/sky/15
+frame data/bgs/fiend/sky/16
+

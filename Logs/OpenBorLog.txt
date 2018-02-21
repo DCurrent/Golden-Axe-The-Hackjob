@@ -1,0 +1,373 @@
+Total Ram: 2147483647 Bytes
+ Free Ram: 2147483647 Bytes
+ Used Ram: 4857856 Bytes
+
+debug:nativeWidth, nativeHeight, bpp  1920, 1200, 32
+OpenBoR v3.0 Build 3824, Compile Date: Feb 16 2013
+
+Game Selected: ./Paks/bor.pak
+
+FileCaching System Init......	Disabled
+Initializing video............
+Reading video settings from 'data/video.txt'.
+Initialized video.............	480x272 (Mode: 1, Depth: 32 Bit)
+
+Loading menu.txt.............	Done!
+Loading fonts................	1 2 3 4 Done!
+Timer init...................	Done!
+Initialize Sound..............	Done!
+Loading sprites..............	Done!
+Loading level order..........	Done!
+Loading script settings......	Done!
+Loading scripts..............	Done!
+Loading models...............
+
+Cacheing 'pselect' from data/chars/plselect/pselect.txt
+Cacheing 'bflash' from data/chars/misc/effects/models/flash/bflash/bflash.txt
+Cacheing 'bitem' from data/chars/misc/effects/models/flash/bitem/bitem.txt
+Cacheing 'bluh' from data/chars/misc/effects/models/flash/bluh/bluh.txt
+Cacheing 'blul' from data/chars/misc/effects/models/flash/blul/blul.txt
+Cacheing 'blumcut' from data/chars/misc/effects/models/flash/blumcut/blumcut.txt
+Cacheing 'bonem' from data/chars/misc/effects/models/flash/bonem/bonem.txt
+Cacheing 'cuth' from data/chars/misc/effects/models/flash/cuth/cuth.txt
+Cacheing 'flash' from data/chars/misc/effects/models/flash/flash/flash.txt
+Cacheing 'hith' from data/chars/misc/effects/models/flash/hith/hith.txt
+Cacheing 'hithcut' from data/chars/misc/effects/models/flash/hithcut/hithcut.txt
+Cacheing 'hitm' from data/chars/misc/effects/models/flash/hitm/hitm.txt
+Cacheing 'idirh' from data/chars/misc/effects/models/flash/idirh/idirh.txt
+Cacheing 'idirm' from data/chars/misc/effects/models/flash/idirm/idirm.txt
+Cacheing 'fallh' from data/chars/misc/effects/models/flash/fallh/fallh.txt
+Cacheing 'fallm' from data/chars/misc/effects/models/flash/fallm/fallm.txt
+Cacheing 'fallmm' from data/chars/misc/effects/models/flash/fallmm/fallmm.txt
+Cacheing 'impm' from data/chars/misc/effects/models/flash/impm/impm.txt
+Cacheing 'jumpm' from data/chars/misc/effects/models/flash/jumpm/jumpm.txt
+Cacheing 'jumpmw' from data/chars/misc/effects/models/flash/jumpmw/jumpmw.txt
+Cacheing 'landh' from data/chars/misc/effects/models/flash/landh/landh.txt
+Cacheing 'landm' from data/chars/misc/effects/models/flash/landm/landm.txt
+Cacheing 'landm' from data/chars/misc/effects/models/flash/landmw/landmw.txt
+Cacheing 'skel' from data/chars/misc/effects/models/flash/skel/skel.txt
+Cacheing 'stabh' from data/chars/misc/effects/models/flash/stabh/stabh.txt
+Cacheing 'wallm' from data/chars/misc/effects/models/flash/wallm/wallm.txt
+Cacheing 'whifgh' from data/chars/misc/effects/models/flash/whifgh/whifgh.txt
+Cacheing 'whifgm' from data/chars/misc/effects/models/flash/whifgm/whifgm.txt
+Cacheing 'effe0001' from data/chars/misc/effects/effe0001.txt
+Cacheing 'effe0002' from data/chars/misc/effects/effe0002.txt
+Cacheing 'knife2' from data/chars/misc/knife2.txt
+Cacheing 'Magic' from data/chars/misc/magic.txt
+Cacheing 'meat' from data/chars/misc/meat.txt
+Cacheing 'time' from data/chars/misc/time.txt
+Cacheing 'Magic_Pot' from data/chars/misc/magpot.txt
+Cacheing 'smoke' from data/chars/misc/smoke.txt
+Cacheing 'Steam' from data/chars/misc/steam.txt
+Cacheing 'shockwave' from data/chars/misc/shockwav.txt
+Cacheing 'fireexpl' from data/chars/misc/effects/fire0004/fireexpl.txt
+Cacheing 'chasball' from data/chars/misc/effects/fire0003/chasball.txt
+Cacheing 'fireball' from data/chars/misc/effects/fire0003/fireball.txt
+Cacheing 'kuna0001' from data/chars/misc/effects/kuna0001/kuna0001.txt
+Cacheing 'dummy' from data/chars/misc/dummy.txt
+Cacheing 'scplayer' from data/chars/misc/scplayer.txt
+Cacheing 'screen' from data/chars/misc/screen.txt
+Cacheing 'alex0001' from data/chars/alex/effects/alex0001.txt
+Cacheing 'Alex' from data/chars/alex/alex.txt
+Cacheing 'al_chick' from data/chars/alex/al_chick.txt
+Cacheing 'al_bdrag' from data/chars/alex/al_bdrag.txt
+Cacheing 'al_rdrag' from data/chars/alex/al_rdrag.txt
+Cacheing 'ax0001' from data/chars/ax/effects/ax0001.txt
+Cacheing 'a_chick' from data/chars/ax/a_chick.txt
+Cacheing 'a_rdrag' from data/chars/ax/a_rdrag.txt
+Cacheing 'a_bdrag' from data/chars/ax/a_bdrag.txt
+Cacheing 'ax' from data/chars/ax/ax.txt
+Cacheing 'ax_e' from data/chars/ax/ax_e.txt
+Cacheing 't_chick' from data/chars/tyris/t_chick.txt
+Cacheing 't_rdrag' from data/chars/tyris/t_rdrag.txt
+Cacheing 't_bdrag' from data/chars/tyris/t_bdrag.txt
+Cacheing 'tyri0001' from data/chars/tyris/effects/tyri0001.txt
+Cacheing 'tyri0002' from data/chars/tyris/effects/tyri0002.txt
+Cacheing 'Tyris_Flare' from data/chars/Tyris/Tyris.txt
+Cacheing 'escthief' from data/chars/thief/escthief.txt
+Cacheing 'Thief' from data/chars/thief/thief.txt
+Cacheing 'bbro0001' from data/chars/bad_bros/effects/bbro0001.txt
+Cacheing 'Bad_Brother' from data/chars/bad_bros/bad_bro.txt
+Cacheing 'lonchick' from data/chars/longmoan/lonchick.txt
+Cacheing 'lonrdrag' from data/chars/longmoan/lonrdrag.txt
+Cacheing 'lonbdrag' from data/chars/longmoan/lonbdrag.txt
+Cacheing 'Longmoan' from data/chars/longmoan/longmoan.txt
+Cacheing 'henchick' from data/chars/heninger/henchick.txt
+Cacheing 'henrdrag' from data/chars/heninger/henrdrag.txt
+Cacheing 'henbdrag' from data/chars/heninger/henbdrag.txt
+Cacheing 'Heninger' from data/chars/heninger/heninger.txt
+Cacheing 'amachick' from data/chars/amazon/amachick.txt
+Cacheing 'amardrag' from data/chars/amazon/amardrag.txt
+Cacheing 'amabdrag' from data/chars/amazon/amabdrag.txt
+Cacheing 'amaz0001' from data/chars/amazon/effects/amaz0001.txt
+Cacheing 'amaz0002' from data/chars/amazon/effects/amaz0002.txt
+Cacheing 'Amazon' from data/chars/amazon/amazon.txt
+Cacheing 'Chickenlegs' from data/chars/chicken/chicken.txt
+Cacheing 'Red_Dragon' from data/chars/dragon/rdragon.txt
+Cacheing 'Blue_Dragon' from data/chars/dragon/bdragon.txt
+Cacheing 'Male_Villager' from data/chars/villager/male/male.txt
+Cacheing 'Male_Villager2' from data/chars/villager/male/male2.txt
+Cacheing 'Female_Villager' from data/chars/villager/female/female.txt
+Cacheing 'Female_Villager2' from data/chars/villager/female/female2.txt
+Cacheing 'Kid_Villager' from data/chars/villager/kid/kid.txt
+Cacheing 'Old_Villager' from data/chars/villager/oldman/oldman.txt
+Cacheing 'text1' from data/chars/alex/text1.txt
+Cacheing 'text2' from data/chars/alex/text2.txt
+Cacheing 'text3' from data/chars/alex/text3.txt
+Cacheing 'Alex_' from data/chars/alex/alex_.txt
+Cacheing 'palette_changer' from data/chars/misc/palchg.txt
+Cacheing 'eyeball' from data/chars/misc/eyeball.txt
+Cacheing 'pillar' from data/chars/misc/pillar.txt
+Cacheing 'wing' from data/chars/misc/wing.txt
+Cacheing 'eagle_eye' from data/chars/misc/eeyeball.txt
+Cacheing 'door' from data/chars/misc/door.txt
+Cacheing 'sky' from data/chars/misc/sky.txt
+Cacheing 'hole' from data/chars/misc/hole.txt
+Cacheing 'feather' from data/chars/misc/feather.txt
+Cacheing 'cfire' from data/chars/misc/effects/models/cfire/cfire.txt
+Cacheing 'water' from data/chars/misc/water.txt
+Cacheing 'king' from data/chars/misc/king.txt
+Cacheing 'endlevel' from data/chars/misc/endlevel.txt
+Cacheing 'Knife' from data/chars/misc/knife.txt
+Cacheing 'Shot' from data/chars/misc/shot.txt
+Cacheing 'Star' from data/chars/misc/star.txt
+
+Loading 'pselect' from data/chars/plselect/pselect.txt
+Loading 'bflash' from data/chars/misc/effects/models/flash/bflash/bflash.txt
+Loading 'bitem' from data/chars/misc/effects/models/flash/bitem/bitem.txt
+Loading 'bluh' from data/chars/misc/effects/models/flash/bluh/bluh.txt
+Loading 'blul' from data/chars/misc/effects/models/flash/blul/blul.txt
+Loading 'blumcut' from data/chars/misc/effects/models/flash/blumcut/blumcut.txt
+Loading 'bonem' from data/chars/misc/effects/models/flash/bonem/bonem.txt
+Loading 'cuth' from data/chars/misc/effects/models/flash/cuth/cuth.txt
+Loading 'Flash' from data/chars/misc/effects/models/flash/flash/flash.txt
+Loading 'hith' from data/chars/misc/effects/models/flash/hith/hith.txt
+Loading 'hithcut' from data/chars/misc/effects/models/flash/hithcut/hithcut.txt
+Loading 'hitm' from data/chars/misc/effects/models/flash/hitm/hitm.txt
+Loading 'idirm' from data/chars/misc/effects/models/flash/idirh/idirh.txt
+Loading 'fallh' from data/chars/misc/effects/models/flash/fallh/fallh.txt
+Loading 'fallm' from data/chars/misc/effects/models/flash/fallm/fallm.txt
+Loading 'fallmm' from data/chars/misc/effects/models/flash/fallmm/fallmm.txt
+Loading 'impm' from data/chars/misc/effects/models/flash/impm/impm.txt
+Loading 'jumpm' from data/chars/misc/effects/models/flash/jumpm/jumpm.txt
+Loading 'jumpmw' from data/chars/misc/effects/models/flash/jumpmw/jumpmw.txt
+Loading 'landh' from data/chars/misc/effects/models/flash/landh/landh.txt
+Loading 'landm' from data/chars/misc/effects/models/flash/landm/landm.txt
+Loading 'landmw' from data/chars/misc/effects/models/flash/landmw/landmw.txt
+Loading 'skel' from data/chars/misc/effects/models/flash/skel/skel.txt
+Loading 'stabh' from data/chars/misc/effects/models/flash/stabh/stabh.txt
+Loading 'wallm' from data/chars/misc/effects/models/flash/wallm/wallm.txt
+Loading 'whifgm' from data/chars/misc/effects/models/flash/whifgh/whifgh.txt
+Loading 'effe0001' from data/chars/misc/effects/effe0001.txt
+Loading 'effe0002' from data/chars/misc/effects/effe0002.txt
+Loading 'Knife2' from data/chars/misc/knife2.txt
+Loading 'Magic' from data/chars/misc/magic.txt
+Loading 'smoke' from data/chars/misc/smoke.txt
+Loading 'Steam' from data/chars/misc/steam.txt
+Loading 'fireexpl' from data/chars/misc/effects/fire0004/fireexpl.txt
+Loading 'chasball' from data/chars/misc/effects/fire0003/chasball.txt
+Loading 'fireball' from data/chars/misc/effects/fire0003/fireball.txt
+Loading 'dummy' from data/chars/misc/dummy.txt
+*Debug* reallocating buffer...
+Loading 'screen' from data/chars/misc/screen.txt
+Loading 'alex0001' from data/chars/alex/effects/alex0001.txt
+WARNING: data/chars/alex/alex.txt tries to load a nonnumeric value at jumpframe, where a number is expected!
+erroneus string: jumpm
+WARNING: data/chars/alex/alex.txt tries to load a nonnumeric value at jumpframe, where a number is expected!
+erroneus string: jumpm
+Loading 'Alex' from data/chars/alex/alex.txt
+Loading 'al_chick' from data/chars/alex/al_chick.txt
+Loading 'al_bdrag' from data/chars/alex/al_bdrag.txt
+Loading 'al_rdrag' from data/chars/alex/al_rdrag.txt
+Loading 'ax0001' from data/chars/ax/effects/ax0001.txt
+Loading 'a_chick' from data/chars/ax/a_chick.txt
+Loading 'a_rdrag' from data/chars/ax/a_rdrag.txt
+Loading 'a_bdrag' from data/chars/ax/a_bdrag.txt
+Loading 'ax' from data/chars/ax/ax.txt
+Loading 'tyri0001' from data/chars/tyris/effects/tyri0001.txt
+Loading 'tyri0002' from data/chars/tyris/effects/tyri0002.txt
+Loading 't_chick' from data/chars/tyris/t_chick.txt
+Loading 't_bdrag' from data/chars/tyris/t_bdrag.txt
+Loading 't_rdrag' from data/chars/tyris/t_rdrag.txt
+Loading 'Tyris_Flare' from data/chars/Tyris/Tyris.txt
+Loading 'bbro0001' from data/chars/bad_bros/effects/bbro0001.txt
+Loading 'Bad_Brother' from data/chars/bad_bros/bad_bro.txt
+Loading 'lonchick' from data/chars/longmoan/lonchick.txt
+Loading 'lonrdrag' from data/chars/longmoan/lonrdrag.txt
+Loading 'lonbdrag' from data/chars/longmoan/lonbdrag.txt
+Loading 'longmoan' from data/chars/longmoan/longmoan.txt
+Loading 'Chickenlegs' from data/chars/chicken/chicken.txt
+Loading 'Red_Dragon' from data/chars/dragon/rdragon.txt
+Loading 'Blue_Dragon' from data/chars/dragon/bdragon.txt
+Loading 'Male_Villager' from data/chars/villager/male/male.txt
+
+Loading models...............	Done!
+Object engine init...........	Done!
+Input init...................	No Joystick(s) Found!
+Done!
+Create blending tables.......	Done!
+Save settings so far........	Done!
+
+
+Level Loading:   'data/levels/wilderne/wilderne.txt'
+Total Ram: 2147483647 Bytes
+ Free Ram: 2147483647 Bytes
+ Used Ram: 42360832 Bytes
+
+invalid loadingbg type -80!
+Loading 'Male_Villager2' from data/chars/villager/male/male2.txt
+Loading 'henchick' from data/chars/heninger/henchick.txt
+Loading 'Magic_Pot' from data/chars/misc/magpot.txt
+Loading 'text1' from data/chars/alex/text1.txt
+Loading 'text2' from data/chars/alex/text2.txt
+*Debug* reallocating buffer...
+Loading 'text3' from data/chars/alex/text3.txt
+Loading 'Alex_' from data/chars/alex/alex_.txt
+Loading 'Heninger' from data/chars/heninger/heninger.txt
+Loading 'escthief' from data/chars/thief/escthief.txt
+Loading 'Thief' from data/chars/thief/thief.txt
+Loading 'palette_changer' from data/chars/misc/palchg.txt
+Loading 'amachick' from data/chars/amazon/amachick.txt
+Loading 'amardrag' from data/chars/amazon/amardrag.txt
+Loading 'amabdrag' from data/chars/amazon/amabdrag.txt
+Loading 'amaz0001' from data/chars/amazon/effects/amaz0001.txt
+Loading 'amaz0002' from data/chars/amazon/effects/amaz0002.txt
+Loading 'Amazon' from data/chars/amazon/amazon.txt
+Loading 'Kid_Villager' from data/chars/villager/kid/kid.txt
+
+Level Loaded:    'data/levels/wilderne/wilderne.txt'
+Total Ram: 2147483647 Bytes
+ Free Ram: 2147483647 Bytes
+ Used Ram: 46387200 Bytes
+Total sprites mapped: 2377
+
+
+************ Shutting Down ************
+
+OpenBOR v3.0 Build 3824, Compile Date: Feb 16 2013
+Presented by Senile Team.
+This Version is unofficial and based on the Senile source code.
+
+Special thanks to SEGA and SNK.
+
+Total Ram: 2147483647 Bytes
+ Free Ram: 2147483647 Bytes
+ Used Ram: 49987584 Bytes
+
+Release level data...........Level Unloading: 'data/levels/wilderne/wilderne.txt'
+Total Ram: 2147483647 Bytes
+ Free Ram: 2147483647 Bytes
+ Used Ram: 49463296 Bytes
+
+Done.
+Total Ram: 2147483647 Bytes
+ Free Ram: 2147483647 Bytes
+ Used Ram: 49463296 Bytes
+
+	Done!
+Release graphics data........	Done!
+Release game data............
+
+Unload 'pselect' ............done.
+Unload 'bflash' ............done.
+Unload 'bitem' ............done.
+Unload 'bluh' ............done.
+Unload 'blul' ............done.
+Unload 'blumcut' ............done.
+Unload 'bonem' ............done.
+Unload 'cuth' ............done.
+Unload 'Flash' ............done.
+Unload 'hith' ............done.
+Unload 'hithcut' ............done.
+Unload 'hitm' ............done.
+Unload 'idirm' ............done.
+Unload 'fallh' ............done.
+Unload 'fallm' ............done.
+Unload 'fallmm' ............done.
+Unload 'impm' ............done.
+Unload 'jumpm' ............done.
+Unload 'jumpmw' ............done.
+Unload 'landh' ............done.
+Unload 'landm' ............done.
+Unload 'landmw' ............done.
+Unload 'skel' ............done.
+Unload 'stabh' ............done.
+Unload 'wallm' ............done.
+Unload 'whifgm' ............done.
+Unload 'effe0001' ............done.
+Unload 'effe0002' ............done.
+Unload 'Knife2' ............done.
+Unload 'Magic' ............done.
+Unload 'smoke' ............done.
+Unload 'Steam' ............done.
+Unload 'fireexpl' ............done.
+Unload 'chasball' ............done.
+Unload 'fireball' ............done.
+Unload 'dummy' ............done.
+Unload 'screen' ............done.
+Unload 'Alex' ............done.
+Unload 'alex0001' ............done.
+Unload 'al_chick' ............done.
+Unload 'al_bdrag' ............done.
+Unload 'al_rdrag' ............done.
+Unload 'ax' ............done.
+Unload 'ax0001' ............done.
+Unload 'a_chick' ............done.
+Unload 'a_rdrag' ............done.
+Unload 'a_bdrag' ............done.
+Unload 'tyri0001' ............done.
+Unload 'tyri0002' ............done.
+Unload 'Tyris_Flare' ............done.
+Unload 't_chick' ............done.
+Unload 't_bdrag' ............done.
+Unload 't_rdrag' ............done.
+Unload 'Bad_Brother' ............done.
+Unload 'bbro0001' ............done.
+Unload 'lonchick' ............done.
+Unload 'lonrdrag' ............done.
+Unload 'lonbdrag' ............done.
+Unload 'longmoan' ............done.
+Unload 'Chickenlegs' ............done.
+Unload 'Red_Dragon' ............done.
+Unload 'Blue_Dragon' ............done.
+Unload 'Male_Villager' ............done.
+Unload 'Male_Villager2' ............done.
+Unload 'henchick' ............done.
+Unload 'Magic_Pot' ............done.
+Unload 'Alex_' ............done.
+Unload 'text1' ............done.
+Unload 'text2' ............done.
+Unload 'text3' ............done.
+Unload 'Heninger' ............done.
+Unload 'Thief' ............done.
+Unload 'escthief' ............done.
+Unload 'palette_changer' ............done.
+Unload 'Amazon' ............done.
+Unload 'amachick' ............done.
+Unload 'amardrag' ............done.
+Unload 'amabdrag' ............done.
+Unload 'amaz0001' ............done.
+Unload 'amaz0002' ............done.
+Unload 'Kid_Villager' ............done.
+
+Warning: 5 script variants are not freed, dumping...
+openbor_loadsprite
+openbor_loadsprite
+openbor_loadsprite
+openbor_loadsprite
+openbor_loadsprite
+
+Release game data............	Done!
+Release timer................	Done!
+Release input hardware.......	Done!
+Release sound system.........	Done!
+Release FileCaching System...	Done!
+
+**************** Done *****************
+
+OpenBOR v3.0 Build 3824, Compile Date: Feb 16 2013
+Presented by Senile Team.
+This Version is unofficial and based on the Senile source code.
+
+Special thanks to SEGA and SNK.
+

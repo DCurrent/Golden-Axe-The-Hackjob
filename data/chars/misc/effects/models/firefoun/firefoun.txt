@@ -1,0 +1,69 @@
+#Tyris Flare's level2 magic, fire fountain
+name firefountain
+type item
+antigravity 100
+shadow 0
+lifespan 2
+candamage enemy
+
+alpha 1
+
+anim spawn
+    
+    delay 4
+    offset 51 132
+    hitflash Steam
+    sound   data/sounds/burn.wav
+    drawmethod 32 32 0 0 0 -1
+    frame data/chars/misc/effects/fire0027/0001
+    drawmethod 64 64 0 0 0 -1
+    frame data/chars/misc/effects/fire0027/0002
+    burn -200 -200 400 400 16 1 1 0
+    attackz 200
+    drawmethod 96 96 0 0 0 -1
+    frame data/chars/misc/effects/fire0027/0003
+    drawmethod 128 128 0 0 0 -1
+    frame data/chars/misc/effects/fire0027/0004
+    drawmethod 160 160 0 0 0 -1
+    frame data/chars/misc/effects/fire0027/0005
+    drawmethod 192 192 0 0 0 -1
+    frame data/chars/misc/effects/fire0027/0006
+
+anim respawn
+    
+    delay 4
+    offset 51 132
+    hitflash Steam
+    #sound   data/sounds/burn.wav
+    drawmethod 32 32 0 0 0 -1
+    frame data/chars/misc/effects/fire0027/0001
+    drawmethod 64 64 0 0 0 -1
+    frame data/chars/misc/effects/fire0027/0002
+    burn 0 0 102 150 16 1 1 0
+    attackz 200
+    drawmethod 96 96 0 0 0 -1
+    frame data/chars/misc/effects/fire0027/0003
+    drawmethod 128 128 0 0 0 -1
+    frame data/chars/misc/effects/fire0027/0004
+    drawmethod 160 160 0 0 0 -1
+    frame data/chars/misc/effects/fire0027/0005
+    drawmethod 192 192 0 0 0 -1
+    frame data/chars/misc/effects/fire0027/0006
+
+anim idle
+    loop 1
+    delay 5
+    offset 51 132
+    hitflash Steam
+    burn 0 0 102 160 16 1 1 0
+    attackz 30
+    frame data/chars/misc/effects/fire0027/0007
+    frame data/chars/misc/effects/fire0027/0008
+    frame data/chars/misc/effects/fire0027/0009
+    frame data/chars/misc/effects/fire0027/0001
+    frame data/chars/misc/effects/fire0027/0002
+    frame data/chars/misc/effects/fire0027/0003
+    frame data/chars/misc/effects/fire0027/0004
+    frame data/chars/misc/effects/fire0027/0005
+    frame data/chars/misc/effects/fire0027/0006
+

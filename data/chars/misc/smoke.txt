@@ -1,0 +1,18 @@
+#smoke is, well, smoke.
+name smoke
+type none
+shadow 0
+
+alpha 6
+
+anim spawn
+    
+    offset 32 32
+    delay 10
+    movea 4
+    frame data/chars/misc/smoke/1
+    frame data/chars/misc/smoke/2
+    frame data/chars/misc/smoke/3
+    @cmd killentity getlocalvar("self")
+    frame data/chars/misc/empty
+

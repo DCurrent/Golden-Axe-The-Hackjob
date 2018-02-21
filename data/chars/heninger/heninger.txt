@@ -1,0 +1,838 @@
+
+name		Heninger
+type		enemy
+health		32
+speed		6
+jumpheight 	4
+jumpmove	0 1
+running 	14 5 1 0 0	
+grabdistance 	24
+aggression 	-10
+throwdamage 	0
+throw   	3 3
+gfxshadow 	1
+shadow		2
+nolife  	1
+falldie 	2
+nodieblink 	3
+noquake 	1
+paingrab 	1
+#diesound 	data/sounds/hen_die.wav
+noatflash 	0
+projectilehit 			enemy obstacle
+hostile				player npc
+candamage			player npc obstacle
+score 		2 -1
+dust		fallm landm jumpm
+
+animationscript 	data/scripts/z_ani.c
+didblockscript		data/scripts/z_block.c				#Block incoming attack.
+didhitscript 		data/scripts/z_hit.c				#Hit another entity.
+keyscript			data/scripts/z_key.c				#Controlling player press/release key.
+onblockascript		data/scripts/z_blocka.c				#Movement (rise/fall) blocked by platform.
+onblockoscript		data/scripts/z_blocko.c				#Movement blocked by obstacle.
+onblocksscript		data/scripts/z_blocks.c				#Movement blocked by screen boundary.
+onblockwscript		data/scripts/z_blockw.c				#Movement blocked by wall.				
+onblockzscript		data/scripts/z_blockz.c				#Movement blocked by Z boundary.				
+ondeathscript		data/scripts/z_death.c				#Killed by damage.
+onfallscript		data/scripts/z_fall.c				#Fall status set.
+onkillscript		data/scripts/z_kill.c				#Removed from playfield.
+onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.
+onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
+onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
+onpainscript		data/scripts/z_pain.c				#Pain status set.
+onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
+script			data/scripts/z_script.c				#Entity updated.
+takedamagescript	data/scripts/z_damage.c				#Damaged.
+thinkscript		data/scripts/z_think.c				#Entity AI updates.
+
+escapehits 	8
+
+weapons 	henchick henrdrag henbdrag
+
+aimove 		chase
+
+atchain 	1 2 3 0 0
+
+modelflag 	1
+
+palette 	data/chars/heninger/map.gif       # white
+
+alternatepal 	data/chars/heninger/map1.gif # red
+alternatepal 	data/chars/heninger/map2.gif # purple
+alternatepal 	data/chars/heninger/map3.gif # grayblue
+alternatepal 	data/chars/heninger/map4.gif # golden
+alternatepal 	data/chars/heninger/map5.gif # dark
+
+anim follow100
+	
+	offset	0 0
+	frame	data/chars/heninger/ico0001	#AI icon.
+	frame	data/chars/heninger/ico0002	#AI icon (pain).
+
+anim idle
+	loop	1
+	offset	60 98
+	bbox	49 47 24 53
+	delay	25
+	frame	data/chars/heninger/idle1.gif
+	frame	data/chars/heninger/idle2.gif
+
+anim sleep
+
+	loop	1
+	offset	60 98
+	delay	25
+	frame	data/chars/heninger/idle1.gif
+	frame	data/chars/heninger/idle2.gif
+
+anim get
+	loop	0
+	offset	60 98
+	bbox	49 47 24 53
+	delay	1
+	frame	data/chars/heninger/idle1.gif
+
+anim spawn
+	loop	0
+	offset	60 98
+
+	bbox	49 47 24 53
+	delay	25
+	frame	data/chars/heninger/idle1.gif
+	frame	data/chars/heninger/idle2.gif
+
+anim respawn
+
+	loop	0
+	offset	60 98
+	delay	5
+	frame   data/chars/misc/empty.gif
+	frame	data/chars/heninger/idle1.gif
+	frame   data/chars/misc/empty.gif
+	frame	data/chars/heninger/idle1.gif
+	frame   data/chars/misc/empty.gif
+	frame	data/chars/heninger/idle1.gif
+	frame   data/chars/misc/empty.gif
+	frame	data/chars/heninger/idle1.gif
+	frame   data/chars/misc/empty.gif
+	frame	data/chars/heninger/idle1.gif
+	frame   data/chars/misc/empty.gif
+	frame	data/chars/heninger/idle1.gif
+	frame   data/chars/misc/empty.gif
+	frame	data/chars/heninger/idle1.gif
+	frame   data/chars/misc/empty.gif
+	frame	data/chars/heninger/idle1.gif
+	frame   data/chars/misc/empty.gif
+	frame	data/chars/heninger/idle1.gif
+
+anim jumpdelay	
+
+	delay	10
+	offset	60 98
+	bbox	51 40 26 56
+		frame	data/chars/heninger/idle1
+		frame	data/chars/heninger/p3
+
+anim jumpland	
+
+	delay	5
+	offset	60 98
+	bbox	51 40 26 56
+		frame	data/chars/heninger/idle1
+	delay	10
+		frame	data/chars/heninger/p3
+		frame	data/chars/heninger/idle1	
+
+anim jump
+    	
+	range   	20 80
+	dropframe 	1	
+
+	delay	-1000
+	offset	60 98
+	bbox	51 40 26 56
+		frame	data/chars/heninger/j1.gif
+		frame	data/chars/heninger/j2.gif
+
+anim runjump
+    	
+	range   	20 100
+	dropframe 	1	
+
+	delay	-1000
+	offset	60 98
+	bbox	51 40 26 56
+		frame	data/chars/heninger/j1.gif
+		frame	data/chars/heninger/j2.gif
+
+
+#quick jump attack
+
+anim freespecial
+    jumpframe 2 2 0
+    landframe 17
+    range   0 40
+	loop	0
+	offset	60 98
+	bbox	46 39 28 50
+	delay	12
+	frame	data/chars/heninger/j1.gif
+	delay	2
+	frame	data/chars/heninger/ja2.gif
+	frame	data/chars/heninger/j2.gif
+	frame	data/chars/heninger/ja2.gif
+	frame	data/chars/heninger/j2.gif
+	frame	data/chars/heninger/ja2.gif
+	frame	data/chars/heninger/j2.gif
+	frame	data/chars/heninger/ja2.gif
+	frame	data/chars/heninger/j2.gif
+    
+	attack1	80 53 18 48 12 1
+	frame	data/chars/heninger/ja4.gif
+	frame	data/chars/heninger/ja3.gif
+	frame	data/chars/heninger/ja4.gif
+	frame	data/chars/heninger/ja3.gif
+	frame	data/chars/heninger/ja4.gif
+	frame	data/chars/heninger/ja3.gif
+	frame	data/chars/heninger/ja4.gif
+	frame	data/chars/heninger/ja3.gif
+	delay	12
+	frame	data/chars/heninger/idle1.gif
+
+
+anim walk
+@script
+void self = getlocalvar("self");
+if(getentityproperty(self, "invincible")==1)
+{
+    scre0001(self);
+}
+else
+{
+    ai0002();
+}
+@end_script
+	loop	1
+	offset	60 98
+	bbox	49 47 24 53
+	delay	10
+	frame	data/chars/heninger/wd1.gif
+	frame	data/chars/heninger/wd2.gif
+	frame	data/chars/heninger/wd3.gif
+	frame	data/chars/heninger/wd4.gif
+	frame	data/chars/heninger/wd5.gif
+	frame	data/chars/heninger/wd6.gif
+
+anim up
+@script
+ai0002();
+@end_script
+	loop	1
+	offset	60 98
+	bbox	49 47 24 53
+	delay	10
+	frame	data/chars/heninger/wu1.gif
+	frame	data/chars/heninger/wu2.gif
+	frame	data/chars/heninger/wu3.gif
+	frame	data/chars/heninger/wu4.gif
+	frame	data/chars/heninger/wu5.gif
+	frame	data/chars/heninger/wu6.gif
+
+anim grabbed
+	loop	0
+	offset	60 98
+    delay   24
+	bbox	41 41 34 59
+	frame	data/chars/heninger/p3.gif
+
+
+anim pain
+	loop	0
+	offset	60 98
+	bbox	41 41 34 59
+	delay	18
+	frame	data/chars/heninger/p1.gif
+	delay	100
+	bbox	49 54 28 45
+	frame	data/chars/heninger/p2.gif
+
+anim pain2
+	loop	0
+	delay	10
+	offset	60 98
+	bbox	42 60 30 38
+	frame	data/chars/heninger/p4.gif
+	delay	100
+	frame	data/chars/heninger/p3.gif
+# grabbed over shouder
+
+anim pain3
+    
+    #offset 60 98
+    bbox 0 0 0 0
+    delay 20
+    #move  23
+    offset 37 98
+    seta  14
+	frame	data/chars/heninger/thrown1.gif
+    #move  0
+    seta  20
+    delay 30
+	frame	data/chars/heninger/thrown2.gif
+	delay 10
+    seta  30
+    #move   -10
+    offset 47 98
+	frame	data/chars/heninger/thrown3.gif
+    delay  1
+    offset 60 98
+    move 13
+	frame	data/chars/heninger/thrown3.gif
+
+anim pain4
+	loop	0
+	offset	60 98
+	bbox	41 41 34 59
+	delay	12
+	frame	data/chars/heninger/p1.gif
+	bbox	49 54 28 45
+	frame	data/chars/heninger/p2.gif
+	delay	100
+	bbox	42 60 30 38
+	frame	data/chars/heninger/p3.gif
+
+anim spain
+  	loop	0
+	offset	60 98
+	bbox	41 41 34 59
+	delay	7
+	frame	data/chars/heninger/sp1.gif
+	frame	data/chars/heninger/p1.gif
+	frame	data/chars/heninger/sp1.gif
+	frame	data/chars/heninger/p1.gif
+	frame	data/chars/heninger/sp1.gif
+	frame	data/chars/heninger/p1.gif
+	frame	data/chars/heninger/sp1.gif
+	frame	data/chars/heninger/p1.gif
+	frame	data/chars/heninger/sp1.gif
+	frame	data/chars/heninger/p1.gif
+	frame	data/chars/heninger/sp1.gif
+	frame	data/chars/heninger/p1.gif
+	frame	data/chars/heninger/sp1.gif
+	delay	30
+	bbox	49 54 28 45
+	frame	data/chars/heninger/p2.gif
+
+anim bpain
+  	loop	0
+	offset	60 98
+	bbox	41 41 34 59
+	delay	10
+	frame	data/chars/heninger/bp1.gif
+	frame	data/chars/heninger/p1.gif
+	frame	data/chars/heninger/bp1.gif
+	frame	data/chars/heninger/p1.gif
+	frame	data/chars/heninger/bp1.gif
+	frame	data/chars/heninger/p1.gif
+	delay	30
+	bbox	49 54 28 45
+	frame	data/chars/heninger/p2.gif
+
+anim fall
+    landframe 3
+	loop	0
+	dropframe  1
+	delay	10
+	offset	60 98
+		bbox  42  48  27  41
+		attack1  41  48  28  41
+	frame	data/chars/heninger/p1.gif
+	delay	20
+    attack1  39 61 41 29 4 1 1 1
+    dropv 1.5 1.2
+    forcedirection 1
+		bbox  39  63  41  27
+	frame	data/chars/heninger/f2.gif
+	delay	-1000
+		bbox  37  70  37  15
+		attack1  34  67  42  20  4  1  1  1
+	frame	data/chars/heninger/f3.gif
+    attack1  0 0 0 0 0
+    #fshadow 0
+		bbox  33  87  66  13
+	frame	data/chars/heninger/die1.gif
+#drop immediately
+
+anim fall2
+	loop	0
+	offset	60 98
+	delay	20
+	frame	data/chars/heninger/p3.gif
+    delay   100
+    #fshadow 0
+	frame	data/chars/heninger/die.gif
+#thrown forward
+
+anim fall5
+	loop	0
+	dropframe  1
+	landframe  3
+		delay  -1000
+		offset  90  149
+		attack1  75  109  23  40  4  1  1  1
+		dropv  1.5  1.2
+		bbox  76  109  21  39
+	frame  data/chars/heninger/G_VERDN.png
+	offset	60 98
+    forcedirection -1
+		bbox  43  63  33  37
+		attack1  43  63  33  38  4  1  1  1
+		delay  20
+	frame	data/chars/heninger/thrown4.gif
+		delay  -1000
+		offset  81  159
+		bbox  64  135  45  24
+		attack1  63  134  46  25  4  1  1  1
+	frame  data/chars/heninger/G_FALUP.png
+    attack1  0 0 0 0 0
+	delay	10
+    #fshadow 0
+		offset  52  99
+		bbox  30  86  57  14
+	frame	data/chars/heninger/die1.gif
+
+anim shock
+    loop	0
+	delay	8
+	offset	60 98
+    #bbox    60 98 1 1
+	frame	data/chars/heninger/sp1.gif
+	frame	data/chars/heninger/p1.gif
+	frame	data/chars/heninger/sp1.gif
+	frame	data/chars/heninger/p1.gif
+    attack1  49 67 20 20 4 1 0 1
+	frame	data/chars/heninger/sf2.gif
+	frame	data/chars/heninger/f2.gif
+	frame	data/chars/heninger/sf3.gif
+	frame	data/chars/heninger/f3.gif
+    attack1  0 0 0 0 0
+	delay	20
+	frame	data/chars/heninger/die1.gif
+
+anim burn
+    loop	0
+	delay	8
+	offset	60 98
+    #bbox    60 98 1 1
+	frame	data/chars/heninger/bp1.gif
+	frame	data/chars/heninger/p1.gif
+	frame	data/chars/heninger/bp1.gif
+	frame	data/chars/heninger/p1.gif
+    attack1  49 67 20 20 4 1 0 1
+	frame	data/chars/heninger/bf2.gif
+	frame	data/chars/heninger/f2.gif
+	frame	data/chars/heninger/bf3.gif
+	frame	data/chars/heninger/f3.gif
+    attack1  0 0 0 0 0
+	delay	20
+	frame	data/chars/heninger/die1.gif
+
+anim rise
+	loop	0
+	offset	60 98
+    bbox    0 0 0 0
+	delay	10
+    #bbox    60 98 1 1
+	frame	data/chars/heninger/rise1.gif
+	frame	data/chars/heninger/rise2.gif
+	frame	data/chars/heninger/rise3.gif
+	frame	data/chars/heninger/p4.gif
+# basic combo
+
+anim attack1
+	range	24 40
+	loop	0
+	delay	3
+	offset	60 98
+	bbox	49 37 28 62
+    frame   data/chars/heninger/a1.gif
+    frame   data/chars/heninger/a1t.gif
+    frame   data/chars/heninger/a1.gif
+    frame   data/chars/heninger/a1t.gif
+    frame   data/chars/heninger/a2.gif
+    frame   data/chars/heninger/a2t.gif
+    frame   data/chars/heninger/a2.gif
+    frame   data/chars/heninger/a2t.gif
+    
+    attack1  55 53 43 31 4
+    frame   data/chars/heninger/a3.gif
+    frame   data/chars/heninger/a3t.gif
+    frame   data/chars/heninger/a3.gif
+    frame   data/chars/heninger/a3t.gif
+    attack1  0 0 0 0 0
+    frame   data/chars/heninger/a4.gif
+    frame   data/chars/heninger/a4t.gif
+	delay	2
+    frame   data/chars/heninger/a4.gif
+    frame   data/chars/heninger/a4t.gif
+    frame   data/chars/heninger/a5.gif
+    frame   data/chars/heninger/a5t.gif
+    frame   data/chars/heninger/a5.gif
+    frame   data/chars/heninger/a5t.gif
+    frame   data/chars/heninger/a6.gif
+    frame   data/chars/heninger/a6t.gif
+    frame   data/chars/heninger/a6.gif
+    frame   data/chars/heninger/a6t.gif
+
+
+anim attack2
+	range	24 40
+	loop	0
+	delay	12
+	offset	60 98
+	bbox	49 37 28 62
+    frame   data/chars/heninger/a6.gif
+	delay	2
+    
+    attack1  50 45 33 24 4
+    frame   data/chars/heninger/a7.gif
+    frame   data/chars/heninger/a7t.gif
+    frame   data/chars/heninger/a7.gif
+    frame   data/chars/heninger/a7t.gif
+    attack1  70 56 28 30 4
+    frame   data/chars/heninger/a8.gif
+    frame   data/chars/heninger/a8t.gif
+    frame   data/chars/heninger/a8.gif
+    frame   data/chars/heninger/a8t.gif
+    attack1  0 0 0 0 0
+    frame   data/chars/heninger/a9.gif
+    frame   data/chars/heninger/a10.gif
+    frame   data/chars/heninger/a10t.gif
+    frame   data/chars/heninger/a10.gif
+    frame   data/chars/heninger/a10t.gif
+
+anim attack3
+	range	24 40
+	loop	0
+	delay	3
+	offset	60 98
+	bbox	49 37 28 62
+    frame   data/chars/heninger/a10.gif
+    
+    attack1  69 54 32 19 8 1
+	delay	2
+    frame   data/chars/heninger/a11.gif
+    frame   data/chars/heninger/a11t.gif
+    frame   data/chars/heninger/a11.gif
+    frame   data/chars/heninger/a11t.gif
+    attack1  53 58 38 17 8 1
+    frame   data/chars/heninger/a12.gif
+    frame   data/chars/heninger/a12t.gif
+    frame   data/chars/heninger/a12.gif
+    frame   data/chars/heninger/a12t.gif
+    attack1  0 0 0 0 0
+    frame   data/chars/heninger/a13.gif
+    frame   data/chars/heninger/a13t.gif
+    frame   data/chars/heninger/a13.gif
+    frame   data/chars/heninger/a13t.gif
+	delay	3
+    frame   data/chars/heninger/a14.gif
+    frame   data/chars/heninger/a14t.gif
+    frame   data/chars/heninger/a14.gif
+    frame   data/chars/heninger/a14t.gif
+    frame   data/chars/heninger/a14.gif
+# copy from attack3
+
+anim special
+	range	24 50
+	loop	0
+	delay	3
+	offset	60 98
+    #bbox    60 98 1 1
+    frame   data/chars/heninger/a10.gif
+	bbox	49 37 28 62
+    
+    attack1  69 54 32 19 8 1
+	delay	2
+    frame   data/chars/heninger/a11.gif
+    frame   data/chars/heninger/a11t.gif
+    frame   data/chars/heninger/a11.gif
+    frame   data/chars/heninger/a11t.gif
+    attack1  53 58 38 17 8 1
+    frame   data/chars/heninger/a12.gif
+    frame   data/chars/heninger/a12t.gif
+    frame   data/chars/heninger/a12.gif
+    frame   data/chars/heninger/a12t.gif
+    attack1  0 0 0 0 0
+    frame   data/chars/heninger/a13.gif
+    frame   data/chars/heninger/a13t.gif
+    frame   data/chars/heninger/a13.gif
+    frame   data/chars/heninger/a13t.gif
+	delay	3
+    frame   data/chars/heninger/a14.gif
+    frame   data/chars/heninger/a14t.gif
+    frame   data/chars/heninger/a14.gif
+    frame   data/chars/heninger/a14t.gif
+    frame   data/chars/heninger/a14.gif
+# copy from attack3
+
+anim special2
+	range	24 50
+	loop	0
+	delay	3
+	offset	60 98
+    #bbox    60 98 1 1
+    frame   data/chars/heninger/a10.gif
+	bbox	49 37 28 62
+    
+    attack1  69 54 32 19 8 1
+	delay	2
+    frame   data/chars/heninger/a11.gif
+    frame   data/chars/heninger/a11t.gif
+    frame   data/chars/heninger/a11.gif
+    frame   data/chars/heninger/a11t.gif
+    attack1  53 58 38 17 8 1
+    frame   data/chars/heninger/a12.gif
+    frame   data/chars/heninger/a12t.gif
+    frame   data/chars/heninger/a12.gif
+    frame   data/chars/heninger/a12t.gif
+    attack1  0 0 0 0 0
+    frame   data/chars/heninger/a13.gif
+    frame   data/chars/heninger/a13t.gif
+    frame   data/chars/heninger/a13.gif
+    frame   data/chars/heninger/a13t.gif
+	delay	3
+    frame   data/chars/heninger/a14.gif
+    frame   data/chars/heninger/a14t.gif
+    frame   data/chars/heninger/a14.gif
+    frame   data/chars/heninger/a14t.gif
+    frame   data/chars/heninger/a14.gif
+	bbox	49 54 28 45
+    delay   10
+    frame   data/chars/heninger/p2.gif
+#copy from attack3
+
+anim riseattack
+    landframe 21
+	range	0 50
+	loop	0
+	offset	60 98
+    delay   10
+    #bbox    60 98 1 1
+    frame   data/chars/heninger/rise1.gif
+    frame   data/chars/heninger/rise2.gif
+    frame   data/chars/heninger/rise3.gif
+	delay	3
+	bbox	49 37 28 62
+    frame   data/chars/heninger/a10.gif
+    
+    attack1  69 54 32 19 8 1
+	delay	2
+    frame   data/chars/heninger/a11.gif
+    frame   data/chars/heninger/a11t.gif
+    frame   data/chars/heninger/a11.gif
+    frame   data/chars/heninger/a11t.gif
+    attack1  53 58 38 17 8 1
+    frame   data/chars/heninger/a12.gif
+    frame   data/chars/heninger/a12t.gif
+    frame   data/chars/heninger/a12.gif
+    frame   data/chars/heninger/a12t.gif
+    attack1  0 0 0 0 0
+    frame   data/chars/heninger/a13.gif
+    frame   data/chars/heninger/a13t.gif
+    frame   data/chars/heninger/a13.gif
+    frame   data/chars/heninger/a13t.gif
+	delay	3
+    frame   data/chars/heninger/a14.gif
+    frame   data/chars/heninger/a14t.gif
+    frame   data/chars/heninger/a14.gif
+    frame   data/chars/heninger/a14t.gif
+    frame   data/chars/heninger/a14.gif
+	bbox	49 54 28 45
+    delay   10
+    frame   data/chars/heninger/p2.gif
+
+anim run
+	loop	1
+	offset	60 98
+	bbox	51 43 24 55
+	delay	7
+    frame   data/chars/heninger/r1.gif
+    frame   data/chars/heninger/r2.gif
+    frame   data/chars/heninger/r3.gif
+    frame   data/chars/heninger/r4.gif
+    frame   data/chars/heninger/r5.gif
+    frame   data/chars/heninger/r6.gif
+
+
+anim runattack
+    jumpframe 0 2 2
+    followanim 1
+    followcond 1
+	range	70 100
+	loop	0
+	delay	7
+	offset	60 98
+	bbox	49 49 17 50
+    
+    attack1  58 67 24 17 8 1 0 1
+    frame   data/chars/heninger/ra.gif
+# deflect
+
+
+anim follow1
+    jumpframe 0 1 0
+	loop	0
+	offset	60 98
+	bbox	49 47 24 53
+	delay	1
+    attack1  58 67 24 17 8 1 0 1
+	frame	data/chars/heninger/ra.gif
+    attack1  0
+	delay	8
+	frame	data/chars/heninger/ra.gif
+	frame	data/chars/heninger/idle2.gif
+
+
+anim death2
+	loop	0
+	offset	60 98
+	delay	10
+	frame	data/chars/heninger/p3.gif
+	frame	data/chars/heninger/rise2.gif
+	delay	5
+    #fshadow 0
+	frame	data/chars/heninger/die1.gif
+	frame	data/chars/heninger/die2.gif
+	frame	data/chars/heninger/die1.gif
+	frame	data/chars/heninger/die2.gif
+	frame	data/chars/heninger/die1.gif
+	frame	data/chars/heninger/die2.gif
+	frame	data/chars/heninger/die1.gif
+	frame	data/chars/heninger/die2.gif
+
+
+anim death
+    
+	offset	60 98
+    delay 5
+    #fshadow 0
+	frame	data/chars/heninger/die1.gif
+	frame	data/chars/heninger/die2.gif
+	frame	data/chars/heninger/die1.gif
+	frame	data/chars/heninger/die2.gif
+	frame	data/chars/heninger/die1.gif
+	frame	data/chars/heninger/die2.gif
+	frame	data/chars/heninger/die1.gif
+	frame	data/chars/heninger/die2.gif
+
+anim follow51
+
+	#Defense poses
+
+	loop	1
+	delay	-1000
+	offset	100 0
+	bbox	79  130  31  40
+	attack1  79 129 31 41 4 1 1 1
+    forcedirection -1
+		frame	data/chars/heninger/G_HELD.png					#0	G_HELD: 	Grabbed.
+	bbox  75  114  31  56
+	attack1  75  113  31  57  4  1  1  1
+		frame	data/chars/heninger/G_HELDP.png					#1	G_HELDP:	Grabbed Pain.
+	bbox  64  147  57  20
+	attack1  62  147  59  19  4  1  1  1
+		frame	data/chars/heninger/G_HORUP.png					#2	G_HORUP:	Horizontal Up.
+	bbox  64  139  55  28
+	attack1  64  138  55  29  4  1  1  1
+		frame	data/chars/heninger/G_HORDN.png					#3	G_HORDN:	Horizontal Down.
+	bbox  78  94  25  56
+	attack1  77  93  26  57  4  1  1  1
+		frame	data/chars/heninger/G_VERUP.png					#4	G_VERUP:	Vertical Up.
+		frame	data/chars/heninger/G_VERDN.png					#5	G_VERDN:	Vertical Down.
+	bbox  67  115  45  33
+	attack1  68  114  45  34  4  1  1  1
+		frame	data/chars/heninger/G_TLTUP.png					#6	G_TLTUP:	Tilt Up.
+	bbox  77  104  21  39
+	attack1  76  103  23  41  4  1  1  1
+		frame	data/chars/heninger/G_TLTDN.png					#7	G_TLTDN:	Tilt Down.
+		frame	data/chars/heninger/G_VERDNP.png					#8	G_VERDNP:	Vertical Down pain.
+	bbox  62  154  60  12
+	attack1  61  154  61  12  4  1  1  1
+		frame	data/chars/heninger/G_DWNUP.png					#9	G_DWNUP:	Fall Up.
+	bbox  61  153  49  15
+	attack1  61  153  49  15  4  1  1  1
+		frame	data/chars/heninger/G_DWNUPP.png					#10	G_DWNUPP:	Fall Up Pain.
+	bbox  62  138  42  24
+	attack1  62  137  42  25  4  1  1  1
+		frame	data/chars/heninger/G_FALUP.png					#11	G_FALUP:	Falling face up
+		frame	data/chars/heninger/G_FALUPT.png					#12	G_FALUPT:	Falling face up tilted.
+	bbox  58  144  50  21
+	attack1  58  143  51  22  4  1  1  1
+		frame	data/chars/heninger/G_HORUPP.png					#13	G_HORUPP:	Horizontal Up Pain.
+	bbox  85  124  23  46
+	attack1  84  123  25  47  4  1  1  1
+		frame	data/chars/heninger/G_HELDMP.png					#14	G_HELDMP:	Middle pain.
+	offset	60 98
+	bbox	41 41 34 59
+	attack	41 41 34 59 4  1  1  1
+		frame	data/chars/heninger/p1.gif
+	bbox	49 54 28 45
+	attack	49 54 28 45 4  1  1  1
+		frame	data/chars/heninger/p2.gif
+	offset	100 0
+		frame	data/chars/heninger/G_EX3.png
+
+anim  fall6
+
+	#flat fall.
+	
+	landframe  1
+		delay  -1000
+		offset  81  159
+		bbox  64  135  45  24
+		attack1  63  134  46  25  4  1  1  1
+		attack1  63  134  46  26
+		dropv  1.5  1.2
+	frame  data/chars/heninger/G_FALUP.png
+		attack1  0  0  0  0  0
+		delay  10
+		offset  52  99
+		bbox  30  86  57  14
+		Attack1  0
+	frame  data/chars/heninger/die1.gif
+
+anim  fall7
+
+	#Drop on head.
+
+	hitflash  idirm
+	landframe  1
+	flipframe  2
+	bbox  78  103  16  48
+	delay  -1000
+	offset  84  150
+		attack10  78  103  16  48  4  1
+		dropv  1.5  1.2
+	frame  data/chars/heninger/G_VERDN.png
+		bbox  76  101  25  40
+		delay  15
+		offset  87  137
+		attack10  77  101  24  41  4  1
+		Attack1  0
+	frame  data/chars/heninger/G_VERDNP.png
+		offset  79  161
+		bbox  65  136  38  28
+		delay  12
+		Attack1  0
+	frame  data/chars/heninger/G_FALUP.png
+		attack10  0  0  0  0  0
+		delay  10
+		offset  82  165
+		bbox  63  153  53  14
+	frame  data/chars/heninger/G_DWNUP.png
+
+
+
+

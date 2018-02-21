@@ -1,0 +1,43 @@
+loadingbg data/bgs/loading2.gif -80 -240 480 0 -100
+# bonus stage 1
+type    1 0 0
+music		data/music/thief
+
+background	data/bgs/wilder/bonus_bg 0 0 0 0 0 0 1 1
+
+panel		data/bgs/wilder/bonus none none
+
+order	a
+
+settime 12
+notime  1
+
+load Chickenlegs
+load Magic_Pot
+
+# player1 spawn position
+spawn1  159 100
+spawn2  159 140
+
+
+levelscript data/levels/wilderne/steal.c
+
+
+wall    -422 112 0 0 512 498 44 400
+wall    -360 160 0 28 394 364 64 50
+
+light -256 244
+at 0
+
+#-------group1-----------
+spawn   cfire
+spawnscript data/levels/wilderne/sleep.c
+coords  286 145
+at      0
+
+spawn   Thief
+alias   BlueThief
+health  2
+coords  180 178
+at      0
+

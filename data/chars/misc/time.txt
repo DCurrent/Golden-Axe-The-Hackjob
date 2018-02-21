@@ -1,0 +1,23 @@
+name	Time
+health	0
+type	item
+subtype touch
+gfxshadow 1
+shadow	0
+noquake 1
+hostile enemy
+bounce 1
+
+
+animationscript data/chars/misc/timemine.c
+didhitscript data/chars/misc/timeget.c
+
+anim idle
+	bouncefactor  2
+	loop	1
+	delay	10
+	offset	9 16
+	itembox 5 7 8 8
+@cmd blowup
+	frame	data/chars/misc/time.gif
+

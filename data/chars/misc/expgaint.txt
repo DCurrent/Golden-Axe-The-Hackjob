@@ -1,0 +1,101 @@
+#gaint explosion
+
+name expgaint
+type pshot
+nomove 1
+lifespan 2
+remove 0
+death 1
+nodieblink 2
+candamage enemy
+shadow 0
+
+animationscript data/chars/misc/expgaint.c
+
+anim spawn
+@script
+void self = getlocalvar("self");
+int zoom = 256*(frame+3) / 12;
+setdrawmethod(self, 1, zoom, zoom);
+spawnrock();
+@end_script
+    quakeframe 1 4 1
+    
+    offset 96 135
+    blast 0 0 192 160 48 0 1
+    attackz 60
+    sound data/sounds/rock.wav
+    delay 10
+    frame data/chars/misc/expgaint/1
+    delay 5
+    frame data/chars/misc/expgaint/2
+    frame data/chars/misc/expgaint/3
+    delay 10
+    frame data/chars/misc/expgaint/4
+    delay 10
+    frame data/chars/misc/expgaint/1
+    delay 5
+    frame data/chars/misc/expgaint/2
+    frame data/chars/misc/expgaint/3
+    delay 10
+    frame data/chars/misc/expgaint/4
+    delay 10
+    frame data/chars/misc/expgaint/1
+    delay 5
+    frame data/chars/misc/expgaint/2
+    frame data/chars/misc/expgaint/3
+    delay 10
+    frame data/chars/misc/expgaint/4
+
+anim idle
+@script
+spawnrock();
+@end_script
+    quakeframe 1 4 1
+    loop 1
+    offset 96 135
+    blast 0 0 192 160 48 0 1
+    attackz 60
+    delay 10
+    drawmethod 288 288
+    frame data/chars/misc/expgaint/1
+    delay 5
+    frame data/chars/misc/expgaint/2
+    frame data/chars/misc/expgaint/3
+    delay 10
+    frame data/chars/misc/expgaint/4
+
+
+anim death
+@script
+void self = getlocalvar("self");
+if(frame==7) {killentity(self);return;}
+else
+{
+    int zoom = 256*(15-frame) / 12;
+    setdrawmethod(self, 1, zoom, zoom);
+}
+@end_script
+    quakeframe 1 4 1
+    
+    offset 96 135
+    blast 0 0 192 160 48 0 1
+    attackz 60
+    sound data/sounds/rock.wav
+    delay 10
+    frame data/chars/misc/expgaint/1
+    delay 5
+    frame data/chars/misc/expgaint/2
+    frame data/chars/misc/expgaint/3
+    delay 10
+    blast 0
+    frame data/chars/misc/expgaint/4
+    delay 10
+    frame data/chars/misc/expgaint/1
+    delay 5
+    frame data/chars/misc/expgaint/2
+    frame data/chars/misc/expgaint/3
+    delay 10
+    frame data/chars/misc/expgaint/4
+
+

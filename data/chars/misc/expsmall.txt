@@ -1,0 +1,74 @@
+name expsmall
+type item
+candamage enemy
+nomove 1
+
+globalmap 1
+
+anim idle
+@script
+void self = getlocalvar("self");
+if(getentityproperty(self, "base") < 0)
+{
+    killentity(self);
+}
+if(frame==2 || frame==5)
+{
+    int c = getglobalvar("smallexp_count");
+    int z1 = openborvariant("player_min_z");
+    int z2 = openborvariant("player_max_z");
+    int sx; int sz;
+    if(c!=NULL())
+    {
+        clearspawnentry();
+        setspawnentry("name", "expsmall");
+        do
+        {
+            sx = rand()%480;
+            sz = rand()%(z2-z1);
+            if(sx<0){ sx = -sx;}
+            if(sz<0){ sz = -sz;}
+        }while(checkhole(sx+openborvariant("xpos"),sz+z1)&&!checkwall(sx+openborvariant("xpos"),sz+z1));
+        setspawnentry("coords", sx, sz+z1, 0);
+        void e = spawn();
+        if(e!=NULL())
+        {
+            changeentityproperty(e, "owner", getentityproperty(self, "owner"));
+            c--;
+            if(c<=0)
+            {
+                setglobalvar("smallexp_count", NULL());
+            }
+            else
+            {
+                setglobalvar("smallexp_count", c);
+            }
+        }
+    }
+}
+else if(frame==6)
+{
+    killentity(self);
+}
+@end_script
+    
+    delay 8
+    offset 26 45
+    quakeframe 1 2 3
+    frame data/chars/misc/empty.gif
+    sound data/sounds/rumble.wav
+    frame data/chars/misc/expsmall/1.gif
+    
+    hitflash none
+    attack5 -50 -50 102 102 10 1 1 0 1
+    dropv  4 1 0
+    damageonlanding 6 1
+    attackz 52
+    frame data/chars/misc/expsmall/2.gif
+    frame data/chars/misc/expsmall/3.gif
+    frame data/chars/misc/expsmall/4.gif
+    attack5 0
+    
+    frame data/chars/misc/expsmall/5.gif
+    frame data/chars/misc/empty.gif
+

@@ -1,0 +1,63 @@
+# Alex in opening scene
+
+name	Alex_
+type	npc
+nomove 1 1
+nodrop 1
+falldie 1
+gfxshadow 1
+nodieblink 3
+aimove  nomove
+aiattack noattack
+shadow	2
+
+load text1
+load text2
+load text3
+
+
+animationscript data/chars/alex/scripts/alex.c
+
+anim idle
+	loop	1
+	delay	11
+	offset	48 74
+    bbox    32 0 32 96
+@cmd spawndummy
+	frame	Data\CHARS\alex\1
+@cmd checksuicide
+	offset 53 74
+	move 5
+	frame	Data\CHARS\alex\2
+	offset 58 74
+	move 5
+	frame	Data\CHARS\alex\3
+	offset 68 74
+	move 10
+	frame	Data\CHARS\alex\4
+	offset 37 74
+    move    27 #38
+	frame	Data\CHARS\alex\5
+
+anim pain
+	loop	0
+	delay	8
+	offset	48 74
+    bbox    0 0 96 96
+	frame	Data\CHARS\alex\6
+	frame	Data\CHARS\alex\7
+
+anim death
+	loop	1
+	delay	10
+	offset	48 74
+@cmd checktext
+	frame	Data\CHARS\alex\7
+
+anim death10
+	loop	0
+	delay	10
+	offset	48 74
+	frame	Data\CHARS\alex\8
+    #fshadow 0
+	frame	Data\CHARS\alex\9

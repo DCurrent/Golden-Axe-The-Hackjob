@@ -1,0 +1,19 @@
+# where skeletons come out
+name hole
+type none
+shadow 0
+nomove 1
+setlayer 3
+antigravity 100
+
+globalmap 1
+
+anim spawn
+
+offset 23 17
+delay 12
+sound data/sounds/ske_rise.wav
+frame data/bgs/fiend/hole/1
+frame data/bgs/fiend/hole/2
+frame data/bgs/fiend/hole/3
+frame data/bgs/fiend/hole/4

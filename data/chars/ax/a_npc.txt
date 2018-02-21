@@ -1,0 +1,65 @@
+name	a_npc
+type	npc
+subtype follow
+health	98
+speed	9
+jumpheight  4
+grabdistance 24
+paingrab 1
+#throwframewait 1
+throwdamage 8
+running 19 5 1 1 0
+gfxshadow 1
+shadow	2
+risetime 25
+bflash  none
+noquake 1
+makeinv 2
+falldie 2
+grabfinish 1
+
+defense all 0.25 0 1
+noatflash 0
+
+palette		data/chars/plselect/ax0001
+
+projectilehit npc player
+
+bflash none
+holdblock 0
+thold 34
+blockodds 1
+#nopassiveblock 1
+
+escapehits 3
+aggression 100
+aimove chase
+
+animationscript 	data/chars/ax/scripts/ani.c
+didblockscript		data/scripts/z_block.c				#Block incoming attack.
+didhitscript 		data/scripts/z_hit.c				#Hit another entity.
+keyscript			data/scripts/z_key.c				#Controlling player press/release key.
+onblockascript		data/scripts/z_blocka.c				#Movement (rise/fall) blocked by platform.
+onblockoscript		data/scripts/z_blocko.c				#Movement blocked by obstacle.
+onblocksscript		data/scripts/z_blocks.c				#Movement blocked by screen boundary.
+onblockwscript		data/scripts/z_blockw.c				#Movement blocked by wall.				
+onblockzscript		data/scripts/z_blockz.c				#Movement blocked by Z boundary.				
+ondeathscript		data/scripts/z_death.c				#Killed by damage.
+onfallscript		data/scripts/z_fall.c				#Fall status set.
+onkillscript		data/scripts/z_kill.c				#Removed from playfield.
+onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.
+onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
+onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
+onpainscript		data/scripts/z_pain.c				#Pain status set.
+onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
+script				data/scripts/z_script.c				#Entity updated.
+takedamagescript	data/scripts/z_damage.c				#Damaged.
+thinkscript			data/scripts/z_think.c				#Entity AI updates.
+
+
+combostyle 	1
+atchain 	1 2 6 0 4 4 5 0 3 0
+modelflag 1
+
+weapons a_chick a_rdrag a_bdrag
+

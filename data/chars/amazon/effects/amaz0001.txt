@@ -1,0 +1,101 @@
+#*****Notes***************************************************************************
+
+#Bound effects; spawned in synch with main enitity to produce transparent blur effect.
+
+#*****Settings***************************************************************************
+
+#*****icons*****
+#*****General*****
+
+name	     amaz0001     
+type	     none   	
+health	     100	
+#speed	     10		
+alpha	     1		
+
+#*****Alternates*******
+
+palette	 	data/chars/amazon/0001 	#Green
+
+
+#*****Basic********************************************************************************
+
+anim spawn
+	
+	delay	1
+	offset	75 150
+		frame	data/chars/misc/blan0001
+
+
+#*****Attack*******************************************************************************
+
+anim attack1
+    	
+    	delay 	-1000
+    	offset 	47 98
+		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blan0001    	
+    		frame	data/chars/misc/blan0001    		
+		frame	data/chars/amazon/effects/blur/0001    	
+    		frame	data/chars/amazon/effects/blur/0002	
+		frame	data/chars/amazon/effects/blur/0003
+		frame	data/chars/amazon/effects/blur/0004
+		frame	data/chars/amazon/effects/blur/0005
+		frame	data/chars/amazon/effects/blur/0006
+		frame	data/chars/amazon/effects/blur/0007
+		frame	data/chars/amazon/effects/blur/0008
+		frame	data/chars/amazon/effects/blur/0009
+		frame	data/chars/amazon/effects/blur/0010
+		frame	data/chars/amazon/effects/blur/0011
+		frame	data/chars/amazon/effects/blur/0012
+		frame	data/chars/amazon/effects/blur/0013
+		frame	data/chars/amazon/effects/blur/0014
+	@cmd	killentity getlocalvar("self")
+    		frame	data/chars/misc/blan0001
+
+anim attack2
+
+    	delay 	-1000
+    	offset 	49 97    	
+    		frame	data/chars/misc/blan0001    	
+    		frame	data/chars/amazon/effects/blur/0015    	  		
+    		frame	data/chars/amazon/effects/blur/0016    
+    		frame	data/chars/amazon/effects/blur/0017
+		frame	data/chars/amazon/effects/blur/0018
+		frame	data/chars/amazon/effects/blur/0019
+		frame	data/chars/amazon/effects/blur/0020
+		frame	data/chars/amazon/effects/blur/0021
+		frame	data/chars/amazon/effects/blur/0022
+		frame	data/chars/amazon/effects/blur/0023
+		frame	data/chars/amazon/effects/blur/0024
+		frame	data/chars/amazon/effects/blur/0025
+		frame	data/chars/amazon/effects/blur/0026
+		frame	data/chars/amazon/effects/blur/0027
+	@cmd	killentity getlocalvar("self")
+    		frame	data/chars/misc/blan0001
+
+
+anim grabattack
+
+    	delay 	-1000
+    	offset 	82 141
+		frame	data/chars/misc/blan0001  
+		frame	data/chars/amazon/effects/blur/0028
+		frame	data/chars/amazon/effects/blur/0029
+		frame	data/chars/amazon/effects/blur/0030	
+		frame	data/chars/amazon/effects/blur/0031
+		frame	data/chars/amazon/effects/blur/0032
+		frame	data/chars/amazon/effects/blur/0033
+		frame	data/chars/amazon/effects/blur/0034
+		frame	data/chars/amazon/effects/blur/0035
+		frame	data/chars/amazon/effects/blur/0036
+		frame	data/chars/amazon/effects/blur/0037
+		frame	data/chars/amazon/effects/blur/0038
+		frame	data/chars/amazon/effects/blur/0039
+		frame	data/chars/amazon/effects/blur/0040
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+
+
+

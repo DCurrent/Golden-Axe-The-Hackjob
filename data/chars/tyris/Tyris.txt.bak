@@ -1,0 +1,1336 @@
+name				Tyris_Flare
+health				98
+speed				9
+mp      			91
+jumpheight  		4
+grabdistance 		24
+throwframewait 		1
+throwdamage 		8
+running 			20 5 1 1 0
+type				player
+gfxshadow 			1
+
+grabfinish 			1
+noquake 			1
+risetime 			60
+makeinv 			2
+jumpmove 			0 1
+noatflash 			0
+height				55
+
+projectilehit 		player npc obstacle
+dust				fallm landm jumpm
+bflash 				bflash
+holdblock 			0
+thold 				34
+
+load				t_chick
+load				t_bdrag
+load				t_rdrag
+weapons 			t_chick t_rdrag t_bdrag
+
+modelflag 			1
+
+icon				data/chars/tyris/hud/0000
+
+combostyle 			1
+atchain 			1 2 6 0 4 4 5 0 3 0
+
+palette      			data/chars/tyris/0000				#0	Red/Silver
+alternatepal   			data/chars/tyris/pals/0001			#1 	Blue/Silver
+
+
+
+
+
+
+
+
+
+
+animationscript 	data/chars/tyris/scripts/ani.c
+didblockscript		data/scripts/z_block.c				#Block incoming attack.
+didhitscript 		data/scripts/z_hit.c				#Hit another entity.
+keyscript			data/chars/tyris/scripts/key.c		#Controlling player press/release key.
+onblockascript		data/scripts/z_blocka.c				#Movement (rise/fall) blocked by platform.
+onblockoscript		data/scripts/z_blocko.c				#Movement blocked by obstacle.
+onblocksscript		data/scripts/z_blocks.c				#Movement blocked by screen boundary.
+onblockwscript		data/scripts/z_blockw.c				#Movement blocked by wall.				
+onblockzscript		data/scripts/z_blockz.c				#Movement blocked by Z boundary.				
+ondeathscript		data/scripts/z_death.c				#Killed by damage.
+onfallscript		data/scripts/z_fall.c				#Fall status set.
+onkillscript		data/scripts/z_kill.c				#Removed from playfield.
+onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.
+onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
+onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
+onpainscript		data/scripts/z_pain.c				#Pain status set.
+onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
+
+takedamagescript	data/scripts/z_damage.c				#Damaged.
+thinkscript			data/scripts/z_think.c				#Entity AI updates.
+
+com b b a 			freespecial
+com f f a 			freespecial
+com a3 				freespecial8
+
+
+anim	attack1
+	range	0 32
+	followanim	3
+	delay	4
+	offset	60 98
+	bbox	48 44 22 54
+	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
+	frame	data/chars/tyris/0018.png
+	frame	data/chars/tyris/0019.png
+	frame	data/chars/tyris/0020.png
+	delay	6
+	attack10	56 42 36 26 2
+	@cmd	bind0003 "tyri0001" "blur" -1 1 0 0 1 1 7
+	frame	data/chars/tyris/0021.png
+	attack10	66 55 20 21 2
+	delay	2
+	frame	data/chars/tyris/0022.png
+	attack	0
+	frame	data/chars/tyris/0022.png
+	frame	data/chars/tyris/0022.png
+	frame	data/chars/tyris/0026.png
+	frame	data/chars/tyris/0026.png
+	frame	data/chars/tyris/0026.png
+	delay	2
+	frame	data/chars/tyris/0027.png
+	delay	4
+	frame	data/chars/tyris/0027.png
+	delay	10
+	frame	data/chars/tyris/0021.png
+	frame	data/chars/tyris/0019.png
+	delay	20
+	idle	1
+	frame	data/chars/tyris/0018.png
+		
+anim	attack2
+	range	0 44
+	loop	0
+	delay	10
+	offset	60 98
+	bbox	50 42 26 56
+	frame	data/chars/tyris/0028.png
+	delay	8
+	@cmd	bind0003 "tyri0001" "blur" -1 1 0 0 1 1 7
+	frame	data/chars/tyris/0029.png
+	attack4	59 30 46 40 2 0 0 0 0 0
+	frame	data/chars/tyris/0030.png
+	attack4	0 0 0 0 0
+	delay	2
+	frame	data/chars/tyris/0019.png
+	frame	data/chars/tyris/0019.png
+	frame	data/chars/tyris/0019.png
+	frame	data/chars/tyris/0019.png
+	frame	data/chars/tyris/0019.png
+	frame	data/chars/tyris/0019.png
+	frame	data/chars/tyris/0019.png
+	frame	data/chars/tyris/0019.png
+	frame	data/chars/tyris/0019.png
+	frame	data/chars/tyris/0019.png
+	frame	data/chars/tyris/0019.png
+	delay	8
+	frame	data/chars/tyris/0018.png
+		
+anim	attack3
+	hitflash	stabh
+	range	40 60
+	offset	60 98
+	delay	6
+	frame	data/chars/tyris/0031.png
+	delay	5
+	bbox	46 51 28 47
+	attack9	61 65 48 8 6 5
+	frame	data/chars/tyris/0032.png
+	attack9	61 65 52 8 6 5
+	forcedirection	-1
+	frame	data/chars/tyris/0033.png
+	Attack1	0
+	frame	data/chars/tyris/0034.png
+	delay	20
+	frame	data/chars/tyris/0035.png
+	offset	60 98
+	delay	6
+	frame	data/chars/tyris/0031.png
+		
+anim	attack4
+	hitflash	blul
+	range	21 30
+	loop	0
+	offset	60 98
+	bbox	47 44 23 54
+	delay	12
+	@cmd	ani0012 A_ATK5 A_ATK3
+	frame	data/chars/tyris/0046.png
+	delay	10
+	frame	data/chars/tyris/0047.png
+	attack2	69 54 12 16 4 0 1
+	dropv	0 0 0
+	frame	data/chars/tyris/0048.png
+	attack2	0 0 0 0 0
+	frame	data/chars/tyris/0047.png
+	delay	100
+	idle	1
+	frame	data/chars/tyris/0046.png
+		
+anim	attack5
+	range	24 26
+	hitflash	hitm
+	offset	60 97
+	bbox	53 38 22 58
+	delay	8
+	frame	data/chars/tyris/0075.png
+	frame	data/chars/tyris/0006.png
+	move	0
+	frame	data/chars/tyris/0007.png
+	bbox	65 38 20 61
+	offset	60 97
+	frame	data/chars/tyris/0008.png
+	attack10	72 52 35 11 5 1 0 0 0 15
+	delay	8
+	move	-7
+	bbox	49 48 44 48
+	frame	data/chars/tyris/0009.png
+	move	0
+	frame	data/chars/tyris/0010.png
+	Attack1	0
+	bbox	60 40 32 56
+	frame	data/chars/tyris/0011.png
+	offset	60 98
+	move	2
+	frame	data/chars/tyris/0084.png
+	bbox	64 41 17 57
+	move	0
+	frame	data/chars/tyris/0083.png
+	bbox	47 51 29 48
+	offset	60 98
+	frame	data/chars/tyris/0082.png
+		
+anim	attack6
+	range	-5 25
+	delay	10
+	offset	60 98
+	@cmd	bind0014 1 0
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 166 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELD 0
+	frame	data/chars/tyris/0060.png
+	delay	15
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 15 167 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
+	frame	data/chars/tyris/0130.png
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 14 171 2 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
+	frame	data/chars/tyris/0131.png
+	delay	8
+	@cmd	bind0023 0 "hith" "hitm" 0 1 3 10 1 0 0 0 1
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 10 185 2 DIR_ADJ_SAME AC_DEFPOSE G_HORDN 0
+	frame	data/chars/tyris/0132.png
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -15 30 1 DIR_ADJ_SAME AC_DEFPOSE G_RELEASE 0
+	@cmd	dama0004 0 -2 0 0 ATK_5 -1 1 0 0
+	frame	data/chars/tyris/0133.png
+	frame	data/chars/tyris/0134.png
+	frame	data/chars/tyris/0135.png
+	delay	30
+	frame	data/chars/tyris/0136.png
+	delay	10
+	frame	data/chars/tyris/0131.png
+	move	-5
+	frame	data/chars/tyris/0082.png
+	move	0
+	frame	data/chars/tyris/0001.png
+		
+anim	attackbackward
+	hitflash	cuth
+	flipframe	21
+	range	-60 1
+	offset	60 98
+	delay	10
+	move	-11
+	bbox	49 41 20 57
+	@cmd	soun0005 ENT_SELF SND_WIFFH -1 1 0 0
+	frame	data/chars/tyris/0036.png
+	move	0
+	bbox	49 40 12 58
+	@cmd	bind0003 "tyri0001" "blur" -1 1 0 0 1 1 7
+	frame	data/chars/tyris/0037.png
+	bbox	36 42 14 56
+	frame	data/chars/tyris/0038.png
+	bbox	32 46 15 53
+	frame	data/chars/tyris/0039.png
+	frame	data/chars/tyris/0040.png
+	bbox	36 44 17 54
+	delay	2
+	@cmd	soun0005 ENT_SELF VOI_ATKH -1 1 0 0
+	attack10	0 40 41 24 10 1
+	frame	data/chars/tyris/0041.png
+	frame	data/chars/tyris/0041.png
+	Attack1	0
+	frame	data/chars/tyris/0041.png
+	frame	data/chars/tyris/0042.png
+	frame	data/chars/tyris/0042.png
+	frame	data/chars/tyris/0042.png
+	frame	data/chars/tyris/0043.png
+	frame	data/chars/tyris/0043.png
+	frame	data/chars/tyris/0043.png
+	delay	2
+	frame	data/chars/tyris/0044.png
+	frame	data/chars/tyris/0044.png
+	frame	data/chars/tyris/0044.png
+	frame	data/chars/tyris/0044.png
+	frame	data/chars/tyris/0044.png
+	frame	data/chars/tyris/0044.png
+	delay	12
+	bbox	47 43 16 55
+	frame	data/chars/tyris/0045.png
+	move	5
+	frame	data/chars/tyris/0002.png
+		
+anim	attackboth
+	range	-60 110
+	flipframe	14
+	loop	0
+	jumpframe	6 2.6 -1 0 jumpm
+	landframe	20	landm
+	hitflash	hitm
+	offset	60 98
+	delay	6
+	bbox	63 41 10 56
+	frame	data/chars/tyris/0006.png
+	@cmd	soun0005 ENT_SELF SND_WIFFH -1 1 0 0
+	frame	data/chars/tyris/0007.png
+	move	18
+	offset	60 95
+	bbox	45 51 16 19
+	delay	4
+	frame	data/chars/tyris/0143.png
+	move	0
+	bbox	47 51 13 23
+	@cmd	soun0005 ENT_SELF VOI_ATKH -1 1 0 0
+	frame	data/chars/tyris/0144.png
+	bbox	48 53 12 39
+	attack1	57 54 34 32 4 2
+	frame	data/chars/tyris/0145.png
+	frame	data/chars/tyris/0146.png
+	attack1	53 28 35 32 4 2
+	frame	data/chars/tyris/0147.png
+	attack1	0
+	delay	8
+	frame	data/chars/tyris/0148.png
+	bbox	52 52 18 20
+	frame	data/chars/tyris/0149.png
+	frame	data/chars/tyris/0150.png
+	bbox	52 36 12 40
+	delay	4
+	attack1	25 28 31 37 4 2
+	frame	data/chars/tyris/0151.png
+	frame	data/chars/tyris/0152.png
+	attack1	25 56 50 35 4 2
+	frame	data/chars/tyris/0153.png
+	frame	data/chars/tyris/0154.png
+	offset	60 98
+	delay	5
+	attack	0
+	frame	data/chars/tyris/0067
+	frame	data/chars/tyris/0068
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0070
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0069
+	bbox	53 51 18 44
+	delay	4
+	frame	data/chars/tyris/0071.png
+	frame	data/chars/tyris/0072.png
+	frame	data/chars/tyris/0073.png
+	frame	data/chars/tyris/0074.png
+	frame	data/chars/tyris/0075.png
+	frame	data/chars/tyris/0075.png
+	frame	data/chars/tyris/0082.png
+		
+anim	attackdown
+	loop	1 8 12
+	jumpframe	1 3 -0.5 1 jumpm
+	landframe	13 landm
+	offset	60 98
+	delay	8
+	frame	data/chars/tyris/0065.png
+	frame	data/chars/tyris/0066.png
+	frame	data/chars/tyris/0098.png
+	frame	data/chars/tyris/0016.png
+	frame	data/chars/tyris/0015.png
+	frame	data/chars/tyris/0014.png
+	frame	data/chars/tyris/0013.png
+	bbox	52 44 19 50
+	delay	5
+	frame	data/chars/tyris/0067
+	frame	data/chars/tyris/0068
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0070
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0069
+	delay	6
+	bbox	51 53 20 45
+	frame	data/chars/tyris/0071
+	frame	data/chars/tyris/0072
+	frame	data/chars/tyris/0073
+	frame	data/chars/tyris/0074
+	frame	data/chars/tyris/0075
+	frame	data/chars/tyris/0082
+		
+anim	attackup
+	loop	1 8 12
+	jumpframe	1 3 -0.5 -1 jumpm
+	landframe	13 landm
+	offset	60 98
+	delay	8
+	frame	data/chars/tyris/0065.png
+	frame	data/chars/tyris/0066.png
+	frame	data/chars/tyris/0098.png
+	frame	data/chars/tyris/0016.png
+	frame	data/chars/tyris/0015.png
+	frame	data/chars/tyris/0014.png
+	frame	data/chars/tyris/0013.png
+	bbox	52 44 19 50
+	delay	5
+	frame	data/chars/tyris/0067
+	frame	data/chars/tyris/0068
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0070
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0069
+	delay	6
+	bbox	51 53 20 45
+	frame	data/chars/tyris/0071
+	frame	data/chars/tyris/0072
+	frame	data/chars/tyris/0073
+	frame	data/chars/tyris/0074
+	frame	data/chars/tyris/0075
+	frame	data/chars/tyris/0082
+		
+anim	block
+	delay	5
+	offset	60 98
+	bbox	40 49 24 49
+	frame	data/chars/tyris/0082.png
+	frame	data/chars/tyris/0050.png
+	frame	data/chars/tyris/0029.png
+	delay	25
+	frame	data/chars/tyris/0048.png
+	delay	5
+	frame	data/chars/tyris/0082.png
+		
+anim	bpain
+	offset	60 98
+	bbox	40 40 38 60
+	delay	20
+	frame	data/chars/tyris/0115
+	delay	100
+	frame	data/chars/tyris/0116
+		
+anim	burn
+	landframe	3
+	dropframe	1
+	offset	60 98
+	delay	10
+	frame	data/chars/tyris/0115
+	burn	45 58 24 24 8 1
+	forcedirection	1
+	delay	30
+	frame	data/chars/tyris/0051
+	delay	-1000
+	frame	data/chars/tyris/0052
+	attack1	0 0 0 0 0
+	delay	10
+	frame	data/chars/tyris/0049
+		
+anim	chargeattack
+	chargetime	1
+	range	80 175
+	offset	60 98
+	delay	10
+	bbox	50 44 18 53
+	frame	data/chars/tyris/0018.png
+	frame	data/chars/tyris/0019.png
+	frame	data/chars/tyris/0180.png
+	delay	6
+	frame	data/chars/tyris/0182.png
+	frame	data/chars/tyris/0021.png
+	@cmd	proj0003 "tyri0002" 15 35 -1 1 0 0
+	delay	10
+	frame	data/chars/tyris/0177.png
+	frame	data/chars/tyris/0178.png
+	delay	-1000
+	frame	data/chars/tyris/0179.png
+	delay	10
+	frame	data/chars/tyris/0029.png
+	frame	data/chars/tyris/0021.png
+	frame	data/chars/tyris/0082.png
+		
+anim	fall
+	landframe	3
+	dropframe	1
+	offset	60 98
+	delay	10
+	frame	data/chars/tyris/0115
+	attack1	45 58 24 24 4 1
+	forcedirection	1
+	delay	30
+	frame	data/chars/tyris/0051
+	delay	-1000
+	frame	data/chars/tyris/0052
+	attack1	0 0 0 0 0
+	delay	10
+	frame	data/chars/tyris/0049
+		
+anim	follow10
+	flipframe	0
+	loop	1 7 19
+	jumpframe	6 1 3 0
+	landframe	20 landm
+	hitflash	cuth
+	offset	60 98
+	bbox	0
+	delay	3
+	@cmd	velo0003 0 10000000
+	@cmd	bind0008 "landmw" "landmw" 0 1 10 30 1 1 0 0 1
+	frame	data/chars/tyris/0171.png
+	frame	data/chars/tyris/0171.png
+	frame	data/chars/tyris/0172.png
+	frame	data/chars/tyris/0173.png
+	frame	data/chars/tyris/0174.png
+	frame	data/chars/tyris/0175.png
+	offset	60 100
+	bbox	48 48 20 37
+	attack10	64 39 12 58 8 2
+	@cmd	velo0003 0 0
+	@cmd	bind0008 "jumpmw" "jumpmw" 0 1 -1 1 0 0 1
+	@cmd	bind0003 "tyri0001" "blur" -1 1 0 0 1 1 7
+	@cmd	soun0005 ENT_SELF VOI_ATKH -1 1 0 0
+	frame	data/chars/tyris/0167.png
+	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
+	frame	data/chars/tyris/0159.png
+	frame	data/chars/tyris/0160.png
+	frame	data/chars/tyris/0161.png
+	frame	data/chars/tyris/0162.png
+	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
+	frame	data/chars/tyris/0163.png
+	frame	data/chars/tyris/0164.png
+	frame	data/chars/tyris/0165.png
+	frame	data/chars/tyris/0166.png
+	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
+	frame	data/chars/tyris/0167.png
+	frame	data/chars/tyris/0168.png
+	frame	data/chars/tyris/0169.png
+	frame	data/chars/tyris/0170.png
+	frame	data/chars/tyris/0170.png
+	offset	60 98
+	Attack	0
+	bbox	51 52 21 44
+	delay	6
+	frame	data/chars/tyris/0071.png
+	frame	data/chars/tyris/0072.png
+	frame	data/chars/tyris/0073.png
+	frame	data/chars/tyris/0074.png
+	frame	data/chars/tyris/0075.png
+	frame	data/chars/tyris/0082.png
+		
+anim	follow12
+	offset	60 98
+	delay	10
+	frame	data/chars/tyris/0029.png
+	frame	data/chars/tyris/0021.png
+	frame	data/chars/tyris/0082.png
+		
+anim	follow2
+	hitflash	hith
+	jumpframe	0 1 0
+	loop	1 1 5
+	dropframe	6
+	counterattack	1
+	landframe	10 landm
+	offset	60 98
+	bbox	38 57 25 38
+	delay	1
+	attack1	58 74 32 15 6 1
+	frame	data/chars/tyris/0092
+	attack	0
+	delay	4
+	frame	data/chars/tyris/0092
+	frame	data/chars/tyris/0093
+	frame	data/chars/tyris/0094
+	frame	data/chars/tyris/0094
+	delay	6
+	frame	data/chars/tyris/0092
+	frame	data/chars/tyris/0094
+	frame	data/chars/tyris/0095
+	frame	data/chars/tyris/0096
+	delay	-1000
+	frame	data/chars/tyris/0097
+	delay	6
+	bbox	51 53 20 45
+	move	-10
+	frame	data/chars/tyris/0071
+	move	0
+	frame	data/chars/tyris/0072
+	frame	data/chars/tyris/0073
+	frame	data/chars/tyris/0074
+	frame	data/chars/tyris/0075
+	frame	data/chars/tyris/0082
+		
+anim	follow3
+	offset	60 98
+	bbox	48 44 22 54
+	delay	6
+	attack10	66 57 29 15 2
+	@cmd	bind0003 "tyri0001" "blur" -1 1 0 0 1 1 7
+	frame	data/chars/tyris/0021
+	frame	data/chars/tyris/0022
+	attack1	0
+	delay	2
+	frame	data/chars/tyris/0023
+	frame	data/chars/tyris/0023
+	frame	data/chars/tyris/0023
+	frame	data/chars/tyris/0024
+	frame	data/chars/tyris/0024
+	frame	data/chars/tyris/0024
+	frame	data/chars/tyris/0025
+	frame	data/chars/tyris/0025
+	delay	100
+	idle	1
+	frame	data/chars/tyris/0025
+	delay	8
+	frame	data/chars/tyris/0027
+	frame	data/chars/tyris/0021
+	frame	data/chars/tyris/0019
+	frame	data/chars/tyris/0018
+		
+anim	follow51
+	loop	1
+	delay	-1000
+	offset	100 0
+	bbox	81 132 27 38
+	attack1	81 131 27 39 4 1 1 1
+	forcedirection	-1
+		frame	data/chars/tyris/G_HELD.png					#0	G_HELD: 	Grabbed.
+	bbox	80 116 23 54
+	attack1	80 114 25 56 4 1 1 1
+		frame	data/chars/tyris/G_HELDP.png					#1	G_HELDP:	Grabbed Pain.
+	bbox	66 146 58 21
+	attack1	65 146 59 21 4 1 1 1
+		frame	data/chars/tyris/G_HORUP.png					#2	G_HORUP:	Horizontal Up.
+	bbox	65 141 49 26
+	attack1	66 138 48 30 4 1 1 1
+		frame	data/chars/tyris/G_HORDN.png					#3	G_HORDN:	Horizontal Down.
+	bbox	76 93 23 58
+	attack1	76 92 22 59 4 1 1 1
+		frame	data/chars/tyris/G_VERUP.png					#4	G_VERUP:	Vertical Up.
+		frame	data/chars/tyris/G_VERDN.png					#5	G_VERDN:	Vertical Down.
+	bbox	68 125 42 26
+	attack1	68 124 43 28 4 1 1 1
+		frame	data/chars/tyris/G_TLTUP.png					#6	G_TLTUP:	Tilt Up.
+	bbox	77 104 27 35
+	attack1	77 102 27 38 4 1 1 1
+		frame	data/chars/tyris/G_TLTDN.png					#7	G_TLTDN:	Tilt Down.
+		frame	data/chars/tyris/G_VERDNP.png					#8	G_VERDNP:	Vertical Down pain.
+	bbox	61 152 60 16
+	attack1	61 152 60 16 4 1 1 1
+		frame	data/chars/tyris/G_DWNUP.png					#9	G_DWNUP:	Fall Up.
+		frame	data/chars/tyris/G_DWNUPP.png					#10	G_DWNUPP:	Fall Up Pain.
+	bbox	70 125 22 44
+	attack1	69 124 22 45 4 1 1 1
+		frame	data/chars/tyris/G_FALUP.png					#11	G_FALUP:	Falling face up
+		frame	data/chars/tyris/G_FALUPT.png					#12	G_FALUPT:	Falling face up tilted.
+	bbox	64 141 39 25
+	attack1	63 141 39 26 4 1 1 1
+		frame	data/chars/tyris/G_HORUPP.png					#13	G_HORUPP:	Horizontal Up Pain.
+	bbox	83 120 18 49
+	attack1	83 120 18 49 4 1 1 1
+		frame	data/chars/tyris/G_HELDMP.png					#14	G_HELDMP:	Middle pain.
+	offset	60 98
+		frame	data/chars/tyris/0115						#15	G_EX1:	G_HELDP with pain offset.
+		frame	data/chars/tyris/0116						#16	G_EX2:	G_HELDMP with pain offset.
+	offset	100 0
+		frame	data/chars/tyris/G_EX3						#17 G_EX3:	Golden Axe lifted.
+		
+anim	follow54
+	loop	1 1 6
+	dropframe	1
+	offset	60 98
+	delay	-1000
+	bbox	49 38 16 37
+	frame	data/chars/tyris/0066
+	bbox	52 44 19 50
+	delay	5
+	frame	data/chars/tyris/0067
+	frame	data/chars/tyris/0068
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0070
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0069
+		
+anim	follow57
+	range	-30 40
+	rangea	-50 1
+	loop	1 10 15
+	dropframe	5
+	jumpframe	4 4 1.5 0 jumpm
+	landframe	19	landm
+	offset	60 98
+	bbox	0
+	delay	3
+	@cmd	velo0003 0 10000000
+	@cmd	bind0008 "landm" "landm" 0 1 -5 25 1 1 0 0 1
+	@cmd	velo0001 0 0 0
+	@cmd	bind0010 FLAG_MODE_6 ENT_SELF 0 1 -18 -1 DIR_ADJ_OPP AC_DEFPOSE G_EX2 -1
+	frame	data/chars/tyris/0190.png
+	frame	data/chars/tyris/0191.png
+	frame	data/chars/tyris/0192.png
+	@cmd	bind0010 FLAG_MODE_6 ENT_SELF 0 1 -18 -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE -1
+	frame	data/chars/tyris/0193.png
+	@cmd	velo0003 0 0
+	@cmd	soun0005 ENT_SELF VOI_ATKL -1 1 0 0
+	@cmd    dama0004 0 -2 -18 0 ATK_2 0 0 0 0 0 0 0 0								#Apply damage.
+	delay	-1000
+	frame	data/chars/tyris/0066
+	delay	6
+	frame	data/chars/tyris/0013
+	frame	data/chars/tyris/0014
+	frame	data/chars/tyris/0015
+	frame	data/chars/tyris/0016
+	frame	data/chars/tyris/0017
+	offset	60 98
+	delay	5
+	bbox	52 44 19 50
+	@cmd	jump0003 0 0 0
+	frame	data/chars/tyris/0067
+	frame	data/chars/tyris/0068
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0070
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0069
+	offset	60 98
+	Attack	0
+	bbox	51 52 21 44
+	delay	6
+	frame	data/chars/tyris/0071.png
+	frame	data/chars/tyris/0072.png
+	frame	data/chars/tyris/0073.png
+	frame	data/chars/tyris/0074.png
+	frame	data/chars/tyris/0075.png
+	frame	data/chars/tyris/0082.png
+		
+anim	follow58
+	flipframe	0
+	loop	1 11 16
+	jumpframe	6 2.5 1.5 0
+	landframe	20	landm
+	offset	60 98
+	bbox	0
+	delay	3
+	@cmd	velo0003 0 10000000
+	@cmd	bind0008 "landmw" "landmw" 0 1 10 30 1 1 0 0 1
+	frame	data/chars/tyris/0171.png
+	frame	data/chars/tyris/0171.png
+	frame	data/chars/tyris/0172.png
+	frame	data/chars/tyris/0173.png
+	frame	data/chars/tyris/0174.png
+	frame	data/chars/tyris/0175.png
+	offset	60 100
+	@cmd	velo0003 0 0
+	@cmd	bind0008 "jumpmw" "jumpmw" 0 1 -1 1 0 0 1
+	@cmd	soun0005 ENT_SELF VOI_ATKL -1 1 0 0
+	delay	6
+	frame	data/chars/tyris/0013
+	frame	data/chars/tyris/0014
+	frame	data/chars/tyris/0015
+	frame	data/chars/tyris/0016
+	frame	data/chars/tyris/0017
+	offset	60 98
+	delay	5
+	bbox	52 44 19 50
+	@cmd	jump0003 0 0 0
+	frame	data/chars/tyris/0067
+	frame	data/chars/tyris/0068
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0070
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0069
+	offset	60 98
+	Attack	0
+	bbox	51 52 21 44
+	delay	6
+	frame	data/chars/tyris/0071.png
+	frame	data/chars/tyris/0072.png
+	frame	data/chars/tyris/0073.png
+	frame	data/chars/tyris/0074.png
+	frame	data/chars/tyris/0075.png
+	frame	data/chars/tyris/0082.png
+		
+anim	freespecial2
+	jumpframe	1 0 -1.5 0 jumpm
+	offset	60 98
+	delay	8
+	frame	data/chars/tyris/0189.png
+	frame	data/chars/tyris/0183.png
+	frame	data/chars/tyris/0186.png
+	frame	data/chars/tyris/0184.png
+	frame	data/chars/tyris/0187.png
+	frame	data/chars/tyris/0185.png
+	move	0
+	frame	data/chars/tyris/0188.png
+		
+anim	freespecial22
+	loop	1 1 5
+	landframe	6 landm
+	offset	60 98
+	bbox	52 44 19 50
+	delay	5
+	frame	data/chars/tyris/0067
+	frame	data/chars/tyris/0068
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0070
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0069
+	delay	6
+	bbox	51 53 20 45
+	frame	data/chars/tyris/0071
+	frame	data/chars/tyris/0072
+	frame	data/chars/tyris/0073
+	frame	data/chars/tyris/0074
+	frame	data/chars/tyris/0075
+	frame	data/chars/tyris/0082
+		
+anim	freespecial8
+	energycost	9
+	mponly	1
+	loop	0
+	offset	60 98
+	delay	16
+	frame	data/chars/tyris/0128
+	delay	10
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	frame	data/chars/tyris/0129
+	delay	1
+	frame	data/chars/tyris/0129
+		
+anim	get
+	loop	0
+	delay	150
+	offset	60 98
+	frame	data/chars/tyris/0127
+	delay	20
+	frame	data/chars/tyris/0119
+	delay	8
+	frame	data/chars/tyris/0120
+	move	9
+	frame	data/chars/tyris/0117
+	move	0
+	frame	data/chars/tyris/0075
+		
+anim	grab
+	loop	0
+	delay	12
+	offset	60 98
+	bbox	47 44 23 54
+	frame	data/chars/tyris/0060
+	bbox	55 55 2043 46
+	frame	data/chars/tyris/0060
+		
+anim	grabattack
+	loop	0
+	offset	60 98
+	bbox	49 51 22 47
+	delay	6
+	frame	data/chars/tyris/0082
+	bbox	64 41 17 57
+	frame	data/chars/tyris/0083
+	bbox	60 39 19 59
+	frame	data/chars/tyris/0084
+	attack1	74 54 28 26 5 1 1 1
+	forcedirection	-1
+	delay	20
+	frame	data/chars/tyris/0085
+	attack1	0 0 0 0 0
+	delay	8
+	frame	data/chars/tyris/0084
+	bbox	64 41 17 57
+	frame	data/chars/tyris/0083
+		
+anim	grabbackward
+	flipframe	6
+	loop	0
+	delay	10
+	offset	60 98
+	frame	data/chars/tyris/0061
+	frame	data/chars/tyris/0121
+	frame	data/chars/tyris/0122
+	frame	data/chars/tyris/0123
+	frame	data/chars/tyris/0124
+	frame	data/chars/tyris/0124
+	frame	data/chars/tyris/0000
+		
+anim	grabbed
+	offset	60 98
+	bbox	40 40 38 60
+	delay	24
+	frame	data/chars/tyris/0116
+		
+anim	grabforward
+	attackone	1
+	hitfx	data/sounds/silent.wav
+	loop	0
+	delay	10
+	offset	60 98
+	frame	data/chars/tyris/0060
+	delay	20
+	frame	data/chars/tyris/0061
+	delay	30
+	frame	data/chars/tyris/0062
+	delay	11
+	frame	data/chars/tyris/0063
+	delay	1
+	frame	data/chars/tyris/0063
+	delay	30
+	frame	data/chars/tyris/0064
+	delay	7
+	frame	data/chars/tyris/0000
+		
+anim	idle
+	loop	1
+	delay	18
+	offset	60 98
+	bbox	40 49 24 49
+	frame	data/chars/tyris/0000
+	frame	data/chars/tyris/0001
+	frame	data/chars/tyris/0002
+	frame	data/chars/tyris/0001
+		
+anim	jump
+	loop	1 2 6
+	dropframe	1
+	offset	60 98
+	delay	-1000
+	bbox	49 38 16 37
+	frame	data/chars/tyris/0066
+	bbox	52 44 19 50
+	delay	5
+	frame	data/chars/tyris/0067
+	frame	data/chars/tyris/0068
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0070
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0069
+		
+anim	jumpattack
+	loop	1 11 15
+	landframe	16 landm
+	delay	6
+	offset	60 98
+	bbox	52 44 19 50
+	frame	data/chars/tyris/0067
+	delay	2
+	attack10	64 34 35 56 8 1
+	@cmd	bind0003 "tyri0001" "blur" -1 1 0 0 1 1 7
+	frame	data/chars/tyris/0076
+	frame	data/chars/tyris/0076
+	attack	0
+	frame	data/chars/tyris/0076
+	frame	data/chars/tyris/0076
+	frame	data/chars/tyris/0076
+	frame	data/chars/tyris/0077
+	frame	data/chars/tyris/0077
+	frame	data/chars/tyris/0077
+	frame	data/chars/tyris/0078
+	frame	data/chars/tyris/0078
+	bbox	52 44 19 50
+	delay	5
+	frame	data/chars/tyris/0068
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0070
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0069
+	@cmd	ani0009 getlocalvar("self") A_JUMPLAND 0
+	frame	data/chars/tyris/0071
+		
+anim	jumpattack2
+	hitflash	hith
+	fastattack	1
+	loop	1 9 13
+	delay	4
+	offset	60 98
+	bbox	49 38 16 37
+	frame	data/chars/tyris/0067
+	frame	data/chars/tyris/0098
+	attack1	55 50 30 50 3
+	frame	data/chars/tyris/0099
+	frame	data/chars/tyris/0100
+	attack1	0
+	frame	data/chars/tyris/0098
+	frame	data/chars/tyris/0067
+	attack1	55 50 30 50 3
+	frame	data/chars/tyris/0101
+	delay	6
+	frame	data/chars/tyris/0102
+	attack1	0
+	frame	data/chars/tyris/0067
+	bbox	52 44 19 50
+	delay	5
+	frame	data/chars/tyris/0068
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0070
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0069
+		
+anim	jumpdelay
+	offset	60 98
+	delay	2
+	bbox	51 53 20 45
+	frame	data/chars/tyris/0075
+	bbox	50 45 20 53
+	frame	data/chars/tyris/0066
+		
+anim	jumpland
+	offset	60 98
+	delay	6
+	bbox	51 53 20 45
+	frame	data/chars/tyris/0071
+	frame	data/chars/tyris/0072
+	frame	data/chars/tyris/0073
+	frame	data/chars/tyris/0074
+	frame	data/chars/tyris/0075
+	frame	data/chars/tyris/0082
+		
+anim	pain
+	offset	60 98
+	bbox	40 40 38 60
+	delay	20
+	frame	data/chars/tyris/0115
+	delay	50
+	frame	data/chars/tyris/0116
+		
+anim	pain2
+	loop	0
+	offset	60 98
+	delay	8
+	bbox	52 58 24 41
+	frame	data/chars/tyris/0118
+	delay	60
+	frame	data/chars/tyris/0117
+		
+anim	pain4
+	loop	0
+	offset	60 98
+	bbox	40 40 38 60
+	delay	10
+	frame	data/chars/tyris/0115
+	frame	data/chars/tyris/0116
+	delay	50
+	bbox	52 58 24 41
+	frame	data/chars/tyris/0117
+	delay	20
+	bbox	43 38 26 60
+	frame	data/chars/tyris/0116
+		
+anim	respawn
+	loop	0
+	delay	1
+	offset	60 98
+	frame	data/chars/tyris/0000
+	delay	50
+	frame	data/chars/tyris/0000
+		
+anim	rise
+	jumpframe	3 1 0 0 jumpm
+	landframe	6 landm
+	offset	54 95
+	delay	8
+	@cmd	riseinv 200
+	frame	data/chars/tyris/0137.png
+	move	0
+	frame	data/chars/tyris/0142.png
+	offset	60 95
+	frame	data/chars/tyris/0138.png
+	frame	data/chars/tyris/0139.png
+	frame	data/chars/tyris/0140.png
+	delay	-1000
+	offset	60 98
+	move	-10
+	frame	data/chars/tyris/0141.png
+	delay	6
+	move	0
+	frame	data/chars/tyris/0072.png
+	frame	data/chars/tyris/0073.png
+	frame	data/chars/tyris/0074.png
+	frame	data/chars/tyris/0075.png
+	frame	data/chars/tyris/0082.png
+		
+anim	riseattack
+	loop	1 21 25
+	dropframe	20
+	landframe	26 landm
+	jumpframe	3 3 1 0 jumpm
+	hitflash	cuth
+	delay	8
+	offset	60 98
+	frame	data/chars/tyris/0119.png
+	frame	data/chars/tyris/0120.png
+	delay	12
+	frame	data/chars/tyris/0074.png
+	delay	2
+	move	20
+	offset	60 94
+	attack10	43 21 53 47 8 2
+	@cmd	bind0003 "tyri0001" "blur" -1 1 0 0 1 1 7
+	frame	data/chars/tyris/0155.png
+	move	0
+	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
+	frame	data/chars/tyris/0156.png
+	frame	data/chars/tyris/0157.png
+	frame	data/chars/tyris/0158.png
+	frame	data/chars/tyris/0155.png
+	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
+	frame	data/chars/tyris/0156.png
+	frame	data/chars/tyris/0157.png
+	frame	data/chars/tyris/0158.png
+	frame	data/chars/tyris/0155.png
+	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
+	frame	data/chars/tyris/0156.png
+	frame	data/chars/tyris/0157.png
+	frame	data/chars/tyris/0158.png
+	frame	data/chars/tyris/0155.png
+	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
+	frame	data/chars/tyris/0156.png
+	frame	data/chars/tyris/0157.png
+	frame	data/chars/tyris/0158.png
+	frame	data/chars/tyris/0155.png
+	delay	5
+	offset	60 98
+	Attack1	0
+	frame	data/chars/tyris/0067.png
+	frame	data/chars/tyris/0068.png
+	frame	data/chars/tyris/0069.png
+	frame	data/chars/tyris/0070.png
+	frame	data/chars/tyris/0069.png
+	frame	data/chars/tyris/0069.png
+	delay	4
+	frame	data/chars/tyris/0071.png
+	frame	data/chars/tyris/0072.png
+	frame	data/chars/tyris/0073.png
+	frame	data/chars/tyris/0074.png
+	frame	data/chars/tyris/0075.png
+	frame	data/chars/tyris/0082.png
+		
+anim	run
+	loop	1
+	delay	7
+	offset	60 98
+	bbox	54 44 18 50
+	frame	data/chars/tyris/0086
+	frame	data/chars/tyris/0087
+	frame	data/chars/tyris/0088
+	frame	data/chars/tyris/0089
+	frame	data/chars/tyris/0090
+	frame	data/chars/tyris/0091
+		
+anim	runattack
+	hitflash	hith
+	followanim	2
+	followcond	1
+	counterattack	1
+	loop	1 1 5
+	jumpframe	0 2.5 2 0 jumpm
+	landframe	5 landm
+	delay	6
+	offset	60 98
+	bbox	38 57 25 38
+	forcedirection	-1
+	frame	data/chars/tyris/0066
+	attack1	58 74 32 15 6 1
+	delay	4
+	frame	data/chars/tyris/0092
+	frame	data/chars/tyris/0093
+	frame	data/chars/tyris/0094
+	frame	data/chars/tyris/0094
+	attack	0
+	delay	6
+	bbox	51 53 20 45
+	move	-10
+	frame	data/chars/tyris/0071
+	move	0
+	frame	data/chars/tyris/0072
+	frame	data/chars/tyris/0073
+	frame	data/chars/tyris/0074
+	frame	data/chars/tyris/0075
+	frame	data/chars/tyris/0082
+		
+anim	runjump
+	loop	1 7 11
+	dropframe	1
+	offset	60 98
+	delay	-1000
+	bbox	49 38 16 37
+	frame	data/chars/tyris/0066
+	bbox	52 44 19 50
+	delay	6
+	frame	data/chars/tyris/0013
+	frame	data/chars/tyris/0014
+	frame	data/chars/tyris/0015
+	frame	data/chars/tyris/0016
+	frame	data/chars/tyris/0017
+	offset	60 98
+	delay	5
+	frame	data/chars/tyris/0067
+	frame	data/chars/tyris/0068
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0070
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0069
+		
+anim	runjumpattack
+	loop	1 11 14
+	delay	7
+	offset	60 98
+	bbox	43 38 26 60
+	frame	data/chars/tyris/0067
+	delay	2
+	attack10	64 34 35 56 8 1
+	@cmd	bind0003 "tyri0001" "blur" -1 1 0 0 1 1 7
+	frame	data/chars/tyris/0076
+	frame	data/chars/tyris/0076
+	attack	0
+	frame	data/chars/tyris/0076
+	frame	data/chars/tyris/0076
+	frame	data/chars/tyris/0076
+	frame	data/chars/tyris/0077
+	frame	data/chars/tyris/0077
+	frame	data/chars/tyris/0077
+	frame	data/chars/tyris/0078
+	frame	data/chars/tyris/0078
+	delay	8
+	attack10	65 72 10 29 18 1 1
+	frame	data/chars/tyris/0079
+	frame	data/chars/tyris/0080
+	frame	data/chars/tyris/0081
+	frame	data/chars/tyris/0081
+		
+anim	select
+		
+anim	shock
+	landframe	3
+	dropframe	1
+	offset	60 98
+	delay	10
+	frame	data/chars/tyris/0115
+	shock	45 58 24 24 8 1
+	forcedirection	1
+	delay	30
+	frame	data/chars/tyris/0051
+	delay	-1000
+	frame	data/chars/tyris/0052
+	attack1	0 0 0 0 0
+	delay	10
+	frame	data/chars/tyris/0049
+		
+anim	spain
+	offset	60 98
+	bbox	40 40 38 60
+	delay	20
+	frame	data/chars/tyris/0115
+	delay	100
+	frame	data/chars/tyris/0116
+		
+anim	spawn
+	loop	0
+	delay	1
+	offset	60 98
+	frame	data/chars/tyris/0000
+	delay	50
+	frame	data/chars/tyris/0000
+		
+anim	special
+	mponly	2
+	energycost	8
+	loop	0
+	offset	60 98
+	delay	16
+	frame	data/chars/tyris/0075
+	frame	data/chars/tyris/0082
+	delay	6
+	frame	data/chars/tyris/0083
+	frame	data/chars/tyris/0084
+	delay	12
+	bbox	60 39 19 59
+	attack1	72 47 40 20 8 1 1 1
+	frame	data/chars/tyris/0085
+	attack1	0 0 0 0 0
+	delay	10
+	frame	data/chars/tyris/0084
+	frame	data/chars/tyris/0083
+		
+anim	up
+	loop	1
+	delay	8
+	offset	60 98
+	bbox	50 42 19 56
+	frame	data/chars/tyris/0109
+	frame	data/chars/tyris/0110
+	frame	data/chars/tyris/0111
+	frame	data/chars/tyris/0112
+	frame	data/chars/tyris/0113
+	frame	data/chars/tyris/0114
+		
+anim	waiting
+		
+anim	walk
+	loop	1
+	delay	8
+	offset	60 98
+	bbox	49 42 19 56
+	frame	data/chars/tyris/0103
+	frame	data/chars/tyris/0104
+	frame	data/chars/tyris/0105
+	frame	data/chars/tyris/0106
+	frame	data/chars/tyris/0107
+	frame	data/chars/tyris/0108
+		
+anim	walkoff
+	loop	1 0 5
+	landframe	6 landm
+	offset	60 98
+	bbox	52 44 19 50
+	delay	5
+	frame	data/chars/tyris/0067
+	frame	data/chars/tyris/0068
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0070
+	frame	data/chars/tyris/0069
+	frame	data/chars/tyris/0069
+	delay	6
+	bbox	51 53 20 45
+	frame	data/chars/tyris/0071
+	frame	data/chars/tyris/0072
+	frame	data/chars/tyris/0073
+	frame	data/chars/tyris/0074
+	frame	data/chars/tyris/0075
+	frame	data/chars/tyris/0082
+		
+#|edited by openBor Stats v 0.61
+		

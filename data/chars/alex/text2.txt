@@ -1,0 +1,19 @@
+# His majesty and the princess
+# have been taken by Death Adder!
+# Revenge them for me, my friend.
+
+name text2
+shadow 0
+nomove 1
+facing 1
+setlayer 2000
+
+anim idle
+    
+    delay   350
+    offset 44 43
+	frame	Data\CHARS\alex\t1.gif
+    delay   200
+    offset 44 27
+	frame	Data\CHARS\alex\t2.gif
+

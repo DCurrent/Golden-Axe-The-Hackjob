@@ -1,0 +1,23 @@
+
+************ Shutting Down ************
+
+OpenBOR v3.0 Build 3710, Compile Date: Jun 13 2012
+Presented by Senile Team.
+This Version is unofficial and based on the Senile source code.
+
+Special thanks to SEGA and SNK.
+
+Total Ram: 4294967295 Bytes
+ Free Ram: 4294967295 Bytes
+ Used Ram: 13713408 Bytes
+
+Release level data...........	Done!
+Release graphics data........	Done!
+Release game data............
+
+
+Release game data............	Done!
+Release timer................	Done!
+Release input hardware.......	Done!
+Release sound system.........	Done!
+Release FileCaching System...	Done!

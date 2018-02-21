@@ -1,0 +1,54 @@
+name dummy
+type enemy
+aimove nomove
+aiattack noattack
+nomove 1 1
+falldie 1
+noquake 1
+health 1
+shadow 0
+
+anim idle
+
+delay 1000
+@script
+if(getglobalvar("dummy")==NULL())
+{
+    setglobalvar("dummy", getlocalvar("self"));
+}
+@end_script
+frame data/chars/misc/blan0001
+
+anim death
+
+delay 100
+frame data/chars/misc/blan0001
+anim  freespecial12
+		offset  60  98
+		bbox  48  42  22  56
+	frame  data/chars/ax/idle.png
+		offset  60  100
+		move  -1
+		bbox  63  41  19  60
+	frame  data/chars/ax/0034.png
+		offset  60  99
+		move  30
+		bbox  47  42  19  58
+	frame  data/chars/ax/0054.png
+		move  0
+		bbox  51  41  23  59
+	frame  data/chars/ax/a1.png
+		bbox  52  46  21  53
+	frame  data/chars/ax/a2.png
+		bbox  46  48  29  50
+	frame  data/chars/ax/0093.png
+	frame  data/chars/ax/0093.png
+		offset  60  97
+		move  1
+		bbox  48  53  27  45
+	frame  data/chars/ax/0016.png
+		move  0
+	frame  data/chars/ax/0017.png
+	frame  data/chars/ax/0018.png
+	frame  data/chars/ax/a2.png
+

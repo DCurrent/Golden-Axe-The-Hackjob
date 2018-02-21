@@ -1,0 +1,28 @@
+#Kicked up ground dust, medium.
+
+name			whifgm
+type			none
+shadow			0
+antigravity		100
+lifespan    	2
+alpha			1			
+speedf			0.35		#Size adjustment.
+nodrop			0			#<max> random rotation range.
+guardpoints		1			#Type of oneshot.
+noatflash		0			#Secondary entity.
+jugglepoints	201			#Alternate spawn sound group.
+
+onspawnscript 	data/scripts/spaw0002.c
+onkillscript  	data/scripts/z_kill.c
+
+anim idle
+	
+	delay	5
+	offset	75 35
+		frame	data/chars/misc/effects/dust0001/0001
+		frame	data/chars/misc/effects/dust0001/0002
+		frame	data/chars/misc/effects/dust0001/0003
+		frame	data/chars/misc/effects/dust0001/0004
+		frame	data/chars/misc/effects/dust0001/0005
+		frame	data/chars/misc/effects/dust0001/0006
+		frame	data/chars/misc/effects/dust0001/0007

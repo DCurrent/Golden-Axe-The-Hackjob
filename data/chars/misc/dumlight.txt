@@ -1,0 +1,41 @@
+# full screen lightning attack
+name dummylightning
+type none
+lifespan 2
+candamage enemy
+shadow 0
+
+#didhitscript data/chars/misc/dumhit.c
+
+anim spawn
+    subentity screen
+    spawnframe 1 240 0 0 1
+    
+    delay 10
+@script
+void e;
+int i;
+float x; float z;
+clearspawnentry();
+setspawnentry("name", "lightning3");
+for(i=0; i<6; i++)
+{
+    x = frame * 60 - 64 + 16 *i + rand()%48;
+    z = openborvariant("player_min_z") + (i+0.5) * (openborvariant("player_max_z")-openborvariant("player_min_z"))/6.0;
+    if(checkhole(x + openborvariant("xpos"), z)==0 || checkwall(x + openborvariant("xpos"), z)>0)
+    {
+        setspawnentry("coords", x, z, checkwall(x + openborvariant("xpos"), z));
+        spawn();
+    }
+}
+@end_script
+    sound data/sounds/thunder.wav
+    frame data/chars/misc/empty.gif
+    frame data/chars/misc/empty.gif
+    frame data/chars/misc/empty.gif
+    frame data/chars/misc/empty.gif
+    frame data/chars/misc/empty.gif
+    frame data/chars/misc/empty.gif
+    frame data/chars/misc/empty.gif
+    frame data/chars/misc/empty.gif
+

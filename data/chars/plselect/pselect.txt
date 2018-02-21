@@ -1,0 +1,35 @@
+#pSelect
+
+name	pselect
+type	none
+shadow	0
+nomove  1
+
+anim idle
+
+	delay	2
+	offset	61 130
+	sound	data/sounds/200_0.wav
+		frame	data/chars/plselect/0001
+		frame	data/chars/plselect/0002
+		frame	data/chars/plselect/0003
+		frame	data/chars/plselect/0004
+		frame	data/chars/plselect/0005
+		frame	data/chars/plselect/0006
+		frame	data/chars/plselect/0007
+		frame	data/chars/plselect/0008
+		frame	data/chars/plselect/0009
+		frame	data/chars/plselect/0010
+		frame	data/chars/plselect/0011
+		frame	data/chars/plselect/0012
+		frame	data/chars/plselect/0013
+		frame	data/chars/plselect/0014
+		frame	data/chars/plselect/0015
+		frame	data/chars/plselect/0016
+		frame	data/chars/plselect/0017
+		frame	data/chars/plselect/0018
+		frame	data/chars/plselect/0019
+		frame	data/chars/plselect/0020
+	delay	-1000
+		frame	data/chars/plselect/0021
+

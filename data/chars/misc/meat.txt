@@ -1,0 +1,14 @@
+name	Meat
+health	32
+type	item
+subtype touch
+gfxshadow 1
+shadow	0
+#icon	data/chars/misc/meaticon.gif
+
+anim idle
+	loop	1
+	delay	1000
+	offset	16 9
+	bbox	0 0 32 16
+	frame	data/chars/misc/meat.gif

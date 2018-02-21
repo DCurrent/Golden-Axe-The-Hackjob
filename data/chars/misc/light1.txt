@@ -1,0 +1,40 @@
+# Gilius' lightning bolt
+name lightning1
+type none
+shadow 0
+lifespan 2
+setlayer 200
+candamage enemy
+alpha 5
+
+globalmap 1
+
+anim spawn
+
+delay 10
+sound data/sounds/thunder.wav
+frame data/chars/misc/empty
+
+anim idle
+flipframe 1
+subentity screen
+spawnframe 0 240 0 0 1
+loop 1
+offset 230 240
+delay 5
+frame data/chars/misc/empty
+shock -1 1 0 0 8 1 1 1
+attackz 1000
+delay 8
+frame data/chars/misc/light1/large
+delay 1
+frame data/chars/misc/empty
+frame data/chars/misc/light1/large
+frame data/chars/misc/empty
+frame data/chars/misc/light1/large
+frame data/chars/misc/empty
+frame data/chars/misc/light1/large
+shock 0
+delay 30
+frame data/chars/misc/empty
+

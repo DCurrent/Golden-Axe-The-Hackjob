@@ -1,0 +1,316 @@
+#*****Notes***************************************************************************
+
+#Bound effects; spawned in synch with main enitity to produce transparent blur effect.
+
+#*****Settings***************************************************************************
+
+#*****icons*****
+#*****General*****
+
+name	     alex0001     
+type	     none   	
+health	     100	
+#speed	     10		
+alpha	     1		
+
+#*****Alternates*******
+
+palette	 	data/chars/alex/effects/0001
+alternatepal	data/chars/alex/effects/0086	#1	Bow
+
+#*****Basic********************************************************************************
+
+anim spawn
+	
+	delay	1
+	offset	75 150
+		frame	data/chars/misc/blan0001
+
+#anim waiting
+#anim select
+#anim faint
+#anim sleep
+#anim walk
+#anim backwalk
+#anim up 
+#anim down 
+#anim run
+#anim get
+#anim duck
+#anim charge
+#anim dodge
+
+#*****Attack*******************************************************************************
+
+anim attack1	
+
+	delay	-1000
+	offset	60 99
+		frame	data/chars/misc/blan0001
+		frame   data/chars/alex/effects/0001.png
+    		frame   data/chars/alex/effects/0003.png
+		frame   data/chars/alex/effects/0004.png
+		frame   data/chars/alex/effects/0005.png
+		frame   data/chars/alex/effects/0006.png
+		frame   data/chars/alex/effects/0007.png
+		frame   data/chars/alex/effects/0008.png
+		frame   data/chars/alex/effects/0009.png
+		frame   data/chars/alex/effects/0010.png
+		frame   data/chars/alex/effects/0011.png
+		frame   data/chars/alex/effects/0012.png
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+anim follow3    
+	
+	offset	60 99
+	delay	-1000	
+		frame   data/chars/alex/effects/0004.png
+		frame   data/chars/alex/effects/0005.png
+		frame   data/chars/alex/effects/0006.png
+		frame   data/chars/alex/effects/0007.png
+		frame   data/chars/alex/effects/0008.png
+		frame   data/chars/alex/effects/0009.png
+		frame   data/chars/alex/effects/0010.png
+		frame   data/chars/alex/effects/0011.png
+		frame   data/chars/alex/effects/0012.png
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001		
+
+anim attack2
+	
+	delay	-1000
+	offset	60 99	
+    		frame	data/chars/misc/blan0001
+		frame   data/chars/alex/effects/0027.png
+    		frame   data/chars/alex/effects/0028.png
+    		frame   data/chars/alex/effects/0029.png
+		frame   data/chars/alex/effects/0030.png
+		frame   data/chars/alex/effects/0031.png
+		frame   data/chars/alex/effects/0032.png
+		frame   data/chars/alex/effects/0033.png
+		frame   data/chars/alex/effects/0034.png
+		frame   data/chars/alex/effects/0035.png
+		frame   data/chars/alex/effects/0036.png
+		frame   data/chars/alex/effects/0037.png
+		frame   data/chars/alex/effects/0038.png		
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+anim attack3
+
+	delay	-1000
+	offset	60 99
+		frame	data/chars/misc/blan0001		
+		frame	data/chars/misc/blan0001
+		frame   data/chars/alex/effects/0074.png
+		frame   data/chars/alex/effects/0075.png
+		frame   data/chars/alex/effects/0076.png		
+		frame   data/chars/alex/effects/0077.png
+		frame   data/chars/alex/effects/0078.png
+		frame   data/chars/alex/effects/0079.png
+		frame   data/chars/alex/effects/0080.png
+		frame   data/chars/alex/effects/0081.png
+		frame   data/chars/alex/effects/0082.png
+		frame   data/chars/alex/effects/0083.png
+		frame   data/chars/alex/effects/0084.png
+		frame   data/chars/alex/effects/0085.png
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+anim  runattack
+
+	delay	-1000
+	offset	60 99
+		frame	data/chars/misc/blan0001
+		frame   data/chars/alex/effects/0013.png
+		frame   data/chars/alex/effects/0014.png
+    		frame   data/chars/alex/effects/0015.png
+   		frame   data/chars/alex/effects/0016.png
+    		frame   data/chars/alex/effects/0017.png
+    		frame   data/chars/alex/effects/0018.png
+		frame   data/chars/alex/effects/0019.png
+		frame   data/chars/alex/effects/0020.png
+		frame   data/chars/alex/effects/0021.png
+		frame   data/chars/alex/effects/0022.png
+		frame   data/chars/alex/effects/0023.png
+		frame   data/chars/alex/effects/0024.png
+		frame   data/chars/alex/effects/0025.png
+		frame   data/chars/alex/effects/0026.png
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001		
+
+anim  attack5	
+
+	delay  	-1000
+	offset  60  99
+	
+		frame	data/chars/misc/blan0001	
+		frame	data/chars/misc/blan0001	
+		frame   data/chars/alex/effects/0039.png   	
+		frame   data/chars/alex/effects/0040.png
+		frame   data/chars/alex/effects/0041.png
+		frame   data/chars/alex/effects/0042.png
+		frame   data/chars/alex/effects/0043.png
+		frame   data/chars/alex/effects/0044.png
+		frame   data/chars/alex/effects/0045.png
+		frame   data/chars/alex/effects/0046.png
+		frame   data/chars/alex/effects/0047.png	
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001		
+
+
+anim chargeattack
+
+	#Batter up
+
+	delay	-1000
+	offset	60 99	
+		frame	data/chars/misc/blan0001		
+		frame   data/chars/alex/effects/0048.png		
+		frame   data/chars/alex/effects/0049.png
+		frame   data/chars/alex/effects/0050.png
+		frame   data/chars/alex/effects/0051.png
+		frame   data/chars/alex/effects/0052.png
+		frame   data/chars/alex/effects/0053.png
+		frame   data/chars/alex/effects/0054.png
+		frame   data/chars/alex/effects/0055.png
+		frame   data/chars/alex/effects/0056.png
+		frame   data/chars/alex/effects/0057.png
+		frame   data/chars/alex/effects/0058.png
+		frame   data/chars/alex/effects/0059.png
+		frame   data/chars/alex/effects/0060.png			
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+
+anim jumpattack
+	
+	delay  	-1000
+	offset  60  99
+	
+		frame	data/chars/misc/blan0001	
+		frame   data/chars/alex/effects/0039.png   	
+		frame   data/chars/alex/effects/0040.png
+		frame   data/chars/alex/effects/0041.png
+		frame   data/chars/alex/effects/0042.png
+		frame   data/chars/alex/effects/0043.png
+		frame   data/chars/alex/effects/0044.png
+		frame   data/chars/alex/effects/0045.png
+		frame   data/chars/alex/effects/0046.png
+		frame   data/chars/alex/effects/0047.png	
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+
+anim runjumpattack
+	
+	delay  	-1000
+	offset  60  99
+	
+		frame	data/chars/misc/blan0001	
+		frame   data/chars/alex/effects/0039.png   	
+		frame   data/chars/alex/effects/0040.png
+		frame   data/chars/alex/effects/0041.png
+		frame   data/chars/alex/effects/0042.png
+		frame   data/chars/alex/effects/0043.png
+		frame   data/chars/alex/effects/0044.png
+		frame   data/chars/alex/effects/0045.png
+		frame   data/chars/alex/effects/0046.png
+		frame   data/chars/alex/effects/0047.png	
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+anim  special	
+
+	delay  	-1000
+	offset  60  99
+	
+		frame	data/chars/misc/blan0001	
+		frame	data/chars/misc/blan0001	
+		frame   data/chars/alex/effects/0039.png   	
+		frame   data/chars/alex/effects/0040.png
+		frame   data/chars/alex/effects/0041.png
+		frame   data/chars/alex/effects/0042.png
+		frame   data/chars/alex/effects/0043.png
+		frame   data/chars/alex/effects/0044.png
+		frame   data/chars/alex/effects/0045.png
+		frame   data/chars/alex/effects/0046.png
+		frame   data/chars/alex/effects/0047.png	
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+anim freespecial9
+
+	#Bow shot
+	
+	delay	-1000
+	offset  60  98
+		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blan0001
+		frame  data/chars/alex/effects/0086.png
+		frame  data/chars/alex/effects/0087.png
+	
+		frame  data/chars/alex/effects/0088.png
+	offset	62 98
+		frame  data/chars/alex/effects/0089.png
+	offset	60 98
+		frame  data/chars/alex/effects/0090.png
+		frame  data/chars/alex/effects/0089.png
+		frame  data/chars/alex/effects/0090.png
+		frame  data/chars/alex/effects/0089.png
+		frame  data/chars/alex/effects/0090.png
+		frame  data/chars/alex/effects/0089.png
+	
+		frame  data/chars/alex/effects/0090.png
+		frame  data/chars/alex/effects/0086.png
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+anim freespecial10
+
+	#Bow shot 2
+	
+	delay	-1000
+	offset  60  98
+		frame  data/chars/alex/effects/0087.png
+	
+		frame  data/chars/alex/effects/0088.png
+	offset	62 98
+		frame  data/chars/alex/effects/0089.png
+	offset	60 98
+		frame  data/chars/alex/effects/0090.png
+		frame  data/chars/alex/effects/0089.png
+		frame  data/chars/alex/effects/0090.png
+		frame  data/chars/alex/effects/0089.png
+		frame  data/chars/alex/effects/0090.png
+		frame  data/chars/alex/effects/0089.png
+	
+		frame  data/chars/alex/effects/0090.png
+		frame  data/chars/alex/effects/0086.png
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+anim freespecial11
+
+	#Bow shot 2
+	
+	delay	-1000
+	offset  60  98
+		frame  data/chars/alex/effects/0087.png
+	
+		frame  data/chars/alex/effects/0088.png
+	offset	62 98
+		frame  data/chars/alex/effects/0089.png
+	offset	60 98
+		frame  data/chars/alex/effects/0090.png
+		frame  data/chars/alex/effects/0089.png
+		frame  data/chars/alex/effects/0090.png
+		frame  data/chars/alex/effects/0089.png
+		frame  data/chars/alex/effects/0090.png
+		frame  data/chars/alex/effects/0089.png
+	
+		frame  data/chars/alex/effects/0090.png
+		frame  data/chars/alex/effects/0086.png
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001

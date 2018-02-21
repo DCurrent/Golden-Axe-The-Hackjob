@@ -1,0 +1,56 @@
+name    	kuna0001
+type    	none
+speed   	14
+gfxshadow 	1
+shadow  	1
+toflip  	1
+nolife  	1
+remove  	1
+alpha   	0
+antigravity 	100
+
+palette	data/chars/misc/effects/kuna0001/0002.png
+
+anim spawn
+
+	delay	3
+	offset	8 8
+		frame data/chars/misc/blan0001
+
+anim idle
+
+	noreflect   1		#Game would be laughably easy if kunai had any stun or knockdown effect.
+    	forcedirection -1
+	fastattack 1		#So multiple kunai can hit in series
+
+	loop	1
+	offset	8 8
+	delay	2
+    	attack10 2 2 12 12 6 0 0 0
+		frame	data/chars/misc/effects/kuna0001/0001.png
+	noreflect  1
+	forcedirection  -1
+	fastattack  1		
+	attack10  2  2  12  12  6  0  0  0
+		frame  data/chars/misc/effects/kuna0001/0002.png		
+		frame  data/chars/misc/effects/kuna0001/0003.png		
+		frame  data/chars/misc/effects/kuna0001/0004.png
+		frame  data/chars/misc/effects/kuna0001/0005.png
+		frame  data/chars/misc/effects/kuna0001/0006.png
+		frame  data/chars/misc/effects/kuna0001/0007.png
+		frame  data/chars/misc/effects/kuna0001/0008.png
+
+anim attack1
+
+	offset	8 8
+	delay	10
+    		frame	data/chars/misc/effects/kuna0001/0009.png
+
+anim attack2
+
+	offset	8 8
+	delay	1
+    		frame	data/chars/misc/blan0001
+
+
+

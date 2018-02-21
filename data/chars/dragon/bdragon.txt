@@ -1,0 +1,49 @@
+name		Blue_Dragon
+speed   	0
+nomove  	0
+nolife  	1
+type		item
+subtype 	weapon
+counter 	3
+typeshot 	1
+weapnum 	3
+gfxshadow 	1
+shadow		3
+toflip  	1
+
+animationscript data/chars/thief/scripts/ani.c
+
+palette		data/chars/dragon/p1
+
+anim spawn	
+	
+	delay	12
+	offset	80 142
+		frame	data/chars/dragon/p1
+    @cmd	soun0005 ENT_SELF VOI_HI SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/dragon/p2
+		frame	data/chars/dragon/p1
+    delay   30
+		frame	data/chars/dragon/idle2
+
+anim idle
+
+	loop	1
+	delay	100
+	offset	80 142
+    	bbox    65 117 32 32
+	@cmd runcheck
+		frame	data/chars/dragon/lay
+
+anim walk
+
+	loop	1
+	delay	6
+	offset	80 142
+	@script
+		ai0006(0,0,0,0,0,0);
+	@end_script
+		frame	data/chars/dragon/r1
+		frame	data/chars/dragon/r2
+		frame	data/chars/dragon/r3
+		frame	data/chars/dragon/r4

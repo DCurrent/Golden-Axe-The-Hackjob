@@ -1,0 +1,16 @@
+# screen blinker
+
+name	screen
+type	none
+setlayer 1000
+nomove  1
+shadow	0
+
+
+anim idle
+	loop	0
+	delay	10
+	offset	480 120
+	frame	data/chars/misc/screen.gif
+@cmd killentity getlocalvar("self")
+	frame	data/chars/misc/empty.gif

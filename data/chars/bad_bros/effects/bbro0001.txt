@@ -1,0 +1,166 @@
+#*****Notes***************************************************************************
+
+#Bound effects; spawned in synch with main enitity to produce transparent blur effect.
+
+#*****Settings***************************************************************************
+
+#*****icons*****
+#*****General*****
+
+name	     bbro0001     
+type	     none   	
+health	     100	
+#speed	     10		
+alpha	     1		
+
+#*****Alternates*******
+
+palette	 	data/chars/bad_bros/idle1 	#Green
+
+
+#*****Basic********************************************************************************
+
+anim spawn
+	
+	delay	1
+	offset	75 150
+		frame	data/chars/misc/blan0001
+
+
+#*****Attack*******************************************************************************
+
+anim attack1
+    	
+	hitflash   bluh
+	
+	offset  80  133
+	delay	-1000		
+		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blan0001
+		frame	data/chars/bad_bros/effects/0001
+		frame	data/chars/bad_bros/effects/0002
+		frame	data/chars/bad_bros/effects/0003
+		frame	data/chars/bad_bros/effects/0004
+		frame	data/chars/bad_bros/effects/0005
+		frame	data/chars/bad_bros/effects/0006
+		frame	data/chars/bad_bros/effects/0007
+		frame	data/chars/bad_bros/effects/0008
+		frame	data/chars/bad_bros/effects/0009
+		frame	data/chars/bad_bros/effects/0010
+		frame	data/chars/bad_bros/effects/0011
+		frame	data/chars/bad_bros/effects/0012
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001    	
+
+anim attack2
+	
+	#Hammer sweep	
+
+	offset  80  137
+	delay	-1000
+
+		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blan0001
+		frame	data/chars/bad_bros/effects/0013		
+   		frame	data/chars/bad_bros/effects/0014		
+		frame	data/chars/bad_bros/effects/0015		
+		frame	data/chars/bad_bros/effects/0016
+		frame	data/chars/bad_bros/effects/0017
+		frame	data/chars/bad_bros/effects/0018
+		frame	data/chars/bad_bros/effects/0019
+		frame	data/chars/bad_bros/effects/0020
+		frame	data/chars/bad_bros/effects/0021
+		frame	data/chars/bad_bros/effects/0022
+		frame	data/chars/bad_bros/effects/0023
+		frame	data/chars/bad_bros/effects/0024
+		frame	data/chars/bad_bros/effects/0025
+		frame	data/chars/bad_bros/effects/0026
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+anim  special
+	
+	offset  80  137
+	delay  -1000			
+		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blan0001
+		frame	data/chars/bad_bros/effects/0027
+		frame	data/chars/bad_bros/effects/0028
+		frame	data/chars/bad_bros/effects/0029
+		frame	data/chars/bad_bros/effects/0030
+		frame	data/chars/bad_bros/effects/0031
+		frame	data/chars/bad_bros/effects/0032
+		frame	data/chars/bad_bros/effects/0033
+		frame	data/chars/bad_bros/effects/0034
+		frame	data/chars/bad_bros/effects/0035
+		frame	data/chars/bad_bros/effects/0036
+		frame	data/chars/bad_bros/effects/0037
+		frame	data/chars/bad_bros/effects/0038
+		frame	data/chars/bad_bros/effects/0039
+		frame	data/chars/bad_bros/effects/0040
+		frame	data/chars/bad_bros/effects/0041
+		frame	data/chars/bad_bros/effects/0042
+		frame	data/chars/bad_bros/effects/0043
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+anim  special2
+	
+	offset  80  137
+	delay  -1000			
+		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blan0001
+		frame	data/chars/bad_bros/effects/0027
+		frame	data/chars/bad_bros/effects/0028
+		frame	data/chars/bad_bros/effects/0029
+		frame	data/chars/bad_bros/effects/0030
+		frame	data/chars/bad_bros/effects/0031
+		frame	data/chars/bad_bros/effects/0032
+		frame	data/chars/bad_bros/effects/0033
+		frame	data/chars/bad_bros/effects/0034
+		frame	data/chars/bad_bros/effects/0035
+		frame	data/chars/bad_bros/effects/0036
+		frame	data/chars/bad_bros/effects/0037
+		frame	data/chars/bad_bros/effects/0038
+		frame	data/chars/bad_bros/effects/0039
+		frame	data/chars/bad_bros/effects/0040
+		frame	data/chars/bad_bros/effects/0041
+		frame	data/chars/bad_bros/effects/0042
+		frame	data/chars/bad_bros/effects/0043
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+anim  riseattack
+	
+	offset  80  137
+	delay  -1000
+		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blan0001	
+		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blan0001
+		frame	data/chars/bad_bros/effects/0027
+		frame	data/chars/bad_bros/effects/0028
+		frame	data/chars/bad_bros/effects/0029
+		frame	data/chars/bad_bros/effects/0030
+		frame	data/chars/bad_bros/effects/0031
+		frame	data/chars/bad_bros/effects/0032
+		frame	data/chars/bad_bros/effects/0033
+		frame	data/chars/bad_bros/effects/0034
+		frame	data/chars/bad_bros/effects/0035
+		frame	data/chars/bad_bros/effects/0036
+		frame	data/chars/bad_bros/effects/0037
+		frame	data/chars/bad_bros/effects/0038
+		frame	data/chars/bad_bros/effects/0039
+		frame	data/chars/bad_bros/effects/0040
+		frame	data/chars/bad_bros/effects/0041
+		frame	data/chars/bad_bros/effects/0042
+		frame	data/chars/bad_bros/effects/0043
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blan0001
+
+
+
+
+

@@ -1,0 +1,50 @@
+#stomped version
+name 		Male_Villager
+type 		none
+health 		1
+speed 		8
+gfxshadow 	1
+shadow 		2
+nomove 		1 1
+
+animationscript data/scripts/com/soun0005.h
+
+anim spawn
+    
+    offset 32 54
+    delay 30
+    @cmd	soun0005 ENT_SELF VOI_PN -1 1 0 0
+    frame data/chars/villager/male/stomp1.gif
+    frame data/chars/villager/male/stomp2.gif
+    frame data/chars/villager/male/stomp1.gif
+    frame data/chars/villager/male/stomp2.gif
+    frame data/chars/villager/male/stomp1.gif
+    frame data/chars/villager/male/stomp2.gif
+    frame data/chars/villager/male/stomp1.gif
+    delay 40
+    frame data/chars/villager/male/stomp2.gif
+@script
+if(frame==8)
+{
+    void self = getlocalvar("self");
+    clearspawnentry();
+    setspawnentry("name", "Male_Villager2");
+    float x = getentityproperty(self, "x");
+    float z = getentityproperty(self, "z");
+    float a = getentityproperty(self, "a");
+    float lx = openborvariant("xpos");
+    setspawnentry("coords", x-lx, z, a);
+    spawn();
+    killentity(self);
+}
+@end_script
+    frame data/chars/misc/empty.gif
+
+anim idle
+    
+    offset 32 53
+    delay 8
+    move  5
+    frame data/chars/misc/empty.gif
+
+

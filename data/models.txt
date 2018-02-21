@@ -1,0 +1,199 @@
+# List all character models to be loaded.
+# Syntax:
+# load		[name]		[path]		// Load on startup
+# know		[name]		[path]		// Load when needed
+# 
+
+nocheats 		1
+nolost 			1
+nodropen 		1
+maxattacks 		7
+spdirection  		1 1 1
+versusdamage 		1
+noaircancel 		0
+maxattacktypes  	11
+maxfreespecials 	50
+maxfollows		101
+colourselect 		1
+combodelay		220
+
+load	pselect	    data/chars/plselect/pselect.txt									#Player select roulette.
+
+#*****Flash/Dust (~ module specific use)*****
+load	bflash		data/chars/misc/effects/models/flash/bflash/bflash.txt			#Block flash.					~Weapon deflect.
+#load	biteh		data/chars/misc/effects/models/flash/biteh/biteh.txt			#Bite, heavy.					
+#load	bitel		data/chars/misc/effects/models/flash/bitel/bitel.txt			#Bite, light.					
+load	bitem		data/chars/misc/effects/models/flash/bitem/bitem.txt			#Bite, medium.					~Collect food, animal bites.
+load	bluh		data/chars/misc/effects/models/flash/bluh/bluh.txt				#Blunt hit, heavy.				~Hammer thunk.
+#load	bluhcut		data/chars/misc/effects/models/flash/bluhcut/bluhcut.txt		#Blunt hit, heavy w/blood.		
+load	blul		data/chars/misc/effects/models/flash/blul/blul.txt				#Blunt hit, light.				~Knock head.
+#load	blulcut		data/chars/misc/effects/models/flash/blulcut/blulcut.txt		#Blunt hit, light w/blood.		
+#load	blum		data/chars/misc/effects/models/flash/blum/blum.txt				#Blunt hit, medium.				
+load	blumcut		data/chars/misc/effects/models/flash/blumcut/blumcut.txt		#Blunt hit, medium w/blood.		~Mace, spike club, & broken sword hits.
+#load	boneh		data/chars/misc/effects/models/flash/bonem/bonem.txt			#Bone crush, heavy.
+#load	bonel		data/chars/misc/effects/models/flash/bonel/bonel.txt			#Bone crush, light.
+load	bonem		data/chars/misc/effects/models/flash/bonem/bonem.txt			#Bone crush, medium.
+load	cuth		data/chars/misc/effects/models/flash/cuth/cuth.txt				#Cut, heavy.					~Knockdown by cut.
+#load	cutl		data/chars/misc/effects/models/flash/cutl/cutl.txt				#Cut, light.					
+#load	cutm		data/chars/misc/effects/models/flash/cutm/cutm.txt				#Cut, medium.					
+load	flash		data/chars/misc/effects/models/flash/flash/flash.txt			#Default hit flash.				~Normal cut.
+load	hith		data/chars/misc/effects/models/flash/hith/hith.txt				#Bare hand, heavy.				~Run attack w/body.
+load	hithcut		data/chars/misc/effects/models/flash/hithcut/hithcut.txt		#Bare hand, heavy w/blood.		~Run attack w/weapon.
+#load	hitl		data/chars/misc/effects/models/flash/hitl/hitl.txt				#Bare hand, light.				
+#load	hitlcut		data/chars/misc/effects/models/flash/hitlcut/hitlcut.txt		#Bare hand, light w/blood.					
+load	hitm		data/chars/misc/effects/models/flash/hitm/hitm.txt				#Bare hand, medium.				~Knockdown by hit.
+#load	hitmcut		data/chars/misc/effects/models/flash/hitmcut/hitmcut.txt		#Bare hand, medium w/blood.					
+load	idirh		data/chars/misc/effects/models/flash/idirh/idirh.txt			#Indirect hit, heavy.
+#load	idirl		data/chars/misc/effects/models/flash/idirl/idirl.txt			#Indirect hit, light.
+load	idirm		data/chars/misc/effects/models/flash/idirm/idirm.txt			#Indirect hit.					~Thrown into ally.
+load	fallh		data/chars/misc/effects/models/flash/fallh/fallh.txt			#Fall dust, heavy.				~Big body fall.
+#load	fallhm		data/chars/misc/effects/models/flash/fallhm/fallhm.txt			#Fall dust, heavy, metalic.		
+#load	falll		data/chars/misc/effects/models/flash/fallh/falll.txt			#Fall dust, light.				
+#load	falllm		data/chars/misc/effects/models/flash/falllm/falllm.txt			#Fall dust, light, metalic.
+load	fallm		data/chars/misc/effects/models/flash/fallm/fallm.txt			#Fall dust, medium.				~Normal fall.
+load	fallmm		data/chars/misc/effects/models/flash/fallmm/fallmm.txt			#Fall dust, medium, metalic.	~Armored body fall.
+#load	imph		data/chars/misc/effects/models/flash/imph/imph.txt				#Slam impact, heavy.
+#load	impl		data/chars/misc/effects/models/flash/impl/impl.txt				#Slam impact, light.
+load	impm		data/chars/misc/effects/models/flash/impm/impm.txt				#Slam impact, medium.
+#load	jumph		data/chars/misc/effects/models/flash/jumph/jumph.txt			#Jump liftoff, heavy.
+#load	jumpl		data/chars/misc/effects/models/flash/jumpl/jumpl.txt			#Jump liftoff, light.
+load	jumpm		data/chars/misc/effects/models/flash/jumpm/jumpm.txt			#Jump liftoff, medium.
+load	jumpmw		data/chars/misc/effects/models/flash/jumpmw/jumpmw.txt			#Jump liftoff, medium, from wall.
+load	landh		data/chars/misc/effects/models/flash/landh/landh.txt			#Jump land, heavy.
+#load	landhm		data/chars/misc/effects/models/flash/landhm/landhm.txt			#Jump land, heavy, metalic.
+#load	landl		data/chars/misc/effects/models/flash/landl/landl.txt			#Jump land, light.
+#load	landlm		data/chars/misc/effects/models/flash/landlm/landlm.txt			#Jump land, light, metalic.
+load	landm		data/chars/misc/effects/models/flash/landm/landm.txt			#Jump land, medium.
+load	landm		data/chars/misc/effects/models/flash/landmw/landmw.txt			#Jump land, medium on wall.
+#load	landmm		data/chars/misc/effects/models/flash/landmm/landmm.txt			#Jump land, medium, metalic.
+#load	skeh		data/chars/misc/effects/models/flash/skeh/skeh.txt				#Skeletal hit, heavy.
+load	skel		data/chars/misc/effects/models/flash/skel/skel.txt				#Skeletal hit, light.			~Skeleton warrior taking hit.
+#load	skem		data/chars/misc/effects/models/flash/skem/skem.txt				#Skeletal hit, medium.
+load	stabh		data/chars/misc/effects/models/flash/stabh/stabh.txt			#Stab, heavy.					~Knockdown by stab.
+#load	stabl		data/chars/misc/effects/models/flash/stabl/stabl.txt			#Stab, light.					
+#load	stabm		data/chars/misc/effects/models/flash/stabm/stabm.txt			#Stab, medium.					
+#load	wallh		data/chars/misc/effects/models/flash/wallh/wallh.txt			#Wall impact, heavy.
+#load	walll		data/chars/misc/effects/models/flash/walll/walll.txt			#Wall impact, light.
+load	wallm		data/chars/misc/effects/models/flash/wallm/wallm.txt			#Wall impact, medium.			~Slammed into wall.
+load	whifgh		data/chars/misc/effects/models/flash/whifgh/whifgh.txt			#Action dust, heavy.			~All out attack shuffle.
+#load	whifgl		data/chars/misc/effects/models/flash/whifgl/whifgl.txt			#Action dust, light.		
+load	whifgm		data/chars/misc/effects/models/flash/whifgm/whifgm.txt			#Action dust, medium.			~Animal attack, large weapon swing.	
+
+load	effe0001	data/chars/misc/effects/effe0001.txt	#General effects/projectiles.
+load	effe0002	data/chars/misc/effects/effe0002.txt	#Char select burn.
+
+load	knife2		data/chars/misc/knife2.txt
+
+load    Magic           data/chars/misc/magic.txt
+know    meat            data/chars/misc/meat.txt
+know    time            data/chars/misc/time.txt
+know    Magic_Pot       data/chars/misc/magpot.txt
+load    smoke           data/chars/misc/smoke.txt
+load    Steam           data/chars/misc/steam.txt
+know    shockwave       data/chars/misc/shockwav.txt
+load    fireexpl        data/chars/misc/effects/fire0004/fireexpl.txt		#Fireball explosion.
+load    chasball        data/chars/misc/effects/fire0003/chasball.txt		#Seeker fireball.
+load    fireball        data/chars/misc/effects/fire0003/fireball.txt		#Dragon fireball.
+
+know    kuna0001        data/chars/misc/effects/kuna0001/kuna0001.txt		#Thrown kunai.
+
+load    dummy           data/chars/misc/dummy.txt       			#dummy enemy
+know    scplayer        data/chars/misc/scplayer.txt    			#dummy enemy, ending player
+
+load    screen          data/chars/misc/screen.txt
+
+
+######Players######
+
+#Alex
+know	alex0001		data/chars/alex/effects/alex0001.txt		#Alex motion blurs.
+load	Alex			data/chars/alex/alex.txt					#Playable Alex.
+load    al_chick        data/chars/alex/al_chick.txt				#Alex on Chicken.
+load    al_bdrag        data/chars/alex/al_bdrag.txt				#Alex on Blue Dragon.
+load    al_rdrag        data/chars/alex/al_rdrag.txt				#Alex on Blue Dragon.
+
+#Ax Battler
+know	ax0001			data/chars/ax/effects/ax0001.txt			#Motion blurs.
+know    a_chick         data/chars/ax/a_chick.txt					#Riding Chicken Leg.
+know    a_rdrag			data/chars/ax/a_rdrag.txt					#Riding Red Dragon.
+know	a_bdrag			data/chars/ax/a_bdrag.txt					#Riding Blue Dragon.
+load	ax				data/chars/ax/ax.txt						#Default.
+know	ax_e			data/chars/ax/ax_e.txt						#Default.
+
+#Tyris Flare
+know    t_chick         data/chars/tyris/t_chick.txt
+know    t_rdrag         data/chars/tyris/t_rdrag.txt
+know    t_bdrag         data/chars/tyris/t_bdrag.txt
+load	tyri0001		data/chars/tyris/effects/tyri0001.txt
+load	tyri0002		data/chars/tyris/effects/tyri0002.txt		#Thrown sword.
+load	Tyris_Flare     data/chars/Tyris/Tyris.txt
+
+######Enemies#####
+
+#Thieves
+know    escthief        data/chars/thief/escthief.txt
+know    Thief           data/chars/thief/thief.txt
+
+#Bad_Brother
+know	bbro0001		data/chars/bad_bros/effects/bbro0001.txt
+load    Bad_Brother     data/chars/bad_bros/bad_bro.txt
+
+#Longmoan
+load	lonchick        data/chars/longmoan/lonchick.txt
+load	lonrdrag        data/chars/longmoan/lonrdrag.txt
+load	lonbdrag        data/chars/longmoan/lonbdrag.txt
+load	Longmoan        data/chars/longmoan/longmoan.txt
+
+#Heninger
+know	henchick        data/chars/heninger/henchick.txt
+know	henrdrag        data/chars/heninger/henrdrag.txt
+know	henbdrag        data/chars/heninger/henbdrag.txt
+know	Heninger        data/chars/heninger/heninger.txt
+
+#Amazon
+know	amachick        data/chars/amazon/amachick.txt				#On Chicken Leg.
+know	amardrag        data/chars/amazon/amardrag.txt				#On Red Dragon.
+know	amabdrag        data/chars/amazon/amabdrag.txt				#On Blue Dragon.
+know	amaz0001	data/chars/amazon/effects/amaz0001.txt			#Motion blurs.
+know	amaz0002	data/chars/amazon/effects/amaz0002.txt			#Thrown axe.
+know	Amazon          data/chars/amazon/amazon.txt				#Enemy Amazon
+
+
+#Animals
+load    Chickenlegs     data/chars/chicken/chicken.txt
+load    Red_Dragon      data/chars/dragon/rdragon.txt
+load    Blue_Dragon     data/chars/dragon/bdragon.txt
+
+#villagers
+load    Male_Villager   data/chars/villager/male/male.txt
+know    Male_Villager2  data/chars/villager/male/male2.txt
+know    Female_Villager data/chars/villager/female/female.txt
+know    Female_Villager2 data/chars/villager/female/female2.txt
+know    Kid_Villager    data/chars/villager/kid/kid.txt
+know    Old_Villager    data/chars/villager/oldman/oldman.txt
+#know    Dummy_Villager  data/chars/villager/dummy.txt
+
+#cut scenes
+know    text1           data/chars/alex/text1.txt
+know    text2           data/chars/alex/text2.txt
+know    text3           data/chars/alex/text3.txt
+know    Alex_           data/chars/alex/alex_.txt
+
+#Other stuff
+know    palette_changer data/chars/misc/palchg.txt
+know    eyeball         data/chars/misc/eyeball.txt
+know    pillar          data/chars/misc/pillar.txt
+know    wing            data/chars/misc/wing.txt
+know    eagle_eye       data/chars/misc/eeyeball.txt
+know    door            data/chars/misc/door.txt
+know    sky             data/chars/misc/sky.txt
+know    hole            data/chars/misc/hole.txt
+know    feather         data/chars/misc/feather.txt
+know    cfire           data/chars/misc/effects/models/cfire/cfire.txt
+know    water           data/chars/misc/water.txt
+know    king            data/chars/misc/king.txt
+know    endlevel        data/chars/misc/endlevel.txt
+know	Knife		data/chars/misc/knife.txt
+know	Shot		data/chars/misc/shot.txt
+know	Star		data/chars/misc/star.txt
+

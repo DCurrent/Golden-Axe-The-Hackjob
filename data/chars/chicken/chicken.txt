@@ -1,0 +1,48 @@
+name		    Chickenlegs
+speed   	    0
+nomove  	    0
+nolife		    1
+type		    item
+subtype 	    weapon
+counter 	    4
+typeshot 	    1
+weapnum 	    1
+gfxshadow 	    1
+shadow		    3
+toflip  	    1
+
+animationscript data/chars/thief/scripts/ani.c
+
+anim spawn
+	loop	0
+	delay	12
+	offset	78 142
+	bbox	25 9 36 28
+		frame	data/chars/chicken/p1.gif
+	@cmd	soun0005 ENT_SELF VOI_HI SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+		frame	data/chars/chicken/p2.gif
+		frame	data/chars/chicken/p1.gif
+        delay   30
+		frame	data/chars/chicken/idle2.gif
+
+anim idle
+	loop	1
+	delay	100
+	offset	78 142
+	bbox	25 9 36 28
+	@cmd runcheck
+		frame	data/chars/chicken/idle1.gif
+
+anim walk
+	loop	1
+	delay	8
+	offset	78 142
+	@script
+		ai0006(0,0,0,0,0,0);
+	@end_script
+		frame	data/chars/chicken/r1.gif
+		frame	data/chars/chicken/r2.gif
+		frame	data/chars/chicken/r3.gif
+		frame	data/chars/chicken/r4.gif
+
+

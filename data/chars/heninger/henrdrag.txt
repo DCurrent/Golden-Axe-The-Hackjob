@@ -1,0 +1,237 @@
+# Heninger on red dragon
+
+name	henrdrag
+type	enemy
+health	32
+speed	9
+running 20
+gfxshadow 1
+shadow	3
+aggression -30
+throwdamage 8
+grabdistance 36
+animal 2
+nolife  1
+noquake 1
+
+animationscript 	data/scripts/z_ani.c
+didblockscript		data/scripts/z_block.c				#Block incoming attack.
+didhitscript 		data/scripts/z_hit.c				#Hit another entity.
+keyscript			data/scripts/z_key.c				#Controlling player press/release key.
+onblockascript		data/scripts/z_blocka.c				#Movement (rise/fall) blocked by platform.
+onblockoscript		data/scripts/z_blocko.c				#Movement blocked by obstacle.
+onblocksscript		data/scripts/z_blocks.c				#Movement blocked by screen boundary.
+onblockwscript		data/scripts/z_blockw.c				#Movement blocked by wall.				
+onblockzscript		data/scripts/z_blockz.c				#Movement blocked by Z boundary.				
+ondeathscript		data/scripts/z_death.c				#Killed by damage.
+onfallscript		data/scripts/z_fall.c				#Fall status set.
+onkillscript		data/scripts/z_kill.c				#Removed from playfield.
+onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.
+onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
+onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
+onpainscript		data/scripts/z_pain.c				#Pain status set.
+onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
+script				data/scripts/z_script.c				#Entity updated.
+takedamagescript	data/scripts/z_damage.c				#Damaged.
+thinkscript			data/scripts/z_think.c				#Entity AI updates.
+
+aimove chasez
+
+modelflag 1
+
+weapons henchick henrdrag henbdrag
+
+palette data/chars/heninger/rdragon/map.gif       # white
+
+alternatepal data/chars/heninger/rdragon/map1.gif # red
+alternatepal data/chars/heninger/rdragon/map2.gif # purple
+alternatepal data/chars/heninger/rdragon/map3.gif # grayblue
+alternatepal data/chars/heninger/rdragon/map4.gif # golden
+alternatepal data/chars/heninger/rdragon/map5.gif # dark
+
+anim follow100
+	
+	offset	0 0
+	frame	data/chars/heninger/ico0001	#AI icon.
+	frame	data/chars/heninger/ico0002	#AI icon (pain).
+
+anim idle
+	loop	1
+	delay	25
+	offset	80 142
+    bbox    69 70 21 47
+	frame	data/chars/heninger/rdragon/idle2.gif
+
+anim spawn
+
+	loop	0
+	delay	1
+	offset	80 142
+    bbox    69 70 21 47
+	frame	data/chars/heninger/rdragon/idle2.gif
+	delay	25
+	frame	data/chars/heninger/rdragon/idle2.gif
+
+anim get
+	loop	0
+	delay	20
+	offset	80 142
+	frame	data/chars/heninger/rdragon/ride1.gif
+	frame	data/chars/heninger/rdragon/ride2.gif
+
+
+anim walk
+@script
+void self = getlocalvar("self");
+if(getentityproperty(self, "invincible")==1)
+{
+    scre0001(self);
+}
+else
+{
+    ai0002();
+}
+@end_script
+    loop    1
+    delay   10
+    offset  80 142
+    bbox    72 80 21 43
+	frame	data/chars/heninger/rdragon/wd1.gif
+	frame	data/chars/heninger/rdragon/wd2.gif
+	frame	data/chars/heninger/rdragon/wd3.gif
+	frame	data/chars/heninger/rdragon/wd4.gif
+
+anim run
+    loop    1
+    delay   6
+    offset  80 142
+    bbox    72 80 21 43
+	frame	data/chars/heninger/rdragon/r1.gif
+	frame	data/chars/heninger/rdragon/r2.gif
+	frame	data/chars/heninger/rdragon/r3.gif
+	frame	data/chars/heninger/rdragon/r4.gif
+
+anim up
+@script
+ai0002();
+@end_script
+    loop    1
+    delay   10
+    offset  80 142
+    bbox    66 78 20 45
+	frame	data/chars/heninger/rdragon/wu1.gif
+	frame	data/chars/heninger/rdragon/wu2.gif
+	frame	data/chars/heninger/rdragon/wu3.gif
+	frame	data/chars/heninger/rdragon/wu4.gif
+
+
+anim runattack
+    range 80 180
+    followanim 2
+    followcond 1
+    jumpframe  0 2 3
+    landframe 2
+	loop	0
+	delay	8
+	offset	80 142
+    bbox    64 56 27 46
+	frame	data/chars/heninger/rdragon/j1.gif
+	delay	-1000
+    bbox    65 68 26 54
+   
+	attack	80 96 54 28 8 1  1
+	frame	data/chars/heninger/rdragon/ra.gif
+	attack	0
+	delay	6
+    bbox    64 72 22 54
+@cmd velo0001 2.8 0 0
+	frame	data/chars/heninger/rdragon/r4.gif
+@cmd velo0001 2 0 0
+	frame	data/chars/heninger/rdragon/r3.gif
+@cmd velo0001 1 0 0
+	frame	data/chars/heninger/rdragon/r2.gif
+@cmd velo0001 0.5 0 0
+	frame	data/chars/heninger/rdragon/r1.gif
+	delay	1
+@cmd velo0001 0 0 0
+	frame	data/chars/heninger/rdragon/r1.gif
+
+# deflect
+anim follow2
+    jumpframe 0 1 0
+    landframe 2
+	loop	0
+	offset	80 142
+	delay	2
+    
+	attack	80 96 54 28 8 1 1
+    bbox    65 68 26 54
+	frame	data/chars/heninger/rdragon/ra.gif
+	attack	0
+	delay	8
+	frame	data/chars/heninger/rdragon/ra.gif
+	delay	6
+    bbox    64 56 27 46
+	frame	data/chars/heninger/rdragon/j2.gif
+
+anim jump
+    range   10 64
+	loop	0
+	delay	10
+	offset	80 142
+    bbox    66 56 22 50
+	frame	data/chars/heninger/rdragon/j1.gif
+	delay	70
+    bbox    66 54 22 50
+	frame	data/chars/heninger/rdragon/j2.gif
+    bbox    66 56 22 50
+	frame	data/chars/heninger/rdragon/j1.gif
+
+# fire ball
+anim attack1
+    range   60 200
+	loop	0
+    custknife fireball
+    throwframe 2 33
+	offset	80 142
+	delay	10
+    bbox    68 79 31 55
+    
+	frame	data/chars/heninger/rdragon/a1.gif
+	delay	8
+	frame	data/chars/heninger/rdragon/a2.gif
+	frame	data/chars/heninger/rdragon/a3.gif
+	frame	data/chars/heninger/rdragon/a2.gif
+	delay	10
+	frame	data/chars/heninger/rdragon/a1.gif
+    bbox    69 70 21 47
+	delay	30
+	frame	data/chars/heninger/rdragon/idle2.gif
+
+# copy from attack2, without running
+anim attack3
+    range   20 70
+    followanim 2
+    followcond 1
+    jumpframe  0 2 2
+    landframe 2
+	loop	0
+	delay	8
+	offset	80 142
+    bbox    64 56 27 46
+	frame	data/chars/heninger/rdragon/j1.gif
+	delay	1000
+    bbox    65 68 26 54
+    
+	attack	80 96 54 28 8 1  1
+	frame	data/chars/heninger/rdragon/ra.gif
+	attack	0
+	delay	6
+    bbox    64 72 22 54
+@cmd velo0001 1.8 0 0
+	frame	data/chars/heninger/rdragon/r3.gif
+@cmd velo0001 1 0 0
+	frame	data/chars/heninger/rdragon/r2.gif
+@cmd velo0001 0.5 0 0
+	frame	data/chars/heninger/rdragon/r1.gif
+

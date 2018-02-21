@@ -1,0 +1,32 @@
+#Side wall impact medium.	
+
+name			wallm
+type			none
+shadow			0
+antigravity		100
+lifespan    	2
+alpha			1			
+speedf			0.75		#Size adjustment.
+nodrop			0			#<max> random rotation range?
+guardpoints		1			#Type of oneshot.
+noatflash		0			#Secondary entity?
+jugglepoints	231			#Alternate spawn sound group.
+
+onspawnscript 	data/scripts/spaw0002.c
+onkillscript  	data/scripts/z_kill.c
+
+anim idle
+
+	quakeframe 0 4 5
+	delay	4
+	offset	30 90
+		frame	data/chars/misc/effects/effe0018/0001
+		frame	data/chars/misc/effects/effe0018/0002
+		frame	data/chars/misc/effects/effe0018/0003
+		frame	data/chars/misc/effects/effe0018/0004
+		frame	data/chars/misc/effects/effe0018/0005
+		frame	data/chars/misc/effects/effe0018/0006
+		frame	data/chars/misc/effects/effe0018/0007
+
+
+	

@@ -1,0 +1,417 @@
+#*****Notes***************************************************************************
+
+#General special effects. 
+
+#*****Settings***************************************************************************
+
+#*****icons*****
+#*****General*****
+
+name         effe0001    					
+type	     none						
+health	     100
+antigravity  100						
+alpha	     1
+komap		 1 0
+
+#*****Player Specific*****
+#*****NPC/Enemy Specific*****
+#*****Inert Specfic*****
+#*****Sub Entites*****
+#*****Scripts*****
+
+#onspawnscript		data/scripts/z_spawn.c
+onkillscript		data/scripts/z_kill.c
+animationscript		data/scripts/com/soun0005.h
+
+#*****Alternates*******
+
+palette		data/chars/misc/effects/effe0016/0001		#0:	Ground impact.
+alternatepal	data/chars/misc/effects/effe0016/0001		#1: 	KO (do not use, activates random color on spawn).
+alternatepal	data/chars/misc/effects/fire0012/0001		#2: 	Burning body flames, burn fatality.
+alternatepal	data/chars/misc/effects/elec0004/0001		#3: 	Shock (shock fatality).
+alternatepal	data/chars/misc/effects/effe0016/0001		#4: 	Freeze.
+alternatepal	data/chars/misc/effects/effe0016/0001		#5: 	Poison.
+alternatepal	data/chars/misc/effects/effe0016/0001		#6: 	Reserved.
+alternatepal	data/chars/misc/effects/effe0016/0001		#7: 	Reserved.
+alternatepal	data/chars/misc/effects/effe0016/0001		#8: 	Reserved.
+alternatepal	data/chars/misc/effects/effe0016/0001		#9: 	Reserved.
+alternatepal	data/chars/misc/effects/effe0016/0001		#10: 	Reserved.
+alternatepal	data/chars/misc/effects/fire0009/0001		#11: 	Ball explosion.
+alternatepal	data/chars/misc/effects/fire0014/0001		#12: 	Resident evil fire sprite, small generic fire.
+alternatepal	data/chars/misc/effects/effe0006/0001		#13:	CVS Geese close blasts (blue), CVS Athena reflector, (blue), CVS Kyosuke Slash (red), CVS Shin Akuma Air Fireball & impact (Gold).
+alternatepal	data/chars/misc/effects/effe0006/pals/0001	#14:	CVS Geese close blasts (red), CVS Athena reflector, (red), CVS Kyosuke Slash (red), CVS Shin Akuma Air Fireball & impact (Gold).
+alternatepal	data/chars/misc/effects/fire0015/0001		#15:	fire0015.
+
+
+#*****Commands*****************************************************************************
+#*****Basic********************************************************************************
+
+#anim idle
+	
+	#Filler.
+
+	#delay	3
+	#offset	90 110	
+	#frame	data/chars/misc/blan0001
+				
+#*****Attack*******************************************************************************
+#*****Special******************************************************************************
+#*****Followups****************************************************************************
+
+anim follow1
+	
+	#Ground impact.
+
+	delay	3
+	offset	90 110	
+		frame	data/chars/misc/effects/effe0016/0001
+		frame	data/chars/misc/effects/effe0016/0002
+		frame	data/chars/misc/effects/effe0016/0003
+		frame	data/chars/misc/effects/effe0016/0004
+		frame	data/chars/misc/effects/effe0016/0005
+		frame	data/chars/misc/effects/effe0016/0006
+		frame	data/chars/misc/effects/effe0016/0007
+		frame	data/chars/misc/effects/effe0016/0008
+		frame	data/chars/misc/effects/effe0016/0009
+		frame	data/chars/misc/effects/effe0016/0010
+		frame	data/chars/misc/effects/effe0016/0011
+
+anim follow2
+
+	#Ball explosion.
+	animheight 100
+	quakeframe 1 6 -3
+	
+	delay	3
+	offset	75 88
+		frame	data/chars/misc/effects/fire0009/0001
+		frame	data/chars/misc/effects/fire0009/0002
+		frame	data/chars/misc/effects/fire0009/0003
+		frame	data/chars/misc/effects/fire0009/0004
+		frame	data/chars/misc/effects/fire0009/0005
+		frame	data/chars/misc/effects/fire0009/0006
+		frame	data/chars/misc/effects/fire0009/0007
+		frame	data/chars/misc/effects/fire0009/0008
+		frame	data/chars/misc/effects/fire0009/0009
+		frame	data/chars/misc/effects/fire0009/0010
+		frame	data/chars/misc/effects/fire0009/0011
+		frame	data/chars/misc/effects/fire0009/0012
+		frame	data/chars/misc/effects/fire0009/0013
+		frame	data/chars/misc/effects/fire0009/0014
+		frame	data/chars/misc/effects/fire0009/0015
+		frame	data/chars/misc/effects/fire0009/0016
+		frame	data/chars/misc/effects/fire0009/0017
+		frame	data/chars/misc/effects/fire0009/0018
+		frame	data/chars/misc/effects/fire0009/0019
+		frame	data/chars/misc/effects/fire0009/0020
+		frame	data/chars/misc/effects/fire0009/0021
+		frame	data/chars/misc/effects/fire0009/0022
+		frame	data/chars/misc/effects/fire0009/0023
+		frame	data/chars/misc/effects/fire0009/0024
+
+#anim follow3
+#anim follow4
+#anim follow3	
+#anim follow4
+#anim follow5	
+
+anim follow6	
+
+	#CVS Geese close blast (small)
+	#Andy: Hishoken
+
+	delay	2
+	offset 85 100
+		frame	data/chars/misc/effects/effe0007/0001	
+		frame	data/chars/misc/effects/effe0007/0002
+		frame	data/chars/misc/effects/effe0007/0003
+		frame	data/chars/misc/effects/effe0007/0004
+		frame	data/chars/misc/effects/effe0007/0005
+		frame	data/chars/misc/effects/effe0007/0006
+		frame	data/chars/misc/effects/effe0007/0007
+		frame	data/chars/misc/effects/effe0007/0008
+		frame	data/chars/misc/effects/effe0007/0009
+		frame	data/chars/misc/effects/effe0007/0010
+		frame	data/chars/misc/effects/effe0007/0011
+		frame	data/chars/misc/effects/effe0007/0012
+		frame	data/chars/misc/effects/effe0007/0013
+		frame	data/chars/misc/effects/effe0007/0014
+		frame	data/chars/misc/effects/effe0007/0015
+		frame	data/chars/misc/effects/effe0007/0016		
+
+anim follow7	
+
+	#CVS Geese close blast (large)
+	#Andy: Zan'ei Ryuusei Ken 
+
+	delay	2
+	offset 85 100
+		frame	data/chars/misc/effects/effe0006/0001	
+		frame	data/chars/misc/effects/effe0006/0002
+		frame	data/chars/misc/effects/effe0006/0003
+		frame	data/chars/misc/effects/effe0006/0004
+	delay	4
+		frame	data/chars/misc/effects/effe0006/0005
+		frame	data/chars/misc/effects/effe0006/0006
+		frame	data/chars/misc/effects/effe0006/0007
+		frame	data/chars/misc/effects/effe0006/0008
+		frame	data/chars/misc/effects/effe0006/0009
+		frame	data/chars/misc/effects/effe0006/0010
+		frame	data/chars/misc/effects/effe0006/0011
+		frame	data/chars/misc/effects/effe0006/0012
+		frame	data/chars/misc/effects/effe0006/0013
+		frame	data/chars/misc/effects/effe0006/0014
+		frame	data/chars/misc/effects/effe0006/0015
+		frame	data/chars/misc/effects/effe0006/0016
+
+anim follow8	
+
+	#CVS Kyo super snake flame
+	#Andy: Yami Abise Geri
+	
+	jumpframe 0 0 -0.4 0
+
+	delay	4
+	offset	30 45
+	bbox	0
+		frame	data/chars/misc/effects/fire0015/0001
+		frame	data/chars/misc/effects/fire0015/0002
+		frame	data/chars/misc/effects/fire0015/0003
+		frame	data/chars/misc/effects/fire0015/0004
+		frame	data/chars/misc/effects/fire0015/0005
+		frame	data/chars/misc/effects/fire0015/0006
+		frame	data/chars/misc/effects/fire0015/0007
+		frame	data/chars/misc/effects/fire0015/0008
+		frame	data/chars/misc/effects/fire0015/0009
+		frame	data/chars/misc/effects/fire0015/0010
+		frame	data/chars/misc/effects/fire0015/0011
+		frame	data/chars/misc/effects/fire0015/0012
+		frame	data/chars/misc/effects/fire0015/0013
+		frame	data/chars/misc/effects/fire0015/0014
+		frame	data/chars/misc/effects/fire0015/0015
+		frame	data/chars/misc/effects/fire0015/0016
+		frame	data/chars/misc/effects/fire0015/0017
+		frame	data/chars/misc/effects/fire0015/0018
+		frame	data/chars/misc/effects/fire0015/0019
+		frame	data/chars/misc/effects/fire0015/0020
+		frame	data/chars/misc/effects/fire0015/0021
+		frame	data/chars/misc/effects/fire0015/0022
+		frame	data/chars/misc/effects/fire0015/0023
+		frame	data/chars/misc/effects/fire0015/0024
+		frame	data/chars/misc/effects/fire0015/0025
+		frame	data/chars/misc/effects/fire0015/0026
+		frame	data/chars/misc/effects/fire0015/0027
+		frame	data/chars/misc/effects/fire0015/0028
+		frame	data/chars/misc/effects/fire0015/0029
+		frame	data/chars/misc/effects/fire0015/0030
+		
+anim follow9
+
+	#CVS Athena reflector loop.
+	#Andy: Bakushin plant
+
+	loop 	1
+	delay	8
+	offset	45 55
+		frame	data/chars/misc/effects/effe0008/0001
+		frame	data/chars/misc/effects/effe0008/0002
+		frame	data/chars/misc/effects/effe0008/0003
+		frame	data/chars/misc/effects/effe0008/0004
+		frame	data/chars/misc/effects/effe0008/0005
+		frame	data/chars/misc/effects/effe0008/0006
+		frame	data/chars/misc/effects/effe0008/0007
+		frame	data/chars/misc/effects/effe0008/0008
+
+anim follow10
+
+	#CVS Athena reflector finish
+	#Andy: Bakushin explode
+
+	delay	3
+	offset	45 55
+		frame	data/chars/misc/effects/effe0008/0009
+		frame	data/chars/misc/effects/effe0008/0010
+		frame	data/chars/misc/effects/effe0008/0011
+		frame	data/chars/misc/effects/effe0008/0012
+		frame	data/chars/misc/effects/effe0008/0013
+		frame	data/chars/misc/effects/effe0008/0014
+		frame	data/chars/misc/effects/effe0008/0015
+		frame	data/chars/misc/effects/effe0008/0016
+		frame	data/chars/misc/effects/effe0008/0017
+		frame	data/chars/misc/effects/effe0008/0018
+		frame	data/chars/misc/effects/effe0008/0019
+		frame	data/chars/misc/effects/effe0008/0020
+		frame	data/chars/misc/effects/effe0008/0021
+
+anim follow11
+
+	#Shin Akuma air fireball impact flash
+	#Andy: Cho Reppa Dan Start/Finish burst.
+
+	delay	4
+	offset	50 100	
+		frame	data/chars/misc/effects/effe0012/0001
+		frame	data/chars/misc/effects/effe0012/0002
+		frame	data/chars/misc/effects/effe0012/0003
+		frame	data/chars/misc/effects/effe0012/0004
+		frame	data/chars/misc/effects/effe0012/0005
+		frame	data/chars/misc/effects/effe0012/0006
+		frame	data/chars/misc/effects/effe0012/0007
+		frame	data/chars/misc/effects/effe0012/0008
+		frame	data/chars/misc/effects/effe0012/0009
+		frame	data/chars/misc/effects/effe0012/0010
+		frame	data/chars/misc/effects/effe0012/0011
+		frame	data/chars/misc/effects/effe0012/0012
+		frame	data/chars/misc/effects/effe0012/0013
+		frame	data/chars/misc/effects/effe0012/0014
+		frame	data/chars/misc/effects/effe0012/0015
+		frame	data/chars/misc/effects/effe0012/0016
+
+anim follow12
+	
+	#Small generic fire.
+
+	loop	1
+	delay	4
+	offset	28 55	
+		frame	data/chars/misc/effects/fire0014/0001
+		frame	data/chars/misc/effects/fire0014/0002
+		frame	data/chars/misc/effects/fire0014/0003
+		frame	data/chars/misc/effects/fire0014/0004
+		frame	data/chars/misc/effects/fire0014/0005
+		frame	data/chars/misc/effects/fire0014/0006
+		frame	data/chars/misc/effects/fire0014/0007
+		frame	data/chars/misc/effects/fire0014/0008
+		frame	data/chars/misc/effects/fire0014/0009
+		frame	data/chars/misc/effects/fire0014/0010
+		frame	data/chars/misc/effects/fire0014/0011
+		frame	data/chars/misc/effects/fire0014/0012
+
+#anim follow13
+
+anim follow14
+	
+	#Burn fatality.
+	animheight	122
+	delay	40
+	offset	72 176		
+		frame	data/chars/misc/effects/fata0001/0011
+	delay	12
+		frame	data/chars/misc/effects/fata0001/0012
+		frame	data/chars/misc/effects/fata0001/0013
+		frame	data/chars/misc/effects/fata0001/0014
+		frame	data/chars/misc/effects/fata0001/0015
+		frame	data/chars/misc/effects/fata0001/0016	
+		frame	data/chars/misc/effects/fata0001/0017
+
+# anim follow50
+
+	
+#*****Grappling****************************************************************************
+#*****Jumping******************************************************************************
+#*****Injury and Defence*******************************************************************
+
+anim bpain
+
+	#Body burning.
+
+	loop	1
+	delay	8
+	offset	100 165
+		frame	data/chars/misc/effects/fire0012/0001
+		frame	data/chars/misc/effects/fire0012/0002
+		frame	data/chars/misc/effects/fire0012/0003
+		frame	data/chars/misc/effects/fire0012/0004
+		frame	data/chars/misc/effects/fire0012/0005
+		frame	data/chars/misc/effects/fire0012/0006
+		frame	data/chars/misc/effects/fire0012/0007
+		frame	data/chars/misc/effects/fire0012/0008
+
+anim burn
+
+	#Body burning.	
+
+	loop	1
+	delay	8
+	offset	100 150
+		frame	data/chars/misc/effects/fire0013/0001
+		frame	data/chars/misc/effects/fire0013/0002
+		frame	data/chars/misc/effects/fire0013/0003
+		frame	data/chars/misc/effects/fire0013/0004
+		frame	data/chars/misc/effects/fire0013/0005
+		frame	data/chars/misc/effects/fire0013/0006
+		frame	data/chars/misc/effects/fire0013/0007
+		frame	data/chars/misc/effects/fire0013/0008
+
+anim bdie
+
+	#Body burning.
+	animheight	130
+	loop		1
+	delay		8
+	offset		100 150
+		frame	data/chars/misc/effects/fire0013/0001
+		frame	data/chars/misc/effects/fire0013/0002
+		frame	data/chars/misc/effects/fire0013/0003
+		frame	data/chars/misc/effects/fire0013/0004
+		frame	data/chars/misc/effects/fire0013/0005
+		frame	data/chars/misc/effects/fire0013/0006
+		frame	data/chars/misc/effects/fire0013/0007
+		frame	data/chars/misc/effects/fire0013/0008
+
+anim  spain
+	
+	loop	1 1 10
+	offset  91  50
+	delay  	3
+	@cmd	soun0005 ENT_SELF SND_HITELM -1 1 0 0
+		frame 	data/chars/misc/effects/elec0004/0001
+		frame	data/chars/misc/effects/elec0004/0001
+		frame	data/chars/misc/effects/elec0004/0002
+		frame	data/chars/misc/effects/elec0004/0003
+		frame	data/chars/misc/effects/elec0004/0004
+		frame	data/chars/misc/effects/elec0004/0005
+		frame	data/chars/misc/effects/elec0004/0006
+		frame	data/chars/misc/effects/elec0004/0007
+		frame	data/chars/misc/effects/elec0004/0008
+		frame	data/chars/misc/effects/elec0004/0009
+
+anim  shock
+	
+	loop	1 1 10
+	offset  81  50
+	delay  	3
+	@cmd	soun0005 ENT_SELF SND_HITELM -1 1 0 0
+		frame 	data/chars/misc/effects/elec0004/0001
+		frame	data/chars/misc/effects/elec0004/0001
+		frame	data/chars/misc/effects/elec0004/0002
+		frame	data/chars/misc/effects/elec0004/0003
+		frame	data/chars/misc/effects/elec0004/0004
+		frame	data/chars/misc/effects/elec0004/0005
+		frame	data/chars/misc/effects/elec0004/0006
+		frame	data/chars/misc/effects/elec0004/0007
+		frame	data/chars/misc/effects/elec0004/0008
+		frame	data/chars/misc/effects/elec0004/0009
+		                                                                                                                                                                                                     
+anim  sdie
+	
+	loop	1 1 10
+	offset  81  50
+	delay  	3
+	@cmd	soun0005 ENT_SELF SND_HITELM -1 1 0 0
+		frame 	data/chars/misc/effects/elec0004/0001
+		frame	data/chars/misc/effects/elec0004/0001
+		frame	data/chars/misc/effects/elec0004/0002
+		frame	data/chars/misc/effects/elec0004/0003
+		frame	data/chars/misc/effects/elec0004/0004
+		frame	data/chars/misc/effects/elec0004/0005
+		frame	data/chars/misc/effects/elec0004/0006
+		frame	data/chars/misc/effects/elec0004/0007
+		frame	data/chars/misc/effects/elec0004/0008
+		frame	data/chars/misc/effects/elec0004/0009
+
+#*****Footer********************************************************************************
+
+#Always make sure to include a single blank line at bottom of file.
+

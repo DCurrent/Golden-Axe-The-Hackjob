@@ -1,0 +1,78 @@
+# Gilius' lightning bolt, level 2
+name lightning2
+type none
+shadow 0
+lifespan 2
+candamage enemy
+
+script data/chars/misc/light2.c
+
+anim spawn
+    subentity screen
+    spawnframe 1 240 0 0 1
+    loop 1
+    offset 60 470
+    delay 6
+    shock 0 0 120 480 16 1 0 1
+    attackz 30
+@script
+void self = getlocalvar("self");
+int x = getentityproperty(self,"x");
+int z = getentityproperty(self,"z");
+int wall = checkwall(x, z);
+if(checkhole(x, z) && !wall)
+{changeentityproperty(self, "animation", A_RESPAWN);}
+else
+{
+    changeentityproperty(self, "position", x, z, wall); 
+    changeentityproperty(self, "base",wall); 
+}
+@end_script
+    frame data/chars/misc/light2/m1
+    frame data/chars/misc/light2/m2
+    frame data/chars/misc/light2/m3
+    frame data/chars/misc/light2/m4
+    frame data/chars/misc/light2/m5
+    frame data/chars/misc/light2/m6
+    frame data/chars/misc/light2/m1
+    frame data/chars/misc/light2/m2
+    frame data/chars/misc/light2/m3
+    frame data/chars/misc/light2/m4
+    frame data/chars/misc/light2/m5
+sound data/sounds/thunder.wav
+    frame data/chars/misc/light2/m6
+
+anim respawn
+    subentity screen
+    spawnframe 1 240 0 0 1
+    loop 1
+    offset 60 470
+    delay 6
+    shock 0 0 120 480 16 1 0 1
+    attackz 30
+@script
+void self = getlocalvar("self");
+int x = getentityproperty(self,"x");
+int z = getentityproperty(self,"z");
+if(!checkhole(x, z) || checkwall(x, z))
+{changeentityproperty(self, "animation", A_SPAWN);}
+else
+{
+    changeentityproperty(self, "position", x, z, 0);
+    changeentityproperty(self, "base",0);  
+}
+@end_script
+    frame data/chars/misc/light2/1
+    frame data/chars/misc/light2/2
+    frame data/chars/misc/light2/3
+    frame data/chars/misc/light2/4
+    frame data/chars/misc/light2/5
+    frame data/chars/misc/light2/6
+    frame data/chars/misc/light2/1
+    frame data/chars/misc/light2/2
+    frame data/chars/misc/light2/3
+    frame data/chars/misc/light2/4
+    frame data/chars/misc/light2/5
+sound data/sounds/thunder.wav
+    frame data/chars/misc/light2/6
+

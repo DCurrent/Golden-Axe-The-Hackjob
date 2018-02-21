@@ -1,0 +1,16 @@
+# Alex, what has happened?
+
+name text1
+shadow 0
+nomove 1
+facing 1
+setlayer 2000
+
+script data\chars\alex\scripts\stay.c
+
+anim idle
+    
+    offset 106 27
+    delay   200
+	frame	Data\CHARS\alex\t0.gif
+

@@ -1,0 +1,21 @@
+name	Magic
+type	none
+#type text
+#subtype noskip
+gfxshadow 1
+shadow	0
+antigravity 80
+lifespan 1
+
+anim idle
+    jumpframe 0 2 0 0
+	loop	0
+	delay	30
+	offset	16 25
+	frame	data/chars/misc/magpot/1.gif
+	delay	24
+	frame	data/chars/misc/magpot/2.gif
+	delay	20
+	frame	data/chars/misc/magpot/3.gif
+	frame	data/chars/misc/empty.gif
+

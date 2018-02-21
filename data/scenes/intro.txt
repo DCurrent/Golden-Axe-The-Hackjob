@@ -1,0 +1,12 @@
+#	music		[path] [loop]		# BOR file to play
+#	animation	[path] [x] [y]		# GIF animation to play
+#	silence					# Stop music
+
+music       data/music/wilder~2    0
+animation	data/scenes/intro.gif 0 0
+silence 1
+
+music       data/music/menu     1
+animation	data/scenes/title.gif 0 0
+
+#silence 1

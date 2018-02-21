@@ -1,0 +1,4 @@
+maxglobalvars 	256	#69 By hand, but some scripts can "create" more by string+index.
+maxindexedvars 	100
+maxentityvars  	100
+keyscriptrate 	1

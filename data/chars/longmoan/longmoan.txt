@@ -1,0 +1,792 @@
+name				longmoan
+type				enemy
+health				32
+speed				6
+jumpheight			4
+aggression 			90
+risetime 			5
+grabdistance 		24
+running 			14
+throwdamage 		0
+throw   			3 3
+gfxshadow 			1
+shadow				2
+nolife  			1
+falldie 			2
+nodieblink 			3
+dust				fallm landm jumpm
+noquake 			1
+paingrab 			1
+noatflash 			0
+score 				2 -1
+komap				5 1
+height				50
+projectilehit 			enemy obstacle
+hostile				player npc
+candamage			player npc obstacle
+bflash 				bflash
+blockodds 			29
+nopassiveblock 		1
+thold     			14
+aimove 				chase
+escapehits 			5
+weapons 			lonchick lonrdrag lonbdrag
+atchain 			1 2 3 0 0
+#modelflag 			1
+
+flash		        cuth
+
+animationscript 	data/scripts/z_ani.c
+didblockscript		data/scripts/z_block.c				#Block incoming attack.
+didhitscript 		data/scripts/z_hit.c				#Hit another entity.
+keyscript			data/scripts/z_key.c				#Controlling player press/release key.
+onblockascript		data/scripts/z_blocka.c				#Movement (rise/fall) blocked by platform.
+onblockoscript		data/scripts/z_blocko.c				#Movement blocked by obstacle.
+onblocksscript		data/scripts/z_blocks.c				#Movement blocked by screen boundary.
+onblockwscript		data/scripts/z_blockw.c				#Movement blocked by wall.
+onblockzscript		data/scripts/z_blockz.c				#Movement blocked by Z boundary.
+ondeathscript		data/scripts/z_death.c				#Killed by damage.
+onfallscript		data/scripts/z_fall.c				#Fall status set.
+onkillscript		data/scripts/z_kill.c				#Removed from playfield.
+onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.
+onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
+onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
+onpainscript		data/scripts/z_pain.c				#Pain status set.
+onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
+script				data/scripts/z_script.c				#Entity updated.
+takedamagescript	data/scripts/z_damage.c				#Damaged.
+thinkscript			data/scripts/z_think.c				#Entity AI updates.
+
+palette		        data/chars/longmoan/aapa0001     	# blue
+alternatepal 	    data/chars/longmoan/aapa0002		# red
+alternatepal 	    data/chars/longmoan/aapa0003		# golden
+alternatepal 	    data/chars/longmoan/aapa0005 		# silver
+alternatepal 	    data/chars/longmoan/aapa0004 		# dark
+alternatepal 	    data/chars/longmoan/aapa0006 		# KO
+
+anim follow100
+	
+	offset	0 0
+	frame	data/chars/longmoan/ico0001	#AI icon.
+	frame	data/chars/longmoan/ico0002	#AI icon (pain).
+	
+
+anim idle
+	loop	1
+	offset	60 98
+	bbox	49 45 32 53
+	delay	25
+	frame	data/chars/longmoan/idle1
+	frame	data/chars/longmoan/idle2
+
+anim sleep
+	loop	1
+	offset	60 98
+	delay	25
+	frame	data/chars/longmoan/idle1
+	frame	data/chars/longmoan/idle2
+
+anim spawn
+	loop	0
+	offset	60 98
+
+	bbox	49 45 32 53
+	delay	25
+	frame	data/chars/longmoan/idle1
+	frame	data/chars/longmoan/idle2
+
+anim respawn
+
+	loop	0
+	offset	60 98
+	delay	5
+	frame	data/chars/misc/empty
+	frame	data/chars/longmoan/idle1
+	frame	data/chars/misc/empty
+	frame	data/chars/longmoan/idle1
+	frame	data/chars/misc/empty
+	frame	data/chars/longmoan/idle1
+	frame	data/chars/misc/empty
+	frame	data/chars/longmoan/idle1
+	frame	data/chars/misc/empty
+	frame	data/chars/longmoan/idle1
+	frame	data/chars/misc/empty
+	frame	data/chars/longmoan/idle1
+	frame	data/chars/misc/empty
+	frame	data/chars/longmoan/idle1
+	frame	data/chars/misc/empty
+	frame	data/chars/longmoan/idle1
+	frame	data/chars/misc/empty
+	frame	data/chars/longmoan/idle1
+	frame	data/chars/misc/empty
+	frame	data/chars/longmoan/idle1
+
+anim get
+	loop	0
+	offset	60 98
+	bbox	49 45 32 53
+	delay	25
+	frame	data/chars/longmoan/idle1
+	frame	data/chars/longmoan/idle2
+
+anim jumpdelay
+    delay   12
+	offset	60 98
+	bbox	45 40 26 57
+	frame	data/chars/longmoan/land
+
+anim jump
+    range   20 70
+	offset	60 98
+	bbox	45 40 26 57
+    delay   12
+	frame	data/chars/longmoan/land
+    delay   50
+	frame	data/chars/longmoan/j1
+	frame	data/chars/longmoan/j2
+    delay   12
+	frame	data/chars/longmoan/land
+
+anim jumpland
+    delay   12
+	offset	60 98
+	bbox	45 40 26 57
+	frame	data/chars/longmoan/land
+
+anim riseattack
+    jumpframe 2 2 0
+    landframe 19
+    range   0 50
+	loop	0
+	offset	60 98
+	delay	20
+    #bbox    60 98 1 1
+	frame	data/chars/longmoan/rise1
+	frame	data/chars/longmoan/rise2
+	bbox	46 39 28 50
+	delay	10
+	frame	data/chars/longmoan/j1
+	delay	2
+	frame	data/chars/longmoan/ja2
+	frame	data/chars/longmoan/j2
+	frame	data/chars/longmoan/ja2
+	frame	data/chars/longmoan/j2
+	frame	data/chars/longmoan/ja2
+	frame	data/chars/longmoan/j2
+	frame	data/chars/longmoan/ja2
+	frame	data/chars/longmoan/j2
+
+	attack1	68 25 45 74 12 1
+	frame	data/chars/longmoan/ja4
+	frame	data/chars/longmoan/ja3
+	frame	data/chars/longmoan/ja4
+	frame	data/chars/longmoan/ja3
+	frame	data/chars/longmoan/ja4
+	frame	data/chars/longmoan/ja3
+	frame	data/chars/longmoan/ja4
+	frame	data/chars/longmoan/ja3
+	delay	12
+	frame	data/chars/longmoan/land
+
+anim walk
+@script
+void self = getlocalvar("self");
+if(getentityproperty(self, "invincible")==1)
+{
+    scre0001(self);
+}
+else
+{
+    ai0002();
+}
+@end_script
+	loop	1
+	offset	60 98
+	bbox	49 45 32 53
+	delay	10
+	frame	data/chars/longmoan/wd1
+	frame	data/chars/longmoan/wd2
+	frame	data/chars/longmoan/wd3
+	frame	data/chars/longmoan/wd4
+	frame	data/chars/longmoan/wd5
+	frame	data/chars/longmoan/wd6
+
+anim up
+@script
+ai0002();
+@end_script
+	loop	1
+	offset	60 98
+	bbox	49 45 32 53
+	delay	10
+	frame	data/chars/longmoan/wu1
+	frame	data/chars/longmoan/wu2
+	frame	data/chars/longmoan/wu3
+	frame	data/chars/longmoan/wu4
+	frame	data/chars/longmoan/wu5
+	frame	data/chars/longmoan/wu6
+
+anim block
+@script
+void self = getlocalvar("self");
+changeentityproperty(self, "velocity", getentityproperty(self, "xdir")/4.0, 0, 0);
+@end_script
+	loop	0
+	offset	60 98
+	bbox	49 45 32 53
+    delay   4
+	frame	data/chars/longmoan/p0
+	frame	data/chars/longmoan/p0
+	frame	data/chars/longmoan/p0
+	frame	data/chars/longmoan/p0
+	frame	data/chars/longmoan/p0
+	frame	data/chars/longmoan/p0
+	frame	data/chars/longmoan/p0
+
+anim grabbed
+    loop    0
+	offset	60 98
+	bbox	49 45 32 53
+    delay   24
+	frame	data/chars/longmoan/p3
+
+
+anim pain
+
+	offset	60 98
+	bbox	49 45 32 53
+	delay	18		
+		frame	data/chars/longmoan/p1
+	delay	100
+		frame	data/chars/longmoan/p2
+
+anim pain2
+	loop	0
+	delay	10
+	offset	60 98
+	bbox	44 56 32 43
+	frame	data/chars/longmoan/p4
+	delay	100
+	frame	data/chars/longmoan/p3
+# grabbed over shouder
+
+anim pain3
+
+    #offset 60 98
+    bbox 0 0 0 0
+    delay 20
+    #move  23
+    offset 37 98
+    seta  14
+	frame	data/chars/longmoan/thrown1
+    #move  0
+    seta  20
+    delay 30
+	frame	data/chars/longmoan/thrown2
+	delay 10
+    seta  30
+    #move   -10
+    offset 47 98
+	frame	data/chars/longmoan/thrown3
+    offset 60 98
+    move 13
+	frame	data/chars/longmoan/thrown3
+
+
+anim pain4
+	loop	0
+	offset	60 98
+	bbox	49 45 32 53
+	delay	12
+	frame	data/chars/longmoan/p1
+	delay	16
+	frame	data/chars/longmoan/p2
+	delay	100
+	bbox	44 56 32 43
+	frame	data/chars/longmoan/p3
+
+anim spain
+  	offset	60 98
+	bbox	49 45 32 53
+	delay	8
+		frame	data/chars/longmoan/p0
+	delay	10
+		frame	data/chars/longmoan/p1
+	delay	80
+		frame	data/chars/longmoan/p2
+
+anim bpain
+  	offset	60 98
+	bbox	49 45 32 53
+	delay	8
+		frame	data/chars/longmoan/p0
+	delay	10
+		frame	data/chars/longmoan/p1
+	delay	80
+		frame	data/chars/longmoan/p2
+
+anim fall
+    landframe 3
+	dropframe  1
+	delay	-1000
+	offset	60 98
+		bbox  42  49  31  43
+		attack1  41  48  32  44
+	frame	data/chars/longmoan/p1
+	delay	20
+    attack1  37 68 44 24 4 1 1 1
+    dropv 1.5 1.2
+    forcedirection 1
+		bbox  38  69  43  23
+	frame	data/chars/longmoan/f2
+	delay	-1000
+		bbox  43  79  32  20
+		attack1  41  77  34  22  4  1  1  1
+	frame	data/chars/longmoan/f3
+    attack1  0 0 0 0 0
+	delay	20
+    #fshadow 0
+		offset  81  165
+		bbox  66  152  48  19
+	frame	data/chars/longmoan/G_DWNUP.png
+
+anim fall2
+	loop	0
+	offset	60 98
+	delay	20
+	frame	data/chars/longmoan/p3
+	frame	data/chars/longmoan/rise2
+    delay   100
+	frame	data/chars/longmoan/die1
+
+anim burn
+
+	animheight	15
+    landframe	3
+	dropframe	1
+	delay	-1000
+	offset	60 98
+		bbox  42  49  31  43
+		attack1  41  48  32  44
+	frame	data/chars/longmoan/p1
+	delay	20
+    shock  37 68 44 24 4 1 1 1
+    dropv 1.5 1.2
+    forcedirection 1
+		bbox  38  69  43  23
+	frame	data/chars/longmoan/f2
+	delay	-1000
+		bbox  43  79  32  20
+		attack1  41  77  34  22  4  1  1  1
+	frame	data/chars/longmoan/f3
+    attack1  0 0 0 0 0
+	delay	20
+    #fshadow 0
+		offset  81  165
+		bbox  66  152  48  19
+	frame	data/chars/longmoan/G_DWNUP.png
+
+anim shock
+
+	animheight	15
+    landframe	3
+	dropframe	1
+	delay	-1000
+	offset	60 98
+		bbox  42  49  31  43
+		attack1  41  48  32  44
+	frame	data/chars/longmoan/p1
+	delay	20
+    shock  37 68 44 24 4 1 1 1
+    dropv 1.5 1.2
+    forcedirection 1
+		bbox  38  69  43  23
+	frame	data/chars/longmoan/f2
+	delay	-1000
+		bbox  43  79  32  20
+		attack1  41  77  34  22  4  1  1  1
+	frame	data/chars/longmoan/f3
+    attack1  0 0 0 0 0
+	delay	20
+    #fshadow 0
+		offset  81  165
+		bbox  66  152  48  19
+	frame	data/chars/longmoan/G_DWNUP.png
+
+anim rise
+	loop	0
+	offset	60 98
+	delay	25
+	frame	data/chars/longmoan/rise1
+	frame	data/chars/longmoan/rise2
+# basic combo
+
+anim attack1
+	hitflash  blumcut
+	fastattack 1
+	range	0 40
+	loop	0
+	delay	12
+	offset	60 98
+	bbox	49 45 32 53
+    frame   data/chars/longmoan/a1
+	delay	3
+    frame   data/chars/longmoan/a2
+    frame   data/chars/longmoan/a2t
+    frame   data/chars/longmoan/a2
+    frame   data/chars/longmoan/a2t
+    frame   data/chars/longmoan/a3
+    frame   data/chars/longmoan/a3t
+    frame   data/chars/longmoan/a3
+    frame   data/chars/longmoan/a3t
+    	delay	2
+    attack1 59 40 40 32 4
+    frame   data/chars/longmoan/a4
+    frame   data/chars/longmoan/a4t
+    frame   data/chars/longmoan/a4
+    frame   data/chars/longmoan/a4t
+    attack1  0 0 0 0 0
+    frame   data/chars/longmoan/a5
+    frame   data/chars/longmoan/a5t
+    frame   data/chars/longmoan/a5
+    frame   data/chars/longmoan/a5t
+	delay	10
+    frame   data/chars/longmoan/a5
+
+
+anim attack2
+	range	0 40
+	loop	0
+	delay	6
+	offset	60 98
+	bbox	49 45 32 53
+    frame   data/chars/longmoan/a6
+	delay	2
+    frame   data/chars/longmoan/a7
+    frame   data/chars/longmoan/a7t
+    frame   data/chars/longmoan/a7
+    frame   data/chars/longmoan/a7t
+    hitflash blumcut
+    attack1  74 29 35 45 4
+    frame   data/chars/longmoan/a8
+    frame   data/chars/longmoan/a8t
+    frame   data/chars/longmoan/a8
+    frame   data/chars/longmoan/a8t
+    attack1  0 0 0 0 0
+    frame   data/chars/longmoan/a9
+    frame   data/chars/longmoan/a9t
+    frame   data/chars/longmoan/a9
+    frame   data/chars/longmoan/a9t
+	delay	6
+    frame   data/chars/longmoan/idle2
+    frame   data/chars/longmoan/a10t
+
+anim attack3
+	range	0 40
+	loop	0
+	delay	6
+	offset	60 98
+	bbox	49 45 32 53
+    frame   data/chars/longmoan/a11
+	delay	3
+    frame   data/chars/longmoan/a12
+    frame   data/chars/longmoan/a12t
+    frame   data/chars/longmoan/a12
+    frame   data/chars/longmoan/a12t
+	delay	2
+    frame   data/chars/longmoan/a13
+    frame   data/chars/longmoan/a13t
+    frame   data/chars/longmoan/a13
+    frame   data/chars/longmoan/a13t
+    hitflash blumcut
+    attack1  71 30 24 29 8 1
+    frame   data/chars/longmoan/a14
+    frame   data/chars/longmoan/a14t
+    frame   data/chars/longmoan/a14
+    frame   data/chars/longmoan/a14t
+    attack1  61 21 26 27 8 1
+    frame   data/chars/longmoan/a15
+    frame   data/chars/longmoan/a15t
+    frame   data/chars/longmoan/a15
+    frame   data/chars/longmoan/a15t
+    attack1  0 0 0 0 0
+    frame   data/chars/longmoan/idle2
+    frame   data/chars/longmoan/a16t
+	delay	12
+    frame   data/chars/longmoan/idle2
+#fake attack, stomp npc.
+
+
+anim attack4
+	range	0 40
+	loop	0
+	delay	30
+	offset	60 98
+	bbox	49 45 32 53
+    frame   data/chars/longmoan/stomp1
+    frame   data/chars/longmoan/stomp2
+    frame   data/chars/longmoan/stomp1
+    frame   data/chars/longmoan/stomp2
+    frame   data/chars/longmoan/stomp1
+    frame   data/chars/longmoan/stomp2
+    frame   data/chars/longmoan/stomp1
+    frame   data/chars/longmoan/stomp2
+
+
+anim run
+	loop	1
+	delay	8
+	offset	60 98
+	bbox	49 45 32 53
+    frame   data/chars/longmoan/r1
+    frame   data/chars/longmoan/r2
+    frame   data/chars/longmoan/r3
+    frame   data/chars/longmoan/r4
+    frame   data/chars/longmoan/r5
+    frame   data/chars/longmoan/r6
+#fake running attack
+
+
+anim runattack
+    landframe 1
+    jumpframe 0 2 2
+    followanim 2
+    followcond 1
+	range	70 100
+	loop	0
+	offset	60 98
+	delay	48
+	bbox	50 55 26 36
+
+    attack1  50 55 26 36 8 1 0 1
+    frame   data/chars/longmoan/ra
+    attack1  0 0 0 0 0
+	bbox	49 45 32 53
+	delay	6
+	frame	data/chars/longmoan/idle1
+# deflect
+
+anim follow2
+    jumpframe 0 1 0
+	loop	0
+	offset	60 98
+	bbox	49 45 32 53
+	delay	1
+    attack1  50 55 26 36 8 1 0 1
+	frame	data/chars/longmoan/ra
+    attack1  0
+	delay	20
+	frame	data/chars/longmoan/ra
+# copy from attack3
+
+
+anim special2
+    energycost 8
+	range	0 50
+	loop	0
+	offset	60 98
+	delay	12
+    #bbox    60 98 1 1
+    frame   data/chars/longmoan/a11
+	delay	2
+    frame   data/chars/longmoan/a12
+    frame   data/chars/longmoan/a12t
+    frame   data/chars/longmoan/a12
+    frame   data/chars/longmoan/a12t
+    frame   data/chars/longmoan/a13
+    frame   data/chars/longmoan/a13t
+    frame   data/chars/longmoan/a13
+    frame   data/chars/longmoan/a13t
+	bbox	49 45 32 53
+    hitflash blumcut
+    attack1  71 30 24 29 8 1
+    frame   data/chars/longmoan/a14
+    frame   data/chars/longmoan/a14t
+    frame   data/chars/longmoan/a14
+    frame   data/chars/longmoan/a14t
+    attack1  61 21 26 27 8 1
+	delay	16
+    frame   data/chars/longmoan/a14
+	delay	4
+    frame   data/chars/longmoan/a15
+    frame   data/chars/longmoan/a15t
+    attack1  0 0 0 0 0
+    frame   data/chars/longmoan/idle2
+    frame   data/chars/longmoan/a16t
+	delay	16
+    frame   data/chars/longmoan/p2
+# copy from attack3
+
+anim special
+    energycost 8
+	loop	0
+	offset	60 98
+	delay	6
+    #bbox    60 98 1 1
+    frame   data/chars/longmoan/a11
+	delay	2
+    frame   data/chars/longmoan/a12
+    frame   data/chars/longmoan/a12t
+    frame   data/chars/longmoan/a12
+    frame   data/chars/longmoan/a12t
+    frame   data/chars/longmoan/a13
+    frame   data/chars/longmoan/a13t
+    frame   data/chars/longmoan/a13
+    frame   data/chars/longmoan/a13t
+	bbox	49 45 32 53
+    hitflash blumcut
+    attack2  71 30 24 29 8 1
+    frame   data/chars/longmoan/a14
+    frame   data/chars/longmoan/a14t
+    frame   data/chars/longmoan/a14
+    frame   data/chars/longmoan/a14t
+    attack1  61 21 26 27 8 1
+	delay	16
+    frame   data/chars/longmoan/a14
+	delay	4
+    frame   data/chars/longmoan/a15
+    frame   data/chars/longmoan/a15t
+    attack1  0 0 0 0 0
+    frame   data/chars/longmoan/idle2
+    frame   data/chars/longmoan/a16t
+	delay	16
+    frame   data/chars/longmoan/p2
+
+anim follow51
+
+	#Defense poses
+	hitflash  idirm
+	animheight 15
+
+	loop	1
+	delay	-1000
+	offset	100 0
+	bbox	83  129  26  40
+	attack10  82 129 27 40 4 1
+    forcedirection -1
+    		frame	data/chars/longmoan/G_HELD.png					#0	G_HELD: 	Grabbed.
+	bbox  71  121  33  46
+	attack1  70  120  38  50  4  1
+		frame	data/chars/longmoan/G_HELDP.png					#1	G_HELDP:	Grabbed Pain.
+	bbox  69  141  46  33
+	attack1  70  141  44  32  4  1
+		frame	data/chars/longmoan/G_HORUP.png					#2	G_HORUP:	Horizontal Up.
+	bbox  67  139  49  24
+	attack1  66  138  50  25  4  1
+		frame	data/chars/longmoan/G_HORDN.png					#3	G_HORDN:	Horizontal Down.
+	bbox  78  93  17  46
+	attack1  77  92  19  47  4  1
+		frame	data/chars/longmoan/G_VERUP.png					#4	G_VERUP:	Vertical Up.
+	bbox  75  111  19  40
+	attack1  76  111  18  39  4  1
+		frame	data/chars/longmoan/G_VERDN.png					#5	G_VERDN:	Vertical Down.
+	bbox  68  122  36  24
+	attack1  68  122  36  23  4  1
+		frame	data/chars/longmoan/G_TLTUP.png					#6	G_TLTUP:	Tilt Up.
+	bbox  76  102  22  32
+	attack1  77  102  20  31  4  1
+		frame	data/chars/longmoan/G_TLTDN.png					#7	G_TLTDN:	Tilt Down.
+	bbox  74  107  27  34
+	attack1  74  107  28  35  4  1
+		frame	data/chars/longmoan/G_VERDNP.png					#8	G_VERDNP:	Vertical Down pain.
+	bbox  66  152  53  18
+	attack1  66  151  53  19  4  1
+		frame	data/chars/longmoan/G_DWNUP.png					#9	G_DWNUP:	Fall Up.
+	bbox  63  151  45  17
+	attack1  63  151  45  17  4  1
+		frame	data/chars/longmoan/G_DWNUPP.png					#10	G_DWNUPP:	Fall Up Pain.
+	bbox  62  143  34  21
+	attack1  61  141  36  23  4  1
+		frame	data/chars/longmoan/G_FALUP.png					#11	G_FALUP:	Falling face up
+		frame	data/chars/longmoan/G_FALUPT.png					#12	G_FALUPT:	Falling face up tilted.
+	bbox  66  144  41  21
+	attack1  66  143  42  23  4  1
+		frame	data/chars/longmoan/G_HORUPP.png					#13	G_HORUPP:	Horizontal Up Pain.
+	bbox  83  120  23  42
+	attack1  82  118  25  46  4  1
+		frame	data/chars/longmoan/G_HELDMP.png					#14	HELPMP:	Middle pain.
+	offset	60 98
+	bbox	49 45 32 53
+	attack1  82  118  25  46  4  1
+		frame	data/chars/longmoan/p1							#15	G_EX1:	G_HELDP with pain offset.
+		frame	data/chars/longmoan/p2							#16	G_EX2:	G_HELDMP with pain offset.
+	offset	100 0
+		frame	data/chars/longmoan/G_EX3							#17 G_EX3:	Golden Axe lifted.
+
+anim fall5
+
+	#Tossed.
+	hitflash	idirm
+    flipframe	0	
+	dropframe	1
+	landframe	2
+
+	offset	82 160
+	delay	-1000
+    attack  64 119 30 41 4 1
+	bbox  64  119  30  41
+		frame	data/chars/longmoan/G_FALUPT.png
+	bbox  63  139  34  25
+	attack  63  138  34  26  4  1
+		frame  data/chars/longmoan/G_FALUP.png
+	attack  0 0 0 0 0
+    delay   10
+    offset  82  165
+		frame	data/chars/longmoan/G_DWNUP.png
+
+anim  fall6
+
+	#Flat fall
+
+	hitflash	idirm
+	landframe	1
+
+	delay		-1000
+	offset		82  160	
+	bbox		63  146  34  18
+	attack		63  138  34  26  4  1
+		frame  data/chars/longmoan/G_FALUP.png
+	delay		10
+	offset		82  165
+	bbox		63  153  53  14
+	Attack		0
+		frame  data/chars/longmoan/G_DWNUP.png
+
+
+anim  fall7
+
+	#Drop on head.
+
+	hitflash  idirm
+	landframe  1
+	flipframe  2
+	bbox  78  103  16  48
+	delay  -1000
+	offset  84  150
+		attack10  78  103  16  48  4  1
+		dropv  1.5  1.2
+	frame  data/chars/longmoan/G_VERDN.png
+		bbox  76  101  25  40
+		delay  15
+		offset  87  137
+		attack10  77  101  24  41  4  1
+		Attack1  0
+	frame  data/chars/longmoan/G_VERDNP.png
+		offset  79  161
+		bbox  65  136  38  28
+		delay  12
+		Attack1  0
+	frame  data/chars/longmoan/G_FALUP.png
+		attack10  0  0  0  0  0
+		delay  10
+		offset  82  165
+		bbox  63  153  53  14
+	frame  data/chars/longmoan/G_DWNUP.png
+
+anim death
+
+	delay	10
+	offset  82  165
+		frame  data/chars/longmoan/G_DWNUP
+		frame  data/chars/longmoan/G_DWNUP
+

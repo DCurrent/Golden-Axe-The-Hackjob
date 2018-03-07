@@ -9,11 +9,12 @@ void main()
     void    color_table;                                                                           //Color array placeholder.
     char    cName;                                                                          //Entity default name.
     int     iAni;                                                                           //Animations.
+	int		enemy_living_count = -1;                                                                   //Living enemies.
 	int		iKMap;                                                                          //KO map.
     int     iType;                                                                          //Entity type.
     int     iVRes   = openborvariant("vresolution");                                        //Current vertical resolution.
     int     entity_count;                                   //Current # of entities in play.
-	int		iIndex;                                                                         //Player index.
+	int		player_index;                                                                         //Player index.
     int     i;                                                                           //Entity counter.
     int     sprite_index;                                                                          //Sprite index.
     float   fCnt    = 0.0;                                                                  //General counter.
@@ -59,14 +60,14 @@ void main()
 
 		    if ((iType && iType == TYPE_PLAYER))												//Player type?
 		    {
-				iIndex	= getentityproperty(target, "playerindex");                           //Get player index.
+				player_index	= getentityproperty(target, "playerindex");                           //Get player index.
 				fJar	= getentityproperty(target, "mp")/10;                                 //MP jar count.
 				health_fraction   = 4 * get_health_fraction(target);                                        //Get life % in quarters.
 				sprite_index   = getindexedvar(IDXG_ICOJAR);                                            //Get magic jar sprite.
 
 				for(fCnt=0; fCnt<fJar; fCnt++)                                              //Loop jar count.
 				{
-					drawsprite(sprite_index, iIndex*160+55+fCnt*11, iVRes-20, openborconstant("FRONTPANEL_Z")+18001);     //Draw magic jars
+					drawsprite(sprite_index, player_index*160+55+fCnt*11, iVRes-20, openborconstant("FRONTPANEL_Z")+18001);     //Draw magic jars
 				}
 
 				for(fCnt=0.0; fCnt<health_fraction; fCnt++)                                           //Loop each quater of life.
@@ -74,7 +75,7 @@ void main()
 					fFron   = health_fraction - fCnt;
                     sprite_index   = getindexedvar(lblock(fFron));                                 //Get life block sprite.
 
-					drawsprite(sprite_index, iIndex*160+53+fCnt*26, iVRes-31, openborconstant("FRONTPANEL_Z")+18001);     //Draw life block.
+					drawsprite(sprite_index, player_index*160+53+fCnt*26, iVRes-31, openborconstant("FRONTPANEL_Z")+18001);     //Draw life block.
 				}
 		    }
 			else
@@ -91,16 +92,17 @@ void main()
                 if(sprite_index)																	//Sprite valid?
                 {
                     // Increment living entity counter.
+                    enemy_living_count++;
 
                     health_fraction   = get_health_fraction(target);                                                              //Get life block sprite.
                     color_table    = getentityproperty(target, "colourmap");
 
                     changedrawmethod(NULL(), "table", color_table);
-                    drawsprite(sprite_index, (iLiv*41), 4, openborconstant("FRONTPANEL_Z")+18000);                        //Draw icon.
+                    drawsprite(sprite_index, (enemy_living_count*41), 4, openborconstant("FRONTPANEL_Z")+18000);                        //Draw icon.
                     changedrawmethod(NULL(), "table", NULL());
 
                     sprite_index   = getindexedvar(lblock(health_fraction));                                 //Get life block sprite.
-                    drawsprite(sprite_index, 16+(iLiv*41), 8, openborconstant("FRONTPANEL_Z")+18000);						//Draw life block.
+                    drawsprite(sprite_index, 16+(enemy_living_count*41), 8, openborconstant("FRONTPANEL_Z")+18000);						//Draw life block.
                 }
 			}
         }

@@ -5,7 +5,7 @@
 
 void main()
 {
-    void    vEnt;                                                                           //Entity placeholder.
+    void    target;                                                                           //Entity placeholder.
     void    vMap;                                                                           //Color array placeholder.
     char    cName;                                                                          //Entity default name.
     int     iAni;                                                                           //Animations.
@@ -13,9 +13,9 @@ void main()
 	int		iKMap;                                                                          //KO map.
     int     iType;                                                                          //Entity type.
     int     iVRes   = openborvariant("vresolution");                                        //Current vertical resolution.
-    int     iECnt   = openborvariant("ent_max");                                            //Current # of entities in play.
+    int     entity_count;                                   //Current # of entities in play.
 	int		iIndex;                                                                         //Player index.
-    int     iEnt;                                                                           //Entity counter.
+    int     i;                                                                           //Entity counter.
     int     iHSpr;                                                                          //Sprite index.
     float   fCnt    = 0.0;                                                                  //General counter.
     float   fJar;                                                                           //Mp Jar count.
@@ -33,49 +33,53 @@ void main()
 
 	//tupdate();
 
-	for(iEnt=0; iEnt<iECnt; iEnt++)                                                         //Loop entity collection.
+	// Get number of entities in play and loop through
+	// each of them.
+	entity_count = openborvariant("count_entities");
+
+	for(i=0; i<entity_count; i++)                                                         //Loop entity collection.
 	{
 
-		vEnt = getentity(iEnt);                                                             //Get entity handle.
+		target = getentity(i);                                                             //Get entity handle.
 
-		if(vEnt                                                                             //Valid handle?
-            && getentityproperty(vEnt, "exists")                                            //Valid entity?
-            && !getentityproperty(vEnt, "dead"))                                            //Alive?
+		if(target                                                                             //Valid handle?
+            && getentityproperty(target, "exists")                                            //Valid entity?
+            && !getentityproperty(target, "dead"))                                            //Alive?
 		{
 
             // Experiment to disable movement. Does not work.
-			//changeplayerproperty(vEnt, "playkeys", FLAG_NONE);
+			//changeplayerproperty(target, "playkeys", FLAG_NONE);
 
-			iDrop   = getentityproperty(vEnt, "aiflag", "drop");                            //Drop status.
-            iType   = getentityproperty(vEnt, "type");                                      //Get type.
-            iAni    = getentityproperty(vEnt, "animationid");                               //Get current animation.
+			iDrop   = getentityproperty(target, "aiflag", "drop");                            //Drop status.
+            iType   = getentityproperty(target, "type");                                      //Get type.
+            iAni    = getentityproperty(target, "animationid");                               //Get current animation.
 
-            if(getentityproperty(vEnt, "owner")== NULL())                                    //Not projectile?
+            if(getentityproperty(target, "owner")== NULL())                                    //Not projectile?
             {
 			    if(iDrop)																	//Falling?
 			    {
-				    changeentityproperty(vEnt, "stealth", 1);								//Set stealth.
+				    changeentityproperty(target, "stealth", 1);								//Set stealth.
 			    }
 			    else
                 {
-                    cName   = getentityproperty(vEnt, "defaultname");                       //Get default name.
+                    cName   = getentityproperty(target, "defaultname");                       //Get default name.
 
                     if(cName != "yamoto"                                                    //Not Yamoto?
                         &&  !(cName == "Alex" && iAni == A_RISEATK)							//Not Alex doing a rise attack?
                         &&  iAni != A_SLEEP)												//Not in sleep ani?
 			        {
-				        changeentityproperty(vEnt, "stealth", 0);                           //Turn stealth off.
+				        changeentityproperty(target, "stealth", 0);                           //Turn stealth off.
                     }
 
-				    //ani0013(vEnt, iAni, 0);                                                 //Auto jump from platforms.
+				    //ani0013(target, iAni, 0);                                                 //Auto jump from platforms.
                 }
             }
 
 		    if ((iType && iType == TYPE_PLAYER))												//Player type?
 		    {
-				iIndex	= getentityproperty(vEnt, "playerindex");                           //Get player index.
-				fJar	= getentityproperty(vEnt, "mp")/10;                                 //MP jar count.
-				fHPer   = 4 * (0.0 + (hlife(vEnt)));                                        //Get life % in quarters.
+				iIndex	= getentityproperty(target, "playerindex");                           //Get player index.
+				fJar	= getentityproperty(target, "mp")/10;                                 //MP jar count.
+				fHPer   = 4 * (0.0 + (hlife(target)));                                        //Get life % in quarters.
 				iHSpr   = getindexedvar(IDXG_ICOJAR);                                            //Get magic jar sprite.
 
 				for(fCnt=0; fCnt<fJar; fCnt++)                                              //Loop jar count.
@@ -93,19 +97,19 @@ void main()
 		    }
 			else
 			{
-			    if(iDrop || getentityproperty(vEnt, "aiflag", "inpain") || iAni == AC_DEFPOSE) //Getting ass kicked?
+			    if(iDrop || getentityproperty(target, "aiflag", "inpain") || iAni == AC_DEFPOSE) //Getting ass kicked?
 			    {
-                    iHSpr	= getentityproperty(vEnt, "spritea", "sprite", AC_ICONS, ICON_AIPAIN);    //Get AI pain icon.
+                    iHSpr	= getentityproperty(target, "spritea", "sprite", AC_ICONS, ICON_AIPAIN);    //Get AI pain icon.
 			    }
                 else
                 {
-                    iHSpr	= getentityproperty(vEnt, "spritea", "sprite", AC_ICONS, ICON_AI);    //Get AI normal icon.
+                    iHSpr	= getentityproperty(target, "spritea", "sprite", AC_ICONS, ICON_AI);    //Get AI normal icon.
                 }
 
                 if(iHSpr)																	//Sprite valid?
                 {
-                    fHPer   = hlife(vEnt);                                                  //Get life block sprite.
-                    vMap    = getentityproperty(vEnt, "colourmap");
+                    fHPer   = hlife(target);                                                  //Get life block sprite.
+                    vMap    = getentityproperty(target, "colourmap");
                     ++iLiv;                                                                 //Increment "living" index.
 
                     setdrawmethod(NULL(), 1, 256, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, vMap);    //Set global draw method.
@@ -120,10 +124,10 @@ void main()
 	}
 }
 
-float hlife(void vEnt)
+float hlife(void target)
 {
-	float fHP	= 0.0 + getentityproperty(vEnt, "health");
-	float fMHP	= 0.0 + getentityproperty(vEnt, "maxhealth");
+	float fHP	= 0.0 + getentityproperty(target, "health");
+	float fMHP	= 0.0 + getentityproperty(target, "maxhealth");
 
 	return fHP/fMHP;
 }

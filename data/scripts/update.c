@@ -20,7 +20,7 @@ void main()
     float   fCnt    = 0.0;                                                                  //General counter.
     float   fJar;                                                                           //Mp Jar count.
     float   health;                                                                         //Current health
-    float   fHPer;                                                                          //HP % of max.
+    float   health_fraction;                                                                          //HP % of max.
     float   fFron   = 0.0;                                                                  //Front percentage (top 1/4 of HP)
     int     iDrop;                                                                          //Falling/Fallen AI flag.
 
@@ -28,7 +28,7 @@ void main()
 	//Give Debug text a background.
 	if (getglobalvar("debug_set"))
 	{
-		drawbox(0, 25, 480, 80, SYS_FRONTZ, RGB_BLACK, 6);
+		drawbox(0, 25, 480, 80, openborconstant("FRONTPANEL_Z"), RGB_BLACK, 6);
 	}
 
 	//tupdate();
@@ -62,20 +62,20 @@ void main()
 		    {
 				iIndex	= getentityproperty(target, "playerindex");                           //Get player index.
 				fJar	= getentityproperty(target, "mp")/10;                                 //MP jar count.
-				fHPer   = 4 * health_fraction(target);                                        //Get life % in quarters.
+				health_fraction   = 4 * get_health_fraction(target);                                        //Get life % in quarters.
 				sprite_index   = getindexedvar(IDXG_ICOJAR);                                            //Get magic jar sprite.
 
 				for(fCnt=0; fCnt<fJar; fCnt++)                                              //Loop jar count.
 				{
-					drawsprite(sprite_index, iIndex*160+55+fCnt*11, iVRes-20, SYS_FRONTZ+18001);     //Draw magic jars
+					drawsprite(sprite_index, iIndex*160+55+fCnt*11, iVRes-20, openborconstant("FRONTPANEL_Z")+18001);     //Draw magic jars
 				}
 
-				for(fCnt=0.0; fCnt<fHPer; fCnt++)                                           //Loop each quater of life.
+				for(fCnt=0.0; fCnt<health_fraction; fCnt++)                                           //Loop each quater of life.
 				{
-					fFron   = fHPer - fCnt;
+					fFron   = health_fraction - fCnt;
                     sprite_index   = getindexedvar(lblock(fFron));                                 //Get life block sprite.
 
-					drawsprite(sprite_index, iIndex*160+53+fCnt*26, iVRes-31, SYS_FRONTZ+18001);     //Draw life block.
+					drawsprite(sprite_index, iIndex*160+53+fCnt*26, iVRes-31, openborconstant("FRONTPANEL_Z")+18001);     //Draw life block.
 				}
 		    }
 			else
@@ -91,16 +91,16 @@ void main()
 
                 if(sprite_index)																	//Sprite valid?
                 {
-                    fHPer   = health_fraction(target);                                                              //Get life block sprite.
+                    health_fraction   = get_health_fraction(target);                                                              //Get life block sprite.
                     vMap    = getentityproperty(target, "colourmap");
                     ++iLiv;                                                                 //Increment "living" index.
 
                     setdrawmethod(NULL(), 1, 256, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, vMap);    //Set global draw method.
-                    drawsprite(sprite_index, (iLiv*41), 4, SYS_FRONTZ+18000);                        //Draw icon.
+                    drawsprite(sprite_index, (iLiv*41), 4, openborconstant("FRONTPANEL_Z")+18000);                        //Draw icon.
                     setdrawmethod(NULL(), 0, 256, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL());  //Restore global draw defaults.
 
-                    sprite_index   = getindexedvar(lblock(fHPer));                                 //Get life block sprite.
-                    drawsprite(sprite_index, 16+(iLiv*41), 8, SYS_FRONTZ+18000);						//Draw life block.
+                    sprite_index   = getindexedvar(lblock(health_fraction));                                 //Get life block sprite.
+                    drawsprite(sprite_index, 16+(iLiv*41), 8, openborconstant("FRONTPANEL_Z")+18000);						//Draw life block.
                 }
 			}
         }
@@ -231,7 +231,7 @@ void auto_stealth(void target)
 
 // Return a decimal fraction of
 // current HP vs. max HP.
-float health_fraction(void target)
+float get_health_fraction(void target)
 {
 	float health_current;   // Current HP.
 	float health_max;       // Maximum HP.

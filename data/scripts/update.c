@@ -62,7 +62,7 @@ void main()
 		    {
 				iIndex	= getentityproperty(target, "playerindex");                           //Get player index.
 				fJar	= getentityproperty(target, "mp")/10;                                 //MP jar count.
-				fHPer   = 4 * (0.0 + (hlife(target)));                                        //Get life % in quarters.
+				fHPer   = 4 * (0.0 + (health_fraction(target)));                                        //Get life % in quarters.
 				iHSpr   = getindexedvar(IDXG_ICOJAR);                                            //Get magic jar sprite.
 
 				for(fCnt=0; fCnt<fJar; fCnt++)                                              //Loop jar count.
@@ -91,7 +91,7 @@ void main()
 
                 if(iHSpr)																	//Sprite valid?
                 {
-                    fHPer   = hlife(target);                                                  //Get life block sprite.
+                    fHPer   = health_fraction(target);                                                  //Get life block sprite.
                     vMap    = getentityproperty(target, "colourmap");
                     ++iLiv;                                                                 //Increment "living" index.
 
@@ -229,12 +229,28 @@ void auto_stealth(void target)
     #undef STEALTH_NO_ACTION
 }
 
-float hlife(void target)
+// Return a decimal fraction of
+// current HP vs. max HP.
+float health_fraction(void target)
 {
-	float fHP	= 0.0 + getentityproperty(target, "health");
-	float fMHP	= 0.0 + getentityproperty(target, "maxhealth");
+	float health_current;   // Current HP.
+	float health_max;       // Maximum HP.
+	float result;           // Output.
 
-	return fHP/fMHP;
+	health_current  = 0.0 + getentityproperty(target, "health");
+	health_max      = 0.0 + getentityproperty(target, "maxhealth");
+
+	// Don't divide by 0!
+	if(health_current && health_max)
+    {
+        result = health_current / health_max;
+    }
+    else
+    {
+        result = 0.0;
+    }
+
+	return result;
 }
 
 int lblock(float fPer){

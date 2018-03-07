@@ -6,7 +6,7 @@
 void main()
 {
     void    target;                                                                           //Entity placeholder.
-    void    vMap;                                                                           //Color array placeholder.
+    void    color_table;                                                                           //Color array placeholder.
     char    cName;                                                                          //Entity default name.
     int     iAni;                                                                           //Animations.
 	int		iLiv    = -1;                                                                   //Living enemies.
@@ -92,10 +92,10 @@ void main()
                 if(sprite_index)																	//Sprite valid?
                 {
                     health_fraction   = get_health_fraction(target);                                                              //Get life block sprite.
-                    vMap    = getentityproperty(target, "colourmap");
+                    color_table    = getentityproperty(target, "colourmap");
                     ++iLiv;                                                                 //Increment "living" index.
 
-                    setdrawmethod(NULL(), 1, 256, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, vMap);    //Set global draw method.
+                    setdrawmethod(NULL(), 1, 256, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, color_table);    //Set global draw method.
                     drawsprite(sprite_index, (iLiv*41), 4, openborconstant("FRONTPANEL_Z")+18000);                        //Draw icon.
                     setdrawmethod(NULL(), 0, 256, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL());  //Restore global draw defaults.
 

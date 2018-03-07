@@ -16,7 +16,7 @@ void main()
     int     entity_count;                                   //Current # of entities in play.
 	int		iIndex;                                                                         //Player index.
     int     i;                                                                           //Entity counter.
-    int     iHSpr;                                                                          //Sprite index.
+    int     sprite_index;                                                                          //Sprite index.
     float   fCnt    = 0.0;                                                                  //General counter.
     float   fJar;                                                                           //Mp Jar count.
     float   health;                                                                         //Current health
@@ -62,45 +62,45 @@ void main()
 		    {
 				iIndex	= getentityproperty(target, "playerindex");                           //Get player index.
 				fJar	= getentityproperty(target, "mp")/10;                                 //MP jar count.
-				fHPer   = 4 * (0.0 + (health_fraction(target)));                                        //Get life % in quarters.
-				iHSpr   = getindexedvar(IDXG_ICOJAR);                                            //Get magic jar sprite.
+				fHPer   = 4 * health_fraction(target);                                        //Get life % in quarters.
+				sprite_index   = getindexedvar(IDXG_ICOJAR);                                            //Get magic jar sprite.
 
 				for(fCnt=0; fCnt<fJar; fCnt++)                                              //Loop jar count.
 				{
-					drawsprite(iHSpr, iIndex*160+55+fCnt*11, iVRes-20, SYS_FRONTZ+18001);     //Draw magic jars
+					drawsprite(sprite_index, iIndex*160+55+fCnt*11, iVRes-20, SYS_FRONTZ+18001);     //Draw magic jars
 				}
 
 				for(fCnt=0.0; fCnt<fHPer; fCnt++)                                           //Loop each quater of life.
 				{
 					fFron   = fHPer - fCnt;
-                    iHSpr   = getindexedvar(lblock(fFron));                                 //Get life block sprite.
+                    sprite_index   = getindexedvar(lblock(fFron));                                 //Get life block sprite.
 
-					drawsprite(iHSpr, iIndex*160+53+fCnt*26, iVRes-31, SYS_FRONTZ+18001);     //Draw life block.
+					drawsprite(sprite_index, iIndex*160+53+fCnt*26, iVRes-31, SYS_FRONTZ+18001);     //Draw life block.
 				}
 		    }
 			else
 			{
 			    if(iDrop || getentityproperty(target, "aiflag", "inpain") || iAni == AC_DEFPOSE) //Getting ass kicked?
 			    {
-                    iHSpr	= getentityproperty(target, "spritea", "sprite", AC_ICONS, ICON_AIPAIN);    //Get AI pain icon.
+                    sprite_index	= getentityproperty(target, "spritea", "sprite", AC_ICONS, ICON_AIPAIN);    //Get AI pain icon.
 			    }
                 else
                 {
-                    iHSpr	= getentityproperty(target, "spritea", "sprite", AC_ICONS, ICON_AI);    //Get AI normal icon.
+                    sprite_index	= getentityproperty(target, "spritea", "sprite", AC_ICONS, ICON_AI);    //Get AI normal icon.
                 }
 
-                if(iHSpr)																	//Sprite valid?
+                if(sprite_index)																	//Sprite valid?
                 {
-                    fHPer   = health_fraction(target);                                                  //Get life block sprite.
+                    fHPer   = health_fraction(target);                                                              //Get life block sprite.
                     vMap    = getentityproperty(target, "colourmap");
                     ++iLiv;                                                                 //Increment "living" index.
 
                     setdrawmethod(NULL(), 1, 256, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, vMap);    //Set global draw method.
-                    drawsprite(iHSpr, (iLiv*41), 4, SYS_FRONTZ+18000);                        //Draw icon.
+                    drawsprite(sprite_index, (iLiv*41), 4, SYS_FRONTZ+18000);                        //Draw icon.
                     setdrawmethod(NULL(), 0, 256, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL());  //Restore global draw defaults.
 
-                    iHSpr   = getindexedvar(lblock(fHPer));                                 //Get life block sprite.
-                    drawsprite(iHSpr, 16+(iLiv*41), 8, SYS_FRONTZ+18000);						//Draw life block.
+                    sprite_index   = getindexedvar(lblock(fHPer));                                 //Get life block sprite.
+                    drawsprite(sprite_index, 16+(iLiv*41), 8, SYS_FRONTZ+18000);						//Draw life block.
                 }
 			}
         }
@@ -255,24 +255,24 @@ float health_fraction(void target)
 
 int lblock(float fPer){
 
-    int iHSpr;
+    int sprite_index;
 
     if (fPer >= 0.75)
     {
-        iHSpr = IDXG_BLOCBLU;  //Blue
+        sprite_index = IDXG_BLOCBLU;  //Blue
     }
     else if (fPer >= 0.50)
     {
-        iHSpr = IDXG_BLOCYEL;  //Yellow
+        sprite_index = IDXG_BLOCYEL;  //Yellow
     }
     else if (fPer >= 0.25)
     {
-        iHSpr = IDXG_BLOCORA;  //Orange
+        sprite_index = IDXG_BLOCORA;  //Orange
     }
     else
     {
-        iHSpr = IDXG_BLOCRED;  //Red
+        sprite_index = IDXG_BLOCRED;  //Red
     }
 
-    return iHSpr;
+    return sprite_index;
 }

@@ -95,9 +95,9 @@ void main()
                     color_table    = getentityproperty(target, "colourmap");
                     ++iLiv;                                                                 //Increment "living" index.
 
-                    setdrawmethod(NULL(), 1, 256, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, color_table);    //Set global draw method.
+                    changedrawmethod(NULL(), "table", color_table);
                     drawsprite(sprite_index, (iLiv*41), 4, openborconstant("FRONTPANEL_Z")+18000);                        //Draw icon.
-                    setdrawmethod(NULL(), 0, 256, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL());  //Restore global draw defaults.
+                    changedrawmethod(NULL(), "table", NULL());
 
                     sprite_index   = getindexedvar(lblock(health_fraction));                                 //Get life block sprite.
                     drawsprite(sprite_index, 16+(iLiv*41), 8, openborconstant("FRONTPANEL_Z")+18000);						//Draw life block.

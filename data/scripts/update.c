@@ -54,26 +54,9 @@ void main()
             iType   = getentityproperty(target, "type");                                      //Get type.
             iAni    = getentityproperty(target, "animationid");                               //Get current animation.
 
-            if(getentityproperty(target, "owner")== NULL())                                    //Not projectile?
-            {
-			    if(iDrop)																	//Falling?
-			    {
-				    changeentityproperty(target, "stealth", 1);								//Set stealth.
-			    }
-			    else
-                {
-                    cName   = getentityproperty(target, "defaultname");                       //Get default name.
-
-                    if(cName != "yamoto"                                                    //Not Yamoto?
-                        &&  !(cName == "Alex" && iAni == A_RISEATK)							//Not Alex doing a rise attack?
-                        &&  iAni != A_SLEEP)												//Not in sleep ani?
-			        {
-				        changeentityproperty(target, "stealth", 0);                           //Turn stealth off.
-                    }
-
-				    //ani0013(target, iAni, 0);                                                 //Auto jump from platforms.
-                }
-            }
+            // Apply stealth when knocked down, with some
+            // custom exceptions.
+            auto_stealth(target);
 
 		    if ((iType && iType == TYPE_PLAYER))												//Player type?
 		    {
@@ -122,6 +105,128 @@ void main()
 			}
         }
 	}
+}
+
+// Auto apply stealth.
+
+// Most AI controlled models are set to chase mode to
+// emulate how they behaved in the original Golden Axe,
+// but we want them to ignore opponents who are
+// knocked down.
+//
+// We'll do this by applying a universal stealth, with
+// a couple of exceptions for specific game-play situations.
+void auto_stealth(void target)
+{
+    #define STEALTH_DISABLE     0
+    #define STEALTH_ENABLE      1
+    #define STEALTH_NO_ACTION   2
+
+    char    model_name;         // Name of the base model.
+    void    owner;              // Entity that spawned the target.
+    int     drop;               // Falling (drop) state.
+    int     action;             // Stealth setting to apply.
+    int     stealth_current;    // Entity's current stealth.
+    int     animation;          // target's current animation.
+
+    // Does the entity have an owner? If not, in this module
+    // that means it is a projectile or special effect.
+    owner = getentityproperty(target, "owner");
+
+    if(!owner)
+    {
+        // Is the entity in a falling state?
+        drop = getentityproperty(target, "aiflag", "drop");
+
+        if(drop)
+        {
+            // Set stealth so opponents will ignore.
+            action = 1;
+        }
+        else
+        {
+            // If not in a falling state, then we will default to
+            // disabling stealth.
+            action = STEALTH_DISABLE;
+
+            // Don't disable stealth if an of the following conditions
+            // are met. They are controlling stealth with other
+            // functions that we don't want to interfere with.
+
+            // - Yamoto: Joe's dog is an invincible decoration
+            // until he specifically becomes part of the action.
+            // Therefore he defaults with stealth so opponents
+            // won't stupidly attack him.
+            if(model_name == "yamoto")
+            {
+                action = STEALTH_NO_ACTION;
+            }
+
+            // - Alex in Riseattack: Alex's rise attack is a feign
+            // death move allowing him to gain some space and come
+            // up with a delayed attack. It uses stealth to work.
+            if(model_name == "alex")
+            {
+                if(animation == openborconstant("ANI_RISEATTACK"))
+                {
+                    action = STEALTH_NO_ACTION;
+                }
+            }
+
+            // - SLEEP animation. This is used for entities that
+            // are on screen but not in action yet - like
+            // Longmoan stomping on a peasant.
+            if(animation == openborconstant("ANI_SLEEP"))
+            {
+                action = STEALTH_NO_ACTION;
+            }
+        }
+
+        stealth_current = getentityproperty(target, "stealth");
+
+        // This is where we apply the results of our stealth
+        // conditionals. We might want to use stealth for its
+        // intended purpose too, so let's accommodate here by only
+        // adjusting stealth if it is within 1 of the binary 0/1 range.
+        //
+        // IOW, if an entity has 5 stealth, then it is clearly
+        // meant to be stealthy by design, so don't mess that up
+        // here. But if its stealth is only 1, then we can assume
+        // it only has stealth because of a temporary condition like
+        // falling and we may safely disable.
+        switch(action)
+        {
+            case STEALTH_DISABLE:
+
+                // Only disable stealth if it is
+                // enabled but not higher than 1.
+                if(stealth_current <= 1 && stealth_current > 0)
+                {
+                    changeentityproperty(target, "stealth", 0);
+                }
+
+                break;
+
+            case STEALTH_ENABLE:
+
+                // Only enable stealth if it is
+                // disabled but higher than -1.
+                if(stealth_current <= 0 && stealth_current > -1)
+                {
+                    changeentityproperty(target, "stealth", 1);
+                }
+
+                break;
+
+            default:
+            case STEALTH_NO_ACTION:
+                break;
+        }
+    }
+
+    #undef STEALTH_DISABLE
+    #undef STEALTH_ENABLE
+    #undef STEALTH_NO_ACTION
 }
 
 float hlife(void target)

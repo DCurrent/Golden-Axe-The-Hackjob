@@ -9,7 +9,6 @@ void main()
     void    color_table;                                                                           //Color array placeholder.
     char    cName;                                                                          //Entity default name.
     int     iAni;                                                                           //Animations.
-	int		iLiv    = -1;                                                                   //Living enemies.
 	int		iKMap;                                                                          //KO map.
     int     iType;                                                                          //Entity type.
     int     iVRes   = openborvariant("vresolution");                                        //Current vertical resolution.
@@ -91,9 +90,10 @@ void main()
 
                 if(sprite_index)																	//Sprite valid?
                 {
+                    // Increment living entity counter.
+
                     health_fraction   = get_health_fraction(target);                                                              //Get life block sprite.
                     color_table    = getentityproperty(target, "colourmap");
-                    ++iLiv;                                                                 //Increment "living" index.
 
                     changedrawmethod(NULL(), "table", color_table);
                     drawsprite(sprite_index, (iLiv*41), 4, openborconstant("FRONTPANEL_Z")+18000);                        //Draw icon.

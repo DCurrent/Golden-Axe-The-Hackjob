@@ -15,9 +15,9 @@ void main()
     int     iVRes   = openborvariant("vresolution");                                        //Current vertical resolution.
     int     entity_count;                                   //Current # of entities in play.
 	int		player_index;                                                                         //Player index.
-    int     i;                                                                           //Entity counter.
+    int     entity_cursor;                                                                              //Entity counter.
+    int     fCnt = 0.0;                                                                          //General counter.
     int     sprite_index;                                                                          //Sprite index.
-    float   fCnt    = 0.0;                                                                  //General counter.
     float   fJar;                                                                           //Mp Jar count.
     float   health;                                                                         //Current health
     float   health_fraction;                                                                          //HP % of max.
@@ -37,10 +37,10 @@ void main()
 	// each of them.
 	entity_count = openborvariant("count_entities");
 
-	for(i=0; i<entity_count; i++)                                                         //Loop entity collection.
+	for(entity_cursor=0; entity_cursor<entity_count; entity_cursor++)                                                         //Loop entity collection.
 	{
 
-		target = getentity(i);                                                             //Get entity handle.
+		target = getentity(entity_cursor);                                                             //Get entity handle.
 
 		if(target                                                                             //Valid handle?
             && getentityproperty(target, "exists")                                            //Valid entity?

@@ -16,7 +16,7 @@ void main()
     int     entity_count;                                   //Current # of entities in play.
 	int		player_index;                                                                         //Player index.
     int     entity_cursor;                                                                              //Entity counter.
-    int     fCnt = 0.0;                                                                          //General counter.
+    int     i;                                                                              //General purpose cursor.
     int     sprite_index;                                                                          //Sprite index.
     float   fJar;                                                                           //Mp Jar count.
     float   health;                                                                         //Current health
@@ -65,17 +65,17 @@ void main()
 				health_fraction   = 4 * get_health_fraction(target);                                        //Get life % in quarters.
 				sprite_index   = getindexedvar(IDXG_ICOJAR);                                            //Get magic jar sprite.
 
-				for(fCnt=0; fCnt<fJar; fCnt++)                                              //Loop jar count.
+				for(i=0; i<fJar; i++)                                              //Loop jar count.
 				{
-					drawsprite(sprite_index, player_index*160+55+fCnt*11, iVRes-20, openborconstant("FRONTPANEL_Z")+18001);     //Draw magic jars
+					drawsprite(sprite_index, player_index*160+55+i*11, iVRes-20, openborconstant("FRONTPANEL_Z")+18001);     //Draw magic jars
 				}
 
-				for(fCnt=0.0; fCnt<health_fraction; fCnt++)                                           //Loop each quater of life.
+				for(i=0; i<health_fraction; i++)                                           //Loop each quater of life.
 				{
-					fFron   = health_fraction - fCnt;
+					fFron   = health_fraction - i;
                     sprite_index   = getindexedvar(lblock(fFron));                                 //Get life block sprite.
 
-					drawsprite(sprite_index, player_index*160+53+fCnt*26, iVRes-31, openborconstant("FRONTPANEL_Z")+18001);     //Draw life block.
+					drawsprite(sprite_index, player_index*160+53+i*26, iVRes-31, openborconstant("FRONTPANEL_Z")+18001);     //Draw life block.
 				}
 		    }
 			else

@@ -11,8 +11,6 @@
 
 void oncreate()
 {
-    log("load");
-
     // Magic jar
     setlocalvar(VAR_KEY_SPRITE_MAGIC_JAR, loadsprite("data/sprites/mpicon.gif"));
 
@@ -25,6 +23,16 @@ void oncreate()
 
 void ondestroy()
 {
+    // Free the sprites we loaded.
+
+    // Magic jar
+    free(getlocalvar(VAR_KEY_SPRITE_MAGIC_JAR));
+
+    // Life blocks
+    free(getlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_BLUE));
+    free(getlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_YELLOW));
+    free(getlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_ORANGE));
+    free(getlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_RED));
 }
 
 void main()

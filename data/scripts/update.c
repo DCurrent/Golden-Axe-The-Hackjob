@@ -58,25 +58,12 @@ void main()
             // custom exceptions.
             auto_stealth(target);
 
-		    if ((iType && iType == TYPE_PLAYER))												//Player type?
+            // Draw player HUD.
+            dc_golden_axe_player_hud(target);
+
+		    if (iType == TYPE_PLAYER)												//Player type?
 		    {
-				player_index	= getentityproperty(target, "playerindex");                           //Get player index.
-				fJar	= getentityproperty(target, "mp")/10;                                 //MP jar count.
-				health_fraction   = 4 * get_health_fraction(target);                                        //Get life % in quarters.
-				sprite_index   = getindexedvar(IDXG_ICOJAR);                                            //Get magic jar sprite.
-
-				for(i=0; i<fJar; i++)                                              //Loop jar count.
-				{
-					drawsprite(sprite_index, player_index*160+55+i*11, iVRes-20, openborconstant("FRONTPANEL_Z")+18001);     //Draw magic jars
-				}
-
-				for(i=0; i<health_fraction; i++)                                           //Loop each quater of life.
-				{
-					fFron   = health_fraction - i;
-                    sprite_index   = getindexedvar(lblock(fFron));                                 //Get life block sprite.
-
-					drawsprite(sprite_index, player_index*160+53+i*26, iVRes-31, openborconstant("FRONTPANEL_Z")+18001);     //Draw life block.
-				}
+				// Exported to function.
 		    }
 			else
 			{
@@ -107,6 +94,110 @@ void main()
 			}
         }
 	}
+}
+
+// Draw player HUD, with icons, magic jars, and
+// life blocks for the target entity.
+void dc_golden_axe_player_hud(void target)
+{
+    #define HEALTH_BLOCK_MAX    4  // Maximum number of health blocks that can be displayed for a single HUD entry.
+    #define MAGIC_BLOCK_MAX     10 // Maximum number of magic blocks.
+
+    int     i;                      // Loop cursor.
+    int     resolution_vertical;    // Screens vertical size in pixels.
+    int     entity_type;
+    int     player_index;
+    int     magic_count;            // How many symbols (jars, blocks, etc.) of magic to display.
+    int     sprite_index;           // Placeholder for sprite reference.
+    float   health_fraction;        // A sub-division of current health percentage.
+    float   block_fraction;    //
+
+    // Make sure a valid type was found,
+    // and that it is a player.
+    entity_type = getentityproperty(target, "type");
+
+    if(entity_type == openborconstant("TYPE_PLAYER"))
+    {
+        resolution_vertical = openborvariant("vresolution");
+        player_index        = getentityproperty(target, "playerindex");
+        magic_count	        = getentityproperty(target, "mp") / MAGIC_BLOCK_MAX;
+        sprite_index        = getindexedvar(IDXG_ICOJAR);
+
+        // Magic is simple.
+        for(i=0; i<magic_count; i++)
+        {
+            drawsprite(sprite_index, player_index*160+55+i*11, resolution_vertical-20, openborconstant("FRONTPANEL_Z")+18001);     //Draw magic jars
+        }
+
+        // Our goal here is to replicate the Golden Axe style life
+        // blocks, but also add in the feature from Altered Beast
+        // the right most block would change color as health depleted
+        // until it was gone, then onto the next block and so on.
+
+        // To do this, we need to go through a few steps.
+        //
+        // First we get a decimal value of current remaining health. For
+        // example, if health is currently 80 of a max 100, then we get
+        // a value of 0.8.
+        //
+        // Next, we multiply the decimal value of 0.8 by the maximum
+        // number of blocks that can be displayed. This gives us a
+        // value of 3.2. Just for labeling, we call it health fraction.
+        //
+        // Now we run a loop, with the cursor incrementing by 1, and
+        // stopping when the cursor > our health fraction. Inside the
+        // loop, we subject the current cursor value from health fraction
+        // value to get a value we'll call block percentage.
+        //
+        // The loop is essentially getting a sub percentage value of
+        // for each block. We then feed that to a function that will
+        // determine which color of block to display. In our example,
+        // the first three blocks will get a value of > 1. So they get
+        // the 100% block. The forth block ends up with a value of 0.2.
+        // That means the block is at 20% and the block sprite function
+        // will choose accordingly.
+        //
+        // In our example, this is what the loop looks like:
+        //
+        // Health: 80 of 100
+        // 4 * (80 / 100) = 3.2
+        //
+        // *loop starts*
+        //
+        // 3.2 - 0 = 3.2: Block 1 - 100%
+        // 3.2 - 1 = 2.2: Block 2 - 100%
+        // 3.2 - 2 = 1.2: Block 3 - 100%
+        // 3.2 - 3 = 0.2: Block 4 - 20%
+        //
+        // *Loop stops, four blocks are displayed*
+        //
+        // If health drops to 35, it would then look like this:
+        //
+        // Health: 35 of 100
+        // 4 * (80 / 100) = 1.4
+        //
+        // *loop starts*
+        //
+        // 1.4 - 0 = 1.4: Block 1 - 100%
+        // 1.4 - 1 = 0.4: Block 2 - 40%
+        //
+        // Loop stops, two blocks are displayed.
+
+        // Get health %, multiplied by number of displayable blocks.
+        health_fraction = HEALTH_BLOCK_MAX * get_health_fraction(target);
+
+        // Loop each quarter of health.
+        for(i=0; i < health_fraction; i++)
+        {
+            block_fraction = health_fraction - i;
+            sprite_index   = getindexedvar(lblock(block_fraction));                                 //Get life block sprite.
+
+            drawsprite(sprite_index, player_index*160+53+i*26, resolution_vertical-31, openborconstant("FRONTPANEL_Z")+18001);     //Draw life block.
+        }
+    }
+
+    #undef HEALTH_BLOCK_MAX
+    #undef MAGIC_BLOCK_MAX
 }
 
 // Auto apply stealth.

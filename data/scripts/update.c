@@ -3,6 +3,30 @@
 #import	"data/scripts/traileru.c"		//Shadow trails.
 //#import	"data/scripts/com/ani0013.h"	//Jump animation if steping off an edge.
 
+#define VAR_KEY_SPRITE_MAGIC_JAR            "mp_block"
+#define VAR_KEY_SPRITE_HEALTH_BLOCK_BLUE    "hp_blue"
+#define VAR_KEY_SPRITE_HEALTH_BLOCK_YELLOW  "hp_yellow"
+#define VAR_KEY_SPRITE_HEALTH_BLOCK_ORANGE  "hp_orange"
+#define VAR_KEY_SPRITE_HEALTH_BLOCK_RED     "hp_red"
+
+void oncreate()
+{
+    log("load");
+
+    // Magic jar
+    setlocalvar(VAR_KEY_SPRITE_MAGIC_JAR, loadsprite("data/sprites/mpicon.gif"));
+
+    // Life blocks
+	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_BLUE, loadsprite("data/sprites/life.png"));
+	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_YELLOW, loadsprite("data/sprites/life2.png"));
+	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_ORANGE, loadsprite("data/sprites/life3.png"));
+	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_RED, loadsprite("data/sprites/life4.png"));
+}
+
+void ondestroy()
+{
+}
+
 void main()
 {
     void    target;                                                                           //Entity placeholder.
@@ -88,7 +112,7 @@ void main()
                     drawsprite(sprite_index, (enemy_living_count*41), 4, openborconstant("FRONTPANEL_Z")+18000);                        //Draw icon.
                     changedrawmethod(NULL(), "table", NULL());
 
-                    sprite_index   = getindexedvar(lblock(health_fraction));                                 //Get life block sprite.
+                    sprite_index   = lblock(health_fraction);                                 //Get life block sprite.
                     drawsprite(sprite_index, 16+(enemy_living_count*41), 8, openborconstant("FRONTPANEL_Z")+18000);						//Draw life block.
                 }
 			}
@@ -121,7 +145,7 @@ void dc_golden_axe_player_hud(void target)
         resolution_vertical = openborvariant("vresolution");
         player_index        = getentityproperty(target, "playerindex");
         magic_count	        = getentityproperty(target, "mp") / MAGIC_BLOCK_MAX;
-        sprite_index        = getindexedvar(IDXG_ICOJAR);
+        sprite_index        = getlocalvar(VAR_KEY_SPRITE_MAGIC_JAR);
 
         // Magic is simple.
         for(i=0; i<magic_count; i++)
@@ -190,7 +214,7 @@ void dc_golden_axe_player_hud(void target)
         for(i=0; i < health_fraction; i++)
         {
             block_fraction = health_fraction - i;
-            sprite_index   = getindexedvar(lblock(block_fraction));                                 //Get life block sprite.
+            sprite_index   = lblock(block_fraction);                                 //Get life block sprite.
 
             drawsprite(sprite_index, player_index*160+53+i*26, resolution_vertical-31, openborconstant("FRONTPANEL_Z")+18001);     //Draw life block.
         }
@@ -352,19 +376,19 @@ int lblock(float fPer){
 
     if (fPer >= 0.75)
     {
-        sprite_index = IDXG_BLOCBLU;  //Blue
+        sprite_index = getlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_BLUE);
     }
     else if (fPer >= 0.50)
     {
-        sprite_index = IDXG_BLOCYEL;  //Yellow
+        sprite_index = getlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_YELLOW);
     }
     else if (fPer >= 0.25)
     {
-        sprite_index = IDXG_BLOCORA;  //Orange
+        sprite_index = getlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_ORANGE);
     }
     else
     {
-        sprite_index = IDXG_BLOCRED;  //Red
+        sprite_index = getlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_RED);
     }
 
     return sprite_index;

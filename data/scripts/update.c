@@ -170,13 +170,13 @@ void main()
                     //, and then
                     // reset global drawmthod.
                     changedrawmethod(NULL(), "table", color_table);
-                    drawsprite(sprite_index, (enemy_living_count*41), 4, openborconstant("FRONTPANEL_Z")+18000);
+                    drawsprite(sprite_index, (enemy_living_cursor*41), 4, openborconstant("FRONTPANEL_Z")+18000);
                     changedrawmethod(NULL(), "table", NULL());
 
                     // Get and draw the appropriate life block sprite
                     // for health remaining.
                     sprite_index   = lblock(health_fraction);
-                    drawsprite(sprite_index, 16+(enemy_living_count*41), 8, openborconstant("FRONTPANEL_Z")+18000);
+                    drawsprite(sprite_index, 16+(enemy_living_cursor*41), 8, openborconstant("FRONTPANEL_Z")+18000);
                 }
 			}
         }
@@ -202,7 +202,7 @@ int dc_get_is_hurt(void target)
     }
 
     // In pain (reeling from a hit)?
-    pain = getentityproperty(target, "aiflag", "pain");
+    pain = getentityproperty(target, "aiflag", "inpain");
 
     if(pain)
     {
@@ -220,7 +220,7 @@ int dc_get_is_hurt(void target)
     // Special moves disabled? This is done in a grapple,
     // so its a good way to tell if target is being
     // thrown around.
-    seal = getentityproperty(target, "seal")
+    seal = getentityproperty(target, "seal");
 
     if(seal)
     {

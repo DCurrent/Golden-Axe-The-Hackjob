@@ -175,7 +175,7 @@ void main()
 
                     // Get and draw the appropriate life block sprite
                     // for health remaining.
-                    sprite_index   = lblock(health_fraction);
+                    sprite_index   = dc_get_block_large(health_fraction);
                     drawsprite(sprite_index, 16+(enemy_living_cursor*41), 8, openborconstant("FRONTPANEL_Z")+18000);
                 }
 			}
@@ -326,7 +326,7 @@ void dc_golden_axe_player_hud(void target)
         for(i=0; i < health_fraction; i++)
         {
             block_fraction = health_fraction - i;
-            sprite_index   = lblock(block_fraction);                                 //Get life block sprite.
+            sprite_index   = dc_get_block_large(block_fraction);                                 //Get life block sprite.
 
             drawsprite(sprite_index, player_index*160+53+i*26, resolution_vertical-31, openborconstant("FRONTPANEL_Z")+18001);     //Draw life block.
         }
@@ -482,19 +482,21 @@ float get_health_fraction(void target)
 	return result;
 }
 
-int lblock(float fPer){
+// Get a pre-loaded colored block sprite based on
+// fraction argument.
+int dc_get_block_large(float value_fraction){
 
     int sprite_index;
 
-    if (fPer >= 0.75)
+    if (value_fraction >= 0.75)
     {
         sprite_index = getlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_BLUE);
     }
-    else if (fPer >= 0.50)
+    else if (value_fraction >= 0.50)
     {
         sprite_index = getlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_YELLOW);
     }
-    else if (fPer >= 0.25)
+    else if (value_fraction >= 0.25)
     {
         sprite_index = getlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_ORANGE);
     }

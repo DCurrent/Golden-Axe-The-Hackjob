@@ -70,7 +70,7 @@ void main()
     void    color_table;                                                                           //Color array placeholder.
     char    cName;                                                                          //Entity default name.
     int     iAni;                                                                           //Animations.
-	int		enemy_living_count = -1;                                                                   //Living enemies.
+	int		enemy_living_cursor = -1;                                                                   //Living enemies.
 	int		iKMap;                                                                          //KO map.
     int     iType;                                                                          //Entity type.
     int     iVRes   = openborvariant("vresolution");                                        //Current vertical resolution.
@@ -83,7 +83,7 @@ void main()
     float   health;                                                                         //Current health
     float   health_fraction;                                                                          //HP % of max.
     float   fFron   = 0.0;                                                                  //Front percentage (top 1/4 of HP)
-    int     iDrop;                                                                          //Falling/Fallen AI flag.
+    int     is_hurt;                                                                          //Falling/Fallen AI flag.
 
 
 	//Give Debug text a background.
@@ -111,8 +111,7 @@ void main()
             // Experiment to disable movement. Does not work.
 			//changeplayerproperty(target, "playkeys", FLAG_NONE);
 
-			iDrop   = getentityproperty(target, "aiflag", "drop");                            //Drop status.
-            iType   = getentityproperty(target, "type");                                      //Get type.
+			iType   = getentityproperty(target, "type");                                      //Get type.
             iAni    = getentityproperty(target, "animationid");                               //Get current animation.
 
             // Apply stealth when knocked down, with some
@@ -128,33 +127,109 @@ void main()
 		    }
 			else
 			{
-			    if(iDrop || getentityproperty(target, "aiflag", "inpain") || iAni == AC_DEFPOSE) //Getting ass kicked?
+			    // Target getting whipped? If so get a "hurt" icon sprite.
+			    // Otherwise just get a normal icon sprite.
+			    is_hurt = dc_get_is_hurt(target);
+
+			    if(is_hurt)
 			    {
-                    sprite_index	= getentityproperty(target, "spritea", "sprite", AC_ICONS, ICON_AIPAIN);    //Get AI pain icon.
+                    sprite_index	= getentityproperty(target, "spritea", "sprite", AC_ICONS, ICON_AIPAIN);
 			    }
                 else
                 {
-                    sprite_index	= getentityproperty(target, "spritea", "sprite", AC_ICONS, ICON_AI);    //Get AI normal icon.
+                    sprite_index	= getentityproperty(target, "spritea", "sprite", AC_ICONS, ICON_AI);
                 }
 
-                if(sprite_index)																	//Sprite valid?
+                // Did we find a valid icon sprite? Then let's display it along with
+                // a health sprite.
+                if(sprite_index)
                 {
-                    // Increment living entity counter.
-                    enemy_living_count++;
+                    // Increment living enemy cursor.
+                    enemy_living_cursor++;
 
-                    health_fraction   = get_health_fraction(target);                                                              //Get life block sprite.
+                    health_fraction   = get_health_fraction(target);
                     color_table    = getentityproperty(target, "colourmap");
 
+                    // Get color table in use by target and apply it to the
+                    // global drawmethod, and draw the icon sprite. This
+                    // causes the icon sprite to appear using same color
+                    // as the target entity (assuming it and the target
+                    // entity's other sprites all use the same default color
+                    // table, and they should).
+                    //
+                    // To get the position, we use a preset value that is equal
+                    // to the icon, life block, and any extra margin padding.
+                    // We then multiply that value by the current cursor for
+                    // living enemies. When there are multiple enemy entities
+                    // on screen, this causes their icons and life blocks to
+                    // appear in a row across the screen.
+                    //
+                    // When the icon sprite is drawn, we immediately reset the
+                    // global drawmthod color table to null.
+
+                    //, and then
+                    // reset global drawmthod.
                     changedrawmethod(NULL(), "table", color_table);
-                    drawsprite(sprite_index, (enemy_living_count*41), 4, openborconstant("FRONTPANEL_Z")+18000);                        //Draw icon.
+                    drawsprite(sprite_index, (enemy_living_count*41), 4, openborconstant("FRONTPANEL_Z")+18000);
                     changedrawmethod(NULL(), "table", NULL());
 
-                    sprite_index   = lblock(health_fraction);                                 //Get life block sprite.
-                    drawsprite(sprite_index, 16+(enemy_living_count*41), 8, openborconstant("FRONTPANEL_Z")+18000);						//Draw life block.
+                    // Get and draw the appropriate life block sprite
+                    // for health remaining.
+                    sprite_index   = lblock(health_fraction);
+                    drawsprite(sprite_index, 16+(enemy_living_count*41), 8, openborconstant("FRONTPANEL_Z")+18000);
                 }
 			}
         }
 	}
+}
+
+// Return true if target is currently
+// receiving an attack, being grappled,
+// or otherwise taking punishment.
+int dc_get_is_hurt(void target)
+{
+    int drop;   // Falling flag.
+    int pain;   // Pain flag.
+    int frozen; // Frozen flag.
+    int seal;   // Seal factor.
+
+    // Falling?
+    drop = getentityproperty(target, "aiflag", "drop");
+
+    if(drop)
+    {
+        return 1;
+    }
+
+    // In pain (reeling from a hit)?
+    pain = getentityproperty(target, "aiflag", "pain");
+
+    if(pain)
+    {
+        return 1;
+    }
+
+    // Frozen?
+    frozen = getentityproperty(target, "frozen");
+
+    if(frozen)
+    {
+        return 1;
+    }
+
+    // Special moves disabled? This is done in a grapple,
+    // so its a good way to tell if target is being
+    // thrown around.
+    seal = getentityproperty(target, "seal")
+
+    if(seal)
+    {
+        return 1;
+    }
+
+    // Made it this far, then we can return
+    // false and exit.
+    return 0;
 }
 
 // Draw player HUD, with icons, magic jars, and

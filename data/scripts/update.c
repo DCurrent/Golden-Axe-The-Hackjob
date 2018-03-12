@@ -41,7 +41,7 @@ var getColorForPercentage = function(pct) {
 void oncreate()
 {
     // Magic jar
-    setlocalvar(VAR_KEY_SPRITE_MAGIC_JAR, loadsprite("data/sprites/mpicon.gif"));
+    setlocalvar(VAR_KEY_SPRITE_MAGIC_JAR, loadsprite("data/sprites/mpicon.png"));
 
     // Life blocks
 	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_BLUE, loadsprite("data/sprites/life.png"));
@@ -236,8 +236,13 @@ int dc_get_is_hurt(void target)
 // life blocks for the target entity.
 void dc_golden_axe_player_hud(void target)
 {
-    #define HEALTH_BLOCK_MAX    4  // Maximum number of health blocks that can be displayed for a single HUD entry.
-    #define MAGIC_BLOCK_MAX     10 // Maximum number of magic blocks.
+    #define HEALTH_BLOCK_MAX        4   // Maximum number of health blocks that can be displayed for a single HUD entry.
+    #define MAGIC_BLOCK_MAX         10  // Maximum number of magic blocks.
+
+    #define PLAYER_HUD_WIDTH        160 // Total width of each player HUD (with padding).
+    #define MP_AREA_MARGIN_LEFT     56  // Left of player HUD to first magic block.
+    #define MP_BLOCK_MARGIN_LEFT    2
+    #define MP_BLOCK_MARGIN_RIGHT   3
 
     int     i;                      // Loop cursor.
     int     resolution_vertical;    // Screens vertical size in pixels.
@@ -246,7 +251,11 @@ void dc_golden_axe_player_hud(void target)
     int     magic_count;            // How many symbols (jars, blocks, etc.) of magic to display.
     int     sprite_index;           // Placeholder for sprite reference.
     float   health_fraction;        // A sub-division of current health percentage.
-    float   block_fraction;    //
+    float   block_fraction;         //
+    int     mp_block_size_h;        // Size of mp block 9after OpenBOR auto trims).
+    int     mp_block_space;         // Size of mp block with margins included.
+    int     mp_block_position_left; // Starting position of mp blocks in each player's HUD.
+    int     mp_block_position_x;    // X position of an individual mp block.
 
     // Make sure a valid type was found,
     // and that it is a player.
@@ -259,10 +268,36 @@ void dc_golden_axe_player_hud(void target)
         magic_count	        = getentityproperty(target, "mp") / MAGIC_BLOCK_MAX;
         sprite_index        = getlocalvar(VAR_KEY_SPRITE_MAGIC_JAR);
 
+
+
+        // Lets get the width of our magic block.
+        // Remember that OpenBOR auto trims all sprites
+        // as it loads them, so the size will reflect that.
+        mp_block_size_h = getgfxproperty(sprite_index, "srcwidth");
+
+        // Now we add the margins, and that will get total
+        // spacing for one MP block.
+        mp_block_space = mp_block_size_h + MP_BLOCK_MARGIN_LEFT + MP_BLOCK_MARGIN_RIGHT;
+
+        // Our starting position will be the leftmost of
+        // current player's (in loop) HUD area.
+        mp_block_position_left = player_index * PLAYER_HUD_WIDTH;
+
         // Magic is simple.
         for(i=0; i<magic_count; i++)
         {
-            drawsprite(sprite_index, player_index*160+55+i*11, resolution_vertical-20, openborconstant("FRONTPANEL_Z")+18001);     //Draw magic jars
+            // Multiply the total X space of an MP block
+            // by the current cursor position. This places
+            // each block in a row, left to right.
+            mp_block_position_x = i * mp_block_space;
+
+            // Now add the margin from player HUD to start
+            // of magic area to align blocks properly with
+            // player HUD design.
+            mp_block_position_x += MP_AREA_MARGIN_LEFT;
+
+            // Draw the MP sprite.
+            drawsprite(sprite_index, mp_block_position_x, resolution_vertical-20, openborconstant("FRONTPANEL_Z")+18001);
         }
 
         // Our goal here is to replicate the Golden Axe style life
@@ -326,14 +361,19 @@ void dc_golden_axe_player_hud(void target)
         for(i=0; i < health_fraction; i++)
         {
             block_fraction = health_fraction - i;
-            sprite_index   = dc_get_block_large(block_fraction);                                 //Get life block sprite.
+            sprite_index   = dc_get_block_large(block_fraction);
 
-            drawsprite(sprite_index, player_index*160+53+i*26, resolution_vertical-31, openborconstant("FRONTPANEL_Z")+18001);     //Draw life block.
+            drawsprite(sprite_index, player_index*160+53+i*26, resolution_vertical-31, openborconstant("FRONTPANEL_Z")+18001);
         }
     }
 
     #undef HEALTH_BLOCK_MAX
     #undef MAGIC_BLOCK_MAX
+
+    #undef PLAYER_HUD_WIDTH
+    #undef MP_AREA_MARGIN_LEFT
+    #undef MP_BLOCK_MARGIN_LEFT
+    #undef MP_BLOCK_MARGIN_RIGHT
 }
 
 // Auto apply stealth.

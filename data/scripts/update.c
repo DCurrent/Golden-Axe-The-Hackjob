@@ -256,6 +256,7 @@ void dc_golden_axe_player_hud(void target)
     int     mp_block_space;         // Size of mp block with margins included.
     int     mp_block_position_left; // Starting position of mp blocks in each player's HUD.
     int     mp_block_position_x;    // X position of an individual mp block.
+    int     mp_block_position_Y;    // Y position of an individual mp block.
 
     // Make sure a valid type was found,
     // and that it is a player.
@@ -268,9 +269,15 @@ void dc_golden_axe_player_hud(void target)
         magic_count	        = getentityproperty(target, "mp") / MAGIC_BLOCK_MAX;
         sprite_index        = getlocalvar(VAR_KEY_SPRITE_MAGIC_JAR);
 
+        // We're drawing MP blocks in a row, so Y position
+        // is always the same.
+        mp_block_position_Y = resolution_vertical-20;
 
-
-        // Lets get the width of our magic block.
+        // X position will depend on several factors. Some
+        // we can do here, and the rest will need to be
+        // in a loop.
+        //
+        // Let's get the width of our magic block.
         // Remember that OpenBOR auto trims all sprites
         // as it loads them, so the size will reflect that.
         mp_block_size_h = getgfxproperty(sprite_index, "srcwidth");
@@ -297,7 +304,7 @@ void dc_golden_axe_player_hud(void target)
             mp_block_position_x += MP_AREA_MARGIN_LEFT;
 
             // Draw the MP sprite.
-            drawsprite(sprite_index, mp_block_position_x, resolution_vertical-20, openborconstant("FRONTPANEL_Z")+18001);
+            drawsprite(sprite_index, mp_block_position_x, mp_block_position_Y, openborconstant("FRONTPANEL_Z")+18001);
         }
 
         // Our goal here is to replicate the Golden Axe style life

@@ -15,6 +15,8 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 # Legacy Work Log
 
+Previous work log before moving project to a Github repository.
+
 ## 2010_07_12
 
 *   Start of work log. I cannot recall all of the changes I made today, thus the point.

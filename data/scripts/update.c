@@ -232,6 +232,7 @@ int dc_get_is_hurt(void target)
     return 0;
 }
 
+
 // Draw player HUD, with icons, magic jars, and
 // life blocks for the target entity.
 void dc_golden_axe_player_hud(void target)
@@ -252,11 +253,11 @@ void dc_golden_axe_player_hud(void target)
     int     sprite_index;           // Placeholder for sprite reference.
     float   health_fraction;        // A sub-division of current health percentage.
     float   block_fraction;         //
-    int     mp_block_size_h;        // Size of mp block 9after OpenBOR auto trims).
-    int     mp_block_space;         // Size of mp block with margins included.
-    int     mp_block_position_left; // Starting position of mp blocks in each player's HUD.
-    int     mp_block_position_x;    // X position of an individual mp block.
-    int     mp_block_position_Y;    // Y position of an individual mp block.
+    int     block_size_h;        // Size of mp block 9after OpenBOR auto trims).
+    int     block_space;         // Size of mp block with margins included.
+    int     block_position_left; // Starting position of mp blocks in each player's HUD.
+    int     block_position_x;    // X position of an individual mp block.
+    int     block_position_Y;    // Y position of an individual mp block.
 
     // Make sure a valid type was found,
     // and that it is a player.
@@ -269,49 +270,63 @@ void dc_golden_axe_player_hud(void target)
         magic_count	        = getentityproperty(target, "mp") / MAGIC_BLOCK_MAX;
         sprite_index        = getlocalvar(VAR_KEY_SPRITE_MAGIC_JAR);
 
+        // Magic meter.
+
         // We're drawing MP blocks in a row, so Y position
         // is always the same.
-        mp_block_position_Y = resolution_vertical-20;
+        block_position_Y = resolution_vertical-20;
 
         // X position will depend on several factors. Some
         // we can do here, and the rest will need to be
         // in a loop.
         //
-        // Let's get the width of our magic block.
+        // Let's get the width of our meter block.
         // Remember that OpenBOR auto trims all sprites
         // as it loads them, so the size will reflect that.
-        mp_block_size_h = getgfxproperty(sprite_index, "srcwidth");
+        block_size_h = getgfxproperty(sprite_index, "srcwidth");
 
-        // Now we add the margins, and that will get total
-        // spacing for one MP block.
-        mp_block_space = mp_block_size_h + MP_BLOCK_MARGIN_LEFT + MP_BLOCK_MARGIN_RIGHT;
+        // Now we add the block's margins, and that will get
+        // total spacing for one block.
+        block_space = block_size_h + MP_BLOCK_MARGIN_LEFT + MP_BLOCK_MARGIN_RIGHT;
 
         // Our starting position will be the leftmost of
-        // current player's (in loop) HUD area.
-        mp_block_position_left = player_index * PLAYER_HUD_WIDTH;
+        // current player's (in loop) HUD area. To get this,
+        // we multiply current player index by total X size of
+        // the player HUD.
+        block_position_left = player_index * PLAYER_HUD_WIDTH;
 
-        // Magic is simple.
+        // Add the meter area's left margin to space it
+        // out from the start of player HUD area.
+        block_position_left += MP_AREA_MARGIN_LEFT;
+
         for(i=0; i<magic_count; i++)
         {
-            // Multiply the total X space of an MP block
+            // Multiply the total X space of a block
             // by the current cursor position. This places
             // each block in a row, left to right.
-            mp_block_position_x = i * mp_block_space;
+            block_position_x = i * block_space;
 
             // Now add the margin from player HUD to start
-            // of magic area to align blocks properly with
+            // of block area to align blocks properly with
             // player HUD design.
-            mp_block_position_x += MP_AREA_MARGIN_LEFT;
+            block_position_x += block_position_left;
 
             // Draw the MP sprite.
-            drawsprite(sprite_index, mp_block_position_x, mp_block_position_Y, openborconstant("FRONTPANEL_Z")+18001);
+            drawsprite(sprite_index, block_position_x, block_position_Y, openborconstant("FRONTPANEL_Z")+18001);
         }
 
+        // Health Meter
+        //
+        // Positioning works identically to MP meter. but health
+        // meter also includes a color keying capability.
+
+        // Color keying
+        //
         // Our goal here is to replicate the Golden Axe style life
         // blocks, but also add in the feature from Altered Beast
         // the right most block would change color as health depleted
         // until it was gone, then onto the next block and so on.
-
+        //
         // To do this, we need to go through a few steps.
         //
         // First we get a decimal value of current remaining health. For
@@ -364,13 +379,44 @@ void dc_golden_axe_player_hud(void target)
         // Get health %, multiplied by number of displayable blocks.
         health_fraction = HEALTH_BLOCK_MAX * get_health_fraction(target);
 
+        // Get Y position.
+        block_position_Y = resolution_vertical-31;
+
+        #define HP_BLOCK_MARGIN_LEFT 2
+        #define HP_BLOCK_MARGIN_RIGHT 2
+
+
         // Loop each quarter of health.
         for(i=0; i < health_fraction; i++)
         {
             block_fraction = health_fraction - i;
             sprite_index   = dc_get_block_large(block_fraction);
 
-            drawsprite(sprite_index, player_index*160+53+i*26, resolution_vertical-31, openborconstant("FRONTPANEL_Z")+18001);
+            // Positioning works same way as MP meter, but
+            // all initial math work has to be in loop since
+            // we don't know until in side the loop which
+            // sprite is in use.
+            block_size_h = getgfxproperty(sprite_index, "srcwidth");
+
+            // Now we add the margins, and that will get total
+            // spacing for one block.
+            block_space = block_size_h + HP_BLOCK_MARGIN_LEFT + HP_BLOCK_MARGIN_RIGHT;
+
+            // Our starting position will be the leftmost of
+            // current player's (in loop) HUD area.
+            block_position_left = player_index * PLAYER_HUD_WIDTH;
+
+            // Multiply the total X space of an MP block
+            // by the current cursor position. This places
+            // each block in a row, left to right.
+            block_position_x = i * block_space;
+
+            // Now add the margin from player HUD to start
+            // of magic area to align blocks properly with
+            // player HUD design.
+            block_position_x += MP_AREA_MARGIN_LEFT;
+
+            drawsprite(sprite_index, player_index*160+53+i*26, block_position_Y, openborconstant("FRONTPANEL_Z")+18001);
         }
     }
 

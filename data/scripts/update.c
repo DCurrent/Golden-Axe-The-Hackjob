@@ -85,6 +85,13 @@ void main()
     float   fFron   = 0.0;                                                                  //Front percentage (top 1/4 of HP)
     int     is_hurt;                                                                          //Falling/Fallen AI flag.
 
+    char sprite_file;
+    int enemy_icon_x;
+    int enemy_icon_y;
+    int enemy_life_x;
+    int enemy_life_y;
+
+    int enemy_hud_z;
 
 	//Give Debug text a background.
 	if (getglobalvar("debug_set"))
@@ -94,12 +101,17 @@ void main()
 
 	//tupdate();
 
+    // Run alignment text.
+    dc_draw_grid();
+
 	// Get number of entities in play and loop through
 	// each of them.
 	entity_count = openborvariant("count_entities");
 
 	for(entity_cursor=0; entity_cursor<entity_count; entity_cursor++)                                                         //Loop entity collection.
 	{
+
+        log("\n\n cursor: " + entity_cursor);
 
 		target = getentity(entity_cursor);                                                             //Get entity handle.
 
@@ -127,16 +139,19 @@ void main()
 		    }
 			else
 			{
+			    log("\n ...enemy");
 			    // Target getting whipped? If so get a "hurt" icon sprite.
 			    // Otherwise just get a normal icon sprite.
 			    is_hurt = dc_get_is_hurt(target);
 
 			    if(is_hurt)
 			    {
+			        sprite_file     = getentityproperty(target, "spritea", "file", AC_ICONS, ICON_AIPAIN);
                     sprite_index	= getentityproperty(target, "spritea", "sprite", AC_ICONS, ICON_AIPAIN);
 			    }
                 else
                 {
+                    sprite_file     = getentityproperty(target, "spritea", "file", AC_ICONS, ICON_AI);
                     sprite_index	= getentityproperty(target, "spritea", "sprite", AC_ICONS, ICON_AI);
                 }
 
@@ -144,6 +159,9 @@ void main()
                 // a health sprite.
                 if(sprite_index)
                 {
+                    log("\n ...sprite_index: " + sprite_index);
+                    log("\n ...sprite_file: " + sprite_file);
+
                     // Increment living enemy cursor.
                     enemy_living_cursor++;
 
@@ -167,21 +185,122 @@ void main()
                     // When the icon sprite is drawn, we immediately reset the
                     // global drawmthod color table to null.
 
-                    //, and then
-                    // reset global drawmthod.
+                    enemy_hud_z = openborconstant("FRONTPANEL_Z")+18000;
+
+                    enemy_icon_x = enemy_living_cursor * 41;
+
+                    enemy_icon_y = 4;
+
+
+                    enemy_life_x = enemy_icon_x + 16;
+                    enemy_life_y = 8; //8
+                    //enemy_life_y = openborvariant("vresolution")-264;
+
+
+                    log("\n ...enemy_hud_z: " + enemy_hud_z);
+                    log("\n ...enemy_icon_x: " + enemy_icon_x);
+                    log("\n ...enemy_icon_y: " + enemy_icon_y);
+                    log("\n ...enemy_life_x: " + enemy_life_x);
+                    log("\n ...enemy_life_y: " + enemy_life_y);
+
                     changedrawmethod(NULL(), "table", color_table);
-                    drawsprite(sprite_index, (enemy_living_cursor*41), 4, openborconstant("FRONTPANEL_Z")+18000);
+                    drawsprite(sprite_index, enemy_icon_x, enemy_icon_y, enemy_hud_z);
                     changedrawmethod(NULL(), "table", NULL());
 
                     // Get and draw the appropriate life block sprite
                     // for health remaining.
                     sprite_index   = dc_get_block_large(health_fraction);
-                    drawsprite(sprite_index, 16+(enemy_living_cursor*41), 8, openborconstant("FRONTPANEL_Z")+18000);
+                    drawsprite(sprite_index, enemy_life_x, enemy_life_y, enemy_hud_z);
                 }
 			}
         }
 	}
 }
+
+// Caskey, Damon V.
+// 2018-03-21
+//
+// Draw a grid from top of screen to
+// bottom in order to test alignment of
+// screen and objects. Adjust constants
+// for varying needs.
+void dc_draw_grid()
+{
+    #define INCREMENT       10  // What line spaces to draw line and text. Ex: 10 = at every tenth line.
+    #define TEXT_MODE       1   // Show text readout of line position. 1 = Text on.
+    #define GRID_V_X        0   // Starting position of vertical scale grid lines.
+    #define GRID_V_WIDTH    10  // Horizontal width of vertical scale grid lines.
+    #define SPACING_X       5   // Space from end of line to X start of text.
+    #define SPACING_Y       -5  // Space from end of line to top of text.
+    #define FONT            2   // Font for text.
+    #define COLOR           1   // Color index for line.
+    #define ALPHA           0   // Alpha setting for line.
+
+    int pos_x_end;      // End line here.
+    int pos_y_start;    // Draw line from here (y axis).
+    int pos_y_end;      // End line here.
+    int text_pos_x;     // Draw text here (x axis).
+    int text_pos_y;     // Draw text here (y axis).
+
+    int pos_z;          // Depth position of drawn items.
+    int i;              // Loop cursor.
+    int screen_x;       // Screen size (x axis).
+    int screen_y;       // Screen size (y axis).
+
+    // get screen limits.
+    screen_x = openborvariant("hresolution");
+    screen_y = openborvariant("vresolution");
+
+    // Z will need to be in front of everything.
+    pos_z = openborconstant("FRONTPANEL_Z")+20000;
+
+    pos_x_end = GRID_V_X + GRID_V_WIDTH;
+
+    // Loop each line along vertical axis from top of
+    // screen to bottom.
+    for(i=0; i<screen_y; i++)
+    {
+        // We want to draw a line at 0 and every INCREMENT pixels after.
+        // If we're past 0 and not divisible by INCREMENT, then
+        // exit this increment of the loop to skip drawing.
+        if(i > 0)
+        {
+            if(i%INCREMENT != 0)
+            {
+                continue;
+            }
+        }
+
+        // Use cursor for y position.
+        pos_y_start = i;
+        pos_y_end = i;
+
+        // Draw the line.
+        drawline(GRID_V_X, pos_y_start, pos_x_end, pos_y_end, pos_z, COLOR, ALPHA);
+
+        // Handle the text.
+        if(TEXT_MODE == 1)
+        {
+            // Space the text out
+            text_pos_x = pos_x_end + SPACING_X;
+            text_pos_y = pos_y_end + SPACING_Y;
+
+            // Draw the text.
+            drawstring(text_pos_x, text_pos_y, FONT, i);
+        }
+    }
+
+    #undef INCREMENT
+    #undef TEXT_MODE
+    #undef GRID_V_X
+    #undef GRID_V_WIDTH
+    #undef SPACING_X
+    #undef SPACING_Y
+    #undef FONT
+    #undef COLOR
+    #undef ALPHA
+}
+
 
 // Return true if target is currently
 // receiving an attack, being grappled,

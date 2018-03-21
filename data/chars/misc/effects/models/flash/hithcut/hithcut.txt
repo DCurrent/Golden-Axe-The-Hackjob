@@ -31,7 +31,7 @@ anim idle
 		frame	data/chars/misc/effects/bloo0002/0009
 		frame	data/chars/misc/effects/bloo0002/0010
 		frame	data/chars/misc/effects/bloo0002/0011
-	@cmd killentity getlocalvar("self")	#Sometimes autokill doesn't work if another entity is being spawned.
+	#@cmd killentity getlocalvar("self")	#Sometimes autokill doesn't work if another entity is being spawned.
 		frame	data/chars/misc/effects/bloo0001/0011
 
 

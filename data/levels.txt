@@ -4,6 +4,13 @@ loadingbg 1 -80 240 479 0 -100
 
 bgicon data/bgs/bgicon.gif -80 0
 
+# No rush counter.
+rush   0 100 Hits 1 2 Max 1 2
+p1rush 200 200 220 200 240 200 260 200 
+p2rush 200 300 220 300 240 300 260 300 
+p3rush 200 400 220 400 240 400 260 400 
+p4rush 200 500 220 500 240 500 260 500 
+
 e1life  20 -228
 e1icon  2 -220 
 
@@ -46,13 +53,13 @@ mp1icon -2 240
 mp2icon 158 240
 mp3icon 318 240
 
-p1score -1 1 0 0
-p2score -1 1 0 0
-p3score -1 1 0 0
+p1score -100 1 0 0
+p2score -100 1 0 0
+p3score -100 1 0 0
 
-p1namej -1 1 0 0 36 243 36 244
-p2namej -1 1 0 0 196 243 196 244
-p3namej -1 1 0 0 356 243 356 244
+p1namej -100 1 0 0 36 243 36 244
+p2namej -100 1 0 0 196 243 196 244
+p3namej -100 1 0 0 356 243 356 244
 
 p1smenu 238 230 228 -235	#Player 1 middle.
 p2smenu 115 230 105 -235 #Player 2 left.

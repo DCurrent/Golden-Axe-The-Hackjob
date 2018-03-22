@@ -66,32 +66,9 @@ void ondestroy()
 
 void main()
 {
-    void    target;                                                                           //Entity placeholder.
-    void    color_table;                                                                           //Color array placeholder.
-    char    cName;                                                                          //Entity default name.
-    int     iAni;                                                                           //Animations.
-	int		enemy_living_cursor = -1;                                                                   //Living enemies.
-	int		iKMap;                                                                          //KO map.
-    int     iType;                                                                          //Entity type.
-    int     iVRes   = openborvariant("vresolution");                                        //Current vertical resolution.
-    int     entity_count;                                   //Current # of entities in play.
-	int		player_index;                                                                         //Player index.
-    int     entity_cursor;                                                                              //Entity counter.
-    int     i;                                                                              //General purpose cursor.
-    int     sprite_index;                                                                          //Sprite index.
-    float   fJar;                                                                           //Mp Jar count.
-    float   health;                                                                         //Current health
-    float   health_fraction;                                                                          //HP % of max.
-    float   fFron   = 0.0;                                                                  //Front percentage (top 1/4 of HP)
-    int     is_hurt;                                                                          //Falling/Fallen AI flag.
-
-    char sprite_file;
-    int enemy_icon_x;
-    int enemy_icon_y;
-    int enemy_life_x;
-    int enemy_life_y;
-
-    int enemy_hud_z;
+    void    target;         // Entity placeholder.
+    int     entity_count;   // Current # of entities in play.
+	int     entity_cursor;  // Entity counter.
 
 	//Give Debug text a background.
 	if (getglobalvar("debug_set"))
@@ -108,37 +85,36 @@ void main()
 	// each of them.
 	entity_count = openborvariant("count_entities");
 
-	for(entity_cursor=0; entity_cursor<entity_count; entity_cursor++)                                                         //Loop entity collection.
+	// Loop entity collection.
+	for(entity_cursor=0; entity_cursor<entity_count; entity_cursor++)
 	{
-		target = getentity(entity_cursor);                                                             //Get entity handle.
+	    //  Did we get a valid entity from the cursor?
+		target  = getentity(entity_cursor);
 
-		if(target                                                                             //Valid handle?
-            && getentityproperty(target, "exists")                                            //Valid entity?
-            && !getentityproperty(target, "dead"))                                            //Alive?
+		if(target)
 		{
+		    //  Does the entity exist in entity database?
+		    exists  = getentityproperty(target, "exists");
 
-            // Experiment to disable movement. Does not work.
-			//changeplayerproperty(target, "playkeys", FLAG_NONE);
+            if(exists)
+            {
+                // Is the entity alive?
+                dead    = getentityproperty(target, "dead");
 
-			iType   = getentityproperty(target, "type");                                      //Get type.
-            iAni    = getentityproperty(target, "animationid");                               //Get current animation.
+                if(!dead)
+                {
+                    // Apply stealth when knocked down, with some
+                    // custom exceptions.
+                    auto_stealth(target);
 
-            // Apply stealth when knocked down, with some
-            // custom exceptions.
-            auto_stealth(target);
+                    // Draw player HUD.
+                    dc_golden_axe_player_hud(target);
 
-            // Draw player HUD.
-            dc_golden_axe_player_hud(target);
-
-		    if (iType == TYPE_PLAYER)												//Player type?
-		    {
-				// Exported to function.
-		    }
-			else
-			{
-
-			}
-        }
+                    // Draw enemy HUD.
+                    dc_golden_axe_enemy_hud(target);
+                }
+            }
+		}
 	}
 }
 
@@ -193,7 +169,7 @@ int dc_get_is_hurt(void target)
 }
 
 // Draw enemy icons and life in a row across screen.
-dc_golden_axe_enemy_hud()
+void dc_golden_axe_enemy_hud()
 {
     #define CURSOR_KEY  "dcgaed_0"  // Local var key.
     #define POS_Z       openborconstant("FRONTPANEL_Z")+18000   // Layer position on screen.

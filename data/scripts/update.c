@@ -110,9 +110,6 @@ void main()
 
 	for(entity_cursor=0; entity_cursor<entity_count; entity_cursor++)                                                         //Loop entity collection.
 	{
-
-        log("\n\n cursor: " + entity_cursor);
-
 		target = getentity(entity_cursor);                                                             //Get entity handle.
 
 		if(target                                                                             //Valid handle?
@@ -139,7 +136,6 @@ void main()
 		    }
 			else
 			{
-			    log("\n ...enemy");
 			    // Target getting whipped? If so get a "hurt" icon sprite.
 			    // Otherwise just get a normal icon sprite.
 			    is_hurt = dc_get_is_hurt(target);
@@ -159,8 +155,6 @@ void main()
                 // a health sprite.
                 if(sprite_index)
                 {
-                    log("\n ...sprite_index: " + sprite_index);
-                    log("\n ...sprite_file: " + sprite_file);
 
                     // Increment living enemy cursor.
                     enemy_living_cursor++;
@@ -196,12 +190,6 @@ void main()
                     enemy_life_y = 8; //8
                     //enemy_life_y = openborvariant("vresolution")-264;
 
-
-                    log("\n ...enemy_hud_z: " + enemy_hud_z);
-                    log("\n ...enemy_icon_x: " + enemy_icon_x);
-                    log("\n ...enemy_icon_y: " + enemy_icon_y);
-                    log("\n ...enemy_life_x: " + enemy_life_x);
-                    log("\n ...enemy_life_y: " + enemy_life_y);
 
                     changedrawmethod(NULL(), "table", color_table);
                     drawsprite(sprite_index, enemy_icon_x, enemy_icon_y, enemy_hud_z);

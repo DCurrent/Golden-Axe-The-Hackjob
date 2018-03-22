@@ -136,70 +136,7 @@ void main()
 		    }
 			else
 			{
-			    // Target getting whipped? If so get a "hurt" icon sprite.
-			    // Otherwise just get a normal icon sprite.
-			    is_hurt = dc_get_is_hurt(target);
 
-			    if(is_hurt)
-			    {
-			        sprite_file     = getentityproperty(target, "spritea", "file", AC_ICONS, ICON_AIPAIN);
-                    sprite_index	= getentityproperty(target, "spritea", "sprite", AC_ICONS, ICON_AIPAIN);
-			    }
-                else
-                {
-                    sprite_file     = getentityproperty(target, "spritea", "file", AC_ICONS, ICON_AI);
-                    sprite_index	= getentityproperty(target, "spritea", "sprite", AC_ICONS, ICON_AI);
-                }
-
-                // Did we find a valid icon sprite? Then let's display it along with
-                // a health sprite.
-                if(sprite_index)
-                {
-
-                    // Increment living enemy cursor.
-                    enemy_living_cursor++;
-
-                    health_fraction   = get_health_fraction(target);
-                    color_table    = getentityproperty(target, "colourmap");
-
-                    // Get color table in use by target and apply it to the
-                    // global drawmethod, and draw the icon sprite. This
-                    // causes the icon sprite to appear using same color
-                    // as the target entity (assuming it and the target
-                    // entity's other sprites all use the same default color
-                    // table, and they should).
-                    //
-                    // To get the position, we use a preset value that is equal
-                    // to the icon, life block, and any extra margin padding.
-                    // We then multiply that value by the current cursor for
-                    // living enemies. When there are multiple enemy entities
-                    // on screen, this causes their icons and life blocks to
-                    // appear in a row across the screen.
-                    //
-                    // When the icon sprite is drawn, we immediately reset the
-                    // global drawmthod color table to null.
-
-                    enemy_hud_z = openborconstant("FRONTPANEL_Z")+18000;
-
-                    enemy_icon_x = enemy_living_cursor * 41;
-
-                    enemy_icon_y = 4;
-
-
-                    enemy_life_x = enemy_icon_x + 16;
-                    enemy_life_y = 8; //8
-                    //enemy_life_y = openborvariant("vresolution")-264;
-
-
-                    changedrawmethod(NULL(), "table", color_table);
-                    drawsprite(sprite_index, enemy_icon_x, enemy_icon_y, enemy_hud_z);
-                    changedrawmethod(NULL(), "table", NULL());
-
-                    // Get and draw the appropriate life block sprite
-                    // for health remaining.
-                    sprite_index   = dc_get_block_large(health_fraction);
-                    drawsprite(sprite_index, enemy_life_x, enemy_life_y, enemy_hud_z);
-                }
 			}
         }
 	}
@@ -255,6 +192,97 @@ int dc_get_is_hurt(void target)
     return 0;
 }
 
+// Draw enemy icons and life in a row across screen.
+dc_golden_axe_enemy_hud()
+{
+    #define CURSOR_KEY  "dcgaed_0"  // Local var key.
+    #define POS_Z       openborconstant("FRONTPANEL_Z")+18000   // Layer position on screen.
+    #define POS_ICON_Y  4
+    #define POS_LIFE_Y  8
+    #define HUD_WIDTH   41                                      // Total X size of a single HUD item (icon + life + padding)
+    #define ICON_WIDTH  16                                      // Total X size of HUD icon (icon + padding).
+    #define	ANI_ICONS   openborconstant("ANI_FOLLOW100")        // Animation that is used for an icons placeholder.
+    #define ICON_AI		0                                       // Frame holding icon for AI.
+    #define ICON_AIPAIN	1                                       // Frame holding pain icon for AI.
+
+    int cursor;             // Acts as a count for entities that get a HUD display.
+    int type;               // Entity type.
+    int is_hurt;            // Is in a pain, falling, or grappled state?
+    int icon_x;             // X position for icon.
+    int life_x;             // X position for life.
+    float health_fraction;  // Decimal percentage of remaining HP.
+    void sprite;            // Sprite pointer.
+    void color_table;       // Color table pointer.
+
+    cursor = getlocalvar(CURSOR_KEY);
+
+    // If the cursor is blank, make sure it is zeroed.
+    if(!cursor)
+    {
+        cursor = 0;
+    }
+
+    type = getentityproperty(target, "type");
+
+    if(type == openborconstant("TYPE_ENEMY"))
+    {
+        // Target getting whipped? If so get a "hurt" icon sprite.
+        // Otherwise just get a normal icon sprite.
+        is_hurt = dc_get_is_hurt(target);
+
+        if(is_hurt)
+        {
+            sprite = getentityproperty(target, "spritea", "sprite", ANI_ICONS, ICON_AIPAIN);
+        }
+        else
+        {
+            sprite = getentityproperty(target, "spritea", "sprite", ANI_ICONS, ICON_AI);
+        }
+
+        // Did we find a valid icon sprite? Then let's display it along with
+        // a health sprite.
+        if(sprite_index)
+        {
+            // Increment living enemy cursor.
+            cursor++;
+
+            health_fraction = get_health_fraction(target);
+            color_table     = getentityproperty(target, "colourmap");
+
+            // Get color table in use by target and apply it to the
+            // global drawmethod, and draw the icon sprite. This
+            // causes the icon sprite to appear using same color
+            // as the target entity (assuming it and the target
+            // entity's other sprites all use the same default color
+            // table, and they should).
+            //
+            // To get the position, we use a preset value that is equal
+            // to the icon, life block, and any extra margin padding.
+            // We then multiply that value by the current cursor for
+            // living enemies. When there are multiple enemy entities
+            // on screen, this causes their icons and life blocks to
+            // appear in a row across the screen.
+            //
+            // When the icon sprite is drawn, we immediately reset the
+            // global drawmethod color table to null.
+
+            icon_x = cursor * HUD_WIDTH;
+            life_x = icon_x + ICON_WIDTH;
+
+            changedrawmethod(NULL(), "table", color_table);
+            drawsprite(sprite, icon_x, POS_ICON_Y, POS_Z);
+            changedrawmethod(NULL(), "table", NULL());
+
+            // Get and draw the appropriate life block sprite
+            // for health remaining.
+            sprite   = dc_get_block_large(health_fraction);
+            drawsprite(sprite, life_x, POS_LIFE_Y, POS_Z);
+        }
+    }
+
+    // Set the cursor for next cycle.
+    setlocalvar(CURSOR_KEY, cursor);
+}
 
 // Draw player HUD, with icons, magic jars, and
 // life blocks for the target entity.

@@ -1,7 +1,7 @@
 /*
 	Defined Constants					- http://www.caskeys.com/dc/?p=5059
 	License (must be included to use)	- http://www.caskeys.com/dc/?p=5067
-	Damon V. Caskey	
+	Damon V. Caskey
 	2011_03_29 (consolidated from multiple lists)
 	~2011-06-19
 	~2011-10-11
@@ -342,7 +342,7 @@
 #define TYPE_ITEM					openborconstant("TYPE_ITEM")
 #define TYPE_NPC					openborconstant("TYPE_NPC")
 #define TYPE_NONE					openborconstant("TYPE_NONE")
-#define TYPE_OBSTACLE				openborconstant("TYPE_OBSTACLE")		
+#define TYPE_OBSTACLE				openborconstant("TYPE_OBSTACLE")
 #define TYPE_PLAYER					openborconstant("TYPE_PLAYER")
 
 /******Flags, general use******/
@@ -363,12 +363,8 @@
 /******Flags, specfic settings******/
 #define SOUND_PLAY_100				1										//Always play sound.
 #define SOUND_FILE_RAND				-1										//Choose random file from sound group.
-#define SOUND_DELAY_DEF				0										//In progress - avoid playing certain sounds in quick succession. 
+#define SOUND_DELAY_DEF				0										//In progress - avoid playing certain sounds in quick succession.
 #define SOUND_SUB_NONE				0
-
-/******Icons******/
-#define ICON_AI						0
-#define ICON_AIPAIN					1
 
 /******Indexedvar IDs, entity******/
 #define IDXE_ENTID					0										//ID number given during spawn script.
@@ -548,7 +544,7 @@
 #define MODEL_FLWALLM				"wallm"									//Wall dust; medium.
 
 /******Properties, engine defined)******/
-#define PROP_DIRECTION				"direction"								//X axis facing.											
+#define PROP_DIRECTION				"direction"								//X axis facing.
 #define PROP_VELOCITY_ALL			"velocity"								//Movement speed.
 #define PROP_VELOCITY_X				"xdir"									//X axis movement speed.
 #define PROP_VELOCITY_Y				"tossv"									//Y axis movement speed.

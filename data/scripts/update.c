@@ -83,6 +83,9 @@ void main()
     // Run alignment text.
     dc_draw_grid();
 
+    // Draw enemy HUD.
+    dc_golden_axe_enemy_hud(target);
+
 	// Get number of entities in play and loop through
 	// each of them.
 	entity_count = openborvariant("count_entities");
@@ -112,8 +115,7 @@ void main()
                     // Draw player HUD.
                     dc_golden_axe_player_hud(target);
 
-                    // Draw enemy HUD.
-                    dc_golden_axe_enemy_hud(target);
+
                 }
             }
 		}
@@ -171,9 +173,8 @@ int dc_get_is_hurt(void target)
 }
 
 // Draw enemy icons and life in a row across screen.
-void dc_golden_axe_enemy_hud(void target)
+void dc_golden_axe_enemy_hud()
 {
-    #define CURSOR_KEY  "dcgaed_0"  // Local var key.
     #define POS_Z       openborconstant("FRONTPANEL_Z")+18000   // Layer position on screen.
     #define POS_ICON_Y  4
     #define POS_LIFE_Y  8
@@ -183,27 +184,66 @@ void dc_golden_axe_enemy_hud(void target)
     #define ICON_AI		0                                       // Frame holding icon for AI.
     #define ICON_AIPAIN	1                                       // Frame holding pain icon for AI.
 
-    int cursor;             // Acts as a count for entities that get a HUD display.
-    int type;               // Entity type.
-    int is_hurt;            // Is in a pain, falling, or grappled state?
-    int icon_x;             // X position for icon.
-    int life_x;             // X position for life.
-    float health_fraction;  // Decimal percentage of remaining HP.
-    void sprite;            // Sprite pointer.
-    void color_table;       // Color table pointer.
+    int     i;                  // Loop cursor.
+    void    target;             // Target entity.
+    int     row_cursor;         // Position in row.
+    int     entity_count;       // Number of entities in play.
+    int     entity_type;        // PLayer, enemy, npc, etc..
+    int     exists;             // Entity exists flag.
+    int     dead;               // Entity dead flag.
+    int     is_hurt;            // Is in a pain, falling, or grappled state?
+    int     icon_x;             // X position for icon.
+    int     life_x;             // X position for life.
+    float   health_fraction;    // Decimal percentage of remaining HP.
+    void    sprite;             // Sprite pointer.
+    void    color_table;        // Color table pointer.
 
-    cursor = getlocalvar(CURSOR_KEY);
+    // Get a fresh count of entities and
+    // initialize row cursor.
+    row_cursor      = 0;
+    entity_count    = openborvariant("count_entities");
 
-    // If the cursor is blank, make sure it is zeroed.
-    if(!cursor)
+    // Loop through entity collection.
+    for(i=0; i<entity_count; i++)
     {
-        cursor = 0;
-    }
+        // Get target entity for this loop increment.
+        target = getentity(i);
 
-    type = getentityproperty(target, "type");
+        // Make sure we got a valid target pointer.
+        if(!target)
+        {
+            continue;
+        }
 
-    if(type == openborconstant("TYPE_ENEMY"))
-    {
+        // Make sure the entity exists in play. We perform this
+        // check because it's possible for an entity to be
+        // removed but its pointer is still valid.
+        exists  = getentityproperty(target, "exists");
+
+        if(!exists)
+        {
+            continue;
+        }
+
+        // We're targeting enemy types.
+        entity_type = getentityproperty(target, "type");
+
+        if(entity_type != openborconstant("TYPE_ENEMY"))
+        {
+            continue;
+        }
+
+        // We're leaving dead enemies on the screen but
+        // don't want to draw their HUD any more. For
+        // this purpose the dead flag will work well
+        // as a filter.
+        dead = getentityproperty(target, "dead");
+
+        if(dead)
+        {
+            continue;
+        }
+
         // Target getting whipped? If so get a "hurt" icon sprite.
         // Otherwise just get a normal icon sprite.
         is_hurt = dc_get_is_hurt(target);
@@ -221,8 +261,7 @@ void dc_golden_axe_enemy_hud(void target)
         // a health sprite.
         if(sprite)
         {
-            // Increment living enemy cursor.
-            cursor++;
+            log("\n cursor: " + row_cursor);
 
             health_fraction = get_health_fraction(target);
             color_table     = getentityproperty(target, "colourmap");
@@ -236,15 +275,15 @@ void dc_golden_axe_enemy_hud(void target)
             //
             // To get the position, we use a preset value that is equal
             // to the icon, life block, and any extra margin padding.
-            // We then multiply that value by the current cursor for
-            // living enemies. When there are multiple enemy entities
-            // on screen, this causes their icons and life blocks to
-            // appear in a row across the screen.
+            // We then multiply that value by the current row cursor.
+            // When there are multiple enemy entities on screen, this
+            // causes their icons and life blocks to/ appear in a row
+            // across the screen.
             //
             // When the icon sprite is drawn, we immediately reset the
             // global drawmethod color table to null.
 
-            icon_x = cursor * HUD_WIDTH;
+            icon_x = row_cursor * HUD_WIDTH;
             life_x = icon_x + ICON_WIDTH;
 
             changedrawmethod(NULL(), "table", color_table);
@@ -255,11 +294,23 @@ void dc_golden_axe_enemy_hud(void target)
             // for health remaining.
             sprite   = dc_get_block_large(health_fraction);
             drawsprite(sprite, life_x, POS_LIFE_Y, POS_Z);
+
+            // Increment the row cursor for next
+            // drawing iteration.
+            row_cursor++;
         }
     }
 
-    // Set the cursor for next cycle.
-    setlocalvar(CURSOR_KEY, cursor);
+    // Clean up our macros.
+    #undef POS_Z
+    #undef POS_ICON_Y
+    #undef POS_LIFE_Y
+    #undef HUD_WIDTH
+    #undef ICON_WIDTH
+    #undef ANI_ICONS
+    #undef ICON_AI
+    #undef ICON_AIPAIN
+
 }
 
 // Draw player HUD, with icons, magic jars, and

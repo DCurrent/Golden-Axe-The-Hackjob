@@ -66,12 +66,6 @@ void ondestroy()
 
 void main()
 {
-    void    target;         // Entity placeholder.
-    int     exists;         // Entity exists flag.
-    int     dead;           // Entity dead flag.
-    int     entity_count;   // Current # of entities in play.
-	int     entity_cursor;  // Entity counter.
-
 	//Give Debug text a background.
 	if (getglobalvar("debug_set"))
 	{
@@ -84,41 +78,14 @@ void main()
     dc_draw_grid();
 
     // Draw enemy HUD.
-    dc_golden_axe_enemy_hud(target);
+    dc_golden_axe_enemy_hud();
 
     // Draw player HUD.
-    dc_golden_axe_player_hud(target);
+    dc_golden_axe_player_hud();
 
-	// Get number of entities in play and loop through
-	// each of them.
-	entity_count = openborvariant("count_entities");
-
-	// Loop entity collection.
-	for(entity_cursor=0; entity_cursor<entity_count; entity_cursor++)
-	{
-	    //  Did we get a valid entity from the cursor?
-		target  = getentity(entity_cursor);
-
-		if(target)
-		{
-		    //  Does the entity exist in entity database?
-		    exists  = getentityproperty(target, "exists");
-
-            if(exists)
-            {
-                // Is the entity alive?
-                dead    = getentityproperty(target, "dead");
-
-                if(!dead)
-                {
-                    // Apply stealth when knocked down, with some
-                    // custom exceptions.
-                    auto_stealth(target);
-
-                }
-            }
-		}
-	}
+    // Apply stealth when knocked down, with some
+    // custom exceptions.
+    auto_stealth();
 }
 
 
@@ -548,12 +515,17 @@ void dc_golden_axe_player_hud()
 //
 // We'll do this by applying a universal stealth, with
 // a couple of exceptions for specific game-play situations.
-void auto_stealth(void target)
+void auto_stealth()
 {
     #define STEALTH_DISABLE     0
     #define STEALTH_ENABLE      1
     #define STEALTH_NO_ACTION   2
 
+    int     i;                  // Loop cursor.
+    int     entity_count;       // Entity counter.
+    int     exists;             // Entity exists flag.
+    int     dead;               // Entity dead flag.
+    void    target;             // Target entity.
     char    model_name;         // Name of the base model.
     void    owner;              // Entity that spawned the target.
     int     drop;               // Falling (drop) state.
@@ -561,12 +533,51 @@ void auto_stealth(void target)
     int     stealth_current;    // Entity's current stealth.
     int     animation;          // target's current animation.
 
-    // Does the entity have an owner? If not, in this module
-    // that means it is a projectile or special effect.
-    owner = getentityproperty(target, "owner");
 
-    if(!owner)
+    entity_count    = openborvariant("count_entities");
+
+    // Loop through entity collection.
+    for(i=0; i<entity_count; i++)
     {
+        // Get target entity for this loop increment.
+        target = getentity(i);
+
+        // Make sure we got a valid target pointer.
+        if(!target)
+        {
+            continue;
+        }
+
+        // Make sure the entity exists in play. We perform this
+        // check because it's possible for an entity to be
+        // removed but its pointer is still valid.
+        exists  = getentityproperty(target, "exists");
+
+        if(!exists)
+        {
+            continue;
+        }
+
+        // We're leaving dead enemies on the screen but
+        // don't want to draw their HUD any more. For
+        // this purpose the dead flag will work well
+        // as a filter.
+        dead = getentityproperty(target, "dead");
+
+        if(dead)
+        {
+            continue;
+        }
+
+        // Does the entity have an owner? If not, in this module
+        // that means it is a projectile or special effect.
+        owner = getentityproperty(target, "owner");
+
+        if(owner)
+        {
+            continue;
+        }
+
         // Is the entity in a falling state?
         drop = getentityproperty(target, "aiflag", "drop");
 

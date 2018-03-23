@@ -67,6 +67,8 @@ void ondestroy()
 void main()
 {
     void    target;         // Entity placeholder.
+    int     exists;         // Entity exists flag.
+    int     dead;           // Entity dead flag.
     int     entity_count;   // Current # of entities in play.
 	int     entity_cursor;  // Entity counter.
 
@@ -169,7 +171,7 @@ int dc_get_is_hurt(void target)
 }
 
 // Draw enemy icons and life in a row across screen.
-void dc_golden_axe_enemy_hud()
+void dc_golden_axe_enemy_hud(void target)
 {
     #define CURSOR_KEY  "dcgaed_0"  // Local var key.
     #define POS_Z       openborconstant("FRONTPANEL_Z")+18000   // Layer position on screen.
@@ -217,7 +219,7 @@ void dc_golden_axe_enemy_hud()
 
         // Did we find a valid icon sprite? Then let's display it along with
         // a health sprite.
-        if(sprite_index)
+        if(sprite)
         {
             // Increment living enemy cursor.
             cursor++;

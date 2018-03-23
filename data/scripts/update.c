@@ -86,6 +86,9 @@ void main()
     // Draw enemy HUD.
     dc_golden_axe_enemy_hud(target);
 
+    // Draw player HUD.
+    dc_golden_axe_player_hud(target);
+
 	// Get number of entities in play and loop through
 	// each of them.
 	entity_count = openborvariant("count_entities");
@@ -111,10 +114,6 @@ void main()
                     // Apply stealth when knocked down, with some
                     // custom exceptions.
                     auto_stealth(target);
-
-                    // Draw player HUD.
-                    dc_golden_axe_player_hud(target);
-
 
                 }
             }
@@ -315,7 +314,7 @@ void dc_golden_axe_enemy_hud()
 
 // Draw player HUD, with icons, magic jars, and
 // life blocks for the target entity.
-void dc_golden_axe_player_hud(void target)
+void dc_golden_axe_player_hud()
 {
     #define HEALTH_BLOCK_MAX        4   // Maximum number of health blocks that can be displayed for a single HUD entry.
     #define MAGIC_BLOCK_MAX         10  // Maximum number of magic blocks.
@@ -325,36 +324,67 @@ void dc_golden_axe_player_hud(void target)
     #define MP_BLOCK_MARGIN_LEFT    2
     #define MP_BLOCK_MARGIN_RIGHT   3
 
+    void    target;                 // Target entity
+    int     max_players;            // Number of available players.
     int     i;                      // Loop cursor.
-    int     resolution_vertical;    // Screens vertical size in pixels.
-    int     entity_type;
+    int     exists;                 // Entity exists flag.
+    int     dead;                   // Entity dead flag.
+    int     resolution_y;           // Screens vertical size in pixels.
     int     player_index;
     int     magic_count;            // How many symbols (jars, blocks, etc.) of magic to display.
     int     sprite_index;           // Placeholder for sprite reference.
     float   health_fraction;        // A sub-division of current health percentage.
     float   block_fraction;         //
-    int     block_size_h;        // Size of mp block 9after OpenBOR auto trims).
-    int     block_space;         // Size of mp block with margins included.
-    int     block_position_left; // Starting position of mp blocks in each player's HUD.
-    int     block_position_x;    // X position of an individual mp block.
-    int     block_position_Y;    // Y position of an individual mp block.
+    int     block_size_h;           // Size of mp block 9after OpenBOR auto trims).
+    int     block_space;            // Size of mp block with margins included.
+    int     block_position_left;    // Starting position of mp blocks in each player's HUD.
+    int     block_position_x;       // X position of an individual mp block.
+    int     block_position_Y;       // Y position of an individual mp block.
 
-    // Make sure a valid type was found,
-    // and that it is a player.
-    entity_type = getentityproperty(target, "type");
+    // Get and loop through player collection.
+    max_players = openborvariant("maxplayers");
 
-    if(entity_type == openborconstant("TYPE_PLAYER"))
+    for(player_index=0; player_index<max_players; player_index++)
     {
-        resolution_vertical = openborvariant("vresolution");
-        player_index        = getentityproperty(target, "playerindex");
-        magic_count	        = getentityproperty(target, "mp") / MAGIC_BLOCK_MAX;
-        sprite_index        = getlocalvar(VAR_KEY_SPRITE_MAGIC_JAR);
+        // Get target entity for this loop increment.
+        target = getplayerproperty(player_index, "entity");
+
+        // Make sure we got a valid target pointer.
+        if(!target)
+        {
+            continue;
+        }
+
+        // Make sure the entity exists in play. We perform this
+        // check because it's possible for an entity to be
+        // removed but its pointer is still valid.
+        exists  = getentityproperty(target, "exists");
+
+        if(!exists)
+        {
+            continue;
+        }
+
+        // We're leaving dead enemies on the screen but
+        // don't want to draw their HUD any more. For
+        // this purpose the dead flag will work well
+        // as a filter.
+        dead = getentityproperty(target, "dead");
+
+        if(dead)
+        {
+            continue;
+        }
+
+        resolution_y    = openborvariant("vresolution");
+        magic_count     = getentityproperty(target, "mp") / MAGIC_BLOCK_MAX;
+        sprite_index    = getlocalvar(VAR_KEY_SPRITE_MAGIC_JAR);
 
         // Magic meter.
 
         // We're drawing MP blocks in a row, so Y position
         // is always the same.
-        block_position_Y = resolution_vertical-20;
+        block_position_Y = resolution_y-20;
 
         // X position will depend on several factors. Some
         // we can do here, and the rest will need to be
@@ -460,7 +490,7 @@ void dc_golden_axe_player_hud(void target)
         health_fraction = HEALTH_BLOCK_MAX * get_health_fraction(target);
 
         // Get Y position.
-        block_position_Y = resolution_vertical-31;
+        block_position_Y = resolution_y-31;
 
         #define HP_BLOCK_MARGIN_LEFT 2
         #define HP_BLOCK_MARGIN_RIGHT 2

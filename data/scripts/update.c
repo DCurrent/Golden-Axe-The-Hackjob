@@ -162,7 +162,13 @@ void dc_golden_axe_enemy_hud()
     int     life_x;             // X position for life.
     float   health_fraction;    // Decimal percentage of remaining HP.
     void    sprite;             // Sprite pointer.
-    void    color_table;        // Color table pointer.
+    void    dm_table;           // Drawmethod color table pointer.
+    int     dm_tint_mode;       // Drawmethod tint mode.
+    int     dm_tint_color;      // Drawmethod tint color.
+    void    dm_old_table;       // Original drawmethod color table pointer.
+    int     dm_old_tint_mode;   // Original drawmethod tint mode.
+    int     dm_old_tint_color;  // Original Drawmethod tint color.
+
 
     // Get a fresh count of entities and
     // initialize row cursor.
@@ -227,37 +233,54 @@ void dc_golden_axe_enemy_hud()
         // a health sprite.
         if(sprite)
         {
-            log("\n cursor: " + row_cursor);
-
-            health_fraction = get_health_fraction(target);
-            color_table     = getentityproperty(target, "colourmap");
-
-            // Get color table in use by target and apply it to the
-            // global drawmethod, and draw the icon sprite. This
-            // causes the icon sprite to appear using same color
-            // as the target entity (assuming it and the target
-            // entity's other sprites all use the same default color
-            // table, and they should).
-            //
             // To get the position, we use a preset value that is equal
             // to the icon, life block, and any extra margin padding.
             // We then multiply that value by the current row cursor.
             // When there are multiple enemy entities on screen, this
-            // causes their icons and life blocks to/ appear in a row
+            // causes their icons and life blocks to appear in a row
             // across the screen.
-            //
-            // When the icon sprite is drawn, we immediately reset the
-            // global drawmethod color table to null.
 
             icon_x = row_cursor * HUD_WIDTH;
             life_x = icon_x + ICON_WIDTH;
 
-            changedrawmethod(NULL(), "table", color_table);
+            // We'll want to put the global drawmethods back
+            // like we found them, so let's get the current
+            // values here.
+            dm_old_table        = getdrawmethod(NULL(), "table");
+            dm_old_tint_color   = getdrawmethod(NULL(), "tintmode");
+            dm_old_tint_mode    = getdrawmethod(NULL(), "tintcolor");
+
+            // Now we'll get the color table and drawmethods used
+            // by target.
+            dm_table        = getentityproperty(target, "colourmap");
+            dm_tint_color   = getdrawmethod(target, "tintcolor");
+            dm_tint_mode    = getdrawmethod(target, "tintmode");
+
+            // Apply the drawmethods from or target to the global
+            // drawmthod, and then draw the icon sprite. As long
+            // as the icon sprite's original color table is the
+            // same as the target's sprite set color table, the
+            // icon will color match target perfectly.
+            changedrawmethod(NULL(), "table", dm_table);
+            changedrawmethod(NULL(), "tintmode", dm_tint_mode);
+            changedrawmethod(NULL(), "tintcolor", dm_tint_color);
+
             drawsprite(sprite, icon_x, POS_ICON_Y, POS_Z);
-            changedrawmethod(NULL(), "table", NULL());
+
+            // Now restore the global drawmethods to their
+            // previous values. Things would look pretty
+            // messy if we let everything on the screen
+            // use values from our target!
+            changedrawmethod(NULL(), "table", dm_old_table);
+            changedrawmethod(NULL(), "tintmode", dm_old_tint_mode);
+            changedrawmethod(NULL(), "tintcolor", dm_old_tint_color);
 
             // Get and draw the appropriate life block sprite
-            // for health remaining.
+            // for health remaining. We'll first get a fraction
+            // and then use that to choose an appropriate
+            // colored block to display.
+            health_fraction = get_health_fraction(target);
+
             sprite   = dc_get_block_large(health_fraction);
             drawsprite(sprite, life_x, POS_LIFE_Y, POS_Z);
 

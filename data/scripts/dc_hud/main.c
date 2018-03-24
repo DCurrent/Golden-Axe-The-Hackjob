@@ -1,6 +1,10 @@
 #include "data/scripts/dc_hud/config.h"
 
+#import "data/scripts/dc_hud/ai.c"
+#import "data/scripts/dc_hud/block-sprites.c"
 #import "data/scripts/dc_hud/initialize.c"
+#import "data/scripts/dc_hud/health-fraction.c"
+#import "data/scripts/dc_hud/is-hurt.c"
 
 /*
 var percentColors = [

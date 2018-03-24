@@ -5,6 +5,7 @@
 #import "data/scripts/dc_hud/initialize.c"
 #import "data/scripts/dc_hud/health-fraction.c"
 #import "data/scripts/dc_hud/is-hurt.c"
+#import "data/scripts/dc_hud/player.c"
 
 /*
 var percentColors = [

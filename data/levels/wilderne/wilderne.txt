@@ -11,14 +11,19 @@ bgspeed	    	6 1
 rock		0
 background	data/bgs/wilder/clouds.png 	0.5 0.5 0 0 0 0 -1 1 0 0 3 2.5 1
 #lol spreadsheet						Z pos xratio	zratio	xoffset	zoffset	xspace	zspace	xrepeat	zrepeat	trans	alpha	w-mode	amp	wl	ws	move	quake	neon
-fglayer		data/bgs/wilder/clouds.png			-400	0.9	0.9	0.5	0	0	0	-1	1	0	0	3	4	1	0	0.3
-fglayer		data/bgs/wilder/hills_0.png			-399	0.6 	0.6 	0 	56 	0	0  	1 	1 	1       
-fglayer		data/bgs/wilder/hills_1.png			-398	0.55 	0.55 	0 	59 	0	0  	1 	1 	1       
-fglayer		data/bgs/wilder/forrest_3.png			-397	0.5 	0.5 	0 	0 	0	0  	1 	1 	1       
-fglayer		data/bgs/wilder/forrest_2.png			-396	0.4 	0.4 	0 	0 	0	0  	1 	1 	1       
-fglayer		data/bgs/wilder/forrest_1.png			-395	0.3 	0.3 	0 	0 	0	0  	1 	1 	1       
-fglayer		data/bgs/wilder/forrest_0.png			-394	0.2 	0.2 	0 	0 	0	0  	1 	1 	1       
-fglayer		data/bgs/wilder/trees_0.png			-393	0.15 	0.15 	112 	-6 	0	70  	2 	1 	1       
+fglayer		data/bgs/wilder/clouds.png			-400	0.9	0.9	0.5	0	0	0	-1	1	0	0	3	4	1	0	0.5
+fglayer		data/bgs/wilder/hills_0.png			-399	0.82 	0.82 	0 	56 	0	0  	1 	1 	1       
+fglayer		data/bgs/wilder/hills_1.png			-398	0.74 	0.74 	0 	59 	0	0  	1 	1 	1       
+fglayer		data/bgs/wilder/forrest_6.png			-397	0.66	0.66 	0 	62 	0	0  	1 	1 	1       
+fglayer		data/bgs/wilder/forrest_5.png			-397	0.58	0.68 	0 	0 	0	0  	1 	1 	1       
+fglayer		data/bgs/wilder/forrest_4.png			-396	0.5 	0.5 	0 	0 	0	0  	1 	1 	1       
+fglayer		data/bgs/wilder/forrest_3.png			-395	0.42 	0.42 	0 	0 	0	0  	1 	1 	1       
+fglayer		data/bgs/wilder/forrest_2.png			-394	0.34 	0.34 	0 	0 	0	0  	1 	1 	1       
+fglayer		data/bgs/wilder/forrest_1.png			-393	0.26 	0.26 	0 	0 	0	0  	1 	1 	1       
+fglayer		data/bgs/wilder/forrest_0.png			-392	0.18 	0.18 	0 	0 	0	0  	1 	1 	1       
+fglayer		data/bgs/wilder/trees_0.png			-391	0.1 	0.1 	112 	-6 	50	0  	2 	1 	1       
+fglayer		data/bgs/wilder/bush_0.png			 300	-0.3 	-0.3 	0 	210 	0	0  	-1 	1 	1       
+fglayer		data/bgs/wilder/debris_0.png			 301	-0.5 	-0.3 	50 	215 	50	0  	-1 	1 	1       
 panel		data/bgs/wilder/stage_0.png none none	
 
 #background		data/bgs/wilder/background.png 0.5 0.5 0 0 0 0 1 1

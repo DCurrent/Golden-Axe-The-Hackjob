@@ -7,7 +7,7 @@ updatedscript	data/levels/wilderne/updated.c
 
 # Stage movement
 # bgspeed	speed	direction
-bgspeed	    	6 	1
+bgspeed	    	4 	1
 rock		0
 
 # Default layers. In general I use the background as a placeholder
@@ -25,7 +25,7 @@ order		a
 # you get fine control over the layer positon.
 
 # fglayer	filepath					Zpos 	xratio	zratio	xoffset	zoffset	xspace	zspace	xrepeat	zrepeat	trans	alpha	w-mode	amp	wl	ws	move	quake	neon
-fglayer		data/bgs/wilder/clouds.png			-400	0.9	0.9	0.5	0	0	0	-1	1	0	0	3	4	1	0	0.5
+fglayer		data/bgs/wilder/clouds_0.png			-400	0.9	0.9	0.5	0	0	0	-1	1	0	0	3	4	1	0	0.5
 fglayer		data/bgs/wilder/hills_0.png			-399	0.82 	0.82 	0 	56 	0	0  	-1 	1 	1       
 fglayer		data/bgs/wilder/hills_1.png			-398	0.74 	0.74 	0 	59 	0	0  	-1 	1 	1       
 fglayer		data/bgs/wilder/field_1.png			-397	0.66	0.66 	0 	62 	0	0  	-1 	1 	1

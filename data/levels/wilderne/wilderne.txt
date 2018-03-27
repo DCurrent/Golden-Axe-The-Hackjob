@@ -90,10 +90,10 @@ light 256 -128
 at 0
 
 # Alex dies!
-#spawn	Alex_
-#health  12
-#coords	530 160
-#at	0
+spawn	Alex_
+health  12
+coords	530 160
+at	0
 
 
 #spawn	ax_e
@@ -178,10 +178,10 @@ health 2
 coords 500 175
 at 200
 
-spawn palette_changer
-spawnscript data/levels/wilderne/mist.c
-coords 0 0
-at 200
+#spawn palette_changer
+#spawnscript data/levels/wilderne/mist.c
+#coords 0 0
+#at 200
 
 wait
 at 200
@@ -239,10 +239,10 @@ at 820
 wait
 at 820
 
-spawn palette_changer
-spawnscript data/levels/wilderne/sunset.c
-coords 0 0
-at 900
+#spawn palette_changer
+#spawnscript data/levels/wilderne/sunset.c
+#coords 0 0
+#at 900
 
 #----test spawn
 

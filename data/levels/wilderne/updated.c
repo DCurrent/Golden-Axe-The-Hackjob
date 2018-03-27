@@ -1,23 +1,46 @@
 #include "data/scripts/dc_eggball/main.c"
 #include "data/scripts/dc_kanga/main.c"
 
+#define PALETTE_INCREMENT_INTERVAL  2000
+#define PALETTE_SUNNY_INTERVAL      5000
+#define PALETTE_SUNNY_INDEX         5                       // Which loaded palette is for mid day?
+#define EGGBALL_INSTANCE            0
+
+void oncreate()
+{
+    dc_eggball_set_instance(EGGBALL_INSTANCE);
+    dc_eggball_set_interval(PALETTE_INCREMENT_INTERVAL);
+}
+
 void main()
 {
-
-
-    if (dc_eggball_interval(1))
+    if(dc_eggball_interval())
     {
         dc_kanga_increment_global_index();
+
+        if(openborvariant("current_palette") == PALETTE_SUNNY_INDEX)
+        {
+            dc_eggball_set_interval(PALETTE_SUNNY_INTERVAL);
+        }
+        else
+        {
+            dc_eggball_set_interval(PALETTE_INCREMENT_INTERVAL);
+        }
     }
 
     settextobj(2, 10, 70, 1, 999999994, "Palette: " + openborvariant("current_palette") + " of " + openborvariant("numpalettes"));
-	settextobj(3, 10, 80, 1, 999999994, "Last: " + getlocalvar(DC_EGGBALL_LAST + 1));
+	settextobj(3, 10, 80, 1, 999999994, "Last: " + getlocalvar(DC_EGGBALL_LAST + EGGBALL_INSTANCE));
 	settextobj(4, 10, 90, 1, 999999994, "Time: " + openborvariant("elapsed_time"));
 	//settextobj(5, 10, 100, 1, 999999994, "Sets: " + openborvariant("sets_count"));
 
     //debug();
 
 }
+
+#undef PALETTE_INCREMENT_INTERVAL
+#undef PALETTE_SUNNY_INTERVAL
+#undef PALETTE_SUNNY_INDEX
+#undef EGGBALL_INSTANCE
 
 void debug()
 {

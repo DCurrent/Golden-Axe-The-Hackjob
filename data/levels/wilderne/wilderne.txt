@@ -10,9 +10,10 @@ updatedscript	data/levels/wilderne/updated.c
 bgspeed	    	4 	1
 rock		0
 
-# Default layers. Background is hidden and just serves as a palette placeholder.
+# Default layers. Background is hidden and just serves as a palette placeholder since
+# displaying it (the background) with fglayer command gives more fine control.
 # background	filepath			xratio	zratio	xoffset	zoffset	xspace	zspace	xrepeat	zrepeat	trans	alpha	w-mode	amp	wl	ws	move	quake	neon
-background	data/bgs/wilder/clouds_0.png 	0.5 	0.5 	0 	0 	0 	0 	1 	1 	0	0	3	4	1	0	0
+background	data/bgs/wilder/clouds_0.png 	0 	0 	0 	0 	0 	0 	0 	0 	0	0	0	0	0	0	0
 
 # panel		filepath (main)			filepath (neon)	filepath (blended)
 panel		data/bgs/wilder/stage_0.png 	none 		none	
@@ -39,8 +40,10 @@ fglayer		data/bgs/wilder/debris_0.png			 301	-0.5 	-0.3 	50 	215 	50	0  	-1 	1 	
 # Additonal palettes
 
 # Palette	filepath				alpha1	alpha2	alpha3	alpha4	alpha5	alpha6
-#palette 	data/bgs/wilder/pals/mist1.act 		0 	1 	0 	0 	0 	1
-#palette 	data/bgs/wilder/pals/mist3.act 		0 	1 	0 	0 	0 	1          
+palette 	data/bgs/wilder/morning_0.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/morning_1.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/morning_2.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/morning_3.act 		0 	0 	0 	0 	0 	0         
 #palette 	data/bgs/wilder/pals/mist5.act 		0 	1 	0 	0 	0 	1          
 #palette 	data/bgs/wilder/pals/mist7.act 		0 	1 	0 	0 	0 	1
 #palette 	data/bgs/wilder/pals/sunny.act 		0 	1 	0 	0 	0 	1

@@ -43,7 +43,9 @@ fglayer		data/bgs/wilder/debris_0.png			 301	-0.5 	-0.3 	50 	215 	50	0  	-1 	1 	
 palette 	data/bgs/wilder/morning_0.act 		0 	0 	0 	0 	0 	0
 palette 	data/bgs/wilder/morning_1.act 		0 	0 	0 	0 	0 	0
 palette 	data/bgs/wilder/morning_2.act 		0 	0 	0 	0 	0 	0
-palette 	data/bgs/wilder/morning_3.act 		0 	0 	0 	0 	0 	0         
+palette 	data/bgs/wilder/morning_3.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/morning_4.act 		0 	0 	0 	0 	0 	0 
+palette 	data/bgs/wilder/morning_5.act 		0 	0 	0 	0 	0 	0     
 #palette 	data/bgs/wilder/pals/mist5.act 		0 	1 	0 	0 	0 	1          
 #palette 	data/bgs/wilder/pals/mist7.act 		0 	1 	0 	0 	0 	1
 #palette 	data/bgs/wilder/pals/sunny.act 		0 	1 	0 	0 	0 	1

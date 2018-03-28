@@ -35,7 +35,8 @@ fglayer		data/bgs/wilder/trees_2.png			-393	0.26 	0.26 	38 	0 	18	0  	-1 	1 	1
 fglayer		data/bgs/wilder/trees_1.png			-392	0.19 	0.19 	41 	0 	0	0  	-1 	1 	1       
 fglayer		data/bgs/wilder/trees_0.png			-391	0.1 	0.1 	112 	-6 	50	0  	-1 	1 	1       
 fglayer		data/bgs/wilder/bush_0.png			 300	-0.3 	-0.3 	0 	210 	0	0  	-1 	1 	1       
-fglayer		data/bgs/wilder/debris_0.png			 301	-0.5 	-0.3 	50 	215 	50	0  	-1 	1 	1       
+fglayer		data/bgs/wilder/debris_1.png			 301	-0.5 	-0.5 	50 	215 	50	0  	-1 	1 	1       
+fglayer		data/bgs/wilder/debris_0.png			 302	-0.7 	-0.7 	0 	215 	30	0  	-1 	1 	1       
 
 # Additonal palettes
 

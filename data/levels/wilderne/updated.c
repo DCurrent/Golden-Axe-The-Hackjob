@@ -1,9 +1,9 @@
 #include "data/scripts/dc_eggball/main.c"
 #include "data/scripts/dc_kanga/main.c"
 
-#define PALETTE_INCREMENT_INTERVAL  2000
-#define PALETTE_SUNNY_INTERVAL      5000
-#define PALETTE_SUNNY_INDEX         5                       // Which loaded palette is for mid day?
+#define PALETTE_INCREMENT_INTERVAL  1000
+#define PALETTE_SUNNY_INTERVAL      3000
+#define PALETTE_SUNNY_INDEX         10                       // Which loaded palette is for mid day?
 #define EGGBALL_INSTANCE            0
 
 void oncreate()

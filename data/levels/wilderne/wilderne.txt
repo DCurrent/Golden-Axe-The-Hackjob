@@ -47,15 +47,36 @@ palette 	data/bgs/wilder/morning_2.act 		0 	0 	0 	0 	0 	0
 palette 	data/bgs/wilder/morning_3.act 		0 	0 	0 	0 	0 	0
 palette 	data/bgs/wilder/morning_4.act 		0 	0 	0 	0 	0 	0 
 palette 	data/bgs/wilder/morning_5.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/morning_6.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/morning_7.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/morning_8.act 		0 	0 	0 	0 	0 	0
 palette 	data/bgs/wilder/default.act 		0 	0 	0 	0 	0 	0
-palette 	data/bgs/wilder/evening_0.act 		0 	0 	0 	0 	0 	0    
-#palette 	data/bgs/wilder/pals/mist5.act 		0 	1 	0 	0 	0 	1          
-#palette 	data/bgs/wilder/pals/mist7.act 		0 	1 	0 	0 	0 	1
-#palette 	data/bgs/wilder/pals/sunny.act 		0 	1 	0 	0 	0 	1
-#palette 	data/bgs/wilder/pals/sunset2.act	0 	1 	0 	0 	0 	1
-#palette 	data/bgs/wilder/pals/sunset4.act 	0 	1 	0 	0 	0 	1
-#palette 	data/bgs/wilder/pals/sunset6.act 	0 	1 	0 	0 	0 	1
-#palette 	data/bgs/wilder/pals/sunset8.act 	0 	1 	0 	0 	0 	1
+palette 	data/bgs/wilder/evening_0.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_1.act 		0 	0 	0 	0 	0 	0  
+palette 	data/bgs/wilder/evening_2.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_3.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_4.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_5.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_6.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_7.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_8.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_9.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_10.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_11.act 		0 	0 	0 	0 	0 	0  
+palette 	data/bgs/wilder/evening_12.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_13.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_14.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_15.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_16.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_17.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_18.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_19.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_20.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_21.act 		0 	0 	0 	0 	0 	0  
+palette 	data/bgs/wilder/evening_22.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_23.act 		0 	0 	0 	0 	0 	0
+palette 	data/bgs/wilder/evening_24.act 		0 	0 	0 	0 	0 	0
+
 
 # Timer
 settime 0

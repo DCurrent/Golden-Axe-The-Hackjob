@@ -278,10 +278,6 @@
 #define A_WALK						openborconstant("ANI_WALK")
 #define A_WALKOFF					openborconstant("ANI_WALKOFF")
 
-/******Attack Types******/
-
-#define ATK_SHOCK					openborconstant("ATK_SHOCK")
-
 /*****Color Maps*****/
 #define MAP_KO						1										//KO.
 #define MAP_BURN					2										//Burn.

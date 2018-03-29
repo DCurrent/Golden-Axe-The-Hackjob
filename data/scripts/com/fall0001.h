@@ -24,7 +24,7 @@ void fall0001(){
     {
         effe0001(MAP_BURN);                                                          //Set effect.
     }
-    else if (iType == ATK_SHOCK)													//Shock attack?
+    else if (iType == openborconstant("ATK_SHOCK"))													//Shock attack?
     {
 		effe0001(MAP_SHOCK);                                                         //Set effect.
     }

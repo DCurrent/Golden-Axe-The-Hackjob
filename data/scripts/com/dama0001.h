@@ -35,7 +35,7 @@ void dama0001(void vTar, int iHP, int iDrop, void vType, int iDir, float fY, flo
      ATK_BLAST	   4
      openborconstant("ATK_BURN")	   5
      ATK_FREEZE	   6
-     ATK_SHOCK	   7
+     openborconstant("ATK_SHOCK")	   7
      ATK_STEAL     8
      ATK_NORMAL5   9
      ATK_NORMAL6  10

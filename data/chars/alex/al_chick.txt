@@ -328,7 +328,7 @@ anim grabattack2
 		frame	data/chars/alex/chicken/0003
 	delay	10
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 40 0 -1 DIR_ADJ_SAME AC_DEFPOSE G_RELEASE 0							#Release bind.
-	@cmd	dama0004 0 -2 0 10 ATK_6 1 2.6 1 0 0 0 0 0		#Put into exit ani and apply any damage on landing values.
+	@cmd	dama0004 0 -2 0 10 openborconstant("ATK_NORMAL6") 1 2.6 1 0 0 0 0 0		#Put into exit ani and apply any damage on landing values.
 		frame	data/chars/alex/chicken/0020
 	delay	10
 	offset	78 142

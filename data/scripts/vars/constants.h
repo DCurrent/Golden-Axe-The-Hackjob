@@ -280,7 +280,6 @@
 
 /******Attack Types******/
 
-#define ATK_6						openborconstant("ATK_NORMAL6")
 #define ATK_7						openborconstant("ATK_NORMAL7")
 #define ATK_8						openborconstant("ATK_NORMAL8")
 #define ATK_9						openborconstant("ATK_NORMAL9")

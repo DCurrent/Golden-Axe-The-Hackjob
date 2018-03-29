@@ -4,9 +4,5 @@
 //cache most often used things here
 void main()
 {
-    setindexedvar(IDXG_INLVL, 1); // in level flag
-
-
-
     soun0004();														//Sound preloader.
 }

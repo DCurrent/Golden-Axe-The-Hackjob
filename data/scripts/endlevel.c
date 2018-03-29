@@ -5,10 +5,4 @@
 void main()
 {
 	tclear();
-    setindexedvar(IDXG_INLVL, 0); // in level flag
-    if(getindexedvar(16)) // free mpicon
-    {
-        free(getindexedvar(16));
-        setindexedvar(16, NULL());
-    }
 }

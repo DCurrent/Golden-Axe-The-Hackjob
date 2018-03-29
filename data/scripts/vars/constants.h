@@ -474,7 +474,6 @@
 #define IDXG_MAXYADJ				3										//Maximum level height adjustment.
 #define IDXG_GPAUSE					4										//Global pause.
 #define IDXG_TNAMES					5										//Index for opening name text file.
-#define IDXG_INLVL					6										//In level?
 #define IDXG_ICOJAR					7										//Magic jar.
 #define IDXG_BLOCBLU				8										//Life block, blue.
 #define IDXG_BLOCYEL				9										//Life block, yellow.

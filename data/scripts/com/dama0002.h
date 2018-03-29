@@ -1,6 +1,6 @@
 #include	"data/scripts/vars/constants.h"	//Constants list.
 
-#import	"data/scripts/com/bind0010.h"	//http://www.caskeys.com/dc/?p=1314#bind0010  
+#import	"data/scripts/com/bind0010.h"	//http://www.caskeys.com/dc/?p=1314#bind0010
 #import	"data/scripts/com/bind0019.h"	//Grapple binding release.
 #import	"data/scripts/com/dama0001.h"	//Damage entity.
 #import	"data/scripts/com/effe0001.h"	//Damage effects.
@@ -26,8 +26,8 @@ void dama0002(){
     int     iHPTemp;
 
 	int iHPOld;
-	
-		
+
+
 
     /*
     //If attacker is a projectile, set opponent to the attacker's parent.
@@ -48,7 +48,7 @@ void dama0002(){
 
 	if(getentityproperty(vSelf, "type") == TYPE_ENEMY)
 	{
-		changeentityproperty(vSelf, "hostile", "TYPE_PLAYER", "TYPE_NPC");      //Reset hostile.		
+		changeentityproperty(vSelf, "hostile", "TYPE_PLAYER", "TYPE_NPC");      //Reset hostile.
 	}
 
 	if (!fDam){ return; }														//If damage isn't "real", forget the rest.
@@ -63,7 +63,7 @@ void dama0002(){
         {
             if (iDrop > 0)                                                      //Knockdown hit?
 		    {
-				if (iAType == ATK_BURN
+				if (iAType == openborconstant("ATK_BURN")
                     && iAni != A_BURN)											//Burn hit and not already burning?
 			    {
 				    soun0005(vSelf, VOI_BRN, -1, 1, 0, 0);						//Burn sound.

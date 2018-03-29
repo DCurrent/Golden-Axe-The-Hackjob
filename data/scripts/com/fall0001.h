@@ -18,9 +18,9 @@ void fall0001(){
     int     iHeight     = getentityproperty(vSelf, "height");                       //Caller height.
     int     iBase       = getentityproperty(vSelf, "base");                         //Caller base (platform height).
     int     iHitY;                                                                  //Last hit height.
-		
 
-    if (iType == ATK_BURN)															//Burn attack?
+
+    if (iType == openborconstant("ATK_BURN"))															//Burn attack?
     {
         effe0001(MAP_BURN);                                                          //Set effect.
     }

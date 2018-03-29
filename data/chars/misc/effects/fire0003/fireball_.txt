@@ -15,7 +15,7 @@ palette 	data/chars/misc/effects/fire0003/0001
 alternatepal	data/chars/misc/effects/fire0004/0001
 
 anim idle
-	
+
 	hitflash   steam
         followanim 1
         followcond 1
@@ -45,7 +45,7 @@ anim idle
 		frame	data/chars/misc/effects/fire0003/0017.png
 
 anim spawn
-    
+
     	offset 0 0
 	delay   1
 	@cmd	soun0005 ENT_SELF SND_EFF1 -1 1 0 0
@@ -54,19 +54,19 @@ anim spawn
     		frame   data/chars/misc/blan0001
 
 anim follow1
-        
+
     	delay	1
 	offset 47 62
 	@script
-	{		
-		void vSelf = getlocalvar("self");	
-		damageentity(vSelf, vSelf, 100, ATK_1);				
+	{
+		void vSelf = getlocalvar("self");
+		damageentity(vSelf, vSelf, 100, openborconstant("ATK_NORMAL"));
 	}
-	@end_script	
-    		frame	data/chars/misc/effects/fire0003/0001.png	
-	
+	@end_script
+    		frame	data/chars/misc/effects/fire0003/0001.png
+
 anim fall
-    	
+
     	delay	4
 	offset 47 62
 	@script
@@ -77,9 +77,9 @@ anim fall
 			changeentityproperty(vSelf, "speed", 0);
 			changeentityproperty(vSelf, "map", 1);
 			changeentityproperty(vSelf, "autokill", 1);
-			soun0005(0, SND_EFF2, -1, 1, 0, 0);		
+			soun0005(0, SND_EFF2, -1, 1, 0, 0);
 		}
-	@end_script	
+	@end_script
     		frame 	data/chars/misc/effects/fire0004/0001
 		frame 	data/chars/misc/effects/fire0004/0002
    		frame 	data/chars/misc/effects/fire0004/0003
@@ -95,7 +95,7 @@ anim fall
 		frame 	data/chars/misc/effects/fire0004/0013
 		frame 	data/chars/misc/effects/fire0004/0014
 		frame 	data/chars/misc/effects/fire0004/0015
-		frame 	data/chars/misc/effects/fire0004/0016	
+		frame 	data/chars/misc/effects/fire0004/0016
 
 
 

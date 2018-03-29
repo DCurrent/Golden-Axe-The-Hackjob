@@ -1,6 +1,6 @@
 #include "data/scripts/vars/constants.h"	//http://www.caskeys.com/dc/?p=1314#constants
 
-#import "data/scripts/com/bind0023.h"  
+#import "data/scripts/com/bind0023.h"
 #import "data/scripts/com/dama0001.h"
 
 void z_blocko(void vEnt)
@@ -17,25 +17,25 @@ void z_blocko(void vEnt)
     int     iFall;																						//Falling flag.
     int     iDamage		= 0;																			//Damage to apply on self.
 	void    vOpp;																						//Last interaction.
-    void    vObstacle;																					//Blocking entity.        
-    int     iDir;																						//Facing setting.    
+    void    vObstacle;																					//Blocking entity.
+    int     iDir;																						//Facing setting.
     int     iXDir;																						//Current X velocity.
-    int     iXVel;																						//Set X velocity.    
+    int     iXVel;																						//Set X velocity.
     int     iOHeight;																					//Obstacle height.
     int     iY;																							//Self Y location.
 	int		iDOL;																						//Damage on landing.
 	int		iOHP;																						//Obstacle health.
-    int		iRush;																						//Opponent rush count.		
+    int		iRush;																						//Opponent rush count.
 
 	if(!vEnt){	vEnt = getlocalvar("self");	}															//Caller failsafe.
 
 	iFall = getentityproperty(vEnt, "aiflag", "falling");												//Falling flag.
-	
+
     if (iFall)																							//Falling?
     {
 		vObstacle	= getlocalvar("obstacle");															//Get blocking entity.
-        iOHeight    = getentityproperty(vObstacle, "height");											//Get obstacle height.    
-        iY          = getentityproperty(vEnt, "a");														//Get self Y.        
+        iOHeight    = getentityproperty(vObstacle, "height");											//Get obstacle height.
+        iY          = getentityproperty(vEnt, "a");														//Get self Y.
 		iOHP		= getentityproperty(vObstacle, "health");											//Get obstacle health.
 
         if (iOHeight > iY)																				//Self lower then obstacle's top?
@@ -59,18 +59,18 @@ void z_blocko(void vEnt)
 				iDir	= -2;																			//Set facing left.
 				iXVel	= 1.5;																			//Set movement right.
 				iDamage += ((-iXDir) * 3);																//Set damage (Resigned velocity * 3).
-			}			
-			
+			}
+
 			bind0023(vOpp, "flash", "flash", 0, 1, 0, 0, 0, 0, 0, 0, 1);								//Spawn flash.
-			
-            dama0001(vEnt, iDamage+iDOL, 100, ATK_1, iDir, 0, 0, 0, 0, 0, 0);							//Apply damage to self.			
-            
+
+            dama0001(vEnt, iDamage+iDOL, 100, openborconstant("ATK_NORMAL"), iDir, 0, 0, 0, 0, 0, 0);							//Apply damage to self.
+
 			if (iOHP > iDamage)																			//Will obstacle survive damage?
 			{
 				changeentityproperty(vEnt, "animation", A_FALL);										//Reset fall animation.
 				tossentity(vEnt, 2.5, iXVel, 0);														//Apply toss values.
 			}
-            dama0001(vObstacle, iDamage, 100, ATK_1, 0, 0, 0, 0, 0, 0, 0);	    
-        }            
-    }        
+            dama0001(vObstacle, iDamage, 100, openborconstant("ATK_NORMAL"), 0, 0, 0, 0, 0, 0, 0);
+        }
+    }
 }

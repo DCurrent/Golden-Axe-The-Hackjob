@@ -568,7 +568,7 @@ anim grabattack2
     	bbox    0
 	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
     	@cmd  	bind0014 1 0								#Initialize bind variable.
-	@cmd  	dama0004 0 0 0 10 ATK_1 0 0 0 0 0 0 1 -1				#Put into falling state.
+	@cmd  	dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1				#Put into falling state.
 	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF 0 45 167 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
 		frame	data/chars/tyris/dragon/0003
     	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF 0 65 145 -1 DIR_ADJ_SAME AC_DEFPOSE G_EX3 0
@@ -597,7 +597,7 @@ anim grabbackward
 	offset	80 142
 	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
 	@cmd  	bind0014 1 0								#Initialize bind variable.
-	@cmd  dama0004 0 0 0 10 ATK_1 0 0 0 0 0 0 1 -1			#Put into falling state.
+	@cmd  dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1			#Put into falling state.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 30 165 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
 		frame	data/chars/tyris/dragon/0009
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 45 165 -1 DIR_ADJ_SAME AC_DEFPOSE G_HELDP 0
@@ -609,7 +609,7 @@ anim grabbackward
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 65 190 -1 DIR_ADJ_SAME AC_DEFPOSE G_HORUP 0
 		frame	data/chars/tyris/dragon/0003
 	@cmd	bind0008 "flash" "flash" 0 2 40 40 0 0 0 0 1					#Flash.
-	@cmd	dama0004 0 0 5 10 ATK_1 1 2.2 1 0 0 0 0 0		#Apply damage.
+	@cmd	dama0004 0 0 5 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0		#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 55 160 -1 DIR_ADJ_SAME AC_DEFPOSE G_HELDP 0
 		frame	data/chars/tyris/dragon/0009
 	delay	10
@@ -620,7 +620,7 @@ anim grabbackward
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 65 190 -1 DIR_ADJ_SAME AC_DEFPOSE G_HORUP 0
 		frame	data/chars/tyris/dragon/0003
 	@cmd	bind0008 "flash" "flash" 0 2 40 40 0 0 0 0 1					#Flash.
-	@cmd	dama0004 0 0 5 10 ATK_1 1 2.2 1 0 0 0 0 0		#Apply damage.
+	@cmd	dama0004 0 0 5 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0		#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 55 160 -1 DIR_ADJ_SAME AC_DEFPOSE G_HELDP 0
 		frame	data/chars/tyris/dragon/0009
 	delay	9

@@ -24,21 +24,21 @@ void wall0001()
     float iYVel = 0.0;
 	int iAni;                                                                                   //Current animation.
     int iType;                                                                                  //Entity type.
-    int iWHt;                                                                                   //Wall height.  
+    int iWHt;                                                                                   //Wall height.
     int iBase;                                                                                  //Current base.
 	int	iITime = 0+getentityproperty(vSelf, "invinctime");
 	int	iETime = openborvariant("elapsed_time");
-		
+
 	if (iFall && iITime < iETime)																//Falling and no invinctime?
 	{
 		iXDir		= getentityproperty(vSelf, "xdir");											//Get current X velocity.
 		vOpponent	= getentityproperty(vSelf, "opponent");										//Get last interaction.
-		
+
 		changeentityproperty(vSelf, "invinctime", iITime+20+iETime);
 
 		if (iXDir >= 0)																			//Moving Right?
 		{
-			
+
 			iDir	= 2;																		//Set facing right.
 			iXVel	= (-iXDir) * 0.5;															//Set movement left.
 			iYVel	= iXDir * 1.5;
@@ -51,20 +51,20 @@ void wall0001()
 			iYVel	= (-iXDir) * 1.5;
 			iDamage += ((-iXDir) * 3);															//Set damage (Resigned velocity * 3).
 		}
-		
+
 		bind0008("hith", "hith", 0, 1, 0, 0, 0, 0, 0, 0, 1);									//Spawn flash.
-		dama0001(vSelf, iDamage, 100, ATK_1, iDir, 0, 0, 0, 0, 0, 0);							//Apply damage to self.			
+		dama0001(vSelf, iDamage, 100, openborconstant("ATK_NORMAL"), iDir, 0, 0, 0, 0, 0, 0);							//Apply damage to self.
 
 		changeentityproperty(vSelf, "animation", A_FALL);										//Reset fall.
 		tossentity(vSelf, iYVel, iXVel, 0);														//Toss self.
-	}    
+	}
 }
 
 /*
 	else
     {
         iType = getentityproperty(vSelf, "type");                                                   //Get type.
-        
+
         if (iType == TYPE_NPC || iType == TYPE_ENEMY)														//Enemy or NPC?
         {
             iBase   = getentityproperty(vSelf, "base");                                             //Get base.
@@ -75,12 +75,12 @@ void wall0001()
                 iAni = getentityproperty(vSelf, "animationid");                                     //Get current animation.
                 if (iAni == A_UP)																	//Walking up?
                 {
-                    changeentityproperty(vSelf, "velocity", 0,0,0);                                 //Stop walking movement.     
-                    ani0009(vSelf, AC_CLIMBUPB, 0);													//Perform Lateral climb/jump up.        
+                    changeentityproperty(vSelf, "velocity", 0,0,0);                                 //Stop walking movement.
+                    ani0009(vSelf, AC_CLIMBUPB, 0);													//Perform Lateral climb/jump up.
                 }
                 else if (iAni == A_DOWN)															//Walking down?
                 {
-                    changeentityproperty(vSelf, "velocity", 0,0,0);                                 //Stop walking movement.     
+                    changeentityproperty(vSelf, "velocity", 0,0,0);                                 //Stop walking movement.
                     ani0009(vSelf, AC_CLIMBDNB, 0);													//Perform Lateral climb/jump down.
                 }
             }
@@ -90,5 +90,5 @@ void wall0001()
 
 
 
-    
+
 

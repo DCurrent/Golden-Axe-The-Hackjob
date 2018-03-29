@@ -61,7 +61,7 @@ anim spawn
 	delay	1
 	offset	78 142
     	bbox    66 80 34 64
-	
+
 		frame	data/chars/amazon/chicken/0015
 	delay	15
 		frame	data/chars/amazon/chicken/0015
@@ -319,7 +319,7 @@ anim grabattack2
 	jumpframe       10 0 -0.3 0
 
 	@cmd  	bind0014 1 0								#Initialize bind variable.
-	@cmd  	dama0004 0 0 0 10 ATK_1 0 0 0 0 0 0 1 -1			#Put into falling state.
+	@cmd  	dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1			#Put into falling state.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 165 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
 	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
 		frame	data/chars/amazon/chicken/0013
@@ -373,7 +373,7 @@ anim grabbackward
     	offset	82 142
     	bbox    0
     	@cmd  	bind0014 1 0								#Initialize bind variable.
-	@cmd  	dama0004 0 0 0 10 ATK_1 0 0 0 0 0 0 1 -1			#Put into falling state.
+	@cmd  	dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1			#Put into falling state.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 	165 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
 		frame	data/chars/amazon/chicken/0013
     	delay	8
@@ -415,7 +415,7 @@ anim grabbackward
 	delay	30
 	@cmd	bind0018 0 0 0 0 0 0								#Wall failsafe.
 	@cmd	bind0008 "impm" "mute" 0 1 30 0 0 0 0 0 1					#Dust.
-	@cmd	dama0004 0 0 18 10 ATK_1 1 2.2 1 0 0 0 0 0		#Apply damage.
+	@cmd	dama0004 0 0 18 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0		#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 40 138 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDNP 0
 		frame	data/chars/amazon/chicken/0003
 	delay	10

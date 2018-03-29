@@ -30,7 +30,7 @@ hmap				5 9
 fmap				9
 jumpmove			1 1
 aimove				chase
-aggression			-50				
+aggression			-50
 #stealth				0 -10
 #grabforce			10
 
@@ -152,10 +152,10 @@ anim idle
 
 
 anim get
-	
+
 	delay	150
 	offset	60 98
-	
+
 	@cmd adjustmp
 		frame	data/chars/ax/sleep.png
 	delay	15
@@ -299,7 +299,7 @@ anim attackdown
 
 	cancel 7 7 0 a freespecial12	#Second strike
 	jumpframe  1  0  0.5  1 jumpm
-	
+
 	delay  7
 	offset  60  98
 		frame  data/chars/ax/land.png
@@ -325,7 +325,7 @@ anim attackbackward
 	# back attack
 	hitflash	cuth
     flipframe	20
-	range		-70	-1	
+	range		-70	-1
 	cancel		18 19 0 a freespecial12	#Second strike
 
 	offset	60 98
@@ -461,8 +461,8 @@ anim attack1
 @cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 		frame	data/chars/ax/a2.png
 	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
-	delay	6	
-	attack10	57 40 44 29 4	
+	delay	6
+	attack10	57 40 44 29 4
 		frame	data/chars/ax/a4.png
 	delay	2
 	attack1	0
@@ -645,8 +645,8 @@ anim attack6
 anim  attack7
 
 	#Short Stab.
-	
-	hitflash stabh		
+
+	hitflash stabh
 	range 24 32
 
 	offset  58  98
@@ -762,7 +762,7 @@ anim freespecial2
 	jumpframe	1  2  -2  0 jumpm
 	landframe	3 landm
 	dropframe	2
-	
+
 	offset		60  98
 	delay		12
 	bbox		0
@@ -815,11 +815,11 @@ anim  freespecial6
 
 	jumpframe  2.5  3  0  0 jumpm
 	landframe  8 landm
-	
+
 	offset  60  98
 	delay  10
 	@cmd  	bind0014 1 0													#Initialize bind variable.
-	@cmd  	dama0004 0 0 0 10 ATK_1 0 0 0 0 0 0 1 -1							#Put into falling state.
+	@cmd  	dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1							#Put into falling state.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0   8 183  1  DIR_ADJ_SAME AC_DEFPOSE G_HORUP 1
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
 		frame  data/chars/ax/0099.png	#0
@@ -852,15 +852,15 @@ anim  freespecial6
 		frame  data/chars/ax/0106.png	#9
 	delay  15
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
-	@cmd	dama0004 0 0 5 10 ATK_1 1 2.2 1 0 0 0 0 0							#Apply damage.
+	@cmd	dama0004 0 0 5 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0							#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -20 180 1 DIR_ADJ_OPP AC_DEFPOSE G_HORUPP 1
 	@cmd	bind0008 "bonem" "bonem" 0 1 0 20 1 0 0 0 1							#Flash.
-	@cmd	bind0008 "impm" "mute" 0 1 0 0 1 0 0 0 1							#Dust.	
+	@cmd	bind0008 "impm" "mute" 0 1 0 0 1 0 0 0 1							#Dust.
 		frame  data/chars/ax/0107.png	#10
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 -20 183 1 DIR_ADJ_OPP AC_DEFPOSE G_HORUPP 0
 		frame  data/chars/ax/0106.png	#11
-	delay  30		
-		frame  data/chars/ax/0106.png	#12		
+	delay  30
+		frame  data/chars/ax/0106.png	#12
 		frame  data/chars/ax/0106.png	#13
 	delay  10
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 -18 185 1 DIR_ADJ_OPP AC_DEFPOSE G_HORUP 0
@@ -916,7 +916,7 @@ anim  freespecial9
 		frame  data/chars/ax/0046.png
 	delay	50
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
-	@cmd	dama0004 0 0 6 10 ATK_1 1 2.2 1 0 0 0 0 0							#Apply damage.
+	@cmd	dama0004 0 0 6 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0							#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -25 	178 1 DIR_ADJ_OPP AC_DEFPOSE G_HORUPP 0
 	@cmd	bind0008 "bonem" "bonem" 0 1 0 20 1 0 0 0 1							#Flash.
 	@cmd	bind0008 "impm" "mute" 0 1 0 0 1 0 0 0 1							#Dust.
@@ -968,7 +968,7 @@ anim freespecial10
 		frame	data/chars/ax/0008.png
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -30 195  1 DIR_ADJ_OPP AC_DEFPOSE G_HORUP 1
 		frame	data/chars/ax/0009.png
-	@cmd  	dama0004 0 0 0 10 ATK_1 0 0 0 0 0 0 1 -1		#Put into falling state.
+	@cmd  	dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1		#Put into falling state.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0  20 190 -1  DIR_ADJ_SAME AC_DEFPOSE G_HORUP 1
 		frame	data/chars/ax/0003.png
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0  15 195 -1  DIR_ADJ_SAME AC_DEFPOSE  G_HORUP 1
@@ -1011,13 +1011,13 @@ anim freespecial10
 anim freespecial11
 
 	#Gutbuster
-	
+
 	jumpframe	2  4  0  0 jumpm
 	dropframe	4
 	landframe	5  impm
 
 	delay  15
-	offset  60  98	
+	offset  60  98
 	@cmd  	bind0014 1 0									#Initialize bind target.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 	168 -1 	DIR_ADJ_SAME AC_DEFPOSE G_HELDP 0
 		frame  data/chars/ax/g2.png							#0
@@ -1033,7 +1033,7 @@ anim freespecial11
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -15 	225 -1 	DIR_ADJ_OPP AC_DEFPOSE G_HORUP 0
 		frame  data/chars/ax/0067.png						#4
 	delay	20
-	@cmd	dama0004 0 0 5 10 ATK_1 1 0 0 0 0 0 0 0			#Apply damage.
+	@cmd	dama0004 0 0 5 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0			#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -15 	190 -1 	DIR_ADJ_OPP AC_DEFPOSE G_HORUPP 1
 	@cmd	bind0008 "bonem" "bonem" 0 1 0 50 1 0 0 0 1		#Dust.
 		frame	data/chars/ax/0079.png						#0
@@ -1106,52 +1106,52 @@ anim  freespecial13
 
 	cancel 10 10 0 f u a freespecial6	#Spin Breaker
 	cancel 10 10 0 d u a freespecial10	#Giant swing
-		
+
 	jumpframe  3  2.5  1  0	jumpm
-	dropframe  5 
+	dropframe  5
 	landframe  6 landm
-	
-		
+
+
 	offset  60  98
 	delay  15
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
 	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF 0 46 144 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDN 0
 		frame  data/chars/ax/0065.png
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 37 164 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDN 0
-		frame  data/chars/ax/0045.png	
+		frame  data/chars/ax/0045.png
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 -7 186 -1 DIR_ADJ_OPP AC_DEFPOSE G_FALUPT 0
-		frame  data/chars/ax/0068.png	
+		frame  data/chars/ax/0068.png
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 -16 212 -1 DIR_ADJ_OPP AC_DEFPOSE G_FALUP 0
-		frame  data/chars/ax/0066.png	
+		frame  data/chars/ax/0066.png
 	delay  -1000
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 -17 229 -1 DIR_ADJ_OPP AC_DEFPOSE G_DWNUPP 0
-		frame  data/chars/ax/0067.png	
+		frame  data/chars/ax/0067.png
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 2 196 -1 DIR_ADJ_OPP AC_DEFPOSE G_FALUPT 0
-		frame  data/chars/ax/0078.png	
+		frame  data/chars/ax/0078.png
 	delay  4
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 37 168 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDN 0
-		frame  data/chars/ax/0062.png	
+		frame  data/chars/ax/0062.png
 	delay  8
 	@cmd	bind0018 0 0 0 0 0 0												#Wall failsafe.
 	@cmd	bind0008 MODEL_FLLAND2 MODEL_FLLAND2 0 1 30 0 1 0 0 0 1							#Dust.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 41 138 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDNP 0
-	@cmd	dama0004 0 0 8 10 ATK_1 1 0 0 0 0 0 0 0								#Apply damage.
-		frame  data/chars/ax/0063.png	
-		frame  data/chars/ax/0064.png	
+	@cmd	dama0004 0 0 8 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0								#Apply damage.
+		frame  data/chars/ax/0063.png
+		frame  data/chars/ax/0064.png
 	delay  15
-		frame  data/chars/ax/0065.png		
+		frame  data/chars/ax/0065.png
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 43 145 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDN 0
-			frame  data/chars/ax/0065.png	
+			frame  data/chars/ax/0065.png
 	delay  20
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 30 0 -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0											#Release bind.
 	@cmd	dama0004 0 -2 0 4 ATK_7 1 2.2 1 0 0 0 0 0
-		frame  data/chars/ax/0065.png	
+		frame  data/chars/ax/0065.png
 	offset  50  99
 	delay  10
-		frame  data/chars/ax/0048.png	
+		frame  data/chars/ax/0048.png
 	offset  60  98
-		frame  data/chars/ax/0056.png	
+		frame  data/chars/ax/0056.png
 
 anim  freespecial14
 
@@ -1202,7 +1202,7 @@ anim  freespecial14
 	delay  6
 	@cmd	bind0008 "impm" "mute" 0 1 -50 0 1 0 0 0 1							#Dust.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -49 137 -1 DIR_ADJ_OPP AC_DEFPOSE G_VERDNP 0
-	@cmd	dama0004 0 0 4 10 ATK_1 1 0 0 0 0 0 0 0							#Apply damage.
+	@cmd	dama0004 0 0 4 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0							#Apply damage.
 		frame  data/chars/ax/0118.png	#10
 		frame  data/chars/ax/0119.png	#11
 		frame  data/chars/ax/0120.png	#12
@@ -1223,9 +1223,9 @@ anim  freespecial14
 		frame  data/chars/ax/0056.png
 
 anim  freespecial15
-	
+
 	#Melon Splitter
-	
+
 	cancel 17 17 0 d f a freespecial13	#Flying Bomb
 	cancel 17 17 0 d u a freespecial10	#Giant Swing
 
@@ -1265,7 +1265,7 @@ anim  freespecial15
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 2 192 0 DIR_ADJ_OPP AC_DEFPOSE G_HORDN 0
 		frame  data/chars/ax/0116.png	#8
 	offset  60  97
-	move  -16	
+	move  -16
 	delay	6
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 21 190 0 DIR_ADJ_SAME AC_DEFPOSE G_HELDMP 0
 		frame  data/chars/ax/0081.png	#9
@@ -1282,7 +1282,7 @@ anim  freespecial15
 	delay  10
 	@cmd	bind0008 "impm" "mute" 0 1 -50 0 1 0 0 0 1							#Dust.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 50 139 0 DIR_ADJ_SAME AC_DEFPOSE G_VERDNP 0
-	@cmd	dama0004 0 0 4 10 ATK_1 1 0 0 0 0 0 0 0								#Apply damage.
+	@cmd	dama0004 0 0 4 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0								#Apply damage.
 		frame  data/chars/ax/0126.png	#14
 	move  0
 		frame  data/chars/ax/0127.png	#15
@@ -1343,7 +1343,7 @@ anim  freespecial16
 		frame  data/chars/ax/0168.png	#11
 		frame  data/chars/ax/0169.png	#12
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -1 1 0 0
-		frame  data/chars/ax/0170.png	#13	
+		frame  data/chars/ax/0170.png	#13
 	delay	10
 		frame  data/chars/ax/0167.png	#14
 		frame  data/chars/ax/0166.png	#15
@@ -1357,7 +1357,7 @@ anim  freespecial16
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -1 1 0 0
 		frame  data/chars/ax/0170.png	#19
 	delay	12
-		frame  data/chars/ax/0167.png	#20	
+		frame  data/chars/ax/0167.png	#20
 		frame  data/chars/ax/0171.png	#21
 	delay	15
 		frame  data/chars/ax/0172.png	#22
@@ -1366,7 +1366,7 @@ anim  freespecial16
 		frame  data/chars/ax/0174.png	#24
 	delay	8
 	@cmd    bind0023 0  "cuth" "cuth" 0 2 20 8  1 0 0 0 1							#Flash
-	@cmd	dama0004 0 0 8 10 ATK_10 1 0 0 0 0 0 0 0								#Apply damage.
+	@cmd	dama0004 0 0 8 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0								#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -1 1 0 0
 		frame  data/chars/ax/0175.png	#25
 		frame  data/chars/ax/0176.png	#26
@@ -1525,10 +1525,10 @@ anim follow8
 	#Piledriver
 
 	landframe 2 impm
-		
+
 	delay	15
 	offset  60  95
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -10 	220 -1 DIR_ADJ_OPP AC_DEFPOSE G_HORUP 0	
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -10 	220 -1 DIR_ADJ_OPP AC_DEFPOSE G_HORUP 0
 		frame	data/chars/ax/0070.png
 	delay  -1000
 	offset  60  90
@@ -1537,7 +1537,7 @@ anim follow8
 	delay	12
 	offset  60  98
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 	140 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDNP 1
-	@cmd	dama0004 0 0 2 10 ATK_1 1 0 0 0 0 0 0 0.3	#Apply damage.
+	@cmd	dama0004 0 0 2 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0.3	#Apply damage.
 		frame	data/chars/ax/0072.png
 		frame	data/chars/ax/0073.png
 	delay	50
@@ -1553,7 +1553,7 @@ anim follow8
 anim follow9
 
 	#Throw (air to ground).
-	
+
 	jumpframe 1 0.2 -0.2 0
 	landframe 3 landm
 
@@ -1607,7 +1607,7 @@ anim  follow10
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 -16 184 1 DIR_ADJ_SAME AC_DEFPOSE G_VERDN 1
 		frame  data/chars/ax/0085.png	#6
 	delay  30
-	@cmd	dama0004 0 0 7 10 ATK_1 1 0 0 0 0 0 0 0	    	#Apply damage.
+	@cmd	dama0004 0 0 7 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0	    	#Apply damage.
 	@cmd	bind0008 MODEL_FLWALLM MODEL_FLWALLM 0 1 -70 50 1 0 0 0 1				#Wall Dust.
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 -32 175 1 DIR_ADJ_SAME AC_DEFPOSE G_VERDNP 1
 		frame  data/chars/ax/0086.png	#7
@@ -1627,7 +1627,7 @@ anim  follow10
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 19 176 -1 DIR_ADJ_SAME AC_DEFPOSE G_TLTUP 1
 		frame  data/chars/ax/0088.png	#12
 	move  0
-	@cmd	dama0004 0 0 7 10 ATK_1 1 0 0 0 0 0 0 0	    	#Apply damage.
+	@cmd	dama0004 0 0 7 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0	    	#Apply damage.
 	@cmd	bind0008 "bonem" "bonem" 0 1 0 20 1 0 0 0 1
 	@cmd	bind0008 "impm" "impm" 0 1 30 0 1 0 0 0 1							#Dust.
 	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF 0 31 144 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERUP 1
@@ -1635,10 +1635,10 @@ anim  follow10
 		frame  data/chars/ax/0090.png	#14
 	delay	50
 	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF 0 23 169 -1 DIR_ADJ_SAME AC_DEFPOSE G_HELDMP 0
-		frame  data/chars/ax/0091.png	
+		frame  data/chars/ax/0091.png
 	delay  25
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 30 0 -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0											#Release bind.
-	@cmd	dama0004 0 -2 0 10 ATK_1 1 2.5 1 0 0 0 0 0
+	@cmd	dama0004 0 -2 0 10 openborconstant("ATK_NORMAL") 1 2.5 1 0 0 0 0 0
 		frame  data/chars/ax/0091.png
 	delay	12
 		frame  data/chars/ax/0080.png
@@ -1649,7 +1649,7 @@ anim  follow10
 	move  -11
 		frame  data/chars/ax/0056.png
 
-anim follow11	
+anim follow11
 
 	#Gutbuster finish.
 
@@ -1657,7 +1657,7 @@ anim follow11
 
 	delay	40
 	offset	60 98
-	
+
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -15 	195 -1 	DIR_ADJ_OPP AC_DEFPOSE G_HORUP 0
 		frame	data/chars/ax/0079.png						#0
 	delay	20
@@ -1690,7 +1690,7 @@ anim follow12
 	delay	6
 	offset  60  98
 	@cmd  	bind0014 1 0														#Initialize bind variable.
-	@cmd  	dama0004 0 0 0 10 ATK_1 0 0 0 0 0 0 1 -1							#Put into falling state.
+	@cmd  	dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1							#Put into falling state.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 33 183 -1 DIR_ADJ_SAME AC_DEFPOSE G_HELDP 0
 	@cmd	soun0005 ENT_SELF VOI_ATKL -1 1 0 0
 		frame  data/chars/ax/0075.png	#0
@@ -1732,7 +1732,7 @@ anim follow12
 	offset  68  93
 	delay	50
 	@cmd	soun0005 ENT_SELF VOI_ATKH -1 1 0 0
-	@cmd	dama0004 0 0 18 10 ATK_1 1 0 0 0 0 0 0 0.2								#Apply damage.
+	@cmd	dama0004 0 0 18 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0.2								#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -4 141 -1 DIR_ADJ_OPP AC_DEFPOSE G_VERDNP 0
 		frame  data/chars/ax/0075.png	#15
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 10  0  -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0								#Release bind and restore AI control.
@@ -1758,7 +1758,7 @@ anim follow13
 		frame  data/chars/ax/0139.png
 	delay	-1000
 	offset  50  118
-		frame  data/chars/ax/0115.png	
+		frame  data/chars/ax/0115.png
 	delay	15
 	offset  50  99
 		frame   data/chars/ax/0048.png
@@ -1830,7 +1830,7 @@ anim follow51
 		frame	data/chars/ax/G_HELDMP.png										#16, G_EX2: G_HELDMP with same offset as pain.
 	offset 100	0
 		frame	data/chars/ax/G_EX3.png											#17, G_EX3: Golden Axe lifted.
-	
+
 anim jumpdelay
 	offset	60 98
 	bbox	43 38 26 60
@@ -1839,7 +1839,7 @@ anim jumpdelay
 		frame	data/chars/ax/j1.png
 
 anim jump
-	
+
     range		10 80
 	dropframe	1
 
@@ -1850,8 +1850,8 @@ anim jump
 		frame	data/chars/ax/j3.png
 
 anim walkoff
-	
-	dropframe	1 
+
+	dropframe	1
 	landframe	2 landm
 
 	offset	60 98
@@ -1985,7 +1985,7 @@ anim grabbackward
 
 	cancel 7 7 0 d b a freespecial14										#Hun Suplex.
 	cancel 7 7 0 u b a freespecial15										#Melon Splitter
-	
+
 	jumpframe  2  2.5  -0.5  0 jumpm
 	dropframe  3
 	landframe  4 impm
@@ -2002,14 +2002,14 @@ anim grabbackward
 	delay	-1000
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 25 184 -1 DIR_ADJ_SAME AC_DEFPOSE G_TLTUP 0
 		frame  data/chars/ax/0049.png	#2
-	move	0	
+	move	0
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 6 194 -1 DIR_ADJ_SAME AC_DEFPOSE G_FALUPT 0
 		frame  data/chars/ax/0050.png	#3
 	delay	10
     offset	60 95
 	@cmd	bind0008 "impm" "mute" 0 1 -50 0 1 0 0 0 1							#Dust.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -53 137 -1 DIR_ADJ_OPP AC_DEFPOSE G_VERDNP 0
-	@cmd	dama0004 0 0 8 10 ATK_1 1 0 0 0 0 0 0 0								#Apply damage.
+	@cmd	dama0004 0 0 8 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0								#Apply damage.
 		frame	data/chars/ax/0180.png	#4
 		frame	data/chars/ax/0181.png	#5
 		frame	data/chars/ax/0182.png	#6
@@ -2057,7 +2057,7 @@ anim grabforward
 	@cmd	bind0018 0 0 0 0 0 0												#Wall failsafe.
 	@cmd	bind0008 MODEL_FLLAND2 MODEL_FLLAND2 0 1 30 0 1 0 0 0 1							#Dust.
 	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF 0 44 139 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDNP 0
-	@cmd	dama0004 0 0 5 10 ATK_1 1 0 0 0 0 0 0 0								#Apply damage.
+	@cmd	dama0004 0 0 5 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0								#Apply damage.
 		frame  data/chars/ax/0063.png
 		frame  data/chars/ax/0064.png
 	delay  	30
@@ -2070,12 +2070,12 @@ anim grabforward
 	offset  49  99
 		frame  data/chars/ax/0048.png
 	offset  60  98
-		frame  data/chars/ax/0056.png	
+		frame  data/chars/ax/0056.png
 
 anim grabattack
 
 	#Ass beating
-	
+
 	delay  6
 	offset  60  98
 	bbox  41  52  27  46
@@ -2087,7 +2087,7 @@ anim grabattack
 		frame	data/chars/ax/0149.png
 	bbox  48  47  24  51
 	@cmd    bind0023 0  "hitm" "hitm" 0 1 30 40 1 0 0 0 1							#Flash
-	@cmd	dama0004 0 0 3 10 ATK_1 1 0 0 0 0 0 0 -1								#Apply damage.
+	@cmd	dama0004 0 0 3 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 17 166 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
 		frame	data/chars/ax/0150.png
 		frame	data/chars/ax/0151.png
@@ -2097,7 +2097,7 @@ anim grabattack
 	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 		frame  data/chars/ax/0149.png
 	@cmd    bind0023 0  "hitm" "hitm" 0 1 30 40 1 0 0 0 1							#Flash
-	@cmd	dama0004 0 0 3 10 ATK_1 1 0 0 0 0 0 0 -1								#Apply damage.
+	@cmd	dama0004 0 0 3 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 17 166 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
 		frame  data/chars/ax/0154.png
 		frame  data/chars/ax/0155.png
@@ -2107,7 +2107,7 @@ anim grabattack
 	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 		frame	data/chars/ax/0149.png
 	@cmd    bind0023 0  "hitm" "hitm" 0 1 30 40 1 0 0 0 1							#Flash
-	@cmd	dama0004 0 0 3 10 ATK_1 1 0 0 0 0 0 0 -1								#Apply damage.
+	@cmd	dama0004 0 0 3 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 17 166 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
 		frame	data/chars/ax/0150.png
 		frame	data/chars/ax/0151.png
@@ -2117,7 +2117,7 @@ anim grabattack
 	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 		frame  data/chars/ax/0149.png
 	@cmd    bind0023 0  "hitm" "hitm" 0 1 30 40 1 0 0 0 1							#Flash
-	@cmd	dama0004 0 0 3 10 ATK_1 1 0 0 0 0 0 0 -1								#Apply damage.
+	@cmd	dama0004 0 0 3 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 17 166 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
 		frame  data/chars/ax/0154.png
 		frame  data/chars/ax/0155.png
@@ -2127,17 +2127,17 @@ anim grabattack
 	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 		frame	data/chars/ax/0149.png
 	@cmd    bind0023 0  "hitm" "hitm" 0 1 30 40 1 0 0 0 1							#Flash
-	@cmd	dama0004 0 0 3 10 ATK_1 1 0 0 0 0 0 0 -1								#Apply damage.
+	@cmd	dama0004 0 0 3 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 17 166 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
 		frame	data/chars/ax/0150.png
-		frame	data/chars/ax/0151.png	
+		frame	data/chars/ax/0151.png
 		frame	data/chars/ax/0152.png
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 17 166 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
 		frame  data/chars/ax/0153.png
 	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 		frame  data/chars/ax/0149.png
 	@cmd    bind0023 0  "hitm" "hitm" 0 1 30 40 1 0 0 0 1							#Flash
-	@cmd	dama0004 0 0 3 10 ATK_1 1 0 0 0 0 0 0 -1								#Apply damage.
+	@cmd	dama0004 0 0 3 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 17 166 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
 		frame  data/chars/ax/0154.png
 		frame  data/chars/ax/0155.png
@@ -2151,10 +2151,10 @@ anim grabattack
 		frame  data/chars/ax/0149.png
 	@cmd    bind0023 0  "bluh" "bluh" 0 1 30 40 1 0 0 0 1							#Flash
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 10  0  -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0								#Release bind and restore AI control.
- 	@cmd    dama0004 0 -2 4 10 ATK_1 -1 3 2 0 0 0 0 0								#Put into falling state.
+ 	@cmd    dama0004 0 -2 4 10 openborconstant("ATK_NORMAL") -1 3 2 0 0 0 0 0								#Put into falling state.
 		frame  data/chars/ax/0150.png
 		frame  data/chars/ax/a9.png
-	delay  8 
+	delay  8
 		frame  data/chars/ax/a7.png
 	delay  20
 		frame  data/chars/ax/a7a.png
@@ -2170,12 +2170,12 @@ anim  follow14
 
 	jumpframe  2  2.5  -1  0 jumpm
 	landframe  6 impm
-	
+
 	offset  60  98
 	delay  25
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 6 177 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
-	@cmd  	dama0004 0 0 0 10 ATK_1 0 0 0 0 0 0 1 -1								#Put into falling state.
-		frame  data/chars/ax/0045.png	#0	
+	@cmd  	dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1								#Put into falling state.
+		frame  data/chars/ax/0045.png	#0
 	delay	10
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 4 175 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
 		frame  data/chars/ax/0068.png	#1
@@ -2193,7 +2193,7 @@ anim  follow14
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -23 161 1 DIR_ADJ_OPP AC_DEFPOSE G_FALUPT 0
 		frame  data/chars/ax/0158.png	#5
 	delay  10
-	@cmd	dama0004 0 0 12 10 ATK_1 1 0 0 0 0 0 0 0								#Apply damage.
+	@cmd	dama0004 0 0 12 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0								#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -1 1 0 0
 		frame  data/chars/ax/0159.png	#6
 	@cmd	ani0009 0 A_FOLLOW17 0													#Powerslam finish (to allow non scripted cancel)
@@ -2202,39 +2202,39 @@ anim  follow14
 anim  follow15
 
 	#Python Drop (swing DDT)
-	
+
 	range  -20 30
 	rangea -50 1
 
 	jumpframe  6  2  -0.5  0 jumpm
 	landframe  8 impm
-	
+
 	offset  60  98
 	delay  9
 	@cmd	velo0001 0 0 0
-	@cmd  	dama0004 0 0 0 10 ATK_1 0 0 0 0 0 0 1 -1							#Put into falling state.
+	@cmd  	dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1							#Put into falling state.
 	@cmd bind0010 FLAG_MODE_7 ENT_SELF 0 26 -44 -1 DIR_ADJ_OPP AC_DEFPOSE G_EX2 0
 		frame  data/chars/ax/0159.png #0
 	offset  60  98
 	@cmd bind0010 FLAG_MODE_7 ENT_SELF 0 20 -7 -1 DIR_ADJ_OPP AC_DEFPOSE G_EX2 0
 	@cmd bind0010 FLAG_MODE_7 ENT_SELF 0 20 -7 -1 DIR_ADJ_OPP AC_DEFPOSE G_EX2 0
 		frame  data/chars/ax/0137.png #1
-	@cmd bind0010 FLAG_MODE_7 ENT_SELF 0 -25 -12 -1 DIR_ADJ_OPP AC_DEFPOSE G_EX1 0	
+	@cmd bind0010 FLAG_MODE_7 ENT_SELF 0 -25 -12 -1 DIR_ADJ_OPP AC_DEFPOSE G_EX1 0
 		frame  data/chars/ax/0157.png #2
-	@cmd bind0010 FLAG_MODE_7 ENT_SELF 0 -16 -36 1 DIR_ADJ_OPP AC_DEFPOSE G_EX1 0	
+	@cmd bind0010 FLAG_MODE_7 ENT_SELF 0 -16 -36 1 DIR_ADJ_OPP AC_DEFPOSE G_EX1 0
 		frame  data/chars/ax/0158.png #3
-	@cmd bind0010 FLAG_MODE_7 ENT_SELF 0 21 -44 -1 DIR_ADJ_OPP AC_DEFPOSE G_EX2 0	
+	@cmd bind0010 FLAG_MODE_7 ENT_SELF 0 21 -44 -1 DIR_ADJ_OPP AC_DEFPOSE G_EX2 0
 		frame  data/chars/ax/0159.png #4
-	@cmd bind0010 FLAG_MODE_7 ENT_SELF 0 20 -7 -1 DIR_ADJ_OPP AC_DEFPOSE G_EX2 0	
+	@cmd bind0010 FLAG_MODE_7 ENT_SELF 0 20 -7 -1 DIR_ADJ_OPP AC_DEFPOSE G_EX2 0
 		frame  data/chars/ax/0137.png #5
-	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 27 189 -1 DIR_ADJ_SAME AC_DEFPOSE G_HORDN 0	
+	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 27 189 -1 DIR_ADJ_SAME AC_DEFPOSE G_HORDN 0
 		frame  data/chars/ax/0138.png #6
 	delay  -1000
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 0 153 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDN 0
 		frame  data/chars/ax/0163.png #7
 	offset	60 65
 	delay  10
-	@cmd	dama0004 0 0 8 10 ATK_1 1 0 0 0 0 0 0 0								#Apply damage.
+	@cmd	dama0004 0 0 8 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0								#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -24 142 -1 DIR_ADJ_OPP AC_DEFPOSE G_VERDNP 0
 		frame  data/chars/ax/0157.png #8
 	@cmd	ani0009 0 A_FOLLOW16 0											#Python Drop finish (to allow non scripted cancel)
@@ -2246,7 +2246,7 @@ anim follow16
 
 	cancel 2 3 0 d b a freespecial14										#Hun Suplex.
 	cancel 2 3 0 u b a freespecial15										#Melon Splitter.
-	
+
 	offset	60 65
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 -24 142 -1 DIR_ADJ_OPP AC_DEFPOSE G_VERDNP 0
 		frame  data/chars/ax/0157.png #0
@@ -2269,7 +2269,7 @@ anim follow17
 	#Powerslam finish
 
 	cancel 1 2 0 d d a freespecial16												#Ground And Pound.
-	
+
 	jumpframe 5 2.5 -1 0 jumpm
 	dropframe 6
 	landframe 7 landm
@@ -2294,7 +2294,7 @@ anim follow17
 		frame  data/chars/ax/land.png	#7
 
 anim  follow18
-	
+
 	#Tackle
 
 	range		-20 40
@@ -2308,7 +2308,7 @@ anim  follow18
 	delay  4
 	@cmd	soun0005 ENT_SELF VOI_ATKL -1 1 0 0
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 10 178 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
-	@cmd  	dama0004 0 0 0 10 ATK_1 0 0 0 0 0 0 1 -1								#Put into falling state.
+	@cmd  	dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1								#Put into falling state.
 		frame  data/chars/ax/0062.png
 	delay	-1000
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 5 178 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
@@ -2317,14 +2317,14 @@ anim  follow18
 		frame  data/chars/ax/0179.png
 	move  8
 	delay  10
-	@cmd	dama0004 0 0 6 10 ATK_1 1 0 0 0 0 0 0 0								#Apply damage.
+	@cmd	dama0004 0 0 6 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0								#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -1 1 0 0
-		frame  data/chars/ax/0159.png	
+		frame  data/chars/ax/0159.png
 	move	0
 	@cmd	ani0009 0 A_FOLLOW17 0													#Powerslam/Tackle finish (to allow non scripted cancel)
-		frame  data/chars/ax/0160.png	
+		frame  data/chars/ax/0160.png
 
-anim block     
+anim block
 
 	offset	60 98
 	bbox	46 39 29 59
@@ -2340,8 +2340,8 @@ anim block
 		frame	data/chars/ax/a20.png
 	offset  60  98
 	bbox  50  41  25  57
-	    frame	data/chars/ax/j1.png	
-	    
+	    frame	data/chars/ax/j1.png
+
 anim rise
 	offset	60 98
 	delay   8
@@ -2464,10 +2464,10 @@ anim fall
 
 
 anim death
-	
+
 	flipframe  13
 	jumpframe  13 0 0 0 fallm
-	
+
 	offset  60  98
 	delay  20
 		frame  data/chars/ax/die.png
@@ -2596,7 +2596,7 @@ anim burn
 	hitflash		idirm
 	landframe		2 steam
 	dropframe		1
-	   	
+
     delay   -1000
 	offset  89  168
 	bbox  71  123  39  36
@@ -2609,7 +2609,7 @@ anim burn
 	delay  10
 	offset  90  167
 	bbox  65  154  61  14
-	Attack  0	
+	Attack  0
 		frame  data/chars/ax/G_DWNUP.png
 
 anim spain
@@ -2630,7 +2630,7 @@ anim shock
 	hitflash		idirm
 	landframe		2 steam
 	dropframe		1
-	   	
+
     delay   -1000
 	offset  89  168
 	bbox  71  123  39  36
@@ -2643,7 +2643,7 @@ anim shock
 	delay  10
 	offset  90  167
 	bbox  65  154  61  14
-	Attack  0	
+	Attack  0
 		frame  data/chars/ax/G_DWNUP.png
 
 

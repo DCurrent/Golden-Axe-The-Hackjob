@@ -279,7 +279,7 @@
 #define A_WALKOFF					openborconstant("ANI_WALKOFF")
 
 /******Attack Types******/
-#define ATK_1						openborconstant("ATK_NORMAL")
+
 #define ATK_2						openborconstant("ATK_NORMAL2")
 #define ATK_3						openborconstant("ATK_NORMAL3")
 #define ATK_4						openborconstant("ATK_NORMAL4")
@@ -289,7 +289,6 @@
 #define ATK_8						openborconstant("ATK_NORMAL8")
 #define ATK_9						openborconstant("ATK_NORMAL9")
 #define ATK_10						openborconstant("ATK_NORMAL10")
-#define ATK_BURN					openborconstant("ATK_BURN")
 #define ATK_SHOCK					openborconstant("ATK_SHOCK")
 
 /*****Color Maps*****/

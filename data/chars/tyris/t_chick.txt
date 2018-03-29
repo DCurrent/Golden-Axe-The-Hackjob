@@ -49,7 +49,7 @@ anim spawn
 
 	delay	1
 	offset	78 142
-    bbox    66 80 34 64	
+    bbox    66 80 34 64
 		frame	data/chars/tyris/chicken/0015
 	delay	15
 		frame	data/chars/tyris/chicken/0015
@@ -146,10 +146,10 @@ anim runattack
 		frame	data/chars/tyris/chicken/0043
 		frame	data/chars/tyris/chicken/0044
 		frame	data/chars/tyris/chicken/0043
-		frame	data/chars/tyris/chicken/0043	
+		frame	data/chars/tyris/chicken/0043
 	attack	0
     delay   3
-    bbox    68 66 34 54		
+    bbox    68 66 34 54
 	@cmd velo0001 2 0 0
 		frame	data/chars/tyris/chicken/0056
 	@cmd velo0001 0 0 0
@@ -174,7 +174,7 @@ anim attackboth
 anim attackup
 
 	#sidestep.
-	
+
 	jumpframe	1 2 -0.2 -1 jumpm
 	dropframe	2
 	loop		1 5 9
@@ -184,13 +184,13 @@ anim attackup
     bbox    0
 		frame	data/chars/tyris/chicken/0019
     delay	-1000
-    offset	88 142   
+    offset	88 142
 	@cmd	jump0003 0 0 0
 		frame	data/chars/tyris/chicken/0018
 	delay	5
 		frame	data/chars/tyris/chicken/0050
 		frame	data/chars/tyris/chicken/0051
-		frame	data/chars/tyris/chicken/0052	
+		frame	data/chars/tyris/chicken/0052
 		frame	data/chars/tyris/chicken/0053
 		frame	data/chars/tyris/chicken/0054
 		frame	data/chars/tyris/chicken/0055
@@ -210,13 +210,13 @@ anim attackdown
     bbox    0
 		frame	data/chars/tyris/chicken/0019
     delay	-1000
-    offset	88 142    
+    offset	88 142
 	@cmd	jump0003 0 0 0
 		frame	data/chars/tyris/chicken/0018
 	delay	5
 		frame	data/chars/tyris/chicken/0050
 		frame	data/chars/tyris/chicken/0051
-		frame	data/chars/tyris/chicken/0052	
+		frame	data/chars/tyris/chicken/0052
 		frame	data/chars/tyris/chicken/0053
 		frame	data/chars/tyris/chicken/0054
 		frame	data/chars/tyris/chicken/0055
@@ -265,7 +265,7 @@ anim attack1
 	offset	76 142
    	bbox    60 79 31 55
 	attack5	52 126 48 24 16 5
-	@cmd	bind0008 "landm" "mute" 0 1 0 0 0 0 0 0 1					#Dust.	
+	@cmd	bind0008 "landm" "mute" 0 1 0 0 0 0 0 0 1					#Dust.
 	@cmd	soun0005 ENT_SELF SND_WIFFM -1 1 0 0
 		frame	data/chars/tyris/chicken/0008
 	offset	78 142
@@ -294,12 +294,12 @@ anim grabattack
     	bbox    66 80 34 64
 	delay	8
 	@cmd	ani0012	A_GRABATK2 A_GRABATK2
-		frame	data/chars/tyris/chicken/0036	
+		frame	data/chars/tyris/chicken/0036
 		frame	data/chars/tyris/chicken/0037
 	@cmd stal0001 1000
 	@cmd seal0001 1 1000
 	attack2 99 90 12 26 2
-	dropv 0 0 0	
+	dropv 0 0 0
 		frame	data/chars/tyris/chicken/0038
 		frame	data/chars/tyris/chicken/0037
 		frame	data/chars/tyris/chicken/0036
@@ -309,12 +309,12 @@ anim grabattack2
 
 	#Worm Toss.
 	jumpframe       14 0 -0.3 0
-    	
+
 	delay		8
    	offset		82 142
    	bbox    	0
 	@cmd  	bind0014 1 0											#Initialize bind variable.
-	@cmd  	dama0004 0 0 0 10 ATK_1 0 0 0 0 0 0 1 -1				#Put into falling state.
+	@cmd  	dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1				#Put into falling state.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 165 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
 	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
 		frame	data/chars/tyris/chicken/0013
@@ -327,7 +327,7 @@ anim grabattack2
 	delay	12
 	@cmd	bind0008 "impm" "impm" 0 1 -30 0 0 0 0 0 1				#Dust
 	@cmd	dama0004 0 0 7 10 ATK_7 1 2.2 1 0 0 0 0 0				#Apply damage.
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -50 170 -1 DIR_ADJ_OPP AC_DEFPOSE G_DWNUPP 0		
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -50 170 -1 DIR_ADJ_OPP AC_DEFPOSE G_DWNUPP 0
 		frame	data/chars/tyris/chicken/0006
 	delay	8
 	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
@@ -372,7 +372,7 @@ anim grabbackward
     	offset	82 142
     	bbox    0
     	@cmd  	bind0014 1 0										#Initialize bind variable.
-	@cmd  	dama0004 0 0 0 10 ATK_1 0 0 0 0 0 0 1 -1				#Put into falling state.
+	@cmd  	dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1				#Put into falling state.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 	165 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
 		frame	data/chars/tyris/chicken/0013
     	delay	8
@@ -414,7 +414,7 @@ anim grabbackward
 	delay	6
 	@cmd	bind0018 0 0 0 0 0 0									#Wall failsafe.
 	@cmd	bind0008 "impm" "mute" 0 1 30 0 0 0 0 0 1				#Dust.
-	@cmd	dama0004 0 0 18 10 ATK_1 1 2.2 1 0 0 0 0 0				#Apply damage.
+	@cmd	dama0004 0 0 18 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0				#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 40 138 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDNP 0
 		frame	data/chars/tyris/chicken/0039
 		frame	data/chars/tyris/chicken/0040
@@ -530,7 +530,7 @@ anim follow2
 
 	jumpframe 0 1 0
     landframe 2 landm
-	
+
 	hitflash  hithcut
 
 	offset	78 142
@@ -548,7 +548,7 @@ anim follow2
 		frame	data/chars/tyris/chicken/0058
 		frame	data/chars/tyris/chicken/0059
 		frame	data/chars/tyris/chicken/0019
-		
+
 
 anim follow3
 
@@ -569,7 +569,7 @@ anim follow3
 	delay	5
 		frame	data/chars/tyris/chicken/0050
 		frame	data/chars/tyris/chicken/0051
-		frame	data/chars/tyris/chicken/0052	
+		frame	data/chars/tyris/chicken/0052
 		frame	data/chars/tyris/chicken/0053
 		frame	data/chars/tyris/chicken/0054
 		frame	data/chars/tyris/chicken/0055
@@ -596,7 +596,7 @@ anim jump
 	delay	5
 		frame	data/chars/tyris/chicken/0050
 		frame	data/chars/tyris/chicken/0051
-		frame	data/chars/tyris/chicken/0052	
+		frame	data/chars/tyris/chicken/0052
 		frame	data/chars/tyris/chicken/0053
 		frame	data/chars/tyris/chicken/0054
 		frame	data/chars/tyris/chicken/0055
@@ -623,7 +623,7 @@ anim jumpland
 
 anim jumpattack
 
-    	range		0 0		 
+    	range		0 0
     	hitflash	hithcut
 		loop		1 1 6
 

@@ -518,7 +518,7 @@ anim grabattack
     delay  35
 	@cmd	bind0008 "bonem" "bonem" 0 1 10 70 1 0 0 0 1						#Flash.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 0 213 0 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
-	@cmd	dama0004 0 0 8 10 ATK_1 1 2.2 1 0 0 0 0 0							#Apply damage.
+	@cmd	dama0004 0 0 8 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0							#Apply damage.
 			frame	data/chars/bad_bros/0007.png
 	offset  80  138
 	bbox  67  58  31  80
@@ -526,7 +526,7 @@ anim grabattack
 		frame	data/chars/bad_bros/g3.png
 	@cmd	bind0008 "bonem" "bonem" 0 1 10 70 1 0 0 0 1						#Flash.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 0 213 0 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
-	@cmd	dama0004 0 0 8 10 ATK_1 1 2.2 1 0 0 0 0 0							#Apply damage.
+	@cmd	dama0004 0 0 8 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0							#Apply damage.
 		frame	data/chars/bad_bros/0007.png
 	offset  80  138
 	bbox  67  58  31  80
@@ -535,7 +535,7 @@ anim grabattack
 	delay  50
 	@cmd	bind0008 "bonem" "bonem" 0 1 10 70 1 0 0 0 1						#Flash.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 0 213 0 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
-	@cmd	dama0004 0 0 8 10 ATK_1 1 2.2 1 0 0 0 0 0							#Apply damage.
+	@cmd	dama0004 0 0 8 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0							#Apply damage.
 		frame  data/chars/bad_bros/0007.png
 	offset  80  138
 	bbox  67  58  31  80
@@ -917,7 +917,7 @@ anim burn
 		frame	data/chars/bad_bros/G_DWNUP.png
 
 
-anim death 
+anim death
 
 	delay	10
 	offset  90  163

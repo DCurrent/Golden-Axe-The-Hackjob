@@ -11,20 +11,20 @@ void main()
 
     if(vSelf != vAtk)
     {
-        if(cName == "BlueThief")                 
-        { 
-            spaw0005("Magic_Pot",0,0,0,0,0,0);    
+        if(cName == "BlueThief")
+        {
+            spaw0005("Magic_Pot",0,0,0,0,0,0);
         }
 		else if(cName == "GrayThief")
         {
-            spaw0005("time",0,0,0,0,0,0);         
+            spaw0005("time",0,0,0,0,0,0);
         }
         else
         {
-            spaw0005("meat",0,0,0,0,0,0);         
+            spaw0005("meat",0,0,0,0,0,0);
         }
-       
-        damageentity(vSelf, vSelf, 1, 1, ATK_10);
+
+        damageentity(vSelf, vSelf, 1, 1, openborconstant("ATK_NORMAL10"));
     }
 
 	dama0002();                                                                 //Run global damage function.

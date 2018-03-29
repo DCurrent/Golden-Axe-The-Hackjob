@@ -623,7 +623,7 @@ anim  grabbackward
 		frame  data/chars/amazon/0030.png
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -53  0 1  DIR_ADJ_SAME AC_DEFPOSE G_RELEASE 0							#Release bind.
 	@cmd	soun0005 ENT_SELF VOI_BTL -1 1 0 0
-	@cmd	dama0004 0 -2 0 10 ATK_7 -1 1 0 0		#Apply damage, falling properties and final animation values.
+	@cmd	dama0004 0 -2 0 10 openborconstant("ATK_NORMAL6") -1 1 0 0		#Apply damage, falling properties and final animation values.
 		frame  data/chars/amazon/0030.png
 	delay  12
 		frame  data/chars/amazon/0031.png

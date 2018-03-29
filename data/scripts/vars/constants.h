@@ -280,10 +280,6 @@
 
 /******Attack Types******/
 
-#define ATK_7						openborconstant("ATK_NORMAL7")
-#define ATK_8						openborconstant("ATK_NORMAL8")
-#define ATK_9						openborconstant("ATK_NORMAL9")
-#define ATK_10						openborconstant("ATK_NORMAL10")
 #define ATK_SHOCK					openborconstant("ATK_SHOCK")
 
 /*****Color Maps*****/

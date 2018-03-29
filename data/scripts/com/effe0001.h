@@ -1,6 +1,57 @@
 #include "data/scripts/vars/constants.h"	//http://www.caskeys.com/dc/?p=1314#constants
 #import "data/scripts/com/draw0001.h"
 
+// Get which effect model to use based on animation.
+void dc_effect_model_select()
+{
+
+}
+
+void dc_effect(void target)
+{
+    #define DC_EFFECT_ENTITY "dc_effect_0"
+
+    char model_current;
+    char model_spawn;
+    char varkey;        // Local variable key to track any pre-existing effect entity.
+
+    float pos_x;        // Target position, X axis.
+    float pos_y;
+    float pos_z;
+    float anim_height;
+
+    void effect;    // Effect entity.
+
+    // Combine key name with target's pointer
+    // to create a unique local var name that
+    // will then be used to track effect entity.
+    varkey = DC_EFFECT_ENTITY + target;
+
+    // Get pre-existing effect (if any).
+    effect = getlocalvar(varkey);
+
+
+    // Previous effect entity in place?
+    if (effect)
+    {
+        model_current = getentityproperty(effect, "model");
+
+        // Existing same as proposed? We can just refresh
+        // the bind, and then exit. Else-wise destroy the
+        // existing model.
+        if (model_current == model_spawn)
+        {
+            return;
+        }
+        else
+        {
+            killentity(effect);
+        }
+    }
+
+    setlocalvar(varkey, effect);
+}
+
 void effe0001(int iMap){
 
     /*

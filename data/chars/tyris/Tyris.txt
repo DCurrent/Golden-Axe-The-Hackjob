@@ -219,7 +219,7 @@ anim	attack6
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 10 185 2 DIR_ADJ_SAME AC_DEFPOSE G_HORDN 0
 	frame	data/chars/tyris/0132.png
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -15 30 1 DIR_ADJ_SAME AC_DEFPOSE G_RELEASE 0
-	@cmd	dama0004 0 -2 0 0 ATK_5 -1 1 0 0
+	@cmd	dama0004 0 -2 0 0 openborconstant("ATK_NORMAL5") -1 1 0 0
 	frame	data/chars/tyris/0133.png
 	frame	data/chars/tyris/0134.png
 	frame	data/chars/tyris/0135.png
@@ -895,7 +895,7 @@ anim	grabbackward
 	frame	data/chars/tyris/0195.png
 		delay  30
 		@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 -50 20 -1 DIR_ADJ_SAME AC_DEFPOSE G_RELEASE 0
-		@cmd dama0004 0 -2 0 0 ATK_5 -1 1 0 0
+		@cmd dama0004 0 -2 0 0 openborconstant("ATK_NORMAL5") -1 1 0 0
 	frame	data/chars/tyris/0196.png
 		delay  15
 		bbox  18  66  53  32

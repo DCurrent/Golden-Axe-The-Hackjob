@@ -496,7 +496,7 @@ anim attack6
 		frame	data/chars/alex/0062.png
 	delay	30
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 30 30 1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0						#Release bind.
-	@cmd	dama0004 0 -2 0 10 ATK_5 1 2 1.5 0 10 0 1 0	#Apply damage, falling properties and final animation values.
+	@cmd	dama0004 0 -2 0 10 openborconstant("ATK_NORMAL5") 1 2 1.5 0 10 0 1 0	#Apply damage, falling properties and final animation values.
 		frame	data/chars/alex/0063.png
 	delay	7
 		offset  61  96
@@ -1322,7 +1322,7 @@ anim  follow9
 	delay  	30
 	move  	0
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -10 60 -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0							#Release bind.
-	@cmd	dama0004 0 -2 0 10 ATK_5 -1 1 0 0		#Apply damage.
+	@cmd	dama0004 0 -2 0 10 openborconstant("ATK_NORMAL5") -1 1 0 0		#Apply damage.
 		frame  data/chars/alex/0089.png
 	delay  	8
 		frame  data/chars/alex/0088.png

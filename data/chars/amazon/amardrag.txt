@@ -605,7 +605,7 @@ anim grabbackward
 	@cmd	bind0018 0 0 0 0 0 0								#Wall failsafe.
 	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF							#Sound.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 15 60 -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0							#Release bind.
-	@cmd	dama0004 0 -2 5 10 ATK_5 -1 1 0 0		#Apply damage.
+	@cmd	dama0004 0 -2 5 10 openborconstant("ATK_NORMAL5") -1 1 0 0		#Apply damage.
 		frame	data/chars/amazon/dragon/0010
 	delay   12
 		frame	data/chars/amazon/dragon/0014

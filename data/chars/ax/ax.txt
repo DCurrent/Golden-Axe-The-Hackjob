@@ -634,7 +634,7 @@ anim attack6
 		frame	data/chars/ax/0042.png
 	delay	8
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 35 	30 -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0									#Release bind and restore AI control.
- 	@cmd	dama0004 0 -2 0 0 ATK_5 1 2 2 0 10 0 1 0							#Apply damage, falling properties and final animation values.
+ 	@cmd	dama0004 0 -2 0 0 openborconstant("ATK_NORMAL5") 1 2 2 0 10 0 1 0							#Apply damage, falling properties and final animation values.
 		frame	data/chars/ax/0043.png
 	delay	30
 		frame	data/chars/ax/0044.png
@@ -938,7 +938,7 @@ anim  freespecial9
 		frame  data/chars/ax/g2.png
 	@cmd	bind0018 0 0 0 0 0 0												#Wall failsafe.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 45 15 0 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0										#Release bind.
-	@cmd	dama0004 0 -2 0 0 ATK_5 -1 1 0 0	#Apply damage.
+	@cmd	dama0004 0 -2 0 0 openborconstant("ATK_NORMAL5") -1 1 0 0	#Apply damage.
 		frame  data/chars/ax/0043.png
 	delay	20
 	bbox  61  47  27  50
@@ -1000,7 +1000,7 @@ anim freespecial10
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
 	@cmd	bind0018 0 0 0 0 0 0												#Wall failsafe.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 35 50  -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0										#Release bind and restore AI control.
- 	@cmd	dama0004 0 -2 0 0 ATK_5 1 2 2.2 0 12 0 1 -1	#Apply damage.
+ 	@cmd	dama0004 0 -2 0 0 openborconstant("ATK_NORMAL5") 1 2 2.2 0 12 0 1 -1	#Apply damage.
 		frame	data/chars/ax/0010.png
 		frame	data/chars/ax/0011.png
 	delay	40
@@ -1493,7 +1493,7 @@ anim follow6
 	delay	30
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 40 	35 -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0											#Release bind and restore AI control.
-	@cmd	dama0004 0 -2 0 10 ATK_5 1 2.8 1.5 0 10 0 1 0	#Apply damage, falling properties and final animation values.
+	@cmd	dama0004 0 -2 0 10 openborconstant("ATK_NORMAL5") 1 2.8 1.5 0 10 0 1 0	#Apply damage, falling properties and final animation values.
 		frame	data/chars/ax/g5.png
 	delay	7
 		frame	data/chars/ax/g4.png
@@ -1565,7 +1565,7 @@ anim follow9
 		frame	data/chars/ax/0070.png
 	delay	30
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 40 	15 -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0											#Release bind and restore AI control.
-	@cmd	dama0004 0 -2 0 10 ATK_5 1 -1 1 0 0		#Apply damage, falling properties and final animation values.
+	@cmd	dama0004 0 -2 0 10 openborconstant("ATK_NORMAL5") 1 -1 1 0 0		#Apply damage, falling properties and final animation values.
 		frame   data/chars/ax/0077.png
 	delay  -1000
 		frame	data/chars/ax/0078.png
@@ -1668,7 +1668,7 @@ anim follow11
 		frame  data/chars/ax/0116.png						#2
 	delay  30
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -10 50  -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0				#Release bind and restore AI control.
- 	@cmd    dama0004 0 -2 0 10 ATK_5 -1 1 0 0 1 -1	#Put into falling state.
+ 	@cmd    dama0004 0 -2 0 10 openborconstant("ATK_NORMAL5") -1 1 0 0 1 -1	#Put into falling state.
 		frame  data/chars/ax/0061.png						#3
 	delay  12
 		frame  data/chars/ax/0045.png						#4

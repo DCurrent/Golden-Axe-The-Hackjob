@@ -1325,7 +1325,7 @@ anim  freespecial16
 		frame  data/chars/ax/0167.png	#4
 	delay	6
 	@cmd    bind0023 0  "blul" "blul" 0 1 13 8 1 0 0 0 1							#Flash
-	@cmd	dama0004 0 0 4 10 ATK_2 1 0 0 0 0 0 0 -1								#Apply damage.
+	@cmd	dama0004 0 0 4 10 openborconstant("ATK_NORMAL2") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -1 1 0 0
 		frame  data/chars/ax/0168.png	#5
 		frame  data/chars/ax/0169.png	#6
@@ -1338,7 +1338,7 @@ anim  freespecial16
 		frame  data/chars/ax/0167.png	#10
 	delay	6
 	@cmd    bind0023 0  "blul" "blul" 0 1 13 8 1 0 0 0 1							#Flash
-	@cmd	dama0004 0 0 4 10 ATK_2 1 0 0 0 0 0 0 -1								#Apply damage.
+	@cmd	dama0004 0 0 4 10 openborconstant("ATK_NORMAL2") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -1 1 0 0
 		frame  data/chars/ax/0168.png	#11
 		frame  data/chars/ax/0169.png	#12
@@ -1350,7 +1350,7 @@ anim  freespecial16
 	delay	8
 		frame  data/chars/ax/0167.png	#16
 	@cmd    bind0023 0  "blul" "blul" 0 1 13 8 1 0 0 0 1							#Flash
-	@cmd	dama0004 0 0 4 10 ATK_2 1 0 0 0 0 0 0 -1								#Apply damage.
+	@cmd	dama0004 0 0 4 10 openborconstant("ATK_NORMAL2") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -1 1 0 0
 		frame  data/chars/ax/0168.png	#17
 		frame  data/chars/ax/0169.png	#18

@@ -28,7 +28,7 @@ void fall0001(){
     {
 		effe0001(MAP_SHOCK);                                                         //Set effect.
     }
-    else if (iType == ATK_2)														//Attack Type 2?
+    else if (iType == openborconstant("ATK_NORMAL2"))														//Attack Type 2?
     {
 		/*
 		Using auto set conditionals? Collapse or fall.

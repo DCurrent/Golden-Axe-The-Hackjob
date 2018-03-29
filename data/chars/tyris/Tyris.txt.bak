@@ -55,8 +55,8 @@ keyscript			data/chars/tyris/scripts/key.c		#Controlling player press/release ke
 onblockascript		data/scripts/z_blocka.c				#Movement (rise/fall) blocked by platform.
 onblockoscript		data/scripts/z_blocko.c				#Movement blocked by obstacle.
 onblocksscript		data/scripts/z_blocks.c				#Movement blocked by screen boundary.
-onblockwscript		data/scripts/z_blockw.c				#Movement blocked by wall.				
-onblockzscript		data/scripts/z_blockz.c				#Movement blocked by Z boundary.				
+onblockwscript		data/scripts/z_blockw.c				#Movement blocked by wall.
+onblockzscript		data/scripts/z_blockz.c				#Movement blocked by Z boundary.
 ondeathscript		data/scripts/z_death.c				#Killed by damage.
 onfallscript		data/scripts/z_fall.c				#Fall status set.
 onkillscript		data/scripts/z_kill.c				#Removed from playfield.
@@ -107,7 +107,7 @@ anim	attack1
 	delay	20
 	idle	1
 	frame	data/chars/tyris/0018.png
-		
+
 anim	attack2
 	range	0 44
 	loop	0
@@ -135,7 +135,7 @@ anim	attack2
 	frame	data/chars/tyris/0019.png
 	delay	8
 	frame	data/chars/tyris/0018.png
-		
+
 anim	attack3
 	hitflash	stabh
 	range	40 60
@@ -156,7 +156,7 @@ anim	attack3
 	offset	60 98
 	delay	6
 	frame	data/chars/tyris/0031.png
-		
+
 anim	attack4
 	hitflash	blul
 	range	21 30
@@ -176,7 +176,7 @@ anim	attack4
 	delay	100
 	idle	1
 	frame	data/chars/tyris/0046.png
-		
+
 anim	attack5
 	range	24 26
 	hitflash	hitm
@@ -209,7 +209,7 @@ anim	attack5
 	bbox	47 51 29 48
 	offset	60 98
 	frame	data/chars/tyris/0082.png
-		
+
 anim	attack6
 	range	-5 25
 	delay	10
@@ -239,7 +239,7 @@ anim	attack6
 	frame	data/chars/tyris/0082.png
 	move	0
 	frame	data/chars/tyris/0001.png
-		
+
 anim	attackbackward
 	hitflash	cuth
 	flipframe	21
@@ -285,7 +285,7 @@ anim	attackbackward
 	frame	data/chars/tyris/0045.png
 	move	5
 	frame	data/chars/tyris/0002.png
-		
+
 anim	attackboth
 	range	-60 110
 	flipframe	14
@@ -346,7 +346,7 @@ anim	attackboth
 	frame	data/chars/tyris/0075.png
 	frame	data/chars/tyris/0075.png
 	frame	data/chars/tyris/0082.png
-		
+
 anim	attackdown
 	loop	1 8 12
 	jumpframe	1 3 -0.5 1 jumpm
@@ -376,7 +376,7 @@ anim	attackdown
 	frame	data/chars/tyris/0074
 	frame	data/chars/tyris/0075
 	frame	data/chars/tyris/0082
-		
+
 anim	attackup
 	loop	1 8 12
 	jumpframe	1 3 -0.5 -1 jumpm
@@ -406,7 +406,7 @@ anim	attackup
 	frame	data/chars/tyris/0074
 	frame	data/chars/tyris/0075
 	frame	data/chars/tyris/0082
-		
+
 anim	block
 	delay	5
 	offset	60 98
@@ -418,7 +418,7 @@ anim	block
 	frame	data/chars/tyris/0048.png
 	delay	5
 	frame	data/chars/tyris/0082.png
-		
+
 anim	bpain
 	offset	60 98
 	bbox	40 40 38 60
@@ -426,7 +426,7 @@ anim	bpain
 	frame	data/chars/tyris/0115
 	delay	100
 	frame	data/chars/tyris/0116
-		
+
 anim	burn
 	landframe	3
 	dropframe	1
@@ -442,7 +442,7 @@ anim	burn
 	attack1	0 0 0 0 0
 	delay	10
 	frame	data/chars/tyris/0049
-		
+
 anim	chargeattack
 	chargetime	1
 	range	80 175
@@ -465,7 +465,7 @@ anim	chargeattack
 	frame	data/chars/tyris/0029.png
 	frame	data/chars/tyris/0021.png
 	frame	data/chars/tyris/0082.png
-		
+
 anim	fall
 	landframe	3
 	dropframe	1
@@ -481,7 +481,7 @@ anim	fall
 	attack1	0 0 0 0 0
 	delay	10
 	frame	data/chars/tyris/0049
-		
+
 anim	follow10
 	flipframe	0
 	loop	1 7 19
@@ -533,14 +533,14 @@ anim	follow10
 	frame	data/chars/tyris/0074.png
 	frame	data/chars/tyris/0075.png
 	frame	data/chars/tyris/0082.png
-		
+
 anim	follow12
 	offset	60 98
 	delay	10
 	frame	data/chars/tyris/0029.png
 	frame	data/chars/tyris/0021.png
 	frame	data/chars/tyris/0082.png
-		
+
 anim	follow2
 	hitflash	hith
 	jumpframe	0 1 0
@@ -576,7 +576,7 @@ anim	follow2
 	frame	data/chars/tyris/0074
 	frame	data/chars/tyris/0075
 	frame	data/chars/tyris/0082
-		
+
 anim	follow3
 	offset	60 98
 	bbox	48 44 22 54
@@ -603,7 +603,7 @@ anim	follow3
 	frame	data/chars/tyris/0021
 	frame	data/chars/tyris/0019
 	frame	data/chars/tyris/0018
-		
+
 anim	follow51
 	loop	1
 	delay	-1000
@@ -651,7 +651,7 @@ anim	follow51
 		frame	data/chars/tyris/0116						#16	G_EX2:	G_HELDMP with pain offset.
 	offset	100 0
 		frame	data/chars/tyris/G_EX3						#17 G_EX3:	Golden Axe lifted.
-		
+
 anim	follow54
 	loop	1 1 6
 	dropframe	1
@@ -667,7 +667,7 @@ anim	follow54
 	frame	data/chars/tyris/0070
 	frame	data/chars/tyris/0069
 	frame	data/chars/tyris/0069
-		
+
 anim	follow57
 	range	-30 40
 	rangea	-50 1
@@ -689,7 +689,7 @@ anim	follow57
 	frame	data/chars/tyris/0193.png
 	@cmd	velo0003 0 0
 	@cmd	soun0005 ENT_SELF VOI_ATKL -1 1 0 0
-	@cmd    dama0004 0 -2 -18 0 ATK_2 0 0 0 0 0 0 0 0								#Apply damage.
+	@cmd    dama0004 0 -2 -18 0 openborconstant("ATK_NORMAL2") 0 0 0 0 0 0 0 0								#Apply damage.
 	delay	-1000
 	frame	data/chars/tyris/0066
 	delay	6
@@ -718,7 +718,7 @@ anim	follow57
 	frame	data/chars/tyris/0074.png
 	frame	data/chars/tyris/0075.png
 	frame	data/chars/tyris/0082.png
-		
+
 anim	follow58
 	flipframe	0
 	loop	1 11 16
@@ -765,7 +765,7 @@ anim	follow58
 	frame	data/chars/tyris/0074.png
 	frame	data/chars/tyris/0075.png
 	frame	data/chars/tyris/0082.png
-		
+
 anim	freespecial2
 	jumpframe	1 0 -1.5 0 jumpm
 	offset	60 98
@@ -778,7 +778,7 @@ anim	freespecial2
 	frame	data/chars/tyris/0185.png
 	move	0
 	frame	data/chars/tyris/0188.png
-		
+
 anim	freespecial22
 	loop	1 1 5
 	landframe	6 landm
@@ -799,7 +799,7 @@ anim	freespecial22
 	frame	data/chars/tyris/0074
 	frame	data/chars/tyris/0075
 	frame	data/chars/tyris/0082
-		
+
 anim	freespecial8
 	energycost	9
 	mponly	1
@@ -830,7 +830,7 @@ anim	freespecial8
 	frame	data/chars/tyris/0129
 	delay	1
 	frame	data/chars/tyris/0129
-		
+
 anim	get
 	loop	0
 	delay	150
@@ -844,7 +844,7 @@ anim	get
 	frame	data/chars/tyris/0117
 	move	0
 	frame	data/chars/tyris/0075
-		
+
 anim	grab
 	loop	0
 	delay	12
@@ -853,7 +853,7 @@ anim	grab
 	frame	data/chars/tyris/0060
 	bbox	55 55 2043 46
 	frame	data/chars/tyris/0060
-		
+
 anim	grabattack
 	loop	0
 	offset	60 98
@@ -873,7 +873,7 @@ anim	grabattack
 	frame	data/chars/tyris/0084
 	bbox	64 41 17 57
 	frame	data/chars/tyris/0083
-		
+
 anim	grabbackward
 	flipframe	6
 	loop	0
@@ -886,13 +886,13 @@ anim	grabbackward
 	frame	data/chars/tyris/0124
 	frame	data/chars/tyris/0124
 	frame	data/chars/tyris/0000
-		
+
 anim	grabbed
 	offset	60 98
 	bbox	40 40 38 60
 	delay	24
 	frame	data/chars/tyris/0116
-		
+
 anim	grabforward
 	attackone	1
 	hitfx	data/sounds/silent.wav
@@ -912,7 +912,7 @@ anim	grabforward
 	frame	data/chars/tyris/0064
 	delay	7
 	frame	data/chars/tyris/0000
-		
+
 anim	idle
 	loop	1
 	delay	18
@@ -922,7 +922,7 @@ anim	idle
 	frame	data/chars/tyris/0001
 	frame	data/chars/tyris/0002
 	frame	data/chars/tyris/0001
-		
+
 anim	jump
 	loop	1 2 6
 	dropframe	1
@@ -938,7 +938,7 @@ anim	jump
 	frame	data/chars/tyris/0070
 	frame	data/chars/tyris/0069
 	frame	data/chars/tyris/0069
-		
+
 anim	jumpattack
 	loop	1 11 15
 	landframe	16 landm
@@ -969,7 +969,7 @@ anim	jumpattack
 	frame	data/chars/tyris/0069
 	@cmd	ani0009 getlocalvar("self") A_JUMPLAND 0
 	frame	data/chars/tyris/0071
-		
+
 anim	jumpattack2
 	hitflash	hith
 	fastattack	1
@@ -998,7 +998,7 @@ anim	jumpattack2
 	frame	data/chars/tyris/0070
 	frame	data/chars/tyris/0069
 	frame	data/chars/tyris/0069
-		
+
 anim	jumpdelay
 	offset	60 98
 	delay	2
@@ -1006,7 +1006,7 @@ anim	jumpdelay
 	frame	data/chars/tyris/0075
 	bbox	50 45 20 53
 	frame	data/chars/tyris/0066
-		
+
 anim	jumpland
 	offset	60 98
 	delay	6
@@ -1017,7 +1017,7 @@ anim	jumpland
 	frame	data/chars/tyris/0074
 	frame	data/chars/tyris/0075
 	frame	data/chars/tyris/0082
-		
+
 anim	pain
 	offset	60 98
 	bbox	40 40 38 60
@@ -1025,7 +1025,7 @@ anim	pain
 	frame	data/chars/tyris/0115
 	delay	50
 	frame	data/chars/tyris/0116
-		
+
 anim	pain2
 	loop	0
 	offset	60 98
@@ -1034,7 +1034,7 @@ anim	pain2
 	frame	data/chars/tyris/0118
 	delay	60
 	frame	data/chars/tyris/0117
-		
+
 anim	pain4
 	loop	0
 	offset	60 98
@@ -1048,7 +1048,7 @@ anim	pain4
 	delay	20
 	bbox	43 38 26 60
 	frame	data/chars/tyris/0116
-		
+
 anim	respawn
 	loop	0
 	delay	1
@@ -1056,7 +1056,7 @@ anim	respawn
 	frame	data/chars/tyris/0000
 	delay	50
 	frame	data/chars/tyris/0000
-		
+
 anim	rise
 	jumpframe	3 1 0 0 jumpm
 	landframe	6 landm
@@ -1081,7 +1081,7 @@ anim	rise
 	frame	data/chars/tyris/0074.png
 	frame	data/chars/tyris/0075.png
 	frame	data/chars/tyris/0082.png
-		
+
 anim	riseattack
 	loop	1 21 25
 	dropframe	20
@@ -1137,7 +1137,7 @@ anim	riseattack
 	frame	data/chars/tyris/0074.png
 	frame	data/chars/tyris/0075.png
 	frame	data/chars/tyris/0082.png
-		
+
 anim	run
 	loop	1
 	delay	7
@@ -1149,7 +1149,7 @@ anim	run
 	frame	data/chars/tyris/0089
 	frame	data/chars/tyris/0090
 	frame	data/chars/tyris/0091
-		
+
 anim	runattack
 	hitflash	hith
 	followanim	2
@@ -1180,7 +1180,7 @@ anim	runattack
 	frame	data/chars/tyris/0074
 	frame	data/chars/tyris/0075
 	frame	data/chars/tyris/0082
-		
+
 anim	runjump
 	loop	1 7 11
 	dropframe	1
@@ -1203,7 +1203,7 @@ anim	runjump
 	frame	data/chars/tyris/0070
 	frame	data/chars/tyris/0069
 	frame	data/chars/tyris/0069
-		
+
 anim	runjumpattack
 	loop	1 11 14
 	delay	7
@@ -1230,9 +1230,9 @@ anim	runjumpattack
 	frame	data/chars/tyris/0080
 	frame	data/chars/tyris/0081
 	frame	data/chars/tyris/0081
-		
+
 anim	select
-		
+
 anim	shock
 	landframe	3
 	dropframe	1
@@ -1248,7 +1248,7 @@ anim	shock
 	attack1	0 0 0 0 0
 	delay	10
 	frame	data/chars/tyris/0049
-		
+
 anim	spain
 	offset	60 98
 	bbox	40 40 38 60
@@ -1256,7 +1256,7 @@ anim	spain
 	frame	data/chars/tyris/0115
 	delay	100
 	frame	data/chars/tyris/0116
-		
+
 anim	spawn
 	loop	0
 	delay	1
@@ -1264,7 +1264,7 @@ anim	spawn
 	frame	data/chars/tyris/0000
 	delay	50
 	frame	data/chars/tyris/0000
-		
+
 anim	special
 	mponly	2
 	energycost	8
@@ -1284,7 +1284,7 @@ anim	special
 	delay	10
 	frame	data/chars/tyris/0084
 	frame	data/chars/tyris/0083
-		
+
 anim	up
 	loop	1
 	delay	8
@@ -1296,9 +1296,9 @@ anim	up
 	frame	data/chars/tyris/0112
 	frame	data/chars/tyris/0113
 	frame	data/chars/tyris/0114
-		
+
 anim	waiting
-		
+
 anim	walk
 	loop	1
 	delay	8
@@ -1310,7 +1310,7 @@ anim	walk
 	frame	data/chars/tyris/0106
 	frame	data/chars/tyris/0107
 	frame	data/chars/tyris/0108
-		
+
 anim	walkoff
 	loop	1 0 5
 	landframe	6 landm
@@ -1331,6 +1331,6 @@ anim	walkoff
 	frame	data/chars/tyris/0074
 	frame	data/chars/tyris/0075
 	frame	data/chars/tyris/0082
-		
+
 #|edited by openBor Stats v 0.61
-		
+

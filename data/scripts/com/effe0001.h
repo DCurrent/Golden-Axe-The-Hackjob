@@ -1,15 +1,40 @@
 #include "data/scripts/vars/constants.h"	//http://www.caskeys.com/dc/?p=1314#constants
 #import "data/scripts/com/draw0001.h"
 
-// Get which effect model to use based on animation.
-void dc_effect_model_select()
+// Get which effect model to use based on
+// target entity's animation.
+char dc_effect_model_select(void target)
 {
+    int animation;
+    char model;
 
+    // First we need to know what animation
+    // the target entity is playing.
+    animation = getentityproperty(target, "animationid");
+
+    // Now pick an effect model based on the animation.
+    if(animation == openborconstant("ANI_BURN")
+       || animation == openborconstant("ANI_BURNPAIN"))
+    {
+        model = "effe0001";
+    }
+    else if(animation == openborconstant("ANI_SHOCK")
+            || animation == openborconstant("ANI_SHOCKPAIN"))
+    {
+        model = "effect_shocked";
+    }
+
+    // Return model.
+    return model;
 }
 
 void dc_effect(void target)
 {
-    #define DC_EFFECT_ENTITY "dc_effect_0"
+    #define DC_EFFECT_VARKEY_ENTITY "dc_effect_0"
+    #define POS_X   -200
+    #define POS_Y   -200
+    #define POS_Z   0
+    #define MAP     2
 
     char model_current;
     char model_spawn;
@@ -20,36 +45,90 @@ void dc_effect(void target)
     float pos_z;
     float anim_height;
 
-    void effect;    // Effect entity.
+    void effect_entity; // Effect entity. Could be a pre-existing or new spawned entity.
 
     // Combine key name with target's pointer
     // to create a unique local var name that
     // will then be used to track effect entity.
-    varkey = DC_EFFECT_ENTITY + target;
+    //
+    // Why bother with this keying system for
+    // localvar instead just using of entity vars?
+    // Localvars are engine managed and local to
+    // a script instance. Entity vars are global
+    // and require extra code carefully constructed
+    // to make sure they always get cleaned up.
+    // Otherwise you end up with memory leaks.
+    //
+    // Sticking with localvar allows us to keep
+    // the management code fully self-contained
+    // within this function and not worry about
+    // them being left about when the script is
+    // cleared from memory.
+    varkey = DC_EFFECT_VARKEY_ENTITY + target;
 
     // Get pre-existing effect (if any).
-    effect = getlocalvar(varkey);
+    effect_entity = getlocalvar(varkey);
 
+    // What effect model should we spawn (if any).
+    model_spawn = dc_effect_model_select(target);
 
-    // Previous effect entity in place?
-    if (effect)
+    // Do we have a model name we want to spawn
+    // as an effect entity? If so we will check
+    // to see if an effect entity is already in
+    // use and make sure it is a different model
+    // name than the one we want before spawning
+    // a new effect.
+    //
+    // If the model name to spawn is empty, then
+    // we don not want any effect entity at all,
+    // so we will clear it out.
+    if(model_spawn)
     {
-        model_current = getentityproperty(effect, "model");
-
-        // Existing same as proposed? We can just refresh
-        // the bind, and then exit. Else-wise destroy the
-        // existing model.
-        if (model_current == model_spawn)
+        // If there is a previous effect entity
+        // in place, get its model name.
+        if(effect_entity)
         {
-            return;
+            model_current = getentityproperty(effect_entity, "model");
         }
-        else
+
+        // If the current model is different than
+        // the one we want to spawn, then destroy
+        // the current effect entity and spawn a
+        // new one using our new model.
+        if (model_current != model_spawn)
         {
-            killentity(effect);
+            // Destroy the existing effect entity (if any).
+            killentity(effect_entity);
+
+            // Spawn the new effect entity and
+            // get its pointer.
+            clearspawnentry();
+            setspawnentry("name", model_spawn);
+            setspawnentry("coords", POS_X, POS_Z, POS_Y);
+            setspawnentry("map", MAP);
+            effect_entity = spawn();
+            clearspawnentry();
         }
     }
+    else
+    {
+        // Destroy the existing effect entity.
+        killentity(effect_entity);
+        effect_entity = NULL();
+    }
 
-    setlocalvar(varkey, effect);
+    // Set or clear the resulting effect entity
+    // tracking variable for next cycle, and
+    // then return result.
+    setlocalvar(varkey, effect_entity);
+
+    return effect_entity;
+
+    #undef DC_EFFECT_ENTITY
+    #undef POS_X
+    #undef POS_Y
+    #undef POS_Z
+    #undef MAP
 }
 
 void effe0001(int iMap){
@@ -81,27 +160,7 @@ void effe0001(int iMap){
 	if(!fHT){	fHT = getentityproperty(vSelf, "height");	}	//If no animheight, get entity height.
 	fHT = 0.5 * (fHT * fRatio);									//Get center height.
 
-    if (vBound)													//Previous effect entity in place?
-    {
-        if (vModel == getentityproperty(vBound, "model"))		//Previous same as proposed?
-        {
-            bindentity(vBound, vSelf, 0, 1, fHT, 1, 4);			//Refresh bind.
-            return;												//Exit.
-        }
-        else
-        {
-            killentity(vBound);									//Kill old effect.
-        }
-    }
-
-    clearspawnentry();											//Clear current spawn entry.
-    setspawnentry("name",   vModel);							//Aquire spawn entity by name.
-    setspawnentry("coords", fX, fZ, fY+fHT);					//Spawn location.
-    setspawnentry("map", iMap);									//Spawn map.
-    vSpawn = spawn();											//Spawn entity.
-    clearspawnentry();											//Clear current spawn entry.
-    changeentityproperty(vSpawn, "parent", vSelf);				//Set caller as parent of spawn.
-    setentityvar(vSelf, IDXE_SPAWN, vSpawn);							//Store spawn.
+    vSpawn = dc_effect(vSelf);
 
     bindentity(vSpawn, vSelf, 0, 1, fHT, 1, 4);					//Execute bind.
     setentityvar(vSelf, IDXE_BINDHE, vSpawn);						//Store bind.
@@ -114,9 +173,9 @@ void effe0001(int iMap){
 
     if(iMap == MAP_BURN)
     {
-        changedrawmethod(vSelf, "reset", 1);
-        changedrawmethod(vSelf, "tintmode", 3);
-        changedrawmethod(vSelf, "tintcolor", RGB_BURN);
+        //changedrawmethod(vSelf, "reset", 1);
+        //changedrawmethod(vSelf, "tintmode", 3);
+        //changedrawmethod(vSelf, "tintcolor", RGB_BURN);
     }
     else if(iMap == MAP_SHOCK)
     {

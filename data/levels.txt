@@ -72,7 +72,7 @@ maxplayers 3
 
 set	Stage_1_Demo
 cansave 2
-lives   3
+lives   1
 credits 4
 nosame  1
 typemp 2

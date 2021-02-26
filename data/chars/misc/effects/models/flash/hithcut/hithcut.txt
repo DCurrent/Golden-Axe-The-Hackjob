@@ -20,19 +20,13 @@ anim idle
 
 	delay	3
 	offset	190 140
-		frame	data/chars/misc/effects/bloo0002/0001
-		frame	data/chars/misc/effects/bloo0002/0002
-		frame	data/chars/misc/effects/bloo0002/0003
-		frame	data/chars/misc/effects/bloo0002/0004
-		frame	data/chars/misc/effects/bloo0002/0005
-		frame	data/chars/misc/effects/bloo0002/0006
-		frame	data/chars/misc/effects/bloo0002/0007
-		frame	data/chars/misc/effects/bloo0002/0008
-		frame	data/chars/misc/effects/bloo0002/0009
-		frame	data/chars/misc/effects/bloo0002/0010
-		frame	data/chars/misc/effects/bloo0002/0011
-	#@cmd killentity getlocalvar("self")	#Sometimes autokill doesn't work if another entity is being spawned.
-		frame	data/chars/misc/effects/bloo0001/0011
-
-
-
+		frame	data/chars/misc/effects/bloo0002/idle_0.png
+		frame	data/chars/misc/effects/bloo0002/idle_1.png
+		frame	data/chars/misc/effects/bloo0002/idle_2.png
+		frame	data/chars/misc/effects/bloo0002/idle_3.png
+		frame	data/chars/misc/effects/bloo0002/idle_4.png
+		frame	data/chars/misc/effects/bloo0002/idle_5.png
+		frame	data/chars/misc/effects/bloo0002/idle_6.png
+		frame	data/chars/misc/effects/bloo0002/idle_7.png
+		frame	data/chars/misc/effects/bloo0002/idle_8.png
+		frame	data/chars/misc/effects/bloo0002/idle_9.png

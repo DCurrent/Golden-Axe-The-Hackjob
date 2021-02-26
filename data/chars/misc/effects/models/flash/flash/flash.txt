@@ -1,6 +1,6 @@
 # Hit flash
 
-name			Flash
+name			flash
 type			none
 shadow			0
 antigravity		100
@@ -10,7 +10,7 @@ speedf			0.5			#Size adjustment.
 nodrop			0			#<max> random rotation range.
 guardpoints		1			#Type of oneshot.
 noatflash		0			#Secondary entity.
-jugglepoints	213			#Alternate spawn sound group.
+jugglepoints		213 			#Alternate spawn sound group.
 
 onspawnscript 	data/scripts/spaw0002.c
 onkillscript  	data/scripts/z_kill.c

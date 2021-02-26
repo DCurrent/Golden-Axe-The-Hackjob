@@ -170,6 +170,8 @@ anim runjump
 #quick jump attack
 
 anim freespecial
+	
+    hitflash  blumcut
     jumpframe 2 2 0
     landframe 17
     range   0 40
@@ -451,6 +453,7 @@ anim rise
 # basic combo
 
 anim attack1
+	hitflash  blumcut
 	range	24 40
 	loop	0
 	delay	3
@@ -487,6 +490,7 @@ anim attack1
 
 
 anim attack2
+	hitflash  blumcut
 	range	24 40
 	loop	0
 	delay	12
@@ -513,6 +517,7 @@ anim attack2
     frame   data/chars/heninger/a10t.gif
 
 anim attack3
+	hitflash  blumcut
 	range	24 40
 	loop	0
 	delay	3
@@ -545,6 +550,7 @@ anim attack3
 # copy from attack3
 
 anim special
+	hitflash  blumcut
 	range	24 50
 	loop	0
 	delay	3
@@ -578,6 +584,7 @@ anim special
 # copy from attack3
 
 anim special2
+	hitflash  blumcut
 	range	24 50
 	loop	0
 	delay	3
@@ -614,6 +621,7 @@ anim special2
 #copy from attack3
 
 anim riseattack
+	hitflash  blumcut
     landframe 21
 	range	0 50
 	loop	0
@@ -670,6 +678,7 @@ anim runattack
     jumpframe 0 2 2
     followanim 1
     followcond 1
+	
 	range	70 100
 	loop	0
 	delay	7
@@ -677,17 +686,19 @@ anim runattack
 	bbox	49 49 17 50
     
     attack1  58 67 24 17 8 1 0 1
+	hitflash	hith
     frame   data/chars/heninger/ra.gif
 # deflect
 
 
 anim follow1
     jumpframe 0 1 0
+	hitflash	hith
 	loop	0
 	offset	60 98
 	bbox	49 47 24 53
 	delay	1
-    attack1  58 67 24 17 8 1 0 1
+    attack1  58 67 24 17 8 1
 	frame	data/chars/heninger/ra.gif
     attack1  0
 	delay	8

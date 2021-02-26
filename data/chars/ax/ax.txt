@@ -447,7 +447,7 @@ anim runattack
 anim attack1
 
 	followanim 3
-    followcond 1
+    	followcond 1
    	range 0 50
 
 	offset	60 98

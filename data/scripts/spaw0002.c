@@ -20,7 +20,7 @@ void main(){
 	int		iSnd	= VOI_HI;													//Sound to play.
 	char	cFlName;															//Flash model name.
 	int		iAni;																//Animation placeholder.
-	int		iJP		= getentityproperty(vSelf, "jugglepoints");					//Jugglepoints (additional spawn sound).
+						
 	float	fZ;																	//Caller location.
 
 	init0001(vSelf);															//Entity records.
@@ -101,10 +101,22 @@ void main(){
 		fSpd = 1;																//100% normal size.
 	}
 
-	iJP = getentityproperty(vSelf, "jugglepoints");
+	/*
+	* Quick fix for weird bug that always sets flash
+	* juggle points to 210.
+	*/
+	char name = getentityproperty(vSelf, "defaultname");
+	if (getentityproperty(vSelf, "defaultname") == "Flash")
+	{
+		changeentityproperty(vSelf, "maxjugglepoints", 213);
+	}
 
+	int iJP = getentityproperty(vSelf, "maxjugglepoints");
+	log("\n name: " + name);
+	log("\n sound: " + iJP);
 	if(iJP)																		//Additional spawn sound?
 	{
+		log("\n 2 sound: " + iJP);
 		soun0005(vSelf, iJP, -1, 1, 0, 0);										//Play sound.
 	}
 

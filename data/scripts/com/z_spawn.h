@@ -83,7 +83,9 @@ void z_spawn(void vEnt)
     //Golden Axe--------------------------------------------------------------------------------------------------------
     if(iType == TYPE_PLAYER)                                                       //Player type?
 	{
-       bind0017(vEnt, A_RISE, -1, 1, 0, 0, 0, 0, 0, 0);							//Find old corpse and spawn there.
+       //bind0017(vEnt, A_RISE, -1, 1, 0, 0, 0, 0, 0, 0);							//Find old corpse and spawn there.
+       
+       dc_respawn_body(vEnt, A_RISE);
 
 		if(getentityproperty(vEnt, "animvalid", A_SPECIAL))
         {

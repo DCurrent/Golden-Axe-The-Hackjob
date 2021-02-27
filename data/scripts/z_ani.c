@@ -32,7 +32,7 @@
 #import "data/scripts/com/proj0003.h"
 #import "data/scripts/com/seal0001.h"		//Turn off target specials.
 #import "data/scripts/com/soun0005.h"		//Random sound player.
-#import "data/scripts/com/scre0001.h"		//In screen check.
+#import "data/scripts/com/dc_in_screen_setup.c"		//In screen check.
 #import "data/scripts/com/stal0001.h"
 //#import "data/scripts/com/stat0001.h"		//Change MP or HP of target.
 #import "data/scripts/com/stat0003.h"      //Save MP.

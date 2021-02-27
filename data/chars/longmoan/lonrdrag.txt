@@ -82,7 +82,7 @@ anim walk
 void self = getlocalvar("self");
 if(getentityproperty(self, "invincible")==1)
 {
-    scre0001(self);
+    dc_in_screen_setup(self);
 }
 else
 {

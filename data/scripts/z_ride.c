@@ -24,7 +24,7 @@
 #import "data/scripts/common/mp.h"			//MP functions by Utunnels.
 #import "data/scripts/com/mode0001.h"		//Weapon/model switch.
 #import "data/scripts/com/proj0003.h"      //Basic projectile launcher.
-#import "data/scripts/com/scre0001.h"		//In screen check.
+#import "data/scripts/com/dc_in_screen_setup.c"		//In screen check.
 #import "data/scripts/com/soun0005.h"      //Stereo sound handler.
 #import "data/scripts/com/stat0001.h"      //Change MP or HP level of target.
 #import "data/scripts/com/stat0003.h"      //Save MP.

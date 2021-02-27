@@ -30,7 +30,7 @@ void ani0013(void vEnt, int iAni, int C){
 		|| iAni == A_UP
 		|| iAni == A_DOWN       
         || iAni == A_ATKUP
-        || iAni == A_ATKDOWN
+        || iAni == openborconstant("ANI_ATTACKDOWN")
         || iAni == A_FSPECIAL2)        
         {
 			fX      = getentityproperty(vEnt, "xdir");

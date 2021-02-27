@@ -55,7 +55,7 @@ void self = getlocalvar("self");
 int x = getentityproperty(self,"x");
 int z = getentityproperty(self,"z");
 if(!checkhole(x, z) || checkwall(x, z))
-{changeentityproperty(self, "animation", A_SPAWN);}
+{changeentityproperty(self, "animation", openborconstant("ANI_SPAWN"));}
 else
 {
     changeentityproperty(self, "position", x, z, 0);

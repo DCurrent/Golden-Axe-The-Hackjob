@@ -15,6 +15,6 @@
 #import "data/scripts/com/soun0005.h"
 
 #import "data/scripts/com/wake0001.h"
-#import "data/scripts/com/scre0001.h"	//Check_increen
+#import "data/scripts/com/dc_in_screen_setup.c"	//Check_increen
 
 #include "data/scripts/dc_elmers/main.c"

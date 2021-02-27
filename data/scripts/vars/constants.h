@@ -84,8 +84,6 @@
 #define AC_TOSS						A_FALL5									//Thrown.
 
 /******Animations, engine defined******/
-#define A_ATKBOTH					openborconstant("ANI_ATTACKBOTH")
-#define A_ATKDOWN					openborconstant("ANI_ATTACKDOWN")
 #define A_ATK2						openborconstant("ANI_ATTACK2")
 #define A_ATK3						openborconstant("ANI_ATTACK3")
 #define A_ATK4						openborconstant("ANI_ATTACK4")
@@ -271,7 +269,6 @@
 #define A_SHOCKDIE					openborconstant("ANI_SHOCKDIE")
 #define A_SHOCKPAIN					openborconstant("ANI_SHOCKPAIN")
 #define A_SLEEP						openborconstant("ANI_SLEEP")
-#define A_SPAWN						openborconstant("ANI_SPAWN")
 #define A_SPECIAL					openborconstant("ANI_SPECIAL")
 #define A_SPECIAL2					openborconstant("ANI_SPECIAL2")
 #define A_UP						openborconstant("ANI_UP")

@@ -10,13 +10,13 @@ int ai0003(void self)
     Keep AI character in playfield (screen).
     */
 
-    if(getentityproperty(self, "animnum")!=A_SPAWN && getentityproperty(self, "x")>0 && getentityproperty(self, "x")<openborvariant("xpos"))
+    if(getentityproperty(self, "animnum")!=openborconstant("ANI_SPAWN") && getentityproperty(self, "x")>0 && getentityproperty(self, "x")<openborvariant("xpos"))
     {
 	    changeentityproperty(self, "invincible", 0);
 	    changeentityproperty(self, "invinctime", 0);
 	    changeentityproperty(self, "velocity", 0, 0, 0);
 	    changeentityproperty(self, "subject_to_screen", 1);
-        changeentityproperty(self, "animation", A_SPAWN);
+        changeentityproperty(self, "animation", openborconstant("ANI_SPAWN"));
         changeentityproperty(self, "stealth", 0);
         return 1;
     }

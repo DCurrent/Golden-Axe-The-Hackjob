@@ -224,20 +224,11 @@ dc_ai_avoid_jump_attack();
 	frame	data/chars/longmoan/walk_up_5.png
 
 anim block
-@script
-void self = getlocalvar("self");
-changeentityproperty(self, "velocity", getentityproperty(self, "xdir")/4.0, 0, 0);
-@end_script
+
 	loop	0
 	offset	60 98
 	bbox	49 45 32 53
     delay   4
-	frame	data/chars/longmoan/block_0.png
-	frame	data/chars/longmoan/block_0.png
-	frame	data/chars/longmoan/block_0.png
-	frame	data/chars/longmoan/block_0.png
-	frame	data/chars/longmoan/block_0.png
-	frame	data/chars/longmoan/block_0.png
 	frame	data/chars/longmoan/block_0.png
 
 anim grabbed

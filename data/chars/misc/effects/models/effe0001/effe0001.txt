@@ -53,7 +53,7 @@ alternatepal	data/chars/misc/effects/fire0015/0001		#15:	fire0015.
 
 	#delay	3
 	#offset	90 110	
-	#frame	data/chars/misc/blan0001
+	#frame	data/chars/misc/blank.png
 				
 #*****Attack*******************************************************************************
 #*****Special******************************************************************************

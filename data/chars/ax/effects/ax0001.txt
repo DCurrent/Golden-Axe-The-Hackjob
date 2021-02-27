@@ -23,7 +23,7 @@ anim spawn
 
 	delay	1
 	offset	75 150
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 #anim waiting
 #anim select
@@ -57,11 +57,11 @@ anim attackboth
 		frame  	data/chars/ax/effects/0111
 		frame  	data/chars/ax/effects/0112
 	
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 	
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
 		frame  	data/chars/ax/effects/0066
 	
 		frame  	data/chars/ax/effects/0067
@@ -72,16 +72,16 @@ anim attackboth
 		frame  	data/chars/ax/effects/0072
 		frame  	data/chars/ax/effects/0073
 		frame  	data/chars/ax/effects/0074
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim attack1
 
 	delay	-1000
 	offset	60 99
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
 		frame  	data/chars/ax/effects/0015
 		frame	data/chars/ax/effects/0016
 		frame	data/chars/ax/effects/0017
@@ -90,7 +90,7 @@ anim attack1
 		frame	data/chars/ax/effects/0020
 		frame	data/chars/ax/effects/0021
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim follow3
 
@@ -108,14 +108,14 @@ anim follow3
 		frame	data/chars/ax/effects/0030
 		frame	data/chars/ax/effects/0031
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim attack2
 
 	delay	-1000
 	offset	60 99
 
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 		frame  data/chars/ax/effects/0007
 		frame  data/chars/ax/effects/0008
 		frame  data/chars/ax/effects/0009
@@ -125,14 +125,14 @@ anim attack2
 		frame  data/chars/ax/effects/0013
 		frame  data/chars/ax/effects/0014
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim  chargeattack
 
 		delay  -1000
 		offset  60  99
-	frame	data/chars/misc/blan0001
-	frame	data/chars/misc/blan0001
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png
 	frame  	data/chars/ax/effects/0032
 	frame  	data/chars/ax/effects/0033
 	frame  	data/chars/ax/effects/0034
@@ -146,10 +146,10 @@ anim  chargeattack
 	frame  	data/chars/ax/effects/0034
 	frame  	data/chars/ax/effects/0035
 		offset  60  101
-	frame	data/chars/misc/blan0001
+	frame	data/chars/misc/blank.png
 		move  30
 		offset  60  100
-	frame	data/chars/misc/blan0001
+	frame	data/chars/misc/blank.png
 	frame  data/chars/ax/effects/0001
 	frame  data/chars/ax/effects/0002
 	frame  data/chars/ax/effects/0003
@@ -157,13 +157,13 @@ anim  chargeattack
 	frame  data/chars/ax/effects/0005
 	frame  data/chars/ax/effects/0006
 		@cmd	killentity getlocalvar("self")
-	frame	data/chars/misc/blan0001
+	frame	data/chars/misc/blank.png
 
 anim jumpattack
 
 	delay	-1000
 	offset	60 99
-		frame  data/chars/misc/blan0001
+		frame  data/chars/misc/blank.png
 		frame  data/chars/ax/effects/0066
 		frame  data/chars/ax/effects/0067
 		frame  data/chars/ax/effects/0068
@@ -174,13 +174,13 @@ anim jumpattack
 		frame  data/chars/ax/effects/0073
 		frame  data/chars/ax/effects/0074
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim runjumpattack
 
 	delay	-1000
 	offset	60 99
-		frame  data/chars/misc/blan0001
+		frame  data/chars/misc/blank.png
 		frame  data/chars/ax/effects/0066
 		frame  data/chars/ax/effects/0067
 		frame  data/chars/ax/effects/0068
@@ -191,7 +191,7 @@ anim runjumpattack
 		frame  data/chars/ax/effects/0073
 		frame  data/chars/ax/effects/0074
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim  freespecial
 
@@ -199,14 +199,14 @@ anim  freespecial
 
 		offset  60  99
 		delay  -1000
-	frame	data/chars/misc/blan0001
-	frame	data/chars/misc/blan0001
-	frame	data/chars/misc/blan0001
-	frame	data/chars/misc/blan0001
-	frame	data/chars/misc/blan0001
-	frame	data/chars/misc/blan0001
-	frame	data/chars/misc/blan0001
-	frame	data/chars/misc/blan0001
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png
 	frame  data/chars/ax/effects/0081
 	frame  data/chars/ax/effects/0082
 	frame  data/chars/ax/effects/0083
@@ -223,7 +223,7 @@ anim  freespecial
 	frame  data/chars/ax/effects/0094
 	frame  data/chars/ax/effects/0095
 		@cmd	killentity getlocalvar("self")
-	frame	data/chars/misc/blan0001
+	frame	data/chars/misc/blank.png
 
 anim freespecial5
 
@@ -231,7 +231,7 @@ anim freespecial5
 
 	offset	60 99
 	delay	-1000
-		frame  data/chars/misc/blan0001
+		frame  data/chars/misc/blank.png
 		frame  data/chars/ax/effects/0036
 		frame  data/chars/ax/effects/0037
 		frame  data/chars/ax/effects/0076
@@ -240,7 +240,7 @@ anim freespecial5
 		frame  data/chars/ax/effects/0079
 		frame  data/chars/ax/effects/0080
 		@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim freespecial12
 
@@ -248,13 +248,13 @@ anim freespecial12
 	
 	offset  60  99	
 	delay	-1000
-		frame  data/chars/misc/blan0001
+		frame  data/chars/misc/blank.png
 	offset  60  101
-		frame  data/chars/misc/blan0001
+		frame  data/chars/misc/blank.png
 	offset  60  100
-		frame  data/chars/misc/blan0001
-		frame  data/chars/misc/blan0001
-		frame  data/chars/misc/blan0001
+		frame  data/chars/misc/blank.png
+		frame  data/chars/misc/blank.png
+		frame  data/chars/misc/blank.png
 		frame  data/chars/ax/effects/0096
 	offset  60  100
 		frame  data/chars/ax/effects/0097
@@ -267,20 +267,20 @@ anim freespecial12
 		frame  data/chars/ax/effects/0104
 		frame  data/chars/ax/effects/0105
 		frame  data/chars/ax/effects/0106
-		frame  data/chars/misc/blan0001
+		frame  data/chars/misc/blank.png
 	offset  60  98
-		frame  data/chars/misc/blan0001
+		frame  data/chars/misc/blank.png
 	offset  60  99
-		frame  data/chars/misc/blan0001
+		frame  data/chars/misc/blank.png
 	@cmd	killentity getlocalvar("self")
-		frame  data/chars/misc/blan0001
+		frame  data/chars/misc/blank.png
 
 anim riseattack
 
 	offset	60 99
 	delay	-1000
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
     	frame  data/chars/ax/effects/0036
 		frame  data/chars/ax/effects/0037
 		frame  data/chars/ax/effects/0038
@@ -294,7 +294,7 @@ anim riseattack
 		frame  data/chars/ax/effects/0046
 		frame  data/chars/ax/effects/0047
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim attackbackward
 
@@ -319,7 +319,7 @@ anim attackbackward
 		frame  data/chars/ax/effects/0064
 		frame  data/chars/ax/effects/0065
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 
 

@@ -2031,7 +2031,7 @@ anim grabbackward
 
 anim grabforward
 
-	#Powerbomb
+	# Powerbomb
 
 	cancel 7 7 0 d f a freespecial13	#Flying Bomb
 	cancel 7 7 0 d u a freespecial10	#Giant swing
@@ -2040,37 +2040,51 @@ anim grabforward
 
 	offset	60 98
 	delay	12
+	
 	@cmd  	bind0014 1 0													#Initialize bind variable.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 166 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELD 0
-		frame	data/chars/ax/g1.png
+
+	# Set up the grapple.
+	@cmd dc_elmers_set_instance NULL()
+	@cmd dc_elmers_initialize_grapple
+
+	# Adjust and apply grapple properties.
+	@cmd dc_elmers_set_member_offset_x 20
+	@cmd dc_elmers_set_member_offset_y 166
+	@cmd dc_elmers_set_bind_sorting DC_ELMERS_SORT_BACK
+	@cmd dc_elmers_set_bind_frame DC_ELMERS_REACT_PAIN_1
+	@cmd dc_elmers_set_member_bind_direction openborconstant("DIRECTION_ADJUST_OPPOSITE")
+	@cmd dc_elmers_apply_grapple
+
+	frame	data/chars/ax/g1.png
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 33 193 -1 DIR_ADJ_SAME AC_DEFPOSE G_HORDN 1
-		frame  data/chars/ax/0045.png
+	frame  data/chars/ax/0045.png
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 30 180 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDNP 1
-		frame  data/chars/ax/0042.png
+	frame  data/chars/ax/0042.png
 	delay  	25
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -19 226 -1 DIR_ADJ_OPP AC_DEFPOSE G_DWNUPP 0
-		frame  data/chars/ax/0061.png
+	frame  data/chars/ax/0061.png
 	delay  8
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 2 195 1 DIR_ADJ_OPP AC_DEFPOSE G_FALUP 0
-		frame  data/chars/ax/0062.png
+	frame  data/chars/ax/0062.png
 	delay  	10
 	@cmd	bind0018 0 0 0 0 0 0												#Wall failsafe.
 	@cmd	bind0008 MODEL_FLLAND2 MODEL_FLLAND2 0 1 30 0 1 0 0 0 1							#Dust.
 	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF 0 44 139 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDNP 0
 	@cmd	dama0004 0 0 5 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0								#Apply damage.
-		frame  data/chars/ax/0063.png
-		frame  data/chars/ax/0064.png
+	frame  data/chars/ax/0063.png
+	frame  data/chars/ax/0064.png
 	delay  	30
 	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF 0 46 144 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDN 0
-		frame  data/chars/ax/0065.png
+	frame  data/chars/ax/0065.png
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 30 0 -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0										#Release bind.
 	@cmd	dama0004 0 -2 0 10 openborconstant("ATK_NORMAL6") 1 2.2 1 0 0 0 0 0
-		frame  data/chars/ax/0065.png
+	frame  data/chars/ax/0065.png
 	delay  	12
 	offset  49  99
-		frame  data/chars/ax/0048.png
+	frame  data/chars/ax/0048.png
 	offset  60  98
-		frame  data/chars/ax/0056.png
+	frame  data/chars/ax/0056.png
 
 anim grabattack
 

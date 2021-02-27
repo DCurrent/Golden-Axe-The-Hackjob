@@ -24,7 +24,7 @@ anim spawn
 	
 	delay	1
 	offset	75 150
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 
 #*****Attack*******************************************************************************
@@ -33,9 +33,9 @@ anim attack1
     	
     	delay 	-1000
     	offset 	47 98
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001    	
-    		frame	data/chars/misc/blan0001    		
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png    	
+    		frame	data/chars/misc/blank.png    		
 		frame	data/chars/amazon/effects/blur/0001    	
     		frame	data/chars/amazon/effects/blur/0002	
 		frame	data/chars/amazon/effects/blur/0003
@@ -51,13 +51,13 @@ anim attack1
 		frame	data/chars/amazon/effects/blur/0013
 		frame	data/chars/amazon/effects/blur/0014
 	@cmd	killentity getlocalvar("self")
-    		frame	data/chars/misc/blan0001
+    		frame	data/chars/misc/blank.png
 
 anim attack2
 
     	delay 	-1000
     	offset 	49 97    	
-    		frame	data/chars/misc/blan0001    	
+    		frame	data/chars/misc/blank.png    	
     		frame	data/chars/amazon/effects/blur/0015    	  		
     		frame	data/chars/amazon/effects/blur/0016    
     		frame	data/chars/amazon/effects/blur/0017
@@ -72,14 +72,14 @@ anim attack2
 		frame	data/chars/amazon/effects/blur/0026
 		frame	data/chars/amazon/effects/blur/0027
 	@cmd	killentity getlocalvar("self")
-    		frame	data/chars/misc/blan0001
+    		frame	data/chars/misc/blank.png
 
 
 anim grabattack
 
     	delay 	-1000
     	offset 	82 141
-		frame	data/chars/misc/blan0001  
+		frame	data/chars/misc/blank.png  
 		frame	data/chars/amazon/effects/blur/0028
 		frame	data/chars/amazon/effects/blur/0029
 		frame	data/chars/amazon/effects/blur/0030	
@@ -94,7 +94,7 @@ anim grabattack
 		frame	data/chars/amazon/effects/blur/0039
 		frame	data/chars/amazon/effects/blur/0040
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 
 

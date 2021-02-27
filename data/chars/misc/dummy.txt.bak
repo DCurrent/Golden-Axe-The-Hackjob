@@ -17,12 +17,12 @@ if(getglobalvar("dummy")==NULL())
     setglobalvar("dummy", getlocalvar("self"));
 }
 @end_script
-frame data/chars/misc/blan0001
+frame data/chars/misc/blank.png
 
 anim death
 
 delay 100
-frame data/chars/misc/blan0001
+frame data/chars/misc/blank.png
 anim  freespecial12
 		offset  60  98
 		bbox  48  42  22  56

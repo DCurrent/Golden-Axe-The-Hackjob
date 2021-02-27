@@ -48,9 +48,9 @@ anim spawn
     	offset 0 0
 	delay   1
 	@cmd	soun0005 ENT_SELF SND_EFF1 -1 1 0 0
-    		frame   data/chars/misc/blan0001
+    		frame   data/chars/misc/blank.png
     	move    58
-    		frame   data/chars/misc/blan0001
+    		frame   data/chars/misc/blank.png
 
 anim follow1
         
@@ -60,7 +60,7 @@ anim follow1
 	@cmd	soun0005 ENT_SELF SND_EFF2 -1 1 0 0
 	@cmd bind0008 "effe0001" "effe0001" 18 1 0 10 0 0 A_FOLLOW6 0 1
 	@cmd killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 	
 anim fall
     	
@@ -70,7 +70,7 @@ anim fall
 	@cmd	soun0005 ENT_SELF SND_EFF2 -1 1 0 0
 	@cmd bind0008 "effe0001" "effe0001" 18 1 0 10 0 0 A_FOLLOW6 0 1
 	@cmd killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001	
+		frame	data/chars/misc/blank.png	
 
 
 

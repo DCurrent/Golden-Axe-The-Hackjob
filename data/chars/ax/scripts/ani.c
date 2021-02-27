@@ -40,6 +40,12 @@
 #import "data/scripts/com/velo0001.h"
 #import "data/scripts/com/wake0001.h"		//Wait before attacking function.
 
+/*
+* 2021-02-26, Non-legacy Imports
+*/
+
+#include "data/scripts/dc_elmers/main.c"
+
 void invins()
 {
     void vSelf   = getlocalvar("self");

@@ -24,7 +24,7 @@ anim spawn
 	
 	delay	1
 	offset	75 150
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 #anim waiting
 #anim select
@@ -46,7 +46,7 @@ anim attack1
 
 	delay	-1000
 	offset	60 99
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 		frame   data/chars/alex/effects/0001.png
     		frame   data/chars/alex/effects/0003.png
 		frame   data/chars/alex/effects/0004.png
@@ -59,7 +59,7 @@ anim attack1
 		frame   data/chars/alex/effects/0011.png
 		frame   data/chars/alex/effects/0012.png
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim follow3    
 	
@@ -75,13 +75,13 @@ anim follow3
 		frame   data/chars/alex/effects/0011.png
 		frame   data/chars/alex/effects/0012.png
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001		
+		frame	data/chars/misc/blank.png		
 
 anim attack2
 	
 	delay	-1000
 	offset	60 99	
-    		frame	data/chars/misc/blan0001
+    		frame	data/chars/misc/blank.png
 		frame   data/chars/alex/effects/0027.png
     		frame   data/chars/alex/effects/0028.png
     		frame   data/chars/alex/effects/0029.png
@@ -95,14 +95,14 @@ anim attack2
 		frame   data/chars/alex/effects/0037.png
 		frame   data/chars/alex/effects/0038.png		
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim attack3
 
 	delay	-1000
 	offset	60 99
-		frame	data/chars/misc/blan0001		
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png		
+		frame	data/chars/misc/blank.png
 		frame   data/chars/alex/effects/0074.png
 		frame   data/chars/alex/effects/0075.png
 		frame   data/chars/alex/effects/0076.png		
@@ -116,13 +116,13 @@ anim attack3
 		frame   data/chars/alex/effects/0084.png
 		frame   data/chars/alex/effects/0085.png
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim  runattack
 
 	delay	-1000
 	offset	60 99
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 		frame   data/chars/alex/effects/0013.png
 		frame   data/chars/alex/effects/0014.png
     		frame   data/chars/alex/effects/0015.png
@@ -138,15 +138,15 @@ anim  runattack
 		frame   data/chars/alex/effects/0025.png
 		frame   data/chars/alex/effects/0026.png
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001		
+		frame	data/chars/misc/blank.png		
 
 anim  attack5	
 
 	delay  	-1000
 	offset  60  99
 	
-		frame	data/chars/misc/blan0001	
-		frame	data/chars/misc/blan0001	
+		frame	data/chars/misc/blank.png	
+		frame	data/chars/misc/blank.png	
 		frame   data/chars/alex/effects/0039.png   	
 		frame   data/chars/alex/effects/0040.png
 		frame   data/chars/alex/effects/0041.png
@@ -157,7 +157,7 @@ anim  attack5
 		frame   data/chars/alex/effects/0046.png
 		frame   data/chars/alex/effects/0047.png	
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001		
+		frame	data/chars/misc/blank.png		
 
 
 anim chargeattack
@@ -166,7 +166,7 @@ anim chargeattack
 
 	delay	-1000
 	offset	60 99	
-		frame	data/chars/misc/blan0001		
+		frame	data/chars/misc/blank.png		
 		frame   data/chars/alex/effects/0048.png		
 		frame   data/chars/alex/effects/0049.png
 		frame   data/chars/alex/effects/0050.png
@@ -181,7 +181,7 @@ anim chargeattack
 		frame   data/chars/alex/effects/0059.png
 		frame   data/chars/alex/effects/0060.png			
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 
 anim jumpattack
@@ -189,7 +189,7 @@ anim jumpattack
 	delay  	-1000
 	offset  60  99
 	
-		frame	data/chars/misc/blan0001	
+		frame	data/chars/misc/blank.png	
 		frame   data/chars/alex/effects/0039.png   	
 		frame   data/chars/alex/effects/0040.png
 		frame   data/chars/alex/effects/0041.png
@@ -200,7 +200,7 @@ anim jumpattack
 		frame   data/chars/alex/effects/0046.png
 		frame   data/chars/alex/effects/0047.png	
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 
 anim runjumpattack
@@ -208,7 +208,7 @@ anim runjumpattack
 	delay  	-1000
 	offset  60  99
 	
-		frame	data/chars/misc/blan0001	
+		frame	data/chars/misc/blank.png	
 		frame   data/chars/alex/effects/0039.png   	
 		frame   data/chars/alex/effects/0040.png
 		frame   data/chars/alex/effects/0041.png
@@ -219,15 +219,15 @@ anim runjumpattack
 		frame   data/chars/alex/effects/0046.png
 		frame   data/chars/alex/effects/0047.png	
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim  special	
 
 	delay  	-1000
 	offset  60  99
 	
-		frame	data/chars/misc/blan0001	
-		frame	data/chars/misc/blan0001	
+		frame	data/chars/misc/blank.png	
+		frame	data/chars/misc/blank.png	
 		frame   data/chars/alex/effects/0039.png   	
 		frame   data/chars/alex/effects/0040.png
 		frame   data/chars/alex/effects/0041.png
@@ -238,7 +238,7 @@ anim  special
 		frame   data/chars/alex/effects/0046.png
 		frame   data/chars/alex/effects/0047.png	
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim freespecial9
 
@@ -246,8 +246,8 @@ anim freespecial9
 	
 	delay	-1000
 	offset  60  98
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
 		frame  data/chars/alex/effects/0086.png
 		frame  data/chars/alex/effects/0087.png
 	
@@ -265,7 +265,7 @@ anim freespecial9
 		frame  data/chars/alex/effects/0090.png
 		frame  data/chars/alex/effects/0086.png
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim freespecial10
 
@@ -289,7 +289,7 @@ anim freespecial10
 		frame  data/chars/alex/effects/0090.png
 		frame  data/chars/alex/effects/0086.png
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim freespecial11
 
@@ -313,4 +313,4 @@ anim freespecial11
 		frame  data/chars/alex/effects/0090.png
 		frame  data/chars/alex/effects/0086.png
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png

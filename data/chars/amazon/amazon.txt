@@ -98,7 +98,7 @@ anim spawn
 	offset	60 98
 	bbox	52 37 16 62
 	delay	1
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 	@cmd	soun0005 ENT_SELF VOI_GO -1 1 0 0
 		frame	data/chars/amazon/idle2
 
@@ -384,7 +384,7 @@ anim  freespecial10
 		frame  data/chars/amazon/0021.png
 		frame  data/chars/amazon/0020.png
 	@cmd	bind0016 0 -1 -20 0 0 2 0 0 0 0 0 0
-		frame  data/chars/misc/blan0001.png
+		frame  data/chars/misc/blank.png
 		frame  data/chars/amazon/0020.png
 		frame  data/chars/amazon/0021.png
 		frame  data/chars/amazon/0022.png

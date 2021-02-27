@@ -11,7 +11,7 @@ maxattacks 		7
 spdirection  		1 1 1
 versusdamage 		1
 noaircancel 		0
-maxattacktypes  	11
+maxattacktypes  	15
 maxfreespecials 	50
 maxfollows		101
 colourselect 		1

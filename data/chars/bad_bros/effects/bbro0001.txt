@@ -24,7 +24,7 @@ anim spawn
 	
 	delay	1
 	offset	75 150
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 
 #*****Attack*******************************************************************************
@@ -35,10 +35,10 @@ anim attack1
 	
 	offset  80  133
 	delay	-1000		
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
 		frame	data/chars/bad_bros/effects/0001
 		frame	data/chars/bad_bros/effects/0002
 		frame	data/chars/bad_bros/effects/0003
@@ -52,7 +52,7 @@ anim attack1
 		frame	data/chars/bad_bros/effects/0011
 		frame	data/chars/bad_bros/effects/0012
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001    	
+		frame	data/chars/misc/blank.png    	
 
 anim attack2
 	
@@ -61,8 +61,8 @@ anim attack2
 	offset  80  137
 	delay	-1000
 
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
 		frame	data/chars/bad_bros/effects/0013		
    		frame	data/chars/bad_bros/effects/0014		
 		frame	data/chars/bad_bros/effects/0015		
@@ -78,14 +78,14 @@ anim attack2
 		frame	data/chars/bad_bros/effects/0025
 		frame	data/chars/bad_bros/effects/0026
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim  special
 	
 	offset  80  137
 	delay  -1000			
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
 		frame	data/chars/bad_bros/effects/0027
 		frame	data/chars/bad_bros/effects/0028
 		frame	data/chars/bad_bros/effects/0029
@@ -104,14 +104,14 @@ anim  special
 		frame	data/chars/bad_bros/effects/0042
 		frame	data/chars/bad_bros/effects/0043
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim  special2
 	
 	offset  80  137
 	delay  -1000			
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
 		frame	data/chars/bad_bros/effects/0027
 		frame	data/chars/bad_bros/effects/0028
 		frame	data/chars/bad_bros/effects/0029
@@ -130,16 +130,16 @@ anim  special2
 		frame	data/chars/bad_bros/effects/0042
 		frame	data/chars/bad_bros/effects/0043
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim  riseattack
 	
 	offset  80  137
 	delay  -1000
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001	
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png	
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
 		frame	data/chars/bad_bros/effects/0027
 		frame	data/chars/bad_bros/effects/0028
 		frame	data/chars/bad_bros/effects/0029
@@ -158,7 +158,7 @@ anim  riseattack
 		frame	data/chars/bad_bros/effects/0042
 		frame	data/chars/bad_bros/effects/0043
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 
 

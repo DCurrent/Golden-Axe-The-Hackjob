@@ -23,7 +23,7 @@ anim spawn
 
 	delay	1
 	offset	75 150
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 #anim waiting
 #anim select
@@ -45,7 +45,7 @@ anim  attackbackward
 
 	delay	-1000
 	offset  60  99		
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 		frame	data/chars/tyris/effects/0029	
 		frame	data/chars/tyris/effects/0030	
 		frame	data/chars/tyris/effects/0031
@@ -65,15 +65,15 @@ anim  attackbackward
 		frame	data/chars/tyris/effects/0047
 		frame	data/chars/tyris/effects/0048		
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim attack1
 	
 	delay	-1000
 	offset	60 99	
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
 		frame  	data/chars/tyris/effects/0001	
 		frame  	data/chars/tyris/effects/0002		
 		frame  	data/chars/tyris/effects/0003
@@ -83,13 +83,13 @@ anim attack1
 		frame  	data/chars/tyris/effects/0007
 		frame  	data/chars/tyris/effects/0008
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim attack2
    
 	delay	-1000
 	offset	60 99	
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 		frame	data/chars/tyris/effects/0017	
 		frame	data/chars/tyris/effects/0018
 		frame	data/chars/tyris/effects/0019
@@ -103,7 +103,7 @@ anim attack2
 		frame	data/chars/tyris/effects/0027
 		frame	data/chars/tyris/effects/0028
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 
 anim follow3
@@ -121,13 +121,13 @@ anim follow3
 		frame  	data/chars/tyris/effects/0015
 		frame  	data/chars/tyris/effects/0016			
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim jumpattack
 
 	offset	60 99	
 	delay	-1000		
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 		frame	data/chars/tyris/effects/0049
 		frame	data/chars/tyris/effects/0050
 		frame	data/chars/tyris/effects/0051
@@ -138,13 +138,13 @@ anim jumpattack
 		frame	data/chars/tyris/effects/0056
 		frame	data/chars/tyris/effects/0057		
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001	
+		frame	data/chars/misc/blank.png	
 		
 anim runjumpattack
 	
 	offset	60 99	
 	delay	-1000		
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 		frame	data/chars/tyris/effects/0049
 		frame	data/chars/tyris/effects/0050
 		frame	data/chars/tyris/effects/0051
@@ -155,15 +155,15 @@ anim runjumpattack
 		frame	data/chars/tyris/effects/0056
 		frame	data/chars/tyris/effects/0057		
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 
 anim riseattack
     
 	delay	-1000
 	offset	60 95
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001	
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png	
 		frame	data/chars/tyris/effects/0058	
 		frame	data/chars/tyris/effects/0059
 		frame	data/chars/tyris/effects/0060
@@ -182,21 +182,21 @@ anim riseattack
 		frame	data/chars/tyris/effects/0061
 		frame	data/chars/tyris/effects/0058	
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png
 		
 anim  follow10
 
 	delay	-1000
 	offset  60  98
 		
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001
-		frame	data/chars/misc/blan0001		
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png		
 	offset  60  101	
-		frame	data/chars/misc/blan0001	
+		frame	data/chars/misc/blank.png	
 		frame	data/chars/tyris/effects/0062
 		frame	data/chars/tyris/effects/0063
 		frame	data/chars/tyris/effects/0064
@@ -213,4 +213,4 @@ anim  follow10
 		frame	data/chars/tyris/effects/0065
 		frame	data/chars/tyris/effects/0065
 	@cmd	killentity getlocalvar("self")
-		frame	data/chars/misc/blan0001
+		frame	data/chars/misc/blank.png

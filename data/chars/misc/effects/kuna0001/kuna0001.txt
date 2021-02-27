@@ -15,7 +15,7 @@ anim spawn
 
 	delay	3
 	offset	8 8
-		frame data/chars/misc/blan0001
+		frame data/chars/misc/blank.png
 
 anim idle
 
@@ -50,7 +50,7 @@ anim attack2
 
 	offset	8 8
 	delay	1
-    		frame	data/chars/misc/blan0001
+    		frame	data/chars/misc/blank.png
 
 
 

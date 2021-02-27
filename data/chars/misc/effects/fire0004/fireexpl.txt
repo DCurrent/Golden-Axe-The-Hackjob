@@ -32,7 +32,7 @@ anim spawn
 	frame data/chars/misc/effects/fire0004/0016.png
     delay 1
     move -2000
-	frame data/chars/misc/blan0001
+	frame data/chars/misc/blank.png
 
 
 

@@ -49,9 +49,9 @@ anim spawn
     	offset 0 0
 	delay   1
 	@cmd	soun0005 ENT_SELF SND_EFF1 -1 1 0 0
-    		frame   data/chars/misc/blan0001
+    		frame   data/chars/misc/blank.png
     	move    58
-    		frame   data/chars/misc/blan0001
+    		frame   data/chars/misc/blank.png
 
 anim follow1
 

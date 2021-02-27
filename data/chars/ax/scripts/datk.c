@@ -31,10 +31,10 @@ void main()
 	if(!getlocalvar("which") && (getentityproperty(vEnt, "hitbyid") != iAtkID))							//Unique attack?
 	{		
 			if(iOAni == A_RUNATK																		//Other using run attack or a jump attack? 
-				|| iOAni == A_JUMPATK
+				|| iOAni == openborconstant("ANI_JUMPATTACK")
 				|| iOAni == A_JUMPATK2
 				|| iOAni == A_JUMPATK3
-				|| iOAni == A_RUNJUMPATK)
+				|| iOAni == openborconstant("ANI_RUNJUMPATTACK"))
 			{		
 
 				fH = fY - iBase;

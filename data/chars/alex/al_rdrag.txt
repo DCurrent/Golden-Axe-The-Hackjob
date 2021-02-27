@@ -92,7 +92,7 @@ anim walk
 	}
 	else
 	{
-    		ai0002();
+    		dc_ai_avoid_jump_attack();
 	}
 	@end_script
 		frame	data/chars/alex/dragon/0029
@@ -116,7 +116,7 @@ anim up
     	offset  80 142
     	bbox    64 72 22 54
 	@script
-		ai0002();
+		dc_ai_avoid_jump_attack();
 	@end_script
 		frame	data/chars/alex/dragon/0033
 		frame	data/chars/alex/dragon/0034

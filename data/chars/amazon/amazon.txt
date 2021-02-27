@@ -149,7 +149,7 @@ anim walk
 	}
 	else
 	{
-    		ai0002();
+    		dc_ai_avoid_jump_attack();
 	}
 	@end_script
 
@@ -167,7 +167,7 @@ anim walk
 anim up
 
 	@script
-		ai0002();
+		dc_ai_avoid_jump_attack();
 	@end_script
 
 	loop	1

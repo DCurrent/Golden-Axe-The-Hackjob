@@ -2,7 +2,7 @@
 
 #include "data/scripts/vars/constants.h"       //Constants list.
 
-#import "data/scripts/com/ai0002.h"
+#import "data/scripts/com/dc_ai_avoid_jump_attack.c"
 #import "data/scripts/com/ani0009.h"
 #import "data/scripts/com/ani0014.h"
 #import "data/scripts/com/bind0003.h"

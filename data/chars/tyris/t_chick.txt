@@ -90,7 +90,7 @@ anim walk
 	}
 	else
 	{
-    		ai0002();
+    		dc_ai_avoid_jump_attack();
 	}
 	@end_script
 		frame	data/chars/tyris/chicken/0028
@@ -105,7 +105,7 @@ anim up
     	offset  82 142
     	bbox    70 78 28 60
 	@script
-		ai0002();
+		dc_ai_avoid_jump_attack();
 	@end_script
 		frame	data/chars/tyris/chicken/0032
 		frame	data/chars/tyris/chicken/0033

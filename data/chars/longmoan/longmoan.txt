@@ -37,25 +37,24 @@ atchain 			1 2 3 0 0
 flash		        cuth
 
 animationscript 	data/chars/longmoan/scripts/event_animation.c
-didblockscript		data/scripts/z_block.c				#Block incoming attack.
-didhitscript 		data/scripts/z_hit.c				#Hit another entity.
-keyscript			data/scripts/z_key.c				#Controlling player press/release key.
-onblockascript		data/scripts/z_blocka.c				#Movement (rise/fall) blocked by platform.
-onblockoscript		data/scripts/z_blocko.c				#Movement blocked by obstacle.
-onblocksscript		data/scripts/z_blocks.c				#Movement blocked by screen boundary.
-onblockwscript		data/scripts/z_blockw.c				#Movement blocked by wall.
-onblockzscript		data/scripts/z_blockz.c				#Movement blocked by Z boundary.
-ondeathscript		data/scripts/z_death.c				#Killed by damage.
-onfallscript		data/scripts/z_fall.c				#Fall status set.
-onkillscript		data/scripts/z_kill.c				#Removed from playfield.
-onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.
-onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
-onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
-onpainscript		data/scripts/z_pain.c				#Pain status set.
-onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
-script				data/scripts/z_script.c				#Entity updated.
-takedamagescript	data/scripts/z_damage.c				#Damaged.
-thinkscript			data/scripts/z_think.c				#Entity AI updates.
+didblockscript		data/scripts/z_block.c				# Block incoming attack.
+didhitscript 		data/scripts/z_hit.c				# Hit another entity.
+onblockascript		data/scripts/z_blocka.c				# Movement (rise/fall) blocked by platform.
+onblockoscript		data/scripts/z_blocko.c				# Movement blocked by obstacle.
+onblocksscript		data/scripts/z_blocks.c				# Movement blocked by screen boundary.
+onblockwscript		data/scripts/z_blockw.c				# Movement blocked by wall.
+onblockzscript		data/scripts/z_blockz.c				# Movement blocked by Z boundary.
+ondeathscript		data/scripts/z_death.c				# Killed by damage.
+onfallscript		data/scripts/z_fall.c				# Fall status set.
+onkillscript		data/scripts/z_kill.c				# Removed from playfield.
+onmoveascript		data/scripts/z_movea.c				# Moving on Y axis.
+onmovexscript		data/scripts/z_movex.c				# Moving on X axis.
+onmovezscript		data/scripts/z_movez.c				# Moving on Z axis.
+onpainscript		data/scripts/z_pain.c				# Pain status set.
+onspawnscript		data/scripts/z_spawn.c				# Spawned to playfied.
+script				data/scripts/z_script.c				# Entity updated.
+takedamagescript	data/scripts/z_damage.c				# Damaged.
+thinkscript			data/scripts/z_think.c				# Entity AI updates.
 
 palette		        data/chars/longmoan/palette_default.act
 alternatepal 	    data/chars/longmoan/palette_red.act
@@ -152,7 +151,7 @@ anim jumpland
 	frame	data/chars/longmoan/jump_start_0.png
 
 anim riseattack
-    jumpframe 3 2 0 hop_liftoff
+    jumpframe 3 2 0 0 hop_liftoff
     landframe 6 jump_land
     range   0 50
 	loop	0
@@ -195,7 +194,7 @@ if(getentityproperty(self, "invincible")==1)
 }
 else
 {
-    ai0002();
+    dc_ai_avoid_jump_attack();
 }
 @end_script
 	loop	1
@@ -211,7 +210,7 @@ else
 
 anim up
 @script
-ai0002();
+dc_ai_avoid_jump_attack();
 @end_script
 	loop	1
 	offset	60 98
@@ -1681,3 +1680,67 @@ anim follow10 # Reaction Poses
 
 
 
+
+anim attackup
+
+	range 10 50
+	rangea 0 150
+	rangea 0 150
+	rangez -10 20
+
+	jumpframe 1 2 -0.2 -0.7 hop_liftoff
+	dropframe 2
+	landframe 3 jump_land
+    
+    delay  6	
+	offset	60 98
+	bbox.position.x 43
+	bbox.position.y 70
+	bbox.size.x 28
+	bbox.size.y 29
+	
+	frame	data/chars/longmoan/jump_start_0.png
+	
+	delay   -1000
+	frame	data/chars/longmoan/jump_0.png
+	
+	bbox.position.x 45
+	bbox.position.y 40
+	bbox.size.x 26
+	bbox.size.y 57
+	frame	data/chars/longmoan/jump_1.png
+	
+	delay 12
+	frame	data/chars/longmoan/jump_start_0.png
+	
+anim attackdown
+
+	range 10 50
+	rangea 0 150
+	rangez -20 10
+
+	jumpframe 1 2 -0.2 0.7 hop_liftoff
+	dropframe 2
+	landframe 3 jump_land
+	
+	
+	delay  6	
+	offset	60 98
+	bbox.position.x 43
+	bbox.position.y 70
+	bbox.size.x 28
+	bbox.size.y 29
+	
+	frame	data/chars/longmoan/jump_start_0.png
+	
+	delay   -1000
+	frame	data/chars/longmoan/jump_0.png
+	
+	bbox.position.x 45
+	bbox.position.y 40
+	bbox.size.x 26
+	bbox.size.y 57
+	frame	data/chars/longmoan/jump_1.png
+	
+	delay 12
+	frame	data/chars/longmoan/jump_start_0.png

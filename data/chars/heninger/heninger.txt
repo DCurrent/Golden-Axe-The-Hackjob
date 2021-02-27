@@ -212,7 +212,7 @@ if(getentityproperty(self, "invincible")==1)
 }
 else
 {
-    ai0002();
+    dc_ai_avoid_jump_attack();
 }
 @end_script
 	loop	1
@@ -228,7 +228,7 @@ else
 
 anim up
 @script
-ai0002();
+dc_ai_avoid_jump_attack();
 @end_script
 	loop	1
 	offset	60 98

@@ -1,6 +1,6 @@
 #import "data/scripts/com/targ0001.h"
 
-void dama0001(void vTar, int iHP, int iDrop, void vType, int iDir, float fY, float fX, float fZ, int iDOL, int iAttacking, int iProj){
+void dama0001(void vTar, int iHP, int iDrop, void attack_type, int iDir, float fY, float fX, float fZ, int iDOL, int iAttacking, int iProj){
 
      /*
      dama0004
@@ -11,7 +11,7 @@ void dama0001(void vTar, int iHP, int iDrop, void vType, int iDir, float fY, flo
      vTar:          Target entity. See targ0001 function.
      iHP:           Amount of damage to apply.
      iDrop:         Knockdown.
-     vType:         Attack type.
+     attack_type:         Attack type.
      iDir:          Force direction.
      fX/fY/fZ:      Toss entity parameters.
      iDOL:          Damage on landing.
@@ -23,8 +23,7 @@ void dama0001(void vTar, int iHP, int iDrop, void vType, int iDir, float fY, flo
      void vTarget = targ0001(vTar, vSelf);                      //Target entity.
      int  iSDir   = getentityproperty(vSelf, "direction");      //Calling entity facing.
      int  iTDir   = getentityproperty(vTarget, "direction");    //Target entity facing.
-     int  iType   = openborconstant(vType + "");                //Attack type.
-
+     
      /*
      Quick and dirty fix. As of version 2.1954, openborconstant returns empty value for "ATK_NORMAL# > 10".
 
@@ -45,10 +44,10 @@ void dama0001(void vTar, int iHP, int iDrop, void vType, int iDir, float fY, flo
      ATK_NORMAL10 14
      ATK_ITEM	  15
      */
-     if (!iType && vType != "ATK_NORMAL"){ iType = vType; }
+     
 
      changeentityproperty(vTarget, "dead", 0);
-     damageentity(vTarget, vSelf, iHP, iDrop, iType);                       //Apply attack/damage.
+     damageentity(vTarget, vSelf, iHP, iDrop, attack_type);                       //Apply attack/damage.
      changeentityproperty(vTarget, "damage_on_landing", iDOL);              //Set damage on landing flag.
      changeentityproperty(vTarget, "attacking",         iAttacking);        //Set attacking flag.
      changeentityproperty(vTarget, "projectile",        iProj);             //Set "hit others" flag.

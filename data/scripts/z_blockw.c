@@ -1,8 +1,8 @@
 //Generic wall block script.
 
-#import "data/scripts/com/wall0001.h"
+#import "data/scripts/com/dc_wall_bounce.c"
 
 void main()
 {
-    wall0001();       
+    dc_wall_bounce();       
 }

@@ -74,7 +74,7 @@ onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
 onpainscript		data/scripts/z_pain.c				#Pain status set.
 onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
 script				data/scripts/z_script.c				#Entity updated.
-takedamagescript	data/scripts/z_damage.c				#Damaged.
+takedamagescript	data/scripts/common/event_damage.c				#Damaged.
 thinkscript			data/scripts/z_think.c				#Entity AI updates.
 
 anim waiting

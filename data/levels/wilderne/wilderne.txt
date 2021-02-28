@@ -79,8 +79,8 @@ palette 	data/bgs/wilder/evening_24.act 		0 	0 	0 	0 	0 	0
 
 
 # Timer
-settime 0
-notime  1
+#settime 0
+#notime  1
 
 # Asset loading
 load Male_Villager2

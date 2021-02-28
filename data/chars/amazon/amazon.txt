@@ -20,7 +20,7 @@ noatflash 		0
 candamage 		player npc
 hostile 		player npc
 score 			2 -1
-dust			fall_land landm jumpm
+dust			fall_land landm jump_liftoff
 blockodds		1
 #nopassiveblock	1
 projectilehit 	enemy
@@ -221,7 +221,7 @@ anim riseattack
     		frame	data/chars/amazon/a7
 anim runattack
 
-    	jumpframe 	1 2 2 0 jumpm
+    	jumpframe 	1 2 2 0 jump_liftoff
 	landframe 	2 landm
     	followanim 	2
     	followcond 	1
@@ -637,7 +637,7 @@ anim  grabforward
 	#Neck Breaker
 
 	landframe  5 impm
-	jumpframe  2  3  1  0 jumpm
+	jumpframe  2  3  1  0 jump_liftoff
 
 	offset  50  98
 	delay  12

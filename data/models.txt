@@ -36,7 +36,6 @@ load	idirm		data/chars/misc/effects/models/flash/idirm/idirm.txt			#Indirect hit
 load	fallh		data/chars/misc/effects/models/flash/fallh/fallh.txt			#Fall dust, heavy.				~Big body fall.
 load	fallmm		data/chars/misc/effects/models/flash/fallmm/fallmm.txt			#Fall dust, medium, metalic.	~Armored body fall.
 load	impm		data/chars/misc/effects/models/flash/impm/impm.txt				#Slam impact, medium.
-load	jumpm		data/chars/misc/effects/models/flash/jumpm/jumpm.txt			#Jump liftoff, medium.
 load	jumpmw		data/chars/misc/effects/models/flash/jumpmw/jumpmw.txt			#Jump liftoff, medium, from wall.
 load	landh		data/chars/misc/effects/models/flash/landh/landh.txt			#Jump land, heavy.
 load	landm		data/chars/misc/effects/models/flash/landm/landm.txt			#Jump land, medium.

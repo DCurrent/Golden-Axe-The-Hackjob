@@ -26,7 +26,7 @@ noatflash 			0
 bflash 				bflash
 #holdblock 			1
 thold 				34
-dust				fall_land landm jumpm
+dust				fall_land landm jump_liftoff
 komap				6 0
 #hmap				5 9
 fmap				9
@@ -437,7 +437,7 @@ anim attack5
 
 
     	range 	   24 32
-	jumpframe  1  2.2  0  0 jumpm
+	jumpframe  1  2.2  0  0 jump_liftoff
 	dropframe  2
 	landframe  12 landm
 	hitflash   cuth
@@ -508,7 +508,7 @@ anim attack6
 
 anim  attackup
 	range  20  70
-	jumpframe  1  2  0  -1 jumpm
+	jumpframe  1  2  0  -1 jump_liftoff
 	dropframe  2
 	delay  12
 	offset  60  98
@@ -523,7 +523,7 @@ anim  attackup
 
 anim  attackdown
 	range  20  70
-	jumpframe  1  2  0  1 jumpm
+	jumpframe  1  2  0  1 jump_liftoff
 	dropframe  2
 	delay  12
 	offset  60  98
@@ -809,7 +809,7 @@ anim  grabforward
 
 	#Suplex
 
-	jumpframe  3  1.5  -0.5  0 jumpm
+	jumpframe  3  1.5  -0.5  0 jump_liftoff
 	flipframe  2
 	landframe  5
 
@@ -925,7 +925,7 @@ anim  freespecial2
 	#Backstep.
 
 	range  		20  70
-	jumpframe  	1  2  -2  0 jumpm
+	jumpframe  	1  2  -2  0 jump_liftoff
 	dropframe  	2
 	#landframe  	3 landm
 	delay  		12
@@ -964,7 +964,7 @@ anim  freespecial6
 	#Shoulder tackle.
 
 	landframe   	2 landm
-	jumpframe   	1  2  2 jumpm
+	jumpframe   	1  2  2 jump_liftoff
 	followanim  	2
 	followcond  	1
 	range  		-1  1
@@ -1188,7 +1188,7 @@ anim  follow7
 	#Shoulder tackle (Animal far).
 
 	landframe   	2 landm
-	jumpframe   	1  2  2 jumpm
+	jumpframe   	1  2  2 jump_liftoff
 	followanim  	2
 	followcond  	1
 	range  		60  100
@@ -1212,7 +1212,7 @@ anim	follow8
 	#Wall Body slam
 
 	flipframe  6
-	jumpframe  7  2  1  0 jumpm
+	jumpframe  7  2  1  0 jump_liftoff
 	landframe  8
 
 	delay  10
@@ -1618,7 +1618,7 @@ anim  bpain
 anim  special
 
 	Hitflash  	cuth
-	jumpframe  	1  2.2  0  0 jumpm
+	jumpframe  	1  2.2  0  0 jump_liftoff
 	dropframe  	2
 	landframe  	12 landm
 	energycost  	8

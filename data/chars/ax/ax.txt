@@ -24,7 +24,7 @@ projectilehit 		player npc obstacle
 noatflash 			0
 bflash 				bflash
 holdblock 			0
-dust				fall_land landm jumpm
+dust				fall_land landm jump_liftoff
 komap				6 1
 hmap				5 9
 fmap				9
@@ -213,7 +213,7 @@ anim run
 anim  attackboth
 
 	flipframe  12
-	jumpframe  3  2.8  0  0 jumpm
+	jumpframe  3  2.8  0  0 jump_liftoff
 	dropframe  10
 	landframe  23 landm
 
@@ -271,7 +271,7 @@ anim attackup
 	#sidestep.
 
 	cancel 7 7 0 a freespecial12	#Second strike
-	jumpframe  1  0  0.5  -1 jumpm
+	jumpframe  1  0  0.5  -1 jump_liftoff
 
 	delay  7
 	offset  60  98
@@ -298,7 +298,7 @@ anim attackdown
 	#sidestep.
 
 	cancel 7 7 0 a freespecial12	#Second strike
-	jumpframe  1  0  0.5  1 jumpm
+	jumpframe  1  0  0.5  1 jump_liftoff
 
 	delay  7
 	offset  60  98
@@ -429,7 +429,7 @@ anim runattack
 	followcond 	1
     	hitflash	hith
 	counterattack 	1
-    	jumpframe 	1 2 2 0 jumpm
+    	jumpframe 	1 2 2 0 jump_liftoff
 	landframe	2 landm
 
 	offset	60 98
@@ -704,7 +704,7 @@ anim  freespecial
 
 	hitflash	cuth
 	range		0  80
-	jumpframe	2  2  0.5  0 jumpm
+	jumpframe	2  2  0.5  0 jump_liftoff
 	landframe	7 landm
 
 	offset	60  98
@@ -759,7 +759,7 @@ anim freespecial2
 
 	#Backstep.
 
-	jumpframe	1  2  -2  0 jumpm
+	jumpframe	1  2  -2  0 jump_liftoff
 	landframe	3 landm
 	dropframe	2
 
@@ -813,7 +813,7 @@ anim  freespecial6
 
 	#Spin Breaker
 
-	jumpframe  2.5  3  0  0 jumpm
+	jumpframe  2.5  3  0  0 jump_liftoff
 	landframe  8 landm
 
 	offset  60  98
@@ -1012,7 +1012,7 @@ anim freespecial11
 
 	#Gutbuster
 
-	jumpframe	2  4  0  0 jumpm
+	jumpframe	2  4  0  0 jump_liftoff
 	dropframe	4
 	landframe	5  impm
 
@@ -1107,7 +1107,7 @@ anim  freespecial13
 	cancel 10 10 0 f u a freespecial6	#Spin Breaker
 	cancel 10 10 0 d u a freespecial10	#Giant swing
 
-	jumpframe  3  2.5  1  0	jumpm
+	jumpframe  3  2.5  1  0	jump_liftoff
 	dropframe  5
 	landframe  6 landm
 
@@ -1157,7 +1157,7 @@ anim  freespecial14
 
 	#Hun Suplex
 
-	jumpframe 0 0 0 0 jumpm
+	jumpframe 0 0 0 0 jump_liftoff
 
 	cancel 14 14 0 u b a freespecial15	#Melon Splitter
 
@@ -1229,7 +1229,7 @@ anim  freespecial15
 	cancel 17 17 0 d f a freespecial13	#Flying Bomb
 	cancel 17 17 0 d u a freespecial10	#Giant Swing
 
-	jumpframe  0 0 0 0 jumpm
+	jumpframe  0 0 0 0 jump_liftoff
 	flipframe  14
 
 	offset  60  98
@@ -1306,7 +1306,7 @@ anim  freespecial16
 
 	#Ground And Pound
 
-	jumpframe 32 2.5 -1 0 jumpm
+	jumpframe 32 2.5 -1 0 jump_liftoff
 	dropframe 33
 	landframe 34 landm
 
@@ -1503,7 +1503,7 @@ anim follow7
 
 	#Piledriver bounce.
 
-    jumpframe 0 3 -1 0 jumpm
+    jumpframe 0 3 -1 0 jump_liftoff
     dropframe 1
 	landframe 2 landm
 
@@ -1744,7 +1744,7 @@ anim follow13
 
 	#Ax Destroyer bounce.
 
-    jumpframe 0 4 -1 0 jumpm
+    jumpframe 0 4 -1 0 jump_liftoff
     landframe  5 landm
 
 	offset	77 104
@@ -1986,7 +1986,7 @@ anim grabbackward
 	cancel 7 7 0 d b a freespecial14										#Hun Suplex.
 	cancel 7 7 0 u b a freespecial15										#Melon Splitter
 
-	jumpframe  2  2.5  -0.5  0 jumpm
+	jumpframe  2  2.5  -0.5  0 jump_liftoff
 	dropframe  3
 	landframe  4 impm
 
@@ -2182,7 +2182,7 @@ anim  follow14
 
 	#Powerslam
 
-	jumpframe  2  2.5  -1  0 jumpm
+	jumpframe  2  2.5  -1  0 jump_liftoff
 	landframe  6 impm
 
 	offset  60  98
@@ -2220,7 +2220,7 @@ anim  follow15
 	range  -20 30
 	rangea -50 1
 
-	jumpframe  6  2  -0.5  0 jumpm
+	jumpframe  6  2  -0.5  0 jump_liftoff
 	landframe  8 impm
 
 	offset  60  98
@@ -2284,7 +2284,7 @@ anim follow17
 
 	cancel 1 2 0 d d a freespecial16												#Ground And Pound.
 
-	jumpframe 5 2.5 -1 0 jumpm
+	jumpframe 5 2.5 -1 0 jump_liftoff
 	dropframe 6
 	landframe 7 landm
 
@@ -2313,7 +2313,7 @@ anim  follow18
 
 	range		-20 40
 	rangea		-1 1 0 0
-	jumpframe	1 3 1.5 0 jumpm
+	jumpframe	1 3 1.5 0 jump_liftoff
 	dropframe	2
 	landframe	3 impm
 

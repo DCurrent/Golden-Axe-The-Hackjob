@@ -26,7 +26,7 @@ candamage			player npc obstacle
 bflash 				bflash
 holdblock 			0
 thold 				34
-dust				fallh fall_land jumpm
+dust				fallh fall_land jump_liftoff
 komap				3 0
 hmap				3 4
 fmap				9
@@ -305,7 +305,7 @@ anim run
 
 anim runattack
 
-	jumpframe		1 2.8 2.5 0 jumpm
+	jumpframe		1 2.8 2.5 0 jump_liftoff
 	landframe		2 landh
 	counterattack	1
 	hitflash		hith

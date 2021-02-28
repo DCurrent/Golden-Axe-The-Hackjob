@@ -1,6 +1,6 @@
 # Jump, medium.
 
-name			jumpm
+name			jump_liftoff
 type			none
 shadow			0
 antigravity		100

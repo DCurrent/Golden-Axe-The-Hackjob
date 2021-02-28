@@ -4,7 +4,7 @@ icon					data/chars/tyris/hud/0000
 name					t_rdrag
 speed					10
 running 				20 5 1 1 0
-dust					fall_land landm jumpm
+dust					fall_land landm jump_liftoff
 gfxshadow 				1
 shadow					3
 animal  				2
@@ -127,7 +127,7 @@ anim runattack
     range 		80 180
     followanim 	2
     followcond 	1
-    jumpframe  	0 2 3 0 jumpm
+    jumpframe  	0 2 3 0 jump_liftoff
     landframe 	7 landm
 	loop		1 2 6
     hitflash 	hithcut
@@ -275,7 +275,7 @@ anim freespecial2
     	#Backstep.
 
 	range	  	1 -1
-    	jumpframe 	1 2 -2 0 jumpm
+    	jumpframe 	1 2 -2 0 jump_liftoff
     	dropframe 	2
 
     	delay	12
@@ -294,7 +294,7 @@ anim freespecial3
     	#Highjump up.
 
 	range 		1 -1
-    	jumpframe 	1  5  0.05  -0.3 jumpm
+    	jumpframe 	1  5  0.05  -0.3 jump_liftoff
     	dropframe 	2
 
     	delay	20
@@ -313,7 +313,7 @@ anim freespecial4
     	#Highjump down.
 
    	range 		1 -1
-    	jumpframe 	1  5  0.05  0.3 jumpm
+    	jumpframe 	1  5  0.05  0.3 jump_liftoff
     	dropframe 	2
 
     	delay	20
@@ -334,7 +334,7 @@ anim freespecial5
 	range     	0 100
 	rangez    	-80 -30
 	rangeb	  	-10 10
-    	jumpframe 	1  3  0.8  -1 jumpm
+    	jumpframe 	1  3  0.8  -1 jump_liftoff
     	dropframe 	2
 	hitflash  	hithcut
 
@@ -359,7 +359,7 @@ anim freespecial6
 	range     	0 100
 	rangez    	30 80
 	rangeb	  	-10 10
-    	jumpframe 	1  3  0.8  1 jumpm
+    	jumpframe 	1  3  0.8  1 jump_liftoff
     	dropframe 	2
 	hitflash  	hithcut
 

@@ -4,6 +4,7 @@ name	fall_land
 type	none
 shadow	0
 alpha	1
+mp 128
 
 onspawnscript 	data/scripts/common/event_spawn_dust.c
 onkillscript	data/scripts/common/event_kill.c

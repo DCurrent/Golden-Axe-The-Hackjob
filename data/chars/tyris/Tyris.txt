@@ -19,7 +19,7 @@ noatflash 			0
 height				55
 
 projectilehit 		player npc obstacle
-dust				fall_land landm jumpm
+dust				fall_land landm jump_liftoff
 bflash 				bflash
 holdblock 			0
 thold 				34
@@ -282,7 +282,7 @@ anim	attackboth
 	range	-60 110
 	flipframe	14
 	loop	0
-	jumpframe	6 2.6 -1 0 jumpm
+	jumpframe	6 2.6 -1 0 jump_liftoff
 	landframe	20	landm
 	hitflash	hitm
 	offset	60 98
@@ -341,7 +341,7 @@ anim	attackboth
 
 anim	attackdown
 	loop	1 8 12
-	jumpframe	1 3 -0.5 1 jumpm
+	jumpframe	1 3 -0.5 1 jump_liftoff
 	landframe	13 landm
 	offset	60 98
 	delay	8
@@ -371,7 +371,7 @@ anim	attackdown
 
 anim	attackup
 	loop	1 8 12
-	jumpframe	1 3 -0.5 -1 jumpm
+	jumpframe	1 3 -0.5 -1 jump_liftoff
 	landframe	13 landm
 	offset	60 98
 	delay	8
@@ -649,7 +649,7 @@ anim	follow57
 	rangea	-50 1
 	loop	1 10 15
 	dropframe	5
-	jumpframe	4 4 1.5 0 jumpm
+	jumpframe	4 4 1.5 0 jump_liftoff
 	landframe	19	landm
 	offset	60 98
 	bbox	0
@@ -743,7 +743,7 @@ anim	follow58
 	frame	data/chars/tyris/0082.png
 
 anim	freespecial2
-	jumpframe	1 0 -1.5 0 jumpm
+	jumpframe	1 0 -1.5 0 jump_liftoff
 	offset	60 98
 	delay	8
 	frame	data/chars/tyris/0189.png
@@ -1080,7 +1080,7 @@ anim	respawn
 	frame	data/chars/tyris/0000
 
 anim	rise
-	jumpframe	3 1 0 0 jumpm
+	jumpframe	3 1 0 0 jump_liftoff
 	landframe	6 landm
 	offset	54 95
 	delay	8
@@ -1108,7 +1108,7 @@ anim	riseattack
 	loop	1 21 25
 	dropframe	20
 	landframe	26 landm
-	jumpframe	3 3 1 0 jumpm
+	jumpframe	3 3 1 0 jump_liftoff
 	hitflash	cuth
 	delay	8
 	offset	60 98
@@ -1178,7 +1178,7 @@ anim	runattack
 	followcond	1
 	counterattack	1
 	loop	1 1 5
-	jumpframe	0 2.5 2 0 jumpm
+	jumpframe	0 2.5 2 0 jump_liftoff
 	landframe	5 landm
 	delay	6
 	offset	60 98

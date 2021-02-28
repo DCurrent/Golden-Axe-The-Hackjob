@@ -30,7 +30,7 @@ void main() {
 	* is not set at all, default to half size.
 	*/
 
-	if (spawn_type == openborconstant("SPAWN_TYPE_DUST_LAND") || spawn_type == openborconstant("SPAWN_TYPE_DUST_JUMP"))
+	if (spawn_type == openborconstant("SPAWN_TYPE_DUST_LAND") || spawn_type == openborconstant("SPAWN_TYPE_DUST_JUMP") || spawn_type == openborconstant("SPAWN_TYPE_DUST_FALL"))
 	{
 		mp = getentityproperty(ent, "maxmp");
 

@@ -6,7 +6,7 @@ name			al_chick
 health			98
 speed			10
 running 		20 5 1 1 0
-dust			fall_land landm jumpm
+dust			fall_land landm jump_liftoff
 gfxshadow 		1
 shadow			3
 animal  		2
@@ -141,7 +141,7 @@ anim runattack
     	range 	   80 180
     	followanim 2
     	followcond 1
-    	jumpframe  1 2 3 0 jumpm
+    	jumpframe  1 2 3 0 jump_liftoff
     	landframe  2 landm
 	hitflash   hithcut
 
@@ -180,7 +180,7 @@ anim attackup
 
 	#sidestep.
 
-	jumpframe 1 2 -0.2 -1 jumpm
+	jumpframe 1 2 -0.2 -1 jump_liftoff
 
 	delay	10
 	offset	88 139
@@ -196,7 +196,7 @@ anim attackdown
 
 	#sidestep.
 
-	jumpframe 1 2 -0.2 1 jumpm
+	jumpframe 1 2 -0.2 1 jump_liftoff
 
 	delay	10
 	offset	88 139
@@ -344,7 +344,7 @@ anim grabbackward
 
     	Loop 		1 7 13
     	flipframe	6
-    	jumpframe 	2 4 -1 0 jumpm
+    	jumpframe 	2 4 -1 0 jump_liftoff
     	landframe   	13 impm
 
     	delay	10
@@ -434,7 +434,7 @@ anim freespecial5
 	range     	0 100
 	rangez    	-80 -30
 	rangeb	  	-10 10
-    	jumpframe 	1  3  0.8  -1 jumpm
+    	jumpframe 	1  3  0.8  -1 jump_liftoff
 	hitflash  	hithcut
 
 	delay	20
@@ -456,7 +456,7 @@ anim freespecial6
 	range     	0 100
 	rangez    	30 80
 	rangeb	  	-10 10
-    	jumpframe 	1  3  0.8  1 jumpm
+    	jumpframe 	1  3  0.8  1 jump_liftoff
 	hitflash  	hithcut
 
 	delay	20
@@ -478,7 +478,7 @@ anim freespecial9
 	range     	0 100
 	rangez    	30 80
 	rangeb	  	-10 10
-    	jumpframe 	1  3  0.8  1 jumpm
+    	jumpframe 	1  3  0.8  1 jump_liftoff
 	hitflash  	hithcut
 
 	delay	20

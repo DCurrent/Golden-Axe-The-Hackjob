@@ -3,6 +3,7 @@
 name	jump_liftoff
 type	none
 shadow	0
+mp 64
 
 onspawnscript 	data/scripts/common/event_spawn_dust.c
 onkillscript	data/scripts/common/event_kill.c

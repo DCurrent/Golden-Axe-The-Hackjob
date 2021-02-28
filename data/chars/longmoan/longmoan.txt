@@ -15,7 +15,7 @@ shadow				2
 nolife  			1
 falldie 			2
 nodieblink 			3
-dust				fall_land landm jumpm
+dust				fall_land landm jump_liftoff
 noquake 			1
 paingrab 			1
 noatflash 			0

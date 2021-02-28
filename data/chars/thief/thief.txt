@@ -19,7 +19,7 @@ noquake 	1
 bounce 		0
 score 		0 -1
 jumpmove	0 1
-dust		landm landm jumpm	
+dust		landm landm jump_liftoff	
 
 load escthief
 

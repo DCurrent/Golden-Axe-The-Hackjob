@@ -26,7 +26,7 @@ candamage			player npc obstacle
 bflash 				bflash
 holdblock 			0
 thold 				34
-dust				fallh fallm jumpm
+dust				fallh fall_land jumpm
 komap				3 0
 hmap				3 4
 fmap				9

@@ -20,7 +20,7 @@ noatflash 		0
 candamage 		player npc
 hostile 		player npc
 score 			2 -1
-dust			fallm landm jumpm
+dust			fall_land landm jumpm
 blockodds		1
 #nopassiveblock	1
 projectilehit 	enemy

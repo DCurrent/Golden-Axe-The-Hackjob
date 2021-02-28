@@ -35,17 +35,17 @@ void oncreate()
 	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, DC_FIDELITY_TYPE_VOICE_KO, "data/sounds/custom/sor3_ko_0.wav");
 	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, DC_FIDELITY_TYPE_VOICE_KO, "data/sounds/custom/unknown_ko.wav");
 
-	// Jump and hop liftoff.
-	dc_fidelity_setup("hop_liftoff", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/fatal_fury_1_jump.wav");
-	dc_fidelity_setup("jump_liftoff", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/fatal_fury_1_jump.wav");
+	/* Jump and hop liftoff. */
+	dc_fidelity_setup("hop_liftoff", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/shinobi_jump.wav");
+	dc_fidelity_setup("jump_liftoff", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/shinobi_jump.wav");
 
-	// Jump land.
+	/* Jump land. */
 	dc_fidelity_setup("jump_land", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/fatal_fury_1_land.wav");
 
-	// Fall Land.
-	dc_fidelity_setup("fall_land", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/unknown_fall_land.wav");
+	/* Fall Land. */
+	dc_fidelity_setup("fall_land", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_fall_land_light.wav");
 
-	// Heavy slam Land.
+	/* Heavy slam Land. */
 	dc_fidelity_setup("flash_slam_heavy", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/unknown_slam.wav");
 
 	// Block flash.

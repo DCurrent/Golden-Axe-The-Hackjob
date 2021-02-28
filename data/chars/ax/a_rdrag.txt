@@ -4,7 +4,7 @@ icon				data/chars/ax/hud
 name				a_rdrag
 speed				10
 running 			20 5 1 1 0
-dust				fallm landm jumpm
+dust				fall_land landm jumpm
 gfxshadow 			1
 shadow				3
 animal  			2

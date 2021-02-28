@@ -15,7 +15,7 @@ shadow				2
 nolife  			1
 falldie 			2
 nodieblink 			3
-dust				fallm landm jumpm
+dust				fall_land landm jumpm
 noquake 			1
 paingrab 			1
 noatflash 			0
@@ -149,6 +149,17 @@ anim jumpland
     delay   12
 	offset	60 98
 	bbox	45 40 26 57
+	frame	data/chars/longmoan/jump_start_0.png
+
+anim walkoff
+	landframe 1 jump_land
+    range   20 70
+	offset	60 98
+	bbox	45 40 26 57
+    
+    delay   -1000
+	frame	data/chars/longmoan/jump_1.png
+    delay   12	
 	frame	data/chars/longmoan/jump_start_0.png
 
 anim riseattack

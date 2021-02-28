@@ -1,0 +1,32 @@
+#Land effect
+
+name	fall_land
+type	none
+shadow	0
+alpha	1
+
+onspawnscript 	data/scripts/common/event_spawn_dust.c
+onkillscript	data/scripts/common/event_kill.c
+
+palette		data/chars/misc/cvs_land_dust/0_0.png
+
+anim idle
+
+	#Normal dust.
+
+	delay	2
+	offset	85 105
+		
+		frame	data/chars/misc/cvs_land_dust/0_0.png
+		frame	data/chars/misc/cvs_land_dust/0_1.png
+		frame	data/chars/misc/cvs_land_dust/0_2.png
+		frame	data/chars/misc/cvs_land_dust/0_3.png
+		frame	data/chars/misc/cvs_land_dust/0_4.png
+		frame	data/chars/misc/cvs_land_dust/0_5.png
+		frame	data/chars/misc/cvs_land_dust/0_6.png
+		frame	data/chars/misc/cvs_land_dust/0_7.png
+		frame	data/chars/misc/cvs_land_dust/0_8.png
+		frame	data/chars/misc/cvs_land_dust/0_9.png
+		frame	data/chars/misc/cvs_land_dust/0_10.png
+		frame	data/chars/misc/cvs_land_dust/0_11.png
+

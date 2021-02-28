@@ -24,7 +24,7 @@ projectilehit 		player npc obstacle
 noatflash 			0
 bflash 				bflash
 holdblock 			0
-dust				fallm landm jumpm
+dust				fall_land landm jumpm
 komap				6 1
 hmap				5 9
 fmap				9
@@ -2480,7 +2480,7 @@ anim fall
 anim death
 
 	flipframe  13
-	jumpframe  13 0 0 0 fallm
+	jumpframe  13 0 0 0 fall_land
 
 	offset  60  98
 	delay  20

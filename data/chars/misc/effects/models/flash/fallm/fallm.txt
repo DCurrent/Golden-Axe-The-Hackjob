@@ -1,6 +1,6 @@
 # Normal fall flash
 
-name			fallm
+name			fall_land
 type			none
 shadow			0
 antigravity		100

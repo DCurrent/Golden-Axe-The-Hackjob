@@ -23,7 +23,7 @@ projectilehit 			enemy obstacle
 hostile				player npc
 candamage			player npc obstacle
 score 		2 -1
-dust		fallm landm jumpm
+dust		fall_land landm jumpm
 
 animationscript 	data/scripts/z_ani.c
 didblockscript		data/scripts/z_block.c				#Block incoming attack.

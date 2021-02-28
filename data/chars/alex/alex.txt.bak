@@ -26,7 +26,7 @@ noatflash 			0
 bflash 				bflash
 #holdblock 			1
 thold 				34
-dust				fallm landm jumpm
+dust				fall_land landm jumpm
 komap				6 0
 #hmap				5 9
 fmap				9

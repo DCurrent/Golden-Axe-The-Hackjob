@@ -21,63 +21,37 @@ load	pselect	    data/chars/plselect/pselect.txt									#Player select roulette
 
 #*****Flash/Dust (~ module specific use)*****
 load	bflash		data/chars/misc/effects/models/flash/bflash/bflash.txt			#Block flash.					~Weapon deflect.
-#load	biteh		data/chars/misc/effects/models/flash/biteh/biteh.txt			#Bite, heavy.					
-#load	bitel		data/chars/misc/effects/models/flash/bitel/bitel.txt			#Bite, light.					
 load	bitem		data/chars/misc/effects/models/flash/bitem/bitem.txt			#Bite, medium.					~Collect food, animal bites.
 load	bluh		data/chars/misc/effects/models/flash/bluh/bluh.txt				#Blunt hit, heavy.				~Hammer thunk.
-#load	bluhcut		data/chars/misc/effects/models/flash/bluhcut/bluhcut.txt		#Blunt hit, heavy w/blood.		
 load	blul		data/chars/misc/effects/models/flash/blul/blul.txt				#Blunt hit, light.				~Knock head.
-#load	blulcut		data/chars/misc/effects/models/flash/blulcut/blulcut.txt		#Blunt hit, light w/blood.		
-#load	blum		data/chars/misc/effects/models/flash/blum/blum.txt				#Blunt hit, medium.				
 load	blumcut		data/chars/misc/effects/models/flash/blumcut/blumcut.txt		#Blunt hit, medium w/blood.		~Mace, spike club, & broken sword hits.
-#load	boneh		data/chars/misc/effects/models/flash/bonem/bonem.txt			#Bone crush, heavy.
-#load	bonel		data/chars/misc/effects/models/flash/bonel/bonel.txt			#Bone crush, light.
 load	bonem		data/chars/misc/effects/models/flash/bonem/bonem.txt			#Bone crush, medium.
 load	cuth		data/chars/misc/effects/models/flash/cuth/cuth.txt				#Cut, heavy.					~Knockdown by cut.
-#load	cutl		data/chars/misc/effects/models/flash/cutl/cutl.txt				#Cut, light.					
-#load	cutm		data/chars/misc/effects/models/flash/cutm/cutm.txt				#Cut, medium.					
 load	flash		data/chars/misc/effects/models/flash/flash/flash.txt			#Default hit flash.				~Normal cut.
 load	hith		data/chars/misc/effects/models/flash/hith/hith.txt				#Bare hand, heavy.				~Run attack w/body.
 load	hithcut		data/chars/misc/effects/models/flash/hithcut/hithcut.txt		#Bare hand, heavy w/blood.		~Run attack w/weapon.
-#load	hitl		data/chars/misc/effects/models/flash/hitl/hitl.txt				#Bare hand, light.				
-#load	hitlcut		data/chars/misc/effects/models/flash/hitlcut/hitlcut.txt		#Bare hand, light w/blood.					
 load	hitm		data/chars/misc/effects/models/flash/hitm/hitm.txt				#Bare hand, medium.				~Knockdown by hit.
-#load	hitmcut		data/chars/misc/effects/models/flash/hitmcut/hitmcut.txt		#Bare hand, medium w/blood.					
 load	idirh		data/chars/misc/effects/models/flash/idirh/idirh.txt			#Indirect hit, heavy.
-#load	idirl		data/chars/misc/effects/models/flash/idirl/idirl.txt			#Indirect hit, light.
 load	idirm		data/chars/misc/effects/models/flash/idirm/idirm.txt			#Indirect hit.					~Thrown into ally.
 load	fallh		data/chars/misc/effects/models/flash/fallh/fallh.txt			#Fall dust, heavy.				~Big body fall.
-#load	fallhm		data/chars/misc/effects/models/flash/fallhm/fallhm.txt			#Fall dust, heavy, metalic.		
-#load	falll		data/chars/misc/effects/models/flash/fallh/falll.txt			#Fall dust, light.				
-#load	falllm		data/chars/misc/effects/models/flash/falllm/falllm.txt			#Fall dust, light, metalic.
-load	fallm		data/chars/misc/effects/models/flash/fallm/fallm.txt			#Fall dust, medium.				~Normal fall.
 load	fallmm		data/chars/misc/effects/models/flash/fallmm/fallmm.txt			#Fall dust, medium, metalic.	~Armored body fall.
-#load	imph		data/chars/misc/effects/models/flash/imph/imph.txt				#Slam impact, heavy.
-#load	impl		data/chars/misc/effects/models/flash/impl/impl.txt				#Slam impact, light.
 load	impm		data/chars/misc/effects/models/flash/impm/impm.txt				#Slam impact, medium.
-#load	jumph		data/chars/misc/effects/models/flash/jumph/jumph.txt			#Jump liftoff, heavy.
-#load	jumpl		data/chars/misc/effects/models/flash/jumpl/jumpl.txt			#Jump liftoff, light.
 load	jumpm		data/chars/misc/effects/models/flash/jumpm/jumpm.txt			#Jump liftoff, medium.
 load	jumpmw		data/chars/misc/effects/models/flash/jumpmw/jumpmw.txt			#Jump liftoff, medium, from wall.
 load	landh		data/chars/misc/effects/models/flash/landh/landh.txt			#Jump land, heavy.
-#load	landhm		data/chars/misc/effects/models/flash/landhm/landhm.txt			#Jump land, heavy, metalic.
-#load	landl		data/chars/misc/effects/models/flash/landl/landl.txt			#Jump land, light.
-#load	landlm		data/chars/misc/effects/models/flash/landlm/landlm.txt			#Jump land, light, metalic.
 load	landm		data/chars/misc/effects/models/flash/landm/landm.txt			#Jump land, medium.
 load	landm		data/chars/misc/effects/models/flash/landmw/landmw.txt			#Jump land, medium on wall.
-#load	landmm		data/chars/misc/effects/models/flash/landmm/landmm.txt			#Jump land, medium, metalic.
-#load	skeh		data/chars/misc/effects/models/flash/skeh/skeh.txt				#Skeletal hit, heavy.
 load	skel		data/chars/misc/effects/models/flash/skel/skel.txt				#Skeletal hit, light.			~Skeleton warrior taking hit.
-#load	skem		data/chars/misc/effects/models/flash/skem/skem.txt				#Skeletal hit, medium.
 load	stabh		data/chars/misc/effects/models/flash/stabh/stabh.txt			#Stab, heavy.					~Knockdown by stab.
-#load	stabl		data/chars/misc/effects/models/flash/stabl/stabl.txt			#Stab, light.					
-#load	stabm		data/chars/misc/effects/models/flash/stabm/stabm.txt			#Stab, medium.					
-#load	wallh		data/chars/misc/effects/models/flash/wallh/wallh.txt			#Wall impact, heavy.
-#load	walll		data/chars/misc/effects/models/flash/walll/walll.txt			#Wall impact, light.
 load	wallm		data/chars/misc/effects/models/flash/wallm/wallm.txt			#Wall impact, medium.			~Slammed into wall.
 load	whifgh		data/chars/misc/effects/models/flash/whifgh/whifgh.txt			#Action dust, heavy.			~All out attack shuffle.
-#load	whifgl		data/chars/misc/effects/models/flash/whifgl/whifgl.txt			#Action dust, light.		
 load	whifgm		data/chars/misc/effects/models/flash/whifgm/whifgm.txt			#Action dust, medium.			~Animal attack, large weapon swing.	
+
+# 2021-02-28 - Import from Cpatain Commando
+load fall_land			data/chars/misc/cvs_land_dust/fall_land.txt
+load hop_liftoff		data/chars/misc/cvs_jump_dust/hop_liftoff.txt
+load jump_land			data/chars/misc/cvs_land_dust/jump_land.txt
+load jump_liftoff		data/chars/misc/cvs_jump_dust/jump_liftoff.txt
 
 load	effe0001	data/chars/misc/effects/effe0001.txt	#General effects/projectiles.
 load	effe0002	data/chars/misc/effects/effe0002.txt	#Char select burn.

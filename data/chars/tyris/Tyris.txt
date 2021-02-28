@@ -19,7 +19,7 @@ noatflash 			0
 height				55
 
 projectilehit 		player npc obstacle
-dust				fallm landm jumpm
+dust				fall_land landm jumpm
 bflash 				bflash
 holdblock 			0
 thold 				34

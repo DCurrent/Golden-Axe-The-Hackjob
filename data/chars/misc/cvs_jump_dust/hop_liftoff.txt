@@ -1,0 +1,30 @@
+#Jump liftoff effect (for very short jumps and hops)
+
+name	hop_liftoff
+type	none
+shadow	0
+
+onspawnscript 	data/scripts/common/event_spawn_dust.c
+onkillscript	data/scripts/common/event_kill.c
+
+palette		data/chars/misc/cvs_jump_dust/0_0.png
+
+anim idle
+
+	#Normal dust.
+
+	delay	2
+	offset	85 105
+
+		frame	data/chars/misc/cvs_jump_dust/0_0.png
+		frame	data/chars/misc/cvs_jump_dust/0_1.png
+		frame	data/chars/misc/cvs_jump_dust/1_2.png
+		frame	data/chars/misc/cvs_jump_dust/1_3.png
+		frame	data/chars/misc/cvs_jump_dust/1_4.png
+		frame	data/chars/misc/cvs_jump_dust/1_5.png
+		frame	data/chars/misc/cvs_jump_dust/1_6.png
+		frame	data/chars/misc/cvs_jump_dust/1_7.png
+		frame	data/chars/misc/cvs_jump_dust/1_8.png
+		frame	data/chars/misc/cvs_jump_dust/1_9.png
+		frame	data/chars/misc/cvs_jump_dust/1_10.png
+		frame	data/chars/misc/cvs_jump_dust/1_11.png

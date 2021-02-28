@@ -13,9 +13,9 @@ anim spawn
     
     offset 0 0
     delay   1
-    frame   data/chars/misc/empty.gif
+    frame   data/chars/misc/blank.png
     move    26
-    frame   data/chars/misc/empty.gif
+    frame   data/chars/misc/blank.png
 
 anim idle
     subentity smoke
@@ -78,7 +78,7 @@ anim follow1
     frame data/chars/misc/explarge/4.gif
     frame data/chars/misc/explarge/5.gif
 @cmd killentity getlocalvar("self")
-    frame   data/chars/misc/empty.gif
+    frame   data/chars/misc/blank.png
 
 
 anim fall
@@ -94,4 +94,4 @@ anim fall
     frame data/chars/misc/explarge/4.gif
     frame data/chars/misc/explarge/5.gif
 @cmd killentity getlocalvar("self")
-    frame   data/chars/misc/empty.gif
+    frame   data/chars/misc/blank.png

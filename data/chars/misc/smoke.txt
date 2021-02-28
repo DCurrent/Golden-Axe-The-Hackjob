@@ -14,5 +14,5 @@ anim spawn
     frame data/chars/misc/smoke/2
     frame data/chars/misc/smoke/3
     @cmd killentity getlocalvar("self")
-    frame data/chars/misc/empty
+    frame data/chars/misc/blank.png
 

@@ -29,9 +29,9 @@ anim spawn
     
     offset 0 0
     delay   1
-    frame   data/chars/misc/empty.gif
+    frame   data/chars/misc/blank.png
     move    58
-    frame   data/chars/misc/empty.gif
+    frame   data/chars/misc/blank.png
 
 anim follow1
     
@@ -39,9 +39,9 @@ anim follow1
     throwframe 0 -1
     offset  28 48
     delay   1
-	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/blank.png
 @cmd killentity getlocalvar("self")
-	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/blank.png
 
 anim fall
     
@@ -49,6 +49,6 @@ anim fall
     throwframe 0 -1
     offset  28 48
     delay   1
-	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/blank.png
 @cmd killentity getlocalvar("self")
-	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/blank.png

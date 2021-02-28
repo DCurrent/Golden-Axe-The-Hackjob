@@ -13,7 +13,7 @@ anim spawn
 
 delay 10
 sound data/sounds/thunder.wav
-frame data/chars/misc/empty
+frame data/chars/misc/blank.png
 
 anim idle
 flipframe 1
@@ -22,19 +22,19 @@ spawnframe 0 240 0 0 1
 loop 1
 offset 230 240
 delay 5
-frame data/chars/misc/empty
+frame data/chars/misc/blank.png
 shock -1 1 0 0 8 1 1 1
 attackz 1000
 delay 8
 frame data/chars/misc/light1/large
 delay 1
-frame data/chars/misc/empty
+frame data/chars/misc/blank.png
 frame data/chars/misc/light1/large
-frame data/chars/misc/empty
+frame data/chars/misc/blank.png
 frame data/chars/misc/light1/large
-frame data/chars/misc/empty
+frame data/chars/misc/blank.png
 frame data/chars/misc/light1/large
 shock 0
 delay 30
-frame data/chars/misc/empty
+frame data/chars/misc/blank.png
 

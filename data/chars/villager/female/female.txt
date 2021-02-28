@@ -38,13 +38,13 @@ if(frame==8)
     killentity(self);
 }
 @end_script
-    frame data/chars/misc/empty.gif
+    frame data/chars/misc/blank.png
 
 anim idle
     
     offset 32 53
     delay 8
     move  5
-    frame data/chars/misc/empty.gif
+    frame data/chars/misc/blank.png
 
 

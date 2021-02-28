@@ -37,5 +37,5 @@ anim spawn
     frame data/chars/misc/light3/2
     frame data/chars/misc/light3/3
     frame data/chars/misc/light3/4
-    frame data/chars/misc/empty.gif
+    frame data/chars/misc/blank.png
 

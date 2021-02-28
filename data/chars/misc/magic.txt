@@ -17,5 +17,5 @@ anim idle
 	frame	data/chars/misc/magpot/2.gif
 	delay	20
 	frame	data/chars/misc/magpot/3.gif
-	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/blank.png
 

@@ -30,12 +30,12 @@ for(i=0; i<6; i++)
 }
 @end_script
     sound data/sounds/thunder.wav
-    frame data/chars/misc/empty.gif
-    frame data/chars/misc/empty.gif
-    frame data/chars/misc/empty.gif
-    frame data/chars/misc/empty.gif
-    frame data/chars/misc/empty.gif
-    frame data/chars/misc/empty.gif
-    frame data/chars/misc/empty.gif
-    frame data/chars/misc/empty.gif
+    frame data/chars/misc/blank.png
+    frame data/chars/misc/blank.png
+    frame data/chars/misc/blank.png
+    frame data/chars/misc/blank.png
+    frame data/chars/misc/blank.png
+    frame data/chars/misc/blank.png
+    frame data/chars/misc/blank.png
+    frame data/chars/misc/blank.png
 

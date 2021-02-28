@@ -55,7 +55,7 @@ else if(frame==6)
     delay 8
     offset 26 45
     quakeframe 1 2 3
-    frame data/chars/misc/empty.gif
+    frame data/chars/misc/blank.png
     sound data/sounds/rumble.wav
     frame data/chars/misc/expsmall/1.gif
     
@@ -70,5 +70,5 @@ else if(frame==6)
     attack5 0
     
     frame data/chars/misc/expsmall/5.gif
-    frame data/chars/misc/empty.gif
+    frame data/chars/misc/blank.png
 

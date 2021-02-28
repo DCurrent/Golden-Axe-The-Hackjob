@@ -6,11 +6,11 @@ anim spawn
      
      delay 1
      sound data/sounds/villag~1.wav
-     frame data/chars/misc/empty.gif
+     frame data/chars/misc/blank.png
      movea  2000
-     frame data/chars/misc/empty.gif
+     frame data/chars/misc/blank.png
 
 anim idle
      
      delay 1000
-     frame data/chars/misc/empty.gif
+     frame data/chars/misc/blank.png

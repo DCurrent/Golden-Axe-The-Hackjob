@@ -107,23 +107,23 @@ anim respawn
 	loop	0
 	offset	60 98
 	delay	5
-	frame   data/chars/misc/empty.gif
+	frame   data/chars/misc/blank.png
 	frame	data/chars/heninger/idle1.gif
-	frame   data/chars/misc/empty.gif
+	frame   data/chars/misc/blank.png
 	frame	data/chars/heninger/idle1.gif
-	frame   data/chars/misc/empty.gif
+	frame   data/chars/misc/blank.png
 	frame	data/chars/heninger/idle1.gif
-	frame   data/chars/misc/empty.gif
+	frame   data/chars/misc/blank.png
 	frame	data/chars/heninger/idle1.gif
-	frame   data/chars/misc/empty.gif
+	frame   data/chars/misc/blank.png
 	frame	data/chars/heninger/idle1.gif
-	frame   data/chars/misc/empty.gif
+	frame   data/chars/misc/blank.png
 	frame	data/chars/heninger/idle1.gif
-	frame   data/chars/misc/empty.gif
+	frame   data/chars/misc/blank.png
 	frame	data/chars/heninger/idle1.gif
-	frame   data/chars/misc/empty.gif
+	frame   data/chars/misc/blank.png
 	frame	data/chars/heninger/idle1.gif
-	frame   data/chars/misc/empty.gif
+	frame   data/chars/misc/blank.png
 	frame	data/chars/heninger/idle1.gif
 
 anim jumpdelay	

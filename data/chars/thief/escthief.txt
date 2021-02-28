@@ -6,9 +6,9 @@ gfxshadow 1
 shadow  1
 nolife  1
 
-palette		data/chars/thief/e1		#Blue.
-alternatepal	data/chars/thief/aapa0002	#Green.
-alternatepal	data/chars/thief/aapa0003	#Grey
+palette			data/chars/thief/palette_default.act
+alternatepal	data/chars/thief/palette_green.act
+alternatepal	data/chars/thief/palette_grey.act
 
 animationscript  data/chars/thief/scripts/ani.c
 
@@ -19,15 +19,12 @@ anim spawn
 	@script
 		dc_ai_escape();
 	@end_script
-		frame	data/chars/thief/e1
-		frame	data/chars/thief/e2
-		frame	data/chars/thief/e3
-		frame	data/chars/thief/e2
-		frame	data/chars/thief/e1
-		frame	data/chars/thief/e6
-		frame	data/chars/thief/e7
-		frame	data/chars/thief/e6
-
+		frame	data/chars/thief/escape_0.png
+		frame	data/chars/thief/escape_1.png
+		frame	data/chars/thief/escape_2.png
+		frame	data/chars/thief/escape_3.png
+		frame	data/chars/thief/escape_4.png
+		
 
 anim respawn
 	loop	1
@@ -36,12 +33,8 @@ anim respawn
 	@script
 		dc_ai_escape();
 	@end_script
-		frame	data/chars/thief/r1
-		frame	data/chars/thief/r2
-		frame	data/chars/thief/r3
-		frame	data/chars/thief/r2
-		frame	data/chars/thief/r1
-		frame	data/chars/thief/r6
-		frame	data/chars/thief/r7
-		frame	data/chars/thief/r6
-   
+	frame	data/chars/thief/walk_0.png
+	frame	data/chars/thief/walk_1.png
+	frame	data/chars/thief/walk_2.png
+	frame	data/chars/thief/walk_3.png
+	frame	data/chars/thief/walk_4.png   

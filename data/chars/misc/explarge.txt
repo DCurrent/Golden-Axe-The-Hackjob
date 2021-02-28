@@ -55,7 +55,7 @@ else if(frame==6)
     delay 8
     offset 64 112
     quakeframe 1 4 3
-    frame data/chars/misc/empty.gif
+    frame data/chars/misc/blank.png
     sound data/sounds/rumble.wav
     frame data/chars/misc/explarge/1.gif
     
@@ -70,7 +70,7 @@ else if(frame==6)
     attack5 0
     
     frame data/chars/misc/explarge/5.gif
-    frame data/chars/misc/empty.gif
+    frame data/chars/misc/blank.png
 
 anim idle
     
@@ -91,6 +91,6 @@ anim idle
     attack5 0
     frame data/chars/misc/explarge/5.gif
 @cmd killentity getlocalvar("self")
-    frame data/chars/misc/empty.gif
+    frame data/chars/misc/blank.png
 
 

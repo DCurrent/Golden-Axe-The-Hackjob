@@ -10,12 +10,12 @@ anim spawn
 	delay	12
 	offset	0 0
 	bbox	-32 -32 32 32
-	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/blank.png
 
 anim idle
 	loop	1
 	delay	12
 	offset	0 0
 	bbox	-32 -32 32 32
-	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/blank.png
 

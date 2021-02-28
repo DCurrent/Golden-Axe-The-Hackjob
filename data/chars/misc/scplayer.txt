@@ -13,8 +13,8 @@ delay 1
 fastattack 1
 attack -2000 -2000 4000 4000 1000 1 0 1
 attackz 1000
-frame data/chars/misc/empty.gif
+frame data/chars/misc/blank.png
 attack 0
-frame data/chars/misc/empty.gif
+frame data/chars/misc/blank.png
 
 

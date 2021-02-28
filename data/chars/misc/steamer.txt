@@ -7,4 +7,4 @@ load	Steam
 anim idle
 	loop	0
 	delay	100
-	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/blank.png

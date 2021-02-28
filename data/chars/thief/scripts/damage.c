@@ -25,7 +25,7 @@ void main()
             spaw0005("meat",0,0,0,0,0,0);
         }
 
-        damageentity(acting_entity, acting_entity, 1, 1, openborconstant("ATK_NORMAL10"));
+        damageentity(acting_entity, acting_entity, 1, 1, openborconstant("ATK_LIFESPAN"));
     }
 
     /*

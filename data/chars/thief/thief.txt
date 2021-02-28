@@ -12,7 +12,6 @@ nolife  	1
 falldie 	2
 knockdowncount -1 		# always knock down
 defense 	all 	 0   	# invincible
-defense		normal10 1
 aimove 		wander
 aiattack 	noattack
 noquake 	1

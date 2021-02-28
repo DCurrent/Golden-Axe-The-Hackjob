@@ -136,7 +136,7 @@ anim runattack
     	followcond 	1
     	jumpframe  	0 2 3 0 jump_liftoff
     	landframe 	2 jump_land
-    	hitflash 	hithcut
+    	hitflash 	flash_impact_cut
 
 	delay	8
 	offset	80 142
@@ -295,7 +295,7 @@ anim freespecial5
 	rangeb	  	-10 10
     	jumpframe 	1  3  0.8  -1 jump_liftoff
     	dropframe 	2
-	hitflash  	hithcut
+	hitflash  	flash_impact_cut
 
     	delay	20
     	offset	80 142
@@ -320,7 +320,7 @@ anim freespecial6
 	rangeb	  	-10 10
     	jumpframe 	1  3  0.8  1 jump_liftoff
     	dropframe 	2
-	hitflash  	hithcut
+	hitflash  	flash_impact_cut
 
     	delay	20
     	offset	80 142
@@ -357,7 +357,7 @@ anim follow2
 
     	jumpframe 	0 1 0
     	landframe 	3 jump_land
-	hitflash 	hithcut
+	hitflash 	flash_impact_cut
 
 	offset	80 142
 	delay	2
@@ -412,7 +412,7 @@ anim runjump
 anim jumpattack
 
 	range		1 -1
-	hitflash 	hithcut
+	hitflash 	flash_impact_cut
 
     	delay	8
     	offset	80 142
@@ -424,7 +424,7 @@ anim jumpattack
 anim runjumpattack
 
 	range		1 -1
-	hitflash 	hithcut
+	hitflash 	flash_impact_cut
     	jumpframe 	0 -1 2 0
 
     	delay	8
@@ -448,7 +448,7 @@ anim grabattack
 
 	#Snack. >:)
 
-    	hitflash    bitem
+    	hitflash    flash_bite
 
     	offset	80 142
     	bbox    68 66 34 54

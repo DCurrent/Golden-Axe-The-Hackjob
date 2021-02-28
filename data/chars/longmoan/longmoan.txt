@@ -18,7 +18,6 @@ nodieblink 			3
 dust				fall_land jump_land jump_liftoff
 noquake 			1
 paingrab 			1
-noatflash 			0
 score 				2 -1
 komap				5 1
 height				50
@@ -34,8 +33,6 @@ escapehits 			5
 weapons 			lonchick lonrdrag lonbdrag
 atchain 			1 2 3 0 0
 #modelflag 			1
-
-flash		        cuth
 
 animationscript 	data/chars/longmoan/scripts/event_animation.c
 didblockscript		data/scripts/z_block.c				# Block incoming attack.
@@ -190,7 +187,7 @@ anim riseattack
 	
 	attack.block.penetrate 0
 	attack.damage.force 12
-	attack.effect.hit.flash.model blunt_cut
+	attack.effect.hit.flash.model flash_blunt_cut
 	attack.position.x 68
 	attack.position.y 25
 	attack.reaction.fall.force 2
@@ -771,13 +768,13 @@ anim attack1
 	
 	frame   data/chars/longmoan/atk_swipe_1.png
     
-    
+    attack.effect.hit.flash.model flash_blunt_cut
 	attack.damage.force 4
 	attack.position.x 60
 	attack.position.y 52
 	attack.size.x 41
 	attack.size.y 18
-	attack.effect.hit.flash.model blunt_cut
+	#attack.effect.hit.flash.model flash_blunt_cut
 	
     frame   data/chars/longmoan/atk_swipe_2.png
     
@@ -804,7 +801,7 @@ anim follow1
 	fastattack 1
 	
 	attack.damage.force 4
-	attack.effect.hit.flash.model blunt_cut
+	attack.effect.hit.flash.model flash_blunt_cut
 	attack.position.x 60
 	attack.position.y 52
 	attack.size.x 41
@@ -814,7 +811,7 @@ anim follow1
 	attack.block.penetrate 0
 	attack.damage.force 0
 	attack.damage.type 1
-	attack.effect.hit.flash.model blunt_cut
+	attack.effect.hit.flash.model flash_blunt_cut
 	attack.position.x 0
 	attack.position.y 0
 	attack.reaction.fall.force 0
@@ -855,7 +852,7 @@ anim attack2
     
     
 	attack.damage.force 4
-	attack.effect.hit.flash.model blunt_cut
+	attack.effect.hit.flash.model flash_blunt_cut
 	attack.position.x 59
 	attack.position.y 30
 	attack.size.x 45
@@ -896,7 +893,7 @@ anim attack3
     
     
 	attack.damage.force 8
-	attack.effect.hit.flash.model blunt_cut
+	attack.effect.hit.flash.model flash_blunt_cut
 	attack.position.x 60
 	attack.position.y 31
 	attack.reaction.fall.force 2
@@ -1053,7 +1050,7 @@ anim special2
     
     
 	attack.damage.force 8
-	attack.effect.hit.flash.model blunt_cut
+	attack.effect.hit.flash.model flash_blunt_cut
 	attack.position.x 60
 	attack.position.y 31
 	attack.reaction.fall.force 2
@@ -1099,7 +1096,7 @@ anim special
     
     
 	attack.damage.force 8
-	attack.effect.hit.flash.model blunt_cut
+	attack.effect.hit.flash.model flash_blunt_cut
 	attack.position.x 60
 	attack.position.y 31
 	attack.reaction.fall.force 2

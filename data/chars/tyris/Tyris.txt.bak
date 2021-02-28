@@ -137,7 +137,7 @@ anim	attack2
 	frame	data/chars/tyris/0018.png
 
 anim	attack3
-	hitflash	stabh
+	hitflash	flash_stab_knockdown
 	range	40 60
 	offset	60 98
 	delay	6

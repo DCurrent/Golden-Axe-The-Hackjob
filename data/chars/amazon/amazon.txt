@@ -225,7 +225,7 @@ anim runattack
 	landframe 	2 jump_land
     	followanim 	2
     	followcond 	1
-	hitflash   	hithcut
+	hitflash   	flash_impact_cut
 	range 80 110
 
 

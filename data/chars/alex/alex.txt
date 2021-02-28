@@ -224,7 +224,7 @@ anim  chargeattack
 
 	#Batter up
 
-	hitflash  blumcut
+	hitflash  flash_blunt_cut
 
 	offset  60  98
 		delay  14
@@ -270,7 +270,7 @@ anim attack1
 	followanim 3
 	followcond 1
 	fastattack 1
-	hitflash  blumcut
+	hitflash  flash_blunt_cut
 	range 	0 60
 
 	delay	8
@@ -309,7 +309,7 @@ anim attack1
 anim follow3
 
 	fastattack 1
-	hitflash  blumcut
+	hitflash  flash_blunt_cut
 	range 	0 60
 
 	delay	6
@@ -342,7 +342,7 @@ anim attack2
 	#Upswing.
 
 	range 	0 60
-	hitflash  blumcut
+	hitflash  flash_blunt_cut
 	delay	9
 	offset	60 98
 	bbox	50 50 28 49
@@ -680,7 +680,7 @@ anim  runattack
 	fastattack  1
 	range  40  60
 	jumpframe  0  0  0.8  0
-	hitflash  blumcut
+	hitflash  flash_blunt_cut
 		delay  6
 		offset  60  98
 		bbox  49  57  22  42

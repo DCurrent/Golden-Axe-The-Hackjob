@@ -1,0 +1,31 @@
+# Blunt medium with blood flash
+
+name			flash_blunt_cut
+type			none
+shadow			0
+antigravity		100
+alpha			2
+speedf			0.5			#Size adjustment.
+nodrop			0			#<max> random rotation range.
+guardpoints		1			#Type of oneshot.
+noatflash		0			#Secondary entity.
+jugglepoints	238			#Alternate spawn sound group.
+
+#onspawnscript 	data/scripts/spaw0002.c
+#onkillscript  	data/scripts/z_kill.c
+
+anim idle
+	flipframe 1
+
+	delay	3
+	offset	190 140
+		frame	data/chars/misc/blood_splat/idle_0.png
+		frame	data/chars/misc/blood_splat/idle_1.png
+		frame	data/chars/misc/blood_splat/idle_2.png
+		frame	data/chars/misc/blood_splat/idle_3.png
+		frame	data/chars/misc/blood_splat/idle_4.png
+		frame	data/chars/misc/blood_splat/idle_5.png
+		frame	data/chars/misc/blood_splat/idle_6.png
+		frame	data/chars/misc/blood_splat/idle_7.png
+		frame	data/chars/misc/blood_splat/idle_8.png
+		frame	data/chars/misc/blood_splat/idle_9.png

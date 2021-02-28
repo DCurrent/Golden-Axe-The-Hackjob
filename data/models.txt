@@ -21,15 +21,15 @@ load	pselect	    data/chars/plselect/pselect.txt									#Player select roulette
 
 #*****Flash/Dust (~ module specific use)*****
 load	bflash		data/chars/misc/effects/models/flash/bflash/bflash.txt			#Block flash.					~Weapon deflect.
-load	bitem		data/chars/misc/effects/models/flash/bitem/bitem.txt			#Bite, medium.					~Collect food, animal bites.
+	load	flash_bite		data/chars/misc/blood_splat/flash_bite.txt
 load	bluh		data/chars/misc/effects/models/flash/bluh/bluh.txt				#Blunt hit, heavy.				~Hammer thunk.
 load	blul		data/chars/misc/effects/models/flash/blul/blul.txt				#Blunt hit, light.				~Knock head.
-load	blumcut		data/chars/misc/effects/models/flash/blumcut/blumcut.txt		#Blunt hit, medium w/blood.		~Mace, spike club, & broken sword hits.
+	load	flash_blunt_cut		data/chars/misc/blood_splat/flash_blunt_cut.txt
 load	bonem		data/chars/misc/effects/models/flash/bonem/bonem.txt			#Bone crush, medium.
 load	cuth		data/chars/misc/effects/models/flash/cuth/cuth.txt				#Cut, heavy.					~Knockdown by cut.
 load	flash		data/chars/misc/effects/models/flash/flash/flash.txt			#Default hit flash.				~Normal cut.
 load	hith		data/chars/misc/effects/models/flash/hith/hith.txt				#Bare hand, heavy.				~Run attack w/body.
-load	hithcut		data/chars/misc/effects/models/flash/hithcut/hithcut.txt		#Bare hand, heavy w/blood.		~Run attack w/weapon.
+	load	flash_impact_cut		data/chars/misc/blood_splat/flash_impact_cut.txt
 load	hitm		data/chars/misc/effects/models/flash/hitm/hitm.txt				#Bare hand, medium.				~Knockdown by hit.
 load	idirh		data/chars/misc/effects/models/flash/idirh/idirh.txt			#Indirect hit, heavy.
 load	idirm		data/chars/misc/effects/models/flash/idirm/idirm.txt			#Indirect hit.					~Thrown into ally.
@@ -39,7 +39,7 @@ load	impm		data/chars/misc/effects/models/flash/impm/impm.txt				#Slam impact, m
 load	jumpmw		data/chars/misc/effects/models/flash/jumpmw/jumpmw.txt			#Jump liftoff, medium, from wall.
 load	landh		data/chars/misc/effects/models/flash/landh/landh.txt			#Jump land, heavy.
 load	skel		data/chars/misc/effects/models/flash/skel/skel.txt				#Skeletal hit, light.			~Skeleton warrior taking hit.
-load	stabh		data/chars/misc/effects/models/flash/stabh/stabh.txt			#Stab, heavy.					~Knockdown by stab.
+	load	flash_stab_knockdown	data/chars/misc/blood_splat/flash_stab_knockdown.txt			#Stab, heavy.					~Knockdown by stab.
 load	wallm		data/chars/misc/effects/models/flash/wallm/wallm.txt			#Wall impact, medium.			~Slammed into wall.
 load	whifgh		data/chars/misc/effects/models/flash/whifgh/whifgh.txt			#Action dust, heavy.			~All out attack shuffle.
 load	whifgm		data/chars/misc/effects/models/flash/whifgm/whifgm.txt			#Action dust, medium.			~Animal attack, large weapon swing.	

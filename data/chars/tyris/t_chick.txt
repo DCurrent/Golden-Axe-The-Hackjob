@@ -131,7 +131,7 @@ anim runattack
 	loop		1 2 6
     jumpframe	1 2 3 0 jump_liftoff
     landframe	7 jump_land
-	hitflash	hithcut
+	hitflash	flash_impact_cut
 
 	delay   6
 	offset	78 142
@@ -461,7 +461,7 @@ anim freespecial5
 	rangeb	  	-10 10
     jumpframe 	1  3  0.8  -1 jump_liftoff
 	loop		1 3 8
-	hitflash  	hithcut
+	hitflash  	flash_impact_cut
 
 	delay	20
 	offset	88 139
@@ -490,7 +490,7 @@ anim freespecial6
 	rangeb	  	-10 10
     jumpframe 	1  3  0.8  1 jump_liftoff
 	loop		1 3 8
-	hitflash  	hithcut
+	hitflash  	flash_impact_cut
 
 	delay	20
 	offset	88 139
@@ -531,7 +531,7 @@ anim follow2
 	jumpframe 0 1 0
     landframe 2 jump_land
 
-	hitflash  hithcut
+	hitflash  flash_impact_cut
 
 	offset	78 142
     	bbox    68 66 34 54
@@ -624,7 +624,7 @@ anim jumpland
 anim jumpattack
 
     	range		0 0
-    	hitflash	hithcut
+    	hitflash	flash_impact_cut
 		loop		1 1 6
 
     	delay   5
@@ -644,7 +644,7 @@ anim runjumpattack
 
 	range		0 0
     jumpframe	0 -1 2 0
-    hitflash	hithcut
+    hitflash	flash_impact_cut
 	loop		1 1 6
 
     	delay   5

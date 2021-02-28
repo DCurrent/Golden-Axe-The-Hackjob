@@ -41,24 +41,20 @@
 **/
 #define DC_FIDELITY_ENGINE_MAX_VOLUME 64
 
-/** Logging. 
+/* 
+* Logging. 
 *
-* Controls what processes get logged for debugging. 
-* Uses a bit masked macro, so add desired options to the
-* control flag. Note some "fail" conditions may be intentional, 
-* such as calling for a sound type a category does not have
-* and falling back to the global category.
-**/
+* Enable flags to log events.
+*/
 
 #define DC_FIDELITY_LOG_LOAD							1	// Loading and setup of sound files.
-#define DC_FIDELITY_LOG_BALANCE_INVALID_ENTITY			2	// Entity is not valid pointer (probably NULL). 
-#define DC_FIDELITY_LOG_CATEGORY_MISSING				4   // Category argument is blank. 
-#define DC_FIDELITY_LOG_CATEGORY_TYPE_NOT_FOUND			8	// Specified category (containing a type list) not found.
-#define DC_FIDELITY_LOG_PLAY							128	// Sound plays.
-#define DC_FIDELITY_LOG_UNLOAD							256	// Unloading of sounds.
-#define DC_FIDELITY_LOG_TIMED_SETUP						512	// Set up timed delay sound.
-
-#define DC_FIDELITY_LOG						DC_FIDELITY_LOG_LOAD + DC_FIDELITY_LOG_CATEGORY_TYPE_NOT_FOUND + DC_FIDELITY_LOG_PLAY + DC_FIDELITY_LOG_UNLOAD + DC_FIDELITY_LOG_TIMED_SETUP
+#define DC_FIDELITY_LOG_BALANCE_INVALID_ENTITY			1	// Entity is not valid pointer (probably NULL). 
+#define DC_FIDELITY_LOG_CATEGORY_MISSING				1   // Category argument is blank. 
+#define DC_FIDELITY_LOG_CATEGORY_TYPE_NOT_FOUND			1	// Specified category (containing a type list) not found.
+#define DC_FIDELITY_LOG_PLAY							1	// Sound plays.
+#define DC_FIDELITY_LOG_UNLOAD							1	// Unloading of sounds.
+#define DC_FIDELITY_LOG_TIMED_SETUP						1	// Set up timed delay sound.
+				
 
 /** Sound Categories
 *

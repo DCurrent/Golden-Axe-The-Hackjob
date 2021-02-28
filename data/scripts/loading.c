@@ -104,7 +104,7 @@ void oncreate()
 
 	dc_fidelity_setup("Chickenlegs", "piledriver", "data/chars/chicken/sounds/loud_cry_0.wav");
 	
-	//Red_Dragon
+	/* Red_Dragon */
 	dc_fidelity_setup("Red_Dragon", DC_FIDELITY_TYPE_VOICE_SPAWN_NEW, "data/chars/dragon/sounds/loud_cry_0.wav");
 
 	dc_fidelity_setup("Red_Dragon", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/dragon/sounds/atk_shout_0.wav");
@@ -119,7 +119,32 @@ void oncreate()
 	dc_fidelity_setup("Red_Dragon", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/dragon/sounds/atk_shout_1.wav");
 	dc_fidelity_setup("Red_Dragon", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/dragon/sounds/atk_shout_2.wav");
 
-	//Blue_Dragon
+	/* Blue_Dragon */
+	dc_fidelity_setup("Blue_Dragon", DC_FIDELITY_TYPE_VOICE_SPAWN_NEW, "data/chars/dragon/sounds/loud_cry_0.wav");
+
+	dc_fidelity_setup("Blue_Dragon", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/dragon/sounds/atk_shout_0.wav");
+	dc_fidelity_setup("Blue_Dragon", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/dragon/sounds/atk_shout_1.wav");
+	dc_fidelity_setup("Blue_Dragon", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/dragon/sounds/atk_shout_2.wav");
+
+	dc_fidelity_setup("Blue_Dragon", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM, "data/chars/dragon/sounds/atk_shout_0.wav");
+	dc_fidelity_setup("Blue_Dragon", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM, "data/chars/dragon/sounds/atk_shout_1.wav");
+	dc_fidelity_setup("Blue_Dragon", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM, "data/chars/dragon/sounds/atk_shout_2.wav");
+
+	dc_fidelity_setup("Blue_Dragon", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/dragon/sounds/atk_shout_0.wav");
+	dc_fidelity_setup("Blue_Dragon", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/dragon/sounds/atk_shout_1.wav");
+	dc_fidelity_setup("Blue_Dragon", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/dragon/sounds/atk_shout_2.wav");
+
+	/* Thief */
+	dc_fidelity_setup("Thief", DC_FIDELITY_TYPE_VOICE_LAUGH, "data/chars/thief/sounds/laugh_0.wav");
+
+	dc_fidelity_setup("Thief", DC_FIDELITY_TYPE_VOICE_PAIN, "data/chars/thief/sounds/pain_0.wav");
+
+	dc_fidelity_setup("Thief", DC_FIDELITY_TYPE_VOICE_PAIN_FALL, "data/chars/thief/sounds/pain_0.wav");
+
+	dc_fidelity_setup("Thief", DC_FIDELITY_TYPE_VOICE_KO, "data/chars/thief/sounds/pain_0.wav");
+
+	dc_fidelity_setup("escthief", DC_FIDELITY_TYPE_VOICE_KO, "data/chars/thief/sounds/pain_0.wav");
+
 }
 
 void ondestroy()

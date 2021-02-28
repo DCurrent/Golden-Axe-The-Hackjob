@@ -18,6 +18,8 @@ aiattack 	noattack
 noquake 	1
 bounce 		0
 score 		0 -1
+jumpmove	0 1
+dust		landm landm jumpm	
 
 load escthief
 
@@ -41,7 +43,7 @@ onpainscript		data/scripts/z_pain.c				#Pain status set.
 onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
 script				data/scripts/z_script.c				#Entity updated.
 takedamagescript	data/chars/thief/scripts/damage.c		#Damaged.
-thinkscript		data/scripts/z_think.c				#Entity AI updates.
+thinkscript			data/chars/thief/scripts/event_think.c				#Entity AI updates.
 
 palette		data/chars/thief/e1		#Blue.
 alternatepal	data/chars/thief/aapa0002	#Green.
@@ -52,9 +54,9 @@ anim idle
 	offset	56 81
 	bbox	48 48 24 35
 	delay	25
-		frame	data/chars/thief/idle1
-	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_LAUGH	
 	@cmd 	ai0005 0 3 openborconstant("ANI_DIE") 0 0 0
+		frame	data/chars/thief/idle1
+	
 		frame	data/chars/thief/idle2
 	delay	50
 		frame	data/chars/thief/idle1
@@ -113,6 +115,22 @@ anim pain #fake
 	delay	1
 	frame	data/chars/misc/empty
 
+anim jumpdelay
+    range 20 60
+    
+	delay	8
+	offset	56 81
+	bbox	35 50 35 34
+	frame	data/chars/thief/idle1
+
+anim jumpland
+    range 20 60
+    
+	delay	8
+	offset	56 81
+	bbox	35 50 35 34
+	frame	data/chars/thief/idle1
+
 anim jump
     range 20 60
     
@@ -121,6 +139,15 @@ anim jump
 	bbox	35 50 35 34
 	frame	data/chars/thief/r3
 
+anim walkoff
+    landframe 1 landm
+    
+	delay	-1000
+	offset	56 81
+	bbox	35 50 35 34
+	frame	data/chars/thief/r3
+	delay 8
+	frame	data/chars/thief/idle1
 
 anim fall
 #    bouncefactor 0

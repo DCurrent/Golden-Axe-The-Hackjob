@@ -71,7 +71,7 @@ void dc_fidelity_setup(char category, int type, char file)
 	// value with sample ID.
 	add(index_list, size, sample_id);
 
-	if (DC_FIDELITY_LOG & DC_FIDELITY_LOG_LOAD)
+	if (DC_FIDELITY_LOG_LOAD)
 	{
 		// Output to the log.
 		log("\n Sound sample loaded: ");

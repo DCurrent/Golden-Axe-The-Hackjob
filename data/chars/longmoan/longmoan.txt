@@ -3,6 +3,7 @@ type				enemy
 health				32
 speed				6
 jumpheight			4
+jumpmove			0 1
 aggression 			90
 risetime 			5
 grabdistance 		24

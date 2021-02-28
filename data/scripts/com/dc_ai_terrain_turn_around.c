@@ -7,14 +7,14 @@
 */
 void dc_ai_terrain_turn_around()
 {
-    void acting_entity = getlocalvar("acting_entity");
+    void acting_entity = getlocalvar("self");
     float position_x = get_entity_property(acting_entity, "position_x");
     float position_y = get_entity_property(acting_entity, "position_y");
     float position_z = get_entity_property(acting_entity, "position_z");
     float velocity_x = get_entity_property(acting_entity, "velocity_x");
     float velocity_y = get_entity_property(acting_entity, "velocity_y");
     float velocity_z = get_entity_property(acting_entity, "velocity_z");
-    int position_direction = getentityproperty(acting_entity, "direction");
+    int position_direction = get_entity_property(acting_entity, "position_direction");
     float wall = 0.0;
     
     if(velocity_x > 0)

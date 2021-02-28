@@ -1,12 +1,11 @@
 #import "data/scripts/com/spaw0005.h"  //Spawn entity with toss.
 
-#include "data/scripts/dc_elmers/main.c"
 #include "data/scripts/common/takedamage_main.c"
 
 void main()
 {
     void acting_entity = getlocalvar("self");
-    void other_entity = getlocalvar("other");    
+    void other_entity = getlocalvar("attacker");    
     char model_name	= getentityproperty(acting_entity, "name");
         
 

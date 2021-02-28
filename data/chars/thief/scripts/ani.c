@@ -39,7 +39,7 @@ void escape()
 
 	if(getlocalvar("lifespan") > 3)
 	{
-		executeanimation(escape_entity, "animation", openborconstant("ANI_RESPAWN"));
+		executeanimation(escape_entity, openborconstant("ANI_RESPAWN"), 0);
 	}
 
 
@@ -75,24 +75,24 @@ void steal()
 		* to self health (this acts as a tracker).
 		*/
 
-		void magic_pot = getglobalvar("magic_pot_0");
+		void magic_pot = getglobalvar("pot0");
 		
 		if(magic_pot != NULL())
 		{
 			killentity(magic_pot);
 			changeentityproperty(acting_entity, "maxhealth", getentityproperty(acting_entity, "maxhealth")+1);
 			changeentityproperty(acting_entity, "health", getentityproperty(acting_entity, "maxhealth"));
-			setglobalvar("magic_pot_0", NULL());
+			setglobalvar("pot0", NULL());
 		}
 		
-		magic_pot = getglobalvar("magic_pot_1");
+		magic_pot = getglobalvar("pot1");
 
 		if(magic_pot != NULL())
 		{
 			killentity(magic_pot);
 			changeentityproperty(acting_entity, "maxhealth", getentityproperty(acting_entity, "maxhealth")+1);
 			changeentityproperty(acting_entity, "health", getentityproperty(acting_entity, "maxhealth"));
-			setglobalvar("magic_pot_1", NULL());
+			setglobalvar("pot1", NULL());
 		}
 	}
 }
@@ -106,10 +106,10 @@ void runcheck(){
 	{
 		int lifespan = getlocalvar("lifespan");
 
-		if(getglobalvar("run_animal"))
+		if(getglobalvar("runanimal"))
 		{
 			lifespan = 15;
-			setglobalvar("run_animal", NULL());
+			setglobalvar("runanimal", NULL());
 		}
 		if(lifespan==NULL())
 		{
@@ -117,7 +117,7 @@ void runcheck(){
 		}
 		else if(lifespan > 15)
 		{
-			executeanimation(acting_entity, "animation", openborconstant("ANI_WALK"));
+			executeanimation(acting_entity, openborconstant("ANI_WALK"), 0);
 		}
 		else
 		{

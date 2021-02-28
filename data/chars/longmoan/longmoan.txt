@@ -169,6 +169,11 @@ anim riseattack
 	delay 4
 	frame	data/chars/longmoan/jump_0.png
 	delay	8
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_MEDIUM	
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+	
 	frame	data/chars/longmoan/jump_1.png
 	
 	attack.block.penetrate 0
@@ -747,6 +752,11 @@ anim attack1
 	
     frame   data/chars/longmoan/atk_swipe_0.png
 	delay	8
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT	
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT
+	
 	frame   data/chars/longmoan/atk_swipe_1.png
     
     
@@ -825,6 +835,10 @@ anim attack2
     
     delay 8
     
+    @cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT	
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT
+    
     frame   data/chars/longmoan/atk_upper_1.png
     
     
@@ -860,6 +874,10 @@ anim attack3
     frame   data/chars/longmoan/atk_swing_0.png
     
     delay 8
+    
+    @cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_MEDIUM
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
     
     frame   data/chars/longmoan/atk_swing_1.png
         frame   data/chars/longmoan/atk_swing_2.png
@@ -948,7 +966,10 @@ anim runattack
 	attack.reaction.pause.time 0
 	attack.size.x 26
 	attack.size.y 36
-	attack.size.z.1 0
+	attack.size.z.1 0	
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+	
     frame   data/chars/longmoan/atk_shoulder_0.png
 	attack 0
 	

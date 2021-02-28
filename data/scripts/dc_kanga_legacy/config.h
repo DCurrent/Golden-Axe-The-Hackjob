@@ -3,7 +3,7 @@
 
 // Dependencies
 //-- Random number generator
-#include "data/scripts/dc_d20/main.c"
+#include "data/scripts/dc_d20_legacy/main.c"
 
 // Keys.
 #define DC_KANGA_KEY_TARGET "dc_kanga_0"

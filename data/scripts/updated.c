@@ -1,6 +1,7 @@
 #include	"data/scripts/vars/constants.h"
 
 #include	"data/scripts/dc_hud/main.c"
+#include    "data/scripts/dc_fidelity/main.c"
 
 #import	"data/scripts/traileru.c"		//Shadow trails.
 //#import	"data/scripts/com/ani0013.h"	//Jump animation if steping off an edge.
@@ -26,15 +27,19 @@ void main()
 
 	//tupdate();
 
-    // Draw enemy HUD.
+    /* Draw enemy HUD. */
     dc_golden_axe_enemy_hud();
 
-    // Draw player HUD.
+    /* Draw player HUD. */
     dc_golden_axe_player_hud();
 
-    // Apply stealth when knocked down, with some
-    // custom exceptions.
+    /* Apply stealth when knocked down, with some custom exceptions. */
     auto_stealth();
+
+    /*
+    * Play any timed delay sounds.
+    */
+    dc_fidelity_play_timed();
 }
 
 // Auto apply stealth.

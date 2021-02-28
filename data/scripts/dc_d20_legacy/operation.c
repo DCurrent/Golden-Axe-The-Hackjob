@@ -1,5 +1,5 @@
 // Package Files
-#include    "data/scripts/dc_d20/config.h"
+#include    "data/scripts/dc_d20_legacy/config.h"
 
 // Generate random value between
 // upper and lower boundaries.

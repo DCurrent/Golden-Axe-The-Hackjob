@@ -1,5 +1,5 @@
 #include "data/scripts/dc_eggball/main.c"
-#include "data/scripts/dc_kanga/main.c"
+#include "data/scripts/dc_kanga_legacy/main.c"
 
 #define PALETTE_INCREMENT_INTERVAL  1000
 #define PALETTE_SUNNY_INTERVAL      3000

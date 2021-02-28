@@ -1,5 +1,5 @@
 // Configuration.
-#include "data/scripts/dc_kanga/config.h"
+#include "data/scripts/dc_kanga_legacy/config.h"
 
 // Caskey, Damon V.
 // 2016-09-27

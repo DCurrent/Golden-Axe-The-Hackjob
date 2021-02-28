@@ -1,10 +1,10 @@
 #include "data/scripts/vars/constants.h"	//http://www.caskeys.com/dc/?p=1314#constants
 
-void trai0004()
+void trdc_ai_terrain_turn_around()
 {
     
     /*
-    trai0004
+    trdc_ai_terrain_turn_around
     Damon Caskey
     11152009
     Populates hit array to be applied by trai0003.

@@ -12,13 +12,13 @@ int ani0005(){
     in another to get past engine overides.
 	*/
 	
-	void vSelf = getlocalvar("self");           //Calling entity. 
-    int  iAni  = getentityvar(vSelf, IDXE_NEXTANI);  //Get animation varible.
+	void acting_entity = getlocalvar("self");           //Calling entity. 
+    int  iAni  = getentityvar(acting_entity, IDXE_NEXTANI);  //Get animation varible.
 
     if (iAni)
     {
-	   performattack(vSelf, iAni, 1);           //Switch to desired animation.    	
-       setentityvar(vSelf, IDXE_NEXTANI, NULL());    //Clear variable.
+	   performattack(acting_entity, iAni, 1);           //Switch to desired animation.    	
+       setentityvar(acting_entity, IDXE_NEXTANI, NULL());    //Clear variable.
        return iAni;
     }
     return 0;

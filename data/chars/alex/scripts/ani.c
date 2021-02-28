@@ -22,6 +22,8 @@
 #import "data/scripts/com/stat0002.h"
 #import "data/scripts/com/soun0005.h"
 
+#include "data/scripts/dc_fidelity/main.c"  // Sound player.
+
 void suicide()
 {
     int i;

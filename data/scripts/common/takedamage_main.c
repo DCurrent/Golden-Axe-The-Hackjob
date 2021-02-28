@@ -3,6 +3,32 @@
 #include "data/scripts/dc_gauntlet/main.c"
 #include "data/scripts/dc_fidelity/main.c"
 
+/*
+* Run as the takedamage event for most
+* entities, and usualy in addition to any 
+* model specific takedamage main() event.
+*/
+void common_event_takedamage(void acting_entity)
+{
+	void other = getlocalvar("other");
+	int take_damage_result;
+
+	/* 
+	* Compute result of take damage (knockdown, KO, etc.) so we
+	* don't need to do it over and over again for different
+	* action logic.
+	*/
+	take_damage_result = common_take_damage_result(acting_entity);
+
+	// Play appropriate sound effect.
+	common_take_damage_sound(take_damage_result);
+	common_spawn_damage_effect(take_damage_result);
+
+	/* Release any grappled entities. */
+	dc_elmers_set_member_target(acting_entity);
+	dc_elmers_disrupt_grapple();
+}
+
 /* Caskey, Damon V.
 * 2019-10-02
 * 

@@ -17,7 +17,7 @@ anim spawn
 	offset	56 81
 	delay	2
 	@script
-		ai0006(0,0,0,0,0,0);
+		dc_ai_escape();
 	@end_script
 		frame	data/chars/thief/e1
 		frame	data/chars/thief/e2
@@ -34,7 +34,7 @@ anim respawn
 	offset	56 81
 	delay	2
 	@script
-		ai0006(0,0,0,0,0,0);
+		dc_ai_escape();
 	@end_script
 		frame	data/chars/thief/r1
 		frame	data/chars/thief/r2

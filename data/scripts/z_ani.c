@@ -40,6 +40,8 @@
 #import "data/scripts/com/velo0001.h"
 //#import "data/scripts/com/wake0001.h"		//Wait before attacking function.
 
+#include "data/scripts/dc_fidelity/main.c"  // Sound player.
+
 void backattack()
 {
 	void self = getlocalvar("self");

@@ -19,7 +19,7 @@ anim spawn
 	offset	78 142
 	bbox	25 9 36 28
 		frame	data/chars/chicken/p1.gif
-	@cmd	soun0005 ENT_SELF VOI_HI SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 		frame	data/chars/chicken/p2.gif
 		frame	data/chars/chicken/p1.gif
         delay   30
@@ -38,7 +38,7 @@ anim walk
 	delay	8
 	offset	78 142
 	@script
-		ai0006(0,0,0,0,0,0);
+		dc_ai_escape();
 	@end_script
 		frame	data/chars/chicken/r1.gif
 		frame	data/chars/chicken/r2.gif

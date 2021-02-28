@@ -1,87 +1,128 @@
-#include "data/scripts/vars/constants.h"
+#import "data/scripts/com/dc_ai_terrain_turn_around.c"    // Get around walls.
+#import "data/scripts/com/dc_ai_escape.c"    // Find way out of screen.
+#import "data/scripts/com/ai0005.h"    // Timed animation.
 
-#import "data/scripts/com/ai0004.h"    //Get around walls.
-#import "data/scripts/com/ai0005.h"    //Countdown to alternate animation.
-#import "data/scripts/com/ai0006.h"    //Find way out of screen.
-#import "data/scripts/com/soun0005.h"  //Stereo sound player.
+#include "data/scripts/dc_fidelity/main.c"  // Sound player.
 
+/*
+* Theif "escapes" by spawning a visualy identical model
+* with escaping behavior and moving new model to its
+* current position, then killing self.
+*/
 void escape()
 {
-	void self = getlocalvar("self");
-	void e;
+	void acting_entity = getlocalvar("self");
+	void escape_entity = NULL();
+	int position_base = 0;
+	float position_x = 0.0;
+	float position_y = 0.0;
+	float position_z = 0.0;
+	
+	/* Spawn escaping theif. */
+	
 	clearspawnentry();
 	setspawnentry("name", "escthief");
-	e = spawn();
+	escape_entity = spawn();
+		
+	/* Move new entity to current position. */
+	position_base = get_entity_property(acting_entity, "position_base");
+	position_x = get_entity_property(acting_entity, "position_x");
+	position_y = get_entity_property(acting_entity, "position_y");
+	position_z = get_entity_property(acting_entity, "position_z");
 
-	changeentityproperty(e, "position", getentityproperty(self, "x"), getentityproperty(self, "z"), getentityproperty(self, "a"));
-	changeentityproperty(e, "base", getentityproperty(self, "base"));
-	changeentityproperty(e, "map", getentityproperty(self, "map"));
+	set_entity_property(acting_entity, "position_base", position_base);
+	set_entity_property(escape_entity, "position_x", position_x);
+	set_entity_property(escape_entity, "position_y", position_y);
+	set_entity_property(escape_entity, "position_z", position_z);
 
-	if(getlocalvar("lifespan")>3)
+	set_entity_property(escape_entity, "colorset_table", get_entity_property(acting_entity, "colorset_table"));
+
+	if(getlocalvar("lifespan") > 3)
 	{
-		changeentityproperty(e, "animation", A_RESPAWN);
+		executeanimation(escape_entity, "animation", openborconstant("ANI_RESPAWN"));
 	}
 
-	if(getentityproperty(self, "direction")==1)
+
+	/* Set new entity velocity based on current facing.*/
+	if(get_entity_property(acting_entity, "position_direction") == openborconstant("DIRECTION_RIGHT"))
 	{
-		changeentityproperty(e, "velocity", 3, 0, 0);
-		changeentityproperty(e, "direction", 1);
+		set_entity_property(escape_entity, "position_direction", openborconstant("DIRECTION_RIGHT"));
+		set_entity_property(escape_entity, "velocity_x", 3.0);
+		set_entity_property(escape_entity, "velocity_y", 0.0);
+		set_entity_property(escape_entity, "velocity_z", 0.0);
 	}
 	else
 	{
-		changeentityproperty(e, "velocity", -3, 0, 0);
-		changeentityproperty(e, "direction", 0);
+		set_entity_property(escape_entity, "position_direction", openborconstant("DIRECTION_LEFT"));
+		set_entity_property(escape_entity, "velocity_x", -3.0);
+		set_entity_property(escape_entity, "velocity_y", 0.0);
+		set_entity_property(escape_entity, "velocity_z", 0.0);
 	}
-	killentity(self);
+
+	/* Kill self. */
+	killentity(acting_entity);
 }
 
+/* Snatch magic pots off the screen. Gimme! */
 void steal()
 {
-	void self = getlocalvar("self");
-	if(getentityproperty(self, "name")=="BlueThief")
+	void acting_entity = getlocalvar("self");
+	
+	if(getentityproperty(acting_entity, "name")=="BlueThief")
 	{
-		void p = getglobalvar("pot0");
-		if(p != NULL())
+		/*
+		* If magic pots exist, remove them and add
+		* to self health (this acts as a tracker).
+		*/
+
+		void magic_pot = getglobalvar("magic_pot_0");
+		
+		if(magic_pot != NULL())
 		{
-			killentity(p);
-			changeentityproperty(self, "maxhealth", getentityproperty(self, "maxhealth")+1);
-			changeentityproperty(self, "health", getentityproperty(self, "maxhealth"));
-			setglobalvar("pot0", NULL());
+			killentity(magic_pot);
+			changeentityproperty(acting_entity, "maxhealth", getentityproperty(acting_entity, "maxhealth")+1);
+			changeentityproperty(acting_entity, "health", getentityproperty(acting_entity, "maxhealth"));
+			setglobalvar("magic_pot_0", NULL());
 		}
-		p = getglobalvar("pot1");
-		if(p != NULL())
+		
+		magic_pot = getglobalvar("magic_pot_1");
+
+		if(magic_pot != NULL())
 		{
-			killentity(p);
-			changeentityproperty(self, "maxhealth", getentityproperty(self, "maxhealth")+1);
-			changeentityproperty(self, "health", getentityproperty(self, "maxhealth"));
-			setglobalvar("pot1", NULL());
+			killentity(magic_pot);
+			changeentityproperty(acting_entity, "maxhealth", getentityproperty(acting_entity, "maxhealth")+1);
+			changeentityproperty(acting_entity, "health", getentityproperty(acting_entity, "maxhealth"));
+			setglobalvar("magic_pot_1", NULL());
 		}
 	}
 }
 
 void runcheck(){
 
-	void self = getlocalvar("self");
-	if(getentityproperty(self, "z") < 1000 && getentityproperty(self, "z") >0)
+	void acting_entity = getlocalvar("self");
+	float position_z = get_entity_property(acting_entity, "position_z");
+
+	if(position_z < 1000 && position_z > 0)
 	{
-		int ls = getlocalvar("lifespan");
-		if(getglobalvar("runanimal"))
+		int lifespan = getlocalvar("lifespan");
+
+		if(getglobalvar("run_animal"))
 		{
-			ls = 15;
-			setglobalvar("runanimal", NULL());
+			lifespan = 15;
+			setglobalvar("run_animal", NULL());
 		}
-		if(ls==NULL())
+		if(lifespan==NULL())
 		{
-			ls = 0;
+			lifespan = 0;
 		}
-		else if(ls>15)
+		else if(lifespan > 15)
 		{
-			changeentityproperty(self, "animation", A_WALK);
+			executeanimation(acting_entity, "animation", openborconstant("ANI_WALK"));
 		}
 		else
 		{
-			ls++;
+			lifespan++;
 		}
-		setlocalvar("lifespan", ls);
+		setlocalvar("lifespan", lifespan);
 	}
 }

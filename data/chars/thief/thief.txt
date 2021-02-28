@@ -25,7 +25,7 @@ load escthief
 animationscript 	data/chars/thief/scripts/ani.c
 didblockscript		data/scripts/z_block.c				#Block incoming attack.
 didhitscript 		data/scripts/z_hit.c				#Hit another entity.
-keyscript		data/scripts/z_key.c				#Controlling player press/release key.
+keyscript			data/scripts/z_key.c				#Controlling player press/release key.
 onblockascript		data/scripts/z_blocka.c				#Movement (rise/fall) blocked by platform.
 onblockoscript		data/scripts/z_blocko.c				#Movement blocked by obstacle.
 onblocksscript		data/scripts/z_blocks.c				#Movement blocked by screen boundary.
@@ -39,7 +39,7 @@ onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
 onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
 onpainscript		data/scripts/z_pain.c				#Pain status set.
 onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
-script			data/scripts/z_script.c				#Entity updated.
+script				data/scripts/z_script.c				#Entity updated.
 takedamagescript	data/chars/thief/scripts/damage.c		#Damaged.
 thinkscript		data/scripts/z_think.c				#Entity AI updates.
 
@@ -52,9 +52,9 @@ anim idle
 	offset	56 81
 	bbox	48 48 24 35
 	delay	25
-	@cmd	soun0005 ENT_SELF VOI_HA -1 1 0 0 	
-	@cmd 	ai0005 0 3 A_DEATH 0 0 0
 		frame	data/chars/thief/idle1
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_LAUGH	
+	@cmd 	ai0005 0 3 openborconstant("ANI_DIE") 0 0 0
 		frame	data/chars/thief/idle2
 	delay	50
 		frame	data/chars/thief/idle1
@@ -81,12 +81,12 @@ anim walk
 	bbox	35 50 35 34
 	delay	3
 	frame	data/chars/thief/r1
-@cmd ai0004 0 0 0 0 0 0
+@cmd dc_ai_terrain_turn_around
 	frame	data/chars/thief/r2
 	frame	data/chars/thief/r3
 	frame	data/chars/thief/r2
 	frame	data/chars/thief/r1
-@cmd ai0004 0 0 0 0 0 0
+@cmd dc_ai_terrain_turn_around
 	frame	data/chars/thief/r6
 	frame	data/chars/thief/r7
 	frame	data/chars/thief/r6
@@ -97,12 +97,12 @@ anim up
 	bbox	35 50 35 34
 	delay	3
 	frame	data/chars/thief/u1
-@cmd ai0004 0 0 0 0 0 0
+@cmd dc_ai_terrain_turn_around
 	frame	data/chars/thief/u2
 	frame	data/chars/thief/u3
 	frame	data/chars/thief/u2
 	frame	data/chars/thief/u1
-@cmd ai0004 0 0 0 0 0 0
+@cmd dc_ai_terrain_turn_around
 	frame	data/chars/thief/u4
 	frame	data/chars/thief/u5
 	frame	data/chars/thief/u4

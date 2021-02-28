@@ -86,7 +86,11 @@ void oncreate()
 	dc_fidelity_setup("longmoan", DC_FIDELITY_TYPE_VOICE_NEAR_KO, "data/chars/longmoan/sounds/low_hp_0.wav");
 	dc_fidelity_setup("longmoan", DC_FIDELITY_TYPE_VOICE_NEAR_KO, "data/chars/longmoan/sounds/low_hp_1.wav");
 
-	
+	//Chickenlegs
+
+	//Red_Dragon
+
+	//Blue_Dragon
 }
 
 void ondestroy()

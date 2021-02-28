@@ -20,7 +20,7 @@ anim spawn
 	delay	12
 	offset	80 142
 		frame	data/chars/dragon/p1
-    @cmd	soun0005 ENT_SELF VOI_HI SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+    @cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 		frame	data/chars/dragon/p2
 		frame	data/chars/dragon/p1
     delay   30
@@ -41,7 +41,7 @@ anim walk
 	delay	6
 	offset	80 142
 	@script
-		ai0006(0,0,0,0,0,0);
+		dc_ai_escape();
 	@end_script
 		frame	data/chars/dragon/r1
 		frame	data/chars/dragon/r2

@@ -1,21 +1,22 @@
-#include "data/scripts/vars/constants.h"
-
-#import "data/scripts/com/dama0002.h"	//Global damage function.
 #import "data/scripts/com/spaw0005.h"  //Spawn entity with toss.
+
+#include "data/scripts/dc_elmers/main.c"
+#include "data/scripts/common/takedamage_main.c"
 
 void main()
 {
-    void vSelf	= getlocalvar("self");
-    void vAtk	= getlocalvar("attacker");
-    char cName	= getentityproperty(vSelf, "name");
+    void acting_entity = getlocalvar("self");
+    void other_entity = getlocalvar("other");    
+    char model_name	= getentityproperty(acting_entity, "name");
+        
 
-    if(vSelf != vAtk)
+    if(acting_entity != other_entity)
     {
-        if(cName == "BlueThief")
+        if(model_name == "BlueThief")
         {
             spaw0005("Magic_Pot",0,0,0,0,0,0);
         }
-		else if(cName == "GrayThief")
+		else if(model_name == "GrayThief")
         {
             spaw0005("time",0,0,0,0,0,0);
         }
@@ -24,9 +25,10 @@ void main()
             spaw0005("meat",0,0,0,0,0,0);
         }
 
-        damageentity(vSelf, vSelf, 1, 1, openborconstant("ATK_NORMAL10"));
+        damageentity(acting_entity, acting_entity, 1, 1, openborconstant("ATK_NORMAL10"));
     }
 
-	dama0002();                                                                 //Run global damage function.
+    /* Run common takedamage function. */
+    common_event_takedamage(acting_entity);
 
 }

@@ -147,7 +147,7 @@ anim runattack
 	delay   6
 	offset	78 142
    	bbox    68 66 34 54
-	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 		frame	data/chars/amazon/chicken/0019
     	bbox    67 70 34 54
     	delay   -1000
@@ -216,7 +216,7 @@ anim  chargeattack
 	delay	10
 	offset	78 142
     	bbox    0
-	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 		frame	data/chars/amazon/chicken/0011
 	delay	175
 	@cmd 	proj0003 "effe0001" 1 1 1 0 0 0 0 0 19 A_FOLLOW7
@@ -321,7 +321,7 @@ anim grabattack2
 	@cmd  	bind0014 1 0								#Initialize bind variable.
 	@cmd  	dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1			#Put into falling state.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 165 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
-	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 		frame	data/chars/amazon/chicken/0013
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 15 170 -1 DIR_ADJ_OPP AC_DEFPOSE G_TLTDN 0
 		frame	data/chars/amazon/chicken/0007
@@ -335,7 +335,7 @@ anim grabattack2
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -50 170 -1 DIR_ADJ_OPP AC_DEFPOSE G_DWNUPP 0
 		frame	data/chars/amazon/chicken/0006
 	delay	8
-	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 0 160 -1 DIR_ADJ_OPP AC_DEFPOSE G_VERDN 0
 		frame	data/chars/amazon/chicken/0007
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 40 170 -1 DIR_ADJ_SAME AC_DEFPOSE G_FALUPT 0
@@ -378,7 +378,7 @@ anim grabbackward
 		frame	data/chars/amazon/chicken/0013
     	delay	8
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 150 -1 DIR_ADJ_OPP AC_DEFPOSE G_EX3 0
-	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 		frame	data/chars/amazon/chicken/0001
     @cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 40 190 -1 DIR_ADJ_SAME AC_DEFPOSE G_HORDN 0
 		frame	data/chars/amazon/chicken/0002
@@ -438,7 +438,7 @@ anim freespecial2
 	delay   6
 	offset	78 142
     	bbox    0
-	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 		frame	data/chars/amazon/chicken/0023
 		frame	data/chars/amazon/chicken/0022
 	bbox    66 80 34 64
@@ -464,7 +464,7 @@ anim freespecial3
 	delay	-1000
     	bbox    68 58 34 54
 	offset  88  142
-	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 	@cmd	jump0003 0 0 0
 		frame	data/chars/amazon/chicken/0018
 
@@ -483,7 +483,7 @@ anim freespecial4
 	delay	-1000
     	bbox    68 58 34 54
 	offset  88  142
-	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 	@cmd	jump0003 0 0 0
 		frame	data/chars/amazon/chicken/0018
 
@@ -503,7 +503,7 @@ anim freespecial5
 		frame	data/chars/amazon/chicken/0019
 	bbox    68 58 34 54
 	offset  88  142
-	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 	@cmd	jump0003 0 0 0
 		frame	data/chars/amazon/chicken/0018
 	attack1	99 98 26 37 10 1 1
@@ -525,7 +525,7 @@ anim freespecial6
 		frame	data/chars/amazon/chicken/0019
 	bbox    68 58 34 54
 	offset  88  142
-	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 	@cmd	jump0003 0 0 0
 		frame	data/chars/amazon/chicken/0018
 	attack1	99 98 26 37 10 1 1
@@ -616,7 +616,7 @@ anim jumpattack
     	offset	78 142
    	bbox    68 66 34 54
    	attack1  99  98  26  37  8  1
-	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 		frame	data/chars/amazon/chicken/0024
 
 anim runjumpattack
@@ -629,7 +629,7 @@ anim runjumpattack
     	offset	78 142
    	bbox    68 66 34 54
 	attack1	99 98 26 37 12 1
-	@cmd	soun0005 ENT_SELF VOI_ATK SOUND_FILE_RAND SOUND_PLAY_100 "D" SOUND_DELAY_DEF
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 		frame	data/chars/amazon/chicken/0024
 
 

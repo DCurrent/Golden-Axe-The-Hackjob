@@ -6,7 +6,7 @@ name			al_bdrag
 health			98
 speed			10
 running 		20 5 1 1 0
-dust			fall_land landm jump_liftoff
+dust			fall_land jump_land jump_liftoff
 gfxshadow 		1
 shadow			3
 animal  		2
@@ -140,7 +140,7 @@ anim runattack
     	followanim 	2
     	followcond 	1
     	jumpframe  	0 2 3 0 jump_liftoff
-    	landframe 	2 landm
+    	landframe 	2 jump_land
     	hitflash 	hithcut
 
 	delay	8
@@ -394,7 +394,7 @@ anim follow2
 	#runattack bounce.
 
     	jumpframe 	0 1 0
-    	landframe 	3 landm
+    	landframe 	3 jump_land
 	hitflash 	hithcut
 
 	offset	80 142

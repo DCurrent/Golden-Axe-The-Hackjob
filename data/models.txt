@@ -38,8 +38,6 @@ load	fallmm		data/chars/misc/effects/models/flash/fallmm/fallmm.txt			#Fall dust
 load	impm		data/chars/misc/effects/models/flash/impm/impm.txt				#Slam impact, medium.
 load	jumpmw		data/chars/misc/effects/models/flash/jumpmw/jumpmw.txt			#Jump liftoff, medium, from wall.
 load	landh		data/chars/misc/effects/models/flash/landh/landh.txt			#Jump land, heavy.
-load	landm		data/chars/misc/effects/models/flash/landm/landm.txt			#Jump land, medium.
-load	landm		data/chars/misc/effects/models/flash/landmw/landmw.txt			#Jump land, medium on wall.
 load	skel		data/chars/misc/effects/models/flash/skel/skel.txt				#Skeletal hit, light.			~Skeleton warrior taking hit.
 load	stabh		data/chars/misc/effects/models/flash/stabh/stabh.txt			#Stab, heavy.					~Knockdown by stab.
 load	wallm		data/chars/misc/effects/models/flash/wallm/wallm.txt			#Wall impact, medium.			~Slammed into wall.

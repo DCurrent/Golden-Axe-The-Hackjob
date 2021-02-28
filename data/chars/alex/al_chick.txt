@@ -6,7 +6,7 @@ name			al_chick
 health			98
 speed			10
 running 		20 5 1 1 0
-dust			fall_land landm jump_liftoff
+dust			fall_land jump_land jump_liftoff
 gfxshadow 		1
 shadow			3
 animal  		2
@@ -142,7 +142,7 @@ anim runattack
     	followanim 2
     	followcond 1
     	jumpframe  1 2 3 0 jump_liftoff
-    	landframe  2 landm
+    	landframe  2 jump_land
 	hitflash   hithcut
 
 	delay   6
@@ -249,7 +249,7 @@ anim attack1
 	offset	76 142
    	bbox    60 79 31 55
 	attack1	52 126 48 24 16 1
-	@cmd	bind0008 "landm" "mute" 0 1 0 0 0 0 0 0 1					#Dust.
+	@cmd	bind0008 "jump_land" "mute" 0 1 0 0 0 0 0 0 1					#Dust.
 	@cmd	soun0005 ENT_SELF SND_WIFFM -1 1 0 0
 		frame	data/chars/alex/chicken/0008
 	offset	78 142
@@ -512,7 +512,7 @@ anim follow2
 	#Runattack bounce.
 
 	jumpframe 0 1 0
-    	landframe 2 landm
+    	landframe 2 jump_land
 	hitflash  hithcut
 
 	offset	78 142
@@ -532,7 +532,7 @@ anim follow3
 	#Ostrich throw bounce.
 
 	jumpframe 1 2.5 -1
-	landframe 2 landm
+	landframe 2 jump_land
 
 	offset	78 142
     	bbox    68 66 34 54

@@ -24,7 +24,7 @@ projectilehit 		player npc obstacle
 noatflash 			0
 bflash 				bflash
 holdblock 			0
-dust				fall_land landm jump_liftoff
+dust				fall_land jump_land jump_liftoff
 komap				6 1
 hmap				5 9
 fmap				9
@@ -215,7 +215,7 @@ anim  attackboth
 	flipframe  12
 	jumpframe  3  2.8  0  0 jump_liftoff
 	dropframe  10
-	landframe  23 landm
+	landframe  23 jump_land
 
 	offset  60  98
 	bbox  42  50  29  48
@@ -430,7 +430,7 @@ anim runattack
     	hitflash	hith
 	counterattack 	1
     	jumpframe 	1 2 2 0 jump_liftoff
-	landframe	2 landm
+	landframe	2 jump_land
 
 	offset	60 98
     	bbox    51 48 25 37
@@ -705,7 +705,7 @@ anim  freespecial
 	hitflash	cuth
 	range		0  80
 	jumpframe	2  2  0.5  0 jump_liftoff
-	landframe	7 landm
+	landframe	7 jump_land
 
 	offset	60  98
 	bbox	48  53  22  46
@@ -760,7 +760,7 @@ anim freespecial2
 	#Backstep.
 
 	jumpframe	1  2  -2  0 jump_liftoff
-	landframe	3 landm
+	landframe	3 jump_land
 	dropframe	2
 
 	offset		60  98
@@ -814,7 +814,7 @@ anim  freespecial6
 	#Spin Breaker
 
 	jumpframe  2.5  3  0  0 jump_liftoff
-	landframe  8 landm
+	landframe  8 jump_land
 
 	offset  60  98
 	delay  10
@@ -1109,7 +1109,7 @@ anim  freespecial13
 
 	jumpframe  3  2.5  1  0	jump_liftoff
 	dropframe  5
-	landframe  6 landm
+	landframe  6 jump_land
 
 
 	offset  60  98
@@ -1308,7 +1308,7 @@ anim  freespecial16
 
 	jumpframe 32 2.5 -1 0 jump_liftoff
 	dropframe 33
-	landframe 34 landm
+	landframe 34 jump_land
 
 	offset  50  98
 	delay	12
@@ -1391,7 +1391,7 @@ anim follow2
 	#Run attack bounce.
 
     jumpframe 0 1 0 0
-	landframe 2 landm
+	landframe 2 jump_land
 	hitflash  hith
 
 	offset	60 98
@@ -1505,7 +1505,7 @@ anim follow7
 
     jumpframe 0 3 -1 0 jump_liftoff
     dropframe 1
-	landframe 2 landm
+	landframe 2 jump_land
 
 	offset	60 88
 	bbox	51 48 25 37
@@ -1555,7 +1555,7 @@ anim follow9
 	#Throw (air to ground).
 
 	jumpframe 1 0.2 -0.2 0
-	landframe 3 landm
+	landframe 3 jump_land
 
 	offset	60 98
 	bbox	0
@@ -1745,7 +1745,7 @@ anim follow13
 	#Ax Destroyer bounce.
 
     jumpframe 0 4 -1 0 jump_liftoff
-    landframe  5 landm
+    landframe  5 jump_land
 
 	offset	77 104
 	bbox	51 48 25 37
@@ -1852,7 +1852,7 @@ anim jump
 anim walkoff
 
 	dropframe	1
-	landframe	2 landm
+	landframe	2 jump_land
 
 	offset	60 98
 	bbox	43 38 26 60
@@ -1916,7 +1916,7 @@ anim  jumpattack2
 
 	#Point Dive (Kain Grinder; Golden Axe 3 Genesis
 
-	landframe  2 landm
+	landframe  2 jump_land
 	jumpframe  0  -1  2  0
 	delay  10
 	bbox  53  40  24  57
@@ -2286,7 +2286,7 @@ anim follow17
 
 	jumpframe 5 2.5 -1 0 jump_liftoff
 	dropframe 6
-	landframe 7 landm
+	landframe 7 jump_land
 
 	offset 60 98
 		frame  data/chars/ax/0160.png	#0

@@ -19,7 +19,7 @@ noquake 	1
 bounce 		0
 score 		0 -1
 jumpmove	0 1
-dust		landm landm jump_liftoff	
+dust		jump_land jump_land jump_liftoff	
 
 load escthief
 
@@ -134,7 +134,7 @@ anim jump
 	frame	data/chars/thief/walk_2.png
 
 anim walkoff
-    landframe 1 landm
+    landframe 1 jump_land
     
 	delay	-1000
 	offset	56 81

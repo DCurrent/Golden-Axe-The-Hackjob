@@ -519,7 +519,7 @@
 /******Models******/
 #define MODEL_EFFECT				"effe0001"								//General effect model.
 #define MODEL_EFFATAL				"fata0001"								//Fatality.
-#define MODEL_FLLAND				"landm"									//Land dust; medium.
+#define MODEL_FLLAND				"jump_land"									//Land dust; medium.
 #define MODEL_FLLAND2				"impm"									//Impact dust; medium.
 #define MODEL_FLWALLM				"wallm"									//Wall dust; medium.
 

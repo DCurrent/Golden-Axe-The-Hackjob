@@ -3,7 +3,7 @@
 name			t_chick
 speed			10
 running 		20 5 1 1 0
-dust			fall_land landm jump_liftoff
+dust			fall_land jump_land jump_liftoff
 gfxshadow 		1
 shadow			3
 animal  		2
@@ -130,7 +130,7 @@ anim runattack
     followcond	1
 	loop		1 2 6
     jumpframe	1 2 3 0 jump_liftoff
-    landframe	7 landm
+    landframe	7 jump_land
 	hitflash	hithcut
 
 	delay   6
@@ -265,7 +265,7 @@ anim attack1
 	offset	76 142
    	bbox    60 79 31 55
 	attack5	52 126 48 24 16 5
-	@cmd	bind0008 "landm" "mute" 0 1 0 0 0 0 0 0 1					#Dust.
+	@cmd	bind0008 "jump_land" "mute" 0 1 0 0 0 0 0 0 1					#Dust.
 	@cmd	soun0005 ENT_SELF SND_WIFFM -1 1 0 0
 		frame	data/chars/tyris/chicken/0008
 	offset	78 142
@@ -529,7 +529,7 @@ anim follow2
 	#Runattack bounce.
 
 	jumpframe 0 1 0
-    landframe 2 landm
+    landframe 2 jump_land
 
 	hitflash  hithcut
 
@@ -555,7 +555,7 @@ anim follow3
 	#Ostrich throw bounce.
 
 	jumpframe 1 2.5 -1
-	landframe 10 landm
+	landframe 10 jump_land
 	dropframe 2
 	loop	  1 5 9
 

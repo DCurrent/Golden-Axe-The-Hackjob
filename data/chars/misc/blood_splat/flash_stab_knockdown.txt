@@ -1,19 +1,12 @@
 # Stab, heavy
 
 name			flash_stab_knockdown
-type			none
-shadow			0
-antigravity		100
-lifespan    	2
-alpha			2
-speedf			0.5			#Size adjustment.
-nodrop			0			#<max> random rotation range.
-guardpoints		1			#Type of oneshot.
-noatflash		0			#Secondary entity.
-jugglepoints	210			#Alternate spawn sound group.
+type	none
+shadow	0
 
-onspawnscript 	data/scripts/spaw0002.c
-onkillscript  	data/scripts/z_kill.c
+onspawnscript 	data/chars/misc/flash/scripts/event_spawn.c
+onkillscript  	data/scripts/common/event_kill.c
+animationscript	data/chars/misc/cvs_cut_flash_heavy/scripts/animation.c
 
 anim idle
 	flipframe 1

@@ -2,6 +2,7 @@
 
 #include	"data/scripts/dc_hud/main.c"
 #include    "data/scripts/dc_fidelity/main.c"
+#include    "data/scripts/dc_kanga/main.c"
 
 #import	"data/scripts/traileru.c"		//Shadow trails.
 //#import	"data/scripts/com/ani0013.h"	//Jump animation if steping off an edge.
@@ -33,13 +34,28 @@ void main()
     /* Draw player HUD. */
     dc_golden_axe_player_hud();
 
-    /* Apply stealth when knocked down, with some custom exceptions. */
-    auto_stealth();
-
     /*
     * Play any timed delay sounds.
     */
     dc_fidelity_play_timed();
+
+    /* Loop entity collection. */
+    int i = 0;
+    int ent_count = openborvariant("count_entities");
+    void entity_cursor = NULL();
+
+    for (i = 0; i < ent_count; i++)
+    {
+        entity_cursor = getentity(i);
+
+        /* Execute tint effect on entity. */
+        dc_kanga_auto_tint(entity_cursor);
+
+        /* Invisible when knocked down. */
+        dc_auto_stealth(entity_cursor);
+
+    }
+   
 }
 
 // Auto apply stealth.
@@ -51,17 +67,14 @@ void main()
 //
 // We'll do this by applying a universal stealth, with
 // a couple of exceptions for specific game-play situations.
-void auto_stealth()
+void dc_auto_stealth(void target)
 {
     #define STEALTH_DISABLE     0
     #define STEALTH_ENABLE      1
     #define STEALTH_NO_ACTION   2
 
-    int     i;                  // Loop cursor.
-    int     entity_count;       // Entity counter.
     int     exists;             // Entity exists flag.
     int     dead;               // Entity dead flag.
-    void    target;             // Target entity.
     char    model_name;         // Name of the base model.
     void    owner;              // Entity that spawned the target.
     int     drop;               // Falling (drop) state.
@@ -70,18 +83,10 @@ void auto_stealth()
     int     animation;          // target's current animation.
 
 
-    entity_count    = openborvariant("count_entities");
-
-    // Loop through entity collection.
-    for(i=0; i<entity_count; i++)
-    {
-        // Get target entity for this loop increment.
-        target = getentity(i);
-
         // Make sure we got a valid target pointer.
         if(!target)
         {
-            continue;
+            return;
         }
 
         // Make sure the entity exists in play. We perform this
@@ -91,7 +96,7 @@ void auto_stealth()
 
         if(!exists)
         {
-            continue;
+            return;
         }
 
         // We're leaving dead enemies on the screen but
@@ -102,7 +107,7 @@ void auto_stealth()
 
         if(dead)
         {
-            continue;
+            return;
         }
 
         // Does the entity have an owner? If not, in this module
@@ -111,7 +116,7 @@ void auto_stealth()
 
         if(owner)
         {
-            continue;
+            return;
         }
 
         // Is the entity in a falling state?
@@ -201,7 +206,7 @@ void auto_stealth()
             case STEALTH_NO_ACTION:
                 break;
         }
-    }
+    
 
     #undef STEALTH_DISABLE
     #undef STEALTH_ENABLE

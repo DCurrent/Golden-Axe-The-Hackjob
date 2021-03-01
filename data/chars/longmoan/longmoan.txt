@@ -19,7 +19,6 @@ dust				fall_land jump_land jump_liftoff
 noquake 			1
 paingrab 			1
 score 				2 -1
-komap				5 1
 height				50
 projectilehit 			enemy obstacle
 hostile				player npc
@@ -968,7 +967,7 @@ anim runattack
 	attack.damage.force 8
 	attack.damage.type 1
 	
-	attack.effect.hit.flash.model blunt_heavy
+	attack.effect.hit.flash.model hith
 	attack.position.x 50
 	attack.position.y 55
 	attack.reaction.fall.force 1

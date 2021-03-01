@@ -1,0 +1,33 @@
+# Hit flash
+
+name		flash_cvs_cut_blunt
+type		none
+shadow		0
+antigravity	100
+lifespan    2
+toflip		1
+
+onspawnscript 	data/chars/misc/flash/scripts/event_spawn.c
+onkillscript  	data/scripts/common/event_kill.c
+animationscript	data/chars/misc/cvs_cut_flash_heavy/scripts/animation.c
+
+anim idle	
+	
+	delay	2
+	offset	232 317
+		frame	data/chars/misc/cvs_cut_flash_heavy/idle_0.png
+
+		@cmd dc_gauntlet_set_member_autokill 1
+		@cmd dc_elmers_quick_spot dc_gauntlet_quick_spawn("flash_blood_cut")
+
+		frame	data/chars/misc/cvs_cut_flash_heavy/idle_1.png
+		frame	data/chars/misc/cvs_cut_flash_heavy/idle_2.png
+		frame	data/chars/misc/cvs_cut_flash_heavy/idle_3.png
+		frame	data/chars/misc/cvs_cut_flash_heavy/idle_4.png
+		frame	data/chars/misc/cvs_cut_flash_heavy/idle_5.png
+		frame	data/chars/misc/cvs_cut_flash_heavy/idle_6.png
+		frame	data/chars/misc/cvs_cut_flash_heavy/idle_7.png
+		frame	data/chars/misc/cvs_cut_flash_heavy/idle_8.png
+		frame	data/chars/misc/cvs_cut_flash_heavy/idle_9.png
+		frame	data/chars/misc/cvs_cut_flash_heavy/idle_10.png
+		frame	data/chars/misc/cvs_cut_flash_heavy/idle_11.png

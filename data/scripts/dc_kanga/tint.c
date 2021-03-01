@@ -146,13 +146,15 @@ void dc_kanga_auto_tint(void ent)
 
 			// Get the blue value.
 			rgb_b = tint_color % 256;
-			//rgb_g = tint_color / 256 % 256;
-			//rgb_r = tint_color / 256 / 256 % 256;
+			rgb_g = tint_color / 256 % 256;
+			rgb_r = tint_color / 256 / 256 % 256;
 
+			/* Red. */
+			
 			// Current value for spinner is current RGB. Upper
 			// is the KO value. We don't care about lower value.
-			dc_spinner_set_value(rgb_b);
-			dc_spinner_set_range_max(DC_KANGA_KO_RGB_R);
+			dc_spinner_set_value(rgb_r);
+			dc_spinner_set_range_max(DC_KANGA_KO_RGB_R);			
 
 			// Cap the value at upper.
 			dc_spinner_set_range_bound_max(DC_SPINNER_RANGE_BOUND_CAP);
@@ -160,12 +162,32 @@ void dc_kanga_auto_tint(void ent)
 			// Set steps and build increment amount.
 			dc_spinner_set_steps(DC_KANGA_KO_STEPS);
 
-			// Run the increment and get resulting value for rgb_b.
+			// Run the increment and get resulting value for rgb_r.
+			rgb_r = dc_spinner_increment_run();
+
+			/* Blue. */
+			dc_spinner_set_value(rgb_b);
+			dc_spinner_set_range_max(DC_KANGA_KO_RGB_B);
+
+			dc_spinner_set_range_bound_max(DC_SPINNER_RANGE_BOUND_CAP);
+
+			dc_spinner_set_steps(DC_KANGA_KO_STEPS);
+
 			rgb_b = dc_spinner_increment_run();
 
-			// Set transparency mode for tint, and apply tint color.
+			/* Green. */
+			dc_spinner_set_value(rgb_g);
+			dc_spinner_set_range_max(DC_KANGA_KO_RGB_G);
+
+			dc_spinner_set_range_bound_max(DC_SPINNER_RANGE_BOUND_CAP);
+
+			dc_spinner_set_steps(DC_KANGA_KO_STEPS);
+
+			rgb_g = dc_spinner_increment_run();
+
+			/* Set transparency mode for tint, and apply tint color. */
 			dc_kanga_set_tint_mode(ent, DC_KANGA_KO_MODE);
-			dc_kanga_set_tint_color(ent, rgb_b, rgb_b, rgb_b);
+			dc_kanga_set_tint_color(ent, rgb_r, rgb_g, rgb_b);
 
 			// Nothing else to do, so exit the function.
 			return;

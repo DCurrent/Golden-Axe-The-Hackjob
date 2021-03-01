@@ -34,11 +34,11 @@
 #define DC_KANGA_FREEZE						DC_KANGA_RGB_MAX                 // Starting blue intensity when frozen.
 #define DC_KANGA_FREEZE_MODE				DC_KANGA_TRANSPARENCY_ALPHA		// Freeze tint alpha mode.
 
-#define DC_KANGA_KO_RGB_R					128                             // KO color RGB Red setting.
-#define DC_KANGA_KO_RGB_G					128                             // KO color RGB Green setting.
-#define DC_KANGA_KO_RGB_B					128                             // KO color RGB Blue setting.
-#define DC_KANGA_KO_MODE					DC_KANGA_TRANSPARENCY_ALPHA		// KO tint alpha mode.
-#define DC_KANGA_KO_STEPS					64								// Number of increments between no tint and KO tint.
+#define DC_KANGA_KO_RGB_R					48                             // KO color RGB Red setting.
+#define DC_KANGA_KO_RGB_G					40                             // KO color RGB Green setting.
+#define DC_KANGA_KO_RGB_B					20                             // KO color RGB Blue setting.
+#define DC_KANGA_KO_MODE					DC_KANGA_TRANSPARENCY_AVERAGE		// KO tint alpha mode.
+#define DC_KANGA_KO_STEPS					32								// Number of increments between no tint and KO tint.
 
 // Scaling and sizing.
 #define DC_KANGA_DEFAULT_SCALE				256								// Value used by drawmethod scale values for 100% size.

@@ -53,8 +53,6 @@ load jump_liftoff		data/chars/misc/cvs_jump_dust/jump_liftoff.txt
 load	effe0001	data/chars/misc/effects/effe0001.txt	#General effects/projectiles.
 load	effe0002	data/chars/misc/effects/effe0002.txt	#Char select burn.
 
-load	knife2		data/chars/misc/knife2.txt
-
 load    Magic           data/chars/misc/magic.txt
 know    meat            data/chars/misc/meat.txt
 know    time            data/chars/misc/time.txt

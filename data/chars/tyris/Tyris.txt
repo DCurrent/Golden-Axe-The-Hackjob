@@ -1389,5 +1389,3 @@ anim	walkoff
 	frame	data/chars/tyris/0075
 	frame	data/chars/tyris/0082
 
-#|edited by openBor Stats v 0.61
-

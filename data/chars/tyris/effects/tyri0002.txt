@@ -27,6 +27,7 @@ anim spawn
 anim idle
 
 	range			-10 10
+	
 	forcedirection -1
 	fastattack		1		
 	hitflash		cuth

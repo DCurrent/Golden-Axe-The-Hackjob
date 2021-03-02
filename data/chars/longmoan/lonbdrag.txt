@@ -1,7 +1,4 @@
 # Longmoan on blue dragon
-
-
-
 name	lonbdrag
 speed	9
 running 20

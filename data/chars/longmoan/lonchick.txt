@@ -1,9 +1,6 @@
 # Longmoan on chickenlegs
 
-
-
 name		        lonchick
-health			32
 speed		        9
 running 	        19
 gfxshadow 	        1
@@ -40,11 +37,11 @@ modelflag 1
 
 weapons lonchick lonrdrag lonbdrag
 
-palette		    data/chars/longmoan/aapa0001     	    # silver
-alternatepal 	data/chars/longmoan/aapa0002		    # red
-alternatepal 	data/chars/longmoan/aapa0003		    # golden
-alternatepal 	data/chars/longmoan/aapa0004 		    # dark
-alternatepal 	data/chars/longmoan/aapa0005 		    # KO
+palette		        data/chars/longmoan/palette_default.act
+alternatepal 	    data/chars/longmoan/palette_red.act
+alternatepal 	    data/chars/longmoan/palette_gold.act		
+alternatepal 	    data/chars/longmoan/palette_beige.act
+alternatepal 	    data/chars/longmoan/palette_dark.act
 
 anim follow100
 	
@@ -57,7 +54,7 @@ anim idle
 	delay	25
 	offset	78 140
     bbox    64 80 30 60
-	frame	data/chars/longmoan/chicken/idle2.gif
+	frame	data/chars/longmoan/chicken/idle2.png
 
 anim spawn
 
@@ -65,16 +62,16 @@ anim spawn
 	delay	1
 	offset	78 140
     bbox    64 80 30 60
-	frame	data/chars/longmoan/chicken/idle2.gif
+	frame	data/chars/longmoan/chicken/idle2.png
 	delay	25
-	frame	data/chars/longmoan/chicken/idle2.gif
+	frame	data/chars/longmoan/chicken/idle2.png
 
 anim get
 	loop	0
 	delay	20
 	offset	78 142
-	frame	data/chars/longmoan/chicken/ride1.gif
-	frame	data/chars/longmoan/chicken/ride2.gif
+	frame	data/chars/longmoan/chicken/ride1.png
+	frame	data/chars/longmoan/chicken/ride2.png
 
 anim walk
 @script
@@ -92,20 +89,20 @@ else
     delay   10
     offset  80 140
     bbox    64 80 30 60
-	frame	data/chars/longmoan/chicken/wd1.gif
-	frame	data/chars/longmoan/chicken/wd2.gif
-	frame	data/chars/longmoan/chicken/wd3.gif
-	frame	data/chars/longmoan/chicken/wd4.gif
+	frame	data/chars/longmoan/chicken/wd1.png
+	frame	data/chars/longmoan/chicken/wd2.png
+	frame	data/chars/longmoan/chicken/wd3.png
+	frame	data/chars/longmoan/chicken/wd4.png
 
 anim run
     loop    1
     delay   6
     offset  80 140
     bbox    64 80 30 60
-	frame	data/chars/longmoan/chicken/r1.gif
-	frame	data/chars/longmoan/chicken/r2.gif
-	frame	data/chars/longmoan/chicken/r3.gif
-	frame	data/chars/longmoan/chicken/r4.gif
+	frame	data/chars/longmoan/chicken/r1.png
+	frame	data/chars/longmoan/chicken/r2.png
+	frame	data/chars/longmoan/chicken/r3.png
+	frame	data/chars/longmoan/chicken/r4.png
 
 anim up
 @script
@@ -115,10 +112,10 @@ dc_ai_avoid_jump_attack();
     delay   10
     offset  82 140
     bbox    70 78 28 60
-	frame	data/chars/longmoan/chicken/wu1.gif
-	frame	data/chars/longmoan/chicken/wu2.gif
-	frame	data/chars/longmoan/chicken/wu3.gif
-	frame	data/chars/longmoan/chicken/wu4.gif
+	frame	data/chars/longmoan/chicken/wu1.png
+	frame	data/chars/longmoan/chicken/wu2.png
+	frame	data/chars/longmoan/chicken/wu3.png
+	frame	data/chars/longmoan/chicken/wu4.png
 
 
 anim runattack
@@ -131,20 +128,20 @@ anim runattack
     delay   6
 	offset	78 142
     bbox    68 66 34 54
-	frame	data/chars/longmoan/chicken/land.gif
+	frame	data/chars/longmoan/chicken/land.png
     bbox    67 70 34 54
     delay   1000
 
 	attack	99 98 26 37 8 1 1
-	frame	data/chars/longmoan/chicken/ra2.gif
+	frame	data/chars/longmoan/chicken/ra2.png
 	attack	0
     delay   10
     bbox    68 66 34 54
 @cmd velo0001 2 0 0
-	frame	data/chars/longmoan/chicken/land.gif
+	frame	data/chars/longmoan/chicken/land.png
     delay   1
 @cmd velo0001 0 0 0
-	frame	data/chars/longmoan/chicken/land.gif
+	frame	data/chars/longmoan/chicken/land.png
 
 # deflect
 anim follow2
@@ -154,12 +151,12 @@ anim follow2
     bbox    68 66 34 54
 	delay	1
 	attack	99 98 26 37 8 1 1
-	frame	data/chars/longmoan/chicken/ra2.gif
+	frame	data/chars/longmoan/chicken/ra2.png
 	attack	0
 	delay	6
-	frame	data/chars/longmoan/chicken/ra2.gif
+	frame	data/chars/longmoan/chicken/ra2.png
 	delay	12
-	frame	data/chars/longmoan/chicken/land.gif
+	frame	data/chars/longmoan/chicken/land.png
 
 anim jump
     range   10 64
@@ -167,35 +164,99 @@ anim jump
 	delay	10
 	offset	78 142
     bbox    68 66 34 54
-	frame	data/chars/longmoan/chicken/land.gif
+	frame	data/chars/longmoan/chicken/land.png
 	delay	70
     bbox    68 58 34 54
-	frame	data/chars/longmoan/chicken/j.gif
+	frame	data/chars/longmoan/chicken/j.png
     bbox    68 66 34 54
-	frame	data/chars/longmoan/chicken/land.gif
+	frame	data/chars/longmoan/chicken/land.png
 
 
 anim attack1
     range   30 70
 	loop	0
-    flipframe 4
+    
 	delay	6
 	offset	82 140
-    bbox    68 79 31 55
-
-	attack	41 129 28 18 16 1 0 1
-	frame	data/chars/longmoan/chicken/a1.gif
+	bbox.position.x 68
+	bbox.position.y 79
+	bbox.size.x 31
+	bbox.size.y 55
+	
+	attack.block.penetrate 0
+	attack.damage.force 16
+	attack.damage.type 1
+	attack.effect.hit.flash.model hitflash  	hitm
+	attack.position.x 41
+	attack.position.y 129
+	attack.reaction.fall.force 1
+	attack.reaction.pause.time 0
+	attack.size.x 28
+	attack.size.y 18
+	attack.size.z.1 0
+	frame	data/chars/longmoan/chicken/a1.png
 	offset	76 140
-    bbox    60 79 31 55
-	attack	52 126 48 24 16 1 1 1
-	frame	data/chars/longmoan/chicken/a2.gif
+	bbox.position.x 60
+	bbox.position.y 79
+	bbox.size.x 31
+	bbox.size.y 55
+	attack.block.penetrate 1
+	attack.damage.force 16
+	attack.damage.type 1
+	attack.effect.hit.flash.model hitflash  	hitm
+	attack.position.x 52
+	attack.position.y 126
+	attack.reaction.fall.force 1
+	attack.reaction.pause.time 0
+	attack.size.x 48
+	attack.size.y 24
+	attack.size.z.1 0
+	frame	data/chars/longmoan/chicken/a2.png
 	offset	78 140
-	attack	85 123 38 22 16 1 1 1
-	frame	data/chars/longmoan/chicken/a3.gif
-	attack	87 116 66 22 16 1 1 1
-	frame	data/chars/longmoan/chicken/a4.gif
-	attack	0 0 0 0 0
+	attack.block.penetrate 1
+	attack.damage.force 16
+	attack.damage.type 1
+	attack.effect.hit.flash.model hitflash  	hitm
+	attack.position.x 85
+	attack.position.y 123
+	attack.reaction.fall.force 1
+	attack.reaction.pause.time 0
+	attack.size.x 38
+	attack.size.y 22
+	attack.size.z.1 0
+	frame	data/chars/longmoan/chicken/a3.png
+	
+	delay 12
+	
+	attack.block.penetrate 1
+	attack.damage.force 16
+	attack.damage.type 1
+	attack.effect.hit.flash.model hitflash  	hitm
+	attack.position.x 87
+	attack.position.y 116
+	attack.reaction.fall.force 1
+	attack.reaction.pause.time 0
+	attack.size.x 66
+	attack.size.y 22
+	attack.size.z.1 0
+	frame	data/chars/longmoan/chicken/a4.png
+	attack.block.penetrate 0
+	attack.damage.force 0
+	attack.damage.type 1
+	attack.effect.hit.flash.disable 0
+	attack.position.x 0
+	attack.position.y 0
+	attack.reaction.fall.force 0
+	attack.reaction.pause.time 0
+	attack.size.x 0
+	attack.size.y 0
+	attack.size.z.1 0
 	offset	78 140
-    bbox    66 80 34 64
-	frame	data/chars/longmoan/chicken/idle2.gif
+	bbox.position.x 66
+	bbox.position.y 80
+	bbox.size.x 34
+	bbox.size.y 64
+	frame	data/chars/longmoan/chicken/a5.png
+	frame	data/chars/longmoan/chicken/a6.png
+	frame	data/chars/longmoan/chicken/a7.png
 

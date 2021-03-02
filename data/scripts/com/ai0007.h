@@ -47,26 +47,24 @@ void ai0007(void vEnt, void vPar, int iXDis, int iAni, int iAni2, int c, int d, 
 	fPX		= getentityproperty(vPar, "x");
 	iDir	= getentityproperty(vEnt, "direction");
 	iPDir	= getentityproperty(vPar, "direction");
-
-	//log("\n X: " + fX + " fPX: " + fPX);
-
-	if(fVX > 0 && (fX - fPX) > iXDis && getentityproperty(vEnt, "animationid")==A_IDLE)
+		
+	if(fVX > 0 && (fX - fPX) > iXDis && getentityproperty(vEnt, "animationid")==openborconstant("ANI_IDLE"))
 	{		
 		changeentityproperty(vEnt, "direction", 0);
 		//ani0009(vEnt, A_FOLLOW1, 0);
 	}
-	if(fVX < 0 && (fPX - fX) > iXDis && getentityproperty(vEnt, "animationid")==A_IDLE)
+	if(fVX < 0 && (fPX - fX) > iXDis && getentityproperty(vEnt, "animationid")== openborconstant("ANI_IDLE"))
 	{		
 		changeentityproperty(vEnt, "direction", 1);
 		//ani0009(vEnt, A_FOLLOW1, 0);
 	}
 
-	if(fVX > 0 && (fPX - fX) < 0 && getentityproperty(vEnt, "animationid")==A_FOLLOW1)
+	if(fVX > 0 && (fPX - fX) < 0 && getentityproperty(vEnt, "animationid")== openborconstant("ANI_FOLLOW1"))
 	{		
 		changeentityproperty(vEnt, "direction", 0);
 		//ani0009(vEnt, A_FOLLOW1, 0);
 	}
-	if(fVX < 0 && (fPX - fX) > 0 && getentityproperty(vEnt, "animationid")==A_FOLLOW1)
+	if(fVX < 0 && (fPX - fX) > 0 && getentityproperty(vEnt, "animationid")== openborconstant("ANI_FOLLOW1"))
 	{		
 		changeentityproperty(vEnt, "direction", 1);
 		//ani0009(vEnt, A_FOLLOW1, 0);

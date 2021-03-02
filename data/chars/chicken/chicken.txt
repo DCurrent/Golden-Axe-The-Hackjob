@@ -13,17 +13,19 @@ toflip  	    1
 
 animationscript data/chars/thief/scripts/ani.c
 
+palette data/chars/chicken/palette_default.act
+
 anim spawn
 	loop	0
 	delay	12
 	offset	78 142
 	bbox	25 9 36 28
-		frame	data/chars/chicken/p1.gif
+		frame	data/chars/chicken/block_0.png
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-		frame	data/chars/chicken/p2.gif
-		frame	data/chars/chicken/p1.gif
+		frame	data/chars/chicken/block_1.png
+		frame	data/chars/chicken/block_0.png
         delay   30
-		frame	data/chars/chicken/idle2.gif
+		frame	data/chars/chicken/idle_0.png
 
 anim idle
 	loop	1
@@ -31,7 +33,7 @@ anim idle
 	offset	78 142
 	bbox	25 9 36 28
 	@cmd runcheck
-		frame	data/chars/chicken/idle1.gif
+		frame	data/chars/chicken/sleep_0.png
 
 anim walk
 	loop	1
@@ -40,9 +42,9 @@ anim walk
 	@script
 		dc_ai_escape();
 	@end_script
-		frame	data/chars/chicken/r1.gif
-		frame	data/chars/chicken/r2.gif
-		frame	data/chars/chicken/r3.gif
-		frame	data/chars/chicken/r4.gif
+		frame	data/chars/chicken/run_0.png
+		frame	data/chars/chicken/run_1.png
+		frame	data/chars/chicken/run_2.png
+		frame	data/chars/chicken/run_3.png
 
 

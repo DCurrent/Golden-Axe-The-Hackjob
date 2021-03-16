@@ -4,7 +4,7 @@
 #import "data/scripts/dc_hud/block-sprites.c"
 #import "data/scripts/dc_hud/health-fraction.c"
 
-int dc_hud_life_color()
+int dc_hud_life_color(float block_fraction)
 {
     #define RGB_AMBER_R 223
     #define RGB_AMBER_G 111
@@ -19,19 +19,45 @@ int dc_hud_life_color()
     #define RGB_RED_B 0
 
     #define RGB_YELLOW_R 200
-    #define RGB_YELLOW_G 0
+    #define RGB_YELLOW_G 200
     #define RGB_YELLOW_B 0
 
     #define RGB_ADJUST_RANGE 25
 
     float sine_value = dc_spinner_sine(2.0, 1);
 
-    int rgb_r = RGB_BLUE_R;
-    int rgb_g = RGB_BLUE_G;
-    int rgb_b = RGB_BLUE_B;
+    int rgb_r = 0;
+    int rgb_g = 0;
+    int rgb_b = 0;
+
+    settextobj(3, 10, 80, 1, 999999994, "health_fraction: " + block_fraction);
+
+    if (block_fraction >= 0.75)
+    {
+        rgb_r = RGB_BLUE_R;
+        rgb_g = RGB_BLUE_G;
+        rgb_b = RGB_BLUE_B;
+    }
+    else if (block_fraction >= 0.50)
+    {
+        rgb_r = RGB_YELLOW_R;
+        rgb_g = RGB_YELLOW_G;
+        rgb_b = RGB_YELLOW_B;
+    }
+    else if (block_fraction >= 0.25)
+    {
+        rgb_r = RGB_AMBER_R;
+        rgb_g = RGB_AMBER_G;
+        rgb_b = RGB_AMBER_B;
+    }
+    else
+    {
+        rgb_r = RGB_RED_R;
+        rgb_g = RGB_RED_G;
+        rgb_b = RGB_RED_B;
+    }
 
     int rbg_composite = 0;
-
     int rgb_adjustment = RGB_ADJUST_RANGE;
 
     rgb_adjustment = rgb_adjustment * sine_value;
@@ -263,9 +289,6 @@ void dc_golden_axe_player_hud()
 
         #define HP_BLOCK_MARGIN_LEFT 2
         #define HP_BLOCK_MARGIN_RIGHT 2
-
-
-       
                
 
         /*
@@ -314,7 +337,7 @@ void dc_golden_axe_player_hud()
 
             drawsprite(hp_horizontal_base, block_position_x, block_position_Y, openborconstant("FRONTPANEL_Z")+18001);
 
-            drawbox(block_position_x + 1, block_position_Y + 1, 20, 6, openborconstant("FRONTPANEL_Z") + 18002, dc_hud_life_color(), 2);
+            drawbox(block_position_x + 1, block_position_Y + 1, 20, 6, openborconstant("FRONTPANEL_Z") + 18002, dc_hud_life_color(block_fraction), 2);
         }
     }
 

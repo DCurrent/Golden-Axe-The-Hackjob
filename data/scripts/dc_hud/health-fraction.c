@@ -8,7 +8,7 @@ float get_health_fraction(void target)
 	float health_max;       // Maximum HP.
 	float result;           // Output.
 
-	health_current  = 0.0 + getentityproperty(target, "health");
+	health_current  = 0.0 + get_entity_property(target, "hp_old");
 	health_max      = 0.0 + getentityproperty(target, "maxhealth");
 
 	// Don't divide by 0!

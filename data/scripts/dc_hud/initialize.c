@@ -8,6 +8,7 @@ void dc_preload_hud_sprites()
     setlocalvar(VAR_KEY_SPRITE_MAGIC_JAR, loadsprite("data/sprites/mpicon.png"));
 
     // Life blocks
+    setlocalvar(VAR_KEY_SPRITE_HP_HORIZONTAL_BASE, loadsprite("data/sprites/hp_horizontal_base.png"));
 	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_BLUE, loadsprite("data/sprites/life.png"));
 	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_YELLOW, loadsprite("data/sprites/life2.png"));
 	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_ORANGE, loadsprite("data/sprites/life3.png"));
@@ -22,6 +23,7 @@ void dc_unload_hud_sprites()
     free(getlocalvar(VAR_KEY_SPRITE_MAGIC_JAR));
 
     // Life blocks
+    free(getlocalvar(VAR_KEY_SPRITE_HP_HORIZONTAL_BASE));
     free(getlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_BLUE));
     free(getlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_YELLOW));
     free(getlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_ORANGE));

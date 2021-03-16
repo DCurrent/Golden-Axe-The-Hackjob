@@ -273,7 +273,7 @@ void dc_golden_axe_player_hud()
         #define HP_BLOCK_MARGIN_RIGHT 2
 
 
-        /* Loop over each whole portion of health_fraction. */
+       
                
 
         /*
@@ -298,8 +298,14 @@ void dc_golden_axe_player_hud()
         block_position_left = player_index * PLAYER_HUD_WIDTH;
         block_position_left += HP_AREA_MARGIN_LEFT;
 
+        /* Loop over each whole portion of health_fraction. */
+        
         for(i=0; i < health_fraction; i++)
         {
+            /* 
+            * This gives us the fraction for current
+            * block (in loop) we want to draw. 
+            */
             block_fraction = health_fraction - i;
 
             /* 
@@ -315,6 +321,8 @@ void dc_golden_axe_player_hud()
             block_position_x += block_position_left;
 
             drawsprite(hp_horizontal_base, block_position_x, block_position_Y, openborconstant("FRONTPANEL_Z")+18001);
+
+            drawbox(block_position_x + 1, block_position_Y + 1, 20, 6, openborconstant("FRONTPANEL_Z") + 18002, rbg_composite, 2);
         }
     }
 

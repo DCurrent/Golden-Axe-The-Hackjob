@@ -16,7 +16,7 @@ int dc_hud_life_color(float block_fraction, float sine_value)
 
     #define RGB_BLUE_R 0
     #define RGB_BLUE_G 0
-    #define RGB_BLUE_B 200
+    #define RGB_BLUE_B 215
 
     #define RGB_RED_R 200
     #define RGB_RED_G 0
@@ -31,8 +31,6 @@ int dc_hud_life_color(float block_fraction, float sine_value)
     int rgb_r = 0;
     int rgb_g = 0;
     int rgb_b = 0;
-
-    settextobj(3, 10, 80, 1, 999999994, "health_fraction: " + block_fraction);
 
     if (block_fraction >= 0.75)
     {

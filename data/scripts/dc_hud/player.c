@@ -12,9 +12,10 @@ void dc_golden_axe_player_hud()
 {
     #define HEALTH_BLOCK_MAX        4   // Maximum number of health blocks that can be displayed for a single HUD entry.
     #define MAGIC_BLOCK_MAX         10  // Maximum number of magic blocks.
+    #define HP_AREA_MARGIN_LEFT     53  // Left of player HUD to life meter.
 
     #define PLAYER_HUD_WIDTH        160 // Total width of each player HUD (with padding).
-    #define MP_AREA_MARGIN_LEFT     53  // Left of player HUD to first magic block.
+    #define MP_AREA_MARGIN_LEFT     56  // Left of player HUD to first magic block.
     #define MP_BLOCK_MARGIN_LEFT    2
     #define MP_BLOCK_MARGIN_RIGHT   3
 
@@ -279,29 +280,39 @@ void dc_golden_axe_player_hud()
             block_fraction = health_fraction - i;
             sprite_index   = dc_get_block_large(block_fraction);
 
-            // Positioning works same way as MP meter, but
-            // all initial math work has to be in loop since
-            // we don't know until in side the loop which
-            // sprite is in use.
+            /* 
+            * Positioning works same way as MP meter, but
+            * all initial math work has to be in loop since
+            * we don't know until in side the loop which
+            * sprite is in use.
+            */
             block_size_h = getgfxproperty(sprite_index, "srcwidth");
 
-            // Now we add the margins, and that will get total
-            // spacing for one block.
+            /* 
+            * Now we add the margins, and that will get total
+            * spacing for one block.
+            */
             block_space_h = block_size_h + HP_BLOCK_MARGIN_LEFT + HP_BLOCK_MARGIN_RIGHT;
 
-            // Our starting position will be the leftmost of
-            // current player's (in loop) HUD area.
+            /* 
+            * Our starting position will be the leftmost of
+            * current player's (in loop) HUD area, plus the
+            * health specific margin.
+            */
             block_position_left = player_index * PLAYER_HUD_WIDTH;
+            block_position_left += HP_AREA_MARGIN_LEFT;
 
-            // Multiply the total X space of an MP block
-            // by the current cursor position. This places
-            // each block in a row, left to right.
+            /* 
+            * Multiply the total X space of an MP block
+            * by the current cursor position. This places
+            * each block in a row, left to right.
+            */
             block_position_x = i * block_space_h;
 
-            // Now add the margin from player HUD to start
-            // of magic area to align blocks properly with
-            // player HUD design.
-            block_position_x += MP_AREA_MARGIN_LEFT;
+            /* 
+            * Now add the starting position.
+            */
+            block_position_x += block_position_left;
 
             drawsprite(sprite_index, block_position_x, block_position_Y, openborconstant("FRONTPANEL_Z")+18001);
         }

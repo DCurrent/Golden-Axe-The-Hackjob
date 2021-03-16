@@ -6,61 +6,59 @@
 
 int dc_hud_life_color(float block_fraction, float sine_value)
 {
-    #define RGB_AMBER_R 150
-    #define RGB_AMBER_G 100
-    #define RGB_AMBER_B 0
+    #define RGB_HP_BLOCK_AMBER_R 150
+    #define RGB_HP_BLOCK_AMBER_G 100
+    #define RGB_HP_BLOCK_AMBER_B 0
+    
+    #define RGB_HP_BLOCK_BLUE_R 0
+    #define RGB_HP_BLOCK_BLUE_G 0
+    #define RGB_HP_BLOCK_BLUE_B 215
 
-   // #define RGB_BLUE_R 25
-   // #define RGB_BLUE_G 25
-   // #define RGB_BLUE_B 225
+    #define RGB_HP_BLOCK_RED_R 200
+    #define RGB_HP_BLOCK_RED_G 0
+    #define RGB_HP_BLOCK_RED_B 0
 
-    #define RGB_BLUE_R 0
-    #define RGB_BLUE_G 0
-    #define RGB_BLUE_B 215
+    #define RGB_HP_BLOCK_YELLOW_R 170
+    #define RGB_HP_BLOCK_YELLOW_G 170
+    #define RGB_HP_BLOCK_YELLOW_B 0
 
-    #define RGB_RED_R 200
-    #define RGB_RED_G 0
-    #define RGB_RED_B 0
-
-    #define RGB_YELLOW_R 170
-    #define RGB_YELLOW_G 170
-    #define RGB_YELLOW_B 0
-
-    #define RGB_ADJUST_RANGE 25
+    #define RGB_HP_BLOCK_ADJUST_RANGE 25
 
     int rgb_r = 0;
     int rgb_g = 0;
     int rgb_b = 0;
 
+    /*
+    * Use the block fraction provided by parent function
+    * to decide which base color to use.
+    */
     if (block_fraction >= 0.75)
     {
-        rgb_r = RGB_BLUE_R;
-        rgb_g = RGB_BLUE_G;
-        rgb_b = RGB_BLUE_B;
+        rgb_r = RGB_HP_BLOCK_BLUE_R;
+        rgb_g = RGB_HP_BLOCK_BLUE_G;
+        rgb_b = RGB_HP_BLOCK_BLUE_B;
     }
     else if (block_fraction >= 0.50)
     {
-        rgb_r = RGB_YELLOW_R;
-        rgb_g = RGB_YELLOW_G;
-        rgb_b = RGB_YELLOW_B;
+        rgb_r = RGB_HP_BLOCK_YELLOW_R;
+        rgb_g = RGB_HP_BLOCK_YELLOW_G;
+        rgb_b = RGB_HP_BLOCK_YELLOW_B;
     }
     else if (block_fraction >= 0.25)
     {
-        rgb_r = RGB_AMBER_R;
-        rgb_g = RGB_AMBER_G;
-        rgb_b = RGB_AMBER_B;
+        rgb_r = RGB_HP_BLOCK_AMBER_R;
+        rgb_g = RGB_HP_BLOCK_AMBER_G;
+        rgb_b = RGB_HP_BLOCK_AMBER_B;
     }
     else
     {
-        rgb_r = RGB_RED_R;
-        rgb_g = RGB_RED_G;
-        rgb_b = RGB_RED_B;
+        rgb_r = RGB_HP_BLOCK_RED_R;
+        rgb_g = RGB_HP_BLOCK_RED_G;
+        rgb_b = RGB_HP_BLOCK_RED_B;
     }
 
     int rbg_composite = 0;
-    int rgb_adjustment = RGB_ADJUST_RANGE;
-
-    rgb_adjustment = rgb_adjustment * sine_value;
+    int rgb_adjustment = RGB_HP_BLOCK_ADJUST_RANGE * sine_value;
 
     rgb_r += rgb_adjustment;
     rgb_g += rgb_adjustment;
@@ -77,6 +75,24 @@ int dc_hud_life_color(float block_fraction, float sine_value)
     rbg_composite = rgbcolor(rgb_r, rgb_g, rgb_b);
 
     return rbg_composite;
+
+    #undef RGB_HP_BLOCK_AMBER_R
+    #undef RGB_HP_BLOCK_AMBER_G
+    #undef RGB_HP_BLOCK_AMBER_B
+
+    #undef RGB_HP_BLOCK_BLUE_R
+    #undef RGB_HP_BLOCK_BLUE_G
+    #undef RGB_HP_BLOCK_BLUE_B
+
+    #undef RGB_HP_BLOCK_RED_R
+    #undef RGB_HP_BLOCK_RED_G
+    #undef RGB_HP_BLOCK_RED_B
+
+    #undef RGB_HP_BLOCK_YELLOW_R
+    #undef RGB_HP_BLOCK_YELLOW_G
+    #undef RGB_HP_BLOCK_YELLOW_B
+
+    #undef RGB_HP_BLOCK_ADJUST_RANGE
 }
 
 // Draw player HUD, with icons, magic jars, and

@@ -4,7 +4,54 @@
 #import "data/scripts/dc_hud/block-sprites.c"
 #import "data/scripts/dc_hud/health-fraction.c"
 
+int dc_hud_life_color()
+{
+    #define RGB_AMBER_R 223
+    #define RGB_AMBER_G 111
+    #define RGB_AMBER_B 0
 
+    #define RGB_BLUE_R 25
+    #define RGB_BLUE_G 25
+    #define RGB_BLUE_B 225
+
+    #define RGB_RED_R 200
+    #define RGB_RED_G 0
+    #define RGB_RED_B 0
+
+    #define RGB_YELLOW_R 200
+    #define RGB_YELLOW_G 0
+    #define RGB_YELLOW_B 0
+
+    #define RGB_ADJUST_RANGE 25
+
+    float sine_value = dc_spinner_sine(2.0, 1);
+
+    int rgb_r = RGB_BLUE_R;
+    int rgb_g = RGB_BLUE_G;
+    int rgb_b = RGB_BLUE_B;
+
+    int rbg_composite = 0;
+
+    int rgb_adjustment = RGB_ADJUST_RANGE;
+
+    rgb_adjustment = rgb_adjustment * sine_value;
+
+    rgb_r += rgb_adjustment;
+    rgb_g += rgb_adjustment;
+    rgb_b += rgb_adjustment;
+
+    /* Cap color range at 0 - 255.*/
+    if (rgb_r > 255) { rgb_r = 255; }
+    if (rgb_r < 0) { rgb_r = 0; }
+    if (rgb_g > 255) { rgb_g = 255; }
+    if (rgb_g < 0) { rgb_g = 0; }
+    if (rgb_b > 255) { rgb_b = 255; }
+    if (rgb_b < 0) { rgb_b = 0; }
+
+    rbg_composite = rgbcolor(rgb_r, rgb_g, rgb_b);
+
+    return rbg_composite;
+}
 
 // Draw player HUD, with icons, magic jars, and
 // life blocks for the target entity.
@@ -39,62 +86,7 @@ void dc_golden_axe_player_hud()
     /////
     int hp_horizontal_base = getlocalvar(VAR_KEY_SPRITE_HP_HORIZONTAL_BASE);
 
-   
-
-    /// <summary>
-
-    #define RGB_AMBER_R 223
-    #define RGB_AMBER_G 111
-    #define RGB_AMBER_B 0
-
-    #define RGB_BLUE_R 25
-    #define RGB_BLUE_G 25
-    #define RGB_BLUE_B 225
-
-    #define RGB_RED_R 200
-    #define RGB_RED_G 0
-    #define RGB_RED_B 0
-
-    #define RGB_YELLOW_R 200
-    #define RGB_YELLOW_G 0
-    #define RGB_YELLOW_B 0
-
-    #define RGB_ADJUST_RANGE 25
-
-    float sine_value =  dc_spinner_sine(2.0, 1);
-
-    int rgb_r = RGB_BLUE_R;
-    int rgb_g = RGB_BLUE_G;
-    int rgb_b = RGB_BLUE_B;
     
-    int rbg_composite = 0;
-
-    int rgb_adjustment = RGB_ADJUST_RANGE;
-
-    rgb_adjustment = rgb_adjustment * sine_value;
-
-    rgb_r += rgb_adjustment;
-    rgb_g += rgb_adjustment;
-    rgb_b += rgb_adjustment;
-
-    /* Cap color range at 0 - 255.*/
-    if (rgb_r > 255) { rgb_r = 255; }
-    if (rgb_r < 0) { rgb_r = 0; }
-    if (rgb_g > 255) { rgb_g = 255; }
-    if (rgb_g < 0) { rgb_g = 0; }
-    if (rgb_b > 255) { rgb_b = 255; }
-    if (rgb_b < 0) { rgb_b = 0; }
-
-    rbg_composite = rgbcolor(rgb_r, rgb_g, rgb_b);
-
-    settextobj(9, 10, 120, 1, 999999994, "rgb_adjustment: " + rgb_adjustment);
-    settextobj(10, 10, 130, 1, 999999994, " rbg_composite: " + rbg_composite);
-
-   
-    drawsprite(hp_horizontal_base, 20, 20, openborconstant("FRONTPANEL_Z") + 18001, 0);
-    drawbox(21, 21, 20, 6, openborconstant("FRONTPANEL_Z") + 18002, rbg_composite, 2);
-    /////
-
 
     // Get and loop through player collection.
     max_players = openborvariant("maxplayers");
@@ -322,7 +314,7 @@ void dc_golden_axe_player_hud()
 
             drawsprite(hp_horizontal_base, block_position_x, block_position_Y, openborconstant("FRONTPANEL_Z")+18001);
 
-            drawbox(block_position_x + 1, block_position_Y + 1, 20, 6, openborconstant("FRONTPANEL_Z") + 18002, rbg_composite, 2);
+            drawbox(block_position_x + 1, block_position_Y + 1, 20, 6, openborconstant("FRONTPANEL_Z") + 18002, dc_hud_life_color(), 2);
         }
     }
 

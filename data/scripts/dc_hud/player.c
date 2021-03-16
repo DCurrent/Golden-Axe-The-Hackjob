@@ -4,27 +4,29 @@
 #import "data/scripts/dc_hud/block-sprites.c"
 #import "data/scripts/dc_hud/health-fraction.c"
 
-int dc_hud_life_color(float block_fraction)
+int dc_hud_life_color(float block_fraction, float sine_value)
 {
-    #define RGB_AMBER_R 223
-    #define RGB_AMBER_G 111
+    #define RGB_AMBER_R 150
+    #define RGB_AMBER_G 100
     #define RGB_AMBER_B 0
 
-    #define RGB_BLUE_R 25
-    #define RGB_BLUE_G 25
-    #define RGB_BLUE_B 225
+   // #define RGB_BLUE_R 25
+   // #define RGB_BLUE_G 25
+   // #define RGB_BLUE_B 225
+
+    #define RGB_BLUE_R 0
+    #define RGB_BLUE_G 0
+    #define RGB_BLUE_B 200
 
     #define RGB_RED_R 200
     #define RGB_RED_G 0
     #define RGB_RED_B 0
 
-    #define RGB_YELLOW_R 200
-    #define RGB_YELLOW_G 200
+    #define RGB_YELLOW_R 170
+    #define RGB_YELLOW_G 170
     #define RGB_YELLOW_B 0
 
     #define RGB_ADJUST_RANGE 25
-
-    float sine_value = dc_spinner_sine(2.0, 1);
 
     int rgb_r = 0;
     int rgb_g = 0;
@@ -109,10 +111,14 @@ void dc_golden_axe_player_hud()
     int     block_position_x;       // X position of an individual mp block.
     int     block_position_Y;       // Y position of an individual mp block.
 
-    /////
     int hp_horizontal_base = getlocalvar(VAR_KEY_SPRITE_HP_HORIZONTAL_BASE);
-
     
+    /* 
+    * Run the spinner function to get a sine 
+    * wave adjustment. 
+    */
+
+    float sine_value = dc_spinner_sine(4.0, 1);
 
     // Get and loop through player collection.
     max_players = openborvariant("maxplayers");
@@ -337,7 +343,7 @@ void dc_golden_axe_player_hud()
 
             drawsprite(hp_horizontal_base, block_position_x, block_position_Y, openborconstant("FRONTPANEL_Z")+18001);
 
-            drawbox(block_position_x + 1, block_position_Y + 1, 20, 6, openborconstant("FRONTPANEL_Z") + 18002, dc_hud_life_color(block_fraction), 2);
+            drawbox(block_position_x + 1, block_position_Y + 1, 20, 6, openborconstant("FRONTPANEL_Z") + 18002, dc_hud_life_color(block_fraction, sine_value), 2);
         }
     }
 

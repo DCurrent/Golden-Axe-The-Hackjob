@@ -14,7 +14,7 @@ void dc_golden_axe_player_hud()
     #define MAGIC_BLOCK_MAX         10  // Maximum number of magic blocks.
 
     #define PLAYER_HUD_WIDTH        160 // Total width of each player HUD (with padding).
-    #define MP_AREA_MARGIN_LEFT     56  // Left of player HUD to first magic block.
+    #define MP_AREA_MARGIN_LEFT     53  // Left of player HUD to first magic block.
     #define MP_BLOCK_MARGIN_LEFT    2
     #define MP_BLOCK_MARGIN_RIGHT   3
 
@@ -29,8 +29,8 @@ void dc_golden_axe_player_hud()
     int     sprite_index;           // Placeholder for sprite reference.
     float   health_fraction;        // A sub-division of current health percentage.
     float   block_fraction;         //
-    int     block_size_h;           // Size of mp block 9after OpenBOR auto trims).
-    int     block_space;            // Size of mp block with margins included.
+    int     block_size_h;           // Size of mp block (after OpenBOR auto trims).
+    int     block_space_h;          // Size of mp block with margins included.
     int     block_position_left;    // Starting position of mp blocks in each player's HUD.
     int     block_position_x;       // X position of an individual mp block.
     int     block_position_Y;       // Y position of an individual mp block.
@@ -134,123 +134,146 @@ void dc_golden_axe_player_hud()
         magic_count     = getentityproperty(target, "mp") / MAGIC_BLOCK_MAX;
         sprite_index    = getlocalvar(VAR_KEY_SPRITE_MAGIC_JAR);
 
-        // Magic meter.
+        /* Magic meter. */
 
-        // We're drawing MP blocks in a row, so Y position
-        // is always the same.
+        /* We're drawing MP blocks in a row, so Y position
+        * is always the same.
+        */
         block_position_Y = resolution_y-20;
 
-        // X position will depend on several factors. Some
-        // we can do here, and the rest will need to be
-        // in a loop.
-        //
-        // Let's get the width of our meter block.
-        // Remember that OpenBOR auto trims all sprites
-        // as it loads them, so the size will reflect that.
+        /* 
+        * X position will depend on several factors. Some
+        * we can do here, and the rest will need to be
+        * in a loop.
+        *
+        * Let's get the width of our meter block.
+        * Remember that OpenBOR auto trims all sprites
+        * as it loads them, so the size will reflect that.
+        */
         block_size_h = getgfxproperty(sprite_index, "srcwidth");
 
-        // Now we add the block's margins, and that will get
-        // total spacing for one block.
-        block_space = block_size_h + MP_BLOCK_MARGIN_LEFT + MP_BLOCK_MARGIN_RIGHT;
+        /* 
+        * Now we add the block's margins, and that will get
+        * total spacing for one block.
+        */
+        block_space_h = block_size_h + MP_BLOCK_MARGIN_LEFT + MP_BLOCK_MARGIN_RIGHT;
 
-        // Our starting position will be the leftmost of
-        // current player's (in loop) HUD area. To get this,
-        // we multiply current player index by total X size of
-        // the player HUD.
+        /* 
+        * Our starting position will be the leftmost of
+        * current player's (in loop) HUD area. To get this,
+        * we multiply current player index by total X size of
+        * the player HUD.
+        */
         block_position_left = player_index * PLAYER_HUD_WIDTH;
 
-        // Add the meter area's left margin to space it
-        // out from the start of player HUD area.
+        /* 
+        * Add the meter area's left margin to space it
+        * out from the start of player HUD area.
+        */
         block_position_left += MP_AREA_MARGIN_LEFT;
 
         for(i=0; i<magic_count; i++)
         {
-            // Multiply the total X space of a block
-            // by the current cursor position. This places
-            // each block in a row, left to right.
-            block_position_x = i * block_space;
-
-            // Now add the margin from player HUD to start
-            // of block area to align blocks properly with
-            // player HUD design.
+            /* 
+            * Multiply the total X space of a block
+            * by the current cursor position. This places
+            * each block in a row, left to right.
+            * block_position_x = i * block_space;
+            *
+            * Now add the margin from player HUD to start
+            * of block area to align blocks properly with
+            * player HUD design.
+            */
             block_position_x += block_position_left;
 
-            // Draw the MP sprite.
-            drawsprite(sprite_index, block_position_x, block_position_Y, openborconstant("FRONTPANEL_Z")+18001);
+            /* Draw the MP sprite. */
+            //drawsprite(sprite_index, block_position_x, block_position_Y, openborconstant("FRONTPANEL_Z")+18001);
         }
 
-        // Health Meter
-        //
-        // Positioning works identically to MP meter. but health
-        // meter also includes a color keying capability.
+        /*
+        * Health Meter
+        * 
+        * Positioning works identically to MP meter. but health meter 
+        * also includes a color keying capability.
+        * 
+        * Our goal here is to replicate the arcade Golden Axe life meter, 
+        * while combining the features from arcade Altered Beast life meter.
+        * 
+        * In arcade GA, life is represented by a small number of blocks that 
+        * cycle continuously between daker and lighter blue while on screen. 
+        * 
+        * Altered Beast (a previous game by same developer) uses a very similar 
+        * system of blocks for its HP meter. Altered Beast's meter lacks the 
+        * shading cycle effect, but as HP depletes, the right most block changes 
+        * color (blue->yellow->red) until that block's portion of health fully 
+        * depletes and the block disappears.
+        * 
+        * -- Color Keying (Altered beast block colors) --
+        *         
+        * To add the color keying to right most block, we need to go through 
+        * a few steps.
+        * 
+        * First we get a decimal value of current remaining health and mutiply 
+        * it by the number of blocks we'd draw if health was at max. For example, 
+        * if health is currently 80 of a max 100 then we get a value of 0.8.
+        * 
+        * Next, we multiply the decimal value of 0.8 by the number of blocks we
+        * display at max health (in this example, four). This gives us a value 
+        * of 3.2. Just for labeling, we call it Health Fraction.
+        * 
+        * Now we run a loop, with the cursor incrementing by 1 and stopping when 
+        * the cursor > our Health Fraction. Inside the loop, we subtract the current 
+        * cursor value from Health Fraction value to get a value we'll call Block 
+        * Percentage.
+        * 
+        * The loop is essentially getting a sub percentage value of for each block. 
+        * We then feed that to a function that will determine which color of block 
+        * to display. In our example, the first three blocks will get a value that
+        * is > 1. So they get the 100% block. The forth block ends up with a value 
+        * of 0.2. That means the block's portion of HP is at 20% and the block color
+        * select function will choose accordingly.  
+        * 
+        * In our example, this is what the loop looks like:
+        * 
+        * # of blocks at max health: 4
+        * Max health: 100
+        * Current health: 80
+        * 4 * (80 / 100) = 3.2
+        * 
+        * *loop starts*
+        * 
+        * 3.2 - 0 = 3.2: Block 1 - 100%
+        * 3.2 - 1 = 2.2: Block 2 - 100%
+        * 3.2 - 2 = 1.2: Block 3 - 100%
+        * 3.2 - 3 = 0.2: Block 4 - 20%
+        * 
+        * *Loop stops, four blocks are displayed*
+        * 
+        * If health drops to 35, it would then look like this:
+        * 
+        * Health: 35 of 100
+        * 4 * (80 / 100) = 1.4
+        * 
+        * *loop starts*
+        * 
+        * 1.4 - 0 = 1.4: Block 1 - 100%
+        * 1.4 - 1 = 0.4: Block 2 - 40%
+        * 
+        * Loop stops, two blocks are displayed.
+        */
 
-        // Color keying
-        //
-        // Our goal here is to replicate the Golden Axe style life
-        // blocks, but also add in the feature from Altered Beast
-        // the right most block would change color as health depleted
-        // until it was gone, then onto the next block and so on.
-        //
-        // To do this, we need to go through a few steps.
-        //
-        // First we get a decimal value of current remaining health. For
-        // example, if health is currently 80 of a max 100, then we get
-        // a value of 0.8.
-        //
-        // Next, we multiply the decimal value of 0.8 by the maximum
-        // number of blocks that can be displayed. This gives us a
-        // value of 3.2. Just for labeling, we call it health fraction.
-        //
-        // Now we run a loop, with the cursor incrementing by 1, and
-        // stopping when the cursor > our health fraction. Inside the
-        // loop, we subject the current cursor value from health fraction
-        // value to get a value we'll call block percentage.
-        //
-        // The loop is essentially getting a sub percentage value of
-        // for each block. We then feed that to a function that will
-        // determine which color of block to display. In our example,
-        // the first three blocks will get a value of > 1. So they get
-        // the 100% block. The forth block ends up with a value of 0.2.
-        // That means the block is at 20% and the block sprite function
-        // will choose accordingly.
-        //
-        // In our example, this is what the loop looks like:
-        //
-        // Health: 80 of 100
-        // 4 * (80 / 100) = 3.2
-        //
-        // *loop starts*
-        //
-        // 3.2 - 0 = 3.2: Block 1 - 100%
-        // 3.2 - 1 = 2.2: Block 2 - 100%
-        // 3.2 - 2 = 1.2: Block 3 - 100%
-        // 3.2 - 3 = 0.2: Block 4 - 20%
-        //
-        // *Loop stops, four blocks are displayed*
-        //
-        // If health drops to 35, it would then look like this:
-        //
-        // Health: 35 of 100
-        // 4 * (80 / 100) = 1.4
-        //
-        // *loop starts*
-        //
-        // 1.4 - 0 = 1.4: Block 1 - 100%
-        // 1.4 - 1 = 0.4: Block 2 - 40%
-        //
-        // Loop stops, two blocks are displayed.
-
-        // Get health %, multiplied by number of displayable blocks.
+        /* Get health %, multiplied by number of displayable blocks. */
         health_fraction = HEALTH_BLOCK_MAX * get_health_fraction(target);
 
-        // Get Y position.
+        /* Get Y position. */
         block_position_Y = resolution_y-31;
 
         #define HP_BLOCK_MARGIN_LEFT 2
         #define HP_BLOCK_MARGIN_RIGHT 2
 
 
-        // Loop each quarter of health.
+        /* Loop over each whole portion of health_fraction. */
+
         for(i=0; i < health_fraction; i++)
         {
             block_fraction = health_fraction - i;
@@ -264,7 +287,7 @@ void dc_golden_axe_player_hud()
 
             // Now we add the margins, and that will get total
             // spacing for one block.
-            block_space = block_size_h + HP_BLOCK_MARGIN_LEFT + HP_BLOCK_MARGIN_RIGHT;
+            block_space_h = block_size_h + HP_BLOCK_MARGIN_LEFT + HP_BLOCK_MARGIN_RIGHT;
 
             // Our starting position will be the leftmost of
             // current player's (in loop) HUD area.
@@ -273,14 +296,14 @@ void dc_golden_axe_player_hud()
             // Multiply the total X space of an MP block
             // by the current cursor position. This places
             // each block in a row, left to right.
-            block_position_x = i * block_space;
+            block_position_x = i * block_space_h;
 
             // Now add the margin from player HUD to start
             // of magic area to align blocks properly with
             // player HUD design.
             block_position_x += MP_AREA_MARGIN_LEFT;
 
-            drawsprite(sprite_index, player_index*160+53+i*26, block_position_Y, openborconstant("FRONTPANEL_Z")+18001);
+            drawsprite(sprite_index, block_position_x, block_position_Y, openborconstant("FRONTPANEL_Z")+18001);
         }
     }
 

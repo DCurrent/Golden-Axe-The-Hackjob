@@ -28,9 +28,9 @@ void main()
         }
     }
 
-    settextobj(2, 10, 70, 1, 999999994, "Palette: " + openborvariant("current_palette") + " of " + openborvariant("numpalettes"));
-	settextobj(3, 10, 80, 1, 999999994, "Last: " + getlocalvar(DC_EGGBALL_LAST + EGGBALL_INSTANCE));
-	settextobj(4, 10, 90, 1, 999999994, "Time: " + openborvariant("elapsed_time"));
+    //settextobj(2, 10, 70, 1, 999999994, "Palette: " + openborvariant("current_palette") + " of " + openborvariant("numpalettes"));
+	//settextobj(3, 10, 80, 1, 999999994, "Last: " + getlocalvar(DC_EGGBALL_LAST + EGGBALL_INSTANCE));
+	//settextobj(4, 10, 90, 1, 999999994, "Time: " + openborvariant("elapsed_time"));
 	//settextobj(5, 10, 100, 1, 999999994, "Sets: " + openborvariant("sets_count"));
 
     //debug();
@@ -74,11 +74,11 @@ void debug()
     text_z      = 999999994;
     text_font   = 1;
 
-	settextobj(text_index++, text_x, text_y += 10, text_font, text_z, "Current Set: " + set_current);
-	settextobj(text_index++, text_x, text_y += 10, text_font, text_z, "Set Handle: " + set_handle);
-	settextobj(text_index++, text_x, text_y += 10, text_font, text_z, "Set Name: " + set_prop_name);
-	settextobj(text_index++, text_x, text_y += 10, text_font, text_z, "Set Levels Count: " + set_levels_count);
-	settextobj(text_index++, text_x, text_y += 10, text_font, text_z, "Level Name: " + level_prop_name);
+	//settextobj(text_index++, text_x, text_y += 10, text_font, text_z, "Current Set: " + set_current);
+	//settextobj(text_index++, text_x, text_y += 10, text_font, text_z, "Set Handle: " + set_handle);
+	//settextobj(text_index++, text_x, text_y += 10, text_font, text_z, "Set Name: " + set_prop_name);
+	//settextobj(text_index++, text_x, text_y += 10, text_font, text_z, "Set Levels Count: " + set_levels_count);
+	//settextobj(text_index++, text_x, text_y += 10, text_font, text_z, "Level Name: " + level_prop_name);
 	//settextobj(9, 10, 140, 1, 999999994, "SET_PROP_LEVELS_HANDLE: " + set_prop_levels_handle);
 	//settextobj(10, 10, 150, 1, 999999994, "Levels Count: " + levels_count);
 }

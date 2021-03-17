@@ -59,8 +59,8 @@ float dc_spinner_sine(float increment, int delay)
         
     float result = sin(accumulator);
 
-    settextobj(7, 10, 100, 1, 999999994, "Value: " + accumulator);
-    settextobj(8, 10, 110, 1, 999999994, " Sine: " + result);
+    //settextobj(7, 10, 100, 1, 999999994, "Value: " + accumulator);
+    //settextobj(8, 10, 110, 1, 999999994, " Sine: " + result);
     
     /*
     * Populate local vars for next cycle.

@@ -2,7 +2,7 @@
 loadingbg 1 -80 240 479 0 -100
 #loadingbg2 1 -80 -240 480 0 -100
 
-bgicon data/bgs/bgicon.png -80 0
+bgicon data/sprites/hud/background_player_hud_0.png -80 237
 
 # No rush counter.
 rush   0 100 Hits 1 2 Max 1 2

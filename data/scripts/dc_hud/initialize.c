@@ -5,17 +5,17 @@
 void dc_preload_hud_sprites()
 {
     // Magic jar
-    setlocalvar(VAR_KEY_SPRITE_MAGIC_JAR, loadsprite("data/sprites/mpicon.png"));
+    setlocalvar(VAR_KEY_SPRITE_MAGIC_JAR, loadsprite("data/sprites/hud/mpicon.png"));
 
     /* Player icon frame */
-    setlocalvar(VAR_KEY_SPRITE_PLAYER_ICON_FRAME, loadsprite("data/sprites/player_icon_frame.png"));
+    setlocalvar(VAR_KEY_SPRITE_PLAYER_ICON_FRAME, loadsprite("data/sprites/hud/player_icon_frame_0.png"));
 
     // Life blocks
-    setlocalvar(VAR_KEY_SPRITE_HP_HORIZONTAL_BASE, loadsprite("data/sprites/hp_horizontal_base.png"));
-	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_BLUE, loadsprite("data/sprites/life.png"));
-	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_YELLOW, loadsprite("data/sprites/life2.png"));
-	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_ORANGE, loadsprite("data/sprites/life3.png"));
-	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_RED, loadsprite("data/sprites/life4.png"));
+    setlocalvar(VAR_KEY_SPRITE_HP_HORIZONTAL_BASE, loadsprite("data/sprites/hud/hp_horizontal_0.png"));
+	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_BLUE, loadsprite("data/sprites/hud/life.png"));
+	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_YELLOW, loadsprite("data/sprites/hud/life2.png"));
+	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_ORANGE, loadsprite("data/sprites/hud/life3.png"));
+	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_RED, loadsprite("data/sprites/hud/life4.png"));
 }
 
 // Run in on destroy event. Removes HUD

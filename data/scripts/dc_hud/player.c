@@ -85,6 +85,20 @@ void dc_golden_axe_player_hud_icon(int player_index)
     drawsprite(sprite_index, pos_x, pos_y, openborconstant("FRONTPANEL_Z") + 18001);
 }
 
+/*
+* Caskey, Damon V.
+* 2021-03-17
+* 
+* Draw player HUD elements when player is 
+* joining or continuing a game in progress.
+* 
+* 
+*/
+void dc_hud_player_join(int player_index)
+{
+
+}
+
 // Draw player HUD, with icons, magic jars, and
 // life blocks for the target entity.
 void dc_golden_axe_player_hud()
@@ -120,13 +134,32 @@ void dc_golden_axe_player_hud()
     max_players = openborvariant("maxplayers");
 
     for(player_index=0; player_index<max_players; player_index++)
-    {
+    {       
+
+        if (player_index == 0)
+        {
+            settextobj(7, 10, 100, 1, 999999994, "Name: " + getplayerproperty(player_index, "name"));
+        }
+
         // Get target entity for this loop increment.
         target = getplayerproperty(player_index, "entity");
 
-        // Make sure we got a valid target pointer.
+        /*
+        * If there's no entity, then check to see if player
+        * is joining the game. If they are we want to draw
+        * selection HUD. Otherwise just exit - there's
+        * nothing else to do.
+        */
         if(!target)
         {
+            if(getplayerproperty(player_index, "joining"))
+            {
+                dc_golden_axe_player_hud_icon(player_index);
+            }
+
+           
+            //settextobj(8, 10, 110, 1, 999999994, " Sine: " + result);
+
             continue;
         }
 
@@ -140,9 +173,6 @@ void dc_golden_axe_player_hud()
             continue;
         }
 
-        /* Draw the icon frame. */
-        dc_golden_axe_player_hud_icon(player_index);
-
         // We're leaving dead enemies on the screen but
         // don't want to draw their HUD any more. For
         // this purpose the dead flag will work well
@@ -153,6 +183,8 @@ void dc_golden_axe_player_hud()
         {
             continue;
         }
+
+        dc_golden_axe_player_hud_icon(player_index);
 
         resolution_y    = openborvariant("vresolution");
         magic_count     = getentityproperty(target, "mp") / MAGIC_BLOCK_MAX;

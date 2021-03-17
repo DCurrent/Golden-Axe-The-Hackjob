@@ -7,6 +7,9 @@ void dc_preload_hud_sprites()
     // Magic jar
     setlocalvar(VAR_KEY_SPRITE_MAGIC_JAR, loadsprite("data/sprites/mpicon.png"));
 
+    /* Player icon frame */
+    setlocalvar(VAR_KEY_SPRITE_PLAYER_ICON_FRAME, loadsprite("data/sprites/player_icon_frame.png"));
+
     // Life blocks
     setlocalvar(VAR_KEY_SPRITE_HP_HORIZONTAL_BASE, loadsprite("data/sprites/hp_horizontal_base.png"));
 	setlocalvar(VAR_KEY_SPRITE_HEALTH_BLOCK_BLUE, loadsprite("data/sprites/life.png"));
@@ -21,6 +24,9 @@ void dc_unload_hud_sprites()
 {
     // Magic jar
     free(getlocalvar(VAR_KEY_SPRITE_MAGIC_JAR));
+
+    /* Player icon frame */
+    free(getlocalvar(VAR_KEY_SPRITE_PLAYER_ICON_FRAME));
 
     // Life blocks
     free(getlocalvar(VAR_KEY_SPRITE_HP_HORIZONTAL_BASE));

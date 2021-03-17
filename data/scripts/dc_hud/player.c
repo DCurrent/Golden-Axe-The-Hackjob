@@ -4,26 +4,17 @@
 #import "data/scripts/dc_hud/block-sprites.c"
 #import "data/scripts/dc_hud/health-fraction.c"
 
+/*
+* Caskey, Damon V.
+* 2021-03-16
+* 
+* Outputs a compisite color intended for overlay onto
+* life meter blocks. Determines a base color from 
+* received block fraction value, then varies brightness
+* using a sine wave formula.
+*/
 int dc_hud_life_color(float block_fraction, float sine_value)
 {
-    #define RGB_HP_BLOCK_AMBER_R 150
-    #define RGB_HP_BLOCK_AMBER_G 100
-    #define RGB_HP_BLOCK_AMBER_B 0
-    
-    #define RGB_HP_BLOCK_BLUE_R 0
-    #define RGB_HP_BLOCK_BLUE_G 0
-    #define RGB_HP_BLOCK_BLUE_B 215
-
-    #define RGB_HP_BLOCK_RED_R 200
-    #define RGB_HP_BLOCK_RED_G 0
-    #define RGB_HP_BLOCK_RED_B 0
-
-    #define RGB_HP_BLOCK_YELLOW_R 170
-    #define RGB_HP_BLOCK_YELLOW_G 170
-    #define RGB_HP_BLOCK_YELLOW_B 0
-
-    #define RGB_HP_BLOCK_ADJUST_RANGE 25
-
     int rgb_r = 0;
     int rgb_g = 0;
     int rgb_b = 0;
@@ -74,39 +65,30 @@ int dc_hud_life_color(float block_fraction, float sine_value)
 
     rbg_composite = rgbcolor(rgb_r, rgb_g, rgb_b);
 
-    return rbg_composite;
+    return rbg_composite;   
+}
 
-    #undef RGB_HP_BLOCK_AMBER_R
-    #undef RGB_HP_BLOCK_AMBER_G
-    #undef RGB_HP_BLOCK_AMBER_B
+/*
+* Caskey, Damon V.
+* 2021-03-16
+* 
+* Draws the player icon frame.
+*/
+void dc_golden_axe_player_hud_icon(int player_index)
+{    
+    int sprite_index = getlocalvar(VAR_KEY_SPRITE_PLAYER_ICON_FRAME);
+    int pos_x = player_index * PLAYER_HUD_WIDTH;
+    int pos_y = HUD_PLAYER_ICON_FRAME_POS_Y;
 
-    #undef RGB_HP_BLOCK_BLUE_R
-    #undef RGB_HP_BLOCK_BLUE_G
-    #undef RGB_HP_BLOCK_BLUE_B
+    pos_x += HUD_PLAYER_ICON_FRAME_POS_X;
 
-    #undef RGB_HP_BLOCK_RED_R
-    #undef RGB_HP_BLOCK_RED_G
-    #undef RGB_HP_BLOCK_RED_B
-
-    #undef RGB_HP_BLOCK_YELLOW_R
-    #undef RGB_HP_BLOCK_YELLOW_G
-    #undef RGB_HP_BLOCK_YELLOW_B
-
-    #undef RGB_HP_BLOCK_ADJUST_RANGE
+    drawsprite(sprite_index, pos_x, pos_y, openborconstant("FRONTPANEL_Z") + 18001);
 }
 
 // Draw player HUD, with icons, magic jars, and
 // life blocks for the target entity.
 void dc_golden_axe_player_hud()
-{
-    #define HEALTH_BLOCK_MAX        4   // Maximum number of health blocks that can be displayed for a single HUD entry.
-    #define MAGIC_BLOCK_MAX         10  // Maximum number of magic blocks.
-    #define HP_AREA_MARGIN_LEFT     53  // Left of player HUD to life meter.
-
-    #define PLAYER_HUD_WIDTH        160 // Total width of each player HUD (with padding).
-    #define MP_AREA_MARGIN_LEFT     56  // Left of player HUD to first magic block.
-    #define MP_BLOCK_MARGIN_LEFT    2
-    #define MP_BLOCK_MARGIN_RIGHT   3
+{    
 
     void    target;                 // Target entity
     int     max_players;            // Number of available players.
@@ -157,6 +139,9 @@ void dc_golden_axe_player_hud()
         {
             continue;
         }
+
+        /* Draw the icon frame. */
+        dc_golden_axe_player_hud_icon(player_index);
 
         // We're leaving dead enemies on the screen but
         // don't want to draw their HUD any more. For
@@ -309,8 +294,7 @@ void dc_golden_axe_player_hud()
 
         #define HP_BLOCK_MARGIN_LEFT 2
         #define HP_BLOCK_MARGIN_RIGHT 2
-               
-
+       
         /*
         * Positioning works same way as MP meter, but
         * all initial math work has to be in loop since
@@ -360,12 +344,4 @@ void dc_golden_axe_player_hud()
             drawbox(block_position_x + 1, block_position_Y + 1, 20, 6, openborconstant("FRONTPANEL_Z") + 18002, dc_hud_life_color(block_fraction, sine_value), 2);
         }
     }
-
-    #undef HEALTH_BLOCK_MAX
-    #undef MAGIC_BLOCK_MAX
-
-    #undef PLAYER_HUD_WIDTH
-    #undef MP_AREA_MARGIN_LEFT
-    #undef MP_BLOCK_MARGIN_LEFT
-    #undef MP_BLOCK_MARGIN_RIGHT
 }

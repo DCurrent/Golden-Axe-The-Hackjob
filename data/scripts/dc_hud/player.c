@@ -172,6 +172,13 @@ void dc_golden_axe_player_hud()
             continue;
         }
 
+        /* 
+        * Draws frame around player icon. We could make the frame
+        * part of the icon, but drawing it here just means one less
+        * thing to worry about in the model's palette design.
+        */
+        dc_golden_axe_player_hud_icon(player_index);
+
         // We're leaving dead enemies on the screen but
         // don't want to draw their HUD any more. For
         // this purpose the dead flag will work well
@@ -182,8 +189,7 @@ void dc_golden_axe_player_hud()
         {
             continue;
         }
-
-        dc_golden_axe_player_hud_icon(player_index);
+        
 
         resolution_y    = openborvariant("vresolution");
         magic_count     = getentityproperty(target, "mp") / MAGIC_BLOCK_MAX;

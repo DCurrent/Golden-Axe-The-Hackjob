@@ -1,6 +1,6 @@
 # ax on blue dragon
 
-icon					data/chars/ax/hud
+icon					data/chars/ax/icon_default.png
 name					a_bdrag
 speed					10
 running 				20 5 1 1 0

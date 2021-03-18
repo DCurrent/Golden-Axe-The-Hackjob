@@ -1,5 +1,5 @@
 name				Bad_Brother
-icon				data/chars/ax/hud
+icon				data/chars/ax/icon_default.png
 type				enemy
 health				98
 speed				8

@@ -1,5 +1,5 @@
 
-icon				data/chars/ax/hud
+icon				data/chars/ax/icon_default.png
 name				ax
 type				player
 health				98

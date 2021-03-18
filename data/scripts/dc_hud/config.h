@@ -19,10 +19,21 @@
 /* Total width of one player's HUD container. */
 #define DC_HUD_PLAYER_HUD_SIZE_X				160 
 
-#define DC_HUD_HP_METER_BLOCK_MAX        5   // Maximum number of health blocks that can be displayed for a single HUD entry.
 #define MAGIC_BLOCK_MAX         10  // Maximum number of magic blocks.
-#define DC_HUD_PLAYER_HP_METER_POS_X     37  
-#define DC_HUD_PLAYER_HP_METER_POS_Y     242 
+#define DC_HUD_HP_METER_BLOCK_MAX					5   // Maximum number of health blocks that can be displayed for a single HUD entry.
+
+/* 
+* Life/HP meter settings. Block refers to sections of a
+* segmented HP meter. 
+*/
+#define DC_HUD_PLAYER_HP_METER_POS_X				37  
+#define DC_HUD_PLAYER_HP_METER_POS_Y				242 
+#define DC_HUD_PLAYER_HP_METER_POS_Z				DC_HUD_Z / 2 + 3
+#define DC_HUD_PLAYER_HP_METER_OVERLAY_ALPHA_MODE	2
+#define DC_HUD_PLAYER_HP_METER_BLOCK_MARGIN_LEFT	1
+#define DC_HUD_PLAYER_HP_METER_BLOCK_MARGIN_RIGHT	1
+#define DC_HUD_PLAYER_HP_METER_BLOCK_BORDER			1
+#define DC_HUD_PLAYER_HP_METER_BLOCK_PADDDING		0
 
 /* 
 * Background for individual player's HUD when
@@ -45,7 +56,7 @@
 #define MP_BLOCK_MARGIN_LEFT    2
 #define MP_BLOCK_MARGIN_RIGHT   3
 
-/* Colors used as base overlay for life meter blocks/ */
+/* Colors used as base overlay for life meter blocks. */
 #define DC_HUD_RGB_HP_BLOCK_AMBER_R 150
 #define DC_HUD_RGB_HP_BLOCK_AMBER_G 100
 #define DC_HUD_RGB_HP_BLOCK_AMBER_B 0

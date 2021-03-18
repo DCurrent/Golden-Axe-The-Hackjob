@@ -25,31 +25,31 @@ int dc_hud_life_color(float block_fraction, float sine_value)
     */
     if (block_fraction >= 0.75)
     {
-        rgb_r = RGB_HP_BLOCK_BLUE_R;
-        rgb_g = RGB_HP_BLOCK_BLUE_G;
-        rgb_b = RGB_HP_BLOCK_BLUE_B;
+        rgb_r = DC_HUD_RGB_HP_BLOCK_BLUE_R;
+        rgb_g = DC_HUD_RGB_HP_BLOCK_BLUE_G;
+        rgb_b = DC_HUD_RGB_HP_BLOCK_BLUE_B;
     }
     else if (block_fraction >= 0.50)
     {
-        rgb_r = RGB_HP_BLOCK_YELLOW_R;
-        rgb_g = RGB_HP_BLOCK_YELLOW_G;
-        rgb_b = RGB_HP_BLOCK_YELLOW_B;
+        rgb_r = DC_HUD_RGB_HP_BLOCK_YELLOW_R;
+        rgb_g = DC_HUD_RGB_HP_BLOCK_YELLOW_G;
+        rgb_b = DC_HUD_RGB_HP_BLOCK_YELLOW_B;
     }
     else if (block_fraction >= 0.25)
     {
-        rgb_r = RGB_HP_BLOCK_AMBER_R;
-        rgb_g = RGB_HP_BLOCK_AMBER_G;
-        rgb_b = RGB_HP_BLOCK_AMBER_B;
+        rgb_r = DC_HUD_RGB_HP_BLOCK_AMBER_R;
+        rgb_g = DC_HUD_RGB_HP_BLOCK_AMBER_G;
+        rgb_b = DC_HUD_RGB_HP_BLOCK_AMBER_B;
     }
     else
     {
-        rgb_r = RGB_HP_BLOCK_RED_R;
-        rgb_g = RGB_HP_BLOCK_RED_G;
-        rgb_b = RGB_HP_BLOCK_RED_B;
+        rgb_r = DC_HUD_RGB_HP_BLOCK_RED_R;
+        rgb_g = DC_HUD_RGB_HP_BLOCK_RED_G;
+        rgb_b = DC_HUD_RGB_HP_BLOCK_RED_B;
     }
 
     int rbg_composite = 0;
-    int rgb_adjustment = RGB_HP_BLOCK_ADJUST_RANGE * sine_value;
+    int rgb_adjustment = DC_HUD_RGB_HP_BLOCK_ADJUST_RANGE * sine_value;
 
     rgb_r += rgb_adjustment;
     rgb_g += rgb_adjustment;
@@ -74,15 +74,25 @@ int dc_hud_life_color(float block_fraction, float sine_value)
 * 
 * Draws the player icon frame.
 */
-void dc_golden_axe_player_hud_icon(int player_index)
+void dc_hud_draw_playericon_frame(int player_index)
 {    
     int sprite_index = getlocalvar(VAR_KEY_SPRITE_PLAYER_ICON_FRAME);
     int pos_x = player_index * DC_HUD_PLAYER_HUD_SIZE_X;
-    int pos_y = HUD_PLAYER_ICON_FRAME_POS_Y;
+    int pos_y = DC_HUD_PLAYER_ICON_FRAME_POS_Y;
 
-    pos_x += HUD_PLAYER_ICON_FRAME_POS_X;
+    pos_x += DC_HUD_PLAYER_ICON_FRAME_POS_X;
 
     drawsprite(sprite_index, pos_x, pos_y, openborconstant("FRONTPANEL_Z") + 18001);
+}
+
+void dc_hud_draw_background_active_player(int player_index)
+{
+    int sprite_index = getlocalvar(VAR_KEY_SPRITE_BACKGROUND_PLAYER_ACTIVE + player_index);
+    int pos_x = player_index * DC_HUD_PLAYER_HUD_SIZE_X;
+    
+    pos_x += DC_HUD_BG_PLAYER_ACTIVE_POS_X;
+
+    drawsprite(sprite_index, pos_x, DC_HUD_BG_PLAYER_ACTIVE_POS_Y, DC_HUD_BG_PLAYER_ACTIVE_POS_Z);
 }
 
 /*
@@ -154,7 +164,9 @@ void dc_golden_axe_player_hud()
         {
             if(getplayerproperty(player_index, "joining"))
             {
-                dc_golden_axe_player_hud_icon(player_index);
+                dc_hud_draw_background_active_player(player_index);
+                dc_hud_draw_playericon_frame(player_index);
+               
             }
            
             //settextobj(8, 10, 110, 1, 999999994, " Sine: " + result);
@@ -177,7 +189,8 @@ void dc_golden_axe_player_hud()
         * part of the icon, but drawing it here just means one less
         * thing to worry about in the model's palette design.
         */
-        dc_golden_axe_player_hud_icon(player_index);
+        dc_hud_draw_background_active_player(player_index);
+        dc_hud_draw_playericon_frame(player_index);
 
         // We're leaving dead enemies on the screen but
         // don't want to draw their HUD any more. For

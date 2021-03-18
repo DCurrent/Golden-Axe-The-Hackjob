@@ -77,7 +77,7 @@ int dc_hud_life_color(float block_fraction, float sine_value)
 void dc_golden_axe_player_hud_icon(int player_index)
 {    
     int sprite_index = getlocalvar(VAR_KEY_SPRITE_PLAYER_ICON_FRAME);
-    int pos_x = player_index * PLAYER_HUD_WIDTH;
+    int pos_x = player_index * DC_HUD_PLAYER_HUD_SIZE_X;
     int pos_y = HUD_PLAYER_ICON_FRAME_POS_Y;
 
     pos_x += HUD_PLAYER_ICON_FRAME_POS_X;
@@ -156,7 +156,6 @@ void dc_golden_axe_player_hud()
             {
                 dc_golden_axe_player_hud_icon(player_index);
             }
-
            
             //settextobj(8, 10, 110, 1, 999999994, " Sine: " + result);
 
@@ -220,7 +219,7 @@ void dc_golden_axe_player_hud()
         * we multiply current player index by total X size of
         * the player HUD.
         */
-        block_position_left = player_index * PLAYER_HUD_WIDTH;
+        block_position_left = player_index * DC_HUD_PLAYER_HUD_SIZE_X;
 
         /* 
         * Add the meter area's left margin to space it
@@ -319,13 +318,13 @@ void dc_golden_axe_player_hud()
         */
 
         /* Get health %, multiplied by number of displayable blocks. */
-        health_fraction = HEALTH_BLOCK_MAX * get_health_fraction(target);
+        health_fraction = DC_HUD_HP_METER_BLOCK_MAX * get_health_fraction(target);
 
         /* Get Y position. */
-        block_position_Y = resolution_y-31;
+        block_position_Y = DC_HUD_PLAYER_HP_METER_POS_Y;
 
-        #define HP_BLOCK_MARGIN_LEFT 2
-        #define HP_BLOCK_MARGIN_RIGHT 2
+        #define DC_HUD_PLAYER_HP_METER_BLOCK_MARGIN_LEFT 2
+        #define DC_HUD_PLAYER_HP_METER_BLOCK_MARGIN_RIGHT 2
        
         /*
         * Positioning works same way as MP meter, but
@@ -339,15 +338,15 @@ void dc_golden_axe_player_hud()
         * Now we add the block margins, and that will get
         * total space for one block.
         */
-        block_space_h = block_size_h + HP_BLOCK_MARGIN_LEFT + HP_BLOCK_MARGIN_RIGHT;
+        block_space_h = block_size_h + DC_HUD_PLAYER_HP_METER_BLOCK_MARGIN_LEFT + DC_HUD_PLAYER_HP_METER_BLOCK_MARGIN_RIGHT;
 
         /*
         * Our starting position will be the leftmost of
         * current player's (in loop) HUD area, plus the
         * health specific margin.
         */
-        block_position_left = player_index * PLAYER_HUD_WIDTH;
-        block_position_left += HP_AREA_MARGIN_LEFT;
+        block_position_left = player_index * DC_HUD_PLAYER_HUD_SIZE_X;
+        block_position_left += DC_HUD_PLAYER_HP_METER_POS_X;
 
         /* Loop over each whole portion of health_fraction. */
         

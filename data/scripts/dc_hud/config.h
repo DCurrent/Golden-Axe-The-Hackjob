@@ -11,11 +11,12 @@
 #define HUD_OUTER_CONTAINER_POS_Y		240;
 
 /* Total width of one player's HUD container. */
-#define PLAYER_HUD_WIDTH				160 
+#define DC_HUD_PLAYER_HUD_SIZE_X				160 
 
-#define HEALTH_BLOCK_MAX        4   // Maximum number of health blocks that can be displayed for a single HUD entry.
+#define DC_HUD_HP_METER_BLOCK_MAX        5   // Maximum number of health blocks that can be displayed for a single HUD entry.
 #define MAGIC_BLOCK_MAX         10  // Maximum number of magic blocks.
-#define HP_AREA_MARGIN_LEFT     53  // Left of player HUD to life meter.
+#define DC_HUD_PLAYER_HP_METER_POS_X     37  
+#define DC_HUD_PLAYER_HP_METER_POS_Y     242 
 
 /* 
 * Frame around player icon. Positions relative 

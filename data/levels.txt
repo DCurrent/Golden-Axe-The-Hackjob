@@ -28,20 +28,22 @@ p1life  0 -140
 p2life  0 -140
 p3life  0 -140
 
-p1lifex  35  252
-p2lifex  195 252
-p3lifex  355 252
+# Golden Axe doesn't use extra lives, so
+# move the "X" and life count off screen.
+p1lifex  35  -20
+p2lifex  195 -20
+p3lifex  355 -20
 
-p1lifen  42  249
-p2lifen  202 249
-p3lifen  362 249
+p1lifen  42  -20
+p2lifen  202 -20
+p3lifen  362 -20
 
 lbarsize 100 5 1
 mpbarsize 100 2 1
 
-p1icon -2 240
-p2icon 158 240
-p3icon 318 240
+p1icon 5 242
+p2icon 165 242
+p3icon 325 242
 
 #DC 05212010: Mp icons are used as enemy icons, so we move them off screen for players. This is so I can 
 #look for their presence in update script and place all enemy icons on screen at once. The catch is

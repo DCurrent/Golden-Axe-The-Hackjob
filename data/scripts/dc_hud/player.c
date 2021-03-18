@@ -323,8 +323,8 @@ void dc_golden_axe_player_hud()
         /* Get Y position. */
         block_position_Y = DC_HUD_PLAYER_HP_METER_POS_Y;
 
-        #define DC_HUD_PLAYER_HP_METER_BLOCK_MARGIN_LEFT 2
-        #define DC_HUD_PLAYER_HP_METER_BLOCK_MARGIN_RIGHT 2
+        #define DC_HUD_PLAYER_HP_METER_BLOCK_MARGIN_LEFT 1
+        #define DC_HUD_PLAYER_HP_METER_BLOCK_MARGIN_RIGHT 1
        
         /*
         * Positioning works same way as MP meter, but

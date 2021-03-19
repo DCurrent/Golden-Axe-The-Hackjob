@@ -32,7 +32,7 @@ void main()
     dc_golden_axe_enemy_hud();
 
     /* Draw player HUD. */
-    dc_golden_axe_player_hud();
+    dc_hud_player_master();
 
     /*
     * Play any timed delay sounds.

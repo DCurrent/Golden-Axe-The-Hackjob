@@ -74,15 +74,15 @@ int dc_hud_life_color(float block_fraction, float sine_value)
 * 
 * Draws the player icon frame.
 */
-void dc_hud_draw_playericon_frame(int player_index)
+void dc_hud_draw_player_icon_frame(int player_index)
 {    
     int sprite_index = getlocalvar(VAR_KEY_SPRITE_PLAYER_ICON_FRAME);
     int pos_x = player_index * DC_HUD_PLAYER_HUD_SIZE_X;
-    int pos_y = DC_HUD_PLAYER_ICON_FRAME_POS_Y;
+    int pos_y = DC_HUD_PLAYER_ICON_POS_Y;
 
-    pos_x += DC_HUD_PLAYER_ICON_FRAME_POS_X;
+    pos_x += DC_HUD_PLAYER_ICON_POS_X;
 
-    drawsprite(sprite_index, pos_x, pos_y, openborconstant("FRONTPANEL_Z") + 18001);
+    drawsprite(sprite_index, pos_x, pos_y, DC_HUD_PLAYER_ICON_POS_Z);
 }
 
 void dc_hud_draw_background_active_player(int player_index)
@@ -95,6 +95,81 @@ void dc_hud_draw_background_active_player(int player_index)
     drawsprite(sprite_index, pos_x, DC_HUD_BG_PLAYER_ACTIVE_POS_Y, DC_HUD_BG_PLAYER_ACTIVE_POS_Z);
 }
 
+void dc_hud_draw_player_mp_meter(int player_index, void target, float sine_value)
+{
+    int i = 0;
+    int resolution_y = openborvariant("vresolution");
+    float magic_count = getentityproperty(target, "mp") / MAGIC_BLOCK_MAX;
+    int sprite_index = getlocalvar(VAR_KEY_SPRITE_MAGIC_JAR);
+    int block_position_x = 0;
+    int block_position_y = 0;
+    int block_size_x = 0;
+    int block_space_x = 0;
+    int block_position_left = 0;
+
+    /* Magic meter. */
+
+    /* We're drawing MP blocks in a row, so Y position
+    * is always the same.
+    */
+    block_position_y = resolution_y - 20;
+
+    /*
+    * X position will depend on several factors. Some
+    * we can do here, and the rest will need to be
+    * in a loop.
+    *
+    * Let's get the width of our meter block.
+    * Remember that OpenBOR auto trims all sprites
+    * as it loads them, so the size will reflect that.
+    */
+    block_size_x = getgfxproperty(sprite_index, "srcwidth");
+
+    /*
+    * Now we add the block's margins, and that will get
+    * total spacing for one block.
+    */
+    block_space_x = block_size_x + MP_BLOCK_MARGIN_LEFT + MP_BLOCK_MARGIN_RIGHT;
+
+    /*
+    * Our starting position will be the leftmost of
+    * current player's (in loop) HUD area. To get this,
+    * we multiply current player index by total X size of
+    * the player HUD.
+    */
+    block_position_left = player_index * DC_HUD_PLAYER_HUD_SIZE_X;
+
+    /*
+    * Add the meter area's left margin to space it
+    * out from the start of player HUD area.
+    */
+    block_position_left += MP_AREA_MARGIN_LEFT;
+
+    for (i = 0; i < magic_count; i++)
+    {
+        /*
+        * Multiply the total X space of a block
+        * by the current cursor position. This places
+        * each block in a row, left to right.
+        * block_position_x = i * block_space;
+        *
+        * Now add the margin from player HUD to start
+        * of block area to align blocks properly with
+        * player HUD design.
+        */
+        block_position_x += block_position_left;
+
+        /* Draw the MP sprite. */
+        //drawsprite(sprite_index, block_position_x, block_position_Y, openborconstant("FRONTPANEL_Z")+18001);
+    }
+}
+
+/*
+* Caskey, Damon V.
+* 2021-03-18 (broken off from master HUD function)
+* 
+* Draw player life meter. See below for details.
+*/
 void dc_hud_draw_player_hp_meter(int player_index, void target, float sine_value)
 {
     /*
@@ -195,9 +270,9 @@ void dc_hud_draw_player_hp_meter(int player_index, void target, float sine_value
     float block_fraction = 0.0;
     int i = 0;
     int block_position_y = 0;
-    int block_size_h = 0;
+    int block_size_x = 0;
     int block_size_y = 0;
-    int block_space_h = 0;
+    int block_space_x = 0;
     int block_position_x = 0;
     int block_position_left = 0;
     int sprite_index = getlocalvar(VAR_KEY_SPRITE_HP_HORIZONTAL_BASE);
@@ -209,7 +284,7 @@ void dc_hud_draw_player_hp_meter(int player_index, void target, float sine_value
     int color_overlay_rgb_color = 0;
 
     /* Get health %, multiplied by number of displayable blocks. */
-    health_fraction = DC_HUD_HP_METER_BLOCK_MAX * get_health_fraction(target);
+    health_fraction = DC_HUD_PLAYER_HP_METER_BLOCK_MAX * get_health_fraction(target);
 
     /* Get Y position. */
     block_position_y = DC_HUD_PLAYER_HP_METER_POS_Y;
@@ -220,14 +295,14 @@ void dc_hud_draw_player_hp_meter(int player_index, void target, float sine_value
     * we don't know until in side the loop which
     * sprite is in use.
     */
-    block_size_h = getgfxproperty(sprite_index, "srcwidth");
+    block_size_x = getgfxproperty(sprite_index, "srcwidth");
     block_size_y = getgfxproperty(sprite_index, "srcheight");
 
     /*
     * Now we add the block margins, and that will get
     * total space for one block.
     */
-    block_space_h = block_size_h + DC_HUD_PLAYER_HP_METER_BLOCK_MARGIN_LEFT + DC_HUD_PLAYER_HP_METER_BLOCK_MARGIN_RIGHT;
+    block_space_x = block_size_x + DC_HUD_PLAYER_HP_METER_BLOCK_MARGIN_LEFT + DC_HUD_PLAYER_HP_METER_BLOCK_MARGIN_RIGHT;
 
     /*
     * Our starting position will be the leftmost of
@@ -252,7 +327,7 @@ void dc_hud_draw_player_hp_meter(int player_index, void target, float sine_value
         * by the current cursor position. This places
         * each block in a row, left to right.
         */
-        block_position_x = i * block_space_h;
+        block_position_x = i * block_space_x;
 
         /*
         * Now add the starting position.
@@ -269,7 +344,7 @@ void dc_hud_draw_player_hp_meter(int player_index, void target, float sine_value
         * generator (see above). IOW, the sprite is really 
         * just there to give the meter some texture.
         */
-        color_overlay_size_x = block_size_h - DC_HUD_PLAYER_HP_METER_BLOCK_BORDER * 2;
+        color_overlay_size_x = block_size_x - DC_HUD_PLAYER_HP_METER_BLOCK_BORDER * 2;
         color_overlay_size_y = block_size_y - DC_HUD_PLAYER_HP_METER_BLOCK_BORDER * 2;
         color_overlay_pos_x = block_position_x + DC_HUD_PLAYER_HP_METER_BLOCK_BORDER;
         color_overlay_pos_y = block_position_y + DC_HUD_PLAYER_HP_METER_BLOCK_BORDER;
@@ -291,14 +366,17 @@ void dc_hud_draw_player_hp_meter(int player_index, void target, float sine_value
 */
 void dc_hud_player_join(int player_index)
 {
+    settextobj(7, 10, 100, 1, 999999994, "Name: " + getplayerproperty(player_index, "name"));
 
+    dc_hud_draw_background_active_player(player_index);
+    dc_hud_draw_player_icon_frame(player_index);
 }
+
 
 // Draw player HUD, with icons, magic jars, and
 // life blocks for the target entity.
-void dc_golden_axe_player_hud()
-{    
-
+void dc_hud_player_master()
+{
     void    target;                 // Target entity
     int     max_players;            // Number of available players.
     int     i;                      // Loop cursor.
@@ -308,8 +386,8 @@ void dc_golden_axe_player_hud()
     int     player_index;
     int     magic_count;            // How many symbols (jars, blocks, etc.) of magic to display.
     int     sprite_index;           // Placeholder for sprite reference.
-    int     block_size_h;           // Size of mp block (after OpenBOR auto trims).
-    int     block_space_h;          // Size of mp block with margins included.
+    int     block_size_x;           // Size of mp block (after OpenBOR auto trims).
+    int     block_space_x;          // Size of mp block with margins included.
     int     block_position_left;    // Starting position of mp blocks in each player's HUD.
     int     block_position_x;       // X position of an individual mp block.
     int     block_position_Y;       // Y position of an individual mp block.
@@ -327,32 +405,22 @@ void dc_golden_axe_player_hud()
     max_players = openborvariant("maxplayers");
 
     for(player_index=0; player_index<max_players; player_index++)
-    {       
-
-        if (player_index == 0)
-        {
-            settextobj(7, 10, 100, 1, 999999994, "Name: " + getplayerproperty(player_index, "name"));
-        }
-
+    {
         // Get target entity for this loop increment.
         target = getplayerproperty(player_index, "entity");
 
         /*
         * If there's no entity, then check to see if player
         * is joining the game. If they are we want to draw
-        * selection HUD. Otherwise just exit - there's
-        * nothing else to do.
+        * selection HUD. Otherwise there's nothing else to 
+        * do. Move on to next player.
         */
         if(!target)
         {
             if(getplayerproperty(player_index, "joining"))
             {
-                dc_hud_draw_background_active_player(player_index);
-                dc_hud_draw_playericon_frame(player_index);
-               
+                dc_hud_player_join(player_index);
             }
-           
-            //settextobj(8, 10, 110, 1, 999999994, " Sine: " + result);
 
             continue;
         }
@@ -373,79 +441,21 @@ void dc_golden_axe_player_hud()
         * thing to worry about in the model's palette design.
         */
         dc_hud_draw_background_active_player(player_index);
-        dc_hud_draw_playericon_frame(player_index);
+        dc_hud_draw_player_icon_frame(player_index);
 
-        // We're leaving dead enemies on the screen but
-        // don't want to draw their HUD any more. For
-        // this purpose the dead flag will work well
-        // as a filter.
+        /*
+        * We're leaving dead entities on the screen but
+        * don't want to draw their HUD. For this purpose 
+        * the dead flag will work well as a filter.
+        */
         dead = getentityproperty(target, "dead");
 
         if(dead)
         {
             continue;
-        }
+        }        
+
         
-
-        resolution_y    = openborvariant("vresolution");
-        magic_count     = getentityproperty(target, "mp") / MAGIC_BLOCK_MAX;
-        sprite_index    = getlocalvar(VAR_KEY_SPRITE_MAGIC_JAR);
-
-        /* Magic meter. */
-
-        /* We're drawing MP blocks in a row, so Y position
-        * is always the same.
-        */
-        block_position_Y = resolution_y-20;
-
-        /* 
-        * X position will depend on several factors. Some
-        * we can do here, and the rest will need to be
-        * in a loop.
-        *
-        * Let's get the width of our meter block.
-        * Remember that OpenBOR auto trims all sprites
-        * as it loads them, so the size will reflect that.
-        */
-        block_size_h = getgfxproperty(sprite_index, "srcwidth");
-
-        /* 
-        * Now we add the block's margins, and that will get
-        * total spacing for one block.
-        */
-        block_space_h = block_size_h + MP_BLOCK_MARGIN_LEFT + MP_BLOCK_MARGIN_RIGHT;
-
-        /* 
-        * Our starting position will be the leftmost of
-        * current player's (in loop) HUD area. To get this,
-        * we multiply current player index by total X size of
-        * the player HUD.
-        */
-        block_position_left = player_index * DC_HUD_PLAYER_HUD_SIZE_X;
-
-        /* 
-        * Add the meter area's left margin to space it
-        * out from the start of player HUD area.
-        */
-        block_position_left += MP_AREA_MARGIN_LEFT;
-
-        for(i=0; i<magic_count; i++)
-        {
-            /* 
-            * Multiply the total X space of a block
-            * by the current cursor position. This places
-            * each block in a row, left to right.
-            * block_position_x = i * block_space;
-            *
-            * Now add the margin from player HUD to start
-            * of block area to align blocks properly with
-            * player HUD design.
-            */
-            block_position_x += block_position_left;
-
-            /* Draw the MP sprite. */
-            //drawsprite(sprite_index, block_position_x, block_position_Y, openborconstant("FRONTPANEL_Z")+18001);
-        }
 
         /* Draw the player life HUD. See function for details. */
         dc_hud_draw_player_hp_meter(player_index, target, sine_value);        

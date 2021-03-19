@@ -12,7 +12,7 @@
 
 #define DC_HUD_Z openborconstant("FRONTPANEL_Z") + 10000
 
-/* Container for all players' HUDs. */
+/* Container player HUDs. */
 #define DC_HUD_OUTER_CONTAINER_POS_X		0;
 #define DC_HUD_OUTER_CONTAINER_POS_Y		240;
 
@@ -20,12 +20,12 @@
 #define DC_HUD_PLAYER_HUD_SIZE_X				160 
 
 #define MAGIC_BLOCK_MAX         10  // Maximum number of magic blocks.
-#define DC_HUD_HP_METER_BLOCK_MAX					5   // Maximum number of health blocks that can be displayed for a single HUD entry.
 
 /* 
 * Life/HP meter settings. Block refers to sections of a
 * segmented HP meter. 
 */
+#define DC_HUD_PLAYER_HP_METER_BLOCK_MAX			5
 #define DC_HUD_PLAYER_HP_METER_POS_X				37  
 #define DC_HUD_PLAYER_HP_METER_POS_Y				242 
 #define DC_HUD_PLAYER_HP_METER_POS_Z				DC_HUD_Z / 2 + 3
@@ -45,13 +45,19 @@
 #define DC_HUD_BG_PLAYER_ACTIVE_POS_Z DC_HUD_Z / 2 + 1
 
 /* 
-* Frame around player icon. Positions relative 
-* to each player's HUD container.
+* Player icon.
 */
-#define DC_HUD_PLAYER_ICON_FRAME_POS_X	4
-#define DC_HUD_PLAYER_ICON_FRAME_POS_Y	241
+#define DC_HUD_PLAYER_ICON_POS_X				4  
+#define DC_HUD_PLAYER_ICON_POS_Y				241
+#define DC_HUD_PLAYER_ICON_POS_Z				DC_HUD_Z / 2 + 3
+#define DC_HUD_PLAYER_ICON_OVERLAY_ALPHA_MODE	2
+#define DC_HUD_PLAYER_ICON_BLOCK_MARGIN_LEFT	0
+#define DC_HUD_PLAYER_ICON_BLOCK_MARGIN_RIGHT	0
+#define DC_HUD_PLAYER_ICON_BLOCK_BORDER			1
+#define DC_HUD_PLAYER_ICON_BLOCK_PADDDING		0
 
 
+/* MP meter. */
 #define MP_AREA_MARGIN_LEFT     56  // Left of player HUD to first magic block.
 #define MP_BLOCK_MARGIN_LEFT    2
 #define MP_BLOCK_MARGIN_RIGHT   3

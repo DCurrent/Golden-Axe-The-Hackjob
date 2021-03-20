@@ -599,33 +599,36 @@ anim attack5
     	range 		32 40
     	hitflash  	hitm
 	offset  60  98
-	delay  6
+	delay  5
+	
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
 	bbox  46  45  21  53
-		frame  data/chars/ax/0054.png
+	frame  data/chars/ax/atk_side_kick_0.png
+	
 	delay  8
-	offset  65  98
 	bbox  42  42  18  56
-		frame  data/chars/ax/0001.png
-	delay  4
-	offset  66  98
+	frame  data/chars/ax/atk_side_kick_1.png
+	frame  data/chars/ax/atk_side_kick_2.png
+	frame  data/chars/ax/atk_side_kick_3.png
+	delay  6
+	
 	attack  50  60  50  15  8  2
 	dropv	2 2
 	damageonlanding 0 1
-		frame  data/chars/ax/0052.png
-	offset  61  98
-		frame  data/chars/ax/0053.png
-	delay  30
-	Attack1  0
-	offset  66  98
-		frame  data/chars/ax/0002.png
-	delay  8
-	offset  65  98
-		frame  data/chars/ax/0001.png
+	
+	frame  data/chars/ax/atk_side_kick_4.png
+	
+	delay  24
+	Attack  0
+	frame  data/chars/ax/atk_side_kick_5.png
+	
+	
+	delay  8		
+	frame  data/chars/ax/atk_side_kick_6.png
+	
 	delay  6
-	offset  60  98
 	bbox  46  40  19  58
-		frame  data/chars/ax/0054.png
+	frame  data/chars/ax/atk_side_kick_0.png
 
 anim attack6
 

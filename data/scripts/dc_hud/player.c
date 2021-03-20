@@ -75,14 +75,61 @@ int dc_hud_life_color(float block_fraction, float sine_value)
 * Draws the player icon frame.
 */
 void dc_hud_draw_player_icon_frame(int player_index)
-{    
-    int sprite_index = getlocalvar(VAR_KEY_SPRITE_PLAYER_ICON_FRAME);
-    int pos_x = player_index * DC_HUD_PLAYER_HUD_SIZE_X;
-    int pos_y = DC_HUD_PLAYER_ICON_POS_Y;
+{   
+    void entity = NULL();
+    int border_sprite_index = getlocalvar(VAR_KEY_SPRITE_PLAYER_ICON_FRAME);
+    int icon_sprite_index = 0;
+    int border_pos_x = 0;
+    int border_pos_y = DC_HUD_PLAYER_ICON_POS_Y;
+    int icon_pos_x = 0;
+    int icon_pos_y = 0;
+    char player_model = "";
 
-    pos_x += DC_HUD_PLAYER_ICON_POS_X;
+    /* 
+    * Position is determined by border, not icon. 
+    * 
+    * Mutiply player index by individul player HUD area
+    * size. Then add icon X pos. The icon Pos is really
+    * an offset from top left corner of player HUD area.
+    */
+    border_pos_x = player_index * DC_HUD_PLAYER_HUD_SIZE_X;
+    border_pos_x += DC_HUD_PLAYER_ICON_POS_X;
 
-    drawsprite(sprite_index, pos_x, pos_y, DC_HUD_PLAYER_ICON_POS_Z);
+    /* 
+    * We draw the icon using script so that we 
+    * can apply tint effects, and also defeat 
+    * the behavior that causes any sprite drawn 
+    * by script to overlay native objects. In 
+    * case of the HUD, pausing would cause the 
+    * scripted background to appear over native 
+    * player and enemy icons.
+    * 
+    * Unfortunatly the entity is not avialble 
+    * during player select, so when a player
+    * is joining the game this doesn't work. 
+    * So even thogh its redundant we still use 
+    * the engine's native player icon. 
+    */
+    entity = getplayerproperty(player_index, "entity");
+
+    if (entity)
+    {
+        icon_sprite_index = getentityproperty(entity, "icon", "default");
+    }
+
+    if (icon_sprite_index)
+    {
+        icon_pos_x = border_pos_x + DC_HUD_PLAYER_ICON_BORDER;
+        icon_pos_y = border_pos_y + DC_HUD_PLAYER_ICON_BORDER;
+
+        drawsprite(icon_sprite_index, icon_pos_x, icon_pos_y, DC_HUD_PLAYER_ICON_POS_Z);
+    }
+    
+    /* Draw the border sprite. */
+    if (border_sprite_index)
+    {        
+        drawsprite(border_sprite_index, border_pos_x, border_pos_y, DC_HUD_PLAYER_ICON_POS_Z);
+    }
 }
 
 void dc_hud_draw_background_active_player(int player_index)

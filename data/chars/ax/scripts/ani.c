@@ -45,6 +45,7 @@
 */
 
 #include "data/scripts/dc_elmers/main.c"
+#include "data/scripts/dc_fidelity/main.c"
 
 void invins()
 {

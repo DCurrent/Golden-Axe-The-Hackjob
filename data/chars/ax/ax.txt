@@ -1926,28 +1926,63 @@ anim jumpland
 
 anim jumpattack
 
-	delay	6
+	delay	4
 	offset	60 98
-	bbox	43 38 26 60
-	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
-		frame	data/chars/ax/jump_0.png
+	bbox.position.x 48
+	bbox.position.y 32
+	bbox.size.x 23
+	bbox.size.y 56
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT	
+			
+	frame	data/chars/ax/jump_0.png
+	
 	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
-		frame	data/chars/ax/jump_1.png
-	delay	2
-	attack10	74 27 39 70 12 1
-		frame	data/chars/ax/atk_jump_slash_0.png
-		frame	data/chars/ax/atk_jump_slash_0.png
-		frame	data/chars/ax/atk_jump_slash_0.png
-	attack1	0 0 0 0 0
-		frame	data/chars/ax/atk_jump_slash_0.png
-		frame	data/chars/ax/atk_jump_slash_0.png
-		frame	data/chars/ax/atk_jump_slash_0.png
-		frame	data/chars/ax/atk_jump_slash_0.png
-		frame	data/chars/ax/atk_jump_slash_0.png
+	
+	bbox.position.x 55
+	bbox.position.y 40
+	bbox.size.x 15
+	bbox.size.y 55
+		
+	frame	data/chars/ax/jump_1.png
+	
 	delay	6
-		frame	data/chars/ax/atk_jump_slash_0.png
+	
+	attack.block.penetrate 0
+	attack.damage.force 12
+	attack.damage.type 10
+	attack.effect.hit.flash.disable 0
+	attack.position.x 74
+	attack.position.y 27
+	attack.reaction.fall.force 1
+	attack.reaction.pause.time 0
+	attack.size.x 39
+	attack.size.y 70
+	attack.size.z.1 0
+		
+	bbox.position.x 52
+	bbox.position.y 51
+	bbox.size.x 24
+	bbox.size.y 47
+	
+	frame	data/chars/ax/atk_jump_slash_0.png
+	
+	idle 1
+	
+	delay	20
+
+	attack.damage.force 4
+	attack.position.x 75
+	attack.position.y 77
+	attack.size.x 25
+	attack.size.y 20
+	
+	frame	data/chars/ax/atk_jump_slash_0.png
+
 	delay	8
-		frame	data/chars/ax/jump_1.png
+
+	attack 0
+
+	frame	data/chars/ax/jump_1.png
 
 anim  jumpattack2
 

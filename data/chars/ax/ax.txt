@@ -44,13 +44,7 @@ weapons 			a_chick a_rdrag a_bdrag
 combostyle 			1
 atchain 			1 2 6 0 4 4 7 0 5 0 3 0
 
-palette      		data/chars/ax/0001					#0	Blue
-alternatepal   		data/chars/ax/pals/1				#1 	Red
-alternatepal   		data/chars/ax/pals/2				#2 	Green
-alternatepal   		data/chars/ax/pals/3				#3 	Brown
-alternatepal   		data/chars/ax/pals/4				#4 	Black
-alternatepal   		data/chars/ax/pals/5				#5 	Dark
-alternatepal   		data/chars/ax/pals/KO				#6 	KO
+palette      		data/chars/ax/palette_default.act
 
 com 				d f a freespecial					#Power swing.
 com 				a2 freespecial8						#Magic.

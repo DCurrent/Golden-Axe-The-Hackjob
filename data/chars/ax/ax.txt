@@ -256,9 +256,9 @@ anim  attackboth
 		frame  data/chars/ax/ja3.png
 	delay  6
 	bbox  44  51  33  46
-		frame  data/chars/ax/land.png
+		frame  data/chars/ax/jump_start_0.png
 	bbox  46  41  27  58
-		frame  data/chars/ax/j1.png
+		frame  data/chars/ax/jump_start_1.png
 
 anim attackup
 
@@ -269,7 +269,7 @@ anim attackup
 
 	delay  7
 	offset  60  98
-		frame  data/chars/ax/land.png
+		frame  data/chars/ax/jump_start_0.png
 		frame  data/chars/ax/p4.png
 	bbox  48  67  40  31
 		frame  data/chars/ax/0092.png
@@ -296,7 +296,7 @@ anim attackdown
 
 	delay  7
 	offset  60  98
-		frame  data/chars/ax/land.png
+		frame  data/chars/ax/jump_start_0.png
 		frame  data/chars/ax/p4.png
 	bbox  48  67  40  31
 		frame  data/chars/ax/0092.png
@@ -450,7 +450,7 @@ anim runattack
 		frame	data/chars/ax/ra
 	delay	12
 	attack	0
-		frame   data/chars/ax/land
+		frame   data/chars/ax/jump_start_0.png
 
 anim attack1
 
@@ -706,7 +706,7 @@ anim special
 	offset	60 98
 	delay	16
 	@cmd ani0014 0 A_FOLLOW5 0 0 -1 0 0
-		frame	data/chars/ax/land.png
+		frame	data/chars/ax/jump_start_0.png
 		frame	data/chars/ax/k1.png
 	delay	6
 		frame	data/chars/ax/k2.png
@@ -734,9 +734,9 @@ anim  freespecial
 	offset	60  98
 	bbox	48  53  22  46
 	delay	12
-		frame	data/chars/ax/j1.png
+		frame	data/chars/ax/jump_start_1.png
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
-		frame	data/chars/ax/land.png
+		frame	data/chars/ax/jump_start_0.png
 	bbox	50  32  24  61
 	delay	8
 	@cmd	soun0005 ENT_SELF SND_WIFFH -1 1 0 0
@@ -790,12 +790,12 @@ anim freespecial2
 	offset		60  98
 	delay		12
 	bbox		0
-		frame  data/chars/ax/land.png
+		frame  data/chars/ax/jump_start_0.png
 	delay  -1000
 		frame  data/chars/ax/j2.png
 		frame  data/chars/ax/j3.png
 	delay	10
-		frame  data/chars/ax/land.png
+		frame  data/chars/ax/jump_start_0.png
 
 anim freespecial5
 
@@ -1408,7 +1408,7 @@ anim  freespecial16
 		frame  data/chars/ax/j2.png		#32
 		frame  data/chars/ax/j3.png		#33
 	delay	12
-		frame  data/chars/ax/land.png	#34
+		frame  data/chars/ax/jump_start_0.png	#34
 
 anim follow2
 
@@ -1440,7 +1440,7 @@ anim follow2
 	delay	-1000
 		frame	data/chars/ax/ra.png
 	delay	10
-		frame   data/chars/ax/land
+		frame   data/chars/ax/jump_start_0.png
 
 
 anim follow3
@@ -1478,7 +1478,7 @@ anim follow4
 
 	offset	60 98
 	delay	5
-		frame	data/chars/ax/land.png
+		frame	data/chars/ax/jump_start_0.png
 		frame	data/chars/ax/k1.png
 		frame	data/chars/ax/k2.png
 		frame	data/chars/ax/k3.png
@@ -1872,8 +1872,8 @@ anim jumpdelay
 	offset	60 98
 	bbox	43 38 26 60
 	delay 5
-		frame	data/chars/ax/land.png
-		frame	data/chars/ax/j1.png
+		frame	data/chars/ax/jump_start_0.png
+		frame	data/chars/ax/jump_start_1.png
 
 anim jump
 
@@ -1897,10 +1897,10 @@ anim walkoff
 		frame	data/chars/ax/j2.png
 		frame	data/chars/ax/j3.png
 	delay   10
-		frame	data/chars/ax/land.png
+		frame	data/chars/ax/jump_start_0.png
 	delay	20
 	idle	1
-		frame	data/chars/ax/land.png
+		frame	data/chars/ax/jump_start_0.png
 
 
 anim runjump
@@ -1918,10 +1918,10 @@ anim jumpland
 	offset	60 98
 	bbox	43 38 26 60
 	delay   10
-		frame	data/chars/ax/land.png
+		frame	data/chars/ax/jump_start_0.png
 	delay	20
 	idle	1
-		frame	data/chars/ax/land.png
+		frame	data/chars/ax/jump_start_0.png
 
 
 anim jumpattack
@@ -2342,7 +2342,7 @@ anim follow17
 		frame  data/chars/ax/j2.png		#5
 		frame  data/chars/ax/j3.png		#6
 	delay	12
-		frame  data/chars/ax/land.png	#7
+		frame  data/chars/ax/jump_start_0.png	#7
 
 anim  follow18
 
@@ -2381,7 +2381,7 @@ anim block
 	bbox	46 39 29 59
     @cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 	delay	6
-		frame	data/chars/ax/j1.png
+		frame	data/chars/ax/jump_start_1.png
 	offset  60  99
 	bbox  55  39  32  60
 	    frame	data/chars/ax/block.png
@@ -2391,7 +2391,7 @@ anim block
 		frame	data/chars/ax/a20.png
 	offset  60  98
 	bbox  50  41  25  57
-	    frame	data/chars/ax/j1.png
+	    frame	data/chars/ax/jump_start_1.png
 
 anim rise
 	offset	60 98

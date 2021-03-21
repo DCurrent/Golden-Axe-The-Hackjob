@@ -243,17 +243,17 @@ anim  attackboth
 	delay	1
 	bbox  50  51  33  47
 	attack10  72  39  39  59  8  1
-		frame  data/chars/ax/ja3.png
+		frame  data/chars/ax/atk_jump_slash_0.png
 	Attack1  0
-		frame  data/chars/ax/ja3.png
-		frame  data/chars/ax/ja3.png
-		frame  data/chars/ax/ja3.png
-		frame  data/chars/ax/ja3.png
-		frame  data/chars/ax/ja3.png
-		frame  data/chars/ax/ja3.png
-		frame  data/chars/ax/ja3.png
+		frame  data/chars/ax/atk_jump_slash_0.png
+		frame  data/chars/ax/atk_jump_slash_0.png
+		frame  data/chars/ax/atk_jump_slash_0.png
+		frame  data/chars/ax/atk_jump_slash_0.png
+		frame  data/chars/ax/atk_jump_slash_0.png
+		frame  data/chars/ax/atk_jump_slash_0.png
+		frame  data/chars/ax/atk_jump_slash_0.png
 	delay  -1000
-		frame  data/chars/ax/ja3.png
+		frame  data/chars/ax/atk_jump_slash_0.png
 	delay  6
 	bbox  44  51  33  46
 		frame  data/chars/ax/jump_start_0.png
@@ -1935,17 +1935,17 @@ anim jumpattack
 		frame	data/chars/ax/jump_1.png
 	delay	2
 	attack10	74 27 39 70 12 1
-		frame	data/chars/ax/ja3.png
-		frame	data/chars/ax/ja3.png
-		frame	data/chars/ax/ja3.png
+		frame	data/chars/ax/atk_jump_slash_0.png
+		frame	data/chars/ax/atk_jump_slash_0.png
+		frame	data/chars/ax/atk_jump_slash_0.png
 	attack1	0 0 0 0 0
-		frame	data/chars/ax/ja3.png
-		frame	data/chars/ax/ja3.png
-		frame	data/chars/ax/ja3.png
-		frame	data/chars/ax/ja3.png
-		frame	data/chars/ax/ja3.png
+		frame	data/chars/ax/atk_jump_slash_0.png
+		frame	data/chars/ax/atk_jump_slash_0.png
+		frame	data/chars/ax/atk_jump_slash_0.png
+		frame	data/chars/ax/atk_jump_slash_0.png
+		frame	data/chars/ax/atk_jump_slash_0.png
 	delay	6
-		frame	data/chars/ax/ja3.png
+		frame	data/chars/ax/atk_jump_slash_0.png
 	delay	8
 		frame	data/chars/ax/jump_1.png
 
@@ -1990,19 +1990,19 @@ anim runjumpattack
 		frame	data/chars/ax/jump_1.png
 	delay	2
 	attack10	74 27 39 70 12 1
-		frame	data/chars/ax/ja3.png
-		frame	data/chars/ax/ja3.png
-		frame	data/chars/ax/ja3.png
+		frame	data/chars/ax/atk_jump_slash_0.png
+		frame	data/chars/ax/atk_jump_slash_0.png
+		frame	data/chars/ax/atk_jump_slash_0.png
 	attack	0 0 0 0 0
-		frame	data/chars/ax/ja3.png
-		frame	data/chars/ax/ja3.png
-		frame	data/chars/ax/ja3.png
-		frame	data/chars/ax/ja3.png
-		frame	data/chars/ax/ja3.png
-		frame	data/chars/ax/ja3.png
+		frame	data/chars/ax/atk_jump_slash_0.png
+		frame	data/chars/ax/atk_jump_slash_0.png
+		frame	data/chars/ax/atk_jump_slash_0.png
+		frame	data/chars/ax/atk_jump_slash_0.png
+		frame	data/chars/ax/atk_jump_slash_0.png
+		frame	data/chars/ax/atk_jump_slash_0.png
 	delay	8
 	attack10	66 74 9 32 32 1 1
-	frame	data/chars/ax/jt.png
+	frame	data/chars/ax/atk_jump_stab_0.png
 
 anim grab
 

@@ -104,10 +104,15 @@ void dc_hud_draw_player_icon_frame(int player_index)
     * scripted background to appear over native 
     * player and enemy icons.
     * 
+    * Note: 2021-03-20: Calling from update.c 
+    * instead of updated.c solves the overlay
+    * problem, but we still might want to place
+    * a tint effect on icon.
+    * 
     * Unfortunatly the entity is not avialble 
     * during player select, so when a player
     * is joining the game this doesn't work. 
-    * So even thogh its redundant we still use 
+    * So even thogh it's redundant we still use 
     * the engine's native player icon. 
     */
     entity = getplayerproperty(player_index, "entity");

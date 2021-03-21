@@ -236,10 +236,10 @@ anim  attackboth
 		Attack1  0
 		frame  data/chars/ax/0036.png
 		frame  data/chars/ax/0037.png
-		frame  data/chars/ax/j2.png
+		frame  data/chars/ax/jump_0.png
 	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
-		frame  data/chars/ax/j3.png
+		frame  data/chars/ax/jump_1.png
 	delay	1
 	bbox  50  51  33  47
 	attack10  72  39  39  59  8  1
@@ -740,7 +740,7 @@ anim  freespecial
 	bbox	50  32  24  61
 	delay	8
 	@cmd	soun0005 ENT_SELF SND_WIFFH -1 1 0 0
-		frame	data/chars/ax/j2.png
+		frame	data/chars/ax/jump_0.png
 		frame	data/chars/ax/0035.png
 		frame	data/chars/ax/0036.png
 		frame	data/chars/ax/0037.png
@@ -792,8 +792,8 @@ anim freespecial2
 	bbox		0
 		frame  data/chars/ax/jump_start_0.png
 	delay  -1000
-		frame  data/chars/ax/j2.png
-		frame  data/chars/ax/j3.png
+		frame  data/chars/ax/jump_0.png
+		frame  data/chars/ax/jump_1.png
 	delay	10
 		frame  data/chars/ax/jump_start_0.png
 
@@ -1405,8 +1405,8 @@ anim  freespecial16
 	delay	-1000
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0  10 0 -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0									#Release bind and restore AI control.
  	@cmd    dama0004 0 -2 0 10 openborconstant("ATK_NORMAL6") -1 1 0 0							#Put into falling state.
-		frame  data/chars/ax/j2.png		#32
-		frame  data/chars/ax/j3.png		#33
+		frame  data/chars/ax/jump_0.png		#32
+		frame  data/chars/ax/jump_1.png		#33
 	delay	12
 		frame  data/chars/ax/jump_start_0.png	#34
 
@@ -1883,8 +1883,8 @@ anim jump
 	offset	60 98
 	bbox	43 38 26 60
     delay   -1000
-		frame	data/chars/ax/j2.png
-		frame	data/chars/ax/j3.png
+		frame	data/chars/ax/jump_0.png
+		frame	data/chars/ax/jump_1.png
 
 anim walkoff
 
@@ -1894,8 +1894,8 @@ anim walkoff
 	offset	60 98
 	bbox	43 38 26 60
     delay   -1000
-		frame	data/chars/ax/j2.png
-		frame	data/chars/ax/j3.png
+		frame	data/chars/ax/jump_0.png
+		frame	data/chars/ax/jump_1.png
 	delay   10
 		frame	data/chars/ax/jump_start_0.png
 	delay	20
@@ -1911,8 +1911,8 @@ anim runjump
 	offset	60 98
 	bbox	43 38 26 60
     delay   -1000
-		frame	data/chars/ax/j2.png
-		frame	data/chars/ax/j3.png
+		frame	data/chars/ax/jump_0.png
+		frame	data/chars/ax/jump_1.png
 
 anim jumpland
 	offset	60 98
@@ -1930,9 +1930,9 @@ anim jumpattack
 	offset	60 98
 	bbox	43 38 26 60
 	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
-		frame	data/chars/ax/j2.png
+		frame	data/chars/ax/jump_0.png
 	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
-		frame	data/chars/ax/j3.png
+		frame	data/chars/ax/jump_1.png
 	delay	2
 	attack10	74 27 39 70 12 1
 		frame	data/chars/ax/ja3.png
@@ -1947,7 +1947,7 @@ anim jumpattack
 	delay	6
 		frame	data/chars/ax/ja3.png
 	delay	8
-		frame	data/chars/ax/j3.png
+		frame	data/chars/ax/jump_1.png
 
 anim  jumpattack2
 
@@ -1985,9 +1985,9 @@ anim runjumpattack
 	bbox	43 38 26 60
 	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
-		frame	data/chars/ax/j2.png
+		frame	data/chars/ax/jump_0.png
 	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
-		frame	data/chars/ax/j3.png
+		frame	data/chars/ax/jump_1.png
 	delay	2
 	attack10	74 27 39 70 12 1
 		frame	data/chars/ax/ja3.png
@@ -2339,8 +2339,8 @@ anim follow17
 	delay	-1000
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0  10 0 -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0									#Release bind and restore AI control.
  	@cmd    dama0004 0 -2 0 10 openborconstant("ATK_NORMAL6") -1 1 0 0							#Put into falling state.
-		frame  data/chars/ax/j2.png		#5
-		frame  data/chars/ax/j3.png		#6
+		frame  data/chars/ax/jump_0.png		#5
+		frame  data/chars/ax/jump_1.png		#6
 	delay	12
 		frame  data/chars/ax/jump_start_0.png	#7
 

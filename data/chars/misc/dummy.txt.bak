@@ -37,9 +37,9 @@ anim  freespecial12
 	frame  data/chars/ax/0054.png
 		move  0
 		bbox  51  41  23  59
-	frame  data/chars/ax/a1.png
+	frame  data/chars/ax/atk_swing_0.png
 		bbox  52  46  21  53
-	frame  data/chars/ax/a2.png
+	frame  data/chars/ax/atk_swing_1.png
 		bbox  46  48  29  50
 	frame  data/chars/ax/0093.png
 	frame  data/chars/ax/0093.png
@@ -50,5 +50,5 @@ anim  freespecial12
 		move  0
 	frame  data/chars/ax/0017.png
 	frame  data/chars/ax/0018.png
-	frame  data/chars/ax/a2.png
+	frame  data/chars/ax/atk_swing_1.png
 

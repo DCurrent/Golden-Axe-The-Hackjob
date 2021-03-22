@@ -456,7 +456,7 @@ anim runattack
 anim attack1
 
 	followanim 3
-    	followcond 1
+    followcond 1
    	range 0 50
 
 	offset	60 98
@@ -468,15 +468,15 @@ anim attack1
 	@cmd 	ani0018 A_ATK3 0					#Animal alt, far.
 	@cmd 	ani0018 A_FOLLOW4 0					#Animal alt, close.
 	delay	4
-		frame	data/chars/ax/a1.png
+		frame	data/chars/ax/atk_swing_0.png
 
-@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
-		frame	data/chars/ax/a2.png
-	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT	
+		frame	data/chars/ax/atk_swing_1.png
+	@cmd dc_elmers_quick_particle dc_gauntlet_quick_spawn("ax_battler_motion") 
 	delay	6
 	attack.block.penetrate 0
 	attack.damage.force 4
-	attack.damage.type 0
+	attack.damage.type 10
 	attack.effect.hit.flash.model flash_blunt_cut
 	attack.position.x 58
 	attack.position.y 40
@@ -485,20 +485,15 @@ anim attack1
 	attack.size.x 44
 	attack.size.y 29
 	attack.size.z.1 0
-		frame	data/chars/ax/a4.png
-	delay	2
+		frame	data/chars/ax/atk_swing_2.png
 	attack1	0
-		frame	data/chars/ax/a5.png
-		frame	data/chars/ax/a5.png
-		frame	data/chars/ax/a5.png
-		frame	data/chars/ax/a5.png
-	delay	1
-		frame	data/chars/ax/a5.png
-		frame	data/chars/ax/a5.png
+		frame	data/chars/ax/atk_swing_3.png
 	delay	4
-		frame	data/chars/ax/a2.png
+		frame	data/chars/ax/atk_swing_3.png
+	delay 6
+		frame	data/chars/ax/atk_swing_1.png
 	delay	16
-		frame	data/chars/ax/a1.png
+		frame	data/chars/ax/atk_swing_0.png
 
 anim attack2
 
@@ -818,18 +813,18 @@ anim freespecial5
 		frame	data/chars/ax/a25.png
     attackz 24
 	attack10  40  61  48  13  8  1
-		frame	data/chars/ax/a5.png
+		frame	data/chars/ax/atk_swing_3.png
     attack1	0
     delay	3
-		frame	data/chars/ax/a7.png
+		frame	data/chars/ax/atk_swing_4.png
 		frame	data/chars/ax/a7a.png
 		frame	data/chars/ax/a7a.png
 		frame	data/chars/ax/a7a.png
 	delay	20
 		frame	data/chars/ax/a7a.png
 	delay	6
-		frame	data/chars/ax/a5.png
-		frame	data/chars/ax/a2.png
+		frame	data/chars/ax/atk_swing_3.png
+		frame	data/chars/ax/atk_swing_1.png
 
 anim  freespecial6
 
@@ -1089,11 +1084,11 @@ anim  freespecial12
 	bbox  51  41  23  59
 	delay  6
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
-		frame  data/chars/ax/a1.png
+		frame  data/chars/ax/atk_swing_0.png
 	bbox  52  46  21  53
 	delay  3
 	@cmd	soun0005 ENT_SELF SND_WIFFM -1 1 0 0
-		frame  data/chars/ax/a2.png
+		frame  data/chars/ax/atk_swing_1.png
 	bbox  46  48  29  50
 	attack10  57  57  43  15  14  2
 	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
@@ -1122,8 +1117,8 @@ anim  freespecial12
 	delay  12
 		frame  data/chars/ax/0095.png
 	offset  60  98
-		frame  data/chars/ax/a4.png
-		frame  data/chars/ax/a2.png
+		frame  data/chars/ax/atk_swing_2.png
+		frame  data/chars/ax/atk_swing_1.png
 
 anim  freespecial13
 
@@ -1455,12 +1450,12 @@ anim follow3
 	delay	4
 	attack10	58 59 43 11 4
 	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
-		frame	data/chars/ax/a5.png
+		frame	data/chars/ax/atk_swing_3.png
 	attack1	0 0 0 0 0
 	delay	2
-		frame	data/chars/ax/a7.png
-		frame	data/chars/ax/a7.png
-		frame	data/chars/ax/a7.png
+		frame	data/chars/ax/atk_swing_4.png
+		frame	data/chars/ax/atk_swing_4.png
+		frame	data/chars/ax/atk_swing_4.png
 		frame	data/chars/ax/a7a.png
 		frame	data/chars/ax/a7a.png
 		frame	data/chars/ax/a7a.png
@@ -2011,9 +2006,9 @@ anim  jumpattack2
 		frame  data/chars/ax/0018.png
 	delay  5
 	offset  60  98
-		frame  data/chars/ax/a5.png
-		frame  data/chars/ax/a4.png
-		frame  data/chars/ax/a2.png
+		frame  data/chars/ax/atk_swing_3.png
+		frame  data/chars/ax/atk_swing_2.png
+		frame  data/chars/ax/atk_swing_1.png
 
 anim runjumpattack
 
@@ -2243,14 +2238,14 @@ anim grabattack
 		frame  data/chars/ax/0150.png
 		frame  data/chars/ax/a9.png
 	delay  8
-		frame  data/chars/ax/a7.png
+		frame  data/chars/ax/atk_swing_4.png
 	delay  20
 		frame  data/chars/ax/a7a.png
 	delay  8
 		frame  data/chars/ax/a9.png
-		frame  data/chars/ax/a4.png
-		frame  data/chars/ax/a2.png
-		frame  data/chars/ax/a1.png
+		frame  data/chars/ax/atk_swing_2.png
+		frame  data/chars/ax/atk_swing_1.png
+		frame  data/chars/ax/atk_swing_0.png
 
 anim  follow14
 

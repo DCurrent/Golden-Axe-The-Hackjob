@@ -13,6 +13,19 @@ anim idle
 
 	frame	data/chars/misc/blank.png
 
+anim attack1
+
+	delay	-1000
+	offset	60 98			
+	
+	frame	data/chars/misc/blank.png	
+	frame	data/chars/misc/blank.png	
+	frame	data/chars/ax/atk_swing_2_motion.png	
+	frame	data/chars/ax/atk_swing_3_motion.png	
+	frame	data/chars/misc/blank.png	
+	frame	data/chars/misc/blank.png	
+	frame	data/chars/misc/blank.png
+
 anim jumpattack
 
 	delay	-1000
@@ -21,5 +34,6 @@ anim jumpattack
 	frame	data/chars/misc/blank.png	
 	frame	data/chars/ax/jump_1_motion.png	
 	frame	data/chars/ax/atk_jump_slash_0_motion.png	
+	frame	data/chars/misc/blank.png
 	frame	data/chars/misc/blank.png
 		

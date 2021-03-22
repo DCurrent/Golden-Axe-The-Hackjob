@@ -82,12 +82,12 @@ load    al_bdrag        data/chars/alex/al_bdrag.txt				#Alex on Blue Dragon.
 load    al_rdrag        data/chars/alex/al_rdrag.txt				#Alex on Blue Dragon.
 
 #Ax Battler
-know	ax0001			data/chars/ax/effects/ax0001.txt			#Motion blurs.
-know    a_chick         data/chars/ax/a_chick.txt					#Riding Chicken Leg.
-know    a_rdrag			data/chars/ax/a_rdrag.txt					#Riding Red Dragon.
-know	a_bdrag			data/chars/ax/a_bdrag.txt					#Riding Blue Dragon.
-load	ax				data/chars/ax/ax.txt						#Default.
-know	ax_e			data/chars/ax/ax_e.txt						#Default.
+know	ax0001				data/chars/ax/effects/ax0001.txt			# Motion blurs.
+know    a_chick				data/chars/ax/a_chick.txt					# Riding Chicken Leg.
+know    a_rdrag				data/chars/ax/a_rdrag.txt					# Riding Red Dragon.
+know	a_bdrag				data/chars/ax/a_bdrag.txt					# Riding Blue Dragon.
+know	ax_battler_motion	data/chars/ax/ax_motion.txt					# Motion blurs.
+load	ax					data/chars/ax/ax.txt						# Player.
 
 #Tyris Flare
 know    t_chick         data/chars/tyris/t_chick.txt

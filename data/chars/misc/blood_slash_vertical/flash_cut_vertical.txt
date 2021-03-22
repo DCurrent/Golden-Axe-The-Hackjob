@@ -1,0 +1,62 @@
+# Blunt medium with blood flash
+
+name	flash_cut_vertical
+type	none
+shadow	0
+alpha 2
+
+onspawnscript 	data/chars/misc/flash/scripts/event_spawn.c
+onkillscript  	data/scripts/common/event_kill.c
+animationscript	data/chars/misc/cvs_cut_flash_heavy/scripts/animation.c
+
+anim idle
+	flipframe 1
+
+	delay	1
+	offset	115 110
+		frame	data/chars/misc/blood_slash_vertical/idle_0.png
+		frame	data/chars/misc/blood_slash_vertical/idle_1.png
+		frame	data/chars/misc/blood_slash_vertical/idle_2.png
+		frame	data/chars/misc/blood_slash_vertical/idle_3.png
+		frame	data/chars/misc/blood_slash_vertical/idle_4.png
+		frame	data/chars/misc/blood_slash_vertical/idle_5.png
+		frame	data/chars/misc/blood_slash_vertical/idle_6.png
+		frame	data/chars/misc/blood_slash_vertical/idle_7.png
+		frame	data/chars/misc/blood_slash_vertical/idle_8.png
+		frame	data/chars/misc/blood_slash_vertical/idle_9.png
+		frame	data/chars/misc/blood_slash_vertical/idle_10.png
+		frame	data/chars/misc/blood_slash_vertical/idle_11.png
+		frame	data/chars/misc/blood_slash_vertical/idle_12.png
+		frame	data/chars/misc/blood_slash_vertical/idle_13.png
+		frame	data/chars/misc/blood_slash_vertical/idle_14.png
+		frame	data/chars/misc/blood_slash_vertical/idle_15.png
+		frame	data/chars/misc/blood_slash_vertical/idle_16.png
+		frame	data/chars/misc/blood_slash_vertical/idle_17.png
+		frame	data/chars/misc/blood_slash_vertical/idle_18.png
+		frame	data/chars/misc/blood_slash_vertical/idle_19.png
+		frame	data/chars/misc/blood_slash_vertical/idle_20.png
+		frame	data/chars/misc/blood_slash_vertical/idle_21.png
+		frame	data/chars/misc/blood_slash_vertical/idle_22.png
+		frame	data/chars/misc/blood_slash_vertical/idle_23.png
+		frame	data/chars/misc/blood_slash_vertical/idle_24.png
+		frame	data/chars/misc/blood_slash_vertical/idle_25.png
+		frame	data/chars/misc/blood_slash_vertical/idle_26.png
+		frame	data/chars/misc/blood_slash_vertical/idle_27.png
+		frame	data/chars/misc/blood_slash_vertical/idle_28.png
+		frame	data/chars/misc/blood_slash_vertical/idle_29.png
+		frame	data/chars/misc/blood_slash_vertical/idle_30.png
+		frame	data/chars/misc/blood_slash_vertical/idle_31.png
+		frame	data/chars/misc/blood_slash_vertical/idle_32.png
+		frame	data/chars/misc/blood_slash_vertical/idle_33.png
+		frame	data/chars/misc/blood_slash_vertical/idle_34.png
+		frame	data/chars/misc/blood_slash_vertical/idle_35.png
+		frame	data/chars/misc/blood_slash_vertical/idle_36.png
+		frame	data/chars/misc/blood_slash_vertical/idle_37.png
+		frame	data/chars/misc/blood_slash_vertical/idle_38.png
+		frame	data/chars/misc/blood_slash_vertical/idle_39.png
+		frame	data/chars/misc/blood_slash_vertical/idle_40.png
+		frame	data/chars/misc/blood_slash_vertical/idle_41.png
+		frame	data/chars/misc/blood_slash_vertical/idle_42.png
+		frame	data/chars/misc/blood_slash_vertical/idle_43.png
+		frame	data/chars/misc/blood_slash_vertical/idle_44.png
+		frame	data/chars/misc/blood_slash_vertical/idle_45.png

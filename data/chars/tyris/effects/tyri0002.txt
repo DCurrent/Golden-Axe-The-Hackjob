@@ -30,7 +30,7 @@ anim idle
 	
 	forcedirection -1
 	fastattack		1		
-	hitflash		cuth
+	hitflash		flash_cut_vertical_knockdown
 	followanim		1
 	followcond		1
 	#Too hard to do charge attacks, let's go ahead and let sword rip through multiple targets.
@@ -61,7 +61,7 @@ anim follow1
 	range			-10 10
 	forcedirection -1
 	fastattack		1		
-	hitflash		cuth
+	hitflash		flash_cut_vertical_knockdown
 	flipframe		0
 	loop	1 1
 	

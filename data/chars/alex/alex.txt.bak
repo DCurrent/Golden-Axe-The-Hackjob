@@ -441,7 +441,7 @@ anim attack5
 	jumpframe  1  2.2  0  0 jump_liftoff
 	dropframe  2
 	landframe  12 jump_land
-	hitflash   cuth
+	hitflash   flash_cut_vertical_knockdown
 
 	delay  	   20
 	offset     60  98
@@ -586,7 +586,7 @@ anim follow2
 	frame	data/chars/alex/0003.png
 
 anim jumpattack
-	hitflash  cuth
+	hitflash  flash_cut_vertical_knockdown
 
 	delay  	   20
 	offset     60  98
@@ -637,7 +637,7 @@ anim runjumpattack
 
 	flipframe  12
 	landframe  11 fall
-	hitflash   cuth
+	hitflash   flash_cut_vertical_knockdown
 
 	delay  	   20
 	offset     60  98
@@ -718,7 +718,7 @@ anim  runattack
 anim  attackboth
 	flipframe  2
 	jumpframe  3  0  1  0
-	hitflash  cuth
+	hitflash  flash_cut_vertical_knockdown
 		delay  10
 		offset  60  98
 		bbox  47  56  23  43
@@ -1666,7 +1666,7 @@ anim  bpain
 
 anim  special
 
-	Hitflash  	cuth
+	Hitflash  	flash_cut_vertical_knockdown
 	jumpframe  	1  2.2  0  0 jump_liftoff
 	dropframe  	2
 	landframe  	12 jump_land

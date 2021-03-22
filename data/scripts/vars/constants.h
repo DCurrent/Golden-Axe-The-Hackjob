@@ -602,7 +602,7 @@
 #define SND_HITH					211										//Hit, heavy.
 #define SND_CUTL					212										//Hit w/edged weapon, light.
 #define SND_CUTM					213										//Hit w/edged weapon, medium.
-#define SND_CUTH					214										//Hit w/edged weapon, heavy.
+#define SND_flash_cut_vertical_knockdown					214										//Hit w/edged weapon, heavy.
 #define SND_BLOIL					215										//Block Impact, light.
 #define SND_BLOIM					216										//Block Impact, medium.
 #define SND_BLOIH					217										//Block Impact, heavy.

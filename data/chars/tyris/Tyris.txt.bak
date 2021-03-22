@@ -241,7 +241,7 @@ anim	attack6
 	frame	data/chars/tyris/0001.png
 
 anim	attackbackward
-	hitflash	cuth
+	hitflash	flash_cut_vertical_knockdown
 	flipframe	21
 	range	-60 1
 	offset	60 98
@@ -487,7 +487,7 @@ anim	follow10
 	loop	1 7 19
 	jumpframe	6 1 3 0
 	landframe	20 jump_land
-	hitflash	cuth
+	hitflash	flash_cut_vertical_knockdown
 	offset	60 98
 	bbox	0
 	delay	3
@@ -1087,7 +1087,7 @@ anim	riseattack
 	dropframe	20
 	landframe	26 jump_land
 	jumpframe	3 3 1 0 jump_liftoff
-	hitflash	cuth
+	hitflash	flash_cut_vertical_knockdown
 	delay	8
 	offset	60 98
 	frame	data/chars/tyris/0119.png

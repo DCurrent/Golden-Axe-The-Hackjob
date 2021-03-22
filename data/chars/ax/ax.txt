@@ -318,7 +318,7 @@ anim attackdown
 anim attackbackward
 
 	# back attack
-	hitflash	cuth
+	hitflash	flash_cut_vertical_knockdown
     flipframe	20
 	range		-70	-1
 	cancel		18 19 0 a freespecial12	#Second strike
@@ -361,7 +361,7 @@ anim attackbackward
 		frame	data/chars/ax/idle.png
 
 anim  chargeattack
-	hitflash  cuth
+	hitflash  flash_cut_vertical_knockdown
 
 	#Spin attack (Kain Grinder; Golden Axe 3 Genesis)
 
@@ -721,7 +721,7 @@ anim  freespecial
 
 	cancel 23 23 0 a freespecial12	#Second strike
 
-	hitflash	cuth
+	hitflash	flash_cut_vertical_knockdown
 	range		0  80
 	jumpframe	2  2  0.5  0 jump_liftoff
 	landframe	7 jump_land
@@ -1384,7 +1384,7 @@ anim  freespecial16
 		frame  data/chars/ax/0173.png	#23
 		frame  data/chars/ax/0174.png	#24
 	delay	8
-	@cmd    bind0023 0  "cuth" "cuth" 0 2 20 8  1 0 0 0 1							#Flash
+	@cmd    bind0023 0  "flash_cut_vertical_knockdown" "flash_cut_vertical_knockdown" 0 2 20 8  1 0 0 0 1							#Flash
 	@cmd	dama0004 0 0 8 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0								#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -1 1 0 0
 		frame  data/chars/ax/0175.png	#25
@@ -1966,7 +1966,7 @@ anim jumpattack
 	attack.block.penetrate 0
 	attack.damage.force 12
 	attack.damage.type 10
-	attack.effect.hit.flash.disable 0
+	attack.effect.hit.flash.model flash_cut_vertical_knockdown
 	attack.position.x 74
 	attack.position.y 27
 	attack.reaction.fall.force 1

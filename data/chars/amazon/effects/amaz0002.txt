@@ -25,7 +25,7 @@ anim idle
 
 	forcedirection -1
 	fastattack		1		#So multiple axes can hit in series
-	hitflash		cuth
+	hitflash		flash_cut_vertical_knockdown
 
 	loop	1
 	offset	21 22

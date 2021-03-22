@@ -276,7 +276,7 @@ anim attack1
 
 anim attack2
 
-    	hitflash cuth
+    	hitflash flash_cut_vertical_knockdown
 
     	range 	10 80
 

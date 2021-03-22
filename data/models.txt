@@ -26,10 +26,11 @@ load	bluh		data/chars/misc/effects/models/flash/bluh/bluh.txt				#Blunt hit, hea
 load	blul		data/chars/misc/effects/models/flash/blul/blul.txt				#Blunt hit, light.				~Knock head.
 	load	flash_blunt_cut		data/chars/misc/blood_splat/flash_blunt_cut.txt
 load	bonem		data/chars/misc/effects/models/flash/bonem/bonem.txt			#Bone crush, medium.
-load	cuth		data/chars/misc/effects/models/flash/cuth/cuth.txt				#Cut, heavy.					~Knockdown by cut.
-load	flash		data/chars/misc/effects/models/flash/flash/flash.txt			#Default hit flash.				~Normal cut.
+load	flash_cut_vertical_knockdown		data/chars/misc/blood_slash_vertical/flash_cut_vertical_knockdown.txt				#	~Knockdown by cut.
+# load	flash		data/chars/misc/effects/models/flash/flash/flash.txt			#Default hit flash.				~Normal cut.
 load	hith		data/chars/misc/effects/models/flash/hith/hith.txt				#Bare hand, heavy.				~Run attack w/body.
 	load	flash_impact_cut		data/chars/misc/blood_splat/flash_impact_cut.txt
+	load	flash_cut_vertical		data/chars/misc/blood_slash_vertical/flash_cut_vertical.txt
 load	hitm		data/chars/misc/effects/models/flash/hitm/hitm.txt				#Bare hand, medium.				~Knockdown by hit.
 load	idirh		data/chars/misc/effects/models/flash/idirh/idirh.txt			#Indirect hit, heavy.
 load	idirm		data/chars/misc/effects/models/flash/idirm/idirm.txt			#Indirect hit.					~Thrown into ally.

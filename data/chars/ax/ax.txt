@@ -472,12 +472,12 @@ anim attack1
 
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT	
 		frame	data/chars/ax/atk_swing_1.png
-	@cmd dc_elmers_quick_particle dc_gauntlet_quick_spawn("ax_battler_motion") 
+	@cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn("ax_battler_motion") DC_ELMERS_SORT_FRONT
 	delay	6
 	attack.block.penetrate 0
 	attack.damage.force 4
 	attack.damage.type 10
-	attack.effect.hit.flash.model flash_blunt_cut
+	attack.effect.hit.flash.model flash_cut_vertical
 	attack.position.x 58
 	attack.position.y 40
 	attack.reaction.fall.force 0
@@ -488,8 +488,7 @@ anim attack1
 		frame	data/chars/ax/atk_swing_2.png
 	attack1	0
 		frame	data/chars/ax/atk_swing_3.png
-	delay	4
-		frame	data/chars/ax/atk_swing_3.png
+		frame	data/chars/ax/atk_swing_4.png
 	delay 6
 		frame	data/chars/ax/atk_swing_1.png
 	delay	16
@@ -816,12 +815,12 @@ anim freespecial5
 		frame	data/chars/ax/atk_swing_3.png
     attack1	0
     delay	3
-		frame	data/chars/ax/atk_swing_4.png
-		frame	data/chars/ax/a7a.png
-		frame	data/chars/ax/a7a.png
-		frame	data/chars/ax/a7a.png
+		frame	data/chars/ax/atk_swing_5.png
+		frame	data/chars/ax/atk_swing_6.png
+		frame	data/chars/ax/atk_swing_6.png
+		frame	data/chars/ax/atk_swing_6.png
 	delay	20
-		frame	data/chars/ax/a7a.png
+		frame	data/chars/ax/atk_swing_6.png
 	delay	6
 		frame	data/chars/ax/atk_swing_3.png
 		frame	data/chars/ax/atk_swing_1.png
@@ -1447,24 +1446,44 @@ anim follow3
 	loop	0
 	offset	60 98
 	bbox	50 42 26 56
-	delay	4
-	attack10	58 59 43 11 4
-	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
-		frame	data/chars/ax/atk_swing_3.png
-	attack1	0 0 0 0 0
-	delay	2
-		frame	data/chars/ax/atk_swing_4.png
-		frame	data/chars/ax/atk_swing_4.png
-		frame	data/chars/ax/atk_swing_4.png
-		frame	data/chars/ax/a7a.png
-		frame	data/chars/ax/a7a.png
-		frame	data/chars/ax/a7a.png
-		frame	data/chars/ax/a7a.png
-		frame	data/chars/ax/a7a.png
-		frame	data/chars/ax/a7a.png
-		frame	data/chars/ax/a7a.png
-	delay   10
-		frame	data/chars/ax/a7a.png
+	delay	6
+	attack.block.penetrate 0
+	attack.damage.force 4
+	attack.damage.type 10
+	attack.effect.hit.flash.model flash_cut_vertical
+	attack.position.x 58
+	attack.position.y 40
+	attack.reaction.fall.force 0
+	attack.reaction.pause.time 0
+	attack.size.x 44
+	attack.size.y 29
+	attack.size.z.1 0
+	
+	
+	frame	data/chars/ax/atk_swing_2.png
+	
+	attack 0
+	
+	frame	data/chars/ax/atk_swing_3.png
+	
+	#attack1	0 0 0 0 0
+	
+	delay	6
+	
+	frame	data/chars/ax/atk_swing_5.png
+	
+	delay 10
+	
+	frame	data/chars/ax/atk_swing_6.png
+	
+	idle 1
+	frame	data/chars/ax/atk_swing_6.png
+	
+	delay 5
+	
+	frame	data/chars/ax/atk_swing_3.png
+	frame	data/chars/ax/atk_swing_1.png	
+	frame	data/chars/ax/atk_swing_0.png
 
 anim follow4
 
@@ -2238,9 +2257,9 @@ anim grabattack
 		frame  data/chars/ax/0150.png
 		frame  data/chars/ax/a9.png
 	delay  8
-		frame  data/chars/ax/atk_swing_4.png
+		frame  data/chars/ax/atk_swing_5.png
 	delay  20
-		frame  data/chars/ax/a7a.png
+		frame  data/chars/ax/atk_swing_6.png
 	delay  8
 		frame  data/chars/ax/a9.png
 		frame  data/chars/ax/atk_swing_2.png

@@ -35,9 +35,10 @@ aggression			-50
 #grabforce			10
 
 load 				ax0001								#Motion blurs.
-load 				a_chick								#Chicken Leg.
-load 				a_rdrag								#Red dragon.
-load 				a_bdrag								#Blue dragon.
+load 				ax_battler_motion					# Motion blurs.
+load 				a_chick								# Chicken Leg.
+load 				a_rdrag								# Red dragon.
+load 				a_bdrag								# Blue dragon.
 
 modelflag			1
 weapons 			a_chick a_rdrag a_bdrag
@@ -1936,13 +1937,14 @@ anim jumpattack
 			
 	frame	data/chars/ax/jump_0.png
 	
-	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
+	#cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
+	@cmd dc_elmers_quick_particle dc_gauntlet_quick_spawn("ax_battler_motion") 
 	
 	bbox.position.x 55
 	bbox.position.y 40
 	bbox.size.x 15
 	bbox.size.y 55
-		
+	
 	frame	data/chars/ax/jump_1.png
 	
 	delay	6

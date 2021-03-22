@@ -1,0 +1,25 @@
+name	     ax_battler_motion	
+type	     none
+health	     100
+#speed	     10		
+alpha	     1
+
+palette	 	data/chars/ax/palette_default_motion.act
+
+anim idle
+
+	delay	-1000
+	offset	60 98
+
+	frame	data/chars/misc/blank.png
+
+anim jumpattack
+
+	delay	-1000
+	offset	60 98
+			
+	frame	data/chars/misc/blank.png	
+	frame	data/chars/ax/jump_1_motion.png	
+	frame	data/chars/ax/atk_jump_slash_0_motion.png	
+	frame	data/chars/misc/blank.png
+		

@@ -386,7 +386,15 @@ void dc_hud_draw_player_hp_meter(int player_index, void target, float sine_value
         */
         block_position_x += block_position_left;
 
+        color_overlay_rgb_color = dc_hud_life_color(block_fraction, sine_value);
+
+        changedrawmethod(NULL(), "enabled", 1);
+        changedrawmethod(NULL(), "tintmode", 1);
+        changedrawmethod(NULL(), "tintcolor", color_overlay_rgb_color);
+
         drawsprite(sprite_index, block_position_x, block_position_y, DC_HUD_PLAYER_HP_METER_POS_Z);
+
+        changedrawmethod(NULL(), "reset", 1);
 
         /* 
         * Now we draw a box over the block sprite, but
@@ -395,7 +403,7 @@ void dc_hud_draw_player_hp_meter(int player_index, void target, float sine_value
         * using a combination of HP status and a sine wave 
         * generator (see above). IOW, the sprite is really 
         * just there to give the meter some texture.
-        */
+        
         color_overlay_size_x = block_size_x - DC_HUD_PLAYER_HP_METER_BLOCK_BORDER * 2;
         color_overlay_size_y = block_size_y - DC_HUD_PLAYER_HP_METER_BLOCK_BORDER * 2;
         color_overlay_pos_x = block_position_x + DC_HUD_PLAYER_HP_METER_BLOCK_BORDER;
@@ -404,6 +412,7 @@ void dc_hud_draw_player_hp_meter(int player_index, void target, float sine_value
         color_overlay_rgb_color = dc_hud_life_color(block_fraction, sine_value);
 
         drawbox(color_overlay_pos_x, color_overlay_pos_y, color_overlay_size_x, color_overlay_size_y, color_overlay_pos_z, color_overlay_rgb_color, DC_HUD_PLAYER_HP_METER_OVERLAY_ALPHA_MODE);
+        */
     }
 }
 

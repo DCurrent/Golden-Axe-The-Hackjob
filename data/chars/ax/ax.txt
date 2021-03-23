@@ -1964,7 +1964,7 @@ anim jumpattack
 	delay	6
 	
 	attack.block.penetrate 0
-	attack.damage.force 12
+	attack.damage.force 8
 	attack.damage.type 10
 	attack.effect.hit.flash.model flash_cut_vertical_knockdown
 	attack.position.x 74

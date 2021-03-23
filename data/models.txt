@@ -54,6 +54,7 @@ load flash_stab_knockdown			data/chars/misc/blood_splat/flash_stab_knockdown.txt
 # Slam/Dust effects.
 
 load dust_heavy		data/chars/misc/dust/dust_heavy.txt
+load dust_heavy		data/chars/misc/dust/dust_light.txt
 load fall_land		data/chars/misc/cvs_land_dust/fall_land.txt
 load hop_liftoff	data/chars/misc/cvs_jump_dust/hop_liftoff.txt
 load jump_land		data/chars/misc/cvs_land_dust/jump_land.txt

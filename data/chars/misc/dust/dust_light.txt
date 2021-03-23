@@ -4,7 +4,7 @@ name	dust_light
 type	none
 lifespan 2
 shadow	0
-mp 32
+mp 100
 
 onspawnscript 	data/scripts/common/event_spawn_dust.c
 onkillscript	data/scripts/common/event_kill.c

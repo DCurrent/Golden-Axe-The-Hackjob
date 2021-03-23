@@ -17,7 +17,7 @@ void oncreate()
 	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, DC_FIDELITY_TYPE_SOUND_ATTACK_HEAVY, "data/sounds/custom/rb-whiff-heavy-1.wav");
 	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, DC_FIDELITY_TYPE_SOUND_ATTACK_HEAVY_BLADE, "data/sounds/custom/samurai_shodown_whiff_heavy_0.wav");	
 	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, "golden_axe_special", "data/sounds/custom/golden_axe_special.wav");
-	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, "golden_axe_heavy", "data/sounds/custom/golden_axe_special.wav");
+	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, "golden_axe_heavy", "data/sounds/custom/golden_axe_whiff_heavy.wav");
 
 	// Global voices.
 	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, DC_FIDELITY_TYPE_VOICE_KO, "data/sounds/custom/avp_soldier_ko_0.wav");

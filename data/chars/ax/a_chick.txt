@@ -16,6 +16,7 @@ grabfinish 			1
 bflash				bflash
 fmap				9
 height				55
+holdblock           2
 
 animationscript 	data/chars/ax/scripts/ani.c
 didblockscript		data/scripts/z_block.c				#Block incoming attack.
@@ -257,8 +258,12 @@ anim  chargeattack
 	@cmd	dc_fidelity_set_member_model_name "Chickenlegs"
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
-	
+	@cmd	dc_fidelity_quick_play "golden_axe_special"
+
 	frame	data/chars/ax/chicken/atk_whip_0.png
+
+	
+
 	frame	data/chars/ax/chicken/atk_whip_1.png
 	
 	frame	data/chars/ax/chicken/atk_slam_0.png
@@ -356,8 +361,7 @@ anim attack1
 	attack.size.y 18
 	attack.size.z.1 0
 	
-    frame	data/chars/ax/chicken/atk_whip_0.png
-	
+    frame	data/chars/ax/chicken/atk_whip_0.png	
 	
 	bbox.position.x 60
 	bbox.position.y 79
@@ -375,6 +379,9 @@ anim attack1
 	attack.size.y 24
 	attack.size.z.1 0
 	
+	@cmd dc_elmers_quick_spot dc_gauntlet_quick_spawn("dust_light") DC_ELMERS_SORT_FRONT
+	
+	@cmd	dc_fidelity_quick_play "golden_axe_heavy"
 	
 	frame	data/chars/ax/chicken/atk_whip_1.png
 	
@@ -385,11 +392,11 @@ anim attack1
 	attack.damage.type 1
 	attack.effect.hit.flash.model flash_hit_knockdown
 	attack.position.x 85
-	attack.position.y 123
+	attack.position.y 118
 	attack.reaction.fall.force 5
 	attack.reaction.pause.time 0
 	attack.size.x 38
-	attack.size.y 22
+	attack.size.y 25
 	attack.size.z.1 0
 
 	frame	data/chars/ax/chicken/atk_whip_2.png
@@ -399,11 +406,11 @@ anim attack1
 	attack.damage.type 1
 	attack.effect.hit.flash.model flash_hit_knockdown
 	attack.position.x 87
-	attack.position.y 124
+	attack.position.y 118
 	attack.reaction.fall.force 5
 	attack.reaction.pause.time 0
 	attack.size.x 66
-	attack.size.y 19
+	attack.size.y 25
 	attack.size.z.1 0
 		
 	frame	data/chars/ax/chicken/atk_whip_3.png
@@ -705,7 +712,56 @@ anim jumpattack
 	frame	data/chars/ax/chicken/atk_jump_slash_1.png
 
 
+anim blockstart
+
+	delay	10
+	offset	78 142
+    	bbox    66 80 34 64
+		frame	data/chars/ax/chicken/block_0.png
+	
+		
 anim block
+
+
+
+	delay	20
+	offset	78 142
+	bbox.position.x 66
+	bbox.position.y 80
+	bbox.size.x 34
+	bbox.size.y 64
+	delay	20
+		frame	data/chars/ax/chicken/block_1.png	
+		
+anim blockpain
+
+	delay	3
+	offset	79 142
+	
+	bbox.position.x 65
+	bbox.position.y 80
+	bbox.size.x 34
+	bbox.size.y 64
+	
+	frame	data/chars/ax/chicken/block_1.png
+
+	offset	78 142
+	
+	frame	data/chars/ax/chicken/block_1.png	
+	
+	offset	79 142
+	
+	frame	data/chars/ax/chicken/block_1.png	
+	
+	offset	78 142
+	
+	frame	data/chars/ax/chicken/block_1.png
+	
+	offset	79 142
+	
+	frame	data/chars/ax/chicken/block_1.png
+		
+anim blockrelease
 
 	#Normal block isn't working here. Using counter as a quick fix.
 
@@ -716,8 +772,3 @@ anim block
 	offset	78 142
     	bbox    66 80 34 64
 		frame	data/chars/ax/chicken/block_0.png
-	delay	20
-		frame	data/chars/ax/chicken/block_1.png
-	delay	10
-		frame	data/chars/ax/chicken/block_0.png
-

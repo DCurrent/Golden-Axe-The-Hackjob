@@ -1,23 +1,25 @@
-# Jump land effect
+# Slam down effect
 
-name	jump_land
+name	slam_heavy
 type	none
 shadow	0
-mp 64
+alpha	1
+mp 192
 
 onspawnscript 	data/scripts/common/event_spawn_dust.c
 onkillscript	data/scripts/common/event_kill.c
-
+animationscript	data/chars/misc/cvs_land_dust/scripts/event_animation.c
 palette		data/chars/misc/cvs_land_dust/idle_0.png
 
 anim idle
 
 	#Normal dust.
 
-	delay	2
+	delay	3
 	offset	85 105
 		
 		frame	data/chars/misc/cvs_land_dust/idle_0.png
+		@cmd dc_elmers_quick_spot dc_gauntlet_quick_spawn("dust_heavy") 2
 		frame	data/chars/misc/cvs_land_dust/idle_1.png
 		frame	data/chars/misc/cvs_land_dust/idle_2.png
 		frame	data/chars/misc/cvs_land_dust/idle_3.png

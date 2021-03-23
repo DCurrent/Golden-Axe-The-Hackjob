@@ -244,8 +244,8 @@ anim attackdown
 
 anim  chargeattack
 
-	flipframe 4
-	chargetime	3
+	flipframe 9
+	chargetime	2
 	range  		0 70
 
 	delay	8
@@ -263,13 +263,13 @@ anim  chargeattack
 	
 	frame	data/chars/ax/chicken/atk_slam_0.png
 	
-	attack.effect.hit.flash.model flash_hit_knockdown
-	attack.reaction.fall.force 5
-	attack.reaction.fall.velocity.x 2
-	attack.reaction.fall.velocity.y 5
 	attack.damage.force 24
+	attack.effect.hit.flash.model flash_hit_knockdown
 	attack.position.x 84
 	attack.position.y 36
+	attack.reaction.fall.force 5
+	attack.reaction.fall.velocity.x 1.0
+	attack.reaction.fall.velocity.y 5
 	attack.size.x 46
 	attack.size.y 77
 	
@@ -284,19 +284,31 @@ anim  chargeattack
 	
 	delay 6
 	
-	attack.effect.hit.flash.model flash_hit_knockdown
-	attack.reaction.fall.force 5
-	attack.reaction.fall.velocity.x 1
-	attack.reaction.fall.velocity.y -5
-	attack.damage.force 24
-	attack.position.x 84
-	attack.position.y 36
-	attack.size.x 46
-	attack.size.y 77
+	
 	
 	frame	data/chars/ax/chicken/atk_slam_4.png
 	
-	delay 20
+	attack.damage.force 24
+	attack.effect.hit.flash.model flash_hit_knockdown
+	attack.position.x 94
+	attack.position.y 98
+	attack.reaction.fall.force 5
+	attack.reaction.fall.velocity.x 1.0
+	attack.reaction.fall.velocity.y -5.0
+	attack.size.x 58
+	attack.size.y 47
+	
+	delay 2
+	
+	#slam_heavy
+	@cmd dc_elmers_set_member_offset_x 40
+	@cmd dc_elmers_quick_spot dc_gauntlet_quick_spawn("slam_heavy") DC_ELMERS_SORT_BACK
+	
+	frame	data/chars/ax/chicken/atk_slam_5.png
+	
+	delay 18
+	
+	attack 0
 	
 	frame	data/chars/ax/chicken/atk_slam_5.png
 	
@@ -309,7 +321,7 @@ anim  chargeattack
 	bbox.size.x 25
 	bbox.size.y 59
 	
-		frame	data/chars/ax/chicken/idle_0.png
+	frame	data/chars/ax/chicken/idle_0.png
 
 anim Upper
 

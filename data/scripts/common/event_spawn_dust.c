@@ -14,10 +14,14 @@ void main() {
 	pos_z = get_entity_property(ent, "position_z");
 
 	/* 
-	* Entity dies when animation is 
-	* complete. Should already be set,
-	* but let's make sure here.
+	* Entity dies when animation is complete. Should already be 
+	* set, but let's make sure here.
+	* 
+	* Note - The engine loves to overwrite this flag. It's usually 
+	* a good idea to set it again in the last script that touches 
+	* entity.
 	*/ 
+	
 	set_entity_property(ent, "autokill", openborconstant("AUTOKILL_ANIMATION_COMPLETE"));
 	
 	/*
@@ -25,13 +29,13 @@ void main() {
 	*/
 	spawn_type = get_entity_property(ent, "spawn_type");
 
-	/*
-	* Jump and land dusts use MP as a scale control. If the MP 
-	* is not set at all, default to half size.
+	/* 
+	* Dust effects use the MP value as a scale control. If 
+	* the MP is not set at all, default to half size.
 	*/
 
-	if (spawn_type == openborconstant("SPAWN_TYPE_DUST_LAND") || spawn_type == openborconstant("SPAWN_TYPE_DUST_JUMP") || spawn_type == openborconstant("SPAWN_TYPE_DUST_FALL"))
-	{
+	//if (spawn_type == openborconstant("SPAWN_TYPE_DUST_LAND") || spawn_type == openborconstant("SPAWN_TYPE_DUST_JUMP") || spawn_type == openborconstant("SPAWN_TYPE_DUST_FALL") || getentityvar(ent, "dc_mp_autosize") == 1)
+	//{
 		mp = getentityproperty(ent, "maxmp");
 
 		if (mp <= 0)
@@ -42,12 +46,12 @@ void main() {
 		drawmethod = get_entity_property(ent, "drawmethod");
 
 		set_drawmethod_property(drawmethod, "enable", 1);
-		set_drawmethod_property(drawmethod, "alpha", openborconstant("BLEND_MODE_ALPHA"));		
+		set_drawmethod_property(drawmethod, "alpha", openborconstant("BLEND_MODE_ALPHA"));
 		set_drawmethod_property(drawmethod, "scale_x", mp);
 		set_drawmethod_property(drawmethod, "scale_y", mp);
 
 		//dc_kanga_z_position_autoscale(ent);
-	}
+	//}
 
 	/* 
 	* By default OpenBOR spawns dust effects in front of
@@ -63,4 +67,5 @@ void main() {
 
 	/* Play the spawm sound. */
 	dc_fidelity_quick_play(DC_FIDELITY_TYPE_SOUND_SPAWN);
+	
 }

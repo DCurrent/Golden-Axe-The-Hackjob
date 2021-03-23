@@ -181,32 +181,31 @@ void dc_elmers_quick_overlay(void ent, int layer_adjustment)
 	return bind;
 }
 
-// Caskey, Damon V.
-// 2019-07-23
-//
-// Move to self location (with offset), but no binding.
-//
-// - Smoke bombs.
-// - Staionary overlays.
-void dc_elmers_quick_spot(void ent)
+
+/* Caskey, Damon V.
+* 2019-07-23
+*
+* Move to self location (with offset), but no binding. 
+*
+* - Smoke bombs.
+* - Staionary overlays.
+*/
+void dc_elmers_quick_spot(void ent, int layer_adjustment)
 {
 	void target = NULL();
 	void bind = NULL();
 	int sort_id = 0;
 
-	// Seems redeundant, but gets default if ent is blank.
+	/* Seems redeundant, but gets default if ent is blank. */
 	dc_elmers_set_member_entity(ent);
 	ent = dc_elmers_get_member_entity(ent);
 
 	set_entity_property(ent, "autokill", 1);
 
 	target = dc_elmers_get_member_target();
+		
 
-	// Default to sort 1 in front of target.
-	// sort_id = get_entity_property(target, "sort_id");
-	// sort_id += 1;
-
-	sort_id = dc_elmers_find_front_sort() + 1;
+	sort_id = dc_elmers_find_front_sort() + layer_adjustment;
 	set_entity_property(ent, "sort_id", sort_id);
 
 	dc_elmers_apply_position();

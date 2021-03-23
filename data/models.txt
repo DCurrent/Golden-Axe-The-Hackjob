@@ -29,33 +29,37 @@ load	bflash		data/chars/misc/effects/models/flash/bflash/bflash.txt			#Block fla
 # load	hith		data/chars/misc/effects/models/flash/hith/hith.txt				#Bare hand, heavy.				~Run attack w/body.
 # load	idirh		data/chars/misc/effects/models/flash/idirh/idirh.txt			#Indirect hit, heavy.
 # load	idirm		data/chars/misc/effects/models/flash/idirm/idirm.txt			#Indirect hit.					~Thrown into ally.
-load	fallh		data/chars/misc/effects/models/flash/fallh/fallh.txt			#Fall dust, heavy.				~Big body fall.
-load	fallmm		data/chars/misc/effects/models/flash/fallmm/fallmm.txt			#Fall dust, medium, metalic.	~Armored body fall.
-load	impm		data/chars/misc/effects/models/flash/impm/impm.txt				#Slam impact, medium.
-load	jumpmw		data/chars/misc/effects/models/flash/jumpmw/jumpmw.txt			#Jump liftoff, medium, from wall.
-load	landh		data/chars/misc/effects/models/flash/landh/landh.txt			#Jump land, heavy.
+# load	fallh		data/chars/misc/effects/models/flash/fallh/fallh.txt			#Fall dust, heavy.				~Big body fall.
+# load	fallmm		data/chars/misc/effects/models/flash/fallmm/fallmm.txt			#Fall dust, medium, metalic.	~Armored body fall.
+
+# load	jumpmw		data/chars/misc/effects/models/flash/jumpmw/jumpmw.txt			#Jump liftoff, medium, from wall.
+# load	landh		data/chars/misc/effects/models/flash/landh/landh.txt			#Jump land, heavy.
 # load	skel		data/chars/misc/effects/models/flash/skel/skel.txt				#Skeletal hit, light.			~Skeleton warrior taking hit.
 load	wallm		data/chars/misc/effects/models/flash/wallm/wallm.txt			#Wall impact, medium.			~Slammed into wall.
-load	whifgh		data/chars/misc/effects/models/flash/whifgh/whifgh.txt			#Action dust, heavy.			~All out attack shuffle.
-load	whifgm		data/chars/misc/effects/models/flash/whifgm/whifgm.txt			#Action dust, medium.			~Animal attack, large weapon swing.	
+# load	whifgh		data/chars/misc/effects/models/flash/whifgh/whifgh.txt			#Action dust, heavy.			~All out attack shuffle.
+# load	whifgm		data/chars/misc/effects/models/flash/whifgm/whifgm.txt			#Action dust, medium.			~Animal attack, large weapon swing.	
 
+# Flash/hit effects
 
-load	flash_bite						data/chars/misc/blood_splat/flash_bite.txt								# Bite chomp.
-load	flash_hit_knockdown				data/chars/misc/cvs_hit_flash/flash_hit_knockdown.txt					# Bare hand or appendage, knockdown.							
-load	flash_blunt_cut					data/chars/misc/blood_splat/flash_blunt_cut.txt							# Blunt weapon (mace/club).
-load	flash_blunt_cut_knockdown		data/chars/misc/blood_splat/flash_blunt_cut_knockdown.txt				# Blunt weapon (mace/club), knockdown.
-load	flash_cut_vertical				data/chars/misc/blood_slash_vertical/flash_cut_vertical.txt				# 
-load	flash_cut_vertical_knockdown	data/chars/misc/blood_slash_vertical/flash_cut_vertical_knockdown.txt	# Bladed weapon (sword/axe), knockdown.
-#load	flash_blunt						data/chars/misc/blood_splat/flash_impact_cut.txt						# Large blunt weapon (maul/giant club).
-load	flash_impact_cut				data/chars/misc/blood_splat/flash_impact_cut.txt						# Ram impact with sharp edge (Chicken Leg claws or dragon horns).
-load	flash_stab_knockdown			data/chars/misc/blood_splat/flash_stab_knockdown.txt					# Stab or small bladed weapon hit (dagger/kunai), knockdown.
+load flash_bite						data/chars/misc/blood_splat/flash_bite.txt								# Bite chomp.
+#load flash_blunt					data/chars/misc/blood_splat/flash_impact_cut.txt						# Large blunt weapon (maul/giant club).
+load flash_blunt_cut				data/chars/misc/blood_splat/flash_blunt_cut.txt							# Blunt weapon (mace/club).
+load flash_blunt_cut_knockdown		data/chars/misc/blood_splat/flash_blunt_cut_knockdown.txt				# Blunt weapon (mace/club), knockdown.
+load flash_cut_vertical				data/chars/misc/blood_slash_vertical/flash_cut_vertical.txt				# 
+load flash_cut_vertical_knockdown	data/chars/misc/blood_slash_vertical/flash_cut_vertical_knockdown.txt	# Bladed weapon (sword/axe), knockdown.
+load flash_hit_knockdown			data/chars/misc/cvs_hit_flash/flash_hit_knockdown.txt					# Bare hand or appendage, knockdown.							
+load flash_impact_cut				data/chars/misc/blood_splat/flash_impact_cut.txt						# Ram impact with sharp edge (Chicken Leg claws or dragon horns).
+load flash_stab_knockdown			data/chars/misc/blood_splat/flash_stab_knockdown.txt					# Stab or small bladed weapon hit (dagger/kunai), knockdown.
 
+# Slam/Dust effects.
 
-# 2021-02-28 - Import from Cpatain Commando
-load fall_land			data/chars/misc/cvs_land_dust/fall_land.txt
-load hop_liftoff		data/chars/misc/cvs_jump_dust/hop_liftoff.txt
-load jump_land			data/chars/misc/cvs_land_dust/jump_land.txt
-load jump_liftoff		data/chars/misc/cvs_jump_dust/jump_liftoff.txt
+load dust_heavy		data/chars/misc/dust/dust_heavy.txt
+load fall_land		data/chars/misc/cvs_land_dust/fall_land.txt
+load hop_liftoff	data/chars/misc/cvs_jump_dust/hop_liftoff.txt
+load jump_land		data/chars/misc/cvs_land_dust/jump_land.txt
+load jump_liftoff	data/chars/misc/cvs_jump_dust/jump_liftoff.txt
+load slam_heavy		data/chars/misc/cvs_land_dust/slam_heavy.txt		# Slam impact, heavy creature dive.
+
 
 load	effe0001	data/chars/misc/effects/effe0001.txt	#General effects/projectiles.
 load	effe0002	data/chars/misc/effects/effe0002.txt	#Char select burn.

@@ -308,7 +308,7 @@ anim grabattack2
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -50 170 -1 DIR_ADJ_OPP AC_DEFPOSE G_FALUPT 0
 		frame	data/chars/alex/chicken/0006
 	delay	12
-	@cmd	bind0008 "impm" "impm" 0 1 -30 0 0 0 0 0 1				#Dust
+	@cmd	bind0008 "slam_heavy" "slam_heavy" 0 1 -30 0 0 0 0 0 1				#Dust
 	@cmd	dama0004 0 0 7 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0		#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -50 170 -1 DIR_ADJ_OPP AC_DEFPOSE G_DWNUPP 0
 		frame	data/chars/alex/chicken/0006
@@ -322,7 +322,7 @@ anim grabattack2
 		frame	data/chars/alex/chicken/0003
 	delay 	30
 	@cmd	bind0018 0 0 0 0 0 0								#Wall failsafe.
-	@cmd	bind0008 "impm" "impm" 0 1 30 0 0 0 0 0 1					#Dust.
+	@cmd	bind0008 "slam_heavy" "slam_heavy" 0 1 30 0 0 0 0 0 1					#Dust.
 	@cmd	dama0004 0 0 7 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0		#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 50 165 -1 DIR_ADJ_SAME AC_DEFPOSE G_DWNUPP 0
 		frame	data/chars/alex/chicken/0003
@@ -345,7 +345,7 @@ anim grabbackward
     	Loop 		1 7 13
     	flipframe	6
     	jumpframe 	2 4 -1 0 jump_liftoff
-    	landframe   	13 impm
+    	landframe   	13 slam_heavy
 
     	delay	10
     	offset	82 142
@@ -392,7 +392,7 @@ anim grabbackward
 		frame	data/chars/alex/chicken/0002
 	delay	30
 	@cmd	bind0018 0 0 0 0 0 0								#Wall failsafe.
-	@cmd	bind0008 "impm" "mute" 0 1 30 0 0 0 0 0 1					#Dust.
+	@cmd	bind0008 "slam_heavy" "mute" 0 1 30 0 0 0 0 0 1					#Dust.
 	@cmd	dama0004 0 0 18 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0		#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 40 138 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDNP 0
 		frame	data/chars/alex/chicken/0003

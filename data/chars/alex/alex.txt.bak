@@ -837,7 +837,7 @@ anim  grabforward
 		frame  data/chars/alex/0065.png
 	delay  4
 	@cmd	soun0005 ENT_SELF VOI_BTL -1 1 0 0
-	@cmd	bind0008 "impm" "mute" 0 1 -50 0 1 0 0 0 1					#Dust.
+	@cmd	bind0008 "slam_heavy" "mute" 0 1 -50 0 1 0 0 0 1					#Dust.
 	@cmd	dama0004 0 0 12 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 0 0		#Apply damage, falling properties and final animation values.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -65 165 1 DIR_ADJ_OPP AC_DEFPOSE G_DWNUPP 0
 		frame  data/chars/alex/0066.png
@@ -889,7 +889,7 @@ anim  grabbackward
 	move  0
 	delay  4
 	@cmd	bind0018 0 0 0 0 0 0								#Wall failsafe.
-	@cmd	bind0008 "impm" "impm" 0 1 40 0 1 0 0 0 1					#Dust.
+	@cmd	bind0008 "slam_heavy" "slam_heavy" 0 1 40 0 1 0 0 0 1					#Dust.
 	@cmd	dama0004 0 0 12 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0		#Apply damage.
 	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  45  165  -1  1  AC_DEFPOSE G_DWNUPP  0
 		frame  data/chars/alex/0068.png
@@ -1302,7 +1302,7 @@ anim	follow8
 		frame  data/chars/alex/0083.png
 	delay   40
 	@cmd	bind0018 0 0 0 0 0 0								#Wall failsafe.
-	@cmd	bind0008 "impm" "impm" 0 1 20 0 1 0 0 0 1					#Dust.
+	@cmd	bind0008 "slam_heavy" "slam_heavy" 0 1 20 0 1 0 0 0 1					#Dust.
 	@cmd	dama0004 0 0 12 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0		#Apply damage.
 	@cmd    bind0010 FLAG_MODE_0 ENT_SELF  0  10  138  1  DIR_ADJ_OPP AC_DEFPOSE G_VERDNP  0
 		frame  data/chars/alex/0084.png

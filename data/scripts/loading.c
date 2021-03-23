@@ -47,7 +47,7 @@ void oncreate()
 	dc_fidelity_setup("fall_land", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_fall_land_light.wav");
 
 	/* Heavy slam Land. */
-	dc_fidelity_setup("flash_slam_heavy", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/unknown_slam.wav");
+	dc_fidelity_setup("slam_heavy", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/unknown_slam.wav");
 
 	// Block flash.
 	dc_fidelity_setup("block", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/cvs_block.wav");

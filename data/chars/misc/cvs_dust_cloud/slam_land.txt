@@ -1,6 +1,6 @@
 #Slam impact, medium.
 
-name			impm
+name			slam_heavy
 type			none
 shadow			0
 antigravity		100

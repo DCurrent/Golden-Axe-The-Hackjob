@@ -1,4 +1,5 @@
-/* Grapple functions serve as more or less a shortcut 
+/* 
+* Grapple functions serve as more or less a shortcut 
 * wrapper for the dc_elmers library, centered around
 * quickly setting up grappling moves or other types
 * of strictly controlled reactions.

@@ -148,6 +148,88 @@ void dc_elmers_set_bind_target(void value)
 	return bind;
 }
 
+/*
+* Offsets
+*/
+
+int dc_elmers_get_bind_offset_x()
+{
+	void ent;
+	void bind;
+
+	ent = dc_elmers_get_member_entity();
+
+	// Get bind pointer.
+	bind = get_entity_property(ent, "bind");
+
+	return get_bind_property(bind, "offset_x");
+}
+
+void dc_elmers_set_bind_offset_x(int value)
+{
+	void ent;
+	void bind;
+
+	ent = dc_elmers_get_member_entity();
+
+	// Get bind pointer.
+	bind = get_entity_property(ent, "bind");
+
+	set_bind_property(bind, "offset_x", value);
+}
+
+int dc_elmers_get_bind_offset_y()
+{
+	void ent;
+	void bind;
+
+	ent = dc_elmers_get_member_entity();
+
+	// Get bind pointer.
+	bind = get_entity_property(ent, "bind");
+
+	return get_bind_property(bind, "offset_y");
+}
+
+void dc_elmers_set_bind_offset_y(int value)
+{
+	void ent;
+	void bind;
+
+	ent = dc_elmers_get_member_entity();
+
+	// Get bind pointer.
+	bind = get_entity_property(ent, "bind");
+
+	set_bind_property(bind, "offset_x", value);
+}
+
+int dc_elmers_get_bind_offset_z()
+{
+	void ent;
+	void bind;
+
+	ent = dc_elmers_get_member_entity();
+
+	// Get bind pointer.
+	bind = get_entity_property(ent, "bind");
+
+	return get_bind_property(bind, "offset_z");
+}
+
+void dc_elmers_set_bind_offset_z(int value)
+{
+	void ent;
+	void bind;
+
+	ent = dc_elmers_get_member_entity();
+
+	// Get bind pointer.
+	bind = get_entity_property(ent, "bind");
+
+	set_bind_property(bind, "offset_x", value);
+}
+
 int dc_elmers_get_bind_property(char prop_name)
 {
 	void ent;
@@ -176,16 +258,14 @@ void dc_elmers_set_bind_property(void prop_name, int the_value)
 	ent = dc_elmers_get_member_entity();
 
 	// Get bind pointer.
-	bind = get_entity_property(ent, "bind");
-
-	char hp_prop = "hp_old";
-
-	set_entity_property(ent, hp_prop, 0);
+	bind = get_entity_property(ent, "bind");	
 
 	set_bind_property(bind, prop_name, the_value);
 
 	return bind;
 }
+
+
 
 // Caskey, Damon V.
 // 2019-03-13

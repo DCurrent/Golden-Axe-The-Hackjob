@@ -127,6 +127,8 @@ void dc_elmers_quick_particle_free(void ent)
 	return bind;
 }
 
+
+
 /* Caskey, Damon V.
 * 2019-10-15
 *
@@ -195,6 +197,8 @@ void dc_elmers_quick_spot(void ent)
 	// Seems redeundant, but gets default if ent is blank.
 	dc_elmers_set_member_entity(ent);
 	ent = dc_elmers_get_member_entity(ent);
+
+	set_entity_property(ent, "autokill", 1);
 
 	target = dc_elmers_get_member_target();
 

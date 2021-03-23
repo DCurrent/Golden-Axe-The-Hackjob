@@ -80,7 +80,9 @@ anim get
 	offset	78 142
 		frame	data/chars/ax/chicken/mount_0.png
 		frame	data/chars/ax/chicken/mount_1.png
-	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT
+	@cmd	dc_fidelity_set_member_model_name "Chickenlegs"
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_SPAWN_NEW
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
 		frame	data/chars/ax/chicken/mount_2.png
 
 anim walk
@@ -148,7 +150,9 @@ anim runattack
 	bbox.size.x 30
 	bbox.size.y 57
 	
+	@cmd	dc_fidelity_set_member_model_name "Chickenlegs"
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
 	
 	frame	data/chars/ax/chicken/jump_start_0.png
 		
@@ -250,14 +254,16 @@ anim  chargeattack
 	bbox.position.y 0
 	bbox.size.x 0
 	bbox.size.y 0
+	@cmd	dc_fidelity_set_member_model_name "Chickenlegs"
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
 	
 	frame	data/chars/ax/chicken/atk_whip_0.png
 	frame	data/chars/ax/chicken/atk_whip_1.png
 	
 	frame	data/chars/ax/chicken/atk_slam_0.png
 	
-	attack.effect.hit.flash.model hitm
+	attack.effect.hit.flash.model flash_hit_knockdown
 	attack.reaction.fall.force 5
 	attack.reaction.fall.velocity.x 2
 	attack.reaction.fall.velocity.y 5
@@ -278,7 +284,7 @@ anim  chargeattack
 	
 	delay 6
 	
-	attack.effect.hit.flash.model hitm
+	attack.effect.hit.flash.model flash_hit_knockdown
 	attack.reaction.fall.force 5
 	attack.reaction.fall.velocity.x 1
 	attack.reaction.fall.velocity.y -5
@@ -304,6 +310,7 @@ anim  chargeattack
 	bbox.size.y 59
 	
 		frame	data/chars/ax/chicken/idle_0.png
+
 anim Upper
 
 	#For AI, perform chargeattack.
@@ -328,7 +335,7 @@ anim attack1
 	attack.block.penetrate 0
 	attack.damage.force 16
 	attack.damage.type 1
-	attack.effect.hit.flash.model hitm
+	attack.effect.hit.flash.model flash_hit_knockdown
 	attack.position.x 42
 	attack.position.y 129
 	attack.reaction.fall.force 5
@@ -347,7 +354,7 @@ anim attack1
 	attack.block.penetrate 0
 	attack.damage.force 16
 	attack.damage.type 1
-	attack.effect.hit.flash.model hitm
+	attack.effect.hit.flash.model flash_hit_knockdown
 	attack.position.x 52
 	attack.position.y 126
 	attack.reaction.fall.force 5
@@ -364,7 +371,7 @@ anim attack1
 	attack.block.penetrate 0
 	attack.damage.force 16
 	attack.damage.type 1
-	attack.effect.hit.flash.model hitm
+	attack.effect.hit.flash.model flash_hit_knockdown
 	attack.position.x 85
 	attack.position.y 123
 	attack.reaction.fall.force 5
@@ -378,7 +385,7 @@ anim attack1
 	attack.block.penetrate 0
 	attack.damage.force 16
 	attack.damage.type 1
-	attack.effect.hit.flash.model hitm
+	attack.effect.hit.flash.model flash_hit_knockdown
 	attack.position.x 87
 	attack.position.y 124
 	attack.reaction.fall.force 5
@@ -471,7 +478,9 @@ anim grabattack2
 	landframe 11
 
 	
+	@cmd	dc_fidelity_set_member_model_name "Chickenlegs"
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
 	
 	frame	data/chars/ax/chicken/grab_0.png
 	frame	data/chars/ax/chicken/atk_whip_0.png
@@ -522,7 +531,11 @@ anim freespecial2
 	delay   6
 	offset	78 142
     	bbox    0
+
+	@cmd	dc_fidelity_set_member_model_name "Chickenlegs"
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
+
 		frame	data/chars/ax/chicken/run_2.png
 	bbox    66 80 34 64
 		frame	data/chars/ax/chicken/run_1.png
@@ -531,13 +544,6 @@ anim freespecial2
 		frame	data/chars/ax/chicken/run_2.png
 		frame	data/chars/ax/chicken/run_1.png
 		frame	data/chars/ax/chicken/run_0.png
-
-
-
-
-
-
-
 
 
 anim follow2
@@ -702,8 +708,4 @@ anim block
 		frame	data/chars/ax/chicken/block_1.png
 	delay	10
 		frame	data/chars/ax/chicken/block_0.png
-
-
-
-
 

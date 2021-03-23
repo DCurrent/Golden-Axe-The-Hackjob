@@ -186,10 +186,12 @@
 
 /** Options **/
 #define DC_FIDELITY_INDEX_RANDOM	-1		// Seek a random sound index from sound type.
-#define DC_FIDELITY_SAMPLE_NONE		-1		// No sample, or invalid sample.		
+#define DC_FIDELITY_SAMPLE_NONE		-1		// No sample, or invalid sample.
+#define DC_FIDELITY_MODEL_NAME_AUTO	"-1"	// Get model name from entity.
 
 /** Default values **/
 #define DC_FIDELITY_DEFAULT_ENT								getlocalvar("self")
+#define DC_FIDELITY_DEFAULT_MODEL_NAME						DC_FIDELITY_MODEL_NAME_AUTO
 #define DC_FIDELITY_DEFAULT_CATEGORY_LIST					NULL()
 #define DC_FIDELITY_DEFAULT_GLOBAL_FALLBACK					1		// Try global category when specific category doesn't have sound type.
 #define DC_FIDELITY_DEFAULT_SOUND_CHANCE					1.0
@@ -213,19 +215,20 @@
 /** Variable keys **/
 #define DC_FIDELITY_MEMBER_ENT								DC_FIDELITY_BASE_ID + 0		
 #define DC_FIDELITY_MEMBER_GLOBAL_FALLBACK					DC_FIDELITY_BASE_ID + 1	
-#define DC_FIDELITY_MEMBER_SOUND_CATEGORY					DC_FIDELITY_BASE_ID + 2		// Global var used to store list of categories -> types ->indexes.
-#define DC_FIDELITY_MEMBER_SOUND_CHANCE						DC_FIDELITY_BASE_ID + 3
-#define DC_FIDELITY_MEMBER_SOUND_ELEMENT					DC_FIDELITY_BASE_ID + 4
-#define DC_FIDELITY_MEMBER_SOUND_ENTITY						DC_FIDELITY_BASE_ID + 5
-#define DC_FIDELITY_MEMBER_SOUND_LOCATION_BALANCE			DC_FIDELITY_BASE_ID + 6
-#define DC_FIDELITY_MEMBER_SOUND_LOCATION_FADE				DC_FIDELITY_BASE_ID + 7
-#define DC_FIDELITY_MEMBER_SOUND_LOOP						DC_FIDELITY_BASE_ID + 8
-#define DC_FIDELITY_MEMBER_SOUND_PRIORITY					DC_FIDELITY_BASE_ID + 9
-#define DC_FIDELITY_MEMBER_SOUND_SPEED						DC_FIDELITY_BASE_ID + 10
-#define DC_FIDELITY_MEMBER_SOUND_VOLUME_MAIN_LEFT			DC_FIDELITY_BASE_ID + 11	// Left channel volume before any adjustments are made.
-#define DC_FIDELITY_MEMBER_SOUND_VOLUME_MAIN_RIGHT			DC_FIDELITY_BASE_ID + 12	// Right channel volume before any adjustments are made.
-#define DC_FIDELITY_MEMBER_TIMED_LIST						DC_FIDELITY_BASE_ID + 13	// Global var used to store list of samples to play at later time.
-#define DC_FIDELITY_MEMBER_THE_END							14							// Should always be last, with a value one higher than previous key ID.
+#define DC_FIDELITY_MEMBER_MODEL_NAME						DC_FIDELITY_BASE_ID + 2	
+#define DC_FIDELITY_MEMBER_SOUND_CATEGORY					DC_FIDELITY_BASE_ID + 3		// Global var used to store list of categories -> types ->indexes.
+#define DC_FIDELITY_MEMBER_SOUND_CHANCE						DC_FIDELITY_BASE_ID + 4
+#define DC_FIDELITY_MEMBER_SOUND_ELEMENT					DC_FIDELITY_BASE_ID + 5
+#define DC_FIDELITY_MEMBER_SOUND_ENTITY						DC_FIDELITY_BASE_ID + 6
+#define DC_FIDELITY_MEMBER_SOUND_LOCATION_BALANCE			DC_FIDELITY_BASE_ID + 7
+#define DC_FIDELITY_MEMBER_SOUND_LOCATION_FADE				DC_FIDELITY_BASE_ID + 8
+#define DC_FIDELITY_MEMBER_SOUND_LOOP						DC_FIDELITY_BASE_ID + 9
+#define DC_FIDELITY_MEMBER_SOUND_PRIORITY					DC_FIDELITY_BASE_ID + 10
+#define DC_FIDELITY_MEMBER_SOUND_SPEED						DC_FIDELITY_BASE_ID + 11
+#define DC_FIDELITY_MEMBER_SOUND_VOLUME_MAIN_LEFT			DC_FIDELITY_BASE_ID + 12	// Left channel volume before any adjustments are made.
+#define DC_FIDELITY_MEMBER_SOUND_VOLUME_MAIN_RIGHT			DC_FIDELITY_BASE_ID + 13	// Right channel volume before any adjustments are made.
+#define DC_FIDELITY_MEMBER_TIMED_LIST						DC_FIDELITY_BASE_ID + 14	// Global var used to store list of samples to play at later time.
+#define DC_FIDELITY_MEMBER_THE_END							15							// Should always be last, with a value one higher than previous key ID.
 
 /** Instance control 
 * 

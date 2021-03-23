@@ -51,7 +51,18 @@ void dc_initialize_flash_default()
 	// For size, we'll start with a base size value and subtract intensity
 	// to get the final size. Since we're using drawmethods, a final size 
 	// value of 256 means the model sprites are displayed at 100% size.
+	
 	size = DC_INITIALIZE_FLASH_SIZE_BASE - intensity;
+
+	if (size > DC_INITIALIZE_FLASH_SIZE_MAX)
+	{
+		size = DC_INITIALIZE_FLASH_SIZE_MAX;
+	}
+
+	if (size < DC_INITIALIZE_FLASH_SIZE_MIN)
+	{
+		size = DC_INITIALIZE_FLASH_SIZE_MIN;
+	}
 
 	// Apply the drawmethods for blending, rotation, and size.
 	//dc_kanga_z_position_autoscale(ent);

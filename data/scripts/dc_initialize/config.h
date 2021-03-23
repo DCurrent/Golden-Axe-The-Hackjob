@@ -14,7 +14,10 @@
 #define DC_INITIALIZE_MEMBER_ENT					"dcini_1"
 #define DC_INITIALIZE_MEMBER_ALIAS_LIST				"dcini_2"
 
-#define DC_INITIALIZE_FLASH_SIZE_BASE				175
+#define DC_INITIALIZE_FLASH_SIZE_BASE				-20
+
+#define DC_INITIALIZE_FLASH_SIZE_MIN				40
+#define DC_INITIALIZE_FLASH_SIZE_MAX				60
 
 #define DC_INITIALIZE_FLASH_INTENSITY_BASE				100	// Base (100%) intensity value.
 #define DC_INITIALIZE_FLASH_INTENSITY_FORCE_MEDIAN		2	// The attack force we consider "normal", i.e where intensity calculates to 100%.

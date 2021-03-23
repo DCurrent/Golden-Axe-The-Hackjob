@@ -373,7 +373,7 @@ anim attack3
 
 	#Down swipe.
 
-	hitflash  hitm
+	hitflash  flash_hit_knockdown
 	range	  32 75
 
 	offset  60  98
@@ -1149,7 +1149,7 @@ anim follow5
 	#Stomp (Thief close).
 
 	range 	0 32
-	hitflash  hitm
+	hitflash  flash_hit_knockdown
 	delay   10
 	offset  60  98
 	bbox  42  46  27  52

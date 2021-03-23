@@ -4,6 +4,7 @@
 #import "data/scripts/dc_fidelity/category.c"
 #import "data/scripts/dc_fidelity/entity.c"
 #import "data/scripts/dc_fidelity/global.c"
+#import "data/scripts/dc_fidelity/model_name.c"
 #import "data/scripts/dc_fidelity/sound_config.c"
 #import "data/scripts/dc_fidelity/timed.c"
 
@@ -25,8 +26,19 @@ int dc_fidelity_get_member_entity_sound(int type)
 	*/
 
 	ent = dc_fidelity_get_member_entity();
-	model = getentityproperty(ent, "defaultmodel");
-	
+
+	/*
+	* Get model name. If set to auto, get the entity's
+	* default model name.
+	*/
+
+	model = dc_fidelity_get_member_model_name();
+
+	if (model == DC_FIDELITY_MODEL_NAME_AUTO)
+	{
+		model = getentityproperty(ent, "defaultmodel");
+	}
+
 	/* 
 	* Now that we have a model name, run model sound 
 	* function to get a sample ID.

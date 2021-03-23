@@ -186,7 +186,7 @@ anim attack1
 	attack.block.penetrate 0
 	attack.damage.force 16
 	attack.damage.type 1
-	attack.effect.hit.flash.model hitflash  	hitm
+	attack.effect.hit.flash.model hitflash  	flash_hit_knockdown
 	attack.position.x 41
 	attack.position.y 129
 	attack.reaction.fall.force 1
@@ -203,7 +203,7 @@ anim attack1
 	attack.block.penetrate 1
 	attack.damage.force 16
 	attack.damage.type 1
-	attack.effect.hit.flash.model hitflash  	hitm
+	attack.effect.hit.flash.model hitflash  	flash_hit_knockdown
 	attack.position.x 52
 	attack.position.y 126
 	attack.reaction.fall.force 1
@@ -216,7 +216,7 @@ anim attack1
 	attack.block.penetrate 1
 	attack.damage.force 16
 	attack.damage.type 1
-	attack.effect.hit.flash.model hitflash  	hitm
+	attack.effect.hit.flash.model hitflash  	flash_hit_knockdown
 	attack.position.x 85
 	attack.position.y 123
 	attack.reaction.fall.force 1
@@ -231,7 +231,7 @@ anim attack1
 	attack.block.penetrate 1
 	attack.damage.force 16
 	attack.damage.type 1
-	attack.effect.hit.flash.model hitflash  	hitm
+	attack.effect.hit.flash.model hitflash  	flash_hit_knockdown
 	attack.position.x 87
 	attack.position.y 116
 	attack.reaction.fall.force 1

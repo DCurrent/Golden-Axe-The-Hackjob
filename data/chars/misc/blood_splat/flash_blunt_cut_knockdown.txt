@@ -1,0 +1,26 @@
+# Blunt medium with blood flash, knocking target down.
+
+name	flash_blunt_cut_knockdwon
+type	none
+shadow	0
+alpha 2
+
+onspawnscript 	data/chars/misc/flash/scripts/event_spawn.c
+onkillscript  	data/scripts/common/event_kill.c
+animationscript	data/chars/misc/cvs_cut_flash_heavy/scripts/animation.c
+
+anim idle
+	flipframe 1
+
+	delay	3
+	offset	190 140
+		frame	data/chars/misc/blood_splat/idle_0.png
+		frame	data/chars/misc/blood_splat/idle_1.png
+		frame	data/chars/misc/blood_splat/idle_2.png
+		frame	data/chars/misc/blood_splat/idle_3.png
+		frame	data/chars/misc/blood_splat/idle_4.png
+		frame	data/chars/misc/blood_splat/idle_5.png
+		frame	data/chars/misc/blood_splat/idle_6.png
+		frame	data/chars/misc/blood_splat/idle_7.png
+		frame	data/chars/misc/blood_splat/idle_8.png
+		frame	data/chars/misc/blood_splat/idle_9.png

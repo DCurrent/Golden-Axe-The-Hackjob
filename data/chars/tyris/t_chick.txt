@@ -254,7 +254,7 @@ anim attack1
 
 	range   	0 70
 	flipframe 	4
-	hitflash  	hitm
+	hitflash  	flash_hit_knockdown
 
 	delay	6
 	offset	82 142

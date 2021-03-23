@@ -439,7 +439,7 @@ anim runattack
 	attack.block.penetrate 0
 	attack.damage.force 8
 	attack.damage.type 1
-	attack.effect.hit.flash.model hitm
+	attack.effect.hit.flash.model flash_hit_knockdown
 	attack.effect.hit.flash.disable 0
 	attack.position.x 51
 	attack.position.y 48
@@ -526,7 +526,7 @@ anim  attack3
 	#Uppercut
 
 	range 		40 60
-	hitflash 	hitm
+	hitflash 	flash_hit_knockdown
 	fastattack 	1
 
 	offset  60  98
@@ -586,29 +586,45 @@ anim attack5
 	#Thrust kick.
 
     	range 		32 40
-    	hitflash  	hitm
-	offset  60  98
+	offset  60 98
 	delay  5
 	
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
-	bbox  46  45  21  53
+	bbox.position.x 46
+	bbox.position.y 45
+	bbox.size.x 21
+	bbox.size.y 53
 	frame  data/chars/ax/atk_side_kick_0.png
 	
 	delay  8
-	bbox  42  42  18  56
+	bbox.position.x 42
+	bbox.position.y 42
+	bbox.size.x 18
+	bbox.size.y 56
 	frame  data/chars/ax/atk_side_kick_1.png
 	frame  data/chars/ax/atk_side_kick_2.png
 	frame  data/chars/ax/atk_side_kick_3.png
 	delay  6
 	
-	attack  50  60  50  15  8  2
-	dropv	2 2
+	attack.block.penetrate 0
+	attack.damage.force 8
+	attack.damage.type 1
+	attack.effect.hit.flash.model flash_hit_knockdown
+	attack.position.x 50
+	attack.position.y 60
+	attack.reaction.fall.force 2
+	attack.reaction.fall.velocity.x 2.0
+	attack.reaction.fall.velocity.y 2.0
+	attack.reaction.pause.time 0
+	attack.size.x 50
+	attack.size.y 15
+	attack.size.z.1 0
 	damageonlanding 0 1
 	
 	frame  data/chars/ax/atk_side_kick_4.png
 	
 	delay  24
-	Attack  0
+	attack  0
 	frame  data/chars/ax/atk_side_kick_5.png
 	
 	
@@ -616,7 +632,10 @@ anim attack5
 	frame  data/chars/ax/atk_side_kick_6.png
 	
 	delay  6
-	bbox  46  40  19  58
+	bbox.position.x 46
+	bbox.position.y 40
+	bbox.size.x 19
+	bbox.size.y 58
 	frame  data/chars/ax/atk_side_kick_0.png
 
 anim attack6
@@ -696,7 +715,7 @@ anim special
 
     energycost	8
 	mponly		2
-    hitflash	hitm
+    hitflash	flash_hit_knockdown
 
 	offset	60 98
 	delay	16
@@ -1422,7 +1441,7 @@ anim follow2
 	attack.block.penetrate 0
 	attack.damage.force 8
 	attack.damage.type 0
-	attack.effect.hit.flash.model hitm	
+	attack.effect.hit.flash.model flash_hit_knockdown	
 	attack.position.x 52
 	attack.position.y 48
 	attack.reaction.fall.force 1
@@ -2188,7 +2207,7 @@ anim grabattack
 	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 		frame	data/chars/ax/0149.png
 	bbox  48  47  24  51
-	@cmd    bind0023 0  "hitm" "hitm" 0 1 30 40 1 0 0 0 1							#Flash
+	@cmd    bind0023 0  "flash_hit_knockdown" "flash_hit_knockdown" 0 1 30 40 1 0 0 0 1							#Flash
 	@cmd	dama0004 0 0 3 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 17 166 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
 		frame	data/chars/ax/0150.png
@@ -2198,7 +2217,7 @@ anim grabattack
 		frame  data/chars/ax/0153.png
 	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 		frame  data/chars/ax/0149.png
-	@cmd    bind0023 0  "hitm" "hitm" 0 1 30 40 1 0 0 0 1							#Flash
+	@cmd    bind0023 0  "flash_hit_knockdown" "flash_hit_knockdown" 0 1 30 40 1 0 0 0 1							#Flash
 	@cmd	dama0004 0 0 3 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 17 166 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
 		frame  data/chars/ax/0154.png
@@ -2208,7 +2227,7 @@ anim grabattack
 		frame  data/chars/ax/0148.png
 	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 		frame	data/chars/ax/0149.png
-	@cmd    bind0023 0  "hitm" "hitm" 0 1 30 40 1 0 0 0 1							#Flash
+	@cmd    bind0023 0  "flash_hit_knockdown" "flash_hit_knockdown" 0 1 30 40 1 0 0 0 1							#Flash
 	@cmd	dama0004 0 0 3 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 17 166 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
 		frame	data/chars/ax/0150.png
@@ -2218,7 +2237,7 @@ anim grabattack
 		frame  data/chars/ax/0153.png
 	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 		frame  data/chars/ax/0149.png
-	@cmd    bind0023 0  "hitm" "hitm" 0 1 30 40 1 0 0 0 1							#Flash
+	@cmd    bind0023 0  "flash_hit_knockdown" "flash_hit_knockdown" 0 1 30 40 1 0 0 0 1							#Flash
 	@cmd	dama0004 0 0 3 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 17 166 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
 		frame  data/chars/ax/0154.png
@@ -2228,7 +2247,7 @@ anim grabattack
 		frame  data/chars/ax/0148.png
 	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 		frame	data/chars/ax/0149.png
-	@cmd    bind0023 0  "hitm" "hitm" 0 1 30 40 1 0 0 0 1							#Flash
+	@cmd    bind0023 0  "flash_hit_knockdown" "flash_hit_knockdown" 0 1 30 40 1 0 0 0 1							#Flash
 	@cmd	dama0004 0 0 3 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 17 166 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
 		frame	data/chars/ax/0150.png
@@ -2238,7 +2257,7 @@ anim grabattack
 		frame  data/chars/ax/0153.png
 	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 		frame  data/chars/ax/0149.png
-	@cmd    bind0023 0  "hitm" "hitm" 0 1 30 40 1 0 0 0 1							#Flash
+	@cmd    bind0023 0  "flash_hit_knockdown" "flash_hit_knockdown" 0 1 30 40 1 0 0 0 1							#Flash
 	@cmd	dama0004 0 0 3 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 17 166 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
 		frame  data/chars/ax/0154.png

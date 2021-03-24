@@ -663,7 +663,7 @@ anim jumpattack
 	frame	data/chars/ax/chicken/atk_jump_slash_0.png
 	
 	#cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
-	@cmd dc_elmers_quick_particle dc_gauntlet_quick_spawn("ax_battler_motion") 
+	@cmd dc_elmers_quick_particle dc_gauntlet_quick_spawn("ax_chicken_motion") 
 	
 	bbox.position.x 70
 	bbox.position.y 70

@@ -4,31 +4,36 @@ name	slam_heavy
 type	none
 shadow	0
 alpha	1
-mp 192
+mp 	192 # Size
 
 onspawnscript 	data/scripts/common/event_spawn_dust.c
 onkillscript	data/scripts/common/event_kill.c
 animationscript	data/chars/misc/cvs_land_dust/scripts/event_animation.c
+
 palette		data/chars/misc/cvs_land_dust/idle_0.png
 
 anim idle
 
-	#Normal dust.
+	quakeframe 0 6 -3
 
-	delay	3
+	delay	4
 	offset	85 105
 		
-		frame	data/chars/misc/cvs_land_dust/idle_0.png
-		@cmd dc_elmers_quick_spot dc_gauntlet_quick_spawn("dust_heavy") 2
-		frame	data/chars/misc/cvs_land_dust/idle_1.png
-		frame	data/chars/misc/cvs_land_dust/idle_2.png
-		frame	data/chars/misc/cvs_land_dust/idle_3.png
-		frame	data/chars/misc/cvs_land_dust/idle_4.png
-		frame	data/chars/misc/cvs_land_dust/idle_5.png
-		frame	data/chars/misc/cvs_land_dust/idle_6.png
-		frame	data/chars/misc/cvs_land_dust/idle_7.png
-		frame	data/chars/misc/cvs_land_dust/idle_8.png
-		frame	data/chars/misc/cvs_land_dust/idle_9.png
-		frame	data/chars/misc/cvs_land_dust/idle_10.png
-		frame	data/chars/misc/cvs_land_dust/idle_11.png
+	frame	data/chars/misc/cvs_land_dust/idle_0.png
+		
+	# Kick up a dust cloud.
+	@cmd dc_elmers_set_member_offset_z 1
+	@cmd dc_elmers_quick_spot dc_gauntlet_quick_spawn("dust_heavy") DC_ELMERS_SORT_FRONT
+		
+	frame	data/chars/misc/cvs_land_dust/idle_1.png
+	frame	data/chars/misc/cvs_land_dust/idle_2.png
+	frame	data/chars/misc/cvs_land_dust/idle_3.png
+	frame	data/chars/misc/cvs_land_dust/idle_4.png
+	frame	data/chars/misc/cvs_land_dust/idle_5.png
+	frame	data/chars/misc/cvs_land_dust/idle_6.png
+	frame	data/chars/misc/cvs_land_dust/idle_7.png
+	frame	data/chars/misc/cvs_land_dust/idle_8.png
+	frame	data/chars/misc/cvs_land_dust/idle_9.png
+	frame	data/chars/misc/cvs_land_dust/idle_10.png
+	frame	data/chars/misc/cvs_land_dust/idle_11.png
 

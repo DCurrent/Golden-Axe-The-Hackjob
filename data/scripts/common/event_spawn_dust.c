@@ -5,6 +5,7 @@ void main() {
 
 	void ent = NULL();
 	float pos_z = 0.0;
+	float pos_y = 0.0;
 	int aggression = 0;	
 	int spawn_type = 0;
 	int mp = 0;
@@ -12,6 +13,12 @@ void main() {
 
 	ent = getlocalvar("self");
 	pos_z = get_entity_property(ent, "position_z");
+	pos_y = get_entity_property(ent, "position_y");
+
+	set_entity_property(ent, "position_base", pos_y);
+	
+	/* Quick fix to keep entity from falling. */
+	changeentityproperty(ent, "antigravity", 1);
 
 	/* 
 	* Entity dies when animation is complete. Should already be 

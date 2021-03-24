@@ -5,7 +5,7 @@ icon				data/chars/ax/icon_default.png
 name				a_chick
 speed				10
 running 			20 5 1 1 0
-dust				fall_land jump_land jump_liftoff
+dust				fall_land fall_land jump_liftoff
 gfxshadow 			1
 shadow				3
 animal  			2
@@ -54,9 +54,12 @@ anim spawn
 	delay	1
 	offset	78 142
     	bbox    66 80 34 64
-		frame	data/chars/ax/chicken/idle_0.png
+	
+	frame	data/chars/ax/chicken/idle_0.png
+	
 	delay	15
-		frame	data/chars/ax/chicken/idle_0.png
+	
+	frame	data/chars/ax/chicken/idle_0.png
 
 anim idle
 
@@ -70,21 +73,23 @@ anim idle
 	bbox.size.x 25
 	bbox.size.y 59
 	@cmd stat0003
-		frame	data/chars/ax/chicken/idle_0.png
-		frame	data/chars/ax/chicken/idle_1.png
-		frame	data/chars/ax/chicken/idle_2.png
-		frame	data/chars/ax/chicken/idle_1.png
+	
+	frame	data/chars/ax/chicken/idle_0.png
+	frame	data/chars/ax/chicken/idle_1.png
+	frame	data/chars/ax/chicken/idle_2.png
+	frame	data/chars/ax/chicken/idle_1.png
 
-anim get
+anim get # Mount
 
 	delay	20
 	offset	78 142
-		frame	data/chars/ax/chicken/mount_0.png
-		frame	data/chars/ax/chicken/mount_1.png
+	frame	data/chars/ax/chicken/mount_0.png
+	frame	data/chars/ax/chicken/mount_1.png
+	
 	@cmd	dc_fidelity_set_member_model_name "Chickenlegs"
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_SPAWN_NEW
 	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
-		frame	data/chars/ax/chicken/mount_2.png
+	frame	data/chars/ax/chicken/mount_2.png
 
 anim walk
 
@@ -97,10 +102,10 @@ anim walk
 	bbox.size.x 30
 	bbox.size.y 55
 	
-		frame	data/chars/ax/chicken/walk_0.png
-		frame	data/chars/ax/chicken/walk_1.png
-		frame	data/chars/ax/chicken/walk_2.png
-		frame	data/chars/ax/chicken/walk_3.png
+	frame	data/chars/ax/chicken/walk_0.png
+	frame	data/chars/ax/chicken/walk_1.png
+	frame	data/chars/ax/chicken/walk_2.png
+	frame	data/chars/ax/chicken/walk_3.png
 
 anim up
 
@@ -113,10 +118,10 @@ anim up
 	bbox.size.x 29
 	bbox.size.y 56
 	
-		frame	data/chars/ax/chicken/walk_up_0.png
-		frame	data/chars/ax/chicken/walk_up_1.png
-		frame	data/chars/ax/chicken/walk_up_2.png
-		frame	data/chars/ax/chicken/walk_up_3.png
+	frame	data/chars/ax/chicken/walk_up_0.png
+	frame	data/chars/ax/chicken/walk_up_1.png
+	frame	data/chars/ax/chicken/walk_up_2.png
+	frame	data/chars/ax/chicken/walk_up_3.png
 
 anim run
 
@@ -130,10 +135,10 @@ anim run
 	bbox.size.x 31
 	bbox.size.y 64
 	
-		frame	data/chars/ax/chicken/run_0.png
-		frame	data/chars/ax/chicken/run_1.png
-		frame	data/chars/ax/chicken/run_2.png
-		frame	data/chars/ax/chicken/run_3.png
+	frame	data/chars/ax/chicken/run_0.png
+	frame	data/chars/ax/chicken/run_1.png
+	frame	data/chars/ax/chicken/run_2.png
+	frame	data/chars/ax/chicken/run_3.png
 
 anim runattack
 
@@ -141,7 +146,7 @@ anim runattack
     followanim 2
     followcond 1
     jumpframe  1 2 3 0 jump_liftoff
-    landframe  2 jump_land
+    landframe  2 fall_land
 
 	delay   10
 	offset	78 142
@@ -187,15 +192,10 @@ anim runattack
 	bbox.size.x 30
 	bbox.size.y 57
 	
-	@cmd velo0001 2 0 0
-	frame	data/chars/ax/chicken/jump_start_0.png
-    	delay   1
-	@cmd velo0001 0 0 0	
 	frame	data/chars/ax/chicken/jump_start_0.png
 
-anim attackboth
+anim attackboth	# Dismount
 
-	#Dismount
 	weaponframe 3 0
 	delay	20
 	offset	78 142
@@ -205,45 +205,71 @@ anim attackboth
 	delay	1
 		frame	data/chars/ax/chicken/mount_0.png
 
-anim attackup
+anim attackup # sidestep.
 
-	#sidestep.
+	jumpframe 1 1.5 -0.2 -1.5 jump_liftoff
+	dropframe 2
+	landframe 3 fall_land
 
-	jumpframe 1 2 -0.2 -1 jump_liftoff
-
-	delay	10
-	offset	88 139
-    	bbox.position.x 63
+	delay	4
+	offset	78 142
+	
+	bbox 0
+		
+	frame	data/chars/ax/chicken/jump_start_0.png
+	
+	delay	-1000
+   	
+	bbox.position.x 64
+	bbox.position.y 68
+	bbox.size.x 25
+	bbox.size.y 54
+		
+	frame	data/chars/ax/chicken/jump_0.png
+	frame	data/chars/ax/chicken/jump_1.png
+	
+	delay 12
+	
+	bbox.position.x 63
 	bbox.position.y 72
 	bbox.size.x 30
 	bbox.size.y 57
-		frame	data/chars/ax/chicken/jump_start_0.png
+		
+	frame	data/chars/ax/chicken/jump_start_0.png
+
+anim attackdown	# sidestep.
+
+	jumpframe 1 1.5 -0.2 1.5 jump_liftoff
+	dropframe 2
+	landframe 3 fall_land
+
+	delay	4
+	offset	78 142
+	
+	bbox 0
+		
+	frame	data/chars/ax/chicken/jump_start_0.png
+	
 	delay	-1000
-    	bbox    68 58 34 54
-	offset  88  142
-	@cmd	jump0003 0 0 0
-		frame	data/chars/ax/chicken/jump_0.png
-
-anim attackdown
-
-	#sidestep.
-
-	jumpframe 1 2 -0.2 1 jump_liftoff
-
-	delay	10
-	offset	88 139
-    	bbox.position.x 63
+   	
+	bbox.position.x 64
+	bbox.position.y 68
+	bbox.size.x 25
+	bbox.size.y 54
+		
+	frame	data/chars/ax/chicken/jump_0.png
+	frame	data/chars/ax/chicken/jump_1.png
+	
+	delay 12
+	
+	bbox.position.x 63
 	bbox.position.y 72
 	bbox.size.x 30
 	bbox.size.y 57
-		frame	data/chars/ax/chicken/jump_start_0.png
-	delay	-1000
-   	bbox    68 58 34 54
-	offset  88  142
-	@cmd	jump0003 0 0 0
-		frame	data/chars/ax/chicken/jump_0.png
-
-anim  chargeattack
+		
+	frame	data/chars/ax/chicken/jump_start_0.png
+	
+anim  chargeattack # Tail slam.
 
 	flipframe 9
 	chargetime	2
@@ -255,17 +281,14 @@ anim  chargeattack
 	bbox.position.y 0
 	bbox.size.x 0
 	bbox.size.y 0
+	
 	@cmd	dc_fidelity_set_member_model_name "Chickenlegs"
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
 	@cmd	dc_fidelity_quick_play "golden_axe_special"
 
 	frame	data/chars/ax/chicken/atk_whip_0.png
-
-	
-
-	frame	data/chars/ax/chicken/atk_whip_1.png
-	
+	frame	data/chars/ax/chicken/atk_whip_1.png	
 	frame	data/chars/ax/chicken/atk_slam_0.png
 	
 	attack.damage.force 24
@@ -485,9 +508,7 @@ anim grabattack
 	
 	frame	data/chars/ax/chicken/grab_pommel_strike_0.png
 
-anim grabattack2
-
-	#Worm Toss.
+anim grabattack2 # Worm Toss.
 
     delay		8
    	offset		78 142
@@ -536,33 +557,42 @@ anim grabattack2
 	bbox.size.x 30
 	bbox.size.y 57
 	
-		frame	data/chars/ax/chicken/jump_start_0.png
-	
+		frame	data/chars/ax/chicken/jump_start_0.png	
 
 
-anim freespecial2
-
-	#Backstep.
+anim freespecial2 # Backstep.
 
 	range	1 -1
 
-	jumpframe 1 0 -3 0
-	delay   6
+	jumpframe 1 1.5 -3 0 jump_liftoff
+	dropframe 2
+	landframe 3 fall_land
+
+	delay	4
 	offset	78 142
-    	bbox    0
-
-	@cmd	dc_fidelity_set_member_model_name "Chickenlegs"
-	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
-
-		frame	data/chars/ax/chicken/run_2.png
-	bbox    66 80 34 64
-		frame	data/chars/ax/chicken/run_1.png
-		frame	data/chars/ax/chicken/run_0.png
-		frame	data/chars/ax/chicken/run_3.png
-		frame	data/chars/ax/chicken/run_2.png
-		frame	data/chars/ax/chicken/run_1.png
-		frame	data/chars/ax/chicken/run_0.png
+	
+	bbox 0
+		
+	frame	data/chars/ax/chicken/jump_start_0.png
+	
+	delay	-1000
+   	
+	bbox.position.x 64
+	bbox.position.y 68
+	bbox.size.x 25
+	bbox.size.y 54
+		
+	frame	data/chars/ax/chicken/jump_0.png
+	frame	data/chars/ax/chicken/jump_1.png
+	
+	delay 12
+	
+	bbox.position.x 63
+	bbox.position.y 72
+	bbox.size.x 30
+	bbox.size.y 57
+		
+	frame	data/chars/ax/chicken/jump_start_0.png
 
 
 anim follow2
@@ -570,7 +600,7 @@ anim follow2
 	#Runattack bounce.
 
 	jumpframe 0 1 0
-    	landframe 2 jump_land
+    	landframe 2 fall_land
 	hitflash  flash_impact_cut
 
 	offset	78 142
@@ -591,25 +621,37 @@ anim follow2
 
 anim follow3
 
-	#Ostrich throw bounce.
+	# Bounce back.
 
-	jumpframe 1 2.5 -1
-	landframe 2 jump_land
+	jumpframe 1 2.5 -1 0 jump_liftoff
+	dropframe 2
+	landframe 3 fall_land
 
-	offset	78 142
-    	bbox    68 66 34 54
 	delay	1
-		frame	data/chars/ax/chicken/grab_piledriver_3.png
+	offset	78 142
+	
+	bbox 0
+		
+	frame	data/chars/ax/chicken/jump_0.png
+	
 	delay	-1000
-	offset	88 142
-		frame	data/chars/ax/chicken/jump_0.png
-	delay	12
-	offset  88  139
+   	
+	bbox.position.x 64
+	bbox.position.y 68
+	bbox.size.x 25
+	bbox.size.y 54
+		
+	frame	data/chars/ax/chicken/jump_0.png
+	frame	data/chars/ax/chicken/jump_1.png
+	
+	delay 12
+	
 	bbox.position.x 63
 	bbox.position.y 72
 	bbox.size.x 30
 	bbox.size.y 57
-		frame	data/chars/ax/chicken/jump_start_0.png
+		
+	frame	data/chars/ax/chicken/jump_start_0.png
 
 anim jump
 
@@ -626,8 +668,6 @@ anim jump
 	
 	frame	data/chars/ax/chicken/jump_0.png
 	frame	data/chars/ax/chicken/jump_1.png
-
-
 
 anim jumpdelay
 
@@ -710,6 +750,31 @@ anim jumpattack
 	attack 0
 
 	frame	data/chars/ax/chicken/atk_jump_slash_1.png
+	
+anim walkoff
+	
+	dropframe 1
+	landframe 2 fall_land
+
+	delay	-1000
+	offset	78 142
+   	
+	bbox.position.x 64
+	bbox.position.y 68
+	bbox.size.x 25
+	bbox.size.y 54
+		
+	frame	data/chars/ax/chicken/jump_0.png
+	frame	data/chars/ax/chicken/jump_1.png
+	
+	delay 12
+	
+	bbox.position.x 63
+	bbox.position.y 72
+	bbox.size.x 30
+	bbox.size.y 57
+		
+	frame	data/chars/ax/chicken/jump_start_0.png
 
 
 anim blockstart
@@ -772,3 +837,40 @@ anim blockrelease
 	offset	78 142
     	bbox    66 80 34 64
 		frame	data/chars/ax/chicken/block_0.png
+
+anim runjumpattack
+
+	landframe 1 slam_light
+    	
+
+	offset	78 142
+	bbox.position.x 66
+	bbox.position.y 73
+	bbox.size.x 43
+	bbox.size.y 41
+
+	
+	delay	-1000
+
+	attack.damage.force 20
+	attack.position.x 76
+	attack.position.y 109
+	attack.reaction.fall.force 10
+	attack.size.x 25
+	attack.size.y 34
+	
+	@cmd	dc_fidelity_set_member_model_name "Chickenlegs"
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
+	
+	frame	data/chars/ax/chicken/atk_jump_drop_0.png
+
+	delay	50
+
+	attack 0
+
+	frame	data/chars/ax/chicken/atk_jump_drop_1.png
+	
+	@cmd performattack getlocalvar("self") openborconstant("ANI_FOLLOW3") 0
+	frame   data/chars/ax/chicken/atk_jump_drop_1.png
+

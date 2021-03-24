@@ -53,13 +53,14 @@ load flash_stab_knockdown			data/chars/misc/blood_splat/flash_stab_knockdown.txt
 
 # Slam/Dust effects.
 
-load dust_heavy		data/chars/misc/dust/dust_heavy.txt
-load dust_heavy		data/chars/misc/dust/dust_light.txt
+load dust_heavy		data/chars/misc/cvs_dust_cloud/dust_heavy.txt
+load dust_heavy		data/chars/misc/cvs_dust_cloud/dust_light.txt
 load fall_land		data/chars/misc/cvs_land_dust/fall_land.txt
 load hop_liftoff	data/chars/misc/cvs_jump_dust/hop_liftoff.txt
 load jump_land		data/chars/misc/cvs_land_dust/jump_land.txt
 load jump_liftoff	data/chars/misc/cvs_jump_dust/jump_liftoff.txt
-load slam_heavy		data/chars/misc/cvs_land_dust/slam_heavy.txt		# Slam impact, heavy creature dive.
+load slam_heavy		data/chars/misc/cvs_land_dust/slam_heavy.txt		# Slam impact, heavy (Powerful grapple finish, unique ground landing, etc.).
+load slam_light		data/chars/misc/cvs_land_dust/slam_light.txt		# Slam impact, light (Heavy creature dive, body slam, etc.).
 
 
 load	effe0001	data/chars/misc/effects/effe0001.txt	#General effects/projectiles.
@@ -96,6 +97,7 @@ load    al_rdrag        data/chars/alex/al_rdrag.txt				#Alex on Blue Dragon.
 #Ax Battler
 know	ax0001				data/chars/ax/effects/ax0001.txt			# Motion blurs.
 know    a_chick				data/chars/ax/a_chick.txt					# Riding Chicken Leg.
+know    ax_chicken_motion	data/chars/ax/ax_chicken_motion.txt			# Riding Chicken Leg, motion blurs.
 know    a_rdrag				data/chars/ax/a_rdrag.txt					# Riding Red Dragon.
 know	a_bdrag				data/chars/ax/a_bdrag.txt					# Riding Blue Dragon.
 know	ax_battler_motion	data/chars/ax/ax_motion.txt					# Motion blurs.

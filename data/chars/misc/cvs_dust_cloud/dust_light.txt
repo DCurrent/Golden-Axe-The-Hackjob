@@ -1,0 +1,27 @@
+# Light dust, usually spawned by another dust effect.
+
+name	dust_light
+type	none
+lifespan 2
+shadow	0
+mp 100
+
+onspawnscript 	data/scripts/common/event_spawn_dust.c
+onkillscript	data/scripts/common/event_kill.c
+
+palette		data/chars/misc/cvs_dust_cloud/idle_0.png
+
+anim idle
+
+	#Normal dust.
+
+	delay	8
+	offset	75 40
+		frame	data/chars/misc/cvs_dust_cloud/idle_0.png
+		frame	data/chars/misc/cvs_dust_cloud/idle_1.png
+		frame	data/chars/misc/cvs_dust_cloud/idle_2.png
+		frame	data/chars/misc/cvs_dust_cloud/idle_3.png
+		frame	data/chars/misc/cvs_dust_cloud/idle_4.png
+		frame	data/chars/misc/cvs_dust_cloud/idle_5.png
+		frame	data/chars/misc/cvs_dust_cloud/idle_6.png
+

@@ -849,7 +849,7 @@ anim attack2
     
     frame   data/chars/longmoan/atk_upper_1.png
     
-    
+    attack.damage.type 4
 	attack.damage.force 4
 	attack.effect.hit.flash.model flash_blunt_cut
 	attack.position.x 59

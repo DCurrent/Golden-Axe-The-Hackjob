@@ -22,10 +22,10 @@ anim jumpattack
 	frame	data/chars/misc/blank.png	
 	
 	alphamask	data/chars/ax/chicken/atk_jump_slash_1_motion_0_mask_0.png
-	frame	data/chars/ax/chicken/atk_jump_slash_1_motion_0_mask_0.png
+	frame		data/chars/ax/chicken/atk_jump_slash_1_motion_0.png
 	
 	alphamask	data/chars/ax/chicken/atk_jump_slash_2_motion_0_mask_0.png
-	frame	data/chars/ax/chicken/atk_jump_slash_2_motion_0.png	
+	frame		data/chars/ax/chicken/atk_jump_slash_2_motion_0.png	
 	# frame	data/chars/misc/blank.png
 	# frame	data/chars/misc/blank.png
 		

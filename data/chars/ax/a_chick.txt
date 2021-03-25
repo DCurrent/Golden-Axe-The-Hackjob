@@ -351,15 +351,6 @@ anim  chargeattack # Tail slam.
 	
 	frame	data/chars/ax/chicken/idle_0.png
 
-anim Upper
-
-	#For AI, perform chargeattack.
-
-	delay	1
-    	offset	78 142
-    	bbox    0
-	@cmd	changeentityproperty getlocalvar("self") "animation" A_CHARGEATK
-		frame	data/chars/ax/chicken/idle_0.png
 
 anim attack1
 
@@ -706,7 +697,7 @@ anim jumpattack
 	@cmd dc_elmers_quick_particle dc_gauntlet_quick_spawn("ax_chicken_motion") 
 	
 	bbox.position.x 70
-	bbox.position.y 70
+	bbox.position.y 67
 	bbox.size.x 18
 	bbox.size.y 55
 	
@@ -718,16 +709,16 @@ anim jumpattack
 	attack.damage.force 8
 	attack.damage.type 10
 	attack.effect.hit.flash.model flash_cut_vertical_knockdown
-	attack.position.x 93
-	attack.position.y 55
+	attack.position.x 92
+	attack.position.y 51
 	attack.reaction.fall.force 1
 	attack.reaction.pause.time 0
 	attack.size.x 39
 	attack.size.y 70
 	attack.size.z.1 0
 		
-	bbox.position.x 70
-	bbox.position.y 78
+	bbox.position.x 73
+	bbox.position.y 73
 	bbox.size.x 29
 	bbox.size.y 47
 	
@@ -739,7 +730,7 @@ anim jumpattack
 
 	attack.damage.force 4
 	attack.position.x 94
-	attack.position.y 106
+	attack.position.y 101
 	attack.size.x 25
 	attack.size.y 20
 	

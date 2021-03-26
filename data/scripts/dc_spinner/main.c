@@ -24,14 +24,24 @@ float dc_spinner_sine(float increment, int delay)
     /*
     * OpenBOR treats ininitialized numerics as 
     * empty, not 0, so if empty set 0.
+    * 
+    * In the case of time_next, we'll want to reset 
+    * if there is a time value leftover from previous 
+    * level play.
+    * 
+    * We'll also put in a safeguard just in case the 
+    * accumulator goes out of bounds. You'd have to
+    * play one level for a couple of hours straight
+    * for that to happen, but it's still possible.
     */
 
-    if (!time_next)
+    if (!time_next || time_next > (elpased_time + delay))
     {
         time_next = 0;
+        accumulator = 0;
     }
 
-    if (!accumulator)
+    if (!accumulator || accumulator >= 2147483647 - increment || accumulator < 0)
     {
         accumulator = 0;
     }
@@ -45,16 +55,6 @@ float dc_spinner_sine(float increment, int delay)
         time_next = elpased_time + delay;
 
         accumulator += increment;
-
-        /*
-        * Just in case, reset the accumulator to 
-        * prevent overflow.
-        */
-
-        if(accumulator >= 2147483647 - increment)
-        {
-            accumulator = 0;
-        }
     }
         
     float result = sin(accumulator);

@@ -6,9 +6,7 @@
 
 #include "data/scripts/dc_fidelity/main.c"  // Sound player.
 
-
-
-/* Snatch magic pots off the screen. Gimme! */
+/* Snatch magic pots off the screen. Gimmme! */
 void steal()
 {
 	void acting_entity = getlocalvar("self");
@@ -42,32 +40,57 @@ void steal()
 	}
 }
 
+/* 
+* Cause ridable animals to start running behavior
+* after a given amount of time, or if a global run 
+* flag is set.
+*/
 void runcheck(){
 
 	void acting_entity = getlocalvar("self");
 	float position_z = get_entity_property(acting_entity, "position_z");
 
+	/* In playable area? */
 	if(position_z < 1000 && position_z > 0)
 	{
+		/* 
+		* Initialize lifespan from localvar. If there's
+		* no value, initialize an integer 0.
+		*/
 		int lifespan = getlocalvar("lifespan");
 
+		if (!lifespan)
+		{
+			lifespan = 0;
+		}
+
+		/* 
+		* If the run animal flag is enabled, then
+		* we move our timer right up to the expire
+		* value. The very next time function runs,
+		* time will expire, and trigger run away.
+		* 
+		* This is used for bonus levels where creature
+		* is momentarily at camp but takes off when
+		* the thieves show up.
+		*/
 		if(getglobalvar("runanimal"))
 		{
 			lifespan = 15;
 			setglobalvar("runanimal", NULL());
 		}
-		if(lifespan==NULL())
-		{
-			lifespan = 0;
-		}
-		else if(lifespan > 15)
+
+		/*
+		* If lifespaen expires, set walk. The walk animation
+		* is the runaway and handles things from here.
+		*/
+		if(lifespan > 15)
 		{
 			executeanimation(acting_entity, openborconstant("ANI_WALK"), 0);
 		}
-		else
-		{
-			lifespan++;
-		}
+		
+		/* Increment lifespan and set for next run of funciton. */
+		lifespan++;
 		setlocalvar("lifespan", lifespan);
 	}
 }

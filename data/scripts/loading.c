@@ -122,7 +122,10 @@ void load_sounds()
 	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_PAIN_FALL, "data/chars/ax/sounds/voice_hurt_1.wav");
 	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_PAIN_FALL, "data/chars/ax/sounds/voice_hurt_2.wav");
 
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_NEAR_KO, "data/chars/ax/sounds/low_hp_0.wav");
+	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_KO, "data/chars/ax/sounds/voice_ko_0.wav");
+	
+	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_NEAR_KO, "data/chars/ax/sounds/voice_low_hp_0.wav");
+
 
 	/* Longmoan */
 	dc_fidelity_setup("longmoan", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/longmoan/sounds/atk_shout_0.wav");

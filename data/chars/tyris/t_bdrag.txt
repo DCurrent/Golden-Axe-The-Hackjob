@@ -16,8 +16,7 @@ bflash					bflash
 fmap					9
 
 animationscript 		data/scripts/z_ani.c
-didblockscript			data/scripts/z_block.c				#Block incoming attack.
-didhitscript 			data/scripts/z_hit.c				#Hit another entity.
+didhitscript 		data/scripts/dc_common_didhit/event_enemy_didhit.c
 keyscript				data/scripts/z_key.c				#Controlling player press/release key.
 onblockascript			data/scripts/z_blocka.c				#Movement (rise/fall) blocked by platform.
 onblockoscript			data/scripts/z_blocko.c				#Movement blocked by obstacle.

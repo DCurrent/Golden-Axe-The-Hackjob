@@ -53,8 +53,8 @@ com 				a2 freespecial8						#Magic.
 
 animationscript 	data/chars/ax/scripts/ani.c
 didhitscript 		data/scripts/dc_common_didhit/event_didhit_player.c
-keyscript			data/chars/ax/scripts/key.c			#Controlling player press/release key.
-onblockoscript		data/scripts/z_blocko.c				#Movement blocked by obstacle.
+keyscript			data/chars/ax/scripts/key.c			
+onblockoscript		data/scripts/dc_common_onblock/event_onblocko_player.c
 onblocksscript		data/scripts/z_blocks.c				#Movement blocked by screen boundary.
 onblockwscript		data/scripts/z_blockw.c				#Movement blocked by wall.
 onblockzscript		data/scripts/z_blockz.c				#Movement blocked by Z boundary.

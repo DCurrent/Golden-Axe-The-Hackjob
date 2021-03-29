@@ -23,7 +23,7 @@ anim idle
 		
 	# Kick up a dust cloud.
 	@cmd dc_elmers_set_member_offset_z 1
-	@cmd dc_elmers_quick_spot dc_gauntlet_quick_spawn("dust_heavy") DC_ELMERS_SORT_FRONT
+	@cmd dc_elmers_quick_spot dc_gauntlet_quick_flash("dust_heavy") DC_ELMERS_SORT_FRONT
 		
 	frame	data/chars/misc/cvs_land_dust/idle_1.png
 	frame	data/chars/misc/cvs_land_dust/idle_2.png

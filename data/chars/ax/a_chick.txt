@@ -329,7 +329,7 @@ anim  chargeattack # Tail slam.
 	
 	#slam_heavy
 	@cmd dc_elmers_set_member_offset_x 40
-	@cmd dc_elmers_quick_spot dc_gauntlet_quick_spawn("slam_heavy") DC_ELMERS_SORT_BACK
+	@cmd dc_elmers_quick_spot dc_gauntlet_quick_flash("slam_heavy") DC_ELMERS_SORT_BACK
 	
 	frame	data/chars/ax/chicken/atk_slam_5.png
 	
@@ -392,7 +392,7 @@ anim attack1
 	attack.size.y 24
 	attack.size.z.1 0
 	
-	@cmd dc_elmers_quick_spot dc_gauntlet_quick_spawn("dust_light") DC_ELMERS_SORT_FRONT
+	@cmd dc_elmers_quick_spot dc_gauntlet_quick_flash("dust_light") DC_ELMERS_SORT_FRONT
 	
 	@cmd	dc_fidelity_quick_play "golden_axe_heavy"
 	

@@ -17,8 +17,7 @@ anim idle
 	offset	232 317
 		frame	data/chars/misc/cvs_cut_flash_heavy/idle_0.png
 
-		@cmd dc_gauntlet_set_member_autokill 1
-		@cmd dc_elmers_quick_spot dc_gauntlet_quick_spawn("flash_blood_cut")
+		@cmd dc_elmers_quick_spot dc_gauntlet_quick_flash("flash_blood_cut")
 
 		frame	data/chars/misc/cvs_cut_flash_heavy/idle_1.png
 		frame	data/chars/misc/cvs_cut_flash_heavy/idle_2.png

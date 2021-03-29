@@ -198,12 +198,9 @@ void dc_elmers_quick_spot(void ent, int layer_adjustment)
 
 	/* Seems redeundant, but gets default if ent is blank. */
 	dc_elmers_set_member_entity(ent);
-	ent = dc_elmers_get_member_entity(ent);
+	ent = dc_elmers_get_member_entity(ent);	
 
-	set_entity_property(ent, "autokill", 1);
-
-	target = dc_elmers_get_member_target();
-		
+	target = dc_elmers_get_member_target();		
 
 	sort_id = dc_elmers_find_front_sort() + layer_adjustment;
 	set_entity_property(ent, "sort_id", sort_id);

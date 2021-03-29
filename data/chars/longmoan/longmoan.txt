@@ -36,7 +36,7 @@ atchain 			1 2 3 0 0
 animationscript 	data/chars/longmoan/scripts/event_animation.c
 didhitscript 		data/scripts/dc_common_didhit/event_didhit_enemy.c				# Hit another entity.
 onblockoscript		data/scripts/dc_common_onblock/event_onblocko_enemy.c
-onblocksscript		data/scripts/z_blocks.c				# Movement blocked by screen boundary.
+onblocksscript		data/scripts/dc_common_onblock/event_onblocks_enemy.c
 onblockwscript		data/scripts/z_blockw.c				# Movement blocked by wall.
 onblockzscript		data/scripts/z_blockz.c				# Movement blocked by Z boundary.
 ondeathscript		data/scripts/z_death.c				# Killed by damage.

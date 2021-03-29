@@ -55,7 +55,7 @@ animationscript 	data/chars/ax/scripts/ani.c
 didhitscript 		data/scripts/dc_common_didhit/event_didhit_player.c
 keyscript			data/chars/ax/scripts/key.c			
 onblockoscript		data/scripts/dc_common_onblock/event_onblocko_player.c
-onblocksscript		data/scripts/z_blocks.c				#Movement blocked by screen boundary.
+onblocksscript		data/scripts/dc_common_onblock/event_onblocks_player.c
 onblockwscript		data/scripts/z_blockw.c				#Movement blocked by wall.
 onblockzscript		data/scripts/z_blockz.c				#Movement blocked by Z boundary.
 ondeathscript		data/scripts/z_death.c				#Killed by damage.

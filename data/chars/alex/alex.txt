@@ -40,7 +40,7 @@ onblockoscript		data/scripts/dc_common_onblock/event_onblocko_player.c
 onblocksscript		data/scripts/dc_common_onblock/event_onblocks_player.c
 onblockwscript		data/scripts/dc_common_onblock/event_onblockw_player.c
 onblockzscript		data/scripts/dc_common_onblock/event_onblockz_player.c
-ondeathscript		data/scripts/z_death.c				#Killed by damage.
+ondeathscript		data/scripts/dc_common_ondeath/event_ondeath_player.c
 onfallscript		data/scripts/z_fall.c				#Fall status set.
 onkillscript		data/scripts/z_kill.c				#Removed from playfield.
 onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.

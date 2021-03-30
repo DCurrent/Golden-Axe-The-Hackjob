@@ -42,7 +42,7 @@ keyscript			data/scripts/z_key.c				#Controlling player press/release key.
 onblockoscript		data/scripts/dc_common_onblock/event_onblocko_player.c
 onblocksscript		data/scripts/dc_common_onblock/event_onblocks_player.c
 onblockwscript		data/scripts/dc_common_onblock/event_onblockw_player.c			
-onblockzscript		data/scripts/z_blockz.c				#Movement blocked by Z boundary.				
+onblockzscript		data/scripts/dc_common_onblock/event_onblockz_player.c				
 ondeathscript		data/scripts/z_death.c				#Killed by damage.
 onfallscript		data/scripts/z_fall.c				#Fall status set.
 onkillscript		data/scripts/z_kill.c				#Removed from playfield.

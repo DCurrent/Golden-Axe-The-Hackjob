@@ -1,5 +1,4 @@
 #include "data/scripts/dc_damage/config.h"
-#import "data/scripts/dc_damage/config.c"
 
 /*
 * Knockdown velocity to apply, X axis.

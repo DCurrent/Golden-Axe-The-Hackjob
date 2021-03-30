@@ -23,7 +23,7 @@ didhitscript 		data/scripts/dc_common_didhit/event_didhit_player.c
 keyscript		data/scripts/z_key.c				#Controlling player press/release key.
 onblockoscript		data/scripts/dc_common_onblock/event_onblocko_player.c
 onblocksscript		data/scripts/dc_common_onblock/event_onblocks_player.c
-onblockwscript		data/scripts/z_blockw.c				#Movement blocked by wall.
+onblockwscript		data/scripts/dc_common_onblock/event_onblockw_player.c
 onblockzscript		data/scripts/z_blockz.c				#Movement blocked by Z boundary.
 ondeathscript		data/scripts/z_death.c				#Killed by damage.
 onfallscript		data/scripts/z_fall.c				#Fall status set.

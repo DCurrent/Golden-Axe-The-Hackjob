@@ -1,7 +1,5 @@
 #include "data/scripts/dc_damage/config.h"
 
-#import "data/scripts/dc_damage/config.c"
-
 /*
 * Enable or disable lethal damage. When disabled, the
 * damage system will reduce hitpoints to 1 (or close as

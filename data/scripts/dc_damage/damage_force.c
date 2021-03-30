@@ -14,10 +14,12 @@ int dc_damage_get_member_damage_force()
 
 	result = getlocalvar(instance + DC_DAMAGE_MEMBER_FORCE);
 
-	if (typeof(result) != openborconstant("VT_INTEGER"))
+	if (typeof(result) == openborconstant("VT_EMPTY"))
 	{
 		result = DC_DAMAGE_DEFAULT_FORCE;
 	}
+
+	
 
 	return result;
 }
@@ -28,6 +30,6 @@ void dc_damage_set_member_damage_force(int value)
 
 	// Get instance.
 	instance = dc_damage_get_instance();
-
+	
 	setlocalvar(instance + DC_DAMAGE_MEMBER_FORCE, value);
 }

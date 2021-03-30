@@ -12,3 +12,4 @@
 #include "data/scripts/dc_common_onblock/config.h"
 
 #import "data/scripts/dc_common_onblock/dc_common_onblock_obstacle.c"
+#import "data/scripts/dc_common_onblock/dc_common_onblock_wall.c"

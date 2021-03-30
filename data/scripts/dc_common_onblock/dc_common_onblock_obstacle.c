@@ -134,7 +134,7 @@ void dc_common_onblock_obstacle()
 	*/	
 
 	dc_damage_set_member_entity(obstacle_entity);
-	dc_damage_set_member_entity(opponent_entity);
+	dc_damage_set_member_other(opponent_entity);
 	dc_damage_set_member_attack_type(openborconstant("ATK_NORMAL"));
 	dc_damage_set_member_damage_force(impact_damage_force);
 	dc_damage_set_member_direction_adjust(openborconstant("DIRECTION_ADJUST_NONE"));
@@ -171,8 +171,6 @@ void dc_common_onblock_obstacle()
 
 	if (obstacle_hitpoints > impact_damage_force)
 	{				
-		executeanimation(acting_entity, openborconstant("ANI_FALL"), 1);					
-				
 		tossentity(acting_entity, toss_y, toss_x, 0.0);													
 	}
 }

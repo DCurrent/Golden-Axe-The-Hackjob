@@ -23,7 +23,6 @@
 #define CONF_TRAILCNT				5										//Character shadow trail limit.
 #define CONF_TRAILDLY				5										//Delay (to spawn next trailer, so trailer lasts for CONF_TRAILCNT*CONF_TRAILDLY)
 #define CONF_SETBLOCK				1                                       //1 = Automatically set blocking animation based on hit height.
-#define CONF_SETFALL				0                                       //1 = Automatically set fall animation based on hit height and other conditions.
 #define CONF_SETPAIN				0                                       //1 = Automatically set pain animation based on hit height.
 #define CONF_JUMPCON_X				0										//1 = Left/Right keys alter X plane veolcity during jump.
 #define CONF_JUMPCON_Y				1										//1 = Release of Jump key halts Y velocity during jump (i.e. Mario Bros style jump height control).
@@ -58,7 +57,6 @@
 #define AC_DBJMPP					A_FOLLOW57								//Double jump, pogo.
 #define AC_DBJMPW					A_FOLLOW58								//Double jump, wall.
 #define AC_DIZZY					A_FOLLOW50								//Dizzy.
-#define AC_DEFPOSE					A_FOLLOW51								//Defensive grapple.
 #define AC_DODATK					A_FOLLOW83								//Dodge attack.
 #define AC_DODATKU					A_FOLLOW84								//Dodge up attack.
 #define AC_DODATKD					A_FOLLOW85								//Dodge down attack.
@@ -113,7 +111,6 @@
 #define A_DEATH9					openborconstant("ANI_DIE9")
 #define A_DEATH10					openborconstant("ANI_DIE10")
 #define A_DOWN						openborconstant("ANI_DOWN")
-#define A_FALL						openborconstant("ANI_FALL")
 #define A_FALL2						openborconstant("ANI_FALL2")
 #define A_FALL3						openborconstant("ANI_FALL3")
 #define A_FALL4						openborconstant("ANI_FALL4")
@@ -369,7 +366,6 @@
 #define IDXE_STUNV					18										//Stun value built up by incoming attacks.
 #define IDXE_STUNT					19										//Gametime threshold to reduce/remove stun value.
 #define IDXE_BIND					20										//Primary bind for grappling moves.
-#define IDXE_NEXTANI				21										//Animation to be activated in future by another event or script.
 #define IDXE_NEXTANI2				22										//Animation to be activated in future by another event or script.
 #define IDXE_NEXTANI3				23										//Animation to be activated in future by another event or script.
 #define IDXE_NEXTANI4				24										//Animation to be activated in future by another event or script.
@@ -404,9 +400,6 @@
 #define IDXE_SHETIME				53										//Shadow, elapsed game time next shadow trail entity will be spawned.
 #define IDXE_SHREMAP				54										//Shadow, remap applied to shadow trail.
 #define IDXE_SHBLEND				55										//Shadow, blend mode applied to shadow trail.
-#define IDXE_TOSSX					56										//X velocity for toss effect on attack.
-#define IDXE_TOSSY					57										//Y velocity for toss effect on attack.
-#define IDXE_TOSSZ					58										//Z velocity for toss effect on attack.
 #define IDXE_DTOSSX					59										//X velocity for toss effect.
 #define IDXE_DTOSSY					60										//Y velocity for toss effect.
 #define IDXE_DTOSSZ					61										//Z velocity for toss effect.

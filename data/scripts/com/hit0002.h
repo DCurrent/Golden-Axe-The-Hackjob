@@ -40,9 +40,9 @@ void hit0002(){
             iEDamage    = getentityvar(vSelf, IDXE_HITDMG);            
             iELethal    = getentityvar(vSelf, IDXE_HITFIN);                    
             iEDrop      = getentityvar(vSelf, IDXE_HITDRP);                        
-            fTossX      = getentityvar(vSelf, IDXE_TOSSX);             
-            fTossY      = getentityvar(vSelf, IDXE_TOSSY);             
-            fTossZ      = getentityvar(vSelf, IDXE_TOSSZ);
+            fTossX      = getentityvar(vSelf, "dc_next_toss_x");             
+            fTossY      = getentityvar(vSelf, "dc_next_toss_y");             
+            fTossZ      = getentityvar(vSelf, "dc_next_toss_z");
             iReset      = getentityvar(vSelf, IDXE_HITNOR);
                         
             iDefHP      = getentityproperty(vDefender, "health");                   //Get Defender's health.
@@ -71,9 +71,9 @@ void hit0002(){
                         fTossX = -fTossX; 
                     }        
                     tossentity(vDefender, fTossY, fTossX, fTossZ);                  //Toss opponent. 
-                    //setentityvar(vDefender, IDXE_TOSSX, fTossX);
-                    //setentityvar(vDefender, IDXE_TOSSY, fTossY);
-                    //setentityvar(vDefender, IDXE_TOSSZ, fTossZ);
+                    //setentityvar(vDefender, "dc_next_toss_x", fTossX);
+                    //setentityvar(vDefender, "dc_next_toss_y", fTossY);
+                    //setentityvar(vDefender, "dc_next_toss_z", fTossZ);
                 }
             }               
 

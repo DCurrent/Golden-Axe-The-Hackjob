@@ -17,9 +17,9 @@ void hit0001(int iDamage, int iFinish, void vType, float fTossX, float fTossY, f
         setentityvar(vSelf, IDXE_HITFIN,   NULL());    //Leathal/non leathal damage.
         setentityvar(vSelf, IDXE_HITTYP,   NULL());    //Attack type.
         setentityvar(vSelf, IDXE_HITDRP,   NULL());    //Drop.
-        setentityvar(vSelf, IDXE_TOSSX,    NULL());    //Toss X
-        setentityvar(vSelf, IDXE_TOSSY,    NULL());    //Toss Y
-        setentityvar(vSelf, IDXE_TOSSZ,    NULL());    //Toss Z
+        setentityvar(vSelf, "dc_next_toss_x",    NULL());    //Toss X
+        setentityvar(vSelf, "dc_next_toss_y",    NULL());    //Toss Y
+        setentityvar(vSelf, "dc_next_toss_z",    NULL());    //Toss Z
         setentityvar(vSelf, IDXE_HITNOR,   NULL());    //Remove flags on hit toggle.
         setentityvar(vSelf, IDXE_HITWRX,   NULL());    //Move defender to attacker with X adjust.
         setentityvar(vSelf, IDXE_HITWRY,   NULL());    //Move defender to attacker with Y adjust.
@@ -32,9 +32,9 @@ void hit0001(int iDamage, int iFinish, void vType, float fTossX, float fTossY, f
         setentityvar(vSelf, IDXE_HITFIN,   iFinish);   //Leathal/non leathal damage.
         setentityvar(vSelf, IDXE_HITTYP,   vType);     //Attack type.
         setentityvar(vSelf, IDXE_HITDRP,   iDrop);     //Drop.
-        setentityvar(vSelf, IDXE_TOSSX,    fTossX);    //Toss X
-        setentityvar(vSelf, IDXE_TOSSY,    fTossY);    //Toss Y
-        setentityvar(vSelf, IDXE_TOSSZ,    fTossZ);    //Toss Z
+        setentityvar(vSelf, "dc_next_toss_x",    fTossX);    //Toss X
+        setentityvar(vSelf, "dc_next_toss_y",    fTossY);    //Toss Y
+        setentityvar(vSelf, "dc_next_toss_z",    fTossZ);    //Toss Z
         setentityvar(vSelf, IDXE_HITNOR,   iReset);    //Remove flags on hit toggle.
         setentityvar(vSelf, IDXE_HITWRX,   iWarpX);    //Move defender to attacker with X adjust.
         setentityvar(vSelf, IDXE_HITWRY,   iWarpY);    //Move defender to attacker with Y adjust.

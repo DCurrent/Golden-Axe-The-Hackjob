@@ -67,7 +67,7 @@ void z_blocko(void vEnt)
 
 			if (iOHP > iDamage)																			//Will obstacle survive damage?
 			{
-				changeentityproperty(vEnt, "animation", A_FALL);										//Reset fall animation.
+				changeentityproperty(vEnt, "animation", openborconstant("ANI_FALL"));										//Reset fall animation.
 				tossentity(vEnt, 2.5, iXVel, 0);														//Apply toss values.
 			}
             dama0001(vObstacle, iDamage, 100, openborconstant("ATK_NORMAL"), 0, 0, 0, 0, 0, 0, 0);

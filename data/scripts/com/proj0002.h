@@ -71,16 +71,16 @@ G. Hishoken     "andybe"          3           1         85         30        1  
     changeentityproperty(vSpawn, "aggression", iPen);                                           //Penetration (how many extra hits projectile can dish out before stopping).
     changeentityproperty(vSpawn, "guardpoints", iPhys);                                         //Vunerability vs. physical attacks (punches, kicks, etc.). -1 projectile can't be hit. 0 = 1 hit stop. 1+ no. of extra hits that can be taken.
     
-    setentityvar(vSpawn, IDXE_NEXTANI, iAniH);                                                       //Animation to play when projectile hits and stops.
+    setentityvar(vSpawn, "dc_next_animation_id", iAniH);                                                       //Animation to play when projectile hits and stops.
     setentityvar(vSpawn, IDXE_NEXTANI2, iAniD);                                                      //Animation to play when projectile is defeated.
 
     setentityvar(vSpawn, IDXE_HITDMG,   iForce);                                                     //Damage.
     setentityvar(vSpawn, IDXE_HITFIN,   iFin);                                                       //Leathal/non leathal damage.
     setentityvar(vSpawn, IDXE_HITTYP,   iType);                                                      //Attack type.
     setentityvar(vSpawn, IDXE_HITDRP,   iDrop);                                                      //Drop.
-    setentityvar(vSpawn, IDXE_TOSSX,    fTX);                                                        //Toss X
-    setentityvar(vSpawn, IDXE_TOSSY,    fTY);                                                        //Toss Y
-    setentityvar(vSpawn, IDXE_TOSSZ,    fTZ);                                                        //Toss Z
+    setentityvar(vSpawn, "dc_next_toss_x",    fTX);                                                        //Toss X
+    setentityvar(vSpawn, "dc_next_toss_y",    fTY);                                                        //Toss Y
+    setentityvar(vSpawn, "dc_next_toss_z",    fTZ);                                                        //Toss Z
     setentityvar(vSpawn, IDXE_HITNOR,   iReset);                                                     //Remove flags on hit toggle.
     setentityvar(vSpawn, IDXE_HITWRX,   iWX);                                                        //Move defender to attacker with X adjust.
     setentityvar(vSpawn, IDXE_HITWRY,   iWY);                                                        //Move defender to attacker with Y adjust.

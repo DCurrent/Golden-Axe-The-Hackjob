@@ -88,7 +88,7 @@ void main(){
 		if(iKJmp && (iAni == A_JUMP || iAni == A_RUNJUMP || iAni == AC_DBJMP || iAni == AC_DBJMPW || iAni == AC_DBJMPP) && vTar)																		//Valid target?
 		{
 			
-			if(iAniT != AC_DEFPOSE
+			if(iAniT != openborconstant("ANI_FOLLOW10")
 				&& iAniT != A_RISE
 				&& iAniT != A_RISEATK)													//Not falling, not rising, and not being thrown already?
 				

@@ -41,7 +41,7 @@ onblocksscript		data/scripts/dc_common_onblock/event_onblocks_player.c
 onblockwscript		data/scripts/dc_common_onblock/event_onblockw_player.c
 onblockzscript		data/scripts/dc_common_onblock/event_onblockz_player.c
 ondeathscript		data/scripts/dc_common_ondeath/event_ondeath_player.c
-onfallscript		data/scripts/z_fall.c				#Fall status set.
+onfallscript		data/scripts/dc_common_onfall/event_onfall_player.c	
 onkillscript		data/scripts/z_kill.c				#Removed from playfield.
 onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.
 onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
@@ -481,20 +481,20 @@ anim attack6
 	delay	10
 	offset	60 96
 	@cmd  	bind0014 1 0							#Initialize bind variable.
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 166 -1  DIR_ADJ_OPP AC_DEFPOSE G_HELD 0
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 166 -1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELD 0
 		frame	data/chars/alex/0059.png
 	delay	20
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 12 185 1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 12 185 1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP 0
 		frame	data/chars/alex/0060.png
 	delay	30
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -18 195 1 DIR_ADJ_OPP AC_DEFPOSE G_HORDN 0
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -18 195 1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HORDN 0
 		frame	data/chars/alex/0061.png
 	delay	12
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -1 1 0 0
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
 		frame	data/chars/alex/0062.png
 	delay	30
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 30 30 1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0						#Release bind.
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 30 30 1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_RELEASE 0						#Release bind.
 	@cmd	dama0004 0 -2 0 10 openborconstant("ATK_NORMAL5") 1 2 1.5 0 10 0 1 0	#Apply damage, falling properties and final animation values.
 		frame	data/chars/alex/0063.png
 	delay	7
@@ -818,33 +818,33 @@ anim  grabforward
 	@cmd  	bind0014 1 0								#Initialize bind variable.
 	@cmd  	ani0019  -55 0 10 0 A_FOLLOW9 -1 0 0 0 0 0 0		#Wall alt.
 	@cmd	dama0004 0 0 0 10 openborconstant("ATK_NORMAL")  0 0 0 0 0 0 1 0		#Apply damage, falling properties and final animation values.
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 167 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 167 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP 0
 		frame  data/chars/alex/0063.png
 		offset  60  100
 		move  4
 		delay  10
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 0 167 1 DIR_ADJ_SAME AC_DEFPOSE G_HELDMP 0
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 0 167 1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HELDMP 0
 	frame  data/chars/alex/0091.png
 		move  0
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 167 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 167 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP 0
 	frame  data/chars/alex/0067.png
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 183 -1 DIR_ADJ_SAME AC_DEFPOSE G_HORDN 0
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 183 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HORDN 0
 		frame  data/chars/alex/0064.png
 	delay  -1000
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 5 170 -1 DIR_ADJ_SAME AC_DEFPOSE G_VERDN 0
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 5 170 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_VERDN 0
 		frame  data/chars/alex/0065.png
 	delay  4
 	@cmd	soun0005 ENT_SELF VOI_BTL -1 1 0 0
 	@cmd	bind0008 "slam_heavy" "mute" 0 1 -50 0 1 0 0 0 1					#Dust.
 	@cmd	dama0004 0 0 12 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 0 0		#Apply damage, falling properties and final animation values.
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -65 165 1 DIR_ADJ_OPP AC_DEFPOSE G_DWNUPP 0
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -65 165 1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_DWNUPP 0
 		frame  data/chars/alex/0066.png
 		frame  data/chars/alex/0066.png
 		frame  data/chars/alex/0066.png
 		frame  data/chars/alex/0066.png
 		frame  data/chars/alex/0066.png
 	delay  20
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -60  0 1  DIR_ADJ_SAME AC_DEFPOSE G_RELEASE 0							#Release bind.
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -60  0 1  DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_RELEASE 0							#Release bind.
 	@cmd	dama0004 0 -2 0 10 openborconstant("ATK_NORMAL6") -1 1 0 0		#Apply damage, falling properties and final animation values.
 		frame  data/chars/alex/0066.png
 	delay  10
@@ -866,15 +866,15 @@ anim  grabbackward
 	delay  10
 	offset  60  96
 	@cmd  	bind0014 1 0								#Initialize bind variable.
-	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  20  166  -1  DIR_ADJ_OPP AC_DEFPOSE G_HELD  0
+	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  20  166  -1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELD  0
 	@cmd  ani0019  55 0 10 0 A_FOLLOW8 -1 0 0 0 0 0 0			#Wall alt.
 		frame  data/chars/alex/0059.png
 	delay  20
 	@cmd  dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1			#Put into falling state.
-	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  12  185  1  DIR_ADJ_OPP AC_DEFPOSE G_HELDMP  0
+	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  12  185  1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP  0
 		frame  data/chars/alex/0060.png
 	delay  30
-	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  -18  195  1  DIR_ADJ_OPP AC_DEFPOSE G_HORDN  0
+	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  -18  195  1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HORDN  0
 		frame  data/chars/alex/0061.png
 	delay  7
 	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  -1 1 0 0
@@ -882,20 +882,20 @@ anim  grabbackward
 		frame  data/chars/alex/0062.png
 	offset  60  97
 	move  -1
-	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  50  180  -1  1  AC_DEFPOSE G_FALUPT  0
+	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  50  180  -1  1  openborconstant("ANI_FOLLOW10") G_FALUPT  0
 		frame  data/chars/alex/0067.png
 	move  0
 	delay  4
 	@cmd	bind0018 0 0 0 0 0 0								#Wall failsafe.
 	@cmd	bind0008 "slam_heavy" "slam_heavy" 0 1 40 0 1 0 0 0 1					#Dust.
 	@cmd	dama0004 0 0 12 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0		#Apply damage.
-	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  45  165  -1  1  AC_DEFPOSE G_DWNUPP  0
+	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  45  165  -1  1  openborconstant("ANI_FOLLOW10") G_DWNUPP  0
 		frame  data/chars/alex/0068.png
 		frame  data/chars/alex/0068.png
 		frame  data/chars/alex/0068.png
 		frame  data/chars/alex/0068.png
 	@cmd	soun0005 ENT_SELF VOI_BTL -1 1 0 0
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 40  0 1  DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0							#Release bind.
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 40  0 1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_RELEASE 0							#Release bind.
 	@cmd	dama0004 0 -2 0 10 openborconstant("ATK_NORMAL6") 1 2.2 1 0 0 0 0 0		#Put into exit ani and apply any damage on landing values.
 		frame  data/chars/alex/0068.png
 	delay  20
@@ -1216,14 +1216,14 @@ anim	follow8
 
 	delay  10
 	offset  60  96
-	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  20  166  -1  DIR_ADJ_OPP AC_DEFPOSE G_HELD  0
+	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  20  166  -1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELD  0
 		frame  data/chars/alex/0059.png
 	delay  20
 	@cmd  dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1			#Put into falling state.
-	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  12  185  1  DIR_ADJ_OPP AC_DEFPOSE G_HELDMP  0
+	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  12  185  1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP  0
 		frame  data/chars/alex/0060.png
 	delay  30
-	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  -18  195  1  DIR_ADJ_OPP AC_DEFPOSE G_HORDN  0
+	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  -18  195  1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HORDN  0
 		frame  data/chars/alex/0061.png
 	delay  7
 	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  -1 1 0 0
@@ -1231,14 +1231,14 @@ anim	follow8
 		frame  data/chars/alex/0062.png
 	offset  60  97
 	move  -1
-	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  10  180  -1  DIR_ADJ_OPP AC_DEFPOSE G_VERDNP  0
+	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  10  180  -1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_VERDNP  0
 	delay  50
 	@cmd	bind0008 MODEL_FLWALLM MODEL_FLWALLM 0 1 10 50 1 0 0 0 1				#Wall Dust.
 		frame  data/chars/alex/0081.png
 	delay  10
 	move  0
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
-	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  10  180  1  DIR_ADJ_OPP AC_DEFPOSE G_VERDN  0
+	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  10  180  1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_VERDN  0
 		frame  data/chars/alex/0082.png
 	offset  60  98
 	move  -8
@@ -1246,16 +1246,16 @@ anim	follow8
 		frame  data/chars/alex/0062.png
 	delay  -1000
 	move  0
-	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  8  158  1  DIR_ADJ_OPP AC_DEFPOSE G_VERDN  0
+	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  8  158  1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_VERDN  0
 		frame  data/chars/alex/0083.png
 	delay   40
 	@cmd	bind0018 0 0 0 0 0 0								#Wall failsafe.
 	@cmd	bind0008 "slam_heavy" "slam_heavy" 0 1 20 0 1 0 0 0 1					#Dust.
 	@cmd	dama0004 0 0 12 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0		#Apply damage.
-	@cmd    bind0010 FLAG_MODE_0 ENT_SELF  0  10  138  1  DIR_ADJ_OPP AC_DEFPOSE G_VERDNP  0
+	@cmd    bind0010 FLAG_MODE_0 ENT_SELF  0  10  138  1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_VERDNP  0
 		frame  data/chars/alex/0084.png
 	delay	15
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 30 0 1 DIR_ADJ_SAME AC_DEFPOSE G_RELEASE 0							#Release bind.
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 30 0 1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_RELEASE 0							#Release bind.
 	@cmd	dama0004 0 -2 0 10 openborconstant("ATK_NORMAL6") -1 1 0 0		#Apply damage, falling properties and final animation values.
 		frame  data/chars/alex/0084.png
 	delay  7
@@ -1278,49 +1278,49 @@ anim  follow9
 	offset  60  98
 	delay  	8
 	move  	0
-	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  20  166  -1  DIR_ADJ_OPP AC_DEFPOSE G_HELD  0
+	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  20  166  -1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELD  0
 		frame  data/chars/alex/0059.png
-	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF  0  15  170  -1  DIR_ADJ_OPP AC_DEFPOSE  G_HELDMP  0
+	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF  0  15  170  -1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10")  G_HELDMP  0
 		frame  data/chars/alex/0067.png
 	offset  60  100
 	move  	15
-	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF  0  5  170  -1  DIR_ADJ_OPP AC_DEFPOSE G_HELDMP  0
+	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF  0  5  170  -1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP  0
 		frame  data/chars/alex/0029.png
 	move  	-15
 	offset  60  98
-	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF  0  -8  170  -1  DIR_ADJ_OPP AC_DEFPOSE G_HELDMP  0
+	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF  0  -8  170  -1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP  0
 		frame  data/chars/alex/0085.png
 	delay  	6
 	move  	0
-	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF  0  12  170  -1  DIR_ADJ_OPP AC_DEFPOSE G_HELDMP  0
+	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF  0  12  170  -1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP  0
 		frame  data/chars/alex/0086.png
 	delay  	40
 	@cmd	bind0008 MODEL_FLWALLM MODEL_FLWALLM 0 1 5 25 1 0 0 0 1
 	@cmd	dama0004 0 0 7 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0		#Apply damage.
-	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  20  170  -1  DIR_ADJ_OPP AC_DEFPOSE G_HELDP  0
+	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  20  170  -1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDP  0
 		frame  data/chars/alex/0087.png
 	delay  	10
 	offset  60  97
 	move  	-5
-	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  25  170  -1  DIR_ADJ_OPP AC_DEFPOSE G_HELDMP  0
+	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  25  170  -1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP  0
 		frame  data/chars/alex/0067.png
 	delay  	15
 	move  	0
-	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  15  170  1  DIR_ADJ_OPP AC_DEFPOSE G_HELD  0
+	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  15  170  1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELD  0
 		frame  data/chars/alex/0090.png
 	delay  	6
 	offset  60  96
 	move  	1
-	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  5  160  -1  DIR_ADJ_OPP AC_DEFPOSE G_EX3  0
+	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  5  160  -1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_EX3  0
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
 		frame  data/chars/alex/0060.png
 	offset  60  98
 	move  	4
-	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  15  195  -1  1  AC_DEFPOSE G_VERDN  0
+	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  15  195  -1  1  openborconstant("ANI_FOLLOW10") G_VERDN  0
 		frame  data/chars/alex/0088.png
 	delay  	30
 	move  	0
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -10 60 -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE 0							#Release bind.
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -10 60 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_RELEASE 0							#Release bind.
 	@cmd	dama0004 0 -2 0 10 openborconstant("ATK_NORMAL5") -1 1 0 0		#Apply damage.
 		frame  data/chars/alex/0089.png
 	delay  	8

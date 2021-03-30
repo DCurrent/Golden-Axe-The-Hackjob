@@ -43,7 +43,7 @@ int bind0019(void vEnt){
 
 			fOY -= 190;															//Adjustment for average cahracter size.
 			
-			bind0010(0, vEnt, iCnt, 0, 0, 0, 0, AC_DEFPOSE, -2, 0);				//Release bind and clear records.
+			bind0010(0, vEnt, iCnt, 0, 0, 0, 0, openborconstant("ANI_FOLLOW10"), -2, 0);				//Release bind and clear records.
 			dama0001(vBind, 0, 100, "ATK_NORMAL", 0, 2, -1, 0, 0, 0, 0);		//Knock bound entity down to reset it.
             changeentityproperty(vBind, "position", fX+fOX, fZ+fOZ, fY+fOY);	//Set location.            
         }

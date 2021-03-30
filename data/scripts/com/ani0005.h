@@ -13,12 +13,12 @@ int ani0005(){
 	*/
 	
 	void acting_entity = getlocalvar("self");           //Calling entity. 
-    int  iAni  = getentityvar(acting_entity, IDXE_NEXTANI);  //Get animation varible.
+    int  iAni  = getentityvar(acting_entity, "dc_next_animation_id");  //Get animation varible.
 
     if (iAni)
     {
 	   performattack(acting_entity, iAni, 1);           //Switch to desired animation.    	
-       setentityvar(acting_entity, IDXE_NEXTANI, NULL());    //Clear variable.
+       setentityvar(acting_entity, "dc_next_animation_id", NULL());    //Clear variable.
        return iAni;
     }
     return 0;

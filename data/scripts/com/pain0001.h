@@ -13,7 +13,7 @@ void pain0001(){
     int     iAni        = getentityproperty(vSelf, "animationid");                  //Pain animation.
     int     iHeight;                                                                //Caller height.
     int     iHitY;                                                                  //Hit Y.
-    int     iNAni       = getentityvar(vSelf, IDXE_NEXTANI);                             //Next animation request.
+    int     iNAni       = getentityvar(vSelf, "dc_next_animation_id");                             //Next animation request.
 	int		iPainAni;																//Final animation to set.
 
     if (iAni == A_BURNPAIN)                                                         //Burn attack?

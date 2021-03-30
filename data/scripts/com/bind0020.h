@@ -35,7 +35,7 @@ void bind0020(void vEnt){
 		iDir	=	getentityvar(vEnt, IDXE_BOUNDD);									//Get bind direction.
 		iFrame	=	getentityvar(vEnt, IDXE_BOUNDF);									//Get bind frame.
 
-		bind0010(0, vAnch, iIDX, fOX, fOY, fOZ, iDir, AC_DEFPOSE, iFrame, 0);					//Reestablish bind.
+		bind0010(0, vAnch, iIDX, fOX, fOY, fOZ, iDir, openborconstant("ANI_FOLLOW10"), iFrame, 0);					//Reestablish bind.
 	}
 
 	return vAnch;

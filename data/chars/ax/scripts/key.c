@@ -70,7 +70,7 @@ void main(){
 					fY		= getentityproperty(vTar, "a");
 					iH		= fY - iBase;
 
-					if(iAni != AC_DEFPOSE															//Not being thrown already?
+					if(iAni != openborconstant("ANI_FOLLOW10")															//Not being thrown already?
 						&& iAni != A_RISE														//Not getting up?
 						&& iAni != A_RISEATK													//Not getting up?
 						&& (!iDrop || iH >= 10))												//Either not falling or falling and more then 10 pixels from floor?
@@ -80,7 +80,7 @@ void main(){
 						and OpenBOR applies nograb flag by default. Instead we check for riding on an animal. 
 						Otherwise, anything that won't crash (i.e. has thrown poses) is fair game.
 						*/
-						if(!getentityproperty(vTar, "animal") && getentityproperty(vTar, "animvalid", AC_DEFPOSE))
+						if(!getentityproperty(vTar, "animal") && getentityproperty(vTar, "animvalid", openborconstant("ANI_FOLLOW10")))
 						{							
 							bind0014(vTar, 0);													//Initialize bind variable.	
 							ani0009(0, A_FOLLOW18, 0);											//Apply animation.
@@ -109,7 +109,7 @@ void main(){
 					iH		= fY - iBase;
 					iAni	= getentityproperty(vTar, "animationid");
 
-					if(iAni != AC_DEFPOSE 
+					if(iAni != openborconstant("ANI_FOLLOW10") 
 						&& iH >= 5)																//More then 5 pixels from ground and not being thrown already?
 					{	
 						/*
@@ -117,7 +117,7 @@ void main(){
 						and OpenBOR applies nograb flag by default. Instead we check for riding on an animal. 
 						Otherwise, anything that won't crash (i.e. has thrown poses) is fair game.
 						*/
-						if(!getentityproperty(vTar, "animal") && getentityproperty(vTar, "animvalid", AC_DEFPOSE))
+						if(!getentityproperty(vTar, "animal") && getentityproperty(vTar, "animvalid", openborconstant("ANI_FOLLOW10")))
 						{
 							bind0014(vTar, 0);													//Initialize bind variable.	
 							ani0009(0, A_FOLLOW12, -1);											//Apply animation.
@@ -137,7 +137,7 @@ void main(){
 					iDrop   = getentityproperty(vTar, "aiflag", "drop");						//Drop status.
 					iAni	= getentityproperty(vTar, "animationid");
 
-					if(iAni != AC_DEFPOSE
+					if(iAni != openborconstant("ANI_FOLLOW10")
 						&& iAni != A_RISE
 						&& iAni != A_RISEATK
 						&& iH < 5 
@@ -148,7 +148,7 @@ void main(){
 						and OpenBOR applies nograb flag by default. Instead we check for riding on an animal. 
 						Otherwise, anything that won't crash (i.e. has thrown poses) is fair game.
 						*/
-						if(!getentityproperty(vTar, "animal") && getentityproperty(vTar, "animvalid", AC_DEFPOSE))
+						if(!getentityproperty(vTar, "animal") && getentityproperty(vTar, "animvalid", openborconstant("ANI_FOLLOW10")))
 						{
 							bind0014(vTar, 0);													//Initialize bind variable.	
 							ani0009(0, A_FOLLOW15, -1);											//Apply animation.

@@ -201,7 +201,7 @@ void main()
 
         if (iAgg == 0)                                                                      //Aggression 0?
         {
-            changeentityproperty(vSelf, "animation", getentityvar(vSelf, IDXE_NEXTANI));         //Set animation.
+            changeentityproperty(vSelf, "animation", getentityvar(vSelf, "dc_next_animation_id"));         //Set animation.
             changeentityproperty(vSelf, "velocity", 0, 0, 0);                               //Stop movement.
         }
         else if (iAgg > 0)                                                                  //Agression 1+?

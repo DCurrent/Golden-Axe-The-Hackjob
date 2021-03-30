@@ -14,7 +14,7 @@ void fall0001(){
     float   fTossX      = getentityvar(vSelf, IDXE_TOSSX);								//Toss X
     float   fTossY      = getentityvar(vSelf, IDXE_TOSSY);								//Toss Y
     float   fTossZ      = getentityvar(vSelf, IDXE_TOSSZ);								//Toss Z
-    int     iAni        = getentityvar(vSelf, IDXE_NEXTANI);                             //Animation.
+    int     iAni        = getentityvar(vSelf, "dc_next_animation_id");                             //Animation.
     int     iHeight     = getentityproperty(vSelf, "height");                       //Caller height.
     int     iBase       = getentityproperty(vSelf, "base");                         //Caller base (platform height).
     int     iHitY;                                                                  //Last hit height.
@@ -41,7 +41,7 @@ void fall0001(){
 			}
 			else
 			{
-				changeentityproperty(vSelf, "animation", A_FALL);					//Fall normally since caller was in the air.
+				changeentityproperty(vSelf, "animation", openborconstant("ANI_FALL"));					//Fall normally since caller was in the air.
 			}
 		}
     }
@@ -54,7 +54,7 @@ void fall0001(){
 		{
 			iHitY   = openborvariant("lasthita");                                   //Get last hit height.
 
-			if (iHitY && iHitY < iHeight * 0.3 && iAni != AC_DEFPOSE)                  //Knockdown was from low and and self not being thrown?
+			if (iHitY && iHitY < iHeight * 0.3 && iAni != openborconstant("ANI_FOLLOW10"))                  //Knockdown was from low and and self not being thrown?
 			{
 				changeentityproperty(vSelf, "animation", AC_SWEPT);                    //Put into sweep animation.
 			}
@@ -65,7 +65,7 @@ void fall0001(){
     if (iAni)                                                                       //Animation switch request?
     {
         changeentityproperty(vSelf, "animation", iAni);                             //Switch animations.
-        setentityvar(vSelf, IDXE_NEXTANI, NULL());                                       //Clear animation switch variable.
+        setentityvar(vSelf, "dc_next_animation_id", NULL());                                       //Clear animation switch variable.
     }
 
     bind0005(getentityproperty(vSelf, "opponent"), 2);                              //Run bind0005.

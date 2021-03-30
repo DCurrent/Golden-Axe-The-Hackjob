@@ -209,8 +209,8 @@ void debu0001(void vEnt, int iKUp, int iKDn, int iKLt, int iKRt, int iKAtk, int 
 		
 		if(iBA == 0)
 		{
-			iBA		= AC_DEFPOSE;
-			cAni	= "AC_DEFPOSE";			
+			iBA		= openborconstant("ANI_FOLLOW10");
+			cAni	= openborconstant("ANI_FOLLOW10");			
 		}
 		else if(iBA != 1)
 		{

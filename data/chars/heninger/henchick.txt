@@ -21,7 +21,7 @@ onblocksscript		data/scripts/dc_common_onblock/event_onblocks_enemy.c
 onblockwscript		data/scripts/dc_common_onblock/event_onblockw_enemy.c			
 onblockzscript		data/scripts/dc_common_onblock/event_onblockz_enemy.c				
 ondeathscript		data/scripts/dc_common_ondeath/event_ondeath_enemy.c				
-onfallscript		data/scripts/z_fall.c				#Fall status set.
+onfallscript		data/scripts/dc_common_onfall/event_onfall_player.c 				
 onkillscript		data/scripts/z_kill.c				#Removed from playfield.
 onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.
 onmovexscript		data/scripts/z_movex.c				#Moving on X axis.

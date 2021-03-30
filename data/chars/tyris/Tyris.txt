@@ -47,7 +47,7 @@ onblocksscript		data/scripts/dc_common_onblock/event_onblocks_player.c
 onblockwscript		data/scripts/dc_common_onblock/event_onblockw_player.c
 onblockzscript		data/scripts/dc_common_onblock/event_onblockz_player.c
 ondeathscript		data/scripts/dc_common_ondeath/event_ondeath_player.c
-onfallscript		data/scripts/z_fall.c				#Fall status set.
+onfallscript		data/scripts/dc_common_onfall/event_onfall_player.c	
 onkillscript		data/scripts/z_kill.c				#Removed from playfield.
 onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.
 onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
@@ -205,18 +205,18 @@ anim	attack6
 	delay	10
 	offset	60 98
 	@cmd	bind0014 1 0
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 166 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELD 0
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 166 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELD 0
 	frame	data/chars/tyris/0060.png
 	delay	15
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 15 167 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 15 167 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP 0
 	frame	data/chars/tyris/0130.png
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 14 171 2 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 14 171 2 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP 0
 	frame	data/chars/tyris/0131.png
 	delay	8
 	@cmd	bind0023 0 "hith" "flash_hit_knockdown" 0 1 3 10 1 0 0 0 1
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 10 185 2 DIR_ADJ_SAME AC_DEFPOSE G_HORDN 0
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 10 185 2 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HORDN 0
 	frame	data/chars/tyris/0132.png
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -15 30 1 DIR_ADJ_SAME AC_DEFPOSE G_RELEASE 0
+	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -15 30 1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_RELEASE 0
 	@cmd	dama0004 0 -2 0 0 openborconstant("ATK_NORMAL5") -1 1 0 0
 	frame	data/chars/tyris/0133.png
 	frame	data/chars/tyris/0134.png
@@ -655,11 +655,11 @@ anim	follow57
 	@cmd	velo0003 0 10000000
 	@cmd	bind0008 "jump_land" "jump_land" 0 1 -5 25 1 1 0 0 1
 	@cmd	velo0001 0 0 0
-	@cmd	bind0010 FLAG_MODE_6 ENT_SELF 0 1 -18 -1 DIR_ADJ_OPP AC_DEFPOSE G_EX2 -1
+	@cmd	bind0010 FLAG_MODE_6 ENT_SELF 0 1 -18 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_EX2 -1
 	frame	data/chars/tyris/0190.png
 	frame	data/chars/tyris/0191.png
 	frame	data/chars/tyris/0192.png
-	@cmd	bind0010 FLAG_MODE_6 ENT_SELF 0 1 -18 -1 DIR_ADJ_OPP AC_DEFPOSE G_RELEASE -1
+	@cmd	bind0010 FLAG_MODE_6 ENT_SELF 0 1 -18 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_RELEASE -1
 	frame	data/chars/tyris/0193.png
 	@cmd	velo0003 0 0
 	@cmd	soun0005 ENT_SELF VOI_ATKL -1 1 0 0
@@ -879,20 +879,20 @@ anim	grabbackward
 	offset	60 98
 		bbox  49  46  21  51
 		@cmd	bind0014 1 0
-		@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 10 165 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDP 0
+		@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 10 165 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDP 0
 	frame	data/chars/tyris/0130.png
-		@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 10 165 -1 DIR_ADJ_OPP AC_DEFPOSE G_HELDMP 0
+		@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 10 165 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP 0
 	frame	data/chars/tyris/0198.png
 		delay  10
 		bbox  29  63  41  32
 		@cmd	soun0005 ENT_SELF VOI_ATKH -1 1 0 0
-		@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 -10 165 -1 DIR_ADJ_OPP AC_DEFPOSE G_TLTDN 0
+		@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 -10 165 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_TLTDN 0
 	frame	data/chars/tyris/0194.png
 		bbox  19  63  43  35
 		@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 -1 1 0 0
 	frame	data/chars/tyris/0195.png
 		delay  30
-		@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 -50 20 -1 DIR_ADJ_SAME AC_DEFPOSE G_RELEASE 0
+		@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 -50 20 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_RELEASE 0
 		@cmd dama0004 0 -2 0 0 openborconstant("ATK_NORMAL5") -1 1 0 0
 	frame	data/chars/tyris/0196.png
 		delay  15

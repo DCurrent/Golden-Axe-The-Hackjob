@@ -78,16 +78,8 @@ anim walk
     	delay   10
     	offset  80 142
     	bbox    74 74 20 54
-	@script
-	void vSelf = getlocalvar("self");
-	if(getentityproperty(vSelf, "invincible")==1)
-	{
-    		ai0003(vSelf);
-	}
-	else
-	{
-    		dc_ai_avoid_jump_attack();
-	}
+	@script	
+    		dc_ai_avoid_jump_attack();	
 	@end_script
 		frame	data/chars/ax/dragon/0029
 		frame	data/chars/ax/dragon/0030

@@ -1,7 +1,6 @@
 #include "data/scripts/vars/constants.h"	//http://www.caskeys.com/dc/?p=1314#constants
 #import "data/scripts/com/bind0008.h"
 #import "data/scripts/com/draw0006.h"
-#import "data/scripts/com/vars0001.h"
 
 void kill0001()
 {
@@ -81,5 +80,4 @@ void kill0001()
          }
     }
 
-    vars0001(vSelf, 0, 0, 0, 0, 0);															//Clean variables.
 }

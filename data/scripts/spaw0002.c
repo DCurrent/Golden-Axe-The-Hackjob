@@ -7,7 +7,6 @@
 #import "data/scripts/com/soun0005.h"	        //Sound functions.
 #import "data/scripts/com/rnd0001.h"
 #import "data/scripts/com/init0001.h"			//Entity records.
-#import "data/scripts/com/vars0001.h"			//Clear variables.
 
 void main(){
 
@@ -24,8 +23,7 @@ void main(){
 	float	fZ;																	//Caller location.
 
 	init0001(vSelf);															//Entity records.
-	vars0001(vSelf, 0, 0, 0, 0, 0);												//Clean variables.
-
+	
 	/*
 	If entity has noatflash, then we want to spawn another entity. This is usually for additional
 	visual effect, like a heavy impact spark to go with dust when someone is slammed.

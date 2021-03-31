@@ -11,6 +11,7 @@
 #import "data/scripts/dc_disney/direction.c"
 #import "data/scripts/dc_disney/entity.c"
 #import "data/scripts/dc_disney/dash_stop.c"
+#import "data/scripts/dc_disney/alternate_on_grab_eligible.c"
 #import "data/scripts/dc_disney/alternate_on_health.c"
 #import "data/scripts/dc_disney/alternate_on_range.c"
 #import "data/scripts/dc_disney/play_animation.c"

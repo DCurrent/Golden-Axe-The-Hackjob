@@ -318,7 +318,7 @@ anim special
     	offset 	60 98
     	bbox 	0
     	delay   6
-	@cmd	ani0014 0 A_FOLLOW4 0 200 A_ATK2 0 200
+	#cmd	ani0014 0 A_FOLLOW4 0 200 A_ATK2 0 200
 		frame 	data/chars/amazon/a9
 
 
@@ -503,7 +503,7 @@ anim follow5
 	delay  1
 	offset  60  98
 	bbox  0  0  0  0
-	@cmd ani0014 0 A_GRABBACK 0 0 A_ATK2 0 0
+	#cmd ani0014 0 A_GRABBACK 0 0 A_ATK2 0 0
 		frame  data/chars/amazon/0007.png
 	bbox  55  46  18  51
 		frame  data/chars/amazon/0005.png

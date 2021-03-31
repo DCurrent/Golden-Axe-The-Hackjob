@@ -718,7 +718,7 @@ anim special
 
 	offset	60 98
 	delay	16
-	@cmd ani0014 0 A_FOLLOW5 0 0 -1 0 0
+	#cmd ani0014 0 A_FOLLOW5 0 0 -1 0 0
 		frame	data/chars/ax/jump_start_0.png
 		frame	data/chars/ax/k1.png
 	delay	6

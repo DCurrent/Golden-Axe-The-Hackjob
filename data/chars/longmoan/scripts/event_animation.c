@@ -4,7 +4,6 @@
 
 #import "data/scripts/com/dc_ai_avoid_jump_attack.c"
 #import "data/scripts/com/ani0009.h"
-#import "data/scripts/com/ani0014.h"
 #import "data/scripts/com/bind0003.h"
 #import "data/scripts/com/bind0008.h"
 #import "data/scripts/com/bind0010.h"

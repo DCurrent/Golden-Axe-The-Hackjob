@@ -9,7 +9,6 @@
 //#import "data/scripts/com/ani0004.h"       //Force opponent entity to play animation.
 #import "data/scripts/com/ani0009.h"		//Animation switch wrapper.
 #import "data/scripts/com/ani0012.h"		//Switch animation when height is < 70% of target.
-#import "data/scripts/com/ani0014.h"		//Alt. animation if target can be grabbed.
 #import "data/scripts/com/ani0016.h"		//Alt animation if opponent rising.
 #import "data/scripts/com/ani0017.h"		//Switch to alternate animation if nearest hostile is in range of alt and all checks match.
 //#import "data/scripts/com/ani0018.h"		//Switch to alternate animation if nearest hostile is in range of alt and an animal type (should be rolled into ani0017).

@@ -5,7 +5,6 @@
 #import "data/scripts/com/dc_ai_avoid_jump_attack.c"        //Avoid jump attacks.
 #import "data/scripts/com/ai0003.h"        //Stay in screen while walking.
 #import "data/scripts/com/ani0009.h"        
-#import "data/scripts/com/ani0014.h"		//Alt animation depending on ability to grab opponent.
 #import "data/scripts/com/bind0003.h"		//Spawn entity and bind to caller.
 #import "data/scripts/com/bind0008.h"		//Spawn and set location to caller and then unbind.
 #import "data/scripts/com/bind0010.h"		//http://www.caskeys.com/dc/?p=1314#bind0010

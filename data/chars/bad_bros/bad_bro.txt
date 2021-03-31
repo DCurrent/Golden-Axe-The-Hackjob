@@ -402,7 +402,7 @@ anim special
 
 	offset  90  168
 	bbox  76  116  40  53
-	@cmd	ani0014 0 A_FOLLOW5 0 0 -1 0 0
+	#cmd	ani0014 0 A_FOLLOW5 0 0 -1 0 0
 		frame  data/chars/bad_bros/G_HELD.png
 	delay  12
 	offset  80  138

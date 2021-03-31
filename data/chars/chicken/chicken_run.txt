@@ -1,0 +1,338 @@
+name		    chicken_run
+type				npc
+health				100
+speed				14
+jumpheight			4
+jumpmove			0 1
+aggression 			90
+risetime 			5
+grabdistance 		24
+running 			20 5 1 0 0
+gfxshadow 			1
+nolife  			1
+dust				fall_land fall_land jump_liftoff
+height				50
+projectilehit 		enemy obstacle player npc
+hostile				enemy obstacle player npc
+candamage			enemy obstacle player npc
+bflash 				bflash
+aimove 				chase
+
+# You can knock the animal around, but
+# can't grab or kill it.
+risetime            1000
+knockdowncount      2
+defense             all 0.0
+nograb              1 
+
+palette data/chars/chicken/palette_default.act
+
+animationscript data/chars/chicken/scripts/event_animation.c
+
+anim spawn
+	loop	0
+	delay	12
+	offset	78 142
+	bbox	25 9 36 28
+		frame	data/chars/chicken/block_0.png
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+		frame	data/chars/chicken/block_1.png
+		frame	data/chars/chicken/block_0.png
+        delay   30
+		frame	data/chars/chicken/idle_0.png
+
+anim idle
+	loop	1
+	delay	14
+	offset	78 142
+	bbox.position.x 65
+	bbox.position.y 110
+	bbox.size.x 38
+	bbox.size.y 29
+		frame	data/chars/chicken/idle_0.png
+		frame	data/chars/chicken/idle_1.png
+		frame	data/chars/chicken/idle_2.png
+	
+		frame	data/chars/chicken/idle_1.png
+		
+anim attack1
+
+	range   	0 75
+
+	delay	6
+	offset	78 142
+	bbox.position.x 68
+	bbox.position.y 110
+	bbox.size.x 33
+	bbox.size.y 34
+	attack.block.penetrate 0
+	attack.damage.force 16
+	attack.damage.type 0
+	attack.effect.hit.flash.model flash_hit_knockdown
+	attack.position.x 42
+	attack.position.y 129
+	attack.reaction.fall.force 5
+	attack.reaction.pause.time 0
+	attack.size.x 28
+	attack.size.y 18
+	attack.size.z.1 0
+	
+    frame	data/chars/chicken/atk_whip_0.png	
+	
+	bbox.position.x 58
+	bbox.position.y 113
+	bbox.size.x 35
+	bbox.size.y 30
+	attack.block.penetrate 0
+	attack.damage.force 16
+	attack.damage.type 0
+	attack.effect.hit.flash.model flash_hit_knockdown
+	attack.position.x 52
+	attack.position.y 126
+	attack.reaction.fall.force 5
+	attack.reaction.pause.time 0
+	attack.size.x 48
+	attack.size.y 24
+	attack.size.z.1 0
+	
+	@cmd dc_elmers_quick_spot dc_gauntlet_quick_flash("dust_light") DC_ELMERS_SORT_FRONT
+	
+	@cmd	dc_fidelity_quick_play "golden_axe_heavy"
+	
+	frame	data/chars/chicken/atk_whip_1.png
+	
+	
+
+	attack.block.penetrate 0
+	attack.damage.force 16
+	attack.damage.type 0
+	attack.effect.hit.flash.model flash_hit_knockdown
+	attack.position.x 85
+	attack.position.y 118
+	attack.reaction.fall.force 5
+	attack.reaction.pause.time 0
+	attack.size.x 38
+	attack.size.y 25
+	attack.size.z.1 0
+
+	frame	data/chars/chicken/atk_whip_2.png
+	
+	attack.block.penetrate 0
+	attack.damage.force 16
+	attack.damage.type 0
+	attack.effect.hit.flash.model flash_hit_knockdown
+	attack.position.x 87
+	attack.position.y 118
+	attack.reaction.fall.force 5
+	attack.reaction.pause.time 0
+	attack.size.x 66
+	attack.size.y 25
+	attack.size.z.1 0
+		
+	frame	data/chars/chicken/atk_whip_3.png
+	
+	attack 0
+    
+    delay 12
+    
+	bbox.position.x 64
+	bbox.position.y 107
+	bbox.size.x 35
+	bbox.size.y 34
+	
+	frame	data/chars/chicken/atk_whip_4.png
+	
+	frame	data/chars/chicken/atk_whip_5.png
+	
+	frame	data/chars/chicken/atk_whip_6.png
+	
+	frame	data/chars/chicken/idle_0.png
+
+anim walk
+	loop	1
+	delay	8
+	offset	78 142
+	@script
+		//dc_ai_escape();
+	@end_script
+	bbox.position.x 68
+	bbox.position.y 108
+	bbox.size.x 30
+	bbox.size.y 34
+		frame	data/chars/chicken/run_0.png
+		frame	data/chars/chicken/run_1.png
+		frame	data/chars/chicken/run_2.png
+		frame	data/chars/chicken/run_3.png
+		
+anim down
+	loop	1
+	delay	8
+	offset	78 142
+	@script
+		//dc_ai_escape();
+	@end_script
+	bbox.position.x 68
+	bbox.position.y 108
+	bbox.size.x 30
+	bbox.size.y 34
+		frame	data/chars/chicken/walk_0.png
+		frame	data/chars/chicken/walk_1.png
+		frame	data/chars/chicken/walk_2.png
+		frame	data/chars/chicken/walk_3.png
+		
+anim up
+	loop	1
+	delay	8
+	offset	78 142
+	@script
+		//dc_ai_escape();
+	@end_script
+	bbox.position.x 68
+	bbox.position.y 108
+	bbox.size.x 30
+	bbox.size.y 34
+		frame	data/chars/chicken/walk_up_0.png
+		frame	data/chars/chicken/walk_up_1.png
+		frame	data/chars/chicken/walk_up_2.png
+		frame	data/chars/chicken/walk_up_3.png
+		
+anim run
+	loop	1
+	delay	8
+	offset	78 142
+	@script
+		//dc_ai_escape();
+	@end_script
+	bbox.position.x 68
+	bbox.position.y 108
+	bbox.size.x 30
+	bbox.size.y 34
+		frame	data/chars/chicken/run_0.png
+		frame	data/chars/chicken/run_1.png
+		frame	data/chars/chicken/run_2.png
+		frame	data/chars/chicken/run_3.png
+
+
+anim jump
+
+	range   10 64
+	dropframe 1
+
+    delay	-1000
+    offset 78 142
+    
+	bbox.position.x 69
+	bbox.position.y 90
+	bbox.size.x 30
+	bbox.size.y 31
+	
+	frame	data/chars/chicken/jump_0.png
+	frame	data/chars/chicken/jump_1.png
+
+anim runjump
+
+	range   10 94
+	dropframe 1
+
+    delay	-1000
+    offset 78 142
+    
+	bbox.position.x 69
+	bbox.position.y 90
+	bbox.size.x 30
+	bbox.size.y 31
+	
+	frame	data/chars/chicken/jump_0.png
+	frame	data/chars/chicken/jump_1.png
+
+anim jumpdelay
+
+    	delay 	12
+    offset	78 142
+	bbox.position.x 69
+	bbox.position.y 90
+	bbox.size.x 30
+	bbox.size.y 31
+		frame	data/chars/chicken/jump_start_0.png
+
+anim jumpland
+
+    delay 	12
+    offset	78 142
+    bbox.position.x 69
+	bbox.position.y 90
+	bbox.size.x 30
+	bbox.size.y 31
+		frame	data/chars/chicken/jump_start_0.png
+
+anim walkoff
+
+	dropframe 1
+	landframe 2 fall_land
+
+    delay	-1000
+    offset 78 142
+    
+	bbox.position.x 69
+	bbox.position.y 90
+	bbox.size.x 30
+	bbox.size.y 31
+	
+	frame	data/chars/chicken/jump_0.png
+	frame	data/chars/chicken/jump_1.png
+	
+	delay 12
+	
+	bbox.position.x 69
+	bbox.position.y 90
+	bbox.size.x 30
+	bbox.size.y 31
+	
+	frame	data/chars/chicken/jump_start_0.png
+		
+anim pain
+	loop	0
+	delay	30
+	offset	78 142
+	bbox.position.x 65
+	bbox.position.y 108
+	bbox.size.x 30
+	bbox.size.y 34
+		frame	data/chars/chicken/block_1.png
+		
+	delay 12
+		
+		frame	data/chars/chicken/block_0.png
+		
+anim fall
+
+	dropframe 1
+	landframe 2 fall_land
+
+    delay	-1000
+    offset 78 142
+    
+	bbox.position.x 69
+	bbox.position.y 90
+	bbox.size.x 30
+	bbox.size.y 31
+	
+	frame	data/chars/chicken/jump_0.png
+	frame	data/chars/chicken/jump_1.png
+	
+	delay 12
+	
+	bbox.position.x 69
+	bbox.position.y 90
+	bbox.size.x 30
+	bbox.size.y 31
+	
+		frame	data/chars/chicken/jump_start_0.png
+		
+anim rise
+
+    delay 	1
+    offset	78 142
+		frame	data/chars/chicken/jump_start_0.png
+	
+	

@@ -6,9 +6,9 @@ jumpheight			4
 jumpmove			0 1
 aggression 			90
 risetime 			5
-grabdistance 		24
-running 			14
-throwdamage 		0
+grabdistance 			24
+running 			14 5 1 1
+throwdamage 			0
 throw   			3 3
 gfxshadow 			1
 shadow				2

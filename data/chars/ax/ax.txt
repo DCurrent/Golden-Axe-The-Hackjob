@@ -21,6 +21,7 @@ gfxshadow 			1
 bounce				1
 height				60
 projectilehit 		player npc obstacle
+candamage 		    enemy npc obstacle
 noatflash 			0
 bflash 				bflash
 holdblock 			0

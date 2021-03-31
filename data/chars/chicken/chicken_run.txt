@@ -28,7 +28,7 @@ nograb              1
 palette data/chars/chicken/palette_default.act
 
 animationscript data/chars/chicken/scripts/event_animation.c
-
+thinkscript data/chars/chicken/scripts/event_think.c
 anim spawn
 	loop	0
 	delay	12

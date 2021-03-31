@@ -2,7 +2,6 @@
 
 #include "data/scripts/vars/constants.h"	//http://www.caskeys.com/dc/?p=1314#constants
 
-//#import "data/scripts/com/ai0001.h"        //AI mode change.
 #import "data/scripts/com/dc_ai_avoid_jump_attack.c"        //Avoid jump attacks by walking laterally.
 #import "data/scripts/com/ai0003.h"        //Stay in screen while walking.
 #import "data/scripts/com/ani0001.h"       //Generic conditional animation switch.

@@ -231,7 +231,7 @@ anim  chargeattack
 		delay  14
 		bbox  46  56  22  42
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
-	@cmd	ai0001 "blocking" 1 0 0
+	#cmd	ai0001 "blocking" 1 0 0
 		frame  data/chars/alex/0003.png
 	delay  7
 	@cmd	bind0003 "alex0001" "blur" -1 1 0 0 1 1 7
@@ -258,7 +258,7 @@ anim  chargeattack
 		frame  data/chars/alex/0010.png
 		frame  data/chars/alex/0010.png
 	delay	6
-	@cmd	ai0001 "blocking" 0 0 0
+	#cmd	ai0001 "blocking" 0 0 0
 		frame  data/chars/alex/0010.png
 	delay  12
 	bbox  45  47  22  52

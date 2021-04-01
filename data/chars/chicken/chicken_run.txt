@@ -16,7 +16,7 @@ projectilehit 		enemy obstacle player npc
 hostile				enemy obstacle player npc
 candamage			enemy obstacle player npc
 bflash 				bflash
-aimove 				chase
+aimove 				wander
 
 # You can knock the animal around, but
 # can't grab or kill it.
@@ -29,13 +29,14 @@ palette data/chars/chicken/palette_default.act
 
 animationscript data/chars/chicken/scripts/event_animation.c
 thinkscript data/chars/chicken/scripts/event_think.c
+
 anim spawn
 	loop	0
 	delay	12
 	offset	78 142
 	bbox	25 9 36 28
 		frame	data/chars/chicken/block_0.png
-	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+	@cmd	dc_fidelity_quick_play "piledriver"
 		frame	data/chars/chicken/block_1.png
 		frame	data/chars/chicken/block_0.png
         delay   30
@@ -336,3 +337,39 @@ anim rise
 		frame	data/chars/chicken/jump_start_0.png
 	
 	
+anim freespecial2 # Backstep.
+
+	range	1 -1
+
+	jumpframe 1 2 -1 0 jump_liftoff
+	dropframe 2
+	landframe 3 fall_land
+
+	delay	12
+	offset	78 142
+	
+	bbox.position.x 0
+	bbox.position.y 0
+	bbox.size.x 0
+	bbox.size.y 0
+		
+	frame	data/chars/chicken/jump_start_0.png
+	
+	delay	-1000
+   	
+	bbox.position.x 68
+	bbox.position.y 87
+	bbox.size.x 31
+	bbox.size.y 40
+		
+	frame	data/chars/chicken/jump_0.png
+	frame	data/chars/chicken/jump_1.png
+	
+	delay 12
+	
+	bbox.position.x 65
+	bbox.position.y 96
+	bbox.size.x 36
+	bbox.size.y 39
+		
+	frame	data/chars/chicken/jump_start_0.png

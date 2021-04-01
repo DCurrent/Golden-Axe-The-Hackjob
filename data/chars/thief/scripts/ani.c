@@ -4,7 +4,9 @@
 
 #import "data/chars/thief/scripts/thief_escape.c"
 
-#include "data/scripts/dc_fidelity/main.c"  // Sound player.
+#include "data/scripts/dc_fidelity/main.c"
+#include "data/scripts/dc_gauntlet/main.c"
+#include "data/scripts/dc_elmers/main.c"
 
 /* Snatch magic pots off the screen. Gimmme! */
 void steal()

@@ -17,7 +17,6 @@ void main()
 */
 void dc_ai_escape(void acting_entity)
 {
-
 	float pos_x = get_entity_property(acting_entity, "position_x");
 	float pos_y = get_entity_property(acting_entity, "position_y");
 	float pos_z = get_entity_property(acting_entity, "position_z");
@@ -135,7 +134,7 @@ void dc_ai_escape(void acting_entity)
 		/*
 		* For holes, use our max jump range. Obviously
 		* we want to set up the jump range correctly
-		* compared to distance entity does jump.Or
+		* compared to distance entity does jump. Or
 		* not, depending on how suicidal you want the
 		* AI to be. :)
 		*/
@@ -177,10 +176,8 @@ void dc_ai_escape(void acting_entity)
 		else if (velocity_x < 0)
 		{
 			set_entity_property(acting_entity, "position_direction", openborconstant("DIRECTION_LEFT"));
-		}
-		
-	}
-		
+		}	
+	}		
 
 	/* Destination off screen and kill self once we get there. */
 

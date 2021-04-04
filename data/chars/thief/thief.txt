@@ -21,6 +21,7 @@ jumpmove	0 1
 dust		jump_land jump_land jump_liftoff	
 
 load escthief
+load thief_escape_empty
 load thief_escape_full
 
 
@@ -177,5 +178,5 @@ anim    death
 	delay	1
 	offset	56 81
 	frame	data/chars/thief/idle_0.png
-@cmd escape
+@cmd escape "thief_escape_empty"
 	frame	data/chars/misc/blank.png

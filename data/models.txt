@@ -116,6 +116,7 @@ load	Tyris_Flare     data/chars/Tyris/Tyris.txt
 #Thieves
 know    escthief        data/chars/thief/escthief.txt
 know    Thief           data/chars/thief/thief.txt
+know    thief_escape_empty  data/chars/thief/thief_escape_empty.txt
 know    thief_escape_full  data/chars/thief/thief_escape_full.txt
 
 #Bad_Brother

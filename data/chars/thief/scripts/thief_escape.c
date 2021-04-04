@@ -3,7 +3,7 @@
 * with escaping behavior and moving new model to its
 * current position, then killing self.
 */
-void escape()
+void escape(char model_name)
 {
 	void acting_entity = getlocalvar("self");
 	void escape_entity = NULL();
@@ -15,7 +15,7 @@ void escape()
 	/* Spawn escaping theif. */
 
 	clearspawnentry();
-	setspawnentry("name", "thief_escape_full");
+	setspawnentry("name", model_name);
 	escape_entity = spawn();
 
 	/* Move new entity to current position. */

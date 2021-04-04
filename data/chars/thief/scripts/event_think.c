@@ -121,6 +121,6 @@ void main()
 
 	if (dc_timed_chance(1000, 0, 50, 200, 1))
 	{
-		escape();
+		escape("thief_escape_full");
 	}
 }

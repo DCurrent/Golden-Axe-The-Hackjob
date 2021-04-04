@@ -1,0 +1,158 @@
+# Thief escaping - has no items left in bag.
+
+name		thief_escape_empty
+health		1
+speed		18
+type		enemy
+antigrab 	9999
+nograb		1
+gfxshadow 	1
+shadow		1
+flash   	none
+noatflash 	1
+nodieblink 	1
+nolife  	1
+falldie 	2
+knockdowncount -1 		# always knock down
+defense 	all 	 0   	# invincible
+aimove 		wander
+aiattack 	noattack
+noquake 	1
+bounce 		0
+score 		0 -1
+jumpheight	4
+jumpmove	0 1
+running 	20 5 1 0 0
+dust		jump_land jump_land jump_liftoff	
+
+animationscript 	data/chars/thief/scripts/ani.c
+takedamagescript	data/chars/thief/scripts/damage.c		
+thinkscript			data/chars/chicken/scripts/event_think.c
+
+palette			data/chars/thief/palette_default.act
+alternatepal	data/chars/thief/palette_green.act
+alternatepal	data/chars/thief/palette_grey.act
+
+anim idle
+	
+	loop	1
+	offset	56 81
+	bbox	48 48 24 35
+	delay	25
+		
+	frame	data/chars/thief/escape_0.png
+
+anim spawn
+	
+	offset	56 81
+	
+	bbox	48 48 24 35
+	
+	delay	25
+	
+	frame	data/chars/thief/escape_0.png
+
+anim walk
+	loop	1
+	offset	56 81
+	
+	bbox	35 50 35 34
+	
+	delay	3
+	
+	frame	data/chars/thief/escape_0.png
+	frame	data/chars/thief/escape_1.png
+	frame	data/chars/thief/escape_2.png
+	frame	data/chars/thief/escape_1.png
+	frame	data/chars/thief/escape_0.png
+	frame	data/chars/thief/escape_3.png
+	frame	data/chars/thief/escape_4.png
+	frame	data/chars/thief/escape_3.png
+
+anim pain #fake
+	
+	delay	1
+	
+	frame	data/chars/misc/blank.png
+
+anim jumpdelay
+
+    range 20 60
+    
+	delay	8
+	offset	56 81
+	bbox	35 50 35 34
+
+	frame	data/chars/thief/escape_0.png
+
+anim jumpland
+
+    range 20 60
+    
+	delay	8
+	offset	56 81
+	bbox	35 50 35 34
+
+	frame	data/chars/thief/escape_0.png
+
+anim jump
+
+    range 10 64
+    
+	delay	100
+	offset	56 81
+	bbox	35 50 35 34
+
+	frame	data/chars/thief/escape_2.png
+
+anim runjump
+
+    range 10 94
+    
+	delay	100
+	offset	56 81
+	bbox	35 50 35 34
+
+	frame	data/chars/thief/escape_2.png
+
+anim walkoff
+
+    landframe 1 jump_land
+    
+	delay	-1000
+	offset	56 81
+
+	bbox	35 50 35 34
+
+	frame	data/chars/thief/escape_2.png
+
+	delay 8
+
+	frame	data/chars/thief/escape_0.png
+
+anim fall
+
+    landframe 2
+
+	delay	10
+	offset	52 81	
+
+	frame	data/chars/thief/R_FALLING_UP_LIFT_0.png
+
+	offset	50 81
+    delay   -1000
+
+	frame	data/chars/thief/R_FALLING_UP_CENTER_0.png
+
+	offset	52 81
+    delay   10
+
+	frame	data/chars/thief/R_FALLING_UP_TILT_0.png
+	frame	data/chars/thief/escape_0.png
+
+anim rise
+
+	offset	56 81
+	delay	4
+
+	frame	data/chars/thief/escape_0.png

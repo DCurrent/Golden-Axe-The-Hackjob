@@ -12,20 +12,25 @@ void main()
 
     if(acting_entity != other_entity)
     {
+        /* 
+        * Spawn an item if we are an item carrying thief. Hitpoints
+        * are how we track the number of items remaining. We're
+        * immune to damage from attacks, but we'll damage ourselves
+        * by 1 HP.
+        */
+
         if(model_name == "BlueThief")
         {
             spaw0005("Magic_Pot",0,0,0,0,0,0);
+
+            damageentity(acting_entity, acting_entity, 1, 1, openborconstant("ATK_LIFESPAN"));
         }
-		else if(model_name == "GrayThief")
-        {
-            spaw0005("time",0,0,0,0,0,0);
-        }
-        else
+		else if(model_name == "GreenThief")
         {
             spaw0005("meat",0,0,0,0,0,0);
-        }
 
-        damageentity(acting_entity, acting_entity, 1, 1, openborconstant("ATK_LIFESPAN"));
+            damageentity(acting_entity, acting_entity, 1, 1, openborconstant("ATK_LIFESPAN"));
+        }        
     }
 
     /*

@@ -1,4 +1,4 @@
-name		    chicken_run
+name		    chicken_escape
 type				npc
 health				100
 speed				14

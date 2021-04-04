@@ -116,6 +116,7 @@ load	Tyris_Flare     data/chars/Tyris/Tyris.txt
 #Thieves
 know    escthief        data/chars/thief/escthief.txt
 know    Thief           data/chars/thief/thief.txt
+know    thief_run_full  data/chars/thief/thief_run_full.txt
 
 #Bad_Brother
 know	bbro0001		data/chars/bad_bros/effects/bbro0001.txt
@@ -144,7 +145,7 @@ know	Amazon          data/chars/amazon/amazon.txt				#Enemy Amazon
 
 #Animals
 load    Chickenlegs     data/chars/chicken/chicken.txt
-load    chicken_run     data/chars/chicken/chicken_run.txt
+load    chicken_escape     data/chars/chicken/chicken_escape.txt
 
 load    Red_Dragon      data/chars/dragon/rdragon.txt
 load    Blue_Dragon     data/chars/dragon/bdragon.txt

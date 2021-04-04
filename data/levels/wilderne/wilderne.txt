@@ -144,7 +144,7 @@ at 0
 #spawnscript  data/scripts/z_lspawn.c
 #at 0
 
-spawn chicken_run
+spawn chicken_escape
 coords 100 180
 at 0
 

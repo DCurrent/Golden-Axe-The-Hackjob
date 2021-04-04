@@ -15,7 +15,7 @@ void escape()
 	/* Spawn escaping theif. */
 
 	clearspawnentry();
-	setspawnentry("name", "escthief");
+	setspawnentry("name", "thief_run_full");
 	escape_entity = spawn();
 
 	/* Move new entity to current position. */
@@ -34,22 +34,6 @@ void escape()
 	if (getlocalvar("lifespan") > 3)
 	{
 		executeanimation(escape_entity, openborconstant("ANI_RESPAWN"), 0);
-	}
-
-	/* Set new entity velocity based on current facing.*/
-	if (get_entity_property(acting_entity, "position_direction") == openborconstant("DIRECTION_RIGHT"))
-	{
-		set_entity_property(escape_entity, "position_direction", openborconstant("DIRECTION_RIGHT"));
-		set_entity_property(escape_entity, "velocity_x", 3.0);
-		set_entity_property(escape_entity, "velocity_y", 0.0);
-		set_entity_property(escape_entity, "velocity_z", 0.0);
-	}
-	else
-	{
-		set_entity_property(escape_entity, "position_direction", openborconstant("DIRECTION_LEFT"));
-		set_entity_property(escape_entity, "velocity_x", -3.0);
-		set_entity_property(escape_entity, "velocity_y", 0.0);
-		set_entity_property(escape_entity, "velocity_z", 0.0);
 	}
 
 	/* Kill self. */

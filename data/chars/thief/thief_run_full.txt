@@ -1,8 +1,9 @@
-name		Thief
+name		thief_run_full
 health		1
-speed		16
+speed		18
 type		enemy
 antigrab 	9999
+nograb		1
 gfxshadow 	1
 shadow		1
 flash   	none
@@ -17,158 +18,175 @@ aiattack 	noattack
 noquake 	1
 bounce 		0
 score 		0 -1
+jumpheight	4
 jumpmove	0 1
+running 	20 5 1 0 0
 dust		jump_land jump_land jump_liftoff	
 
-load escthief
-load thief_run_full
-
-
 animationscript 	data/chars/thief/scripts/ani.c
-onblockoscript		data/scripts/dc_common_onblock/event_onblocko_enemy.c
-onblocksscript		data/scripts/dc_common_onblock/event_onblocks_enemy.c
-onblockwscript		data/scripts/dc_common_onblock/event_onblockw_enemy.c			
-onblockzscript		data/scripts/dc_common_onblock/event_onblockz_enemy.c				
-ondeathscript		data/scripts/dc_common_ondeath/event_ondeath_enemy.c				
-onfallscript		data/scripts/dc_common_onfall/event_onfall_enemy.c				
-onkillscript		data/scripts/z_kill.c				#Removed from playfield.
-onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.
-onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
-onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
-onpainscript		data/scripts/z_pain.c				#Pain status set.
-onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
-script				data/scripts/z_script.c				#Entity updated.
-takedamagescript	data/chars/thief/scripts/damage.c		#Damaged.
-thinkscript			data/chars/thief/scripts/event_think.c				#Entity AI updates.
+takedamagescript	data/chars/thief/scripts/damage.c		
+thinkscript			data/chars/chicken/scripts/event_think.c
 
 palette			data/chars/thief/palette_default.act
 alternatepal	data/chars/thief/palette_green.act
 alternatepal	data/chars/thief/palette_grey.act
 
 anim idle
+	
 	loop	1
 	offset	56 81
 	bbox	48 48 24 35
 	delay	25
-	@cmd 	ai0005 0 3 openborconstant("ANI_DIE") 0 0 0
-		frame	data/chars/thief/idle_0.png
-	
-		frame	data/chars/thief/idle_1.png
+		
+	frame	data/chars/thief/idle_0.png	
+	frame	data/chars/thief/idle_1.png
+
 	delay	50
-		frame	data/chars/thief/idle_0.png
+
+	frame	data/chars/thief/idle_0.png
+
 	delay	25
-		frame	data/chars/thief/idle_1.png
+
+	frame	data/chars/thief/idle_1.png
 
 anim spawn
-	loop	0
+	
 	offset	56 81
+	
 	bbox	48 48 24 35
+	
 	delay	25
 	
 	frame	data/chars/thief/idle_0.png
 	frame	data/chars/thief/idle_1.png
+	
 	delay	50
+	
 	frame	data/chars/thief/idle_0.png
+	
 	delay	25
-@cmd steal
+	
 	frame	data/chars/thief/idle_1.png
 
 anim walk
 	loop	1
 	offset	56 81
+	
 	bbox	35 50 35 34
+	
 	delay	3
+	
 	frame	data/chars/thief/walk_0.png
-@cmd dc_ai_terrain_turn_around
 	frame	data/chars/thief/walk_1.png
 	frame	data/chars/thief/walk_2.png
 	frame	data/chars/thief/walk_3.png
-@cmd dc_ai_terrain_turn_around
 	frame	data/chars/thief/walk_4.png
 
 anim up
+	
 	loop	1
 	offset	56 81
+	
 	bbox	35 50 35 34
+	
 	delay	3
+	
 	frame	data/chars/thief/walk_up_0.png
-@cmd dc_ai_terrain_turn_around
 	frame	data/chars/thief/walk_up_1.png
 	frame	data/chars/thief/walk_up_2.png
 	frame	data/chars/thief/walk_up_3.png
-@cmd dc_ai_terrain_turn_around
 	frame	data/chars/thief/walk_up_4.png
 
 
 anim pain #fake
-	loop	0
+	
 	delay	1
+	
 	frame	data/chars/misc/blank.png
 
 anim jumpdelay
+
     range 20 60
     
 	delay	8
 	offset	56 81
 	bbox	35 50 35 34
+
 	frame	data/chars/thief/idle_0.png
 
 anim jumpland
+
     range 20 60
     
 	delay	8
 	offset	56 81
 	bbox	35 50 35 34
+
 	frame	data/chars/thief/idle_0.png
 
 anim jump
-    range 20 60
+
+    range 10 64
     
 	delay	100
 	offset	56 81
 	bbox	35 50 35 34
+
+	frame	data/chars/thief/walk_2.png
+
+anim runjump
+
+    range 10 94
+    
+	delay	100
+	offset	56 81
+	bbox	35 50 35 34
+
 	frame	data/chars/thief/walk_2.png
 
 anim walkoff
+
     landframe 1 jump_land
     
 	delay	-1000
 	offset	56 81
+
 	bbox	35 50 35 34
+
 	frame	data/chars/thief/walk_2.png
+
 	delay 8
+
 	frame	data/chars/thief/idle_0.png
 
 anim fall
-#    bouncefactor 0
+
     landframe 2
-	loop	0
+
 	delay	10
 	offset	52 81	
+
 	frame	data/chars/thief/R_FALLING_UP_LIFT_0.png
+
 	offset	50 81
     delay   -1000
+
 	frame	data/chars/thief/R_FALLING_UP_CENTER_0.png
+
 	offset	52 81
     delay   10
+
 	frame	data/chars/thief/R_FALLING_UP_TILT_0.png
 	frame	data/chars/thief/idle_1.png
 
 anim rise
-	loop	0
+
 	offset	56 81
 	delay	4
-	frame	data/chars/thief/idle_0.png
-	frame	data/chars/thief/idle_1.png
-	frame	data/chars/thief/idle_0.png
-	frame	data/chars/thief/idle_1.png
-	frame	data/chars/thief/idle_0.png
-	frame	data/chars/thief/idle_1.png
 
-anim    death
-	loop	0
-	delay	1
-	offset	56 81
 	frame	data/chars/thief/idle_0.png
-@cmd escape
-	frame	data/chars/misc/blank.png
+	frame	data/chars/thief/idle_1.png
+	frame	data/chars/thief/idle_0.png
+	frame	data/chars/thief/idle_1.png
+	frame	data/chars/thief/idle_0.png
+	frame	data/chars/thief/idle_1.png

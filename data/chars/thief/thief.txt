@@ -21,7 +21,7 @@ jumpmove	0 1
 dust		jump_land jump_land jump_liftoff	
 
 load escthief
-load thief_run_full
+load thief_escape_full
 
 
 animationscript 	data/chars/thief/scripts/ani.c

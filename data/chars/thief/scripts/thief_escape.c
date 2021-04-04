@@ -15,7 +15,7 @@ void escape()
 	/* Spawn escaping theif. */
 
 	clearspawnentry();
-	setspawnentry("name", "thief_run_full");
+	setspawnentry("name", "thief_escape_full");
 	escape_entity = spawn();
 
 	/* Move new entity to current position. */

@@ -1,4 +1,4 @@
-name		thief_run_full
+name		thief_escape_full
 health		1
 speed		18
 type		enemy

@@ -82,9 +82,12 @@ anim walk
 @cmd dc_ai_terrain_turn_around
 	frame	data/chars/thief/walk_1.png
 	frame	data/chars/thief/walk_2.png
+	frame	data/chars/thief/walk_1.png
+	frame	data/chars/thief/walk_0.png
 	frame	data/chars/thief/walk_3.png
-@cmd dc_ai_terrain_turn_around
 	frame	data/chars/thief/walk_4.png
+@cmd dc_ai_terrain_turn_around
+	frame	data/chars/thief/walk_3.png
 
 anim up
 	loop	1
@@ -95,9 +98,13 @@ anim up
 @cmd dc_ai_terrain_turn_around
 	frame	data/chars/thief/walk_up_1.png
 	frame	data/chars/thief/walk_up_2.png
+	frame	data/chars/thief/walk_up_1.png
+	frame	data/chars/thief/walk_up_0.png
 	frame	data/chars/thief/walk_up_3.png
-@cmd dc_ai_terrain_turn_around
 	frame	data/chars/thief/walk_up_4.png
+@cmd dc_ai_terrain_turn_around
+	frame	data/chars/thief/walk_up_3.png
+
 
 
 anim pain #fake

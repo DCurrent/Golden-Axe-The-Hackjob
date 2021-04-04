@@ -79,8 +79,11 @@ anim walk
 	frame	data/chars/thief/walk_0.png
 	frame	data/chars/thief/walk_1.png
 	frame	data/chars/thief/walk_2.png
+	frame	data/chars/thief/walk_1.png
+	frame	data/chars/thief/walk_0.png
 	frame	data/chars/thief/walk_3.png
 	frame	data/chars/thief/walk_4.png
+	frame	data/chars/thief/walk_3.png
 
 anim up
 	
@@ -94,8 +97,11 @@ anim up
 	frame	data/chars/thief/walk_up_0.png
 	frame	data/chars/thief/walk_up_1.png
 	frame	data/chars/thief/walk_up_2.png
+	frame	data/chars/thief/walk_up_1.png
+	frame	data/chars/thief/walk_up_0.png
 	frame	data/chars/thief/walk_up_3.png
 	frame	data/chars/thief/walk_up_4.png
+	frame	data/chars/thief/walk_up_3.png
 
 
 anim pain #fake

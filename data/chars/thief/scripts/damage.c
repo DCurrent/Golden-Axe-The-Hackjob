@@ -1,6 +1,5 @@
 #import "data/scripts/com/spaw0005.h"  //Spawn entity with toss.
 
-#include "data/scripts/common/takedamage_main.c"
 #include "data/scripts/dc_fidelity/main.c"
 
 void main()

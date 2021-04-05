@@ -11,13 +11,14 @@
 **/
 #define DC_EGGBALL_BASE_ID	"dcegg"
 
-// Boolean flags.
+/* Boolean flags. */
 #define DC_EGGBALL_FLAG_FALSE       0
 #define DC_EGGBALL_FLAG_TRUE        1
 
-// Defaults
+/* Defaults */
 #define DC_EGGBALL_DEFAULT_INSTANCE 0
 #define DC_EGGBALL_DEFAULT_INTERVAL 2500
+#define DC_EGGBALL_DEFAULT_LAST 2500
 
 // Variable keys.
 #define DC_EGGBALL_MEMBER_LAST             DC_EGGBALL_BASE_ID + 0

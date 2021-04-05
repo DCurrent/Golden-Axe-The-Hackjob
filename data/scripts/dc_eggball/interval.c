@@ -1,4 +1,5 @@
 #include "data/scripts/dc_eggball/config.h"
+#import  "data/scripts/dc_eggball/last.c"
 
 void dc_eggball_set_member_interval(int value)
 {
@@ -38,52 +39,42 @@ int dc_eggball_get_member_interval()
     return result;
 }
 
-int dc_eggball_interval()
+/*
+* Caskey, Damon V.
+* 2021-04-05
+* Orginal ~2017
+* 
+* Return true and prepare for next interval if 
+* interval time is expired.
+*/
+int dc_eggball_check_interval()
 {
     int result;
-    int elapsed_current;    // Current gametime.
+    int elapsed_time;    // Current gametime.
     int interval;           // Time interval.
     int instance;           // Instance index.
     int last_occurrence;    // Time of triggered instance.
     int difference;         // Time difference.
 
-    // Which instance are we using?
+    /* Which instance are we using? */
     instance = dc_eggball_get_instance();
 
-    // Populate in-line vars.
+    /* Populate in-line vars. */
     result          = DC_EGGBALL_FLAG_FALSE;
-    elapsed_current = openborvariant("elapsed_time");
-    last_occurrence = getlocalvar(DC_EGGBALL_MEMBER_LAST + instance);
+    elapsed_time = openborvariant("elapsed_time");
+    last_occurrence = dc_eggball_get_member_last();
     interval        = dc_eggball_get_member_interval();
 
-    // If last occurrence is empty or
-    // exceeds elapsed time then re-zero.
-    if(!last_occurrence || last_occurrence > elapsed_current)
-    {
-        last_occurrence = 0;
-    }
-
-    // If no interval is set, then use default.
-    if(!interval)
-    {
-        interval = DC_EGGBALL_DEFAULT_INTERVAL;
-    }
-
-    // Get difference between last_occurrence
-    // and elapsed_current.
-    difference = elapsed_current - last_occurrence;
-
-    // Once difference is met, perform
-    // action and record last occurrence
-    // for the next cycle.
-    if(difference >= interval)
-    {
+    /* 
+    * Time expired? Set time for next interval and
+    * set result true.
+    */
+    if(elapsed_time >= last_occurrence)
+    {    
         result = DC_EGGBALL_FLAG_TRUE;
-        setlocalvar(DC_EGGBALL_MEMBER_LAST + instance, elapsed_current);
+        
+        dc_eggball_set_member_last(elapsed_time + interval);
     }
 
     return result;
 }
-
-
-

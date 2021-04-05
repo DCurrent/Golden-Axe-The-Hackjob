@@ -14,7 +14,7 @@ void oncreate()
 
 void main()
 {
-    if(dc_eggball_interval())
+    if(dc_eggball_check_interval())
     {
         dc_kanga_increment_global_index();
 

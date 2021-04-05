@@ -1,52 +1,38 @@
 #include "data/scripts/dc_eggball/config.h"
 
-// Returns current instance or default if not set.
-int dc_eggball_check_instance()
+void dc_eggball_set_member_interval(int value)
 {
-    int result;
 
-    result = getlocalvar(DC_EGGBALL_INSTANCE);
+    char id;
 
-    if(!result)
+    // Get ID.
+    id = dc_eggball_get_instance() + DC_EGGBALL_MEMBER_INTERVAL;
+
+    // If value is default, make sure the variable
+    // is deleted.
+    if (value == DC_EGGBALL_DEFAULT_INTERVAL)
     {
-        result = DC_EGGBALL_DEFAULT_INSTANCE;
+        value = NULL();
     }
 
-    return result;
-}
-
-void dc_eggball_set_instance(int value)
-{
-    setlocalvar(DC_EGGBALL_INSTANCE, value);
-}
-
-void dc_eggball_set_interval(int value)
-{
-    int result;
-    int instance;
-
-    // Get the instance.
-    instance = dc_eggball_check_instance();
-
-    result = setlocalvar(DC_EGGBALL_INTERVAL + instance, value);
-
-
+    setlocalvar(id, value);
 }
 
 // Returns current interval or default if not set.
-int dc_eggball_check_interval()
+int dc_eggball_get_member_interval()
 {
+
+    char id;
     int result;
-    int instance;
 
-    // Get the instance.
-    instance = dc_eggball_check_instance();
+    // Get id.
+    id = dc_eggball_get_instance() + DC_EGGBALL_MEMBER_INTERVAL;
 
-    result = getlocalvar(DC_EGGBALL_INTERVAL + instance);
+    result = getlocalvar(id);
 
-    if(!result)
+    if (typeof(result) != openborconstant("VT_INTEGER"))
     {
-        result = DC_EGGBALL_DEFAULT_INSTANCE;
+        result = DC_EGGBALL_DEFAULT_INTERVAL;
     }
 
     return result;
@@ -62,13 +48,13 @@ int dc_eggball_interval()
     int difference;         // Time difference.
 
     // Which instance are we using?
-    instance = dc_eggball_check_instance();
+    instance = dc_eggball_get_instance();
 
     // Populate in-line vars.
     result          = DC_EGGBALL_FLAG_FALSE;
     elapsed_current = openborvariant("elapsed_time");
-    last_occurrence = getlocalvar(DC_EGGBALL_LAST + instance);
-    interval        = dc_eggball_check_interval();
+    last_occurrence = getlocalvar(DC_EGGBALL_MEMBER_LAST + instance);
+    interval        = dc_eggball_get_member_interval();
 
     // If last occurrence is empty or
     // exceeds elapsed time then re-zero.
@@ -93,7 +79,7 @@ int dc_eggball_interval()
     if(difference >= interval)
     {
         result = DC_EGGBALL_FLAG_TRUE;
-        setlocalvar(DC_EGGBALL_LAST + instance, elapsed_current);
+        setlocalvar(DC_EGGBALL_MEMBER_LAST + instance, elapsed_current);
     }
 
     return result;

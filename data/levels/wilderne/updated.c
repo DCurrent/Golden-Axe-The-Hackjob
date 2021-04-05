@@ -9,7 +9,7 @@
 void oncreate()
 {
     dc_eggball_set_instance(EGGBALL_INSTANCE);
-    dc_eggball_set_interval(PALETTE_INCREMENT_INTERVAL);
+    dc_eggball_set_member_interval(PALETTE_INCREMENT_INTERVAL);
 }
 
 void main()
@@ -20,16 +20,16 @@ void main()
 
         if(openborvariant("current_palette") == PALETTE_SUNNY_INDEX)
         {
-            dc_eggball_set_interval(PALETTE_SUNNY_INTERVAL);
+            dc_eggball_set_member_interval(PALETTE_SUNNY_INTERVAL);
         }
         else
         {
-            dc_eggball_set_interval(PALETTE_INCREMENT_INTERVAL);
+            dc_eggball_set_member_interval(PALETTE_INCREMENT_INTERVAL);
         }
     }
 
     //settextobj(2, 10, 70, 1, 999999994, "Palette: " + openborvariant("current_palette") + " of " + openborvariant("numpalettes"));
-	//settextobj(3, 10, 80, 1, 999999994, "Last: " + getlocalvar(DC_EGGBALL_LAST + EGGBALL_INSTANCE));
+	//settextobj(3, 10, 80, 1, 999999994, "Last: " + getlocalvar(DC_EGGBALL_MEMBER_LAST + EGGBALL_INSTANCE));
 	//settextobj(4, 10, 90, 1, 999999994, "Time: " + openborvariant("elapsed_time"));
 	//settextobj(5, 10, 100, 1, 999999994, "Sets: " + openborvariant("sets_count"));
 

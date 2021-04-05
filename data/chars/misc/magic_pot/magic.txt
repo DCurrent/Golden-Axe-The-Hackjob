@@ -7,15 +7,17 @@ shadow	0
 antigravity 80
 lifespan 1
 
+palette data/chars/misc/magic_pot/idle_0.png
+
 anim idle
     jumpframe 0 2 0 0
 	loop	0
 	delay	30
 	offset	16 25
-	frame	data/chars/misc/magpot/1.gif
+	frame	data/chars/misc/magic_pot/idle_0.png
 	delay	24
-	frame	data/chars/misc/magpot/2.gif
+	frame	data/chars/misc/magic_pot/break_0.png
 	delay	20
-	frame	data/chars/misc/magpot/3.gif
+	frame	data/chars/misc/magic_pot/break_1.png
 	frame	data/chars/misc/blank.png
 

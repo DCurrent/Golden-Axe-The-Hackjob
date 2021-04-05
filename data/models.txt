@@ -66,10 +66,10 @@ load slam_light		data/chars/misc/cvs_land_dust/slam_light.txt		# Slam impact, li
 load	effe0001	data/chars/misc/effects/effe0001.txt	#General effects/projectiles.
 load	effe0002	data/chars/misc/effects/effe0002.txt	#Char select burn.
 
-load    Magic           data/chars/misc/magic.txt
 know    meat            data/chars/misc/meat.txt
 know    time            data/chars/misc/time.txt
-know    Magic_Pot       data/chars/misc/magpot.txt
+load    Magic           data/chars/misc/magic_pot/magic.txt
+know    Magic_Pot       data/chars/misc/magic_pot/magic_pot.txt
 load    smoke           data/chars/misc/smoke.txt
 load    Steam           data/chars/misc/steam.txt
 know    shockwave       data/chars/misc/shockwav.txt

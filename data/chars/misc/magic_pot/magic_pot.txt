@@ -1,0 +1,32 @@
+name	Magic_Pot
+mp      10
+type	item
+subtype touch
+gfxshadow 1
+shadow	0
+bounce 1
+noquake 1
+dust	jump_land jump_land jump_liftoff
+
+didhitscript data/chars/misc/magic_pot/scripts/event_kill.c
+
+palette data/chars/misc/magic_pot/idle_0.png
+
+anim spawn
+	bouncefactor 4
+	landframe 1
+
+	delay	-1000
+	offset	16 25
+	bbox	0	
+	frame	data/chars/misc/magic_pot/idle_0.png
+	delay	10
+	frame	data/chars/misc/magic_pot/idle_0.png
+
+anim idle
+	bouncefactor 4
+
+	delay	1000
+	offset	16 25
+	bbox	0 0 32 32
+	frame	data/chars/misc/magic_pot/idle_0.png

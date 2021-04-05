@@ -19,6 +19,7 @@ bounce 		0
 score 		0 -1
 jumpmove	0 1
 dust		jump_land jump_land jump_liftoff	
+subject_to_screen 1
 
 load escthief
 load thief_escape_empty

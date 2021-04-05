@@ -47,6 +47,7 @@ void load_sounds()
 	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, "golden_axe_special", "data/sounds/custom/golden_axe_special.wav");
 	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, "golden_axe_heavy", "data/sounds/custom/golden_axe_whiff_heavy.wav");
 	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, "golden_axe_item_get", "data/sounds/custom/golden_axe_item_get_0.wav");
+	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, "golden_axe_magic_pot", "data/sounds/custom/golden_axe_magic_pot_0.wav");
 
 	/* Global voices. */
 	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, DC_FIDELITY_TYPE_VOICE_KO, "data/sounds/custom/avp_soldier_ko_0.wav");

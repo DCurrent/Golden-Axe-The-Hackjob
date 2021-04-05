@@ -23,9 +23,8 @@ jumpmove	0 1
 running 	20 5 1 0 0
 dust		jump_land jump_land jump_liftoff	
 
-animationscript 	data/chars/thief/scripts/ani.c
-takedamagescript	data/chars/thief/scripts/damage.c		
-thinkscript			data/chars/chicken/scripts/event_think.c
+animationscript 	data/chars/thief/scripts/ani.c		
+thinkscript		data/chars/chicken/scripts/event_think.c
 
 palette			data/chars/thief/palette_default.act
 alternatepal	data/chars/thief/palette_green.act
@@ -35,7 +34,7 @@ anim idle
 	
 	loop	1
 	offset	56 81
-	bbox	48 48 24 35
+	bbox	0
 	delay	25
 		
 	frame	data/chars/thief/idle_0.png	
@@ -53,7 +52,7 @@ anim spawn
 	
 	offset	56 81
 	
-	bbox	48 48 24 35
+	bbox	0
 	
 	delay	25
 	
@@ -72,7 +71,7 @@ anim walk
 	loop	1
 	offset	56 81
 	
-	bbox	35 50 35 34
+	bbox	0
 	
 	delay	3
 	
@@ -90,7 +89,7 @@ anim up
 	loop	1
 	offset	56 81
 	
-	bbox	35 50 35 34
+	bbox	0
 	
 	delay	3
 	
@@ -116,7 +115,7 @@ anim jumpdelay
     
 	delay	8
 	offset	56 81
-	bbox	35 50 35 34
+	bbox	0
 
 	frame	data/chars/thief/idle_0.png
 
@@ -126,7 +125,7 @@ anim jumpland
     
 	delay	8
 	offset	56 81
-	bbox	35 50 35 34
+	bbox	0
 
 	frame	data/chars/thief/idle_0.png
 
@@ -136,7 +135,7 @@ anim jump
     
 	delay	100
 	offset	56 81
-	bbox	35 50 35 34
+	bbox	0
 
 	frame	data/chars/thief/walk_2.png
 
@@ -146,7 +145,7 @@ anim runjump
     
 	delay	100
 	offset	56 81
-	bbox	35 50 35 34
+	bbox	0
 
 	frame	data/chars/thief/walk_2.png
 
@@ -157,7 +156,7 @@ anim walkoff
 	delay	-1000
 	offset	56 81
 
-	bbox	35 50 35 34
+	bbox	0
 
 	frame	data/chars/thief/walk_2.png
 

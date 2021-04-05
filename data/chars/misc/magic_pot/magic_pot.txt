@@ -13,7 +13,7 @@ didhitscript data/chars/misc/magic_pot/scripts/event_didhit.c
 palette data/chars/misc/magic_pot/idle_0.png
 
 anim spawn
-	bouncefactor 4
+	bouncefactor 2
 	landframe 1
 
 	delay	-1000
@@ -24,7 +24,7 @@ anim spawn
 	frame	data/chars/misc/magic_pot/idle_0.png
 
 anim idle
-	bouncefactor 4
+	bouncefactor 2
 
 	delay	1000
 	offset	16 25

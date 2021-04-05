@@ -8,7 +8,7 @@ bounce 1
 noquake 1
 dust	jump_land jump_land jump_liftoff
 
-didhitscript data/chars/misc/magic_pot/scripts/event_kill.c
+didhitscript data/chars/misc/magic_pot/scripts/event_didhit.c
 
 palette data/chars/misc/magic_pot/idle_0.png
 

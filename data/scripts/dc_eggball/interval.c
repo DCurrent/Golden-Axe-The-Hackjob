@@ -1,5 +1,5 @@
 #include "data/scripts/dc_eggball/config.h"
-#import  "data/scripts/dc_eggball/last.c"
+#import  "data/scripts/dc_eggball/next.c"
 
 void dc_eggball_set_member_interval(int value)
 {
@@ -62,7 +62,7 @@ int dc_eggball_check_interval()
     /* Populate in-line vars. */
     result          = DC_EGGBALL_FLAG_FALSE;
     elapsed_time = openborvariant("elapsed_time");
-    last_occurrence = dc_eggball_get_member_last();
+    last_occurrence = dc_eggball_get_member_next();
     interval        = dc_eggball_get_member_interval();
 
     /* 
@@ -73,7 +73,7 @@ int dc_eggball_check_interval()
     {    
         result = DC_EGGBALL_FLAG_TRUE;
         
-        dc_eggball_set_member_last(elapsed_time + interval);
+        dc_eggball_set_member_next(elapsed_time + interval);
     }
 
     return result;

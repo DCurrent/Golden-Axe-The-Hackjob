@@ -1,11 +1,11 @@
 #import "data/scripts/com/dc_ai_terrain_turn_around.c"    // Get around walls.
 #import "data/scripts/com/dc_ai_escape.c"    // Find way out of screen.
-#import "data/scripts/com/ai0005.h"    // Timed animation.
 
 #import "data/chars/thief/scripts/thief_escape.c"
 
 #include "data/scripts/dc_fidelity/main.c"
 #include "data/scripts/dc_gauntlet/main.c"
+#include "data/scripts/dc_eggball/main.c"
 #include "data/scripts/dc_elmers/main.c"
 
 /* Snatch magic pots off the screen. Gimmme! */
@@ -59,13 +59,12 @@ void runcheck(){
 		* Initialize lifespan from localvar. If there's
 		* no value, initialize an integer 0.
 		*/
-		int lifespan = getlocalvar("lifespan");
 
-		if (!lifespan)
+		if (dc_eggball_get_member_interval() == DC_EGGBALL_DEFAULT_INTERVAL)
 		{
-			lifespan = 0;
+			dc_eggball_set_member_interval(dc_eggball_seconds_to_time(15));
 		}
-
+				
 		/* 
 		* If the run animal flag is enabled, then
 		* we move our timer right up to the expire
@@ -78,7 +77,7 @@ void runcheck(){
 		*/
 		if(getglobalvar("runanimal"))
 		{
-			lifespan = 15;
+			dc_eggball_set_member_interval(dc_eggball_seconds_to_time(1));
 			setglobalvar("runanimal", NULL());
 		}
 
@@ -86,13 +85,9 @@ void runcheck(){
 		* If lifespaen expires, set walk. The walk animation
 		* is the runaway and handles things from here.
 		*/
-		if(lifespan > 15)
+		if(dc_eggball_check_interval())
 		{
 			executeanimation(acting_entity, openborconstant("ANI_WALK"), 0);
-		}
-		
-		/* Increment lifespan and set for next run of funciton. */
-		lifespan++;
-		setlocalvar("lifespan", lifespan);
+		}		
 	}
 }

@@ -18,7 +18,7 @@ int dc_eggball_get_member_next()
 
     if (typeof(result) != openborconstant("VT_INTEGER"))
     {
-        result = DC_EGGBALL_DEFAULT_LAST;
+        result = DC_EGGBALL_DEFAULT_NEXT;
     }
 
     return result;

@@ -30,11 +30,16 @@ int dc_eggball_get_member_interval()
     id = dc_eggball_get_instance() + DC_EGGBALL_MEMBER_INTERVAL;
 
     result = getlocalvar(id);
+   
+    log("\n\n result(): " + result);
+    log("\n\n typeof(result): " + typeof(result));
 
     if (typeof(result) != openborconstant("VT_INTEGER"))
     {
         result = DC_EGGBALL_DEFAULT_INTERVAL;
     }
+
+    log("\n\n result(): " + result);
 
     return result;
 }
@@ -53,28 +58,36 @@ int dc_eggball_check_interval()
     int elapsed_time;    // Current gametime.
     int interval;           // Time interval.
     int instance;           // Instance index.
-    int last_occurrence;    // Time of triggered instance.
+    int next;           // Time of triggered instance.
     int difference;         // Time difference.
-
-    /* Which instance are we using? */
-    instance = dc_eggball_get_instance();
-
+    
     /* Populate in-line vars. */
     result          = DC_EGGBALL_FLAG_FALSE;
-    elapsed_time = openborvariant("elapsed_time");
-    last_occurrence = dc_eggball_get_member_next();
+    elapsed_time    = openborvariant("elapsed_time");
+    next            = dc_eggball_get_member_next();
     interval        = dc_eggball_get_member_interval();
+
+    /* Initialize next if this is first run. */
+    if (next == DC_EGGBALL_DEFAULT_NEXT)
+    {
+        next = elapsed_time + interval;
+
+        dc_eggball_set_member_next(next);
+    }
 
     /* 
     * Time expired? Set time for next interval and
     * set result true.
     */
-    if(elapsed_time >= last_occurrence)
+    if(elapsed_time >= next)
     {    
         result = DC_EGGBALL_FLAG_TRUE;
         
-        dc_eggball_set_member_next(elapsed_time + interval);
+        next = elapsed_time + interval;
+
+        dc_eggball_set_member_next(next);
     }
+        
 
     return result;
 }

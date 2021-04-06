@@ -52,7 +52,6 @@ anim idle
 	offset	56 81
 	bbox	48 48 24 35
 	delay	25
-	@cmd 	ai0005 0 3 openborconstant("ANI_DIE") 0 0 0
 		frame	data/chars/thief/idle_0.png
 	
 		frame	data/chars/thief/idle_1.png

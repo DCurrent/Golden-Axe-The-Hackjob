@@ -1,6 +1,5 @@
 #include "data/scripts/vars/constants.h"	//http://www.caskeys.com/dc/?p=1314#constants
 
-#import "data/scripts/com/ani0005.h"
 #import "data/scripts/com/ani0009.h"
 #import "data/scripts/com/bind0005.h"
 #import "data/scripts/com/bind0020.h"

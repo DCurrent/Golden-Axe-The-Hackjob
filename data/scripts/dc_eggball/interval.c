@@ -22,26 +22,40 @@ void dc_eggball_set_member_interval(int value)
 // Returns current interval or default if not set.
 int dc_eggball_get_member_interval()
 {
-
     char id;
     int result;
 
     // Get id.
     id = dc_eggball_get_instance() + DC_EGGBALL_MEMBER_INTERVAL;
 
-    result = getlocalvar(id);
-   
-    log("\n\n result(): " + result);
-    log("\n\n typeof(result): " + typeof(result));
+    result = getlocalvar(id);    
 
     if (typeof(result) != openborconstant("VT_INTEGER"))
     {
         result = DC_EGGBALL_DEFAULT_INTERVAL;
     }
 
-    log("\n\n result(): " + result);
-
     return result;
+}
+
+/*
+* Cskey, Damon V.
+* 2021-04-06
+* 
+* Reset interval time by addinf interval value to 
+* the next member variable.
+*/
+int dc_eggball_reset_interval()
+{
+    int interval = dc_eggball_get_member_interval();
+    int next = 0;
+    int elapsed_time = openborvariant("elapsed_time");
+
+    next = interval + elapsed_time;
+
+    dc_eggball_set_member_next(next);
+
+    return next;
 }
 
 /*
@@ -56,7 +70,6 @@ int dc_eggball_check_interval()
 {
     int result;
     int elapsed_time;    // Current gametime.
-    int interval;           // Time interval.
     int instance;           // Instance index.
     int next;           // Time of triggered instance.
     int difference;         // Time difference.
@@ -65,14 +78,11 @@ int dc_eggball_check_interval()
     result          = DC_EGGBALL_FLAG_FALSE;
     elapsed_time    = openborvariant("elapsed_time");
     next            = dc_eggball_get_member_next();
-    interval        = dc_eggball_get_member_interval();
 
     /* Initialize next if this is first run. */
     if (next == DC_EGGBALL_DEFAULT_NEXT)
     {
-        next = elapsed_time + interval;
-
-        dc_eggball_set_member_next(next);
+        next = dc_eggball_reset_interval();
     }
 
     /* 
@@ -83,9 +93,7 @@ int dc_eggball_check_interval()
     {    
         result = DC_EGGBALL_FLAG_TRUE;
         
-        next = elapsed_time + interval;
-
-        dc_eggball_set_member_next(next);
+        dc_eggball_reset_interval();
     }
         
 

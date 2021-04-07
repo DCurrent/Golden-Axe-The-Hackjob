@@ -10,7 +10,7 @@ palette			data/chars/thief/palette_default.act
 alternatepal	data/chars/thief/palette_green.act
 alternatepal	data/chars/thief/palette_grey.act
 
-animationscript  data/chars/thief/scripts/ani.c
+animationscript  data/chars/thief/scripts/event_animation.c
 
 anim spawn
 	loop	1

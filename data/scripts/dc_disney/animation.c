@@ -4,7 +4,7 @@
 * Animation to apply.
 */
 
-void dc_disney_get_animation()
+void dc_disney_get_member_animation()
 {
 	int instance;
 	int result;
@@ -21,7 +21,7 @@ void dc_disney_get_animation()
 	return result;
 }
 
-void dc_disney_set_animation(void value)
+void dc_disney_set_member_animation(void value)
 {
 	int instance;
 	

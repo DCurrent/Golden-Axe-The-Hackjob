@@ -11,7 +11,7 @@ gfxshadow 	    1
 shadow		    3
 toflip  	    1
 
-animationscript data/chars/thief/scripts/ani.c
+animationscript data/chars/chicken/scripts/event_animation.c
 
 palette data/chars/chicken/palette_default.act
 
@@ -22,6 +22,12 @@ anim spawn
 	bbox	25 9 36 28
 		frame	data/chars/chicken/block_0.png
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+	
+	# Set up or reset the runaway timer.
+	@cmd dc_disney_set_member_animation openborconstant("ANI_WALK")
+	@cmd dc_disney_set_member_time_delay 3000
+	@cmd dc_disney_reset_animation_on_time
+	
 		frame	data/chars/chicken/block_1.png
 		frame	data/chars/chicken/block_0.png
         delay   30
@@ -32,7 +38,9 @@ anim idle
 	delay	100
 	offset	78 142
 	bbox	25 9 36 28
-	@cmd runcheck
+	
+	# Run away after enough time passes.
+	@cmd dc_disney_animation_on_time
 		frame	data/chars/chicken/sleep_0.png
 
 anim walk

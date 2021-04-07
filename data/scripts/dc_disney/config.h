@@ -2,6 +2,7 @@
 #define DC_DISNEY_CONFIG 1
 
 #include "data/scripts/dc_instance/main.c"
+#include "data/scripts/dc_eggball/main.c"
 
 /** Library Name
 *
@@ -16,13 +17,16 @@
 */
 #define DC_DISNEY_DEFAULT_ENT			getlocalvar("self")
 #define DC_DISNEY_DEFAULT_ANIMATION		openborconstant("ANI_IDLE")
+#define DC_DISNEY_DEFAULT_TIME_DELAY			1000
 
 /*
 * Member Variable keys.
 */
+
 #define DC_DISNEY_MEMBER_ANIMATION		DC_DISNEY_BASE_ID + 0
 #define DC_DISNEY_MEMBER_ENT			DC_DISNEY_BASE_ID + 1
-#define DC_DISNEY_MEMBER_THE_END		2			// Should always be last, with a value one higher than previous key ID.
+#define DC_DISNEY_MEMBER_TIME_DELAY			DC_DISNEY_BASE_ID + 2
+#define DC_DISNEY_MEMBER_THE_END		3			// Should always be last, with a value one higher than previous key ID.
 
 /** Instance control
 *

@@ -25,7 +25,7 @@ jumpmove	0 1
 running 	20 5 1 0 0
 dust		jump_land jump_land jump_liftoff	
 
-animationscript 	data/chars/thief/scripts/ani.c		
+animationscript 	data/chars/thief/scripts/event_animation.c		
 thinkscript		data/chars/chicken/scripts/event_think.c
 
 palette			data/chars/thief/palette_default.act

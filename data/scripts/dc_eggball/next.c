@@ -34,10 +34,11 @@ void dc_eggball_set_member_next(int value)
 
     // If value is default, make sure the variable
     // is deleted.
-    if (value == DC_EGGBALL_MEMBER_NEXT)
+    if (value == DC_EGGBALL_DEFAULT_NEXT)
     {
         value = NULL();
     }
 
     setlocalvar(id, value);
 }
+

@@ -13,7 +13,7 @@ toflip  	1
 
 palette		data/chars/dragon/aapa0011
 
-animationscript data/chars/thief/scripts/ani.c
+animationscript data/chars/thief/scripts/event_animation.c
 
 anim spawn	
 	
@@ -39,7 +39,7 @@ anim idle
     
 	bbox    65 117 32 32
 	
-	@cmd runcheck
+	#cmd runcheck
 	
 	frame	data/chars/dragon/lay
 

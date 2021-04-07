@@ -3,6 +3,7 @@ Conditional animation switching and control.
 
 ## Dependencies
 [DC Instance](https://github.com/DCurrent/openbor-script-instance)
+[DC Eggball](https://github.com/DCurrent/openbor-script-eggball)
 
 ## Installation
 1. Install any listed dependencies. See an individual dependency's readme for specific instructions.

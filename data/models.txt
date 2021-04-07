@@ -127,6 +127,7 @@ load    Bad_Brother     data/chars/bad_bros/bad_bro.txt
 load	lonchick        data/chars/longmoan/lonchick.txt
 load	lonrdrag        data/chars/longmoan/lonrdrag.txt
 load	lonbdrag        data/chars/longmoan/lonbdrag.txt
+know	longmoan_motion data/chars/longmoan/longmoan_motion.txt
 load	Longmoan        data/chars/longmoan/longmoan.txt
 
 #Heninger

@@ -17,4 +17,5 @@
 #import "data/scripts/com/dc_in_screen_setup.c"	//Check_increen
 
 #include "data/scripts/dc_elmers/main.c"
+#include "data/scripts/dc_gauntlet/main.c"
 #include "data/scripts/dc_fidelity/main.c"

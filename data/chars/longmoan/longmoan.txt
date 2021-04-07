@@ -32,6 +32,7 @@ escapehits 			5
 weapons 			lonchick lonrdrag lonbdrag
 atchain 			1 2 3 0 0
 #modelflag 			1
+load 				longmoan_motion
 
 animationscript 	data/chars/longmoan/scripts/event_animation.c
 didhitscript 		data/scripts/dc_common_didhit/event_didhit_enemy.c				# Hit another entity.
@@ -747,7 +748,7 @@ anim attack1
 	followanim 1
 	followcond 3
 	
-	range	0 40
+	range	0 400
 	loop	0
 	delay	12
 	offset	60 98
@@ -756,38 +757,40 @@ anim attack1
 	bbox.size.x 32
 	bbox.size.y 53
 	
-    frame   data/chars/longmoan/atk_swipe_0.png
+    	frame   data/chars/longmoan/atk_swipe_0.png
 	delay	8
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT	
-	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT
-	
+	@cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn("longmoan_motion") DC_ELMERS_SORT_FRONT
+
 	frame   data/chars/longmoan/atk_swipe_1.png
     
-    attack.effect.hit.flash.model flash_blunt_cut
+    	attack.effect.hit.flash.model flash_blunt_cut
 	attack.damage.force 4
 	attack.position.x 60
 	attack.position.y 52
 	attack.size.x 41
 	attack.size.y 18
-	#attack.effect.hit.flash.model flash_blunt_cut
 	
-    frame   data/chars/longmoan/atk_swipe_2.png
+	
+	
+    	frame   data/chars/longmoan/atk_swipe_2.png
     
-    attack 0
+    	attack 0
     
-    frame   data/chars/longmoan/atk_swipe_3.png
+    	frame   data/chars/longmoan/atk_swipe_3.png
     
-    delay 18
+    	delay 9
     
-    frame   data/chars/longmoan/atk_swipe_4.png
+    	frame   data/chars/longmoan/atk_swipe_4.png
+	frame   data/chars/longmoan/atk_swipe_4.png
     
-    delay 12
+    	delay 12
     
-    frame   data/chars/longmoan/atk_swipe_3.png
-    frame   data/chars/longmoan/idle_1.png
-    frame   data/chars/longmoan/idle_0.png
+    	frame   data/chars/longmoan/atk_swipe_3.png
+    	frame   data/chars/longmoan/idle_1.png
+    	frame   data/chars/longmoan/idle_0.png
     
 anim follow1
 

@@ -1,0 +1,36 @@
+name	     longmoan_motion	
+type	     none
+health	     100
+#speed	     10		
+alpha	     1
+candamage none
+
+palette	 	data/chars/longmoan/palette_default.act
+
+anim idle
+
+	delay	-1000
+	offset	60 98
+
+	frame	data/chars/misc/blank.png
+
+anim attack1	
+	
+	delay	-1000
+	offset	60 98
+		
+    	frame	data/chars/misc/blank.png	
+	
+	alphamask	data/chars/longmoan/atk_swipe_1_motion_0_mask_0.png	
+	frame   	data/chars/longmoan/atk_swipe_1_motion_0.png	
+    	
+	alphamask	data/chars/longmoan/atk_swipe_2_motion_0_mask_0.png
+	frame   	data/chars/longmoan/atk_swipe_2_motion_0.png
+    
+    	alphamask	data/chars/longmoan/atk_swipe_3_motion_0_mask_0.png
+    	frame   	data/chars/longmoan/atk_swipe_3_motion_0.png    
+    	
+    	alphamask	data/chars/longmoan/atk_swipe_4_motion_0_mask_0.png
+    	frame   	data/chars/longmoan/atk_swipe_4_motion_0.png    	
+    
+    	frame	data/chars/misc/blank.png

@@ -745,8 +745,8 @@ anim rise
 anim attack1
 	fastattack 1
 	
-	followanim 1
-	followcond 3
+	#followanim 1
+	#followcond 3
 	
 	range	0 400
 	loop	0
@@ -762,7 +762,7 @@ anim attack1
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT
-	@cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn("longmoan_motion") DC_ELMERS_SORT_FRONT
+	@cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn_unique_sub_entity("longmoan_motion") DC_ELMERS_SORT_FRONT
 
 	frame   data/chars/longmoan/atk_swipe_1.png
     
@@ -784,6 +784,8 @@ anim attack1
     	delay 9
     
     	frame   data/chars/longmoan/atk_swipe_4.png
+	
+	@cmd setidle getlocalvar("self")
 	frame   data/chars/longmoan/atk_swipe_4.png
     
     	delay 12

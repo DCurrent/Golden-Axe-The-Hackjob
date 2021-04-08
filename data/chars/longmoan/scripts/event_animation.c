@@ -1,7 +1,3 @@
-//Amazon animations cript.
-
-#include "data/scripts/vars/constants.h"       //Constants list.
-
 #import "data/scripts/com/dc_ai_avoid_jump_attack.c"
 
 #import "data/scripts/com/dc_in_screen_setup.c"	//Check_increen

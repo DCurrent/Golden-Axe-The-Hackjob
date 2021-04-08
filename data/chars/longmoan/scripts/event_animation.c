@@ -3,7 +3,6 @@
 #include "data/scripts/vars/constants.h"       //Constants list.
 
 #import "data/scripts/com/dc_ai_avoid_jump_attack.c"
-#import "data/scripts/com/bind0010.h"
 #import "data/scripts/com/bind0014.h"
 #import "data/scripts/com/dama0004.h"
 #import "data/scripts/com/effe0001.h"

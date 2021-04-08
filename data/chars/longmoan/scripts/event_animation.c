@@ -4,7 +4,6 @@
 
 #import "data/scripts/com/dc_ai_avoid_jump_attack.c"
 
-#import "data/scripts/com/wake0001.h"
 #import "data/scripts/com/dc_in_screen_setup.c"	//Check_increen
 
 #include "data/scripts/dc_elmers/main.c"

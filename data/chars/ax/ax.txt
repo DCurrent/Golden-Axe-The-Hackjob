@@ -468,7 +468,7 @@ anim attack1
 	@cmd 	ani0018 A_ATK3 0					#Animal alt, far.
 	@cmd 	ani0018 A_FOLLOW4 0					#Animal alt, close.
 	delay	4
-		frame	data/chars/ax/atk_swing_0.png
+	frame	data/chars/ax/atk_swing_0.png
 
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT	
 		frame	data/chars/ax/atk_swing_1.png
@@ -485,14 +485,21 @@ anim attack1
 	attack.size.x 44
 	attack.size.y 29
 	attack.size.z.1 0
-		frame	data/chars/ax/atk_swing_2.png
+		
+	frame	data/chars/ax/atk_swing_2.png
+	
 	attack1	0
-		frame	data/chars/ax/atk_swing_3.png
-		frame	data/chars/ax/atk_swing_4.png
+		
+	frame	data/chars/ax/atk_swing_3.png
+	frame	data/chars/ax/atk_swing_4.png
+	
 	delay 6
-		frame	data/chars/ax/atk_swing_1.png
+	
+	frame	data/chars/ax/atk_swing_1.png
+	
 	delay	16
-		frame	data/chars/ax/atk_swing_0.png
+	
+	frame	data/chars/ax/atk_swing_0.png
 
 anim attack2
 

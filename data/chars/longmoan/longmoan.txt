@@ -745,10 +745,7 @@ anim rise
 anim attack1
 	fastattack 1
 	
-	#followanim 1
-	#followcond 3
-	
-	range	0 400
+	range	0 40
 	loop	0
 	delay	12
 	offset	60 98
@@ -784,54 +781,15 @@ anim attack1
     	delay 9
     
     	frame   data/chars/longmoan/atk_swipe_4.png
-	
-	@cmd setidle getlocalvar("self")
-	frame   data/chars/longmoan/atk_swipe_4.png
+		frame   data/chars/longmoan/atk_swipe_4.png
     
     	delay 12
-    
+		
+		@cmd dc_cancel_try_set_idle    
+
     	frame   data/chars/longmoan/atk_swipe_3.png
     	frame   data/chars/longmoan/idle_1.png
     	frame   data/chars/longmoan/idle_0.png
-    
-anim follow1
-
-	offset	60 98
-
-	delay 8
-
-	fastattack 1
-	
-	attack.damage.force 4
-	attack.effect.hit.flash.model flash_blunt_cut
-	attack.position.x 60
-	attack.position.y 52
-	attack.size.x 41
-	attack.size.y 18
-    frame   data/chars/longmoan/atk_swipe_2.png
-    
-	attack.block.penetrate 0
-	attack.damage.force 0
-	attack.damage.type 1
-	attack.effect.hit.flash.model flash_blunt_cut
-	attack.position.x 0
-	attack.position.y 0
-	attack.reaction.fall.force 0
-	attack.reaction.pause.time 0
-	attack.size.x 0
-	attack.size.y 0
-	attack.size.z.1 0
-    
-	frame   data/chars/longmoan/atk_swipe_3.png
-    
-    delay 12
-    
-    frame   data/chars/longmoan/atk_swipe_4.png
-    idle 1
-    frame   data/chars/longmoan/atk_swipe_4.png
-
-
-    
 
 anim attack2
 	range	0 40

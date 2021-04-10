@@ -8,7 +8,12 @@ void main()
 {
 	void acting_entity = getlocalvar("self");
 	int animation_id = get_entity_property(acting_entity, "animation_id");
+	int blocked = getlocalvar("blocked");
 
-	dc_cancel_set_member_allow_idle_animation(animation_id);
+	if (!blocked)
+	{
+		dc_cancel_set_member_allow_idle_animation(animation_id);
+	}
+
 	dc_common_didhit();
 }

@@ -1,7 +1,7 @@
 #include "data/scripts/dc_common_onfall/main.c"
 
 /*
-* Run by most enemy types as their didhitscript. 
+* Run by most enemy types as their onfallscript. 
 */
 
 void main()

@@ -452,7 +452,7 @@ void dc_chain_try_stun_animation()
 	/*
 	* If we got here we aren't in a stun
 	* animation but may have accrued enough
-	* stun that we need to be. If so go
+	* stun that we need to be. If so, go
 	* into initial stun animation.
 	*/
 

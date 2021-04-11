@@ -12,7 +12,6 @@
 #import "data/scripts/com/bind0018.h"		//Wall failsafe.
 #import "data/scripts/com/dama0004.h"		//Damage bound entity by index.
 #import "data/scripts/com/draw0003.h"		//Set caller's drawmethod variables.
-#import "data/scripts/com/effe0001.h"		//Handle burning, shocking, and similar special effects.
 #import "data/scripts/com/proj0003.h"		//Basic projectile launcher.
 #import "data/scripts/com/soun0005.h"		//Stereo sound handler.
 #import "data/scripts/com/wake0001.h"		//Deal with in/out of screen boundry.

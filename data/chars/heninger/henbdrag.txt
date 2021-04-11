@@ -27,7 +27,7 @@ onkillscript		data/scripts/z_kill.c				#Removed from playfield.
 onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.
 onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
 onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
-onpainscript		data/scripts/z_pain.c				#Pain status set.
+onpainscript		data/scripts/dc_common_onpain/event_onpain_enemy.c
 onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
 script			data/scripts/z_script.c				#Entity updated.
 takedamagescript	data/scripts/dc_common_takedamage/event_takedamage_enemy.c	

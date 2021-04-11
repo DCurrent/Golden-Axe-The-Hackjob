@@ -2,6 +2,8 @@
 #include "data/scripts/dc_gauntlet/main.c"
 #include "data/scripts/dc_fidelity/main.c"
 
+#include "data/scripts/dc_chain/main.c"
+
 #ifndef DC_TAKEDAMAGE_CONFIG
 #define DC_TAKEDAMAGE_CONFIG 1
 

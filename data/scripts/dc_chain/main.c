@@ -1,6 +1,6 @@
 
-#include "data/scripts/dc_cancel/config.h"
+#include "data/scripts/dc_chain/config.h"
 
-#import  "data/scripts/dc_cancel/entity.c"
-#import  "data/scripts/dc_cancel/set_idle.c"
+#import  "data/scripts/dc_chain/entity.c"
+#import  "data/scripts/dc_chain/stun.c"
 

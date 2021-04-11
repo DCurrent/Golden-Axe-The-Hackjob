@@ -1,4 +1,4 @@
-#include "data/scripts/dc_cancel/config.h"
+#include "data/scripts/dc_chain/config.h"
 
 
 // Base entity functions will act on.

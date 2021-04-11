@@ -334,8 +334,8 @@ void dc_chain_set_member_stun_animation(void value)
 * Caskey, Damon V.
 * 2021-04-10 
 * 
-* Check current stun value vs. threshold. Return
-* true if entity should be stunned (stun >= threshold).
+* Return true if entity is over its
+* stun threshold.
 */
 int dc_chain_check_stun()
 {
@@ -348,10 +348,13 @@ int dc_chain_check_stun()
 	* If at over over threshold then 
 	* acting entity should be stunned.
 	*/
+
 	if (stun_current >= stun_threshold)
 	{
-		//result = DC_CHAIN_FLAG_TRUE;
+		return DC_CHAIN_FLAG_TRUE;
 	}
+
+	return DC_CHAIN_FLAG_FALSE;
 }
 
 /*

@@ -20,7 +20,6 @@
 #import "data/scripts/com/bind0023.h"		//Flash or target's custom flash.
 #import "data/scripts/com/dama0004.h"		//Damage by grapple index.
 #import "data/scripts/com/dir0001.h"
-#import "data/scripts/com/effe0001.h"
 #import "data/scripts/com/jump0003.h"      //Change current animation to a real "jump".
 #import "data/scripts/com/jump0004.h"      //Key controlled jumpframe emulation.
 #import "data/scripts/com/key0004.h"

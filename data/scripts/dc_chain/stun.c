@@ -276,10 +276,10 @@ void dc_chain_set_member_recovery_last(void value)
 
 
 /*
-* Animation when stunned.
+* Animation when initially stunned.
 */
 
-int dc_chain_get_member_stun_animation()
+int dc_chain_get_member_stun_animation_initial()
 {
 	char id = "";
 	void result = 0;
@@ -294,19 +294,19 @@ int dc_chain_get_member_stun_animation()
 	}
 
 	// Get id.
-	id = dc_chain_get_instance() + DC_CHAIN_MEMBER_STUN_ANIMATION;
+	id = dc_chain_get_instance() + DC_CHAIN_MEMBER_STUN_ANIMATION_INITIAL;
 
 	result = getentityvar(acting_entity, id);
 
 	if (typeof(result) != openborconstant("VT_INTEGER"))
 	{
-		result = DC_CHAIN_DEFAULT_STUN_ANIMATION;
+		result = DC_CHAIN_DEFAULT_STUN_ANIMATION_INITIAL;
 	}
 
 	return result;
 }
 
-void dc_chain_set_member_stun_animation(void value)
+void dc_chain_set_member_stun_animation_initial(void value)
 {
 	char id = "";
 	void acting_entity = dc_chain_get_member_entity();
@@ -320,15 +320,72 @@ void dc_chain_set_member_stun_animation(void value)
 	}
 
 	// Get id.
-	id = dc_chain_get_instance() + DC_CHAIN_MEMBER_STUN_ANIMATION;
+	id = dc_chain_get_instance() + DC_CHAIN_MEMBER_STUN_ANIMATION_INITIAL;
 
-	if (value == DC_CHAIN_DEFAULT_STUN_ANIMATION)
+	if (value == DC_CHAIN_DEFAULT_STUN_ANIMATION_INITIAL)
 	{
 		value = NULL();
 	}
 
 	setentityvar(acting_entity, id, value);
 }
+
+/*
+* Animation when stunned and hit with 
+* non-knockdown attack.
+*/
+
+int dc_chain_get_member_stun_animation_pain()
+{
+	char id = "";
+	void result = 0;
+	void acting_entity = dc_chain_get_member_entity();
+
+	/*
+	* Catch missing entity before the engine does!
+	*/
+	if (!acting_entity)
+	{
+		shutdown(1, "\n dc_chain_get_member_stun_animation(): No acting entity pointer. \n\n");
+	}
+
+	// Get id.
+	id = dc_chain_get_instance() + DC_CHAIN_MEMBER_STUN_ANIMATION_PAIN;
+
+	result = getentityvar(acting_entity, id);
+
+	if (typeof(result) != openborconstant("VT_INTEGER"))
+	{
+		result = DC_CHAIN_DEFAULT_STUN_ANIMATION_PAIN;
+	}
+
+	return result;
+}
+
+void dc_chain_set_member_stun_animation_pain(void value)
+{
+	char id = "";
+	void acting_entity = dc_chain_get_member_entity();
+
+	/*
+	* Catch missing entity before the engine does!
+	*/
+	if (!acting_entity)
+	{
+		shutdown(1, "\n dc_chain_set_member_stun_animation(): No acting entity pointer. \n\t Parameters: " + value + "\n\n");
+	}
+
+	// Get id.
+	id = dc_chain_get_instance() + DC_CHAIN_MEMBER_STUN_ANIMATION_PAIN;
+
+	if (value == DC_CHAIN_DEFAULT_STUN_ANIMATION_PAIN)
+	{
+		value = NULL();
+	}
+
+	setentityvar(acting_entity, id, value);
+}
+
 
 /*
 * Caskey, Damon V.
@@ -359,10 +416,90 @@ int dc_chain_check_stun()
 
 /*
 * Caskey, Damon V.
+* 2021-04-11
+* 
+* Assume stun animation if over threshold.
+*
+* If already in stun animation, play the
+* stun pain instead.
+* 
+* Note this function needs to run in
+* the onpain event or as a @cmd in a
+* non-stun pain animation. The takedamage 
+* won't work because it occurs before 
+* OpenBOR applies pain animations.
+*/
+void dc_chain_try_stun_animation()
+{
+	void acting_entity = dc_chain_get_member_entity();
+	int animation_id = 0;
+	int stun_initial = 0;  
+	int stun_pain = dc_chain_get_member_stun_animation_pain();
+
+	/* 
+	* We may already be in a stunned animation.
+	* If so we go into stun pain and exit.
+	*/
+	
+	if (dc_chain_check_in_stun_animation(acting_entity))
+	{
+		animation_id = dc_chain_get_member_stun_animation_initial();
+
+		executeanimation(acting_entity, animation_id, 1);
+		return;
+	}
+
+	/*
+	* If we got here we aren't in a stun
+	* animation but may have accrued enough
+	* stun that we need to be. If so go
+	* into initial stun animation.
+	*/
+
+	if (dc_chain_check_stun())
+	{
+		animation_id = dc_chain_get_member_stun_animation_pain();
+
+		executeanimation(acting_entity, animation_id, 1);
+	}
+}
+
+/*
+* Caskey, Damon V.
+* 2021-04-11
+* 
+* Return TRUE if currently playing a designated
+* stun animation.
+*/
+int dc_chain_check_in_stun_animation(void acting_entity)
+{	
+	int stun_initial = dc_chain_get_member_stun_animation_initial();
+	int stun_pain = dc_chain_get_member_stun_animation_pain();
+	int animation_id = 0;
+
+	if (!acting_entity)
+	{
+		acting_entity = dc_chain_get_member_entity();
+	}
+
+	animation_id = get_entity_property(acting_entity, "animation_id");
+
+	if (animation_id == stun_initial || animation_id == stun_pain)
+	{	
+		return DC_CHAIN_FLAG_TRUE;
+	}
+
+	return DC_CHAIN_FLAG_FALSE;
+}
+
+/*
+* Caskey, Damon V.
 * 2021-04-10
 *
 * Accept integer value and apply to
-* current stun.
+* current stun. In most cases, we'll
+* want to run this in takedamage event
+* and use damage as the value.
 */
 void dc_chain_adjust_stun(int value)
 {

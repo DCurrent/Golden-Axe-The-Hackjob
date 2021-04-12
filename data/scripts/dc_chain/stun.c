@@ -429,7 +429,7 @@ int dc_chain_check_stun()
 * won't work because it occurs before 
 * OpenBOR applies pain animations.
 */
-void dc_chain_try_stun_animation()
+int dc_chain_try_stun_animation()
 {
 	void acting_entity = dc_chain_get_member_entity();
 	int animation_id = 0;
@@ -446,7 +446,7 @@ void dc_chain_try_stun_animation()
 		animation_id = dc_chain_get_member_stun_animation_initial();
 
 		executeanimation(acting_entity, animation_id, 1);
-		return;
+		return animation_id;
 	}
 
 	/*
@@ -461,7 +461,10 @@ void dc_chain_try_stun_animation()
 		animation_id = dc_chain_get_member_stun_animation_pain();
 
 		executeanimation(acting_entity, animation_id, 1);
+		return animation_id;
 	}
+
+	return DC_CHAIN_ANIMATION_NONE;
 }
 
 /*

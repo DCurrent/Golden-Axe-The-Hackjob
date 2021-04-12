@@ -10,20 +10,10 @@
 */
 void dc_common_onpain()
 {
-    /*
+    void acting_entity = getlocalvar("self");
 
-    void    acting_entity = getlocalvar("self"); 
-    int     attack_type = getlocalvar("attacktype");
-    
-    if (attack_type == openborconstant("ATK_BURN"))
+    if (dc_chain_try_stun_animation() == DC_CHAIN_ANIMATION_NONE)
     {
+        executeanimation(acting_entity, openborconstant("ANI_PAIN"), 0);
     }
-    else if (attack_type == openborconstant("ATK_SHOCK"))
-    {     
-    }
-    else
-    {        
-    }
-      
-    */
 }

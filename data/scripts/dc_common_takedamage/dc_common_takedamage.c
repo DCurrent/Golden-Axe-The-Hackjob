@@ -36,9 +36,20 @@ void dc_common_takedamage()
 	/* Accrue (and decrement as needed) stun. */
 	//damage_final = getcomputeddamage(acting_entity, other, attack_force, attack_drop, attack_type);
 
-	dc_chain_stun_recovery();
-	dc_chain_adjust_stun(attack_force);
+	/* 
+	* Apply damage as stun if we are not 
+	* knocked down. Otherwise reset.
+	*/
 
+	if (take_damage_result & DC_DAMAGE_TAKEDAMAGE_KNOCKDOWN_INITIAL)
+	{
+		dc_chain_reset_stun();
+	}
+	else
+	{
+		dc_chain_adjust_stun(attack_force);
+	}
+	
 	settextobj(2, 10, 70, 1, 999999994, "Stun: " + dc_chain_get_member_stun_current() + "/" + dc_chain_get_member_stun_threshold());
 }
 

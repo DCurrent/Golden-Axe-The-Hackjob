@@ -26,7 +26,6 @@ onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
 onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
 onpainscript		data/scripts/dc_common_onpain/event_onpain_enemy.c
 onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
-script				data/scripts/z_script.c				#Entity updated.
 takedamagescript	data/scripts/dc_common_takedamage/event_takedamage_enemy.c	
 thinkscript			data/scripts/z_think.c				#Entity AI updates.
 

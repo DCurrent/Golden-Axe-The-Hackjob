@@ -275,82 +275,49 @@ anim pain
 		frame	data/chars/longmoan/R_PAIN_MID_0.png
 
 anim pain2
-	loop	0
-	delay	10
+
 	offset	150 175
-	bbox.position.x 128
-	bbox.position.y 142
-	bbox.size.x 37
-	bbox.size.y 37
-	frame	data/chars/longmoan/R_CUSTOM_A_0.png
-	delay	100
-	frame	data/chars/longmoan/R_HELD_0.png
 
-
-
-
-
-anim pain4
-	loop	0
-	offset	150 175
 	bbox.position.x 127
 	bbox.position.y 122
 	bbox.size.x 39
 	bbox.size.y 53
+
 	delay	12
+
 	frame	data/chars/longmoan/R_PAIN_0.png
+
 	delay	16
+
 	bbox.position.x 132
 	bbox.position.y 127
 	bbox.size.x 35
 	bbox.size.y 52
+
 	frame	data/chars/longmoan/R_PAIN_MID_0.png
+
 	delay	100
+
 	bbox.position.x 131
 	bbox.position.y 136
 	bbox.size.x 32
 	bbox.size.y 42
+
 	frame	data/chars/longmoan/R_HELD_0.png
 
-anim spain
-  offset	150 175
-	
-	bbox.position.x 126
-	bbox.position.y 121
-	bbox.size.x 38
-	bbox.size.y 54
-	
-	delay	50	
-	
-		frame	data/chars/longmoan/R_PAIN_0.png
-	
-	delay	100
-	
-	bbox.position.x 133
-	bbox.position.y 126
-	bbox.size.x 31
-	bbox.size.y 52
-		frame	data/chars/longmoan/R_PAIN_MID_0.png
+anim pain3
 
-anim bpain
-   offset	150 175
-	
-	bbox.position.x 126
-	bbox.position.y 121
-	bbox.size.x 38
-	bbox.size.y 54
-	
-	delay	50	
-	
-		frame	data/chars/longmoan/R_PAIN_0.png
-	
+	delay	10
+	offset	150 175
+
+	bbox.position.x 128
+	bbox.position.y 142
+	bbox.size.x 37
+	bbox.size.y 37
+
+	frame	data/chars/longmoan/R_CUSTOM_A_0.png
 	delay	100
-	
-	bbox.position.x 133
-	bbox.position.y 126
-	bbox.size.x 31
-	bbox.size.y 52
-		frame	data/chars/longmoan/R_PAIN_MID_0.png
+	frame	data/chars/longmoan/R_HELD_0.png
 
 anim fall
     dropframe 2
@@ -449,252 +416,6 @@ anim fall
 	bbox.size.y 31
 	
 	attack.damage.force 4
-	attack.effect.hit.flash.model flash_indirect
-	attack.position.x 122
-	attack.position.y 148
-	attack.reaction.fall.force 1
-	attack.reaction.pause.time 15
-	attack.size.x 56
-	attack.size.y 31
-	
-	frame	data/chars/longmoan/R_LAYING_UP_PAIN_0.png
-	
-	attack 0
-	
-	bbox.position.x 119
-	bbox.position.y 162
-	bbox.size.x 66
-	bbox.size.y 21
-	
-	frame	data/chars/longmoan/R_LAYING_UP_0.png
-
-
-
-anim burn
-
-	dropframe 2
-	landframe 4
-	
-	delay 20
-	offset	150 175
-	
-	bbox.position.x 127
-	bbox.position.y 123
-	bbox.size.x 37
-	bbox.size.y 51
-	
-	attack.damage.force 6
-	attack.damage.type burn
-	attack.effect.hit.flash.model flash_indirect
-	attack.position.x 127
-	attack.position.y 124
-	attack.reaction.fall.force 1
-	attack.reaction.pause.time 15
-	attack.size.x 37
-	attack.size.y 50
-	
-	frame	data/chars/longmoan/R_PAIN_0.png
-	
-	delay	-1000
-	
-	offset	150 205
-	
-	bbox.position.x 126
-	bbox.position.y 161
-	bbox.size.x 57
-	bbox.size.y 30
-	
-	attack.damage.force 6
-	attack.damage.type burn
-	attack.effect.hit.flash.model flash_indirect
-	attack.position.x 126
-	attack.position.y 160
-	attack.reaction.fall.force 1
-	attack.reaction.pause.time 15
-	attack.size.x 57
-	attack.size.y 30
-	
-	frame	data/chars/longmoan/R_FALLING_UP_LIFT_0.png
-	
-	delay 20
-	
-	bbox.position.x 126
-	bbox.position.y 160
-	bbox.size.x 59
-	bbox.size.y 33
-	
-	attack.damage.force 6
-	attack.damage.type burn
-	attack.effect.hit.flash.model flash_indirect
-	attack.position.x 126
-	attack.position.y 159
-	attack.reaction.fall.force 1
-	attack.reaction.pause.time 15
-	attack.size.x 59
-	attack.size.y 33
-	
-	frame data/chars/longmoan/R_FALLING_UP_CENTER_0.png
-	
-	delay -1000
-	offset 150 195
-	
-	bbox.position.x 128
-	bbox.position.y 153
-	bbox.size.x 47
-	bbox.size.y 32
-	
-	attack.damage.force 6
-	attack.damage.type burn
-	attack.effect.hit.flash.model flash_indirect
-	attack.position.x 127
-	attack.position.y 152
-	attack.reaction.fall.force 1
-	attack.reaction.pause.time 15
-	attack.size.x 47
-	attack.size.y 33
-	
-	frame	data/chars/longmoan/R_FALLING_UP_0.png	
-	
-	delay	8
-		
-	bbox.position.x 122
-	bbox.position.y 149
-	bbox.size.x 57
-	bbox.size.y 31
-	
-	
-	delay	8		
-	offset 150 175
-		
-	bbox.position.x 122
-	bbox.position.y 149
-	bbox.size.x 57
-	bbox.size.y 31
-	
-	attack.damage.force 6
-	attack.damage.type burn
-	attack.effect.hit.flash.model flash_indirect
-	attack.position.x 122
-	attack.position.y 148
-	attack.reaction.fall.force 1
-	attack.reaction.pause.time 15
-	attack.size.x 56
-	attack.size.y 31
-	
-	frame	data/chars/longmoan/R_LAYING_UP_PAIN_0.png
-	
-	attack 0
-	
-	bbox.position.x 119
-	bbox.position.y 162
-	bbox.size.x 66
-	bbox.size.y 21
-	
-	frame	data/chars/longmoan/R_LAYING_UP_0.png
-
-anim shock
-
-	dropframe 2
-	landframe 4
-	
-	delay 20
-	offset	150 175
-	
-	bbox.position.x 127
-	bbox.position.y 123
-	bbox.size.x 37
-	bbox.size.y 51
-	
-	attack.damage.force 6
-	attack.damage.type shock
-	attack.effect.hit.flash.model flash_indirect
-	attack.position.x 127
-	attack.position.y 124
-	attack.reaction.fall.force 1
-	attack.reaction.pause.time 15
-	attack.size.x 37
-	attack.size.y 50
-	
-	frame	data/chars/longmoan/R_PAIN_0.png
-	
-	delay	-1000
-	
-	offset	150 205
-	
-	bbox.position.x 126
-	bbox.position.y 161
-	bbox.size.x 57
-	bbox.size.y 30
-	
-	attack.damage.force 6
-	attack.damage.type shock
-	attack.effect.hit.flash.model flash_indirect
-	attack.position.x 126
-	attack.position.y 160
-	attack.reaction.fall.force 1
-	attack.reaction.pause.time 15
-	attack.size.x 57
-	attack.size.y 30
-	
-	frame	data/chars/longmoan/R_FALLING_UP_LIFT_0.png
-	
-	delay 20
-	
-	bbox.position.x 126
-	bbox.position.y 160
-	bbox.size.x 59
-	bbox.size.y 33
-	
-	attack.damage.force 6
-	attack.damage.type shock
-	attack.effect.hit.flash.model flash_indirect
-	attack.position.x 126
-	attack.position.y 159
-	attack.reaction.fall.force 1
-	attack.reaction.pause.time 15
-	attack.size.x 59
-	attack.size.y 33
-	
-	frame data/chars/longmoan/R_FALLING_UP_CENTER_0.png
-	
-	delay -1000
-	offset 150 195
-	
-	bbox.position.x 128
-	bbox.position.y 153
-	bbox.size.x 47
-	bbox.size.y 32
-	
-	attack.damage.force 6
-	attack.damage.type shock
-	attack.effect.hit.flash.model flash_indirect
-	attack.position.x 127
-	attack.position.y 152
-	attack.reaction.fall.force 1
-	attack.reaction.pause.time 15
-	attack.size.x 47
-	attack.size.y 33
-	
-	frame	data/chars/longmoan/R_FALLING_UP_0.png	
-	
-	delay	8
-		
-	bbox.position.x 122
-	bbox.position.y 149
-	bbox.size.x 57
-	bbox.size.y 31
-	
-	
-	delay	8		
-	offset 150 175
-		
-	bbox.position.x 122
-	bbox.position.y 149
-	bbox.size.x 57
-	bbox.size.y 31
-	
-	attack.damage.force 6
-	attack.damage.type shock
 	attack.effect.hit.flash.model flash_indirect
 	attack.position.x 122
 	attack.position.y 148
@@ -1286,6 +1007,7 @@ anim death
 	frame	data/chars/longmoan/R_LAYING_UP_PAIN_0.png
 	offset 150 175	
 	frame	data/chars/longmoan/R_LAYING_UP_0.png
+
 anim follow10 # Reaction Poses
 	
 	offset 150 175

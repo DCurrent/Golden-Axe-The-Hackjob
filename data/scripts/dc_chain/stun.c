@@ -525,13 +525,13 @@ void dc_chain_stun_recovery()
 	int stun_current = dc_chain_get_member_stun_current();
 	int stun_new = DC_CHAIN_DEFAULT_STUN_CURRENT;
 	int stun_recovery_total = 0;
-	int stun_recovery_last = dc_chain_get_member_stun_recovery_last();
-	int stun_recovery_time = dc_chain_get_member_stun_recovery_time();
-	int stun_recovery_rate = dc_chain_get_member_stun_recovery_rate();
+	int stun_recovery_last = 0;
+	int stun_recovery_time = 0;
+	int stun_recovery_rate = 0;
 	int elapsed_time = openborvariant("elapsed_time");
 	int time_difference = 0;
 	int time_units = 0;
-
+		
 	/*
 	* If we run this function whenever we use 
 	* the stun value, we can simulate recovery 
@@ -554,6 +554,8 @@ void dc_chain_stun_recovery()
 	* play and apply the default new stun value.
 	*/
 	
+	stun_recovery_last = dc_chain_get_member_stun_recovery_last();	
+
 	time_difference = elapsed_time - stun_recovery_last;
 
 	if (time_difference > 0)
@@ -564,9 +566,18 @@ void dc_chain_stun_recovery()
 		* decimal value.
 		*/
 
+		stun_recovery_time = dc_chain_get_member_stun_recovery_time();
+		stun_recovery_rate = dc_chain_get_member_stun_recovery_rate();
+
+		settextobj(3, 10, 80, 1, 999999994, "stun_recovery_time: " + stun_recovery_time);
+		settextobj(4, 10, 90, 1, 999999994, "stun_recovery_rate: " + stun_recovery_rate);
+		settextobj(5, 10, 100, 1, 999999994, "time_units (pre): " + time_units);
+
 		time_units = time_difference / stun_recovery_time;
 		time_units = round(time_units);
 		time_units = trunc(time_units);
+
+		settextobj(6, 10, 110, 1, 999999994, "time_units (post): " + time_units);
 
 		/*
 		* Use total recovery to get a final new stun
@@ -575,6 +586,10 @@ void dc_chain_stun_recovery()
 
 		stun_recovery_total = time_units * stun_recovery_rate;
 		stun_new = stun_current - stun_recovery_total;
+
+		settextobj(7, 10, 120, 1, 999999994, "stun_recovery_total: " + stun_recovery_total);
+		settextobj(8, 10, 130, 1, 999999994, "stun_new: " + stun_new);
+
 	}
 	
 	/* 
@@ -582,6 +597,14 @@ void dc_chain_stun_recovery()
 	* for next use.
 	*/
 	
+	if (stun_new <= 0)
+	{
+		stun_new = 0;
+	}
+
 	dc_chain_set_member_stun_current(stun_new);
+
+	settextobj(9, 10, 140, 1, 999999994, "get_stun_current: " + dc_chain_get_member_stun_current());
+
 	dc_chain_set_member_recovery_last(elapsed_time);
 }

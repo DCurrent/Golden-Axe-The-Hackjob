@@ -12,6 +12,11 @@ void dc_common_takedamage()
 	void acting_entity = getlocalvar("self");
 	void other = getlocalvar("other");
 	int take_damage_result;
+	int attack_force = getlocalvar("damage");
+	int attack_type = getlocalvar("attacktype");
+	int attack_drop = getlocalvar("drop");
+	int damage_final = 0;
+
 
 	/*
 	* Compute result of take damage (knockdown, KO, etc.) so we
@@ -27,6 +32,14 @@ void dc_common_takedamage()
 	/* Release any grappled entities. */
 	dc_elmers_set_member_target(acting_entity);
 	dc_elmers_disrupt_grapple();
+
+	/* Accrue (and decrement as needed) stun. */
+	//damage_final = getcomputeddamage(acting_entity, other, attack_force, attack_drop, attack_type);
+
+	dc_chain_stun_recovery();
+	dc_chain_adjust_stun(attack_force);
+
+	settextobj(2, 10, 70, 1, 999999994, "Stun: " + dc_chain_get_member_stun_current() + "/" + dc_chain_get_member_stun_threshold());
 }
 
 /* Caskey, Damon V.

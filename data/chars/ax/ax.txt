@@ -45,7 +45,7 @@ load 				a_bdrag								# Blue dragon.
 modelflag			1
 weapons 			a_chick a_rdrag a_bdrag
 combostyle 			1
-atchain 			1 2 6 0 4 4 7 0 5 0 3 0
+atchain 			1
 
 palette      		data/chars/ax/palette_default.act
 
@@ -454,8 +454,9 @@ anim runattack
 
 anim attack1
 
-	followanim 3
-    followcond 1
+	cancel 6 7 0 a freespecial3
+	
+	
    	range 0 50
 
 	offset	60 98
@@ -490,27 +491,33 @@ anim attack1
 	attack1	0
 		
 	frame	data/chars/ax/atk_swing_3.png
-	frame	data/chars/ax/atk_swing_4.png
 	
 	delay 6
 	
+	frame	data/chars/ax/atk_swing_5.png
+	frame	data/chars/ax/atk_swing_6.png
+	delay 10
+	frame	data/chars/ax/atk_swing_6.png
+	
+	delay 6
+	frame	data/chars/ax/atk_swing_3.png
 	frame	data/chars/ax/atk_swing_1.png
 	
 	delay	16
-	
+	idle 1
 	frame	data/chars/ax/atk_swing_0.png
 
-anim attack2
+anim freespecial3
 
 	range 0 60
 
-	delay	4
+	delay	8
 	offset	60 98
 	bbox	50 42 26 56
-	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT
+	
 		frame	data/chars/ax/a9.png
-	delay	8
-	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
+
 		frame	data/chars/ax/a11.png
 	delay	6
 	attack4	62 25 48 47 4

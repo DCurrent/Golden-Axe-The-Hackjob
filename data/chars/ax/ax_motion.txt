@@ -27,26 +27,9 @@ anim attack1
 
 	alphamask	data/chars/ax/atk_swing_3_motion_0_mask_0.png
 	frame	data/chars/ax/atk_swing_3_motion_0.png	
-	# frame	data/chars/misc/blank.png	
-	# frame	data/chars/misc/blank.png	
-	# frame	data/chars/misc/blank.png
-
-anim follow3
-
-	# Attack1 hit confirm.
-
-	delay	-1000
-	offset	60 98	
-			
-	alphamask	data/chars/ax/atk_swing_2_motion_0_mask_0.png
-	frame	data/chars/ax/atk_swing_2_motion_0.png	
-
-	alphamask	data/chars/ax/atk_swing_3_motion_0_mask_0.png
-	frame	data/chars/ax/atk_swing_3_motion_0.png	
-
-	alphamask	data/chars/ax/atk_swing_5_motion_0_mask_0.png
-	frame	data/chars/ax/atk_swing_5_motion_0.png
 	
+	alphamask	data/chars/ax/atk_swing_5_motion_0_mask_0.png
+	frame	data/chars/ax/atk_swing_5_motion_0.png	
 
 anim jumpattack
 

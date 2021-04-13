@@ -472,6 +472,40 @@ int dc_chain_try_stun_animation()
 
 /*
 * Caskey, Damon V.
+* 2021-04-13
+* 
+* Accept an animation ID and return true
+* if a target in range is play one of
+* its stun animations.
+*/
+int dc_chain_check_target_in_stun_animation(int acting_animation)
+{
+	void acting_entity = dc_chain_get_member_entity();
+	void target_entity = NULL();
+	int target_animation = 0;
+
+	/*
+	* Find target entity in acting animation range.
+	* If we don't have a target, just return false.
+	*/
+
+	target_entity = findtarget(acting_entity, acting_animation);
+
+	if (!target_entity)
+	{
+		return DC_CHAIN_FLAG_FALSE;
+	}
+
+	/* 
+	* Send target to our stun animation check
+	* function and return its result.
+	*/
+
+	return dc_chain_check_in_stun_animation(target_entity);
+}
+
+/*
+* Caskey, Damon V.
 * 2021-04-11
 * 
 * Return TRUE if currently playing a designated

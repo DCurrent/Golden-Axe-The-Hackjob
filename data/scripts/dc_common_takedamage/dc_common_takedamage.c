@@ -49,8 +49,6 @@ void dc_common_takedamage()
 	{
 		dc_chain_adjust_stun(attack_force);
 	}
-	
-	settextobj(2, 10, 70, 1, 999999994, "Stun: " + dc_chain_get_member_stun_current() + "/" + dc_chain_get_member_stun_threshold());
 }
 
 /* Caskey, Damon V.

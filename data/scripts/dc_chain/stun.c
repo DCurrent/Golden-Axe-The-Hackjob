@@ -442,12 +442,14 @@ int dc_chain_try_stun_animation()
 	*/
 	
 	if (dc_chain_check_in_stun_animation(acting_entity))
-	{
-		animation_id = dc_chain_get_member_stun_animation_initial();
+	{		
+		animation_id = dc_chain_get_member_stun_animation_pain();
 
 		executeanimation(acting_entity, animation_id, 1);
+		
 		return animation_id;
 	}
+
 
 	/*
 	* If we got here we aren't in a stun
@@ -458,9 +460,10 @@ int dc_chain_try_stun_animation()
 
 	if (dc_chain_check_stun())
 	{
-		animation_id = dc_chain_get_member_stun_animation_pain();
+		animation_id = dc_chain_get_member_stun_animation_initial();
 
 		executeanimation(acting_entity, animation_id, 1);
+
 		return animation_id;
 	}
 

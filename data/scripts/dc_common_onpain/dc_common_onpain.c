@@ -11,7 +11,7 @@
 void dc_common_onpain()
 {
     void acting_entity = getlocalvar("self");
-
+    
     if (dc_chain_try_stun_animation() == DC_CHAIN_ANIMATION_NONE)
     {
         executeanimation(acting_entity, openborconstant("ANI_PAIN"), 0);

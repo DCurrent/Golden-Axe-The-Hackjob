@@ -116,10 +116,10 @@ anim spawn
 	offset	60 98
 @cmd killentity getglobalvar("a_npc")
 @cmd adjustmp
-		frame	data/chars/ax/idle
+		frame	data/chars/ax/idle_0.png
 	delay	50
 @cmd adjustmp
-		frame	data/chars/ax/idle
+		frame	data/chars/ax/idle_0.png
 
 anim respawn
 
@@ -127,10 +127,10 @@ anim respawn
 	offset	60 98
 @cmd killentity getglobalvar("a_npc")
 @cmd adjustmp
-		frame	data/chars/ax/idle
+		frame	data/chars/ax/idle_0.png
 	delay	50
 @cmd adjustmp
-		frame	data/chars/ax/idle
+		frame	data/chars/ax/idle_0.png
 
 anim idle
 
@@ -139,10 +139,10 @@ anim idle
 	offset	60 98
 	bbox	43 38 26 60
 	@cmd savemp
-		frame	data/chars/ax/idle
-		frame	data/chars/ax/idle2
-		frame	data/chars/ax/0051
-		frame	data/chars/ax/idle2
+		frame	data/chars/ax/idle_0.png
+		frame	data/chars/ax/idle_1.png
+		frame	data/chars/ax/idle_2.png
+		frame	data/chars/ax/idle_1.png
 
 
 anim get
@@ -166,12 +166,12 @@ anim walk
 	delay	8
 	offset	60 98
 	bbox	49 43 18 55
-		frame	data/chars/ax/wd1.png
-		frame	data/chars/ax/wd2.png
-		frame	data/chars/ax/wd3.png
-		frame	data/chars/ax/wd4.png
-		frame	data/chars/ax/wd5.png
-		frame	data/chars/ax/wd6.png
+		frame	data/chars/ax/walk_0.png
+		frame	data/chars/ax/walk_1.png
+		frame	data/chars/ax/walk_2.png
+		frame	data/chars/ax/walk_3.png
+		frame	data/chars/ax/walk_4.png
+		frame	data/chars/ax/walk_5.png
 
 anim up
 	loop	1
@@ -357,7 +357,7 @@ anim attackbackward
     delay   12
 		frame	data/chars/ax/b13.png
     move    8
-		frame	data/chars/ax/idle.png
+		frame	data/chars/ax/idle_0.png
 
 anim  chargeattack
 	hitflash  flash_cut_vertical_knockdown
@@ -557,7 +557,7 @@ anim freespecial3
 		frame	data/chars/ax/atk_backswing_4.png
 		frame	data/chars/ax/atk_backswing_4.png		
 	delay	1
-		frame	data/chars/ax/idle.png
+		frame	data/chars/ax/idle_0.png
 
 anim  attack3
 
@@ -694,7 +694,7 @@ anim attack6
 		frame	data/chars/ax/0044.png
 	delay  10
 		frame  data/chars/ax/0045.png
-		frame	data/chars/ax/idle.png
+		frame	data/chars/ax/idle_0.png
 
 anim  attack7
 
@@ -1576,7 +1576,7 @@ anim follow6
 		frame	data/chars/ax/g5.png
 	delay	7
 		frame	data/chars/ax/g4.png
-		frame	data/chars/ax/idle.png
+		frame	data/chars/ax/idle_0.png
 
 anim follow7
 

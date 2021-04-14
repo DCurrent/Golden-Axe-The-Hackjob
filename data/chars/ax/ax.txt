@@ -668,10 +668,10 @@ anim attack6
 	@cmd 	ani0012 A_ATK5 A_ATK3
 	@cmd  	bind0014 1 0														#Initialize bind variable.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 166 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELD 0
-		frame	data/chars/ax/g1.png
+		frame	data/chars/ax/grab_0.png
 	delay	10
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 	165 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELD 0
-		frame	data/chars/ax/g1.png
+		frame	data/chars/ax/grab_0.png
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 15 	180 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP 0
 		frame  data/chars/ax/0045.png
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 5 	178 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_EX3 0
@@ -1559,7 +1559,7 @@ anim follow6
 	offset	60 98
 	@cmd  	bind0014 1 0													#Initialize bind target.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 	165 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELD 0
-		frame	data/chars/ax/g1.png
+		frame	data/chars/ax/grab_0.png
 	delay	20
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -7 	160 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_EX3 0
 		frame	data/chars/ax/g2.png
@@ -1666,7 +1666,7 @@ anim  follow10
 	delay  12
 	@cmd  	bind0014 1 0													#Initialize bind variable.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 166 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELD 1
-		frame  data/chars/ax/g1.png	#0
+		frame  data/chars/ax/grab_0.png	#0
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 9 172 0 DIR_ADJ_NONE openborconstant("ANI_FOLLOW10") G_HELDMP 1
 		frame  data/chars/ax/0080.png	#1
 		offset  60  97
@@ -2092,7 +2092,7 @@ anim grab
 	offset	60 98
 	bbox	54 53 27 46
 		frame	data/chars/ax/g2.png
-		frame	data/chars/ax/g1.png
+		frame	data/chars/ax/grab_0.png
 
 anim grabbackward
 
@@ -2171,7 +2171,7 @@ anim grabforward
 	@cmd dc_elmers_set_member_bind_direction openborconstant("DIRECTION_ADJUST_OPPOSITE")
 	@cmd dc_elmers_apply_grapple
 
-	frame	data/chars/ax/g1.png
+	frame	data/chars/ax/grab_0.png
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 33 193 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HORDN 1
 	frame  data/chars/ax/0045.png
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 30 180 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_VERDNP 1

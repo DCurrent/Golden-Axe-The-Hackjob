@@ -502,7 +502,7 @@ anim attack1
 	frame	data/chars/ax/atk_swing_6.png
 	
 	delay 6
-	frame	data/chars/ax/atk_swing_3.png
+	frame	data/chars/ax/atk_swing_4.png
 	frame	data/chars/ax/atk_swing_1.png
 	
 	delay	16

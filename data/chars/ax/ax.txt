@@ -595,29 +595,7 @@ anim  attack3
 	offset  59  98
 		frame  data/chars/ax/0056.png
 
-anim attack4
 
-	#Pommel butt
-
-   	range 24 32
-    hitflash blul
-
-	offset	60 98
-	bbox	43 38 26 60
-	delay	12
-	@cmd ani0012 A_ATK7 A_ATK3
-		frame	data/chars/ax/a18.png
-	delay	10
-		frame	data/chars/ax/a19.png
-	attack2	74 49 18 24 4 0 1
-    	dropv  0 0 0
-		frame	data/chars/ax/a20.png
-	attack2	0 0 0 0 0
-	delay	6
-		frame	data/chars/ax/a19.png
-	idle	1
-	delay	10
-		frame	data/chars/ax/a18.png
 
 anim attack5
 

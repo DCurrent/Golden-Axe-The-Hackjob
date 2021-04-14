@@ -464,7 +464,7 @@ anim attack1
 	bbox.position.y 42
 	bbox.size.x 26
 	bbox.size.y 56
-	@cmd dc_chain_try_stun_series_simple openborconstant("ANI_FOLLOW3") 20 openborconstant("ANI_ATTACK7")
+	@cmd dc_chain_try_stun_series_simple openborconstant("ANI_FOLLOW3") 2 openborconstant("ANI_ATTACK7")
 	
 	@cmd 	ani0017 A_FOLLOW4 0 "Thief" 0 0 0 0 0			#Thief alt.
 	@cmd 	ani0018 A_ATK3 0					#Animal alt, far.
@@ -519,7 +519,7 @@ anim freespecial3
 	bbox.position.y 42
 	bbox.size.x 26
 	bbox.size.y 56
-	@cmd dc_chain_try_stun_series_simple openborconstant("ANI_FOLLOW3") 20 openborconstant("ANI_ATTACK7")
+	@cmd dc_chain_try_stun_series_simple openborconstant("ANI_FOLLOW3") 2 openborconstant("ANI_ATTACK7")
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT
 	
 		frame	data/chars/ax/atk_backswing_0.png
@@ -700,30 +700,88 @@ anim  attack7
 
 	#Short Stab.
 
-	hitflash flash_stab_knockdown
 	range 24 32
 
-	offset  58  98
+	offset  60 98
+	delay  12
+	bbox.position.x 42
+	bbox.position.y 43
+	bbox.size.x 21
+	bbox.size.y 55
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_MEDIUM
+	
+	frame  data/chars/ax/atk_stab_0.png
+		delay 6
+		
+	frame  data/chars/ax/atk_stab_1.png		
+		
+	bbox.position.x 41
+	bbox.position.y 48
+	bbox.size.x 23
+	bbox.size.y 51
+	
+	frame  data/chars/ax/atk_stab_2.png	
+	
+	bbox.position.x 47
+	bbox.position.y 45
+	bbox.size.x 23
+	bbox.size.y 53
+	
+	frame  data/chars/ax/atk_stab_3.png
+		
+	attack.block.penetrate 0
+	attack.damage.force 8
+	attack.damage.type 2
+	attack.effect.hit.flash.model flash_stab_knockdown
+	attack.position.x 50
+	attack.position.y 65
+	attack.reaction.fall.force 2
+	attack.reaction.pause.time 0
+	attack.size.x 52
+	attack.size.y 9
+	attack.size.z.1 0
+	
+	frame  data/chars/ax/atk_stab_4.png
+	
+	delay  3
+	offset  60 98
+	attack  0
+	
+	frame  data/chars/ax/atk_stab_5.png
+	
+	offset  61 98
+	
+	frame  data/chars/ax/atk_stab_5.png
+	
+	offset  60 98
+	
+	frame  data/chars/ax/atk_stab_5.png
+	
+	offset  61 98
+	
+	frame  data/chars/ax/atk_stab_5.png
+	
+	delay 20
+	offset  60 98
+	
+	frame  data/chars/ax/atk_stab_5.png
+	
 	delay  8
-	bbox  42  43  21  55
-	@cmd	soun0005 ENT_SELF VOI_ATKL -1 1 0 0
-		frame  data/chars/ax/0142.png
-	bbox  41  48  23  51
-		frame  data/chars/ax/0143.png
-	offset  60  98
-	bbox  47  45  23  53
-		frame  data/chars/ax/0144.png
-	attack9  49  65  52  9  8  2
-		frame  data/chars/ax/0146.png
-	delay  20
-	offset  60  98
-	Attack1  0
-		frame  data/chars/ax/0147.png
-	delay  8
-		frame  data/chars/ax/0145.png
-	offset  58  98
-	bbox  41  42  24  56
-		frame  data/chars/ax/0142.png
+	
+	frame  data/chars/ax/atk_stab_6.png
+		
+	offset  60 98
+	
+	bbox.position.x 41
+	bbox.position.y 42
+	bbox.size.x 24
+	bbox.size.y 56
+	
+	frame  data/chars/ax/atk_stab_1.png
+		
+		delay 50
+		
+		frame  data/chars/ax/idle_0.png
 
 anim special
 

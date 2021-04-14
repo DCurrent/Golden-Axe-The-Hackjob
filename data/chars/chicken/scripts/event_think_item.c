@@ -15,8 +15,8 @@ void runcheck() {
 	void acting_entity = getlocalvar("self");
 	float position_z = get_entity_property(acting_entity, "position_z");
 
-	settextobj(1, 10, 60, 1, 999999994, "pos_z: " + position_z);
-	settextobj(2, 10, 70, 1, 999999994, dc_eggball_get_member_next());
+	// settextobj(1, 10, 60, 1, 999999994, "pos_z: " + position_z);
+	// settextobj(2, 10, 70, 1, 999999994, dc_eggball_get_member_next());
 
 	/* In playable area? */
 	if (position_z < 1000 && position_z > 0)

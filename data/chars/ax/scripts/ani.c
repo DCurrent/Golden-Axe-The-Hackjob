@@ -39,7 +39,7 @@
 /*
 * 2021-02-26, Non-legacy Imports
 */
-
+#include "data/scripts/dc_chain/main.c"
 #include "data/scripts/dc_elmers/main.c"
 #include "data/scripts/dc_fidelity/main.c"
 #include "data/scripts/dc_gauntlet/main.c"

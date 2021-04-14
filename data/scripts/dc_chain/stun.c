@@ -386,6 +386,43 @@ void dc_chain_set_member_stun_animation_pain(void value)
 	setentityvar(acting_entity, id, value);
 }
 
+/*
+* Caskey, Damon V.
+* 2021-04-13
+*
+* Simulates the additional combo or finish
+* attacks found in games like Double Dragon
+* and Golden Axe. When opponent is in range
+* and stunned we do a series (or single)
+* finishing attack.
+*/
+void dc_chain_try_stun_series_simple(int stun_pain_alt, int repeat_max, int stun_pain_finish)
+{
+	void acting_entity = dc_chain_get_member_entity();
+
+	int counter = getlocalvar("dc_chain_counter" + stun_pain_alt);
+
+	if (!counter)
+	{
+		counter = 0;
+	}
+
+	if (dc_chain_check_target_in_stun_animation(stun_pain_alt))
+	{
+		if (counter < repeat_max)
+		{
+			executeanimation(acting_entity, stun_pain_alt, 1);
+			counter++;
+		}
+		else
+		{
+			executeanimation(acting_entity, stun_pain_finish, 1);
+			counter = 0;
+		}
+	}
+
+	setlocalvar("dc_chain_counter" + stun_pain_alt, counter);
+}
 
 /*
 * Caskey, Damon V.
@@ -432,7 +469,8 @@ int dc_chain_check_stun()
 int dc_chain_try_stun_animation()
 {
 	void acting_entity = dc_chain_get_member_entity();
-	int animation_id = 0;
+	int animation_old = get_entity_property(acting_entity, "animation_id");
+	int animation_new = 0;
 	int stun_initial = 0;  
 	int stun_pain = dc_chain_get_member_stun_animation_pain();
 
@@ -443,11 +481,13 @@ int dc_chain_try_stun_animation()
 	
 	if (dc_chain_check_in_stun_animation(acting_entity))
 	{		
-		animation_id = dc_chain_get_member_stun_animation_pain();
+		animation_new = dc_chain_get_member_stun_animation_pain();
 
-		executeanimation(acting_entity, animation_id, 1);
-		
-		return animation_id;
+		executeanimation(acting_entity, animation_new, 1);
+		set_entity_property(acting_entity, "animation_id_previous", animation_old);
+		set_entity_property(acting_entity, "in_pain", 1);
+
+		return animation_new;
 	}
 
 
@@ -460,11 +500,13 @@ int dc_chain_try_stun_animation()
 
 	if (dc_chain_check_stun())
 	{
-		animation_id = dc_chain_get_member_stun_animation_initial();
+		animation_new = dc_chain_get_member_stun_animation_initial();
 
-		executeanimation(acting_entity, animation_id, 1);
+		executeanimation(acting_entity, animation_new, 1);
+		set_entity_property(acting_entity, "animation_id_previous", animation_old);
+		set_entity_property(acting_entity, "in_pain", 1);
 
-		return animation_id;
+		return animation_new;
 	}
 
 	return DC_CHAIN_ANIMATION_NONE;
@@ -515,16 +557,31 @@ int dc_chain_check_in_stun_animation(void acting_entity)
 {	
 	int stun_initial = dc_chain_get_member_stun_animation_initial();
 	int stun_pain = dc_chain_get_member_stun_animation_pain();
-	int animation_id = 0;
+	int animation_current = 0;
+	int animation_previous = 0;
+	int in_pain = 0;
 
 	if (!acting_entity)
 	{
 		acting_entity = dc_chain_get_member_entity();
 	}
 
-	animation_id = get_entity_property(acting_entity, "animation_id");
+	/* If not currently in pain, return false now. */
 
-	if (animation_id == stun_initial || animation_id == stun_pain)
+	in_pain = get_entity_property(acting_entity, "in_pain");
+
+	if (!in_pain)
+	{
+		return DC_CHAIN_FLAG_FALSE;
+	}
+	
+	animation_current = get_entity_property(acting_entity, "animation_id");
+	animation_previous = get_entity_property(acting_entity, "animation_id_previous");
+	
+	if (animation_current == stun_initial 
+		|| animation_current == stun_pain 
+		|| animation_previous == stun_initial
+		|| animation_previous == stun_pain)
 	{	
 		return DC_CHAIN_FLAG_TRUE;
 	}

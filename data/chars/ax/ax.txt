@@ -464,6 +464,8 @@ anim attack1
 	bbox.position.y 42
 	bbox.size.x 26
 	bbox.size.y 56
+	@cmd dc_chain_try_stun_series_simple openborconstant("ANI_FOLLOW3") 20 openborconstant("ANI_ATTACK7")
+	
 	@cmd 	ani0017 A_FOLLOW4 0 "Thief" 0 0 0 0 0			#Thief alt.
 	@cmd 	ani0018 A_ATK3 0					#Animal alt, far.
 	@cmd 	ani0018 A_FOLLOW4 0					#Animal alt, close.
@@ -513,16 +515,40 @@ anim freespecial3
 
 	delay	8
 	offset	60 98
-	bbox	50 42 26 56
+	bbox.position.x 50
+	bbox.position.y 42
+	bbox.size.x 26
+	bbox.size.y 56
+	@cmd dc_chain_try_stun_series_simple openborconstant("ANI_FOLLOW3") 20 openborconstant("ANI_ATTACK7")
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT
 	
 		frame	data/chars/ax/a9.png
 
 		frame	data/chars/ax/a11.png
 	delay	6
-	attack4	62 25 48 47 4
+	attack.block.penetrate 0
+	attack.damage.force 4
+	attack.damage.type 10
+	attack.effect.hit.flash.disable 0
+	attack.position.x 63
+	attack.position.y 25
+	attack.reaction.fall.force 0
+	attack.reaction.pause.time 0
+	attack.size.x 48
+	attack.size.y 47
+	attack.size.z.1 0
 		frame	data/chars/ax/a13.png
-	attack4	64 12 45 19 4
+	attack.block.penetrate 0
+	attack.damage.force 4
+	attack.damage.type 10
+	attack.effect.hit.flash.disable 0
+	attack.position.x 64
+	attack.position.y 12
+	attack.reaction.fall.force 0
+	attack.reaction.pause.time 0
+	attack.size.x 45
+	attack.size.y 19
+	attack.size.z.1 0
 		frame	data/chars/ax/a14.png
 	attack4	0
 	delay	2
@@ -1470,52 +1496,44 @@ anim follow2
 		frame   data/chars/ax/jump_start_0.png
 
 
-anim follow3
+anim follow3 # Pommel butt
 
-	#Attack1 hit confirm.
+   	range 24 32
 
-    range	0 50
-	loop	0
 	offset	60 98
-	bbox	50 42 26 56
-	delay	6
-	attack.block.penetrate 0
+	bbox.position.x 43
+	bbox.position.y 38
+	bbox.size.x 26
+	bbox.size.y 60
+	delay	12
+	
+	
+		frame	data/chars/ax/a18.png
+	delay	10
+		frame	data/chars/ax/a19.png
+	attack.block.penetrate 1
+	attack.effect.hit.flash.model blul
 	attack.damage.force 4
-	attack.damage.type 10
-	attack.effect.hit.flash.model flash_cut_vertical
-	attack.position.x 58
-	attack.position.y 40
+	attack.damage.type 0
+	attack.effect.hit.flash.disable 0
+	attack.position.x 74
+	attack.position.y 49
 	attack.reaction.fall.force 0
+	attack.reaction.fall.velocity.x 0.0
+	attack.reaction.fall.velocity.y 0.0
+	attack.reaction.fall.velocity.z 0.0
 	attack.reaction.pause.time 0
-	attack.size.x 44
-	attack.size.y 29
+	attack.size.x 18
+	attack.size.y 24
 	attack.size.z.1 0
-	
-	
-	frame	data/chars/ax/atk_swing_2.png
-	
+		frame	data/chars/ax/a20.png
 	attack 0
-	
-	frame	data/chars/ax/atk_swing_3.png
-	
-	#attack1	0 0 0 0 0
-	
 	delay	6
-	
-	frame	data/chars/ax/atk_swing_5.png
-	
-	delay 10
-	
-	frame	data/chars/ax/atk_swing_6.png
-	
-	idle 1
-	frame	data/chars/ax/atk_swing_6.png
-	
-	delay 5
-	
-	frame	data/chars/ax/atk_swing_3.png
-	frame	data/chars/ax/atk_swing_1.png	
-	frame	data/chars/ax/atk_swing_0.png
+		frame	data/chars/ax/a19.png
+		frame	data/chars/ax/a18.png
+	idle	1
+		frame	data/chars/ax/a18.png
+		
 
 anim follow4
 

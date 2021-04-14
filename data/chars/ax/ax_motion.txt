@@ -23,13 +23,32 @@ anim attack1
 	frame	data/chars/misc/blank.png	
 	
 	alphamask	data/chars/ax/atk_swing_2_motion_0_mask_0.png
-	frame	data/chars/ax/atk_swing_2_motion_0.png		
+	frame		data/chars/ax/atk_swing_2_motion_0.png		
 
 	alphamask	data/chars/ax/atk_swing_3_motion_0_mask_0.png
-	frame	data/chars/ax/atk_swing_3_motion_0.png	
+	frame		data/chars/ax/atk_swing_3_motion_0.png	
 	
 	alphamask	data/chars/ax/atk_swing_5_motion_0_mask_0.png
-	frame	data/chars/ax/atk_swing_5_motion_0.png	
+	frame		data/chars/ax/atk_swing_5_motion_0.png	
+
+anim freespecial3
+
+	delay -1000
+	offset	60 98
+	
+	frame	data/chars/misc/blank.png
+
+	alphamask	data/chars/ax/atk_backswing_1_motion_0_mask_0.png
+	frame		data/chars/ax/atk_backswing_1_motion_0.png
+	
+	alphamask	data/chars/ax/atk_backswing_2_motion_0_mask_0.png
+	frame		data/chars/ax/atk_backswing_2_motion_0.png
+	
+	alphamask	data/chars/ax/atk_backswing_3_motion_0_mask_0.png
+	frame		data/chars/ax/atk_backswing_3_motion_0.png
+	
+	alphamask	data/chars/ax/atk_backswing_4_motion_0_mask_0.png
+	frame		data/chars/ax/atk_backswing_4_motion_0.png
 
 anim jumpattack
 

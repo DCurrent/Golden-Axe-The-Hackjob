@@ -522,9 +522,11 @@ anim freespecial3
 	@cmd dc_chain_try_stun_series_simple openborconstant("ANI_FOLLOW3") 20 openborconstant("ANI_ATTACK7")
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT
 	
-		frame	data/chars/ax/a9.png
+		frame	data/chars/ax/atk_backswing_0.png
 
-		frame	data/chars/ax/a11.png
+	@cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn("ax_battler_motion") DC_ELMERS_SORT_FRONT
+
+		frame	data/chars/ax/atk_backswing_1.png
 	delay	6
 	attack.block.penetrate 0
 	attack.damage.force 4
@@ -537,7 +539,7 @@ anim freespecial3
 	attack.size.x 48
 	attack.size.y 47
 	attack.size.z.1 0
-		frame	data/chars/ax/a13.png
+		frame	data/chars/ax/atk_backswing_2.png
 	attack.block.penetrate 0
 	attack.damage.force 4
 	attack.damage.type 10
@@ -549,16 +551,13 @@ anim freespecial3
 	attack.size.x 45
 	attack.size.y 19
 	attack.size.z.1 0
-		frame	data/chars/ax/a14.png
+		frame	data/chars/ax/atk_backswing_3.png
 	attack4	0
-	delay	2
-		frame	data/chars/ax/a16.png
-		frame	data/chars/ax/a16.png
-		frame	data/chars/ax/a16.png
-		frame	data/chars/ax/a16.png
+	delay	6
+		frame	data/chars/ax/atk_backswing_4.png
+		frame	data/chars/ax/atk_backswing_4.png		
 	delay	1
-		frame	data/chars/ax/a16.png
-		frame	data/chars/ax/a16.png
+		frame	data/chars/ax/idle.png
 
 anim  attack3
 
@@ -1126,7 +1125,7 @@ anim  freespecial12
 	delay  5
 	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 	@cmd	key0005 0 0 0 0 0
-		frame  data/chars/ax/a14.png
+		frame  data/chars/ax/atk_backswing_3.png
 	offset  60  100
 	move  -1
 	bbox  63  41  19  60
@@ -1377,7 +1376,7 @@ anim  freespecial15
 		frame  data/chars/ax/0034.png	#20
 	offset  60  98
 	move  0
-		frame  data/chars/ax/a14.png	#21
+		frame  data/chars/ax/atk_backswing_3.png
 
 anim  freespecial16
 
@@ -2305,13 +2304,13 @@ anim grabattack
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 10  0  -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_RELEASE 0								#Release bind and restore AI control.
  	@cmd    dama0004 0 -2 4 10 openborconstant("ATK_NORMAL") -1 3 2 0 0 0 0 0								#Put into falling state.
 		frame  data/chars/ax/0150.png
-		frame  data/chars/ax/a9.png
+		frame  data/chars/ax/atk_backswing_0.png
 	delay  8
 		frame  data/chars/ax/atk_swing_5.png
 	delay  20
 		frame  data/chars/ax/atk_swing_6.png
 	delay  8
-		frame  data/chars/ax/a9.png
+		frame  data/chars/ax/atk_backswing_0.png
 		frame  data/chars/ax/atk_swing_2.png
 		frame  data/chars/ax/atk_swing_1.png
 		frame  data/chars/ax/atk_swing_0.png
@@ -2487,7 +2486,7 @@ anim block
 	bbox  55  39  32  60
 	    frame	data/chars/ax/block.png
 	offset  60  98
-        frame	data/chars/ax/a11.png
+        frame	data/chars/ax/atk_backswing_1.png
 	offset  60  99
 		frame	data/chars/ax/a20.png
 	offset  60  98

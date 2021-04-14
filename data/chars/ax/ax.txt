@@ -178,12 +178,12 @@ anim up
 	delay	8
 	offset	60 98
 	bbox	48 38 26 60
-		frame	data/chars/ax/wu1.png
-		frame	data/chars/ax/wu2.png
-		frame	data/chars/ax/wu3.png
-		frame	data/chars/ax/wu4.png
-		frame	data/chars/ax/wu5.png
-		frame	data/chars/ax/wu6.png
+		frame	data/chars/ax/walk_up_0.png
+		frame	data/chars/ax/walk_up_1.png
+		frame	data/chars/ax/walk_up_2.png
+		frame	data/chars/ax/walk_up_3.png
+		frame	data/chars/ax/walk_up_4.png
+		frame	data/chars/ax/walk_up_5.png
 
 anim run
 	loop	1

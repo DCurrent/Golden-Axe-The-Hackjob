@@ -190,12 +190,12 @@ anim run
 	delay	7
 	offset	60 98
 	bbox	50 42 26 56
-		frame	data/chars/ax/r1.png
-		frame	data/chars/ax/r2.png
-		frame	data/chars/ax/r3.png
-		frame	data/chars/ax/r4.png
-		frame	data/chars/ax/r5.png
-		frame	data/chars/ax/r6.png
+		frame	data/chars/ax/run_0.png
+		frame	data/chars/ax/run_1.png
+		frame	data/chars/ax/run_2.png
+		frame	data/chars/ax/run_3.png
+		frame	data/chars/ax/run_4.png
+		frame	data/chars/ax/run_5.png
 
 #anim turn
 #	delay	6
@@ -447,7 +447,7 @@ anim runattack
 	attack.size.x 25
 	attack.size.y 37
 	attack.size.z.1 0
-		frame	data/chars/ax/ra
+		frame	data/chars/ax/atk_shoulder_check_0.png
 	delay	12
 	attack	0
 		frame   data/chars/ax/jump_start_0.png
@@ -1465,10 +1465,10 @@ anim follow2
 	attack.size.x 25
 	attack.size.y 37
 	attack.size.z.1 0
-		frame	data/chars/ax/ra.png
+		frame	data/chars/ax/atk_shoulder_check_0.png
 	attack1 0
 	delay	-1000
-		frame	data/chars/ax/ra.png
+		frame	data/chars/ax/atk_shoulder_check_0.png
 	delay	10
 		frame   data/chars/ax/jump_start_0.png
 

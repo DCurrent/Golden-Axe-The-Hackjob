@@ -86,16 +86,17 @@ void load_sounds()
 	dc_fidelity_setup("block", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/cvs_block.wav");
 
 	/*  Hit flash */
-	dc_fidelity_setup("flash_fatal_fury", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/fatal_fury_1_hit.wav");
-	dc_fidelity_setup("flash_hit_knockdown", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_hit_knockdown_0.wav");
-	dc_fidelity_setup("flash_indirect", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/sor1_hit_0.wav");
+	dc_fidelity_setup("flash_blunt_cut", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/shinobi_box.wav");
 	dc_fidelity_setup("flash_cut_vertical", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_hit_cut_0.wav");
 	dc_fidelity_setup("flash_cut_vertical_knockdown", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_hit_knockdown_0.wav");
-
-	dc_fidelity_setup("flash_blunt_cut", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/shinobi_box.wav");
-
+	dc_fidelity_setup("flash_fatal_fury", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/fatal_fury_1_hit.wav");
+	dc_fidelity_setup("flash_hit_head_knock", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_knock_head_0.wav");
+	dc_fidelity_setup("flash_hit_knockdown", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_hit_knockdown_0.wav");
 	dc_fidelity_setup("flash_impact_cut", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_hit_ram_0.wav");
+	dc_fidelity_setup("flash_indirect", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/sor1_hit_0.wav");
+	dc_fidelity_setup("flash_stab_knockdown", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_hit_knockdown_0.wav");
 
+	
 	/* Ax Battler */
 	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/ax/sounds/voice_attack_0.wav");
 	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/ax/sounds/voice_attack_1.wav");

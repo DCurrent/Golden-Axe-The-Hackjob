@@ -148,7 +148,7 @@ anim	attack3
 	frame	data/chars/tyris/0031.png
 
 anim	attack4
-	hitflash	blul
+	hitflash	flash_hit_head_knock
 	range	21 30
 	loop	0
 	offset	60 98

@@ -1,0 +1,28 @@
+# Hit flash
+
+name		flash_hit_head_knock
+type		none
+shadow		0
+antigravity	100
+lifespan    	2
+alpha		1
+
+onspawnscript 	data/chars/misc/cvs_hit_flash/scripts/event_spawn.c
+onkillscript  	data/scripts/common/event_kill.c
+
+anim idle	
+	
+	delay	2
+	offset	130 215
+		frame	data/chars/misc/flash/idle_0.png
+		frame	data/chars/misc/flash/idle_1.png
+		frame	data/chars/misc/flash/idle_2.png
+		frame	data/chars/misc/flash/idle_3.png
+		frame	data/chars/misc/flash/idle_4.png
+		frame	data/chars/misc/flash/idle_5.png
+		frame	data/chars/misc/flash/idle_6.png
+		frame	data/chars/misc/flash/idle_7.png
+		frame	data/chars/misc/flash/idle_8.png
+		frame	data/chars/misc/flash/idle_9.png
+		frame	data/chars/misc/flash/idle_10.png
+		frame	data/chars/misc/flash/idle_11.png

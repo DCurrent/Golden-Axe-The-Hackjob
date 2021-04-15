@@ -1,6 +1,6 @@
 # Hit flash
 
-name			blul
+name			flash_hit_head_knock
 type			none
 shadow			0
 antigravity		100

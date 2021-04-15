@@ -708,11 +708,15 @@ anim  attack7
 	bbox.position.y 43
 	bbox.size.x 21
 	bbox.size.y 55
-	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_MEDIUM
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+	
+	
 	
 	frame  data/chars/ax/atk_stab_0.png
 		delay 6
-		
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_MEDIUM_BLADE
+	
 	frame  data/chars/ax/atk_stab_1.png		
 		
 	bbox.position.x 41
@@ -1436,7 +1440,7 @@ anim  freespecial16
 	delay	8
 		frame  data/chars/ax/0167.png	#4
 	delay	6
-	@cmd    bind0023 0  "blul" "blul" 0 1 13 8 1 0 0 0 1							#Flash
+	@cmd    bind0023 0  "flash_hit_head_knock" "flash_hit_head_knock" 0 1 13 8 1 0 0 0 1							#Flash
 	@cmd	dama0004 0 0 4 10 openborconstant("ATK_NORMAL2") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -1 1 0 0
 		frame  data/chars/ax/0168.png	#5
@@ -1449,7 +1453,7 @@ anim  freespecial16
 	delay	8
 		frame  data/chars/ax/0167.png	#10
 	delay	6
-	@cmd    bind0023 0  "blul" "blul" 0 1 13 8 1 0 0 0 1							#Flash
+	@cmd    bind0023 0  "flash_hit_head_knock" "flash_hit_head_knock" 0 1 13 8 1 0 0 0 1							#Flash
 	@cmd	dama0004 0 0 4 10 openborconstant("ATK_NORMAL2") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -1 1 0 0
 		frame  data/chars/ax/0168.png	#11
@@ -1461,7 +1465,7 @@ anim  freespecial16
 		frame  data/chars/ax/0166.png	#15
 	delay	8
 		frame  data/chars/ax/0167.png	#16
-	@cmd    bind0023 0  "blul" "blul" 0 1 13 8 1 0 0 0 1							#Flash
+	@cmd    bind0023 0  "flash_hit_head_knock" "flash_hit_head_knock" 0 1 13 8 1 0 0 0 1							#Flash
 	@cmd	dama0004 0 0 4 10 openborconstant("ATK_NORMAL2") 1 0 0 0 0 0 0 -1								#Apply damage.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -1 1 0 0
 		frame  data/chars/ax/0168.png	#17
@@ -1547,7 +1551,7 @@ anim follow3 # Pommel butt
 	delay	10
 		frame	data/chars/ax/a19.png
 	attack.block.penetrate 1
-	attack.effect.hit.flash.model blul
+	attack.effect.hit.flash.model flash_hit_head_knock
 	attack.damage.force 4
 	attack.damage.type 0
 	attack.effect.hit.flash.disable 0

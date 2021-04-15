@@ -22,7 +22,6 @@ load	pselect	    data/chars/plselect/pselect.txt									#Player select roulette
 #*****Flash/Dust (~ module specific use)*****
 load	bflash		data/chars/misc/effects/models/flash/bflash/bflash.txt			#Block flash.					~Weapon deflect.
 # load	bluh		data/chars/misc/effects/models/flash/bluh/bluh.txt				#Blunt hit, heavy.				~Hammer thunk.
-# load	blul		data/chars/misc/effects/models/flash/blul/blul.txt				#Blunt hit, light.				~Knock head.
 # load	bonem		data/chars/misc/effects/models/flash/bonem/bonem.txt			#Bone crush, medium.
 
 # load	flash		data/chars/misc/effects/models/flash/flash/flash.txt			#Default hit flash.				~Normal cut.
@@ -47,6 +46,7 @@ load flash_blunt_cut				data/chars/misc/blood_splat/flash_blunt_cut.txt							# 
 load flash_blunt_cut_knockdown		data/chars/misc/blood_splat/flash_blunt_cut_knockdown.txt				# Blunt weapon (mace/club), knockdown.
 load flash_cut_vertical				data/chars/misc/blood_slash_vertical/flash_cut_vertical.txt				# 
 load flash_cut_vertical_knockdown	data/chars/misc/blood_slash_vertical/flash_cut_vertical_knockdown.txt	# Bladed weapon (sword/axe), knockdown.
+load flash_hit_head_knock			data/chars/misc/cvs_hit_flash/flash_hit_head_knock.txt					# Solid vs solid hit. ~Golden Axe Knock head.
 load flash_hit_knockdown			data/chars/misc/cvs_hit_flash/flash_hit_knockdown.txt					# Bare hand or appendage, knockdown.							
 load flash_impact_cut				data/chars/misc/blood_splat/flash_impact_cut.txt						# Ram impact with sharp edge (Chicken Leg claws or dragon horns).
 load flash_stab_knockdown			data/chars/misc/blood_splat/flash_stab_knockdown.txt					# Stab or small bladed weapon hit (dagger/kunai), knockdown.

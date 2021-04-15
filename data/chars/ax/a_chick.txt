@@ -467,7 +467,7 @@ anim grabattack
 	attack.block.penetrate 0
 	attack.damage.force 6
 	attack.damage.type 1
-	attack.effect.hit.flash.model blul
+	attack.effect.hit.flash.model flash_hit_head_knock
 	attack.position.x 101
 	attack.position.y 90
 	attack.reaction.fall.force 0

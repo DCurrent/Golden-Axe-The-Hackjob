@@ -412,7 +412,7 @@ anim attack4
 	#Stomp.
 
 	range 	24 32
-	hitflash  blul
+	hitflash  flash_hit_head_knock
 	followanim  4
 	followcond  1
 
@@ -774,7 +774,7 @@ anim  grabattack
 
 anim  follow4
 	range  24  32
-	hitflash  blul
+	hitflash  flash_hit_head_knock
 		delay  12
 		offset  60  98
 		bbox  49  45  32  53
@@ -788,7 +788,7 @@ anim  follow4
 
 anim  attack7
 	range  24  32
-	hitflash  blul
+	hitflash  flash_hit_head_knock
 		delay  14
 		offset  60  98
 		bbox  40  51  26  47

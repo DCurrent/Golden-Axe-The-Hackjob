@@ -262,7 +262,7 @@ anim grab
 
 anim grabattack
 
-	hitflash blul
+	hitflash flash_hit_head_knock
 
 	offset	82 142
     	bbox    66 80 34 64

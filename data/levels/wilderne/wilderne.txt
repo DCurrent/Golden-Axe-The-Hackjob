@@ -1,6 +1,6 @@
 loadingbg	data/bgs/wilder/loading.png  -80 -240 480 0 -100
 # Wilderness
-music		data/music/wilder~1
+music		data/music/Wilderness.ogg 9404
 bossmusic       data/music/battle~1
 direction 	both
 updatedscript	data/levels/wilderne/updated.c

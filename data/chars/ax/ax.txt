@@ -889,40 +889,8 @@ anim freespecial2
 	delay	10
 		frame  data/chars/ax/jump_start_0.png
 
-anim freespecial5
 
-	#Riseattack follow up.
-
-	range	0 0
-
-	offset	60 98
-	delay	20
-		bbox  35  49  29  49
-	@cmd	key0005 0 0 0 0 0
-		frame	data/chars/ax/a21.png
-	delay	4
-   	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
-	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
-	bbox  44  46  25  52
-		frame	data/chars/ax/a23.png
-	bbox	50 42 26 56
-		frame	data/chars/ax/a25.png
-    attackz 24
-	attack10  40  61  48  13  8  1
-		frame	data/chars/ax/atk_swing_3.png
-    attack1	0
-    delay	3
-		frame	data/chars/ax/atk_swing_5.png
-		frame	data/chars/ax/atk_swing_6.png
-		frame	data/chars/ax/atk_swing_6.png
-		frame	data/chars/ax/atk_swing_6.png
-	delay	20
-		frame	data/chars/ax/atk_swing_6.png
-	delay	6
-		frame	data/chars/ax/atk_swing_3.png
-		frame	data/chars/ax/atk_swing_1.png
-
-anim  freespecial6
+anim  freespecial6 # Spin Backbreaker
 
 	cancel 13 13 0 d u a freespecial10											#Giant swing.
 	cancel 13 13 0 j freespecial11												#Gutbuster.
@@ -1000,9 +968,7 @@ anim  freespecial6
 	offset  60  98
 		frame  data/chars/ax/0097.png	#20
 
-anim freespecial8
-
-	#Magic
+anim freespecial8 # Magic
 
     energycost 9
     mponly  1
@@ -1018,10 +984,8 @@ anim freespecial8
     @cmd cast_magic
 		frame	data/chars/ax/m2.png
 
-anim  freespecial9
-
-	#Backbreaker.
-
+anim  freespecial9	# Backbreaker.
+ 
 	cancel 2 2 0 d u a freespecial10	#Giant swing.
 	cancel 2 2 0 f u a freespecial6		#Spin Breaker.
 
@@ -1062,9 +1026,7 @@ anim  freespecial9
 	bbox  50  41  26  57
 		frame  data/chars/ax/0045.png
 
-anim freespecial10
-
-	#Giant swing
+anim freespecial10	# Giant swing
 
     hitflash   idirm
 
@@ -1124,9 +1086,7 @@ anim freespecial10
 	delay	10
 		frame	data/chars/ax/0013.png
 
-anim freespecial11
-
-	#Gutbuster
+anim freespecial11	# Gutbuster
 
 	jumpframe	2  4  0  0 jump_liftoff
 	dropframe	4
@@ -1156,9 +1116,7 @@ anim freespecial11
 	@cmd	ani0009 0 A_FOLLOW11 0							#Gutbuster finish (to allow non scripted cancel)
 		frame	data/chars/ax/0079.png						#6
 
-anim  freespecial12
-
-	#Second Strike
+anim  freespecial12	# Second Strike
 
 	offset  60  98
 	bbox  48  42  22  56
@@ -1216,12 +1174,10 @@ anim  freespecial12
 		frame  data/chars/ax/atk_swing_2.png
 		frame  data/chars/ax/atk_swing_1.png
 
-anim  freespecial13
+anim  freespecial13	# Flying Bomb
 
-	#Flying Bomb
-
-	cancel 10 10 0 f u a freespecial6	#Spin Breaker
-	cancel 10 10 0 d u a freespecial10	#Giant swing
+	cancel 10 10 0 f u a freespecial6	# Spin Breaker
+	cancel 10 10 0 d u a freespecial10	# Giant swing
 
 	jumpframe  3  2.5  1  0	jump_liftoff
 	dropframe  5
@@ -1269,9 +1225,7 @@ anim  freespecial13
 	offset  60  98
 		frame  data/chars/ax/0056.png
 
-anim  freespecial14
-
-	#Hun Suplex
+anim  freespecial1 # Hun Suplex
 
 	jumpframe 0 0 0 0 jump_liftoff
 
@@ -1338,9 +1292,7 @@ anim  freespecial14
 	move  0
 		frame  data/chars/ax/0056.png
 
-anim  freespecial15
-
-	#Melon Splitter
+anim  freespecial15 # Melon Splitter
 
 	cancel 17 17 0 d f a freespecial13	#Flying Bomb
 	cancel 17 17 0 d u a freespecial10	#Giant Swing
@@ -1418,9 +1370,7 @@ anim  freespecial15
 	move  0
 		frame  data/chars/ax/atk_backswing_3.png
 
-anim  freespecial16
-
-	#Ground And Pound
+anim  freespecial16 # Ground And Pound
 
 	jumpframe 32 2.5 -1 0 jump_liftoff
 	dropframe 33
@@ -1502,9 +1452,7 @@ anim  freespecial16
 	delay	12
 		frame  data/chars/ax/jump_start_0.png	#34
 
-anim follow2
-
-	#Run attack bounce.
+anim follow2 #  Run attack bounce.
 
     jumpframe 0 1 0 0
 	landframe 2 jump_land
@@ -1574,11 +1522,9 @@ anim follow3 # Pommel butt
 		frame	data/chars/ax/a18.png
 		
 
-anim follow4
+anim follow4 # Boot, thief/animal close attack.
 
-	#Boot, thief/animal close attack.
-
-	range 	0 50
+	range 	0 60
 
 	offset	60 98
 	delay	5
@@ -1595,9 +1541,7 @@ anim follow4
 		frame	data/chars/ax/k3.png
 		frame	data/chars/ax/k2.png
 
-anim follow5
-
-	#Attempt grab.
+anim follow5 # Attempt grab.
 
 	followanim 6
 	followcond 1
@@ -1613,9 +1557,7 @@ anim follow5
 	offset  49  99
 		frame	data/chars/ax/0048.png
 
-anim follow6
-
-	#Pick up and throw.
+anim follow6 # Pick up and throw.
 
 	delay	10
 	offset	60 98
@@ -1640,9 +1582,7 @@ anim follow6
 		frame	data/chars/ax/g4.png
 		frame	data/chars/ax/idle_0.png
 
-anim follow7
-
-	#Piledriver bounce.
+anim follow7 # Piledriver bounce.
 
     jumpframe 0 3 -1 0 jump_liftoff
     dropframe 1
@@ -1661,9 +1601,7 @@ anim follow7
 		offset  60  98
 	frame	data/chars/ax/0056.png
 
-anim follow8
-
-	#Piledriver
+anim follow8 # Piledriver
 
 	landframe 2 slam_heavy
 
@@ -1691,9 +1629,7 @@ anim follow8
 	@cmd	ani0009 0 A_FOLLOW7 0
 		frame	data/chars/ax/0074.png
 
-anim follow9
-
-	#Throw (air to ground).
+anim follow9 # Throw (air to ground).
 
 	jumpframe 1 0.2 -0.2 0
 	landframe 3 jump_land
@@ -1716,9 +1652,7 @@ anim follow9
 	offset  60  98
 		frame  data/chars/ax/0056.png
 
-anim  follow10
-
-	#Wall Slam to Atomic Drop.
+anim  follow10 # Wall Slam to Atomic Drop.
 
 	cancel 14 15 0 d u a freespecial10										#Giant swing
 	cancel 14 15 0 f u a freespecial6										#Spin Breaker.
@@ -1790,9 +1724,7 @@ anim  follow10
 	move  -11
 		frame  data/chars/ax/0056.png
 
-anim follow11
-
-	#Gutbuster finish.
+anim follow11 # Gutbuster finish.
 
 	cancel 1 2 0 d u a freespecial10	#Giant swing
 
@@ -1819,9 +1751,7 @@ anim follow11
 		frame  data/chars/ax/0056.png						#6
 
 
-anim follow12
-
-	#Ax Destroyer
+anim follow12 # Ax Destroyer
 
 	range  -40 75
 	rangea -40 75
@@ -1881,9 +1811,7 @@ anim follow12
 	@cmd	ani0009 0 A_FOLLOW13 0
 		frame  data/chars/ax/0075.png	#15
 
-anim follow13
-
-	#Ax Destroyer bounce.
+anim follow13 # Ax Destroyer bounce.
 
     jumpframe 0 4 -1 0 jump_liftoff
     landframe  5 jump_land
@@ -1907,9 +1835,7 @@ anim follow13
 	offset  60  98
 		frame	data/chars/ax/0056.png
 
-anim follow51
-
-	#Defense poses
+anim follow51 # Reaction poses
 
 	hitflash	idirm
 	animheight	15
@@ -2355,9 +2281,7 @@ anim grabattack
 		frame  data/chars/ax/atk_swing_1.png
 		frame  data/chars/ax/atk_swing_0.png
 
-anim  follow14
-
-	#Powerslam
+anim  follow14 # Powerslam
 
 	jumpframe  2  2.5  -1  0 jump_liftoff
 	landframe  6 slam_heavy
@@ -2390,9 +2314,7 @@ anim  follow14
 	@cmd	ani0009 0 A_FOLLOW17 0													#Powerslam finish (to allow non scripted cancel)
 		frame  data/chars/ax/0160.png	#7
 
-anim  follow15
-
-	#Python Drop (swing DDT)
+anim  follow15 # Python Drop (swing DDT)
 
 	range  -20 30
 	rangea -50 1
@@ -2431,9 +2353,7 @@ anim  follow15
 	@cmd	ani0009 0 A_FOLLOW16 0											#Python Drop finish (to allow non scripted cancel)
 		frame  data/chars/ax/0157.png #9
 
-anim follow16
-
-	#Python Drop finish.
+anim follow16 # Python Drop finish.
 
 	cancel 2 3 0 d b a freespecial14										#Hun Suplex.
 	cancel 2 3 0 u b a freespecial15										#Melon Splitter.
@@ -2455,9 +2375,7 @@ anim follow16
 		frame  data/chars/ax/0110.png #6
 		frame  data/chars/ax/0056.png #7
 
-anim follow17
-
-	#Powerslam finish
+anim follow17 # Powerslam finish
 
 	cancel 1 2 0 d d a freespecial16												#Ground And Pound.
 
@@ -2484,9 +2402,7 @@ anim follow17
 	delay	12
 		frame  data/chars/ax/jump_start_0.png	#7
 
-anim  follow18
-
-	#Tackle
+anim  follow18 # Tackle
 
 	range		-20 40
 	rangea		-1 1 0 0
@@ -2593,7 +2509,7 @@ anim pain
 	bbox  75  115  32  54
 		frame	data/chars/ax/G_HELDMP.png
 
-anim pain2
+anim pain3
 
 	offset	60 98
 	delay   8
@@ -2604,7 +2520,7 @@ anim pain2
 	bbox  82  126  27  43
 		frame	data/chars/ax/G_HELD.png
 
-anim pain4
+anim pain2
 
 	offset	92 168
 	bbox	75 111 34 57
@@ -2700,9 +2616,7 @@ anim death
 		frame  data/chars/ax/die.png
 		frame  data/chars/ax/die.png
 
-anim fall5
-
-	#Tossed.
+anim fall5 # Tossed.
 
 	flipframe 0
 	dropframe  1
@@ -2721,9 +2635,7 @@ anim fall5
 	Attack1  0
 		frame	data/chars/ax/G_DWNUP.png
 
-anim  fall6
-
-	#Flat fall.
+anim  fall6	# Flat fall.
 
 	landframe  1
 	hitflash  idirm
@@ -2740,9 +2652,7 @@ anim  fall6
 	Attack1  0
 		frame  data/chars/ax/G_DWNUP.png
 
-anim  fall7
-
-	#Drop on head.
+anim  fall7	# Dive fall.
 
 	landframe  1
 	flipframe  2
@@ -2769,73 +2679,7 @@ anim  fall7
 	bbox  63  153  53  14
 		frame  data/chars/ax/G_DWNUP.png
 
-anim bpain
 
-	offset	92 168
-	bbox	73 111 35 57
-	delay	60
-	#cmd  effe0001  MAP_BURN 1 20 1 1
-		frame	data/chars/ax/G_HELDP.png
-	delay	100
-	offset  93  168
-	bbox  75  115  32  54
-		frame	data/chars/ax/G_HELDMP.png
-
-anim burn
-
-	animheight		40
-	hitflash		idirm
-	landframe		2 steam
-	dropframe		1
-
-    delay   -1000
-	offset  89  168
-	bbox  71  123  39  36
-		frame	data/chars/ax/G_TLTUP.png
-	offset  81  166
-	bbox  57  140  45  24
-	burn  57  140  46  25  6  1
-	forcedirection	1
-		frame	data/chars/ax/G_FALUP.png
-	delay  10
-	offset  90  167
-	bbox  65  154  61  14
-	Attack  0
-		frame  data/chars/ax/G_DWNUP.png
-
-anim spain
-
-	offset	92 168
-	bbox	73 111 35 57
-	delay	60
-	#cmd  effe0001  MAP_SHOCK 1 20 1 1
-		frame	data/chars/ax/G_HELDP.png
-	delay	100
-	offset  93  168
-	bbox  75  115  32  54
-		frame	data/chars/ax/G_HELDMP.png
-
-anim shock
-
-	animheight		15
-	hitflash		idirm
-	landframe		2 steam
-	dropframe		1
-
-    delay   -1000
-	offset  89  168
-	bbox  71  123  39  36
-		frame	data/chars/ax/G_TLTUP.png
-	offset  81  166
-	bbox  57  140  45  24
-	shock  57  140  46  25  6  1
-	forcedirection	1
-		frame	data/chars/ax/G_FALUP.png
-	delay  10
-	offset  90  167
-	bbox  65  154  61  14
-	Attack  0
-		frame  data/chars/ax/G_DWNUP.png
 
 
 

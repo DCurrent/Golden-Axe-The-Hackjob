@@ -169,34 +169,67 @@ anim	attack4
 
 anim	attack5
 	range	21 30
-	hitflash	flash_hit_knockdown
-	offset	60 97
-	bbox	53 38 22 58
+	offset	60 98
+	bbox.position.x 53
+	bbox.position.y 38
+	bbox.size.x 22
+	bbox.size.y 58
 	delay	8
+	attack.damage.force 0
+	attack.effect.hit.flash.model flash_hit_knockdown
+	attack.position.x 0
+	attack.position.y 0
+	attack.size.x 0
+	attack.size.y 0
 	frame	data/chars/tyris/0075.png
 	frame	data/chars/tyris/0006.png
 	move	0
 	frame	data/chars/tyris/0007.png
-	bbox	65 38 20 61
-	offset	60 97
+	bbox.position.x 65
+	bbox.position.y 38
+	bbox.size.x 20
+	bbox.size.y 61
+	offset	60 98
 	frame	data/chars/tyris/0008.png
-	attack10	72 52 35 11 5 1 0 0 0 15
+	attack.block.penetrate 0
+	attack.damage.force 5
+	attack.damage.type 10
+	attack.effect.hit.flash.disable 0
+	attack.position.x 72
+	attack.position.y 52
+	attack.reaction.fall.force 1
+	attack.reaction.pause.time 0
+	attack.size.x 38
+	attack.size.y 21
+	attack.size.z.1 15
 	delay	8
 	move	-7
-	bbox	49 48 44 48
+	bbox.position.x 49
+	bbox.position.y 49
+	bbox.size.x 44
+	bbox.size.y 48
 	frame	data/chars/tyris/0009.png
 	move	0
 	frame	data/chars/tyris/0010.png
 	Attack1	0
-	bbox	60 40 32 56
+	bbox.position.x 60
+	bbox.position.y 40
+	bbox.size.x 32
+	bbox.size.y 56
 	frame	data/chars/tyris/0011.png
 	offset	60 98
 	move	2
 	frame	data/chars/tyris/0084.png
-	bbox	64 41 17 57
+	bbox.position.x 64
+	bbox.position.y 41
+	bbox.size.x 17
+	bbox.size.y 57
 	move	0
 	frame	data/chars/tyris/0083.png
-	bbox	47 51 29 48
+	bbox.position.x 47
+	bbox.position.y 51
+	bbox.size.x 29
+	bbox.size.y 48
 	offset	60 98
 	frame	data/chars/tyris/0082.png
 

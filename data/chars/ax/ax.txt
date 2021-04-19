@@ -1,4 +1,3 @@
-atk_back_0
 icon				data/chars/ax/icon_default.png
 name				ax
 type				player
@@ -380,7 +379,7 @@ anim attackbackward	# back attack
 	delay	6
 	attack.block.penetrate 0
 	attack.damage.force 14
-	attack.damage.type 10
+	attack.damage.type 1
 	attack.effect.hit.flash.model flash_cut_vertical_knockdown
 	attack.position.x 6
 	attack.position.y 27
@@ -406,61 +405,127 @@ anim attackbackward	# back attack
 	frame	data/chars/ax/idle_0.png
 
 anim  chargeattack
-	hitflash  flash_cut_vertical_knockdown
 
 	#Spin attack (Kain Grinder; Golden Axe 3 Genesis)
 
 	delay  8
-	offset  60  98
-	bbox  51  38  21  62
-	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
-		frame  data/chars/ax/a29.png
+	offset  60 98
+	bbox.position.x 51
+	bbox.position.y 38
+	bbox.size.x 21
+	bbox.size.y 62
+	
+	
+	frame  data/chars/ax/atk_backswing_4.png
+	
+	bbox.position.x 38
+	bbox.position.y 41
+	bbox.size.x 19
+	bbox.size.y 57
+	
+	frame  data/chars/ax/atk_hammer_0.png
 	delay  3
-	@cmd soun0005 ENT_SELF SND_EFF6 -1 1 0 0
-		frame  data/chars/ax/0024.png
-		frame  data/chars/ax/0025.png
-		frame  data/chars/ax/0026.png
-		frame  data/chars/ax/0027.png
-	@cmd soun0005 ENT_SELF SND_EFF6 -1 1 0 0
-		frame  data/chars/ax/0024.png
-		frame  data/chars/ax/0025.png
-		frame  data/chars/ax/0026.png
-		frame  data/chars/ax/0027.png
-	@cmd soun0005 ENT_SELF SND_EFF6 -1 1 0 0
-		frame  data/chars/ax/0024.png
-		frame  data/chars/ax/0025.png
-		frame  data/chars/ax/0026.png
-		frame  data/chars/ax/0027.png
-	@cmd soun0005 ENT_SELF SND_EFF6 -1 1 0 0
-		frame  data/chars/ax/0024.png
-	offset  60  100
-	move  0
-	delay  6
-		frame  data/chars/ax/0028.png
+	@cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn_unique_sub_entity("ax_battler_motion") DC_ELMERS_SORT_FRONT
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT
+	
+	frame  data/chars/ax/atk_hammer_1.png
+	frame  data/chars/ax/atk_hammer_2.png
+	frame  data/chars/ax/atk_hammer_3.png
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT
+	
+	frame  data/chars/ax/atk_hammer_0.png
+	frame  data/chars/ax/atk_hammer_1.png
+	frame  data/chars/ax/atk_hammer_2.png
+	frame  data/chars/ax/atk_hammer_3.png
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT
+	
+	frame  data/chars/ax/atk_hammer_0.png
+	frame  data/chars/ax/atk_hammer_1.png
+	frame  data/chars/ax/atk_hammer_2.png
+	frame  data/chars/ax/atk_hammer_3.png
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT
+	
+	bbox.position.x 62
+	bbox.position.y 39
+	bbox.size.x 14
+	bbox.size.y 61
+	frame  data/chars/ax/atk_hammer_4.png
+	
 	move  30
-	offset  60  99
-	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
-		frame  data/chars/ax/0029.png
+	delay  6
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY
+	
+	bbox.position.x 49
+	bbox.position.y 43
+	bbox.size.x 15
+	bbox.size.y 55
+	frame  data/chars/ax/atk_hammer_5.png
 	move  0
-	attack10  66  22  44  73  18  1  1
-	delay	3
-		frame  data/chars/ax/0030.png
-		frame  data/chars/ax/0030.png
-	Attack1  0
-		frame  data/chars/ax/0031.png
-		frame  data/chars/ax/0031.png
-		frame  data/chars/ax/0031.png
-		frame  data/chars/ax/0032.png
-	delay  30
-		frame  data/chars/ax/0032.png
-	delay  10
-		frame  data/chars/ax/0033.png
-	move  -26
-	offset  60  100
-		frame  data/chars/ax/0034.png
-	offset  60  98
-	move  1
-		frame  data/chars/ax/a29.png
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_HEAVY
+	
+	bbox.position.x 47
+	bbox.position.y 49
+	bbox.size.x 29
+	bbox.size.y 50
+	
+	attack.block.penetrate 1
+	attack.damage.force 18
+	attack.damage.type 1
+	attack.effect.hit.flash.model flash_cut_vertical_knockdown
+	attack.position.x 67
+	attack.position.y 22
+	attack.reaction.fall.force 1
+	attack.reaction.pause.time 0
+	attack.size.x 44
+	attack.size.y 73
+	attack.size.z.1 0
+	
+	@cmd dc_elmers_quick_spot dc_gauntlet_quick_flash("jump_land") -2
+	
+	frame  data/chars/ax/atk_hammer_6.png
+	attack 0
+	frame  data/chars/ax/atk_hammer_7.png
+	
+	delay 30
+	
+	frame  data/chars/ax/atk_hammer_8.png
+	
+	delay 10
+	
+	bbox.position.x 42
+	bbox.position.y 40
+	bbox.size.x 27
+	bbox.size.y 58
+	frame  data/chars/ax/atk_hammer_9.png
+	
+	
+	move  -30
+	offset  60 98
+	
+	bbox.position.x 63
+	bbox.position.y 39
+	bbox.size.x 15
+	bbox.size.y 60
+	frame  data/chars/ax/atk_hammer_10.png
+	
+	move  0
+	
+	bbox.position.x 53
+	bbox.position.y 39
+	bbox.size.x 18
+	bbox.size.y 60
+	frame  data/chars/ax/a29.png
+	bbox.position.x 47
+	bbox.position.y 38
+	bbox.size.x 23
+	bbox.size.y 61
+	frame  data/chars/ax/atk_backswing_4.png
 
 anim runattack
 
@@ -500,7 +565,7 @@ anim runattack
 
 anim attack1
 
-	cancel 6 7 0 a freespecial3
+	cancel 6 8 0 a freespecial3
 	
 	
    	range 0 50
@@ -540,9 +605,12 @@ anim attack1
 		
 	frame	data/chars/ax/atk_swing_3.png
 	
-	delay 6
+	delay 5
 	
 	frame	data/chars/ax/atk_swing_5.png
+	
+	delay 6
+	
 	frame	data/chars/ax/atk_swing_6.png
 	delay 10
 	frame	data/chars/ax/atk_swing_6.png
@@ -1223,7 +1291,7 @@ anim  freespecial12	# Second Strike
 	move  -1
 	bbox  63  41  19  60
 	delay  8
-		frame  data/chars/ax/0034.png
+		frame  data/chars/ax/atk_hammer_10.png
 	offset  60  99
 	move  30
 	bbox  47  42  19  58
@@ -1460,7 +1528,7 @@ anim  freespecial15 # Melon Splitter
 	offset  60  99
 	delay  12
 	move  -1
-		frame  data/chars/ax/0034.png	#20
+		frame  data/chars/ax/atk_hammer_10.png	#20
 	offset  60  98
 	move  0
 		frame  data/chars/ax/atk_backswing_3.png

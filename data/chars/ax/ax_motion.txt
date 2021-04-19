@@ -75,6 +75,47 @@ anim attackbackward	# back attack
 		
 	frame	data/chars/misc/blank.png
 
+anim  chargeattack	# Spin attack (Kain Grinder; Golden Axe 3 Genesis)
+
+	delay  -1000
+	offset  60 98
+	
+	frame	data/chars/misc/blank.png	
+	frame	data/chars/misc/blank.png
+	
+	alphamask	data/chars/ax/atk_hammer_1_motion_0_mask_0.png
+	frame		data/chars/ax/atk_hammer_1_motion_0.png
+	alphamask	data/chars/ax/atk_hammer_2_motion_0_mask_0.png
+	frame		data/chars/ax/atk_hammer_2_motion_0.png
+	alphamask	data/chars/ax/atk_hammer_3_motion_0_mask_0.png
+	frame		data/chars/ax/atk_hammer_3_motion_0.png
+	
+	alphamask	data/chars/ax/atk_hammer_0_motion_0_mask_0.png
+	frame		data/chars/ax/atk_hammer_0_motion_0.png
+	alphamask	data/chars/ax/atk_hammer_1_motion_0_mask_0.png
+	frame		data/chars/ax/atk_hammer_1_motion_0.png
+	alphamask	data/chars/ax/atk_hammer_2_motion_0_mask_0.png
+	frame		data/chars/ax/atk_hammer_2_motion_0.png
+	alphamask	data/chars/ax/atk_hammer_3_motion_0_mask_0.png
+	frame		data/chars/ax/atk_hammer_3_motion_0.png
+	
+	alphamask	data/chars/ax/atk_hammer_0_motion_0_mask_0.png
+	frame		data/chars/ax/atk_hammer_0_motion_0.png
+	alphamask	data/chars/ax/atk_hammer_1_motion_0_mask_0.png
+	frame		data/chars/ax/atk_hammer_1_motion_0.png
+	alphamask	data/chars/ax/atk_hammer_2_motion_0_mask_0.png
+	frame		data/chars/ax/atk_hammer_2_motion_0.png
+	alphamask	data/chars/ax/atk_hammer_3_motion_0_mask_0.png
+	frame		data/chars/ax/atk_hammer_3_motion_0.png
+	
+	frame	data/chars/misc/blank.png
+	
+	alphamask	data/chars/ax/atk_hammer_5_motion_0_mask_0.png
+	frame		data/chars/ax/atk_hammer_5_motion_0.png
+	
+	alphamask	data/chars/ax/atk_hammer_6_motion_0_mask_0.png
+	frame		data/chars/ax/atk_hammer_6_motion_0.png
+
 anim jumpattack
 
 	delay	-1000

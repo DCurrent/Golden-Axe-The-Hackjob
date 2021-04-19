@@ -1,4 +1,4 @@
-
+atk_back_0
 icon				data/chars/ax/icon_default.png
 name				ax
 type				player
@@ -362,20 +362,20 @@ anim attackbackward	# back attack
 	delay	10
     
     move    -13
-	
+	@cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn_unique_sub_entity("ax_battler_motion") DC_ELMERS_SORT_FRONT
 	@cmd	dc_fidelity_quick_play "golden_axe_special"
 	
-	frame	data/chars/ax/b2.png
+	frame	data/chars/ax/atk_back_0.png
     
     move    0
 	
-	frame	data/chars/ax/b4.png
-	frame	data/chars/ax/b6.png
-	frame	data/chars/ax/b8.png
+	frame	data/chars/ax/atk_back_1.png
+	frame	data/chars/ax/atk_back_2.png
+	frame	data/chars/ax/atk_back_3.png
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 	
-	frame	data/chars/ax/b10.png
+	frame	data/chars/ax/atk_back_4.png
 	
 	delay	6
 	attack.block.penetrate 0
@@ -390,16 +390,16 @@ anim attackbackward	# back attack
 	attack.size.y 34
 	attack.size.z.1 0
 	
-	frame	data/chars/ax/b12.png	
+	frame	data/chars/ax/atk_back_5.png	
 	
 	attack  0
 	delay 20
 		
-	frame	data/chars/ax/b12.png	
+	frame	data/chars/ax/atk_back_6.png	
     
     delay   12
 		
-	frame	data/chars/ax/b13.png
+	frame	data/chars/ax/atk_back_7.png
     
     move    8
 		
@@ -520,7 +520,7 @@ anim attack1
 
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT	
 		frame	data/chars/ax/atk_swing_1.png
-	@cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn("ax_battler_motion") DC_ELMERS_SORT_FRONT
+	@cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn_unique_sub_entity("ax_battler_motion") DC_ELMERS_SORT_FRONT
 	delay	6
 	attack.block.penetrate 0
 	attack.damage.force 4
@@ -570,7 +570,7 @@ anim freespecial3
 	
 		frame	data/chars/ax/atk_backswing_0.png
 
-	@cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn("ax_battler_motion") DC_ELMERS_SORT_FRONT
+	@cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn_unique_sub_entity("ax_battler_motion") DC_ELMERS_SORT_FRONT
 
 		frame	data/chars/ax/atk_backswing_1.png
 	delay	6
@@ -2085,7 +2085,7 @@ anim jumpattack
 	frame	data/chars/ax/jump_0.png
 	
 	#cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
-	@cmd dc_elmers_quick_particle dc_gauntlet_quick_spawn("ax_battler_motion") 
+	@cmd dc_elmers_quick_particle dc_gauntlet_quick_spawn_unique_sub_entity("ax_battler_motion") 
 	
 	bbox.position.x 55
 	bbox.position.y 40

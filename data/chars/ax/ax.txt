@@ -623,7 +623,7 @@ anim attack1
 	idle 1
 	frame	data/chars/ax/atk_swing_0.png
 
-ax/atk_stern_special_03
+anim freespecial3
 
 	range 0 60
 
@@ -979,47 +979,115 @@ anim  freespecial # Stern Special (Stern Blade; Golden Axe 2 arcade)
 
 	#cancel 23 23 0 a freespecial12	#Second strike
 
-	hitflash	flash_cut_vertical_knockdown
-	range		0  80
-	jumpframe	2  2  0.5  0 jump_liftoff
-	landframe	7 jump_land
+	range		0 80
+	jumpframe	1  2  0.5  0 jump_liftoff
+	landframe	6 jump_land
 
-	offset	60  98
-	bbox	48  53  22  46
-	delay	12
-		frame	data/chars/ax/jump_start_1.png
-	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
-		frame	data/chars/ax/jump_start_0.png
-	bbox	50  32  24  61
+	offset	60 98
+	
+	bbox.position.x 49
+	bbox.position.y 39
+	bbox.size.x 18
+	bbox.size.y 58
+	delay	5
+	
+	frame	data/chars/ax/jump_start_1.png
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY
+	
+	bbox.position.x 49
+	bbox.position.y 32
+	bbox.size.x 18
+	bbox.size.y 48
+	
 	delay	8
-	@cmd	soun0005 ENT_SELF SND_WIFFH -1 1 0 0
-		frame	data/chars/ax/jump_0.png
-		frame	data/chars/ax/atk_stern_special_0.png
-		frame	data/chars/ax/atk_stern_special_1.png
-		frame	data/chars/ax/atk_stern_special_2.png
+	
+	@cmd	dc_fidelity_quick_play "golden_axe_special"
+		
+	frame	data/chars/ax/jump_0.png
+	frame	data/chars/ax/atk_stern_special_0.png
+	frame	data/chars/ax/atk_stern_special_1.png
+	frame	data/chars/ax/atk_stern_special_2.png
+	
 	delay	-1000
-		frame	data/chars/ax/atk_stern_special_3.png
-	bbox	39  50  34  48
-	delay	1
-		frame	data/chars/ax/atk_stern_special_3.png
+	frame	data/chars/ax/atk_stern_special_3.png
+		
 	delay	5
 	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
-		frame	data/chars/ax/atk_swing_upper_0.png
-		frame	data/chars/ax/atk_swing_upper_1.png
-	bbox	49  42  23  57
-		frame	data/chars/ax/atk_swing_upper_2.png
-	bbox	69  39  26  60
-	attack10  72  31  45  48  18  2
-	dropv	5 1 0
-	damageonlanding 0 1
-		frame	data/chars/ax/atk_stern_special_4.png
-	bbox	61  37  24  61
-	attack10  85  26  25  39  16  1
-		frame	data/chars/ax/atk_stern_special_5.png
-	bbox	50  39  25  60
-	delay	8
-	Attack1 0
-		frame	data/chars/ax/atk_backswing_3.png
+		
+	bbox.position.x 35
+	bbox.position.y 50
+	bbox.size.x 29
+	bbox.size.y 48
+	
+	frame	data/chars/ax/atk_swing_upper_0.png
+	
+	bbox.position.x 43
+	bbox.position.y 45
+	bbox.size.x 22
+	bbox.size.y 52
+	
+	frame	data/chars/ax/atk_swing_upper_1.png
+	
+	bbox.position.x 49
+	bbox.position.y 42
+	bbox.size.x 23
+	bbox.size.y 57
+	
+	frame	data/chars/ax/atk_swing_upper_2.png
+	
+	bbox.position.x 68
+	bbox.position.y 38
+	bbox.size.x 21
+	bbox.size.y 59
+	
+	attack.block.penetrate 0
+	attack.counter 1
+	attack.damage.force 18
+	attack.damage.type 1
+	attack.effect.hit.flash.model flash_cut_vertical_knockdown
+	attack.position.x 72
+	attack.position.y 31
+	attack.reaction.fall.force 2
+	attack.reaction.fall.velocity.x 1.0
+	attack.reaction.fall.velocity.y 5.0
+	attack.reaction.fall.velocity.z 0.0
+	attack.reaction.pause.time 0
+	attack.size.x 52
+	attack.size.y 48
+	attack.size.z.1 0
+	
+	frame	data/chars/ax/atk_stern_special_4.png
+	
+	bbox.position.x 61
+	bbox.position.y 37
+	bbox.size.x 24
+	bbox.size.y 61
+	
+	attack.block.penetrate 0
+	attack.damage.force 16
+	attack.damage.type 1
+	attack.effect.hit.flash.disable 0
+	attack.position.x 85
+	attack.position.y 26
+	attack.reaction.fall.force 1
+	attack.reaction.pause.time 0
+	attack.size.x 25
+	attack.size.y 39
+	attack.size.z.1 0
+	
+	frame	data/chars/ax/atk_stern_special_5.png
+	
+	attack 0
+	
+	bbox.position.x 50
+	bbox.position.y 39
+	bbox.size.x 25
+	bbox.size.y 60
+	delay	8	
+	
+	frame	data/chars/ax/atk_backswing_3.png
+	frame	data/chars/ax/atk_backswing_4.png
 
 anim freespecial2 # Backstep.
 
@@ -1373,7 +1441,7 @@ anim  freespecial13	# Flying Bomb
 	offset  60  98
 		frame  data/chars/ax/0056.png
 
-anim  freespecial1 # Hun Suplex
+anim  freespecial14 # Hun Suplex
 
 	jumpframe 0 0 0 0 jump_liftoff
 

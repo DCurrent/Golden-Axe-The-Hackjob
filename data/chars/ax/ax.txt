@@ -256,8 +256,8 @@ anim  attackboth
 		frame  data/chars/ax/0096.png
 	delay  5
 	
-		frame  data/chars/ax/0036.png
-		frame  data/chars/ax/0037.png
+		frame  data/chars/ax/atk_stern_special_1.png
+		frame  data/chars/ax/atk_stern_special_2.png
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_MEDIUM_BLADE
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
@@ -623,7 +623,7 @@ anim attack1
 	idle 1
 	frame	data/chars/ax/atk_swing_0.png
 
-anim freespecial3
+ax/atk_stern_special_03
 
 	range 0 60
 
@@ -975,11 +975,9 @@ anim special
 		frame	data/chars/ax/k3.png
 		frame	data/chars/ax/k2.png
 
-anim  freespecial
+anim  freespecial # Stern Special (Stern Blade; Golden Axe 2 arcade)
 
-	#Power swing (Stern Blade; Golden Axe 2 arcade)
-
-	cancel 23 23 0 a freespecial12	#Second strike
+	#cancel 23 23 0 a freespecial12	#Second strike
 
 	hitflash	flash_cut_vertical_knockdown
 	range		0  80
@@ -996,14 +994,14 @@ anim  freespecial
 	delay	8
 	@cmd	soun0005 ENT_SELF SND_WIFFH -1 1 0 0
 		frame	data/chars/ax/jump_0.png
-		frame	data/chars/ax/0035.png
-		frame	data/chars/ax/0036.png
-		frame	data/chars/ax/0037.png
+		frame	data/chars/ax/atk_stern_special_0.png
+		frame	data/chars/ax/atk_stern_special_1.png
+		frame	data/chars/ax/atk_stern_special_2.png
 	delay	-1000
-		frame	data/chars/ax/0038.png
+		frame	data/chars/ax/atk_stern_special_3.png
 	bbox	39  50  34  48
 	delay	1
-		frame	data/chars/ax/0038.png
+		frame	data/chars/ax/atk_stern_special_3.png
 	delay	5
 	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
 		frame	data/chars/ax/atk_swing_upper_0.png
@@ -1014,29 +1012,16 @@ anim  freespecial
 	attack10  72  31  45  48  18  2
 	dropv	5 1 0
 	damageonlanding 0 1
-		frame	data/chars/ax/0039.png
+		frame	data/chars/ax/atk_stern_special_4.png
 	bbox	61  37  24  61
 	attack10  85  26  25  39  16  1
-		frame	data/chars/ax/0040.png
+		frame	data/chars/ax/atk_stern_special_5.png
 	bbox	50  39  25  60
-	delay	1
+	delay	8
 	Attack1 0
 		frame	data/chars/ax/atk_backswing_3.png
-		frame	data/chars/ax/atk_backswing_3.png
-		frame	data/chars/ax/atk_backswing_3.png
-		frame	data/chars/ax/atk_backswing_3.png
-		frame	data/chars/ax/atk_backswing_3.png
-		frame	data/chars/ax/atk_backswing_3.png
-		frame	data/chars/ax/atk_backswing_3.png
-		frame	data/chars/ax/atk_backswing_3.png
-		frame	data/chars/ax/atk_backswing_3.png
-		frame	data/chars/ax/atk_backswing_3.png
-	delay 	4
-		frame	data/chars/ax/atk_backswing_3.png
 
-anim freespecial2
-
-	#Backstep.
+anim freespecial2 # Backstep.
 
 	jumpframe	1  2  -2  0 jump_liftoff
 	landframe	3 jump_land

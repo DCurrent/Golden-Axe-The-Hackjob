@@ -216,13 +216,13 @@ anim  attackboth
 	bbox.size.x 29
 	bbox.size.y 48
 	delay  6
-		frame  data/chars/ax/a21.png
+		frame  data/chars/ax/atk_swing_upper_0.png
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_MEDIUM_BLADE
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-		frame  data/chars/ax/a23.png
-		frame  data/chars/ax/a25.png
+		frame  data/chars/ax/atk_swing_upper_1.png
+		frame  data/chars/ax/atk_swing_upper_2.png
 	delay	2
 	attack.block.penetrate 0
 	attack.damage.force 8
@@ -520,7 +520,7 @@ anim  chargeattack
 	bbox.position.y 39
 	bbox.size.x 18
 	bbox.size.y 60
-	frame  data/chars/ax/a29.png
+	frame  data/chars/ax/atk_backswing_3.png
 	bbox.position.x 47
 	bbox.position.y 38
 	bbox.size.x 23
@@ -1006,10 +1006,10 @@ anim  freespecial
 		frame	data/chars/ax/0038.png
 	delay	5
 	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
-		frame	data/chars/ax/a21.png
-		frame	data/chars/ax/a23.png
+		frame	data/chars/ax/atk_swing_upper_0.png
+		frame	data/chars/ax/atk_swing_upper_1.png
 	bbox	49  42  23  57
-		frame	data/chars/ax/a25.png
+		frame	data/chars/ax/atk_swing_upper_2.png
 	bbox	69  39  26  60
 	attack10  72  31  45  48  18  2
 	dropv	5 1 0
@@ -1021,18 +1021,18 @@ anim  freespecial
 	bbox	50  39  25  60
 	delay	1
 	Attack1 0
-		frame	data/chars/ax/a29.png
-		frame	data/chars/ax/a29.png
-		frame	data/chars/ax/a29.png
-		frame	data/chars/ax/a29.png
-		frame	data/chars/ax/a29.png
-		frame	data/chars/ax/a29.png
-		frame	data/chars/ax/a29.png
-		frame	data/chars/ax/a29.png
-		frame	data/chars/ax/a29.png
-		frame	data/chars/ax/a29.png
+		frame	data/chars/ax/atk_backswing_3.png
+		frame	data/chars/ax/atk_backswing_3.png
+		frame	data/chars/ax/atk_backswing_3.png
+		frame	data/chars/ax/atk_backswing_3.png
+		frame	data/chars/ax/atk_backswing_3.png
+		frame	data/chars/ax/atk_backswing_3.png
+		frame	data/chars/ax/atk_backswing_3.png
+		frame	data/chars/ax/atk_backswing_3.png
+		frame	data/chars/ax/atk_backswing_3.png
+		frame	data/chars/ax/atk_backswing_3.png
 	delay 	4
-		frame	data/chars/ax/a29.png
+		frame	data/chars/ax/atk_backswing_3.png
 
 anim freespecial2
 

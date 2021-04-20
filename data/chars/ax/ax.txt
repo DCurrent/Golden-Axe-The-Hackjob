@@ -2690,60 +2690,86 @@ anim rise
 
 anim riseattack
 
-	cancel 10 13 0 a freespecial12	#Second strike
+	cancel 6 8 0 a freespecial12	#Second strike
     counterattack 1
 
 	offset	60 98
-	delay	12
-		frame	data/chars/ax/rise1.png
-	delay	6
-    move    18
-		frame	data/chars/ax/a21.png
-    move    0
+	delay	10
+	
+	frame	data/chars/ax/rise1.png
+	
+	
+	
+   frame	data/chars/ax/rise2.png
+   
 	bbox.position.x 45
 	bbox.position.y 46
 	bbox.size.x 27
 	bbox.size.y 52
-		frame	data/chars/ax/a23.png
-		frame	data/chars/ax/a25.png
+	
+	frame	data/chars/ax/atk_rise_0.png
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_MEDIUM_BLADE
+	
+	frame	data/chars/ax/atk_rise_1.png
+	
+	delay 8
+	
 	attack.block.penetrate 0
 	attack.damage.force 6
 	attack.damage.type 1
 	attack.effect.hit.flash.model flash_cut_vertical_knockdown
-	attack.position.x 52
-	attack.position.y 26
+	attack.position.x 60
+	attack.position.y 62
 	attack.reaction.fall.force 1
 	attack.reaction.pause.time 0
-	attack.size.x 56
-	attack.size.y 53
+	attack.size.x 61
+	attack.size.y 18
 	attack.size.z.1 0
+	
+	@cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn_unique_sub_entity("ax_battler_motion") DC_ELMERS_SORT_FRONT
+	
+	frame	data/chars/ax/atk_rise_2.png
+		
 	bbox.position.x 57
 	bbox.position.y 36
 	bbox.size.x 23
 	bbox.size.y 62
 	
-		frame	data/chars/ax/a28.png
 	attack.block.penetrate 0
 	attack.damage.force 6
 	attack.damage.type 1
 	attack.effect.hit.flash.model flash_cut_vertical_knockdown
-	attack.position.x 59
-	attack.position.y 14
+	attack.position.x 23
+	attack.position.y 62
 	attack.reaction.fall.force 1
 	attack.reaction.pause.time 0
-	attack.size.x 36
-	attack.size.y 52
+	attack.size.x 38
+	attack.size.y 18
 	attack.size.z.1 0
+	attack.reaction.fall.velocity.x -1.2
+	attack.reaction.reposition.direction 1
+	
+	frame	data/chars/ax/atk_rise_3.png	
+	
+	
 	bbox.position.x 44
 	bbox.position.y 37
 	bbox.size.x 31
 	bbox.size.y 61
-		frame	data/chars/ax/a29.png
-	delay   6
+	
+	delay 20
+	
 	attack 0
-		frame	data/chars/ax/atk_backswing_4.png
-	delay 6
-		frame	data/chars/ax/atk_backswing_4.png
+	
+	frame	data/chars/ax/atk_rise_4.png
+	
+	delay   10
+	
+	frame	data/chars/ax/atk_rise_5.png
+	frame	data/chars/ax/atk_stab_1.png
+	
 		
 	
 	

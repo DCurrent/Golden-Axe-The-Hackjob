@@ -116,6 +116,23 @@ anim  chargeattack	# Spin attack (Kain Grinder; Golden Axe 3 Genesis)
 	alphamask	data/chars/ax/atk_hammer_6_motion_0_mask_0.png
 	frame		data/chars/ax/atk_hammer_6_motion_0.png
 
+anim riseattack
+
+	offset	60 98
+	delay	-1000
+	
+	frame	data/chars/misc/blank.png	
+    frame	data/chars/misc/blank.png
+    frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png	
+	
+	alphamask	data/chars/ax/atk_rise_2_motion_0_mask_0.png
+	frame		data/chars/ax/atk_rise_2_motion_0.png
+			
+	alphamask	data/chars/ax/atk_rise_3_motion_0_mask_0.png
+	frame		data/chars/ax/atk_rise_3_motion_0.png
+	
+
 anim jumpattack
 
 	delay	-1000

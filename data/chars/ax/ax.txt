@@ -977,7 +977,7 @@ anim special
 
 anim  freespecial # Stern Special (Stern Blade; Golden Axe 2 arcade)
 
-	#cancel 23 23 0 a freespecial12	#Second strike
+	cancel 11 13 0 a freespecial12	#Second strike
 
 	range		0 80
 	jumpframe	1  2  0.5  0 jump_liftoff
@@ -1013,7 +1013,7 @@ anim  freespecial # Stern Special (Stern Blade; Golden Axe 2 arcade)
 	frame	data/chars/ax/atk_stern_special_3.png
 		
 	delay	5
-	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
+	@cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn_unique_sub_entity("ax_battler_motion") DC_ELMERS_SORT_FRONT
 		
 	bbox.position.x 35
 	bbox.position.y 50
@@ -1087,6 +1087,7 @@ anim  freespecial # Stern Special (Stern Blade; Golden Axe 2 arcade)
 	delay	8	
 	
 	frame	data/chars/ax/atk_backswing_3.png
+	frame	data/chars/ax/atk_backswing_4.png
 	frame	data/chars/ax/atk_backswing_4.png
 
 anim freespecial2 # Backstep.

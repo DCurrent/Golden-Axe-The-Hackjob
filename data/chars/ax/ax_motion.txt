@@ -116,6 +116,40 @@ anim  chargeattack	# Spin attack (Kain Grinder; Golden Axe 3 Genesis)
 	alphamask	data/chars/ax/atk_hammer_6_motion_0_mask_0.png
 	frame		data/chars/ax/atk_hammer_6_motion_0.png
 
+
+anim  freespecial # Stern Special (Stern Blade; Golden Axe 2 arcade)
+
+	offset	60 98
+	delay	-1000
+	
+	frame	data/chars/misc/blank.png		
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png
+		
+	alphamask	data/chars/ax/atk_swing_upper_0_motion_0_mask_0.png
+	frame		data/chars/ax/atk_swing_upper_0_motion_0.png
+	
+	alphamask	data/chars/ax/atk_swing_upper_1_motion_0_mask_0.png
+	frame		data/chars/ax/atk_swing_upper_1_motion_0.png
+	
+	alphamask	data/chars/ax/atk_swing_upper_2_motion_0_mask_0.png
+	frame		data/chars/ax/atk_swing_upper_2_motion_0.png
+		
+	alphamask	data/chars/ax/atk_stern_special_4_motion_0_mask_0.png
+	frame		data/chars/ax/atk_stern_special_4_motion_0.png
+	
+	alphamask	data/chars/ax/atk_stern_special_4_motion_0_mask_0.png
+	frame		data/chars/ax/atk_stern_special_5_motion_0.png
+	
+	alphamask	data/chars/ax/atk_backswing_3_motion_0_mask_0.png
+	frame		data/chars/ax/atk_backswing_3_motion_0.png
+	
+	alphamask	data/chars/ax/atk_backswing_4_motion_0_mask_0.png
+	frame		data/chars/ax/atk_backswing_4_motion_0.png
+
 anim riseattack
 
 	offset	60 98

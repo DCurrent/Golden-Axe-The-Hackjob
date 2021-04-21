@@ -1728,9 +1728,9 @@ anim follow3 # Pommel butt
 	delay	12
 	
 	
-		frame	data/chars/ax/a18.png
+		frame	data/chars/ax/atk_pommel_smash_0.png
 	delay	10
-		frame	data/chars/ax/a19.png
+		frame	data/chars/ax/atk_pommel_smash_1.png
 	attack.block.penetrate 1
 	attack.effect.hit.flash.model flash_hit_head_knock
 	attack.damage.force 4
@@ -1746,13 +1746,13 @@ anim follow3 # Pommel butt
 	attack.size.x 18
 	attack.size.y 24
 	attack.size.z.1 0
-		frame	data/chars/ax/a20.png
+		frame	data/chars/ax/atk_pommel_smash_2.png
 	attack 0
 	delay	6
-		frame	data/chars/ax/a19.png
-		frame	data/chars/ax/a18.png
+		frame	data/chars/ax/atk_pommel_smash_1.png
+		frame	data/chars/ax/atk_pommel_smash_0.png
 	idle	1
-		frame	data/chars/ax/a18.png
+		frame	data/chars/ax/atk_pommel_smash_0.png
 		
 
 anim follow4 # Boot, thief/animal close attack.
@@ -2740,7 +2740,7 @@ anim block
 	offset  60  98
         frame	data/chars/ax/atk_backswing_1.png
 	offset  60  99
-		frame	data/chars/ax/a20.png
+		frame	data/chars/ax/atk_pommel_smash_2.png
 	offset  60  98
 	bbox  50  41  25  57
 	    frame	data/chars/ax/jump_start_1.png

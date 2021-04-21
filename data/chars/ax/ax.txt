@@ -152,10 +152,10 @@ anim get
 	@cmd adjustmp
 		frame	data/chars/ax/sleep.png
 	delay	15
-		frame	data/chars/ax/rise1.png
+		frame	data/chars/ax/rise_0.png
 	move  12
 	delay  13
-		frame	data/chars/ax/rise2.png
+		frame	data/chars/ax/rise_1.png
 	move  0
 	delay  12
 		frame  data/chars/ax/0056.png
@@ -330,9 +330,9 @@ anim attackup
 		frame  data/chars/ax/G_DWNUPP.png
 	offset  60  98
 	bbox  43  76  46  24
-		frame  data/chars/ax/rise1.png
+		frame  data/chars/ax/rise_0.png
 	bbox  34  68  38  31
-		frame  data/chars/ax/rise2.png
+		frame  data/chars/ax/rise_1.png
 	bbox  44  52  31  46
 		frame  data/chars/ax/0056.png
 
@@ -357,9 +357,9 @@ anim attackdown
 		frame  data/chars/ax/G_DWNUPP.png
 	offset  60  98
 	bbox  43  76  46  24
-		frame  data/chars/ax/rise1.png
+		frame  data/chars/ax/rise_0.png
 	bbox  34  68  38  31
-		frame  data/chars/ax/rise2.png
+		frame  data/chars/ax/rise_1.png
 	bbox  44  52  31  46
 		frame  data/chars/ax/0056.png
 
@@ -2750,10 +2750,10 @@ anim rise
 	delay   8
 		frame	data/chars/ax/die.png
 	delay  10
-		frame	data/chars/ax/rise1.png
+		frame	data/chars/ax/rise_0.png
 	@cmd riseinv 200
 	move  12
-		frame	data/chars/ax/rise2.png
+		frame	data/chars/ax/rise_1.png
 	offset  60  98
 	move  0
 		frame	data/chars/ax/0056.png
@@ -2766,11 +2766,11 @@ anim riseattack
 	offset	60 98
 	delay	10
 	
-	frame	data/chars/ax/rise1.png
+	frame	data/chars/ax/rise_0.png
 	
 	
 	
-   frame	data/chars/ax/rise2.png
+   frame	data/chars/ax/rise_1.png
    
 	bbox.position.x 45
 	bbox.position.y 46
@@ -2925,10 +2925,10 @@ anim death
 	delay  20
 		frame  data/chars/ax/die.png
 	delay  12
-		frame  data/chars/ax/rise1.png
+		frame  data/chars/ax/rise_0.png
 	@cmd  riseinv  200
 	move  12
-		frame  data/chars/ax/rise2.png
+		frame  data/chars/ax/rise_1.png
 	offset  60  98
 	move  0
 		frame  data/chars/ax/0056.png
@@ -2954,9 +2954,9 @@ anim death
 	move  -2
 		frame  data/chars/ax/p4.png
 	move  10
-		frame  data/chars/ax/rise2.png
+		frame  data/chars/ax/rise_1.png
 	move  -12
-		frame  data/chars/ax/rise1.png
+		frame  data/chars/ax/rise_0.png
 	move  0
 	delay 40
 		frame  data/chars/ax/die.png

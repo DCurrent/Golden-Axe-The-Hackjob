@@ -206,9 +206,9 @@ anim run
 anim  attackboth
 
 	flipframe  7
-	jumpframe  3  2.2  0  0 jump_liftoff
+	jumpframe  3  2.0  0  0 jump_liftoff
 	dropframe  5
-	landframe  10 jump_land
+	landframe  9 jump_land
 
 	offset  60 98
 	bbox.position.x 42
@@ -216,14 +216,19 @@ anim  attackboth
 	bbox.size.x 29
 	bbox.size.y 48
 	delay  6
-		frame  data/chars/ax/atk_swing_upper_0.png
+	
+	@cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn_unique_sub_entity("ax_battler_motion") DC_ELMERS_SORT_FRONT
+	
+	frame  data/chars/ax/atk_swing_upper_0.png
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_MEDIUM_BLADE
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-		frame  data/chars/ax/atk_swing_upper_1.png
-		frame  data/chars/ax/atk_swing_upper_2.png
-	delay	2
+	frame  data/chars/ax/atk_swing_upper_1.png
+	frame  data/chars/ax/atk_swing_upper_2.png
+	
+	delay	4
+	
 	attack.block.penetrate 0
 	attack.damage.force 8
 	attack.damage.type 1
@@ -239,7 +244,9 @@ anim  attackboth
 	bbox.position.y 39
 	bbox.size.x 19
 	bbox.size.y 57
-		frame  data/chars/ax/0096.png
+	
+	frame  data/chars/ax/atk_ax_special_0.png
+	
 	attack.block.penetrate 0
 	attack.damage.force 4
 	attack.damage.type 1
@@ -253,16 +260,23 @@ anim  attackboth
 	attack.size.z.1 0
 		
 	delay  -1000
-		frame  data/chars/ax/0096.png
+	
+	frame  data/chars/ax/atk_ax_special_0.png
+	
 	delay  5
 	
-		frame  data/chars/ax/atk_stern_special_1.png
-		frame  data/chars/ax/atk_stern_special_2.png
+	frame  data/chars/ax/atk_stern_special_1.png
+	frame  data/chars/ax/atk_stern_special_2.png
+	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_MEDIUM_BLADE
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-		frame  data/chars/ax/jump_1.png
-	delay	1
+	delay  8
+	frame  data/chars/ax/atk_ax_special_1.png
+	
+	delay -1000
+	frame  data/chars/ax/atk_ax_special_1.png
+	
 	bbox.position.x 50
 	bbox.position.y 51
 	bbox.size.x 33
@@ -278,21 +292,23 @@ anim  attackboth
 	attack.size.x 39
 	attack.size.y 59
 	attack.size.z.1 0
-		frame  data/chars/ax/atk_jump_slash_0.png
-	delay  -1000
-		frame  data/chars/ax/atk_jump_slash_0.png
-	delay  6
+	
+	delay 8
+	
+	frame  data/chars/ax/atk_ax_special_2.png
+		
+	delay 15
+	
+	frame  data/chars/ax/atk_ax_special_3.png
+	
+	delay  8
+	
 	bbox.position.x 44
 	bbox.position.y 51
 	bbox.size.x 33
 	bbox.size.y 46
-		frame  data/chars/ax/jump_start_0.png
-	bbox.position.x 46
-	bbox.position.y 41
-	bbox.size.x 27
-	bbox.size.y 58
-		frame  data/chars/ax/jump_start_1.png
-
+	
+	frame  data/chars/ax/jump_start_0.png
 anim attackup
 
 	#sidestep.

@@ -179,6 +179,26 @@ anim  freespecial # Stern Special (Stern Blade; Golden Axe 2 arcade)
 	alphamask	data/chars/ax/atk_backswing_4_motion_0_mask_0.png
 	frame		data/chars/ax/atk_backswing_4_motion_0.png
 
+anim  freespecial12	# Second Strike
+
+	offset  60 98
+	delay	-1000
+
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png	
+	
+	alphamask	data/chars/ax/atk_second_strike_1_motion_0_mask_0.png
+	frame		data/chars/ax/atk_second_strike_1_motion_0.png
+	
+	alphamask	data/chars/ax/atk_second_strike_2_motion_0_mask_0.png
+	frame		data/chars/ax/atk_second_strike_2_motion_0.png
+	
+	alphamask	data/chars/ax/atk_second_strike_2_motion_0_mask_0.png
+	frame		data/chars/ax/atk_second_strike_3_motion_0.png
+
 anim riseattack
 
 	offset	60 98

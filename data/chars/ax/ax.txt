@@ -1351,61 +1351,167 @@ anim freespecial11	# Gutbuster
 
 anim  freespecial12	# Second Strike
 
-	offset  60  98
-	bbox  48  42  22  56
+	offset  60 98
+	
+	bbox.position.x 48
+	bbox.position.y 36
+	bbox.size.x 24
+	bbox.size.y 63
+	
 	delay  5
-	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT
 	@cmd	dc_command_direction_switch
-		frame  data/chars/ax/atk_backswing_3.png
-	offset  60  100
+	
+	frame  data/chars/ax/atk_backswing_3.png
+	
+	offset  60 100
+	
 	move  -1
-	bbox  63  41  19  60
+	
+	bbox.position.x 63
+	bbox.position.y 41
+	bbox.size.x 19
+	bbox.size.y 60
+	
 	delay  8
-		frame  data/chars/ax/atk_hammer_10.png
-	offset  60  99
+	
+	frame  data/chars/ax/atk_hammer_10.png
+	
+	offset  60 98
+	
 	move  30
-	bbox  47  42  19  58
+	
+	bbox.position.x 47
+	bbox.position.y 42
+	bbox.size.x 19
+	bbox.size.y 58
+	
 	delay  15
-		frame  data/chars/ax/0054.png
+	
+	frame  data/chars/ax/atk_second_strike_0.png
+	
 	move  0
-	bbox  51  41  23  59
+	
+	bbox.position.x 51
+	bbox.position.y 41
+	bbox.size.x 23
+	bbox.size.y 59
+	
 	delay  6
-	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
-		frame  data/chars/ax/atk_swing_0.png
-	bbox  52  46  21  53
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+	
+	frame  data/chars/ax/atk_swing_0.png
+	
+	bbox.position.x 52
+	bbox.position.y 46
+	bbox.size.x 21
+	bbox.size.y 53
 	delay  3
-	@cmd	soun0005 ENT_SELF SND_WIFFM -1 1 0 0
-		frame  data/chars/ax/atk_swing_1.png
-	bbox  46  48  29  50
-	attack10  57  57  43  15  14  2
-	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
-		frame  data/chars/ax/0093.png
-	offset  60  97
-	attack10  65  67  30  10  14  2
-		frame  data/chars/ax/0094.png
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_HEAVY
+	
+	frame  data/chars/ax/atk_swing_1.png
+	
+	bbox.position.x 46
+	bbox.position.y 48
+	bbox.size.x 29
+	bbox.size.y 50
+	
+	attack.block.penetrate 0
+	attack.damage.force 14
+	attack.damage.type 1
+	attack.effect.hit.flash.disable 0
+	attack.position.x 57
+	attack.position.y 39
+	attack.reaction.fall.force 2
+	attack.reaction.pause.time 0
+	attack.size.x 49
+	attack.size.y 34
+	attack.size.z.1 0
+	
+	@cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn_unique_sub_entity("ax_battler_motion") DC_ELMERS_SORT_FRONT
+	
+	frame  data/chars/ax/atk_second_strike_1.png	
+	
+	attack.block.penetrate 0
+	attack.damage.force 14
+	attack.damage.type 1
+	attack.effect.hit.flash.disable 0
+	attack.position.x 65
+	attack.position.y 67
+	attack.reaction.fall.force 2
+	attack.reaction.pause.time 0
+	attack.size.x 30
+	attack.size.y 10
+	attack.size.z.1 0
+	
+	bbox.position.x 45
+	bbox.position.y 53
+	bbox.size.x 26
+	bbox.size.y 46
+	
+	frame  data/chars/ax/atk_second_strike_2.png
+	
 	move  0
-	bbox  48  53  27  45
-	delay  2
-	attack10  40  70  43  8  14  2
-		frame  data/chars/ax/0016.png
-		frame  data/chars/ax/0016.png
-		frame  data/chars/ax/0016.png
-	Attack10  0
-		frame  data/chars/ax/0017.png
-		frame  data/chars/ax/0017.png
-		frame  data/chars/ax/0017.png
-		frame  data/chars/ax/0018.png
-		frame  data/chars/ax/0018.png
-		frame  data/chars/ax/0018.png
+	
+	bbox.position.x 48
+	bbox.position.y 56
+	bbox.size.x 27
+	bbox.size.y 42
+	
+	delay  6
+	
+	attack.block.penetrate 0
+	attack.damage.force 14
+	attack.damage.type 1
+	attack.effect.hit.flash.disable 0
+	attack.position.x 40
+	attack.position.y 70
+	attack.reaction.fall.force 2
+	attack.reaction.pause.time 0
+	attack.size.x 43
+	attack.size.y 8
+	attack.size.z.1 0
+	
+	frame  data/chars/ax/atk_second_strike_3.png
+	
+	delay 8
+	
+	attack.block.penetrate 0
+	attack.damage.force 0
+	attack.damage.type 1
+	attack.effect.hit.flash.disable 0
+	attack.position.x 0
+	attack.position.y 0
+	attack.reaction.fall.force 0
+	attack.reaction.pause.time 0
+	attack.size.x 0
+	attack.size.y 0
+	attack.size.z.1 0
+	
+	frame  data/chars/ax/atk_second_strike_4.png
+	
 	delay  14
-		frame  data/chars/ax/0018.png
-	offset  60  97
-	bbox  48  44  25  54
+	
+	frame  data/chars/ax/atk_second_strike_5.png
+	
+	bbox.position.x 45
+	bbox.position.y 53
+	bbox.size.x 26
+	bbox.size.y 46
+	
 	delay  12
-		frame  data/chars/ax/0095.png
-	offset  60  98
-		frame  data/chars/ax/atk_swing_2.png
-		frame  data/chars/ax/atk_swing_1.png
+	
+	frame  data/chars/ax/atk_second_strike_6.png
+	
+	bbox.position.x 45
+	bbox.position.y 44
+	bbox.size.x 28
+	bbox.size.y 54
+	
+	frame  data/chars/ax/atk_swing_2.png
+	frame  data/chars/ax/atk_swing_1.png
 
 anim  freespecial13	# Flying Bomb
 
@@ -2277,44 +2383,72 @@ anim  jumpattack2
 
 	landframe  2 jump_land
 	jumpframe  0  -1  2  0
+	
 	delay  10
+	
 	bbox.position.x 53
 	bbox.position.y 40
 	bbox.size.x 24
 	bbox.size.y 57
+	
 	offset  60 98
-	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
-	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
-		frame  data/chars/ax/0014.png
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT
+	
+	frame  data/chars/ax/atk_jump_grinder_dive_0.png
+	
 	delay  -1000
+	
 	attack.block.penetrate 0
 	attack.damage.force 8
 	attack.damage.type 2
 	attack.effect.hit.flash.model flash_stab_knockdown
-	attack.position.x 66
-	attack.position.y 48
+	attack.position.x 75
+	attack.position.y 62
 	attack.reaction.fall.force 1
 	attack.reaction.pause.time 0
-	attack.size.x 22
-	attack.size.y 41
+	attack.size.x 12
+	attack.size.y 27
 	attack.size.z.1 0
-		frame  data/chars/ax/0015.png
+	
+	bbox.position.x 42
+	bbox.position.y 39
+	bbox.size.x 30
+	bbox.size.y 58
+	
+	frame  data/chars/ax/atk_jump_grinder_dive_1.png
+	
 	delay  6
+	
 	bbox.position.x 51
 	bbox.position.y 53
 	bbox.size.x 23
 	bbox.size.y 45
-	Attack  0
+	
+	attack 0
+	
 	offset  60 96
-		frame  data/chars/ax/0016.png
-		frame  data/chars/ax/0017.png
+	
+	frame  data/chars/ax/atk_second_strike_2.png
+	frame  data/chars/ax/atk_second_strike_3.png
+	
 	delay  20
-		frame  data/chars/ax/0018.png
+	
+	frame  data/chars/ax/atk_second_strike_4.png
+	
 	delay  5
+	
 	offset  60 98
-		frame  data/chars/ax/atk_swing_3.png
-		frame  data/chars/ax/atk_swing_2.png
-		frame  data/chars/ax/atk_swing_1.png
+	
+	bbox.position.x 46
+	bbox.position.y 43
+	bbox.size.x 28
+	bbox.size.y 55
+	
+	frame  data/chars/ax/atk_swing_3.png
+	frame  data/chars/ax/atk_swing_2.png
+	frame  data/chars/ax/atk_swing_1.png
 
 anim runjumpattack
 

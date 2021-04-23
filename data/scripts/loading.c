@@ -157,6 +157,34 @@ void load_sounds()
 	dc_fidelity_setup("longmoan", DC_FIDELITY_TYPE_VOICE_NEAR_KO, "data/chars/longmoan/sounds/low_hp_0.wav");
 	dc_fidelity_setup("longmoan", DC_FIDELITY_TYPE_VOICE_NEAR_KO, "data/chars/longmoan/sounds/low_hp_1.wav");
 
+	/* Heninger */
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/Heninger/sounds/atk_shout_0.wav");
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/Heninger/sounds/atk_shout_1.wav");
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/Heninger/sounds/atk_shout_2.wav");
+
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM, "data/chars/Heninger/sounds/atk_shout_1.wav");
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM, "data/chars/Heninger/sounds/atk_shout_2.wav");
+
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/Heninger/sounds/atk_shout_1.wav");
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/Heninger/sounds/atk_shout_2.wav");
+
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_BATTLE_TAUNT, "data/chars/Heninger/sounds/battle_taunt_fear_comes.wav");
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_BATTLE_TAUNT, "data/chars/Heninger/sounds/battle_taunt_haha.wav");
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_BATTLE_TAUNT, "data/chars/Heninger/sounds/battle_taunt_see_dead.wav");
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_BATTLE_TAUNT, "data/chars/Heninger/sounds/battle_taunt_survive_0.wav");
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_BATTLE_TAUNT, "data/chars/Heninger/sounds/battle_taunt_survive_1.wav");
+
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_PAIN, "data/chars/Heninger/sounds/hurt_0.wav");
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_PAIN, "data/chars/Heninger/sounds/hurt_1.wav");
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_PAIN, "data/chars/Heninger/sounds/hurt_2.wav");
+
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_PAIN_FALL, "data/chars/Heninger/sounds/hurt_0.wav");
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_PAIN_FALL, "data/chars/Heninger/sounds/hurt_1.wav");
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_PAIN_FALL, "data/chars/Heninger/sounds/hurt_2.wav");
+
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_NEAR_KO, "data/chars/Heninger/sounds/low_hp_help_me.wav");
+	dc_fidelity_setup("Heninger", DC_FIDELITY_TYPE_VOICE_NEAR_KO, "data/chars/Heninger/sounds/low_hp_need_aid.wav");
+
 	/* Chickenlegs */
 	dc_fidelity_setup("Chickenlegs", DC_FIDELITY_TYPE_VOICE_SPAWN_NEW, "data/chars/chicken/sounds/atk_shout_0.wav");
 	dc_fidelity_setup("Chickenlegs", DC_FIDELITY_TYPE_VOICE_SPAWN_NEW, "data/chars/chicken/sounds/atk_shout_1.wav");

@@ -835,7 +835,7 @@ anim attack6
 	delay	15
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -18 	215 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HORDN 0
 		frame	data/chars/ax/0041.png
-	@cmd	dc_command_direction_switch
+	@cmd	dc_keys_command_direction
 	#	ani0001 0 A_FSPECIAL9 0 0 0 0 60 0 0			#NPC cancel possibility.
 		frame	data/chars/ax/0041.png
 	delay	6
@@ -1361,7 +1361,7 @@ anim  freespecial12	# Second Strike
 	delay  5
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT
-	@cmd	dc_command_direction_switch
+	@cmd	dc_keys_command_direction
 	
 	frame  data/chars/ax/atk_backswing_3.png
 	

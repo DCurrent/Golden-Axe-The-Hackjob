@@ -14,14 +14,14 @@
 #import "data/scripts/com/dama0004.h"
 #import "data/scripts/com/dir0001.h"
 #import "data/scripts/com/jump0003.h"
-#import "data/scripts/com/key0005.h"
 #import "data/scripts/com/paus0001.h"
 #import "data/scripts/com/proj0003.h"
 #import "data/scripts/com/summ0001.h"
 #import "data/scripts/com/stat0002.h"
 #import "data/scripts/com/soun0005.h"
 
-#include "data/scripts/dc_fidelity/main.c"  // Sound player.
+#include "data/scripts/dc_fidelity/main.c"
+#include "data/scripts/dc_keys/main.c"
 
 void suicide()
 {

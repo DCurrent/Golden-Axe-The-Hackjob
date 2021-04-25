@@ -2,8 +2,6 @@
 #include "data/scripts/vars/constants.h"	//http://www.caskeys.com/dc/?p=1314#constants
 #import "data/scripts/com/ani0009.h"		//http://www.caskeys.com/dc/?p=1314#ani0009
 #import "data/scripts/com/ani0020.h"		//http://www.caskeys.com/dc/?p=1314#ani0020
-#import "data/scripts/com/key0002.h"		//http://www.caskeys.com/dc/?p=1314#key0002
-#import "data/scripts/com/key0004.h"		//http://www.caskeys.com/dc/?p=1314#key0004
 #import "data/scripts/com/debu0001.h"		//http://www.caskeys.com/dc/?p=1314#debu0001
 #import "data/scripts/com/soun0005.h"		//http://www.caskeys.com/dc/?p=1314#soun0005
 

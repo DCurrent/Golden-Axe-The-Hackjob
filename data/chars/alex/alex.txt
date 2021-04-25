@@ -971,7 +971,7 @@ anim  freespecial6
 	delay  12
 	offset  60  98
 	bbox  50  55  26  36
-	@cmd	key0005 0 0 0 0 0
+	@cmd	dc_keys_command_direction
 		frame  data/chars/alex/0003.png
 	delay	-1000
 	attack1  50  55  26  36  8  1
@@ -990,7 +990,7 @@ anim  freespecial7
 		delay  12
 		offset  60  98
 		bbox  0
-		@cmd	key0005 0 0 0 0 0
+		@cmd	dc_keys_command_direction
 	frame  data/chars/alex/0003.png
 	frame  data/chars/alex/0055.png
 		attack9  64  54  39  23  10

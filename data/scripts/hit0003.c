@@ -29,7 +29,6 @@ void main()
 /*
 
 #import "data/scripts/vars/constants.h"	//http://www.caskeys.com/dc/?p=1314#constants
-#import "data/scripts/com/ani0011.h"
 #import "data/scripts/com/hit0002.h"
 #import "data/scripts/com/host0001.h"
 #import "data/scripts/com/summ0001.h"

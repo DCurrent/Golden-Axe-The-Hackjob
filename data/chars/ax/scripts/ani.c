@@ -4,7 +4,6 @@
 
 #import "data/scripts/com/dc_ai_avoid_jump_attack.c"        //Avoid jump attacks by walking laterally.
 #import "data/scripts/com/ani0001.h"       //Generic conditional animation switch.
-#import "data/scripts/com/ani0004.h"       //Force opponent entity to play animation.
 #import "data/scripts/com/ani0009.h"		//Animation switch wrapper.
 #import "data/scripts/com/ani0012.h"		//Switch animation when height is < 70% of target.
 #import "data/scripts/com/ani0016.h"		//Alt animation if opponent rising.

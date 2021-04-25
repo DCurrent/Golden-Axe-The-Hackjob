@@ -11,7 +11,7 @@ void dc_disney_dash_stop()
 	void ent;
 
 	// Get base entity.
-	ent = dc_disney_get_entity();
+	ent = dc_disney_get_member_entity();
 
 	/*
 	* Turn off run state and stop all movement.

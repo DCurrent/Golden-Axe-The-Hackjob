@@ -1,7 +1,7 @@
 #include "data/scripts/dc_disney/config.h"
 
 // Primary acting entity.
-void dc_disney_get_entity()
+void dc_disney_get_member_entity()
 {
 	int instance;
 	void result;
@@ -16,12 +16,12 @@ void dc_disney_get_entity()
 		result = DC_DISNEY_DEFAULT_ENT;
 	}
 
-	log("\n dc_disney_get_entity " + result);
+	log("\n dc_disney_get_member_entity " + result);
 
 	return result;
 }
 
-void dc_disney_set_entity(void value)
+void dc_disney_set_member_entity(void value)
 {
 	int instance;
 	void result;

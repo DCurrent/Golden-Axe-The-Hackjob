@@ -14,7 +14,7 @@
 */
 void dc_disney_alternate_on_grab_eligible(int grab_eligible_animation, int grab_ineligible_animation)
 {
-	void acting_entity = dc_disney_get_entity();
+	void acting_entity = dc_disney_get_member_entity();
 	void opponent_entity = get_entity_property(acting_entity, "opponent");
 	int elapsed_time = openborvariant("elapsed_time");
 

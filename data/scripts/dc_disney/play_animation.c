@@ -15,7 +15,7 @@ int dc_disney_play_animation(int animation)
 	int result = 0;
 
 	// Get base entity.
-	ent = dc_disney_get_entity();
+	ent = dc_disney_get_member_entity();
 
 	// Get animation valid "entity_status".
 	is_valid = getentityproperty(ent, "animvalid", animation);

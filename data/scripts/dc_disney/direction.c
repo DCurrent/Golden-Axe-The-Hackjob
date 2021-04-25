@@ -14,7 +14,7 @@ int dc_disney_adjust_direction(int value)
 	int result;
 	
 	// Get base entity.
-	ent = dc_disney_get_entity();
+	ent = dc_disney_get_member_entity();
 
 	
 

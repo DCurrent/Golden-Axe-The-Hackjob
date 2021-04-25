@@ -25,7 +25,7 @@
 
 #define DC_DISNEY_MEMBER_ANIMATION		DC_DISNEY_BASE_ID + 0
 #define DC_DISNEY_MEMBER_ENT			DC_DISNEY_BASE_ID + 1
-#define DC_DISNEY_MEMBER_TIME_DELAY			DC_DISNEY_BASE_ID + 2
+#define DC_DISNEY_MEMBER_TIME_DELAY		DC_DISNEY_BASE_ID + 2
 #define DC_DISNEY_MEMBER_THE_END		3			// Should always be last, with a value one higher than previous key ID.
 
 /** Instance control

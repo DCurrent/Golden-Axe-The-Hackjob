@@ -14,7 +14,7 @@ void dc_disney_alternate_on_range(int animation)
 	void ent;
 	void target;
 
-	ent = dc_disney_get_entity();
+	ent = dc_disney_get_member_entity();
 
 	/* 
 	* If we find a target within the animation's 

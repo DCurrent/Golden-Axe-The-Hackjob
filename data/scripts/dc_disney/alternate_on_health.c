@@ -20,7 +20,7 @@ void dc_disney_alternate_on_health(int animation)
 
 	float ratio_threshold = 0.2;
 
-	ent = dc_disney_get_entity();
+	ent = dc_disney_get_member_entity();
 
 	hp_current += get_entity_property(ent, "hp");
 	hp_max += getentityproperty(ent, "maxhealth");

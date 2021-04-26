@@ -3,31 +3,32 @@
 // Primary acting entity.
 void dc_disney_get_member_entity()
 {
-	int instance;
+	char id;
 	void result;
 
-	// Get instance.
-	instance = dc_disney_get_instance();
+	// Get id key.
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_ENT;
 
-	result = getlocalvar(instance + DC_DISNEY_MEMBER_ENT);
+	result = getlocalvar(id);
 
-	if (result == NULL())
+	if (typeof(result) != openborconstant("VT_PTR"))
 	{
 		result = DC_DISNEY_DEFAULT_ENT;
 	}
-
-	log("\n dc_disney_get_member_entity " + result);
 
 	return result;
 }
 
 void dc_disney_set_member_entity(void value)
 {
-	int instance;
-	void result;
+	char id;
 
-	// Get instance.
-	instance = dc_disney_get_instance();
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_ENT;
 
-	setlocalvar(instance + DC_DISNEY_MEMBER_ENT, value);
+	if (value == DC_DISNEY_DEFAULT_ENT)
+	{
+		value = NULL();
+	}
+
+	setlocalvar(id, value);
 }

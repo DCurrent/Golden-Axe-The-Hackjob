@@ -249,8 +249,7 @@ anim attack1
 	offset	82 142
    	bbox    68 79 31 55
     	attack2	41 129 28 18 16 5
-	@cmd	ani0016 A_FSPECIAL2 1 0 0 0
-    		frame	data/chars/tyris/chicken/0007
+			frame	data/chars/tyris/chicken/0007
 	offset	76 142
    	bbox    60 79 31 55
 	attack5	52 126 48 24 16 5

@@ -21,7 +21,6 @@
 #import "data/scripts/common/attack.h"
 #import "data/scripts/common/magic.h"
 #import "data/scripts/common/mp.h"
-#import "data/scripts/com/ani0013.h"
 
 
 void magic1()

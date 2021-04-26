@@ -6,7 +6,6 @@
 #import "data/scripts/com/ani0001.h"       //Generic conditional animation switch.
 #import "data/scripts/com/ani0009.h"		//Animation switch wrapper.
 #import "data/scripts/com/ani0012.h"		//Switch animation when height is < 70% of target.
-#import "data/scripts/com/ani0016.h"		//Alt animation if opponent rising.
 #import "data/scripts/com/ani0017.h"		//Switch to alternate animation if nearest hostile is in range of alt and all checks match.
 #import "data/scripts/com/bind0003.h"
 #import "data/scripts/com/bind0008.h"

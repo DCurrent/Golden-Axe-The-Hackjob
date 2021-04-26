@@ -172,11 +172,11 @@ void dc_disney_set_member_target_model_default(void value)
 * Caskey, Damon V.
 * 2021-04-25
 * 
-* Return TRUE if all conditions pass for
-* setting a new animation.
+* Return TRUE if all TARGET entity conditions 
+* on TARGET pass for setting a new animation.
 */
 
-int dc_disney_check_conditions()
+int dc_disney_check_target_conditions(void target_entity)
 {
 	void acting_entity = dc_disney_get_member_entity();
 	void target_entity = NULL();
@@ -210,7 +210,7 @@ int dc_disney_check_conditions()
 	}
 
 	/*
-	* Acting can't grab target.
+	* Acting entity can't grab target.
 	*/
 	if (condition_flag & DC_DISNEY_CONDITION_GRAB_ELIGIBLE_NO || condition_flag & DC_DISNEY_CONDITION_GRAB_ELIGIBLE_YES)
 	{
@@ -321,21 +321,20 @@ int dc_disney_check_conditions()
 	*/
 	if (condition_flag & DC_DISNEY_CONDITION_MODEL_DEFAULT_NO || condition_flag & DC_DISNEY_CONDITION_MODEL_DEFAULT_YES)
 	{
-		char target_model = getentityproperty(target_entity, "defaultname");
-		
 		char defaultmodel = dc_disney_get_member_target_model_default();
 
-		if (condition_flag & DC_DISNEY_CONDITION_MODEL_DEFAULT_NO && target_model == defaultmodel)
+		int model_match = dc_disney_check_defaultmodel_match(target_entity, defaultmodel);
+
+		if (model_match && condition_flag & DC_DISNEY_CONDITION_MODEL_DEFAULT_NO)
 		{
 			return 0;
 		}
 
-		if (condition_flag & DC_DISNEY_CONDITION_MODEL_DEFAULT_YES && target_model != defaultmodel)
+		if (!model_match && condition_flag & DC_DISNEY_CONDITION_MODEL_DEFAULT_YES)
 		{
 			return 0;
 		}
 	}
-
 }
 
 /*
@@ -344,19 +343,17 @@ int dc_disney_check_conditions()
 *
 * Return true if in a walkoff condition.
 */
-int dc_disney_check_walkoff(int walkoff_animation)
-{
-	void acting_entity = dc_disney_get_member_entity();
-		
+int dc_disney_check_walkoff(void entity)
+{	
 	/*
 	* If we aren't falling or in jump state
 	* just exit.
 	*/
 	
-	float	velocity_y = get_entity_property(acting_entity, "velocity_y");
-	int     jump_state = get_entity_property(acting_entity, "jump_state");
+	float	velocity_y = get_entity_property(entity, "velocity_y");
+	int     jump_state = get_entity_property(entity, "jump_state");
 
-	
+
 	if (velocity_y >= 0.0 || jump_state)
 	{
 		return 0;
@@ -367,7 +364,7 @@ int dc_disney_check_walkoff(int walkoff_animation)
 	* eligible animations?
 	*/
 
-	int animation_id = get_entity_property(acting_entity, "animation_id");
+	int animation_id = get_entity_property(entity, "animation_id");
 
 	if (animation_id == -1
 		|| animation_id == openborconstant("ANI_IDLE")
@@ -385,10 +382,10 @@ int dc_disney_check_walkoff(int walkoff_animation)
 * Caskey, Damon V.
 * 2021-04-25
 *
-* Return TRUE if opponent is immune to
+* Return TRUE if entity is immune to
 * all grabs.
 */
-void dc_disney_check_grab_immune(void target_entity)
+void dc_disney_check_grab_immune(void entity)
 {
 	/*
 	* Non fighting types, animals, and
@@ -396,13 +393,13 @@ void dc_disney_check_grab_immune(void target_entity)
 	* all immune to grabs.
 	*/
 
-	int type = getentityproperty(target_entity, "type");
+	int type = getentityproperty(entity, "type");
 
-	int opponent_animal = getentityproperty(target_entity, "animal");
-	int opponent_nograb = get_entity_property(target_entity, "nograb");
+	int animal = getentityproperty(entity, "animal");
+	int nograb = get_entity_property(entity, "nograb");
 
-	if (!opponent_animal
-		&& !opponent_nograb
+	if (!animal
+		&& !nograb
 		&& (type == openborconstant("TYPE_PLAYER")
 			|| type == openborconstant("TYPE_ENEMY")
 			|| type == openborconstant("TYPE_NPC")))
@@ -418,10 +415,8 @@ void dc_disney_check_grab_immune(void target_entity)
 * Caskey, Damon V.
 * 2021-04-25
 *
-* Return TRUE if target is not immune
-* to grabs and acting entity has sufficiant
-* grab force to overcome target's anti
-* grab property
+* Return TRUE if acting entity is
+* able to grab target entity.
 */
 void dc_disney_check_grab_eligible(void acting_entity, void target_entity)
 {
@@ -454,10 +449,10 @@ void dc_disney_check_grab_eligible(void acting_entity, void target_entity)
 * Return true if entity health % exceeds
 * supplied portion value.
 */
-int dc_disney_check_health_above_portion(void target_entity, float threshold)
+int dc_disney_check_health_above_portion(void entity, float threshold)
 {
-	float health_current = 0.0 + get_entity_property(target_entity, "hp");
-	float health_max = 0.0 + getentityproperty(target_entity, "maxhealth");
+	float health_current = 0.0 + get_entity_property(entity, "hp");
+	float health_max = 0.0 + getentityproperty(entity, "maxhealth");
 	float health_portion = 0.0;
 
 	// Don't divide by 0!
@@ -487,9 +482,9 @@ int dc_disney_check_health_above_portion(void target_entity, float threshold)
 * Return true if entity health exceeds
 * supplied value.
 */
-int dc_disney_check_health_above_value(void target_entity, int threshold)
+int dc_disney_check_health_above_value(void entity, int threshold)
 {
-	float health_current = get_entity_property(target_entity, "hp");	
+	float health_current = get_entity_property(entity, "hp");
 
 	/* Result exceed value? */
 
@@ -525,6 +520,27 @@ int dc_disney_check_height_difference_above(void acting_entity, void target_enti
 	*/
 
 	if (target_height - acting_height > threshold)
+	{
+		return 1;
+	}
+
+	return 0;
+}
+
+/*
+* Caskey, Damon V.
+* 2021-04-26
+* 
+* Return true of entity default model 
+* matches supplied name.
+*/
+int dc_disney_check_defaultmodel_match(void entity, char match_name)
+{
+	char defaultmodel = getentityproperty(entity, "defaultname");
+
+	char defaultmodel = dc_disney_get_member_target_model_default();
+
+	if (defaultmodel == match_name)
 	{
 		return 1;
 	}

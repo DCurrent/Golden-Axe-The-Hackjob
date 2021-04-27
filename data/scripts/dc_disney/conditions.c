@@ -2,6 +2,8 @@
 
 #import "data/scripts/dc_disney/animation.c"
 #import "data/scripts/dc_disney/entity.c"
+#import "data/scripts/dc_disney/condition_grab.c"
+#import "data/scripts/dc_disney/condition_health.c"
 
 /* Flag that determines which conditions are applied. */
 
@@ -36,65 +38,32 @@ void dc_disney_set_member_condition_flag_target(void value)
 	setlocalvar(id, value);
 }
 
-/* Health % of animation target. */
+/* Health value of target. */
 
-float dc_disney_get_member_target_health_portion()
+int dc_disney_get_member_target_animation()
 {
 	char id;
 	void result;
 
-	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_TARGET_HEALTH_PORTION;
-
-	result = getlocalvar(id);
-
-	if (typeof(result) != openborconstant("VT_DECIMAL"))
-	{
-		result = DC_DISNEY_DEFAULT_CONDITION_TARGET_HEALTH_PORTION;
-	}
-
-	return result;
-}
-
-void dc_disney_set_member_target_health_portion(void value)
-{
-	char id;
-
-	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_TARGET_HEALTH_PORTION;
-
-	if (value == DC_DISNEY_DEFAULT_CONDITION_TARGET_HEALTH_PORTION)
-	{
-		value = NULL();
-	}
-
-	setlocalvar(id, value);
-}
-
-/* Health value of animation target. */
-
-int dc_disney_get_member_target_health_value()
-{
-	char id;
-	void result;
-
-	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_TARGET_HEALTH_VALUE;
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_TARGET_ANIMATION;
 
 	result = getlocalvar(id);
 
 	if (typeof(result) != openborconstant("VT_INTEGER"))
 	{
-		result = DC_DISNEY_DEFAULT_CONDITION_TARGET_HEALTH_VALUE;
+		result = DC_DISNEY_DEFAULT_CONDITION_TARGET_ANIMATION;
 	}
 
 	return result;
 }
 
-void dc_disney_set_member_target_health_value(void value)
+void dc_disney_set_member_target_animation(int value)
 {
 	char id;
 
-	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_TARGET_HEALTH_VALUE;
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_TARGET_ANIMATION;
 
-	if (value == DC_DISNEY_DEFAULT_CONDITION_TARGET_HEALTH_VALUE)
+	if (value == DC_DISNEY_DEFAULT_CONDITION_TARGET_ANIMATION)
 	{
 		value = NULL();
 	}
@@ -102,7 +71,7 @@ void dc_disney_set_member_target_health_value(void value)
 	setlocalvar(id, value);
 }
 
-/* Height of animation target. */
+/* Height of target. */
 
 int dc_disney_get_member_target_height_difference()
 {
@@ -168,6 +137,72 @@ void dc_disney_set_member_target_model_default(void value)
 	setlocalvar(id, value);
 }
 
+/* MP % of target. */
+
+float dc_disney_get_member_target_mp_portion()
+{
+	char id;
+	void result;
+
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_TARGET_MP_PORTION;
+
+	result = getlocalvar(id);
+
+	if (typeof(result) != openborconstant("VT_DECIMAL"))
+	{
+		result = DC_DISNEY_DEFAULT_CONDITION_TARGET_MP_PORTION;
+	}
+
+	return result;
+}
+
+void dc_disney_set_member_target_mp_portion(void value)
+{
+	char id;
+
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_TARGET_MP_PORTION;
+
+	if (value == DC_DISNEY_DEFAULT_CONDITION_TARGET_MP_PORTION)
+	{
+		value = NULL();
+	}
+
+	setlocalvar(id, value);
+}
+
+/* MP value of target. */
+
+int dc_disney_get_member_target_mp_value()
+{
+	char id;
+	void result;
+
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_TARGET_MP_VALUE;
+
+	result = getlocalvar(id);
+
+	if (typeof(result) != openborconstant("VT_INTEGER"))
+	{
+		result = DC_DISNEY_DEFAULT_CONDITION_TARGET_HEALTH_VALUE;
+	}
+
+	return result;
+}
+
+void dc_disney_set_member_target_mp_value(void value)
+{
+	char id;
+
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_TARGET_MP_VALUE;
+
+	if (value == DC_DISNEY_DEFAULT_CONDITION_TARGET_MP_VALUE)
+	{
+		value = NULL();
+	}
+
+	setlocalvar(id, value);
+}
+
 /*
 * Caskey, Damon V.
 * 2021-04-25
@@ -182,6 +217,7 @@ int dc_disney_check_target_conditions(void target_entity)
 	void target_entity = NULL();
 	int animation = dc_disney_get_member_animation();
 	int condition_flag = dc_disney_get_member_condition_flag_target();
+	int condition_eval = dc_disney_get_member_condition_flag_target();
 
 	/*
 	* Now we go one by one through conditions. 
@@ -212,60 +248,31 @@ int dc_disney_check_target_conditions(void target_entity)
 	/*
 	* Acting entity can't grab target.
 	*/
-	if (condition_flag & DC_DISNEY_CONDITION_GRAB_ELIGIBLE_NO || condition_flag & DC_DISNEY_CONDITION_GRAB_ELIGIBLE_YES)
+	if (condition_flag & DC_DISNEY_CONDITION_GRAB_ELIGIBLE)
 	{
-		int grab_eligible = dc_disney_check_grab_eligible(acting_entity, target_entity);
-
-		/* Value should be opposite flag, or we exit with false. */
-
-		if (grab_eligible && condition_flag & DC_DISNEY_CONDITION_GRAB_ELIGIBLE_NO)
+		if (!dc_disney_check_condition_grab_elgible(condition_eval, acting_entity, target_entity))
 		{
-			return 0;
-		}
-
-		if (!grab_eligible && condition_flag & DC_DISNEY_CONDITION_GRAB_ELIGIBLE_YES)
-		{
-			return 0;
-		}
+			return 0; 
+		}		
 	}
 		
 	/*
 	* Target fully immune to grabs.
 	*/
-	if (condition_flag & DC_DISNEY_CONDITION_GRAB_IMMUNE_NO || condition_flag & DC_DISNEY_CONDITION_GRAB_IMMUNE_YES)
+	if (condition_flag & DC_DISNEY_CONDITION_GRAB_IMMUNE)
 	{
-		int grab_immune = dc_disney_check_grab_immune(target_entity);
-
-		/* Value should be opposite flag, or we exit with false. */
-
-		if (grab_immune && condition_flag & DC_DISNEY_CONDITION_GRAB_IMMUNE_NO)
-		{
-			return 0;
-		}
-		
-		if(!grab_immune && condition_flag & DC_DISNEY_CONDITION_GRAB_IMMUNE_YES)
+		if (!dc_disney_check_condition_grab_immune(condition_eval, acting_entity, target_entity))
 		{
 			return 0;
 		}
 	}
 	
 	/*
-	* Target health % above/below threshold.
+	* Target health %.
 	*/
-	if (condition_flag & DC_DISNEY_CONDITION_HEALTH_PORTION_ABOVE || condition_flag & DC_DISNEY_CONDITION_HEALTH_PORTION_BELOW)
+	if (condition_flag & DC_DISNEY_CONDITION_HEALTH_PORTION)
 	{
-		float portion_threshold = dc_disney_get_member_target_health_portion();
-
-		int above_threshold = dc_disney_check_health_above_portion(target_entity, portion_threshold);
-
-		/* Value should be opposite flag, or we exit with false. */
-
-		if (above_threshold && condition_flag & DC_DISNEY_CONDITION_HEALTH_PORTION_BELOW)
-		{
-			return 0;
-		}
-
-		if (!above_threshold && condition_flag & DC_DISNEY_CONDITION_HEALTH_PORTION_ABOVE)
+		if (!dc_disney_check_condition_health_portion(condition_eval, acting_entity, target_entity))
 		{
 			return 0;
 		}
@@ -274,20 +281,9 @@ int dc_disney_check_target_conditions(void target_entity)
 	/*
 	* Target health value above/below threshold.
 	*/
-	if (condition_flag & DC_DISNEY_CONDITION_HEALTH_VALUE_ABOVE || condition_flag & DC_DISNEY_CONDITION_HEALTH_VALUE_BELOW)
+	if (condition_flag & DC_DISNEY_CONDITION_HEALTH_VALUE)
 	{
-		float value_threshold = dc_disney_get_member_target_health_value();
-
-		int above_threshold = dc_disney_check_health_above_value(target_entity, value_threshold);
-
-		/* Value should be opposite flag, or we exit with false. */
-
-		if (above_threshold && condition_flag & DC_DISNEY_CONDITION_HEALTH_VALUE_BELOW)
-		{
-			return 0;
-		}
-
-		if (!above_threshold && condition_flag & DC_DISNEY_CONDITION_HEALTH_VALUE_ABOVE)
+		if (!dc_disney_check_condition_health_value(condition_eval, acting_entity))
 		{
 			return 0;
 		}
@@ -297,7 +293,7 @@ int dc_disney_check_target_conditions(void target_entity)
 	* Difference between a taller target's height 
 	* vs acting height is more/less than threshold.
 	*/
-	if (condition_flag & DC_DISNEY_CONDITION_HEIGHT_DIFFERENCE_ABOVE || condition_flag & DC_DISNEY_CONDITION_HEIGHT_DIFFERENCE_BELOW)
+	if (condition_flag & DC_DISNEY_CONDITION_HEIGHT_DIFFERENCE)
 	{
 		float value_threshold = dc_disney_get_member_target_health_value();
 
@@ -305,12 +301,12 @@ int dc_disney_check_target_conditions(void target_entity)
 
 		/* Value should be opposite flag, or we exit with false. */
 
-		if (above_height_threshold && condition_flag & DC_DISNEY_CONDITION_HEALTH_VALUE_BELOW)
+		if (above_height_threshold && condition_flag & DC_DISNEY_CONDITION_EVAL_LESSER)
 		{
 			return 0;
 		}
 
-		if (!above_height_threshold && condition_flag & DC_DISNEY_CONDITION_HEALTH_VALUE_ABOVE)
+		if (!above_height_threshold && condition_flag & DC_DISNEY_CONDITION_EVAL_GREATER)
 		{
 			return 0;
 		}
@@ -319,18 +315,18 @@ int dc_disney_check_target_conditions(void target_entity)
 	/*
 	* Default model of target entity.
 	*/
-	if (condition_flag & DC_DISNEY_CONDITION_MODEL_DEFAULT_NO || condition_flag & DC_DISNEY_CONDITION_MODEL_DEFAULT_YES)
+	if (condition_flag & DC_DISNEY_CONDITION_MODEL_DEFAULT)
 	{
 		char defaultmodel = dc_disney_get_member_target_model_default();
 
 		int model_match = dc_disney_check_defaultmodel_match(target_entity, defaultmodel);
 
-		if (model_match && condition_flag & DC_DISNEY_CONDITION_MODEL_DEFAULT_NO)
+		if (model_match && condition_flag & DC_DISNEY_CONDITION_EVAL_FALSE)
 		{
 			return 0;
 		}
 
-		if (!model_match && condition_flag & DC_DISNEY_CONDITION_MODEL_DEFAULT_YES)
+		if (!model_match && condition_flag & DC_DISNEY_CONDITION_EVAL_TRUE)
 		{
 			return 0;
 		}
@@ -378,123 +374,7 @@ int dc_disney_check_walkoff(void entity)
 	return 0;
 }
 
-/*
-* Caskey, Damon V.
-* 2021-04-25
-*
-* Return TRUE if entity is immune to
-* all grabs.
-*/
-void dc_disney_check_grab_immune(void entity)
-{
-	/*
-	* Non fighting types, animals, and
-	* entities with nograb enabled are
-	* all immune to grabs.
-	*/
 
-	int type = getentityproperty(entity, "type");
-
-	int animal = getentityproperty(entity, "animal");
-	int nograb = get_entity_property(entity, "nograb");
-
-	if (!animal
-		&& !nograb
-		&& (type == openborconstant("TYPE_PLAYER")
-			|| type == openborconstant("TYPE_ENEMY")
-			|| type == openborconstant("TYPE_NPC")))
-	{
-		return 1;
-
-	}
-
-	return 0;
-}
-
-/*
-* Caskey, Damon V.
-* 2021-04-25
-*
-* Return TRUE if acting entity is
-* able to grab target entity.
-*/
-void dc_disney_check_grab_eligible(void acting_entity, void target_entity)
-{
-	/* 
-	* If target is immune to grabs outright
-	* nothing else matters.
-	*/
-	if (dc_disney_check_grab_immune(target_entity))
-	{
-		return 0;
-	}
-
-	/* Can acting grabforce beat target's antigrab? */
-
-	int anti_grab = getentityproperty(acting_entity, "antigrab");
-	int grab_force = getentityproperty(acting_entity, "grabforce");
-
-	if (grab_force >= anti_grab)
-	{
-		return 1;
-	}
-
-	return 0;
-}
-
-/*
-* Caskey, Damon V.
-* 2021-05-25
-* 
-* Return true if entity health % exceeds
-* supplied portion value.
-*/
-int dc_disney_check_health_above_portion(void entity, float threshold)
-{
-	float health_current = 0.0 + get_entity_property(entity, "hp");
-	float health_max = 0.0 + getentityproperty(entity, "maxhealth");
-	float health_portion = 0.0;
-
-	// Don't divide by 0!
-	if (health_current && health_max)
-	{
-		health_portion = health_current / health_max;
-	}
-	else
-	{
-		health_portion = 0.0;
-	}
-
-	/* Result exceed value? */
-
-	if (health_portion > threshold)
-	{
-		return 1;
-	}
-
-	return 0;
-}
-
-/*
-* Caskey, Damon V.
-* 2021-05-25
-*
-* Return true if entity health exceeds
-* supplied value.
-*/
-int dc_disney_check_health_above_value(void entity, int threshold)
-{
-	float health_current = get_entity_property(entity, "hp");
-
-	/* Result exceed value? */
-
-	if (health_current > threshold)
-	{
-		return 1;
-	}
-
-	return 0;
-}
 
 /*
 * Caskey, Damon V.

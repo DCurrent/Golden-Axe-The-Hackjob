@@ -4,6 +4,7 @@
 #import "data/scripts/dc_disney/entity.c"
 #import "data/scripts/dc_disney/condition_grab.c"
 #import "data/scripts/dc_disney/condition_health.c"
+#import "data/scripts/dc_disney/target_select.c"
 
 /* Flag that determines which conditions are applied. */
 
@@ -211,10 +212,10 @@ void dc_disney_set_member_target_mp_value(void value)
 * on TARGET pass for setting a new animation.
 */
 
-int dc_disney_check_target_conditions(void target_entity)
+int dc_disney_check_target_conditions()
 {
 	void acting_entity = dc_disney_get_member_entity();
-	void target_entity = NULL();
+	void target_entity = dc_disney_get_target();
 	int animation = dc_disney_get_member_animation();
 	int condition_flag = dc_disney_get_member_condition_flag_target();
 	int condition_eval = dc_disney_get_member_condition_flag_target();
@@ -272,7 +273,7 @@ int dc_disney_check_target_conditions(void target_entity)
 	*/
 	if (condition_flag & DC_DISNEY_CONDITION_HEALTH_PORTION)
 	{
-		if (!dc_disney_check_condition_health_portion(condition_eval, acting_entity, target_entity))
+		if (!dc_disney_check_condition_target_health_portion(target_entity))
 		{
 			return 0;
 		}
@@ -283,7 +284,7 @@ int dc_disney_check_target_conditions(void target_entity)
 	*/
 	if (condition_flag & DC_DISNEY_CONDITION_HEALTH_VALUE)
 	{
-		if (!dc_disney_check_condition_health_value(condition_eval, acting_entity))
+		if (!dc_disney_check_condition_health_value(target_entity))
 		{
 			return 0;
 		}

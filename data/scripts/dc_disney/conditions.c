@@ -4,6 +4,7 @@
 #import "data/scripts/dc_disney/entity.c"
 #import "data/scripts/dc_disney/condition_grab.c"
 #import "data/scripts/dc_disney/condition_health.c"
+#import "data/scripts/dc_disney/condition_random.c"
 #import "data/scripts/dc_disney/target_select.c"
 
 /* Flag that determines which conditions are applied. */
@@ -328,6 +329,17 @@ int dc_disney_check_target_conditions()
 		}
 
 		if (!model_match && condition_flag & DC_DISNEY_CONDITION_EVAL_TRUE)
+		{
+			return 0;
+		}
+	}
+
+	/*
+	* Random chance roll (acting/target agnostic).
+	*/
+	if (condition_flag & DC_DISNEY_CONDITION_RANDOM_CHANCE)
+	{
+		if (!dc_disney_check_condition_random_chance())
 		{
 			return 0;
 		}

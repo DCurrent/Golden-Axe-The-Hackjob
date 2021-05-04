@@ -26,8 +26,8 @@ void dc_d20_generate_radial_coordinates(int radius)
 	* Select a random point within diameter of circle
 	* along X axis.
 	*/
-	dc_d20_set_range_min(0);
-	dc_d20_set_range_max(radius);	
+	dc_d20_set_member_range_min(0);
+	dc_d20_set_member_range_max(radius);	
 
 	float x = dc_d20_generate_random_int();
 
@@ -36,8 +36,8 @@ void dc_d20_generate_radial_coordinates(int radius)
 	* Y axis with square root. This is so we don't favor
 	* the inside areas of circle.
 	*/
-	dc_d20_set_range_min(0);
-	dc_d20_set_range_max(100);
+	dc_d20_set_member_range_min(0);
+	dc_d20_set_member_range_max(100);
 
 	float y = (dc_d20_generate_random_int() * 0.01) * sqrt(rSquared - x * x);
 

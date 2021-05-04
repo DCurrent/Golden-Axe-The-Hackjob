@@ -92,7 +92,7 @@ int dc_fidelity_sound_chance()
 
 	dc_d20_set_instance(dc_instance_dependency_get(DC_FIDELITY_BASE_ID));
 	
-	dc_d20_set_range_max(100);
+	dc_d20_set_member_range_max(100);
 	random = dc_d20_random_int();
 	
 	if (percentage >= random)
@@ -253,7 +253,7 @@ int dc_fidelity_select_sample_id(void index_list)
 		size = size(index_list);
 		size--;
 
-		dc_d20_set_range_max(size);		
+		dc_d20_set_member_range_max(size);		
 
 		element = dc_d20_random_int();
 	}

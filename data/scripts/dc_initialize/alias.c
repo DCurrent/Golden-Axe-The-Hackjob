@@ -90,7 +90,7 @@ char dc_initialize_alias_from_list()
 
 	// Use count as upper bound for random
 	// number generator.
-	dc_d20_set_range_max(count);
+	dc_d20_set_member_range_max(count);
 
 	// Generate random number.
 	random_index = dc_d20_random_int();
@@ -123,7 +123,7 @@ char dc_initialize_alias_from_array()
 
 		// Use last index as upper bound for random
 		// number generator.
-		dc_d20_set_range_max(size);
+		dc_d20_set_member_range_max(size);
 
 		// Generate random number.
 		random_index = dc_d20_random_int();
@@ -194,7 +194,7 @@ char dc_initialize_alias_from_text()
 		column_count = dc_initialize_filestream_enumerate_column(names);
 
 		// Set maximum random number to column count.
-		dc_d20_set_range_max(column_count);
+		dc_d20_set_member_range_max(column_count);
 
 		// Generate random number.
 		random_index = dc_d20_random_int();

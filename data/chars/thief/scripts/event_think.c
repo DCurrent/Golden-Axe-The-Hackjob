@@ -73,7 +73,7 @@ int dc_timed_chance(int initial_delay, int initial_probability, int maximum_prob
 	if (time_elapsed >= time_expire)
 	{	
 		
-		dc_d20_set_range_max(100);
+		dc_d20_set_member_range_max(100);
 		random = probability + dc_d20_random_int();
 
 		

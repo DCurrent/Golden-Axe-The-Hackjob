@@ -24,7 +24,7 @@ char dc_initialize_random_color_set()
 	mapcount = getentityproperty(ent, "mapcount");
 
 	// Use the number of color sts available as maximum random number.
-	dc_d20_set_range_max(mapcount);
+	dc_d20_set_member_range_max(mapcount);
 
 	// Generate a random map index. If we accidently choose a map
 	// that is in the hidden range, loop back until we find one that

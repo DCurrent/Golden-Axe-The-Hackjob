@@ -5,6 +5,7 @@
 #import "data/scripts/dc_disney/condition_grab.c"
 #import "data/scripts/dc_disney/condition_health.c"
 #import "data/scripts/dc_disney/condition_random.c"
+#import "data/scripts/dc_disney/condition_type.c"
 #import "data/scripts/dc_disney/target_select.c"
 
 /* 
@@ -45,6 +46,49 @@ void dc_disney_set_member_condition_list_acting(void value)
 	setlocalvar(id, value);
 }
 
+int dc_disney_set_member_condition_flag_acting(int condition, int value)
+{
+	int condition_list = dc_disney_get_member_condition_list_acting();
+
+	/*
+	* Set the condition flag bit if value is true.
+	*
+	* Otherwise reset (clear or 0) the bit.
+	*/
+
+	if (value)
+	{
+		condition_list |= condition;
+	}
+	else
+	{
+		/*
+		* Toggle the bit to false if it is true.
+		*
+		* Normally we'd just do something like this:
+		*
+		*  condition_list &= ~condition;
+		*
+		* We use an if statement and toggle because
+		* OpenBOR Script doesn't support the ~ operator
+		* yet.
+		*/
+
+		if (condition_list & condition)
+		{
+			condition_list ^= condition;
+		}
+	}
+
+	/*
+	* Save and return the updated condition list.
+	*/
+
+	dc_disney_set_member_condition_list_acting(condition_list);
+
+	return condition_list;
+}
+
 /* Non entity. */
 
 int dc_disney_get_member_condition_list_global()
@@ -77,6 +121,51 @@ void dc_disney_set_member_condition_list_global(void value)
 
 	setlocalvar(id, value);
 }
+
+/* Set individual bit flag in condition list. */
+int dc_disney_set_member_condition_flag_global(int condition, int value)
+{
+	int condition_list = dc_disney_get_member_condition_list_global();
+
+	/*
+	* Set the condition flag bit if value is true.
+	*
+	* Otherwise reset (clear or 0) the bit.
+	*/
+
+	if (value)
+	{
+		condition_list |= condition;
+	}
+	else
+	{
+		/*
+		* Toggle the bit to false if it is true.
+		*
+		* Normally we'd just do something like this:
+		*
+		*  condition_list &= ~condition;
+		*
+		* We use an if statement and toggle because
+		* OpenBOR Script doesn't support the ~ operator
+		* yet.
+		*/
+
+		if (condition_list & condition)
+		{
+			condition_list ^= condition;
+		}
+	}
+
+	/*
+	* Save and return the updated condition list.
+	*/
+
+	dc_disney_set_member_condition_list_global(condition_list);
+
+	return condition_list;
+}
+
 
 /* Target entity. */
 
@@ -111,47 +200,46 @@ void dc_disney_set_member_condition_list_target(void value)
 	setlocalvar(id, value);
 }
 
-/* Set individual bit flag in condition list. */
-int dc_disney_set_member_condition_flag_global(int condition, int value)
+int dc_disney_set_member_condition_flag_target(int condition, int value)
 {
-	int condition_list = dc_disney_get_member_condition_list_global();
+	int condition_list = dc_disney_get_member_condition_list_target();
 
 	/*
 	* Set the condition flag bit if value is true.
-	* 
+	*
 	* Otherwise reset (clear or 0) the bit.
 	*/
 
 	if (value)
-	{		
+	{
 		condition_list |= condition;
 	}
 	else
 	{
 		/*
-		* Toggle the bit to false if it is true. 
-		* 
+		* Toggle the bit to false if it is true.
+		*
 		* Normally we'd just do something like this:
-		* 
+		*
 		*  condition_list &= ~condition;
-		* 
+		*
 		* We use an if statement and toggle because
-		* OpenBOR Script doesn't support the ~ operator 
+		* OpenBOR Script doesn't support the ~ operator
 		* yet.
 		*/
 
 		if (condition_list & condition)
 		{
 			condition_list ^= condition;
-		}		
+		}
 	}
-	
+
 	/*
 	* Save and return the updated condition list.
 	*/
 
-	dc_disney_set_member_condition_list_global(condition_list);
-	
+	dc_disney_set_member_condition_list_target(condition_list);
+
 	return condition_list;
 }
 
@@ -197,6 +285,16 @@ int dc_disney_check_global_conditions()
 	int condition_flag = dc_disney_get_member_condition_list_global();
 
 	/*
+	* If there are no conditions set at all, then
+	* just return TRUE instantly.
+	*/
+
+	if (condition_flag == DC_DISNEY_CONDITION_NONE)
+	{
+		return 1;
+	}
+
+	/*
 	* Random chance roll (acting/target agnostic).
 	*/
 	if (condition_flag & DC_DISNEY_CONDITION_RANDOM_CHANCE)
@@ -221,6 +319,31 @@ int dc_disney_check_global_conditions()
 int dc_disney_check_acting_conditions()
 {
 	int condition_flag = dc_disney_get_member_condition_list_acting();
+
+	/*
+	* If there are no conditions set at all, then
+	* just return TRUE instantly.
+	*/
+
+	if (condition_flag == DC_DISNEY_CONDITION_NONE)
+	{
+		return 1;
+	}
+
+	/* 
+	* Compare entity type vs. types supplied in
+	* type list member.
+	*/
+
+	
+	if (condition_flag & DC_DISNEY_CONDITION_TYPE)
+	{		
+		if (!dc_disney_check_condition_acting_type())
+		{
+			
+			return 0;
+		}		
+	}	
 
 	/*
 	* Acting walkoff. Are we falling and not
@@ -357,6 +480,19 @@ int dc_disney_check_target_conditions()
 		}
 
 		if (!model_match && condition_flag & DC_DISNEY_CONDITION_EVAL_TRUE)
+		{
+			return 0;
+		}
+	}
+
+	/*
+	* Compare entity type vs. types supplied in
+	* type list member.
+	*/
+
+	if (condition_flag & DC_DISNEY_CONDITION_TYPE)
+	{
+		if (!dc_disney_check_condition_target_type())
 		{
 			return 0;
 		}

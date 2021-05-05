@@ -13,6 +13,7 @@
 #import "data/scripts/dc_disney/conditions.c"
 #import "data/scripts/dc_disney/condition_grab.c"
 #import "data/scripts/dc_disney/condition_health.c"
+#import "data/scripts/dc_disney/condition_type.c"
 #import "data/scripts/dc_disney/target_select.c"
 
 #import "data/scripts/dc_disney/direction.c"

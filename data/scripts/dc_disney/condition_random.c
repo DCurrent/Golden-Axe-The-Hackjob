@@ -78,7 +78,7 @@ int dc_disney_check_condition_random_chance()
 	* All specified evaluations must pass or we return false.
 	*/
 
-	if (eval_type & DC_DISNEY_CONDITION_EVAL_TRUE && !check_result)
+	if (eval_type == DC_DISNEY_CONDITION_EVAL_TRUE && !check_result)
 	{
 		return 0;
 	}

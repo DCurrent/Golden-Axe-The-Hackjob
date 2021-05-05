@@ -2,30 +2,30 @@
 
 /* How acting entity evaluates random number. */
 
-int dc_disney_get_member_acting_random_chance_eval()
+int dc_disney_get_member_global_random_chance_eval()
 {
 	char id;
 	void result;
 
-	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_ACTING_RANDOM_CHANCE_EVAL;
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_GLOBAL_RANDOM_CHANCE_EVAL;
 
 	result = getlocalvar(id);
 
 	if (typeof(result) != openborconstant("VT_INTEGER"))
 	{
-		result = DC_DISNEY_DEFAULT_CONDITION_ACTING_RANDOM_CHANCE_EVAL;
+		result = DC_DISNEY_DEFAULT_CONDITION_GLOBAL_RANDOM_CHANCE_EVAL;
 	}
 
 	return result;
 }
 
-void dc_disney_set_member_acting_random_chance_eval(void value)
+void dc_disney_set_member_global_random_chance_eval(void value)
 {
 	char id;
 
-	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_ACTING_RANDOM_CHANCE_EVAL;
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_GLOBAL_RANDOM_CHANCE_EVAL;
 
-	if (value == DC_DISNEY_DEFAULT_CONDITION_ACTING_RANDOM_CHANCE_EVAL)
+	if (value == DC_DISNEY_DEFAULT_CONDITION_GLOBAL_RANDOM_CHANCE_EVAL)
 	{
 		value = NULL();
 	}
@@ -35,30 +35,30 @@ void dc_disney_set_member_acting_random_chance_eval(void value)
 
 /* Random 0-100 value acting will run random chance against. */
 
-int dc_disney_get_member_acting_random_chance()
+int dc_disney_get_member_global_random_chance()
 {
 	char id;
 	void result;
 
-	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_ACTING_RANDOM_CHANCE;
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_GLOBAL_RANDOM_CHANCE;
 
 	result = getlocalvar(id);
 
 	if (typeof(result) != openborconstant("VT_INTEGER"))
 	{
-		result = DC_DISNEY_DEFAULT_CONDITION_ACTING_RANDOM_CHANCE;
+		result = DC_DISNEY_DEFAULT_CONDITION_GLOBAL_RANDOM_CHANCE;
 	}
 
 	return result;
 }
 
-void dc_disney_set_member_acting_random_chance(void value)
+void dc_disney_set_member_global_random_chance(void value)
 {
 	char id;
 
-	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_ACTING_RANDOM_CHANCE;
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_GLOBAL_RANDOM_CHANCE;
 
-	if (value == DC_DISNEY_DEFAULT_CONDITION_ACTING_RANDOM_CHANCE)
+	if (value == DC_DISNEY_DEFAULT_CONDITION_GLOBAL_RANDOM_CHANCE)
 	{
 		value = NULL();
 	}
@@ -68,8 +68,8 @@ void dc_disney_set_member_acting_random_chance(void value)
 
 int dc_disney_check_condition_random_chance()
 {
-	float chance = dc_disney_get_member_acting_random_chance();
-	int eval_type = dc_disney_get_member_acting_random_chance_eval();
+	float chance = dc_disney_get_member_global_random_chance();
+	int eval_type = dc_disney_get_member_global_random_chance_eval();
 
 	/* First let's get the roll result. */
 	int check_result = dc_disney_check_random_chance(chance);

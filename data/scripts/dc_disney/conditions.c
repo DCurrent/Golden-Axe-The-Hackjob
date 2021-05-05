@@ -7,7 +7,78 @@
 #import "data/scripts/dc_disney/condition_random.c"
 #import "data/scripts/dc_disney/target_select.c"
 
-/* Flag that determines which conditions are applied. */
+/* 
+* Flags that determine which conditions 
+* are evaluated. Uses bitwise logic. 
+*/
+
+/* Acting entity. */
+
+int dc_disney_get_member_condition_flag_acting()
+{
+	char id;
+	void result;
+
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_FLAG_ACTING;
+
+	result = getlocalvar(id);
+
+	if (typeof(result) != openborconstant("VT_INTEGER"))
+	{
+		result = DC_DISNEY_DEFAULT_CONDITION_FLAG_ACTING;
+	}
+
+	return result;
+}
+
+void dc_disney_set_member_condition_flag_acting(void value)
+{
+	char id;
+
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_FLAG_ACTING;
+
+	if (value == DC_DISNEY_DEFAULT_CONDITION_FLAG_ACTING)
+	{
+		value = NULL();
+	}
+
+	setlocalvar(id, value);
+}
+
+/* Non entity. */
+
+int dc_disney_get_member_condition_flag_global()
+{
+	char id;
+	void result;
+
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_FLAG_GLOBAL;
+
+	result = getlocalvar(id);
+
+	if (typeof(result) != openborconstant("VT_INTEGER"))
+	{
+		result = DC_DISNEY_DEFAULT_CONDITION_FLAG_GLOBAL;
+	}
+
+	return result;
+}
+
+void dc_disney_set_member_condition_flag_global(void value)
+{
+	char id;
+
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_FLAG_GLOBAL;
+
+	if (value == DC_DISNEY_DEFAULT_CONDITION_FLAG_GLOBAL)
+	{
+		value = NULL();
+	}
+
+	setlocalvar(id, value);
+}
+
+/* Target entity. */
 
 int dc_disney_get_member_condition_flag_target()
 {
@@ -40,7 +111,219 @@ void dc_disney_set_member_condition_flag_target(void value)
 	setlocalvar(id, value);
 }
 
-/* Health value of target. */
+
+/*
+* Caskey, Damon V.
+* 2021-04-25
+*
+* Run global, acting, and target
+* entity conditions. Return TRUE if
+* all conditions pass.
+*/
+int dc_disney_check_all_conditions()
+{
+	if (!dc_disney_check_global_conditions())
+	{
+		return 0;
+	}
+
+	if (!dc_disney_check_acting_conditions())
+	{
+		return 0;
+	}
+
+	if (!dc_disney_check_target_conditions())
+	{
+		return 0;
+	}
+
+	/* All condition sets passed, return true. */
+	return 1;
+}
+
+/*
+* Caskey, Damon V.
+* 2021-04-25
+*
+* Return TRUE if all GLOBAL conditions
+* pass for setting a new animation.
+*/
+int dc_disney_check_global_conditions()
+{
+	int condition_flag = dc_disney_get_member_condition_flag_global();
+
+	/*
+	* Random chance roll (acting/target agnostic).
+	*/
+	if (condition_flag & DC_DISNEY_CONDITION_RANDOM_CHANCE)
+	{
+		if (!dc_disney_check_condition_random_chance())
+		{
+			return 0;
+		}
+	}
+		
+	/* All conditions passed, return true. */
+	return 1;
+}
+
+/*
+* Caskey, Damon V.
+* 2021-04-25
+*
+* Return TRUE if all ACTING entity conditions
+* pass for setting a new animation.
+*/
+int dc_disney_check_acting_conditions()
+{
+	int condition_flag = dc_disney_get_member_condition_flag_acting();
+
+	/*
+	* Acting walkoff. Are we falling and not
+	* in a jump state? The engine has a native
+	* walkoff, but this can handle walkoffs
+	* outside of the walking animations engine
+	* checks for.
+	*/
+	if (condition_flag & DC_DISNEY_CONDITION_WALKOFF)
+	{
+		if (!dc_disney_check_walkoff())
+		{
+			return 0;
+		}
+	}
+
+	/* All conditions passed, return true. */
+	return 1;
+}
+
+/*
+* Caskey, Damon V.
+* 2021-04-25
+* 
+* Return TRUE if all TARGET entity conditions 
+* pass for setting a new animation.
+*/
+int dc_disney_check_target_conditions()
+{
+	void acting_entity = dc_disney_get_member_entity();
+	void target_entity = dc_disney_get_target();
+	int condition_flag = dc_disney_get_member_condition_flag_target();
+
+	/* 
+	* If there are no conditions set at all, then
+	* just return TRUE instantly.
+	*/
+
+	if (condition_flag == DC_DISNEY_CONDITION_NONE)
+	{
+		return 1;
+	}
+
+	/*
+	* Now we go one by one through conditions. 
+	* If the condition flag bit for a given 
+	* condition is on, we check that condition.
+	* If not, we skip it and move on.
+	* 
+	* When a condition check is made and passes 
+	* we continue. Otherwise  we return FALSE 
+	* instantly.
+	*/
+
+	/*
+	* Acting entity can't grab target.
+	*/
+	if (condition_flag & DC_DISNEY_CONDITION_GRAB_ELIGIBLE)
+	{
+		//if (!dc_disney_check_condition_grab_elgible(condition_eval, acting_entity, target_entity))
+		//{
+		//	return 0; 
+		//}		
+	}
+		
+	/*
+	* Target fully immune to grabs.
+	*/
+	if (condition_flag & DC_DISNEY_CONDITION_GRAB_IMMUNE)
+	{
+		//if (!dc_disney_check_condition_grab_immune(condition_eval, acting_entity, target_entity))
+		//{
+		//	return 0;
+		//}
+	}
+	
+	/*
+	* Target health %.
+	*/
+	if (condition_flag & DC_DISNEY_CONDITION_HEALTH_PORTION)
+	{
+		if (!dc_disney_check_condition_target_health_portion(target_entity))
+		{
+			return 0;
+		}
+	}
+
+	/*
+	* Target health value above/below threshold.
+	*/
+	if (condition_flag & DC_DISNEY_CONDITION_HEALTH_VALUE)
+	{
+		if (!dc_disney_check_condition_health_value(target_entity))
+		{
+			return 0;
+		}
+	}
+
+	/*
+	* Difference between a taller target's height 
+	* vs acting height is more/less than threshold.
+	*/
+	if (condition_flag & DC_DISNEY_CONDITION_HEIGHT_DIFFERENCE)
+	{
+		float value_threshold = dc_disney_get_member_target_health_value();
+
+		int above_height_threshold = dc_disney_check_height_difference_above(acting_entity, target_entity, value_threshold);
+
+		/* Value should be opposite flag, or we exit with false. */
+
+		if (above_height_threshold && condition_flag & DC_DISNEY_CONDITION_EVAL_LESSER)
+		{
+			return 0;
+		}
+
+		if (!above_height_threshold && condition_flag & DC_DISNEY_CONDITION_EVAL_GREATER)
+		{
+			return 0;
+		}
+	}
+
+	/*
+	* Default model of target entity.
+	*/
+	if (condition_flag & DC_DISNEY_CONDITION_MODEL_DEFAULT)
+	{
+		char defaultmodel = dc_disney_get_member_target_model_default();
+
+		int model_match = dc_disney_check_defaultmodel_match(target_entity, defaultmodel);
+
+		if (model_match && condition_flag & DC_DISNEY_CONDITION_EVAL_FALSE)
+		{
+			return 0;
+		}
+
+		if (!model_match && condition_flag & DC_DISNEY_CONDITION_EVAL_TRUE)
+		{
+			return 0;
+		}
+	}
+
+	/* All conditions passed, return true. */
+	return 1;	
+}
+
+
+/* Animation of target. */
 
 int dc_disney_get_member_target_animation()
 {
@@ -205,146 +488,6 @@ void dc_disney_set_member_target_mp_value(void value)
 	setlocalvar(id, value);
 }
 
-/*
-* Caskey, Damon V.
-* 2021-04-25
-* 
-* Return TRUE if all TARGET entity conditions 
-* on TARGET pass for setting a new animation.
-*/
-
-int dc_disney_check_target_conditions()
-{
-	void acting_entity = dc_disney_get_member_entity();
-	void target_entity = dc_disney_get_target();
-	int animation = dc_disney_get_member_animation();
-	int condition_flag = dc_disney_get_member_condition_flag_target();
-	int condition_eval = dc_disney_get_member_condition_flag_target();
-
-	/*
-	* Now we go one by one through conditions. 
-	* If the condition flag bit for a given 
-	* condition is on, we check that condition.
-	* If not, we skip it and move on.
-	* 
-	* When a condition check is made and passes 
-	* we continue. Otherwise  we return FALSE 
-	* instantly.
-	*/
-
-	/*
-	* Acting walkoff. Are we falling and not 
-	* in a jump state? The engine has a native 
-	* walkoff, but this can handle walkoffs
-	* outside of the walking animations engine
-	* checks for.
-	*/
-	if(condition_flag & DC_DISNEY_CONDITION_WALKOFF)
-	{
-		if (!dc_disney_check_walkoff())
-		{
-			return 0;
-		}
-	}
-
-	/*
-	* Acting entity can't grab target.
-	*/
-	if (condition_flag & DC_DISNEY_CONDITION_GRAB_ELIGIBLE)
-	{
-		if (!dc_disney_check_condition_grab_elgible(condition_eval, acting_entity, target_entity))
-		{
-			return 0; 
-		}		
-	}
-		
-	/*
-	* Target fully immune to grabs.
-	*/
-	if (condition_flag & DC_DISNEY_CONDITION_GRAB_IMMUNE)
-	{
-		if (!dc_disney_check_condition_grab_immune(condition_eval, acting_entity, target_entity))
-		{
-			return 0;
-		}
-	}
-	
-	/*
-	* Target health %.
-	*/
-	if (condition_flag & DC_DISNEY_CONDITION_HEALTH_PORTION)
-	{
-		if (!dc_disney_check_condition_target_health_portion(target_entity))
-		{
-			return 0;
-		}
-	}
-
-	/*
-	* Target health value above/below threshold.
-	*/
-	if (condition_flag & DC_DISNEY_CONDITION_HEALTH_VALUE)
-	{
-		if (!dc_disney_check_condition_health_value(target_entity))
-		{
-			return 0;
-		}
-	}
-
-	/*
-	* Difference between a taller target's height 
-	* vs acting height is more/less than threshold.
-	*/
-	if (condition_flag & DC_DISNEY_CONDITION_HEIGHT_DIFFERENCE)
-	{
-		float value_threshold = dc_disney_get_member_target_health_value();
-
-		int above_height_threshold = dc_disney_check_height_difference_above(acting_entity, target_entity, value_threshold);
-
-		/* Value should be opposite flag, or we exit with false. */
-
-		if (above_height_threshold && condition_flag & DC_DISNEY_CONDITION_EVAL_LESSER)
-		{
-			return 0;
-		}
-
-		if (!above_height_threshold && condition_flag & DC_DISNEY_CONDITION_EVAL_GREATER)
-		{
-			return 0;
-		}
-	}
-
-	/*
-	* Default model of target entity.
-	*/
-	if (condition_flag & DC_DISNEY_CONDITION_MODEL_DEFAULT)
-	{
-		char defaultmodel = dc_disney_get_member_target_model_default();
-
-		int model_match = dc_disney_check_defaultmodel_match(target_entity, defaultmodel);
-
-		if (model_match && condition_flag & DC_DISNEY_CONDITION_EVAL_FALSE)
-		{
-			return 0;
-		}
-
-		if (!model_match && condition_flag & DC_DISNEY_CONDITION_EVAL_TRUE)
-		{
-			return 0;
-		}
-	}
-
-	/*
-	* Random chance roll (acting/target agnostic).
-	*/
-	if (condition_flag & DC_DISNEY_CONDITION_RANDOM_CHANCE)
-	{
-		if (!dc_disney_check_condition_random_chance())
-		{
-			return 0;
-		}
-	}
-}
 
 /*
 * Caskey, Damon V.

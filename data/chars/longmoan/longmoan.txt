@@ -474,6 +474,7 @@ anim attack1
 	bbox.size.x 32
 	bbox.size.y 53
 	
+	@cmd dc_disney_ai_random openborconstant("ANI_ATTACK3") 50
     	frame   data/chars/longmoan/atk_swipe_0.png
 	delay	8
 	

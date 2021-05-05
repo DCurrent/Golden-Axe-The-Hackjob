@@ -104,7 +104,7 @@ int dc_disney_check_random_chance(int chance)
 	* Use current instance ID for random
 	* library instance.
 	*/
-	dc_d20_set_instance(dc_disney_get_instance());
+	dc_d20_set_instance(dc_disney_get_instance() + DC_DISNEY_BASE_ID);
 
 	/* 
 	* Set ranges to 1 of 100, so that our

@@ -14,30 +14,30 @@
 
 /* Acting entity. */
 
-int dc_disney_get_member_condition_flag_acting()
+int dc_disney_get_member_condition_list_acting()
 {
 	char id;
 	void result;
 
-	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_FLAG_ACTING;
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_LIST_ACTING;
 
 	result = getlocalvar(id);
 
 	if (typeof(result) != openborconstant("VT_INTEGER"))
 	{
-		result = DC_DISNEY_DEFAULT_CONDITION_FLAG_ACTING;
+		result = DC_DISNEY_DEFAULT_CONDITION_LIST_ACTING;
 	}
 
 	return result;
 }
 
-void dc_disney_set_member_condition_flag_acting(void value)
+void dc_disney_set_member_condition_list_acting(void value)
 {
 	char id;
 
-	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_FLAG_ACTING;
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_LIST_ACTING;
 
-	if (value == DC_DISNEY_DEFAULT_CONDITION_FLAG_ACTING)
+	if (value == DC_DISNEY_DEFAULT_CONDITION_LIST_ACTING)
 	{
 		value = NULL();
 	}
@@ -47,30 +47,30 @@ void dc_disney_set_member_condition_flag_acting(void value)
 
 /* Non entity. */
 
-int dc_disney_get_member_condition_flag_global()
+int dc_disney_get_member_condition_list_global()
 {
 	char id;
 	void result;
 
-	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_FLAG_GLOBAL;
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_LIST_GLOBAL;
 
 	result = getlocalvar(id);
 
 	if (typeof(result) != openborconstant("VT_INTEGER"))
 	{
-		result = DC_DISNEY_DEFAULT_CONDITION_FLAG_GLOBAL;
+		result = DC_DISNEY_DEFAULT_CONDITION_LIST_GLOBAL;
 	}
 
 	return result;
 }
 
-void dc_disney_set_member_condition_flag_global(void value)
+void dc_disney_set_member_condition_list_global(void value)
 {
 	char id;
 
-	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_FLAG_GLOBAL;
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_LIST_GLOBAL;
 
-	if (value == DC_DISNEY_DEFAULT_CONDITION_FLAG_GLOBAL)
+	if (value == DC_DISNEY_DEFAULT_CONDITION_LIST_GLOBAL)
 	{
 		value = NULL();
 	}
@@ -80,35 +80,79 @@ void dc_disney_set_member_condition_flag_global(void value)
 
 /* Target entity. */
 
-int dc_disney_get_member_condition_flag_target()
+int dc_disney_get_member_condition_list_target()
 {
 	char id;
 	void result;
 
-	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_FLAG_TARGET;
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_LIST_TARGET;
 
 	result = getlocalvar(id);
 
 	if (typeof(result) != openborconstant("VT_INTEGER"))
 	{
-		result = DC_DISNEY_DEFAULT_CONDITION_FLAG_TARGET;
+		result = DC_DISNEY_DEFAULT_CONDITION_LIST_TARGET;
 	}
 
 	return result;
 }
 
-void dc_disney_set_member_condition_flag_target(void value)
+void dc_disney_set_member_condition_list_target(void value)
 {
 	char id;
 
-	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_FLAG_TARGET;
+	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_LIST_TARGET;
 
-	if (value == DC_DISNEY_DEFAULT_CONDITION_FLAG_TARGET)
+	if (value == DC_DISNEY_DEFAULT_CONDITION_LIST_TARGET)
 	{
 		value = NULL();
 	}
 
 	setlocalvar(id, value);
+}
+
+/* Set individual bit flag in condition list. */
+int dc_disney_set_member_condition_flag_global(int condition, int value)
+{
+	int condition_list = dc_disney_get_member_condition_list_global();
+
+	/*
+	* Set the condition flag bit if value is true.
+	* 
+	* Otherwise reset (clear or 0) the bit.
+	*/
+
+	if (value)
+	{		
+		condition_list |= condition;
+	}
+	else
+	{
+		/*
+		* Toggle the bit to false if it is true. 
+		* 
+		* Normally we'd just do something like this:
+		* 
+		*  condition_list &= ~condition;
+		* 
+		* We use an if statement and toggle because
+		* OpenBOR Script doesn't support the ~ operator 
+		* yet.
+		*/
+
+		if (condition_list & condition)
+		{
+			condition_list ^= condition;
+		}		
+	}
+	
+	/*
+	* Save and return the updated condition list.
+	*/
+
+	dc_disney_set_member_condition_list_global(condition_list);
+	
+	return condition_list;
 }
 
 
@@ -150,7 +194,7 @@ int dc_disney_check_all_conditions()
 */
 int dc_disney_check_global_conditions()
 {
-	int condition_flag = dc_disney_get_member_condition_flag_global();
+	int condition_flag = dc_disney_get_member_condition_list_global();
 
 	/*
 	* Random chance roll (acting/target agnostic).
@@ -176,7 +220,7 @@ int dc_disney_check_global_conditions()
 */
 int dc_disney_check_acting_conditions()
 {
-	int condition_flag = dc_disney_get_member_condition_flag_acting();
+	int condition_flag = dc_disney_get_member_condition_list_acting();
 
 	/*
 	* Acting walkoff. Are we falling and not
@@ -208,7 +252,7 @@ int dc_disney_check_target_conditions()
 {
 	void acting_entity = dc_disney_get_member_entity();
 	void target_entity = dc_disney_get_target();
-	int condition_flag = dc_disney_get_member_condition_flag_target();
+	int condition_flag = dc_disney_get_member_condition_list_target();
 
 	/* 
 	* If there are no conditions set at all, then

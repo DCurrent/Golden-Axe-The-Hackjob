@@ -59,7 +59,7 @@ int dc_d20_chance_roll()
 	* If chance meets or exceeds maximum
 	* range then we succeed.
 	*/
-
+	
 	/* Automatic fail. */
 	if (chance < dc_d20_get_member_range_min())
 	{
@@ -73,7 +73,10 @@ int dc_d20_chance_roll()
 	}
 	
 	/* Chance meets or exceeds random roll? */
-	if (chance >= dc_d20_random_int())
+
+	int roll = dc_d20_random_int();
+
+	if (chance >= roll)
 	{
 		return 1;
 	}

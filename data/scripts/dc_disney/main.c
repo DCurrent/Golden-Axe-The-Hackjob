@@ -11,6 +11,7 @@
 #import "data/scripts/dc_disney/animation_on_time.c"
 
 #import "data/scripts/dc_disney/conditions.c"
+#import "data/scripts/dc_disney/condition_animation.c"
 #import "data/scripts/dc_disney/condition_grab.c"
 #import "data/scripts/dc_disney/condition_health.c"
 #import "data/scripts/dc_disney/condition_type.c"

@@ -2,6 +2,7 @@
 
 #import "data/scripts/dc_disney/animation.c"
 #import "data/scripts/dc_disney/entity.c"
+#import "data/scripts/dc_disney/condition_animation.c"
 #import "data/scripts/dc_disney/condition_grab.c"
 #import "data/scripts/dc_disney/condition_health.c"
 #import "data/scripts/dc_disney/condition_random.c"
@@ -503,42 +504,10 @@ int dc_disney_check_target_conditions()
 }
 
 
-/* Animation of target. */
-
-int dc_disney_get_member_target_animation()
-{
-	char id;
-	void result;
-
-	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_TARGET_ANIMATION;
-
-	result = getlocalvar(id);
-
-	if (typeof(result) != openborconstant("VT_INTEGER"))
-	{
-		result = DC_DISNEY_DEFAULT_CONDITION_TARGET_ANIMATION;
-	}
-
-	return result;
-}
-
-void dc_disney_set_member_target_animation(int value)
-{
-	char id;
-
-	id = dc_disney_get_instance() + DC_DISNEY_MEMBER_CONDITION_TARGET_ANIMATION;
-
-	if (value == DC_DISNEY_DEFAULT_CONDITION_TARGET_ANIMATION)
-	{
-		value = NULL();
-	}
-
-	setlocalvar(id, value);
-}
 
 /* Height of target. */
 
-int dc_disney_get_member_target_height_difference()
+int dc_disney_get_member_condition_target_height_difference()
 {
 	char id;
 	void result;

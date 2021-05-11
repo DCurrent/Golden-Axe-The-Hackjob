@@ -9,7 +9,6 @@
 #import "data/scripts/com/bind0008.h"
 #import "data/scripts/com/bind0010.h"
 #import "data/scripts/com/bind0014.h"
-#import "data/scripts/com/bind0015.h"
 #import "data/scripts/com/bind0018.h"
 #import "data/scripts/com/dama0004.h"
 #import "data/scripts/com/dir0001.h"
@@ -87,7 +86,7 @@ void summon(void vModel, int iMap)
 	vSpawn = summ0001(vModel, vModel,    0,          0,     iX,      0,     iZ,        0,        0,          0,         0);
 	         //summ0001(vModel, vAlias, iMap, int iBlend, int iX, int iY, int iZ, int iDir, int iAni, int iFrame, int iKill)
 
-	bind0015(vSpawn, "effe0001", "effe0001", iMap, 1, 0, 0, 1, 0, A_FOLLOW1, 0, 1);
+	//bind0015(vSpawn, "effe0001", "effe0001", iMap, 1, 0, 0, 1, 0, A_FOLLOW1, 0, 1);
 	soun0005(vSpawn, SND_EFF5, 0, 1, 0, 0);
 
 }

@@ -11,7 +11,6 @@ nodrop		359			#<max> random rotation range?
 guardpoints	1			#Type of oneshot.
 
 onspawnscript 			data/scripts/spaw0002.c
-onkillscript  			data/scripts/z_kill.c
 
 anim idle	
 	

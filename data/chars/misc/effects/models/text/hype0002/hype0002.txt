@@ -16,7 +16,6 @@ alpha	     	1
 lifespan     	2
 
 onspawnscript	data/scripts/spaw0002.c
-onkillscript	data/scripts/z_kill.c
 
 anim idle
 	

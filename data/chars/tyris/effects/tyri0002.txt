@@ -12,9 +12,6 @@ antigravity 	100
 offscreenkill	150
 
 animationscript	data/chars/tyris/scripts/ani.c
-onkillscript	data/chars/tyris/effects/z_kill.c
-#didhitscript	data/chars/tyris/effects/z_hit.c
-
 
 palette 	data/chars/tyris/0001		#default
 

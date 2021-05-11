@@ -21,7 +21,6 @@ komap		 1 0
 #*****Scripts*****
 
 #onspawnscript		data/scripts/z_spawn.c
-onkillscript		data/scripts/z_kill.c
 animationscript		data/scripts/com/soun0005.h
 
 #*****Alternates*******

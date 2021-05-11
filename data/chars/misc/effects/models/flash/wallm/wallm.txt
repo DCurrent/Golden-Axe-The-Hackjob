@@ -13,7 +13,6 @@ noatflash		0			#Secondary entity?
 jugglepoints	231			#Alternate spawn sound group.
 
 onspawnscript 	data/scripts/spaw0002.c
-onkillscript  	data/scripts/z_kill.c
 
 anim idle
 

@@ -17,7 +17,6 @@ guardpoints	1
 speedf		1
 
 onspawnscript	data/scripts/spaw0002.c
-onkillscript	data/scripts/z_kill.c
 
 anim idle
 	

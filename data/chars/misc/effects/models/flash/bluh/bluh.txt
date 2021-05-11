@@ -12,7 +12,6 @@ guardpoints		1			#Type of oneshot.
 jugglepoints	239			#Alternate spawn sound group.
 
 onspawnscript 	data/scripts/spaw0002.c
-onkillscript  	data/scripts/z_kill.c
 
 anim idle	
 	

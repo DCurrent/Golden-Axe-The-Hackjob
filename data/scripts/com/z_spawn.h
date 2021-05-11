@@ -1,11 +1,13 @@
 #include "data/scripts/vars/constants.h"	//http://www.caskeys.com/dc/?p=1314#constants
-#import "data/scripts/com/bind0017.h"		//Find entity with same name and move to it.
+
 #import "data/scripts/com/draw0001.h"		//Drawing functions.
 #import "data/scripts/com/name0001.h"		//Random name.
 #import "data/scripts/com/rema0002.h"		//Random remap.
 #import "data/scripts/com/wake0001.h"		//"Wake" function for Golden Axe.
 #import "data/scripts/com/soun0005.h"		//Random capable stereo sound player.
 #import "data/scripts/com/path0002.h"		//Folder.
+
+#import "data/scripts/com/dc_respawn_body.c"		// Find entity with same name and move to it.
 
 void z_spawn(void vEnt)
 {

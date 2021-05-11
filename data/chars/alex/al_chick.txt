@@ -18,7 +18,6 @@ bflash			bflash
 height			55
 
 animationscript 	data/scripts/z_ani.c
-didblockscript		data/scripts/z_block.c				#Block incoming attack.
 didhitscript 		data/scripts/dc_common_didhit/event_didhit_player.c
 keyscript		data/scripts/z_key.c				#Controlling player press/release key.
 onblockoscript		data/scripts/dc_common_onblock/event_onblocko_player.c

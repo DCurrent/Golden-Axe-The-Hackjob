@@ -42,7 +42,6 @@ Defense				normal2		0.50 0 0.5 10 0  0   0
 Defense				normal10	1	 0 1   0  10 0.5 -1
 
 animationscript 	data/scripts/z_ani.c
-didblockscript		data/scripts/z_block.c				#Block incoming attack.
 didhitscript 		data/scripts/dc_common_didhit/event_didhit_enemy.c
 keyscript			data/scripts/z_key.c				#Controlling player press/release key.
 onblockoscript		data/scripts/dc_common_onblock/event_onblocko_enemy.c

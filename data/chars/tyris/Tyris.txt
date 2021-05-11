@@ -687,7 +687,6 @@ anim	follow57
 	delay	3
 	@cmd	velo0003 0 10000000
 	@cmd	bind0008 "jump_land" "jump_land" 0 1 -5 25 1 1 0 0 1
-	@cmd	velo0001 0 0 0
 	@cmd	bind0010 FLAG_MODE_6 ENT_SELF 0 1 -18 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_EX2 -1
 	frame	data/chars/tyris/0190.png
 	frame	data/chars/tyris/0191.png

@@ -14,8 +14,15 @@
 #import "data/scripts/com/jump0003.h"      //Change current animation to a real "jump".
 #import "data/scripts/com/proj0003.h"
 #import "data/scripts/com/soun0005.h"		//Random sound player.
-#import "data/scripts/com/velo0001.h"
+#import "data/scripts/com/seal0001.h"       // Add seal and sealtime to target.
+#import "data/scripts/com/stal0001.h"       // Add stalltime to target.
 #import "data/scripts/com/velo0003.h"
+
+
+#import "data/scripts/com/dc_ai_avoid_jump_attack.c"
+
+#include "data/scripts/dc_disney/main.c"
+#include "data/scripts/dc_fidelity/main.c"
 
 /*
 #import "data/scripts/common/attack.h"

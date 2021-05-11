@@ -142,17 +142,8 @@ anim runattack
 	attack1	0
 	delay	6
     	bbox    64 72 22 54
-	@cmd velo0001 2.8 0 0
-		frame	data/chars/amazon/dragon/0024
-	@cmd velo0001 2 0 0
-		frame	data/chars/amazon/dragon/0023
-	@cmd velo0001 1 0 0
-		frame	data/chars/amazon/dragon/0022
-	@cmd velo0001 0.5 0 0
-		frame	data/chars/amazon/dragon/0021
-	delay	1
-	@cmd velo0001 0 0 0
-		frame	data/chars/amazon/dragon/0021
+	frame	data/chars/amazon/dragon/0024
+	
 
 anim attackboth
 

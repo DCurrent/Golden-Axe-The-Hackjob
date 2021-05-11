@@ -135,11 +135,8 @@ anim runattack
 	attack	0
     delay   10
     bbox    68 66 34 54
-@cmd velo0001 2 0 0
 	frame	data/chars/longmoan/chicken/land.png
-    delay   1
-@cmd velo0001 0 0 0
-	frame	data/chars/longmoan/chicken/land.png
+
 
 # deflect
 anim follow2

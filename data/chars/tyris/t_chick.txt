@@ -139,13 +139,8 @@ anim runattack
 	attack	0
     delay   3
     bbox    68 66 34 54
-	@cmd velo0001 2 0 0
 		frame	data/chars/tyris/chicken/0056
-	@cmd velo0001 0 0 0
-		frame	data/chars/tyris/chicken/0057
-		frame	data/chars/tyris/chicken/0058
-		frame	data/chars/tyris/chicken/0059
-		frame	data/chars/tyris/chicken/0019
+	
 
 anim attackboth
 

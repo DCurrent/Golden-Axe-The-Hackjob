@@ -3,7 +3,6 @@
 #include "data/scripts/vars/constants.h"	//http://www.caskeys.com/dc/?p=1314#constants
 
 #import "data/scripts/com/dc_ai_avoid_jump_attack.c"        //Avoid jump attacks by walking laterally.
-#import "data/scripts/com/ani0001.h"       //Generic conditional animation switch.
 #import "data/scripts/com/ani0009.h"		//Animation switch wrapper.
 #import "data/scripts/com/ani0012.h"		//Switch animation when height is < 70% of target.
 #import "data/scripts/com/ani0017.h"		//Switch to alternate animation if nearest hostile is in range of alt and all checks match.
@@ -22,7 +21,6 @@
 #import "data/scripts/com/dc_in_screen_setup.c"		//In screen check.
 #import "data/scripts/com/stal0001.h"
 #import "data/scripts/com/stat0003.h"      //Save MP.
-#import "data/scripts/com/velo0001.h"
 
 #include "data/scripts/dc_fidelity/main.c"  // Sound player.
 

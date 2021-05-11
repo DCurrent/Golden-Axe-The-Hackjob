@@ -13,7 +13,7 @@ aimove 			chase
 grabfinish 		1
 bflash			bflash
 
-animationscript 	data/scripts/z_ani.c
+animationscript 	data/chars/amazon/scripts/ani.h
 didblockscript		data/scripts/z_block.c				#Block incoming attack.
 didhitscript 		data/scripts/dc_common_didhit/event_didhit_enemy.c
 keyscript		data/scripts/z_key.c				#Controlling player press/release key.
@@ -143,17 +143,8 @@ anim runattack
 	attack1	0
 	delay	6
     	bbox    64 72 22 54
-	@cmd velo0001 2.8 0 0
 		frame	data/chars/amazon/dragon/0024
-	@cmd velo0001 2 0 0
-		frame	data/chars/amazon/dragon/0023
-	@cmd velo0001 1 0 0
-		frame	data/chars/amazon/dragon/0022
-	@cmd velo0001 0.5 0 0
-		frame	data/chars/amazon/dragon/0021
-	delay	1
-	@cmd velo0001 0 0 0
-		frame	data/chars/amazon/dragon/0021
+	
 
 anim attackboth
 
@@ -262,7 +253,7 @@ anim attack1
 	delay	10
     	offset	80 142
    	bbox    65 69 24 54
-	@cmd	ani0001 0 A_CHARGEATK 0 0 0 -1 20 0 0			#AI has 20% chance of using CHARGEATTACK instead.
+	@cmd dc_disney_ai_random openborconstant("ANI_CHARGEATTACK") 20
 		frame	data/chars/amazon/dragon/0003
 	delay	8
 		frame	data/chars/amazon/dragon/0004

@@ -16,7 +16,7 @@ aimove 			chase
 grabfinish 		1
 bflash			bflash
 
-animationscript 	data/scripts/z_ani.c
+animationscript 	data/chars/alex/scripts/ani.c
 didblockscript		data/scripts/z_block.c				#Block incoming attack.
 didhitscript 		data/scripts/dc_common_didhit/event_didhit_player.c
 keyscript		data/scripts/z_key.c				#Controlling player press/release key.
@@ -137,26 +137,16 @@ anim runattack
 	offset	80 142
     	bbox    64 56 27 46
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-		frame	data/chars/alex/dragon/0019
+	frame	data/chars/alex/dragon/0019
 	delay	-1000
     	bbox    65 68 26 54
    	attack1	80 96 54 28 8 1 1
-		frame	data/chars/alex/dragon/0025
+	frame	data/chars/alex/dragon/0025
 	attack1	0
 	delay	6
     	bbox    64 72 22 54
-	@cmd velo0001 2.8 0 0
-		frame	data/chars/alex/dragon/0024
-	@cmd velo0001 2 0 0
-		frame	data/chars/alex/dragon/0023
-	@cmd velo0001 1 0 0
-		frame	data/chars/alex/dragon/0022
-	@cmd velo0001 0.5 0 0
-		frame	data/chars/alex/dragon/0021
-	delay	1
-	@cmd velo0001 0 0 0
-		frame	data/chars/alex/dragon/0021
-
+	frame	data/chars/alex/dragon/0024
+	
 anim attackboth
 
     	weaponframe 3 0

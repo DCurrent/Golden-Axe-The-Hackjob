@@ -380,7 +380,7 @@ int dc_disney_check_condition_health_value(void entity)
 */
 int dc_disney_check_health_value(void entity, int threshold)
 {
-	float health_current = get_entity_property(entity, "hp");
+	int health_current = get_entity_property(entity, "hp");
 
 	/* Result exceed value? */
 

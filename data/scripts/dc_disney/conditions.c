@@ -319,6 +319,7 @@ int dc_disney_check_global_conditions()
 */
 int dc_disney_check_acting_conditions()
 {
+	void acting_entity = dc_disney_get_member_entity();
 	int condition_flag = dc_disney_get_member_condition_list_acting();
 
 	/*
@@ -331,11 +332,32 @@ int dc_disney_check_acting_conditions()
 		return 1;
 	}
 
+	/*
+	* Target animation ID.
+	*/
+	if (condition_flag & DC_DISNEY_CONDITION_ANIMATION_ID)
+	{
+		if (!dc_disney_check_condition_acting_animation_id(acting_entity))
+		{
+			return 0;
+		}
+	}
+
+	/*
+	* Target animation ID.
+	*/
+	if (condition_flag & DC_DISNEY_CONDITION_ANIMATION_FRAME)
+	{
+		if (!dc_disney_check_condition_acting_animation_frame(acting_entity))
+		{
+			return 0;
+		}
+	}
+
 	/* 
 	* Compare entity type vs. types supplied in
 	* type list member.
 	*/
-
 	
 	if (condition_flag & DC_DISNEY_CONDITION_TYPE)
 	{		
@@ -398,6 +420,28 @@ int dc_disney_check_target_conditions()
 	* we continue. Otherwise  we return FALSE 
 	* instantly.
 	*/
+
+	/*
+	* Target animation ID.
+	*/
+	if (condition_flag & DC_DISNEY_CONDITION_ANIMATION_ID)
+	{
+		if (!dc_disney_check_condition_target_animation_id(target_entity))
+		{
+			return 0;
+		}
+	}
+
+	/*
+	* Target animation ID.
+	*/
+	if (condition_flag & DC_DISNEY_CONDITION_ANIMATION_FRAME)
+	{
+		if (!dc_disney_check_condition_target_animation_frame(target_entity))
+		{
+			return 0;
+		}
+	}
 
 	/*
 	* Acting entity can't grab target.

@@ -142,17 +142,7 @@ anim runattack
 	attack	0
 	delay	6
     bbox    64 72 22 54
-@cmd velo0001 2.8 0 0
 	frame	data/chars/heninger/bdragon/r4.gif
-@cmd velo0001 2 0 0
-	frame	data/chars/heninger/bdragon/r3.gif
-@cmd velo0001 1 0 0
-	frame	data/chars/heninger/bdragon/r2.gif
-@cmd velo0001 0.5 0 0
-	frame	data/chars/heninger/bdragon/r1.gif
-	delay	1
-@cmd velo0001 0 0 0
-	frame	data/chars/heninger/bdragon/r1.gif
 
 # deflect
 anim follow2
@@ -206,12 +196,7 @@ anim attack3
 	attack	0
 	delay	6
     bbox    64 72 22 54
-@cmd velo0001 1.8 0 0
 	frame	data/chars/heninger/bdragon/r3.gif
-@cmd velo0001 1 0 0
-	frame	data/chars/heninger/bdragon/r2.gif
-@cmd velo0001 0.5 0 0
-	frame	data/chars/heninger/bdragon/r1.gif
 
 
 # fire breath

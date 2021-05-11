@@ -122,7 +122,6 @@ at	0
 #alias	ax_e
 #coords	100 180
 #map		5
-#spawnscript  data/scripts/z_lspawn.c
 #at 0
 
 #spawn	g_npc
@@ -134,14 +133,12 @@ Alias   Club_Dude
 coords	600 160
 health  15
 map	2
-spawnscript  data/scripts/z_lspawn.c
 at 0
 
 #spawn	bad_brother
 #coords	300 160
 #health  100
 #map	1
-#spawnscript  data/scripts/z_lspawn.c
 #at 0
 
 spawn chicken_escape
@@ -176,7 +173,6 @@ spawn	Longmoan
 coords	520 180
 map 3
 health  16
-spawnscript  data/scripts/z_lspawn.c
 at 80
 
 wait
@@ -186,13 +182,11 @@ spawn	Heninger
 map 3
 coords	520 200
 health  32
-spawnscript  data/scripts/z_lspawn.c
 at 90
 
 spawn	Longmoan
 coords	580 170
 health  32
-spawnscript  data/scripts/z_lspawn.c
 at 90
 
 wait
@@ -205,7 +199,6 @@ coords 500 175
 at 200
 
 #spawn palette_changer
-#spawnscript data/levels/wilderne/mist.c
 #coords 0 0
 #at 200
 
@@ -227,7 +220,6 @@ at	354
 spawn	Longmoan
 spawnscript data/levels/wilderne/stomp.c
 coords	500 200
-spawnscript  data/scripts/z_lspawn.c
 at	354
 # end group
 
@@ -253,7 +245,6 @@ at 600
 spawn Longmoan
 health 16
 coords 500 210
-spawnscript  data/scripts/z_lspawn.c
 at 800
 
 spawn Heninger
@@ -266,7 +257,6 @@ wait
 at 820
 
 #spawn palette_changer
-#spawnscript data/levels/wilderne/sunset.c
 #coords 0 0
 #at 900
 
@@ -286,7 +276,6 @@ spawn	Longmoan
 spawnscript data/levels/wilderne/stomp.c
 boss 1
 coords	500 180
-spawnscript  data/scripts/z_lspawn.c
 at	960
 # end group
 
@@ -294,7 +283,6 @@ spawn	Longmoan
 boss 1
 coords	580 160
 weapon Chickenlegs
-spawnscript  data/scripts/z_lspawn.c
 at	960
 
 spawn	Bad_Brother

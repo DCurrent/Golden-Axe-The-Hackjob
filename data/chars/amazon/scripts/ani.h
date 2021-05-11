@@ -8,7 +8,6 @@
 #import "data/scripts/com/bind0008.h"		//Spawn and set location to caller and then unbind.
 #import "data/scripts/com/bind0010.h"		//http://www.caskeys.com/dc/?p=1314#bind0010
 #import "data/scripts/com/bind0014.h"		//Initialize index for binding other entities to self.
-#import "data/scripts/com/bind0016.h"		//Warp target. Initialize index for binding other entities to self.
 #import "data/scripts/com/bind0018.h"		//Wall failsafe.
 #import "data/scripts/com/dama0004.h"		//Damage bound entity by index.
 #import "data/scripts/com/draw0003.h"		//Set caller's drawmethod variables.

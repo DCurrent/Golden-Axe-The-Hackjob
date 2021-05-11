@@ -373,7 +373,8 @@ anim  freespecial10
 		frame  data/chars/amazon/0022.png
 		frame  data/chars/amazon/0021.png
 		frame  data/chars/amazon/0020.png
-	@cmd	bind0016 0 -1 -20 0 0 2 0 0 0 0 0 0
+	# Teleport effect. Moves behind hostile target.
+	#cmd	bind0016 0 -1 -20 0 0 2 0 0 0 0 0 0
 		frame  data/chars/misc/blank.png
 		frame  data/chars/amazon/0020.png
 		frame  data/chars/amazon/0021.png

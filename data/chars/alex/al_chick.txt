@@ -19,7 +19,6 @@ height			55
 
 animationscript 	data/scripts/z_ani.c
 didhitscript 		data/scripts/dc_common_didhit/event_didhit_player.c
-keyscript		data/scripts/z_key.c				#Controlling player press/release key.
 onblockoscript		data/scripts/dc_common_onblock/event_onblocko_player.c
 onblocksscript		data/scripts/dc_common_onblock/event_onblocks_player.c
 onblockwscript		data/scripts/dc_common_onblock/event_onblockw_player.c

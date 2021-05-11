@@ -32,7 +32,6 @@ height			50
 animationscript 	data/chars/amazon/scripts/ani.h			#Animation update.
 didblockscript		data/chars/amazon/scripts/block.c		#Block incoming attack.
 didhitscript 		data/scripts/dc_common_didhit/event_didhit_enemy.c
-keyscript			data/scripts/z_key.c						#Controlling player press/release key.
 onblockoscript		data/scripts/dc_common_onblock/event_onblocko_enemy.c
 onblocksscript		data/scripts/dc_common_onblock/event_onblocks_enemy.c
 onblockwscript		data/scripts/dc_common_onblock/event_onblockw_enemy.c

@@ -8,7 +8,6 @@
 #import "data/scripts/com/ani0017.h"		//Switch to alternate animation if nearest hostile is in range of alt and all checks match.
 #import "data/scripts/com/ani0018.h"		//Switch to alternate animation if nearest hostile is in range of alt and an animal type (should be rolled into ani0017).
 #import "data/scripts/com/ani0019.h"       //Switch animation by hole/wall proximity.
-#import "data/scripts/com/bind0002.h"      //Syncronize location; no bind.
 #import "data/scripts/com/bind0003.h"
 #import "data/scripts/com/bind0008.h"
 #import "data/scripts/com/bind0010.h"      //Grapple binding.

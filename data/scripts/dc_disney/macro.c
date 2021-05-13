@@ -19,20 +19,24 @@
 */
 void dc_disney_ai_random(int animation, int chance)
 {
-	dc_disney_set_member_condition_flag_global(DC_DISNEY_CONDITION_RANDOM_CHANCE, 1);
+	/* 
+	* Set global conditions to check for 
+	* random, and pass along the random 
+	* chance argument.
+	*/
+	dc_disney_set_member_condition_list_global(DC_DISNEY_CONDITION_RANDOM_CHANCE);
 	dc_disney_set_member_global_random_chance(chance);
 
 	/* 
-	* We only want AI controlled entities, so set up type 
-	* check to evaluate FALSE for player type.
+	* We only want AI controlled entities. Set up 
+	* evaluation for true, and to check for NPC
+	* or ENEMY type.
 	*/
-	dc_disney_set_member_condition_flag_acting(DC_DISNEY_CONDITION_TYPE, 1);
-	dc_disney_set_member_acting_type_list_eval(DC_DISNEY_CONDITION_EVAL_FALSE);
+	dc_disney_set_member_condition_list_acting(DC_DISNEY_CONDITION_TYPE);
+	dc_disney_set_member_acting_type_list_eval(DC_DISNEY_CONDITION_EVAL_TRUE);
 
-	/* Reset type list, then turn on player bit. */
-	dc_disney_set_member_acting_type_list(NULL());	
-	dc_disney_set_member_acting_type_flag(openborconstant("TYPE_PLAYER"), 1);
-
+	dc_disney_set_member_acting_type_list(openborconstant("TYPE_ENEMY") | openborconstant("TYPE_NPC"));	
+	
 	/* 
 	* Check conditions, and if everything passes perform 
 	* the animation.

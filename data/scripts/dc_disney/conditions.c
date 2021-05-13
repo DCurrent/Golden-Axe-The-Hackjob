@@ -47,49 +47,6 @@ void dc_disney_set_member_condition_list_acting(void value)
 	setlocalvar(id, value);
 }
 
-int dc_disney_set_member_condition_flag_acting(int condition, int value)
-{
-	int condition_list = dc_disney_get_member_condition_list_acting();
-
-	/*
-	* Set the condition flag bit if value is true.
-	*
-	* Otherwise reset (clear or 0) the bit.
-	*/
-
-	if (value)
-	{
-		condition_list |= condition;
-	}
-	else
-	{
-		/*
-		* Toggle the bit to false if it is true.
-		*
-		* Normally we'd just do something like this:
-		*
-		*  condition_list &= ~condition;
-		*
-		* We use an if statement and toggle because
-		* OpenBOR Script doesn't support the ~ operator
-		* yet.
-		*/
-
-		if (condition_list & condition)
-		{
-			condition_list ^= condition;
-		}
-	}
-
-	/*
-	* Save and return the updated condition list.
-	*/
-
-	dc_disney_set_member_condition_list_acting(condition_list);
-
-	return condition_list;
-}
-
 /* Non entity. */
 
 int dc_disney_get_member_condition_list_global()
@@ -122,52 +79,6 @@ void dc_disney_set_member_condition_list_global(void value)
 
 	setlocalvar(id, value);
 }
-
-/* Set individual bit flag in condition list. */
-int dc_disney_set_member_condition_flag_global(int condition, int value)
-{
-	int condition_list = dc_disney_get_member_condition_list_global();
-
-	/*
-	* Set the condition flag bit if value is true.
-	*
-	* Otherwise reset (clear or 0) the bit.
-	*/
-
-	if (value)
-	{
-		condition_list |= condition;
-	}
-	else
-	{
-		/*
-		* Toggle the bit to false if it is true.
-		*
-		* Normally we'd just do something like this:
-		*
-		*  condition_list &= ~condition;
-		*
-		* We use an if statement and toggle because
-		* OpenBOR Script doesn't support the ~ operator
-		* yet.
-		*/
-
-		if (condition_list & condition)
-		{
-			condition_list ^= condition;
-		}
-	}
-
-	/*
-	* Save and return the updated condition list.
-	*/
-
-	dc_disney_set_member_condition_list_global(condition_list);
-
-	return condition_list;
-}
-
-
 /* Target entity. */
 
 int dc_disney_get_member_condition_list_target()
@@ -200,50 +111,6 @@ void dc_disney_set_member_condition_list_target(void value)
 
 	setlocalvar(id, value);
 }
-
-int dc_disney_set_member_condition_flag_target(int condition, int value)
-{
-	int condition_list = dc_disney_get_member_condition_list_target();
-
-	/*
-	* Set the condition flag bit if value is true.
-	*
-	* Otherwise reset (clear or 0) the bit.
-	*/
-
-	if (value)
-	{
-		condition_list |= condition;
-	}
-	else
-	{
-		/*
-		* Toggle the bit to false if it is true.
-		*
-		* Normally we'd just do something like this:
-		*
-		*  condition_list &= ~condition;
-		*
-		* We use an if statement and toggle because
-		* OpenBOR Script doesn't support the ~ operator
-		* yet.
-		*/
-
-		if (condition_list & condition)
-		{
-			condition_list ^= condition;
-		}
-	}
-
-	/*
-	* Save and return the updated condition list.
-	*/
-
-	dc_disney_set_member_condition_list_target(condition_list);
-
-	return condition_list;
-}
-
 
 /*
 * Caskey, Damon V.

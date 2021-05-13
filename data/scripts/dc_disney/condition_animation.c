@@ -485,7 +485,7 @@ int dc_disney_check_animation_frame(void entity, int frame_min, int frame_max)
 	* last in range.
 	*/
 
-	if (animation_frame_current >= frame_min && (animation_frame_current <= frame_max || frame_max == DC_DISNEY_ANIMATION_FRAME_MAX_LAST))
+	if (animation_frame_current >= frame_min && (animation_frame_current <= frame_max || frame_max == DC_DISNEY_ANIMATION_FRAME_NONE))
 	{
 		return DC_DISNEY_CONDITION_EVAL_TRUE;
 	}

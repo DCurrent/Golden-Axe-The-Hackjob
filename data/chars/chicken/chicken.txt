@@ -24,7 +24,7 @@ anim spawn
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 	
 	# Set up or reset the runaway timer.
-	@cmd dc_disney_set_member_animation openborconstant("ANI_WALK")
+	@cmd dc_disney_set_member_animation_pass_id openborconstant("ANI_WALK")
 	@cmd dc_disney_set_member_time_delay 3000
 	@cmd dc_disney_reset_animation_on_time
 	

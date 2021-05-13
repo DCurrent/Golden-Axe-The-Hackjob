@@ -69,7 +69,7 @@ void dc_disney_reset_animation_on_time()
 */
 void dc_disney_animation_on_time() {
 
-	int animation_id = dc_disney_get_member_animation();
+	int animation_id = dc_disney_get_member_animation_pass_id();
 	
 	/*
 	* If time expires, set animation.

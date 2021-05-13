@@ -1,6 +1,5 @@
 #include "data/scripts/dc_disney/config.h"
 #import "data/scripts/dc_disney/animation.c"
-#import "data/scripts/dc_disney/play_animation.c"
 
 /*
 * Animation on time is an animation we can set to

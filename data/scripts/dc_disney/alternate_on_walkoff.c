@@ -1,7 +1,7 @@
 #include "data/scripts/dc_disney/config.h"
 
 #import "data/scripts/dc_disney/entity.c"
-#import "data/scripts/dc_disney/perform_attack.c"
+#import "data/scripts/dc_disney/animation.c"
 
 /*
 * Caskey, Damon V.

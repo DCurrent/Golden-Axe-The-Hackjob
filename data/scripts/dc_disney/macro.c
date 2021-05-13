@@ -7,7 +7,7 @@
 #import "data/scripts/dc_disney/condition_random.c"
 #import "data/scripts/dc_disney/condition_type.c"
 
-#import "data/scripts/dc_disney/perform_attack.c"
+#import "data/scripts/dc_disney/animation.c"
 
 /*
 * Caskey, Damon V.

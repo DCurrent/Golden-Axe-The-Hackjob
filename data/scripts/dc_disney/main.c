@@ -25,5 +25,3 @@
 #import "data/scripts/dc_disney/alternate_on_range.c"
 #import "data/scripts/dc_disney/alternate_on_walkoff.c"
 #import "data/scripts/dc_disney/macro.c"
-#import "data/scripts/dc_disney/play_animation.c"
-#import "data/scripts/dc_disney/perform_attack.c"

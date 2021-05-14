@@ -635,21 +635,16 @@ int dc_elmers_disrupt_grapple()
 void dc_elmers_side_switch()
 {
 	void target = dc_elmers_get_member_target();	
+	int animation_id = get_entity_property(target, "animation_id");
+	
+	dc_disney_set_member_entity(target);	
 
-	performattack(target, DC_ELMERS_SWITCH_TO_BACK);
-
-	/* Must have a switch to back. */
-	if (!getentityproperty(target, "animvalid", DC_ELMERS_SWITCH_TO_BACK))
+	if (animation_id == openborconstant("ANI_GRAB"))
 	{
-		return 0;
+		dc_disney_macro_perform_attack(DC_ELMERS_SWITCH_TO_BACK);
 	}
-
-	if (get_entity_property(target, "animation_id") == openborconstant("ANI_GRAB"))
+	else if (animation_id == DC_ELMERS_GRAB_BACK)
 	{
-		dc_disney_perform_attack(DC_ELMERS_SWITCH_TO_BACK);
-	}
-	else if (get_entity_property(target, "animation_id") == DC_ELMERS_GRAB_BACK)
-	{
-		dc_disney_perform_attack(DC_ELMERS_SWITCH_TO_FRONT);
+		dc_disney_macro_perform_attack(DC_ELMERS_SWITCH_TO_FRONT);
 	}	
 }

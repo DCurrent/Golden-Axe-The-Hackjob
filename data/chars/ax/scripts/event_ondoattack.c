@@ -113,7 +113,7 @@ void main()
 
 	/* Start animation to counter. */
 
-	dc_disney_alternate_on_grab_eligible(openborconstant("ANI_FOLLOW14"), openborconstant("ANI_ATTACK2"));
+	dc_disney_macro_try_grab_alternate_vs_opponent(openborconstant("ANI_FOLLOW14"), openborconstant("ANI_ATTACK2"));
 	
 	/* Mark this attack ID as used. */
 	set_entity_property(acting_entity, "attack_id_incoming", attack_id_incoming);

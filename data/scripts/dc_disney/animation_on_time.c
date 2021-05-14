@@ -1,5 +1,6 @@
 #include "data/scripts/dc_disney/config.h"
 #import "data/scripts/dc_disney/animation.c"
+#import "data/scripts/dc_disney/entity.c"
 
 /*
 * Animation on time is an animation we can set to
@@ -69,12 +70,13 @@ void dc_disney_reset_animation_on_time()
 void dc_disney_animation_on_time() {
 
 	int animation_id = dc_disney_get_member_animation_pass_id();
-	
+	void acting_entity = dc_disney_get_member_entity();
+
 	/*
 	* If time expires, set animation.
 	*/
 	if (dc_eggball_check_interval())
 	{
-		dc_disney_play_animation(animation_id);
+		dc_disney_try_animation_update(acting_entity, animation_id, DC_DISNEY_PLAY_METHOD_ENTITY_PROPERTY, 0);
 	}	
 }

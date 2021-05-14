@@ -314,10 +314,10 @@ void dc_disney_try_conditional_animation()
 * Caskey, Damon V.
 * 2021-05-13
 * 
-* Attempt to run animation and frame using 
-* specified method. Return true on success,
-* false if entity's model doesn't have the
-* requested animation.
+* Attempt to run animation using specified 
+* method. Return true on success, false if
+* entity's model doesn't have the requested 
+* animation.
 */
 int dc_disney_try_animation_update(void acting_entity, int animation, int method, int reset)
 {	
@@ -383,63 +383,4 @@ void dc_disney_try_frame_update(void acting_entity, int frame)
 	* and ignores them. 
 	*/
 	updateframe(acting_entity, frame);
-}
-
-/*****************/
-
-// Caskey, Damon V.
-// 2016-09-13
-//
-// Verify animation and entity, then instruct entity
-// to perform animation as an attack.
-int dc_disney_perform_attack(int animation)
-{
-	void ent;
-	int is_valid;
-	int vartype;
-	int result;
-
-	// Get base entity.
-	ent = dc_disney_get_member_entity();
-
-	// Get animation valid "entity_status".
-	is_valid = getentityproperty(ent, "animvalid", animation);
-
-	// Animation is valid?
-	if (is_valid == 1)
-	{
-		// Switch using perform attack.
-		result = performattack(ent, animation);
-	}
-
-	return result;
-}
-
-// Caskey, Damon V.
-// 2016-09-13
-//
-// Verify animation and entity, then switch
-// entity to new animation.
-int dc_disney_play_animation(int animation)
-{
-	void ent;
-	int is_valid;
-	int vartype;
-	int result = 0;
-
-	// Get base entity.
-	ent = dc_disney_get_member_entity();
-
-	// Get animation valid "entity_status".
-	is_valid = getentityproperty(ent, "animvalid", animation);
-
-	// Animation is valid?
-	if (is_valid == 1)
-	{
-		// Switch to animation.
-		changeentityproperty(ent, "animation", animation);
-		result = 1;
-	}
-
-	return result;
 }

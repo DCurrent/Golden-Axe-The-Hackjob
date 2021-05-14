@@ -275,7 +275,7 @@ int dc_disney_check_target_conditions()
 	if (condition_flag == DC_DISNEY_CONDITION_NONE)
 	{
 		return 1;
-	}
+	}		
 
 	/*
 	* Now we go one by one through conditions. 
@@ -287,6 +287,23 @@ int dc_disney_check_target_conditions()
 	* we continue. Otherwise  we return FALSE 
 	* instantly.
 	*/
+
+	/* 
+	* If there is no valid target, then fail. 
+	* 
+	* For example if we are target selecting for
+	* opponent but acting entity does not currently
+	* have an opponent entity, target is blank and
+	* we want to assume any target conditions fail.
+	* 
+	* If we don't assume failure, we're almost sure
+	* to get a NULL pointer error downstream when 
+	* something tries to act on the blank target.
+	*/
+	if (!target_entity)
+	{
+		return 0;
+	}
 
 	/*
 	* Target animation ID.
@@ -315,10 +332,10 @@ int dc_disney_check_target_conditions()
 	*/
 	if (condition_flag & DC_DISNEY_CONDITION_GRAB_ELIGIBLE)
 	{
-		//if (!dc_disney_check_condition_grab_elgible(condition_eval, acting_entity, target_entity))
-		//{
-		//	return 0; 
-		//}		
+		if (!dc_disney_check_condition_target_grab_eligible())
+		{
+			return 0; 
+		}		
 	}
 		
 	/*
@@ -326,10 +343,10 @@ int dc_disney_check_target_conditions()
 	*/
 	if (condition_flag & DC_DISNEY_CONDITION_GRAB_IMMUNE)
 	{
-		//if (!dc_disney_check_condition_grab_immune(condition_eval, acting_entity, target_entity))
-		//{
-		//	return 0;
-		//}
+		if (!dc_disney_check_condition_target_grab_immune())
+		{
+			return 0;
+		}
 	}
 	
 	/*

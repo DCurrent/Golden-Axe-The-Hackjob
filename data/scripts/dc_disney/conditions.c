@@ -1,6 +1,6 @@
 #include "data/scripts/dc_disney/config.h"
 
-#import "data/scripts/dc_disney/animation.c"
+// #import "data/scripts/dc_disney/animation.c"
 #import "data/scripts/dc_disney/entity.c"
 #import "data/scripts/dc_disney/condition_animation.c"
 #import "data/scripts/dc_disney/condition_grab.c"

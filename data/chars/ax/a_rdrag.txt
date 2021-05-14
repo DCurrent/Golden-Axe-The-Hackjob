@@ -251,7 +251,7 @@ anim attack1
 	delay	10
     	offset	80 142
    	bbox    65 69 24 54
-	@cmd dc_disney_ai_random openborconstant("ANI_CHARGEATTACK") 20
+	@cmd dc_disney_macro_try_ai_random openborconstant("ANI_CHARGEATTACK") 20
 		frame	data/chars/ax/dragon/0003
 	delay	8
 		frame	data/chars/ax/dragon/0004

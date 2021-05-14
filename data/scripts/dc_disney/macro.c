@@ -17,7 +17,7 @@
 * is AI controlled and random roll 
 * suceeds.
 */
-void dc_disney_ai_random(int animation, int chance)
+void dc_disney_macro_try_ai_random(int animation, int chance)
 {
 	/* 
 	* Set global conditions to check for 
@@ -38,11 +38,9 @@ void dc_disney_ai_random(int animation, int chance)
 	dc_disney_set_member_acting_type_list(openborconstant("TYPE_ENEMY") | openborconstant("TYPE_NPC"));	
 	
 	/* 
-	* Check conditions, and if everything passes perform 
-	* the animation.
+	* Set pass animation, check conditions, and 
+	* attempt to perform the animation.
 	*/
-	if (dc_disney_check_all_conditions())
-	{
-		dc_disney_perform_attack(animation);
-	}
+	dc_disney_set_member_animation_pass_id(animation);
+	dc_disney_try_conditional_animation();
 }

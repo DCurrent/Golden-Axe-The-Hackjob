@@ -1227,7 +1227,7 @@ anim  freespecial9	# Backbreaker.
 	@cmd	bind0008 "slam_heavy" "mute" 0 1 0 0 1 0 0 0 1							#Dust.
 		frame  data/chars/ax/0047.png
 	delay	20
-	@cmd dc_disney_ai_random openborconstant("ANI_CHARGEATTACK") 20
+	@cmd dc_disney_macro_try_ai_random openborconstant("ANI_CHARGEATTACK") 20
 		frame  data/chars/ax/0047.png
 	delay  10
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -18 	182 1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HORUP 0

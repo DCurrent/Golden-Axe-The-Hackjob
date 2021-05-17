@@ -34,7 +34,7 @@ int dc_hansburg_check_global_conditions()
     }    
 
     /* Have to be in an eligible jump animation. */
-    if (!dc_hansburg_check_double_jump_eligible())
+    if (!dc_hansburg_check_extra_jump_eligible())
     {
         return 0;
     }
@@ -54,16 +54,13 @@ int dc_hansburg_try_extra_jump(){
 	int     key_hold        = 0;        // Keys currently held when event was triggered.
 	int     direction       = openborconstant("DIRECTION_RIGHT");    // Current facing.
 	int     cmd_direction   = DC_HANSBURG_KEY_MOVE_HORIZONTAL_NEUTRAL;  // Current directional command hold from player in relation to entity's facing.
-	float   edge_x          = 0.0;      // Edge check position, X axis.
-    int     wall_x          = 0;        // Wall check position, X axis.
-    int     obstacle_x      = 0;        // Obstacle check position, X axis.
-    
+	
 	/* Target entity. */
 	void ent = dc_hansburg_get_member_entity();
     int player_index = get_entity_property(ent, "player_index");
 
     // Get current key press and any keys being held.
-    key_hold = getplayerproperty(player_index, "keys");
+    
     key_press = getplayerproperty(player_index, "newkeys");
 
 	/* Is this a jump key press? */
@@ -82,78 +79,191 @@ int dc_hansburg_try_extra_jump(){
 	direction       = get_entity_property(ent, "position_direction");	  
     
     /* 
-    * We'll need to get the x position of any possible walls
-    * or edges within range of our alternate jump animations.
+    * Try to execute the extra jumps in order
+    * of priority. If any one succeeds, we 
+    * return true and exit.
     */
-    edge_x      = dc_hansburg_find_edge_x(ent, DC_HANSBURG_ANI_JUMP_EDGE_START);
-    wall_x      = dc_hansburg_find_wall_x(ent, DC_HANSBURG_ANI_JUMP_WALL_START);
-    obstacle_x  = dc_hansburg_find_obstacle_x(ent, DC_HANSBURG_ANI_JUMP_OBJECT_START);
 
-    if(obstacle_x)
+    if(dc_hansburg_try_obstacle_jump(ent))
     {
-        /* prepare animation. */
-        // animation_set   = DC_HANSBURG_ANI_JUMP_OBJECT_START;
-
-        /* Face away from obstacle. */
-        dc_hansburg_face_away(ent, obstacle_x);
-
-    }
-    else if(wall_x)
-    {
-        /* Prepare animation. */
-        //animation_set   = DC_HANSBURG_ANI_JUMP_WALL_START;
-
-        /* Face away from wall. */
-        dc_hansburg_face_away(ent, wall_x);
-
-    }
-    else if(edge_x)
-    {
-        /* prepare animation. */
-        //animation_set   = DC_HANSBURG_ANI_JUMP_EDGE_START;
-
-        /* Face away from edge. */
-        dc_hansburg_face_away(ent, edge_x);
+        return 1;
     }
 
-	// Double jump.
-
-    // If no wall or edge jump has been set up,
-    // entity in a valid jumping animation (excluding double jumps,
-    // then let's try a double jump.
-	if(dc_hansburg_check_double_jump_eligible())
+    if(dc_hansburg_try_wall_jump(ent))
     {
-        // Which horizontal direction command is player sending?
-        cmd_direction   = dc_hansburg_aux_command_direction(ent, key_hold);
-
-        // Let's decide which double jump animation to use based
-        // on player's horizontal direction command.
-        switch(cmd_direction)
-        {
-            // No direction at all.
-            default:
-            case DC_HANSBURG_KEY_MOVE_HORIZONTAL_NEUTRAL:
-
-                //animation_set = DC_HANSBURG_ANI_JUMP_DOUBLE_NEUTRAL;
-                break;
-
-            // Backward.
-            case DC_HANSBURG_KEY_MOVE_HORIZONTAL_BACK:
-
-                //animation_set = DC_HANSBURG_ANI_JUMP_DOUBLE_BACK;
-                break;
-
-            // Forward.
-            case DC_HANSBURG_KEY_MOVE_HORIZONTAL_FORWARD:
-
-                //animation_set = DC_HANSBURG_ANI_JUMP_DOUBLE_FORWARD;
-                break;
-        }
+        return 1;
+    }
+    
+    if(dc_hansburg_try_edge_jump(ent))
+    {
+        return 1;
     }
 
-	// If we made it all the way here, then no special jump action
-	// was triggered. Return false.
-	return 0;
+    if (dc_hansburg_try_double_jump(ent))
+    {
+        return 1;
+    }
+
+	/* 
+    * If we made it all the way here, then no special jump action
+	* was triggered. Return false.
+	*/
+    return 0;
+}
+
+/*
+* Caskey, Damon V.
+* 2021-05-16
+* 
+* Compare direction key to available
+* double jump animations and performs
+* the double jump if possible. 
+*/
+int dc_hansburg_try_double_jump(void acting_entity)
+{
+    /* 
+    * Let's decide which double jump animation to use based
+    * on player's horizontal direction command.
+    */
+
+    int cmd_direction = dc_hansburg_get_command_direction(acting_entity);
+    int animation_set = 0;
+    
+    switch (cmd_direction)
+    {
+        
+    default:
+    case DC_HANSBURG_KEY_MOVE_HORIZONTAL_NEUTRAL:
+
+        animation_set = DC_HANSBURG_ANI_JUMP_DOUBLE_NEUTRAL;
+        break;
+       
+    case DC_HANSBURG_KEY_MOVE_HORIZONTAL_BACK:
+
+        animation_set = DC_HANSBURG_ANI_JUMP_DOUBLE_BACK;
+        break;
+        
+    case DC_HANSBURG_KEY_MOVE_HORIZONTAL_FORWARD:
+
+        animation_set = DC_HANSBURG_ANI_JUMP_DOUBLE_FORWARD;
+        break;
+    }
+
+    dc_disney_set_instance(dc_hansburg_get_instance() + DC_HANSBURG_BASE_ID);
+
+    dc_disney_macro_execute_animation(animation_set);
+
+    return 1;    
+}
+
+/*
+* Caskey, Damon V.
+* 2021-05-16 (split off from dc_hansburg_try_extra_jump).
+*
+* Start wall jump by playing the
+* wall jump animation and forcing
+* entity to face away from wall.
+* Checks following conditions:
+*
+* - Entity has wall jump start animation.
+* - Wall is within obstacle jump start
+* animation range settings.
+*
+* Note no further action is taken by script. We
+* assume the animation will handle remaining
+* actions needed.
+*/
+int dc_hansburg_try_wall_jump(void acting_entity)
+{
+    float pos_x = dc_hansburg_find_wall_x(acting_entity, DC_HANSBURG_ANI_JUMP_WALL_START);
+
+    if (!pos_x)
+    {
+        return 0;
+    }
+
+    dc_hansburg_face_away(acting_entity, pos_x);
+
+    dc_disney_set_instance(dc_hansburg_get_instance() + DC_HANSBURG_BASE_ID);
+
+    dc_disney_macro_execute_animation(DC_HANSBURG_ANI_JUMP_WALL_START);
+
+    return 1;
+}
+
+/*
+* Caskey, Damon V.
+* 2021-05-16 (split off from dc_hansburg_try_extra_jump).
+*
+* Start obstacle jump by playing the
+* obstacle jump animation and forcing
+* entity to face away from obstacle. 
+* Checks following conditions:
+*
+* - Entity has obstacle jump start animation.
+* - Obstacle is within obstacle jump start 
+* animation range settings.
+*
+* Note no further action is taken by script. We
+* assume the animation will handle remaining
+* actions needed.
+*/
+int dc_hansburg_try_obstacle_jump(void acting_entity)
+{
+    if (!dc_hansburg_check_extra_jump_eligible())
+    {
+        return 0;
+    }
+
+    float pos_x = dc_hansburg_find_obstacle_x(acting_entity, DC_HANSBURG_ANI_JUMP_OBJECT_START);
+
+    if (!pos_x)
+    {
+        return 0;
+    }
+
+    dc_hansburg_face_away(acting_entity, pos_x);
+
+    dc_disney_set_instance(dc_hansburg_get_instance() + DC_HANSBURG_BASE_ID);
+
+    dc_disney_macro_execute_animation(DC_HANSBURG_ANI_JUMP_OBJECT_START);
+
+    return 1;
+}
+
+/*
+* Caskey, Damon V.
+* 2021-05-16 (split off from dc_hansburg_try_extra_jump).
+*
+* Start screen edge jump by playing the
+* screen edge jump animation and forcing
+* entity to face away from edge. Checks
+* following conditions:
+*
+* - Entity has screen jump start animation.
+* - Edge is within screen jump start animation
+* range settings.
+*
+* Note no further action is taken by script. We
+* assume the animation will handle remaining
+* actions needed.
+*/
+int dc_hansburg_try_edge_jump(void acting_entity)
+{
+    float pos_x = dc_hansburg_find_edge_x(acting_entity, DC_HANSBURG_ANI_JUMP_EDGE_START);
+
+    if (!pos_x)
+    {
+        return 0;
+    }
+
+    dc_hansburg_face_away(acting_entity, pos_x);
+
+    dc_disney_set_instance(dc_hansburg_get_instance() + DC_HANSBURG_BASE_ID);
+
+    dc_disney_macro_execute_animation(DC_HANSBURG_ANI_JUMP_EDGE_START);
+
+    return 1;
 }
 
 /*
@@ -163,7 +273,7 @@ int dc_hansburg_try_extra_jump(){
 * Return true if entity is in an animation that
 * allows an extra jump.
 */
-int dc_hansburg_check_double_jump_eligible()
+int dc_hansburg_check_extra_jump_eligible()
 {
     void entity = dc_hansburg_get_member_entity();
     int animation_id = get_entity_property(entity, "animation_id");
@@ -215,53 +325,59 @@ int dc_hansburg_face_away(void ent, float target_x)
     return result;
 }
 
-// Return forward or backward key command in relation
-// to entity's current facing.
-int dc_hansburg_aux_command_direction(void ent, int key_hold)
+/* 
+* Caskey, Damon V.
+* ~2016-xx-xx
+* 
+* Return if player direction input is "Forward", 
+* "Backward" or "Neutral" in relation to entity's 
+* current direction.
+*/
+int dc_hansburg_get_command_direction(void ent, int key_hold)
 {
-    int direction   = 0;
-    int result      = DC_HANSBURG_KEY_MOVE_HORIZONTAL_NEUTRAL;
+    int direction = get_entity_property(ent, "position_direction");
+    int player_index = get_entity_property(ent, "player_index");
+    int key_hold = getplayerproperty(player_index, "keys");
 
-    // Get current facing.
-    direction = getentityproperty(ent, "direction");
+    /* 
+    * If key held is same direction as facing, then
+    * player is holding "Forward" key. If the key
+    * is opposite, they are holding "Backward" key.
+    * If player isn't holding left or right then
+    * we just return "Neutral".
+    */    
 
-    // Run checks based on facing left or right.
-    if (direction == openborconstant("DIRECTION_LEFT"))
+    if (key_hold & openborconstant("FLAG_MOVELEFT"))
     {
-        // Holding key left?
-        if (key_hold & openborconstant("FLAG_MOVELEFT"))
+        if (direction == openborconstant("DIRECTION_LEFT"))
         {
-            // Then this is the "forward" key.
-            result = DC_HANSBURG_KEY_MOVE_HORIZONTAL_FORWARD;
+            return DC_HANSBURG_KEY_MOVE_HORIZONTAL_FORWARD;
         }
-        // Holding key right?
-        else if (key_hold & openborconstant("FLAG_MOVERIGHT"))
+        else
         {
-            // Then this is the "back" key.
-            result = DC_HANSBURG_KEY_MOVE_HORIZONTAL_BACK;
+            return DC_HANSBURG_KEY_MOVE_HORIZONTAL_BACK;
+        }
+    }
+    else if (key_hold & openborconstant("FLAG_MOVERIGHT"))
+    {
+        if (direction == openborconstant("DIRECTION_RIGHT"))
+        {
+            return DC_HANSBURG_KEY_MOVE_HORIZONTAL_FORWARD;
+        }
+        else
+        {
+            return DC_HANSBURG_KEY_MOVE_HORIZONTAL_BACK;
         }
     }
     else
     {
-        // Holding key left?
-        if(key_hold & openborconstant("FLAG_MOVELEFT"))
-        {
-            // Then this is the "back" key.
-            result = DC_HANSBURG_KEY_MOVE_HORIZONTAL_BACK;
-        }
-        // Holding key right?
-        else if(key_hold & openborconstant("FLAG_MOVERIGHT"))
-        {
-            // Then this is the "forward" key.
-            result = DC_HANSBURG_KEY_MOVE_HORIZONTAL_FORWARD;
-        }
-    }
-
-    // Now return our results.
-    return result;
+        return DC_HANSBURG_KEY_MOVE_HORIZONTAL_NEUTRAL;
+    }    
 }
 
-// Returns x position of closest wall within animation range.
+/* 
+* Returns x position of closest wall within animation range.
+*/
 int dc_hansburg_find_wall_x(void ent, int animation_id)
 {
     int result              = 0;      // Final result.
@@ -373,96 +489,83 @@ int dc_hansburg_find_wall_x(void ent, int animation_id)
     return result;
 }
 
-// Get X position of screen edge if found within X range of
-// animation.
+/*
+* Caskey, Damon V.
+* 2016-xx-xx, retool 2021-05-17
+*
+* Accept an entity and animation. Return
+* the X position of screen edge in range
+* of animation (or 0 if none). If the edge
+* is found but at 0, returns 1.
+*/
 int dc_hansburg_find_edge_x(void ent, int animation)
-{
-    // ent: Entity to perform range check.
-    // animation_id: Animation to get range settings from.
-
-    int result              = 0;   // Final result.
+{   
     int in_range            = 0;   // Target in range.
     int animation_valid     = 0;   // Animation exists flag.
     int scroll_x            = 0;  // Screen scroll position.
     int far_x               = 0;  // location of far screen edge.
-    int vartype             = openborconstant("VT_EMPTY");     // Variable type.
-    int anim_valid          = 0;   // Valid animation?
-
-    // Verify valid entity.
-    vartype = typeof(ent);
-
-    if(vartype != openborconstant("VT_PTR"))
+    
+    /* Verify entity has animation provided. */
+    if(getentityproperty(ent, "animvalid", animation))
     {
-        return result;
+        return 0;
     }
 
-    // Verify animation was provided.
-    vartype = typeof(animation);
-
-    if(vartype != openborconstant("VT_INTEGER"))
-    {
-        return result;
-    }
-
-    // Verify animation provided is valid.
-    anim_valid = getentityproperty(ent, "animvalid", animation);
-
-    if(anim_valid == 0)
-    {
-        return result;
-    }
-
-    // Get current scroll position, far edge position
-    // and entity x position.
+    /* 
+    * Get current scroll position, far edge position
+    * and entity x position.
+    */
     scroll_x    = openborvariant("xpos");
     far_x       = scroll_x + openborvariant("hResolution");
 
-    in_range = dc_hansburg_check_range_by_position(ent, animation, scroll_x);
+    in_range = dc_hansburg_check_range_by_position(ent, animation, scroll_x, 0.0, 0.0, 0.0);
 
     if(in_range == 1)
     {
-        // Just in case the scroll position hasn't moved at all
-        // but is still within range, return 1 instead of 0 so
-        // evaluations won't fail.
+        /* 
+        * Just in case the scroll position hasn't moved at all
+        * but is still within range, return 1 instead of 0 so
+        * evaluations won't fail.
+        */
         if(scroll_x == 0.0)
         {
-            result = 1;
+            return 1;
         }
         else
         {
-            result = scroll_x;
+            return scroll_x;
         }
-
-        return result;
     }
 
-    // Same check, but this time for the far edge of screen.
-    in_range = dc_hansburg_check_range_by_position(ent, animation, far_x);
+    /* Same check as above, but for opposite edge of the screen. */
+
+    in_range = dc_hansburg_check_range_by_position(ent, animation, far_x, 0.0, 0.0, 0.0);
 
     if(in_range == 1)
     {
-        result = far_x;
-
-        // Just in case the case the end result is still 0,
-        // we'll adjust it to 1 so evaluations don't fail.
-        if(result == 0.0)
+        if(far_x == 0.0)
         {
-            result = 1;
+            return 1;
         }
 
-        return result;
+        return far_x;
     }
 
-    // Return result (if we made it this far - it's false).
-    return result;
-
+    /* If we made it this far, result is false.*/
+    return 0;
 }
 
-// Returns x position of first obstacle in range of animation.
-int dc_hansburg_find_obstacle_x(void ent, int animation_id){
+/*
+* Caskey, Damon V.
+* 2016-xx-xx, retool 2021-05-17
+*
+* Accept an entity and animation. Return
+* the X position of first obstacle found
+* in range of animation. Return 0 if none.
+*/
+int dc_hansburg_find_obstacle_x(void acting_entity, int animation_id){
 
     int     result          = 0;          // Final result.
-    int     animation_valid = 0;           // Animation exists flag.
     float   target_x        = 0.0;        // Position of entity on X axis.
     float   target_y        = 0.0;        // Position of entity on Y axis.
     float   target_z        = 0.0;        // Position of entity on Z axis.
@@ -470,232 +573,139 @@ int dc_hansburg_find_obstacle_x(void ent, int animation_id){
     void    target          = NULL();      // Target entity pointer.
     int     target_count    = 0;          // Target Entity count.
     int     i               = 0;          // Loop counter.
-    int     in_range        = 0;           // Target in range?
-    int     type            = openborconstant("TYPE_OBSTACLE");        // Type of entity.
-
-    // If this entity doesn't have the animation at all,
-    // then exit. There's nothing else to do.
-    animation_valid =  getentityproperty(ent, "animvalid", animation_id);
-
-    if(animation_valid == 0)
+    
+    /*
+    * If entity doesn't have animation, its
+    * an automatic fail.
+    */
+    if(getentityproperty(acting_entity, "animvalid", animation_id))
     {
-        return result;
+        return 0;
     }
 
-    // Get entity count.
-    target_count = openborvariant("ent_max");
+    /* Loop over each entity index. */
 
-    // Loop over each entity index.
+    target_count = openborvariant("count_entities");
+    
     for(i=0; i<target_count; i++)
     {
-        // Get entity pointer.
+        /* Get entity pointer. */
 		target = getentity(i);
 
-        target_x = getentityproperty(target, "x");
-        target_y = getentityproperty(target, "y");
-        target_z = getentityproperty(target, "z");
+        /* 
+        * Is type an obstacle? If not skip to
+        * next entity.
+        */
+        if (!(getentityproperty(target, "type") & openborconstant("TYPE_OBSTACLE")))
+        {
+            continue;
+        }
+
+        target_x = get_entity_property(target, "position_x");
+        target_y = get_entity_property(target, "position_y");
+        target_z = get_entity_property(target, "position_z");
         target_h = getentityproperty(target, "height");
 
-        // Add height to target's Y position.
+        /* Add height to target's Y position. */
         target_y += target_h;
 
-	    // Is the target in range and an obstacle?
-
-	    in_range    = dc_hansburg_check_range_by_position(ent, animation_id, target_x, target_y, target_z);
-
-	    type        = getentityproperty(target, "type");
-
-	    if(in_range == 1 && type == openborconstant("TYPE_OBSTACLE"))
+	    /* Is the target in range? */
+	    if(dc_hansburg_check_range_by_position(acting_entity, animation_id, target_x, target_y, target_z))
         {
-            // Get the current target x position, then exit loop.
-            result = getentityproperty(target, "x");
-            break;
+            /* Return target x position. */
+            return target_x;
         }
-
     }
-    return result;
 
+    /* 
+    * Never found valid object in 
+    * range, return false. 
+    */
+    return 0;
 }
 
-// Perform a manual range check vs. given coordinates.
-// Performs identical function to check_range, but against
-// a manually designated set of position coordinates.
-int dc_hansburg_check_range_by_position(void ent, int animation, float target_x, float target_y, float target_z, float target_base)
+/*
+* Caskey, Damon V.
+* 2016-xx-xx, retool 2021-05-17
+* 
+* Accepts an entity, animation, and 
+* target positon coordinates. Returns
+* true if target position is within
+* animation's range.
+*/
+int dc_hansburg_check_range_by_position(void acting_entity, int animation, float target_x, float target_y, float target_z, float target_base)
 {
-    int     result          = 0;       // Result to return.
-    int     direction       = openborconstant("DIRECTION_LEFT");   // Direction of entity.
-    int     range_b_min     = 0;
-    int     range_b_max     = 0;
-    int     range_x_min     = 0;
-    int     range_x_max     = 0;
-    int     range_y_min     = 0;
-    int     range_y_max     = 0;
-    int     range_z_min     = 0;
-    int     range_z_max     = 0;
-    float   position_x      = 0.0;    // Entity position, X axis.
-    float   position_y      = 0.0;    // Entity position, Y axis.
-    float   position_z      = 0.0;    // Entity position, Z axis.
-    int     position_base   = 0;      // Entity position, base.
-    int     vartype         = openborconstant("VT_EMPTY");         // Variable type.
-    int     anim_valid      = 0;       // Valid animation?
-
-    // Verify valid entity.
-    vartype = typeof(ent);
-
-    if(vartype != openborconstant("VT_PTR"))
+     
+    /* 
+    * If entity doesn't have animation, its
+    * an automatic fail.
+    */ 
+    if(!getentityproperty(acting_entity, "animvalid", animation))
     {
-        return result;
+        return 0;
     }
 
-    // Verify animation was provided.
-    vartype = typeof(animation);
+    /*
+    * If the target position is outside of any
+    * range axis, return false.
+    */
 
-    if(vartype != openborconstant("VT_INTEGER"))
+    /* Base range. */
+    int range_b_min = getentityproperty(acting_entity, "range", "bmin", animation);
+    int range_b_max = getentityproperty(acting_entity, "range", "bmax", animation);
+    int base_check = target_base - get_entity_property(acting_entity, "position_base");
+
+    if(base_check < range_b_min || base_check > range_b_max)
     {
-        return result;
+        return 0;
     }
 
-    // Verify animation provided is valid.
-    anim_valid = getentityproperty(ent, "animvalid", animation);
+    /* Horizontal range. */
+    int range_x_min = getentityproperty(acting_entity, "range", "xmin", animation);
+    int range_x_max = getentityproperty(acting_entity, "range", "xmax", animation);
+    int direction   = get_entity_property(acting_entity, "position_direction");
+    int position_x  = get_entity_property(acting_entity, "position_x");
+    
+    int check_x = position_x + range_x_min;
 
-    if(anim_valid == 0)
+    if(direction == openborconstant("DIRECTION_RIGHT"))
     {
-        return result;
-    }
-
-    // If a target position base is given, evaluate base range.
-    vartype = typeof(target_base);
-
-    if(vartype == openborconstant("VT_DECIMAL")
-       || vartype == openborconstant("VT_INTEGER"))
-    {
-
-        range_b_min = getentityproperty(ent, "range", "bmin", animation);
-        range_b_max = getentityproperty(ent, "range", "bmax", animation);
-
-        position_base  = getentityproperty(ent, "base");
-
-        // If the target position falls within range, set
-        // result to true. Otherwise set result to
-        // false and return immediately since there's no
-        // point in running any more evaluations.
-
-        if((target_base - position_base) >= range_b_min
-		  && (target_base - position_base) <= range_b_max)
+        if(target_x < check_x || target_x > check_x)
         {
-            result = 1;
-        }
-        else
-        {
-            result = 0;
-            return result;
+            return 0;
         }
     }
-
-
-    // If a target position X is given, evaluate X range.
-    vartype = typeof(target_x);
-
-    if(vartype == openborconstant("VT_DECIMAL")
-       || vartype == openborconstant("VT_INTEGER"))
+    else
     {
-        // Get X range, position and direction.
-        range_x_min = getentityproperty(ent, "range", "xmin", animation);
-        range_x_max = getentityproperty(ent, "range", "xmax", animation);
-        direction   = getentityproperty(ent, "direction");
-        position_x  = getentityproperty(ent, "x");
+        check_x = position_x - range_x_min;
 
-        // X range calculation differs if facing right or left.
-        if(direction == openborconstant("DIRECTION_RIGHT"))
+        if(target_x > check_x || target_x < check_x)
         {
-            // If the target position falls within range, set
-            // result to true. Otherwise set result to
-            // false and return immediately since there's no
-            // point in running any more evaluations.
-            if(target_x >= position_x + range_x_min
-                && target_x <= position_x + range_x_max)
-            {
-                result = 1;
-            }
-            else
-            {
-                result = 0;
-                return result;
-            }
+            return 0;
         }
-        else
-        {
-            // If the target position falls within range, set
-            // result to true. Otherwise set result to
-            // false and return immediately since there's no
-            // point in running any more evaluations.
-            if(target_x <= position_x - range_x_min
-                && target_x >= position_x - range_x_max)
-            {
-                result = 1;
-            }
-            else
-            {
-                result = 0;
-                return result;
-            }
-        }
-    }
+    }   
 
-    // If a target position Y is given, evaluate Y range.
-    vartype = typeof(target_y);
-
-    if(vartype == openborconstant("VT_DECIMAL")
-       || vartype == openborconstant("VT_INTEGER"))
+    /* Vertical range. */
+    int range_y_min = getentityproperty(acting_entity, "range", "amin", animation);
+    int range_y_max = getentityproperty(acting_entity, "range", "amax", animation);
+    int check_y = target_y - get_entity_property(acting_entity, "position_y");
+   
+    if(check_y < range_y_min || check_y > range_y_max)
     {
-        range_y_min = getentityproperty(ent, "range", "amin", animation);
-        range_y_max = getentityproperty(ent, "range", "amax", animation);
-
-        position_y  = getentityproperty(ent, "y");
-
-        // If the target position falls within range, set
-        // result to true. Otherwise set result to
-        // false and return immediately since there's no
-        // point in running any more evaluations.
-        if((target_y - position_y) >= range_y_min
-		  && (target_y - position_y) <= range_y_max)
-        {
-            result = 1;
-        }
-        else
-        {
-            result = 0;
-            return result;
-        }
+        return 0;
     }
+    
 
-    // If a target position Z is given, evaluate Z range.
-    vartype = typeof(target_z);
+    /* Lateral range. */
+    int range_z_min = getentityproperty(acting_entity, "range", "zmin", animation);
+    int range_z_max = getentityproperty(acting_entity, "range", "zmax", animation);
+    int check_z = target_y - get_entity_property(acting_entity, "position_z");
 
-    if(vartype == openborconstant("VT_DECIMAL")
-       || vartype == openborconstant("VT_INTEGER"))
+    if(check_z < range_z_min || check_z > range_z_max)
     {
-        range_z_min = getentityproperty(ent, "range", "zmin", animation);
-        range_z_max = getentityproperty(ent, "range", "zmax", animation);
-
-        position_z  = getentityproperty(ent, "z");
-
-        // If the target position falls within range, set
-        // result to true. Otherwise set result to
-        // false and return immediately since there's no
-        // point in running any more evaluations.
-
-        if((target_z - position_z) >= range_z_min
-		  && (target_z - position_z) <= range_z_max)
-        {
-            result = 1;
-        }
-        else
-        {
-            result = 0;
-            return result;
-        }
+        return 0;
     }
-
-    return result;
+    
+    /* If we made it here, we can return true. */
+    return 1;
 }

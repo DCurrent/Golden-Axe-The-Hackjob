@@ -2,6 +2,7 @@
 #define DC_HANSBURG 1
 
 #include "data/scripts/dc_instance/main.c"
+#include "data/scripts/dc_disney/main.c"
 
 /** Library Name
 *

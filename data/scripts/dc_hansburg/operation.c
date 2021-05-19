@@ -1,7 +1,8 @@
 #include "data/scripts/dc_hansburg/config.h"
 
 #import "data/scripts/dc_hansburg/entity.c"
-#import "data/scripts/dc_hansburg/flag_list.c"
+#import "data/scripts/dc_hansburg/config_flags.c"
+#import "data/scripts/dc_hansburg/check_jumping.c"
 #import "data/scripts/dc_hansburg/condition_height.c"
 #import "data/scripts/dc_hansburg/condition_time.c"
 
@@ -266,34 +267,7 @@ int dc_hansburg_try_edge_jump(void acting_entity)
     return 1;
 }
 
-/*
-* Caskey, Damon V.
-* 2021-05-12
-* 
-* Return true if entity is in an animation that
-* allows an extra jump.
-*/
-int dc_hansburg_check_extra_jump_eligible()
-{
-    void entity = dc_hansburg_get_member_entity();
-    int animation_id = get_entity_property(entity, "animation_id");
 
-    if (animation_id == openborconstant("ANI_JUMP")
-        || animation_id == openborconstant("ANI_FORWARDJUMP")
-        || animation_id == openborconstant("ANI_RUNJUMP")
-        || animation_id == openborconstant("ANI_WALKOFF")
-        || animation_id == DC_HANSBURG_ANI_JUMP_WALL
-        || animation_id == DC_HANSBURG_ANI_JUMP_EDGE
-        || animation_id == DC_HANSBURG_ANI_JUMP_OBJECT
-        || animation_id == DC_HANSBURG_ANI_JUMP_DOUBLE_BACK
-        || animation_id == DC_HANSBURG_ANI_JUMP_DOUBLE_FORWARD
-        || animation_id == DC_HANSBURG_ANI_JUMP_DOUBLE_NEUTRAL)
-    {
-        return 1;
-    }
-
-    return 0;
-}
 
 /* Face away from given position. */
 int dc_hansburg_face_away(void ent, float target_x)

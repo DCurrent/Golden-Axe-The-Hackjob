@@ -1,5 +1,7 @@
 #include    "data/scripts/dc_hansburg/config.h"
 #import     "data/scripts/dc_hansburg/entity.c"
+#import     "data/scripts/dc_hansburg/axis_control_y.c"
+#import     "data/scripts/dc_hansburg/check_jumping.c"
 #import     "data/scripts/dc_hansburg/condition_height.c"
 #import     "data/scripts/dc_hansburg/condition_time.c"
 #import     "data/scripts/dc_hansburg/operation.c"

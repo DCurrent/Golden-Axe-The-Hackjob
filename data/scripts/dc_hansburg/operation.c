@@ -375,13 +375,17 @@ int dc_hansburg_get_command_direction(void ent, int key_hold)
     }    
 }
 
-/* 
-* Returns x position of closest wall within animation range.
+/*
+* Caskey, Damon V.
+* 2016-xx-xx, retool 2021-05-17
+*
+* Accept an entity and animation. Return
+* the X position of first wall in range
+* of animation (or 0 if none).
 */
 int dc_hansburg_find_wall_x(void ent, int animation_id)
 {
     int result              = 0;      // Final result.
-    int animation_valid     = 0;       // Animation exists flag.
     int check_x_min         = 0;      // Checking minimum range.
     int check_x_max         = 0;      // Checking maximum range.
     int check_y_min         = 0;      // Checking minimum range.
@@ -401,33 +405,37 @@ int dc_hansburg_find_wall_x(void ent, int animation_id)
     int loop_x              = 0;      // Loop counter.
     int loop_z              = 0;      // Loop counter.
 
-    // If this entity doesn't have the animation at all,
-    // then exit. There's nothing else to do.
-    animation_valid =  getentityproperty(ent, "animvalid", animation_id);
-
-    if(animation_valid == 0)
+    /* 
+    * If this entity doesn't have the animation at all,
+    * then exit. There's nothing else to do.
+    */ 
+   
+    if(!getentityproperty(ent, "animvalid", animation_id))
     {
-        return result;
+        return 0;
     }
 
-    // Get current entity x position and direction.
-    position_x  = getentityproperty(ent, "x");
-    position_y  = getentityproperty(ent, "y");
-    position_z  = getentityproperty(ent, "z");
-    direction   = getentityproperty(ent, "direction");
+    /*
+    * We're doing the range checking ourselves, so we'll need to
+    * combine the range settings with current position. If facing
+    * left, we'll need subtract for X. If facing right, then we'll
+    * add. Y and Z are always added.
+    */
 
-    // Get X ranges of animation.
+    position_x  = get_entity_property(ent, "position_x");
+    position_y  = get_entity_property(ent, "position_y");
+    position_z  = get_entity_property(ent, "position_z");
+    direction   = get_entity_property(ent, "position_direction");
+
+    
     check_x_min = getentityproperty(ent, "range", "xmin", animation_id);
     check_x_max = getentityproperty(ent, "range", "xmax", animation_id);
     check_y_min = getentityproperty(ent, "range", "amin", animation_id);
     check_y_max = getentityproperty(ent, "range", "amax", animation_id);
     check_z_min = getentityproperty(ent, "range", "zmin", animation_id);
-    check_z_max = getentityproperty(ent, "range", "zmax", animation_id);
+    check_z_max = getentityproperty(ent, "range", "zmax", animation_id);    
 
-    // We're doing the range checking ourselves, so we'll need to
-    // combine the range settings with current position. If facing
-    // left, we'll need subtract for X. If facing right, then we'll
-    // add. Y and Z are always added.
+    /* Handle left/or right facing. */
 
     if(direction == openborconstant("DIRECTION_LEFT"))
     {
@@ -446,42 +454,58 @@ int dc_hansburg_find_wall_x(void ent, int animation_id)
     check_z_min += position_z;
     check_z_max += position_z;
 
-    // Loop through all possible X positions within
-    // X axis range.
+    /*
+    * Loop through all possible X positions within
+    * X axis range. At each X position, loop over
+    * each possible Z position.
+    * 
+    * Note: This couldn't get more unoptimal. We 
+    * are esentially running a loop and making
+    * wall checks against every single pixel in
+    * an animations range cube. Even if we assume 
+    * a modest cube of 50 width and 50 depth that's
+    * a loop count of 2,500, with each one running
+    * the expensive checkwall() function. We can
+    * probably rework this by looping the wall 
+    * collection instead, getting the wall dimensions  
+    * and comparing them to range for overlap.
+    */
+
     for(loop_x = check_x_min; loop_x <= check_x_max; loop_x++)
-    {
-        // Now loop over each possible Z position within Z axis
-        // range.
+    {        
         for(loop_z = check_z_min; loop_z <= check_z_max; loop_z++)
         {
-            // Get wall height (if any).
+            /* Is the wall height within our vertical range? */
+
             height = checkwall(loop_x, loop_z);
-
-            // Is the wall height within our vertical range?
-            if(height >= check_y_min && height <= check_y_max)
+                        
+            if (height < check_y_min || height > check_y_max)
             {
-                // Has a wall X position been assigned?
-                if(result)
-                {
-                    // Let's find out if this wall position X is closer
-                    // to entity than the previous one.
+                continue;
+            }
 
-                    wall_distance_old = result - position_x;
-                    wall_distance_new = loop_x - position_x;
-
-                    // Compare old to new. If new is closer, assign that as
-                    // our wall position X.
-                    if(wall_distance_new < wall_distance_old)
-                    {
-                        result = loop_x;
-                    }
-                }
-                else
+            /* 
+            * Has a wall X position been populated? If so 
+            * we'll compare distance to see if current
+            * loop's wall position is closer. 
+            * 
+            * If we haven't populated the wall X result,
+            * then just use current loop X value.
+            */
+            if(result)
+            {                    
+                wall_distance_old = result - position_x;
+                wall_distance_new = loop_x - position_x;
+                   
+                if(wall_distance_new < wall_distance_old)
                 {
-                    // Assign wall position to our current check location.
                     result = loop_x;
                 }
             }
+            else
+            {                    
+                result = loop_x;
+            }            
         }
     }
 

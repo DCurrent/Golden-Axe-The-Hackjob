@@ -123,6 +123,7 @@ void main(){
     }
 	else if (iFPain)
 	{
+        /* If in pain, use a counter attack. */
 		if(iKSp)
 		{
 			ani0020(vEnt, A_SPECIAL);

@@ -13,10 +13,10 @@
 */
 int dc_hansburg_check_global_conditions()
 {
-    int flag_list = dc_hansburg_get_member_flag_list();
+    int flag_list = dc_hansburg_get_member_config_flags();
 
     /* If all flags are disabled, just exit. */
-    if (flag_list == DC_HANSBURG_JUMP_ENABLE_NONE)
+    if (flag_list == DC_HANSBURG_CONFIG_ENABLE_NONE)
     {
         return 0;
     }

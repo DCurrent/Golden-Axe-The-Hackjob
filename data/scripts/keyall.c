@@ -4,6 +4,8 @@
 #import "data/scripts/com/ani0020.h"		//http://www.caskeys.com/dc/?p=1314#ani0020
 #import "data/scripts/com/soun0005.h"		//http://www.caskeys.com/dc/?p=1314#soun0005
 
+
+
 void main(){
 
 	/*
@@ -86,7 +88,8 @@ void main(){
     {
         setentityvar(vEnt, IDXE_KEY1AT, iTime);													//Store last press of Attack key.
     }
-	*/
+	*/ 
+    
 
 	if (iFIdl)																				//Idle?
     {

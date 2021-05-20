@@ -8,46 +8,43 @@
 * Caskey, Damon V.
 * 2021-05-19 (extract of Y axis portion of jump005, 2010-05-12)
 *
-* Enable Y axis jump control. In other
-* words, replicates the common platform
-* game effect where height of jump is 
-* controlled by how long player holds 
-* the jump key.
+* Run in a movea event to enable Y axis jump 
+* control. In other words, replicates the 
+* common platform game effect where height 
+* of jump is controlled by how long player 
+* holds the Jump key. 
 * 
-* Run this function in a key event script
-* such as keyall. If Y axis control is
-* enabled the function will detect release
-* event of the jump key and slightly reduce 
-* upward vertical velocity. This in turn 
-* causes engine gravity to quickly overtake 
-* the jumping momentum, creating a smooth
-* transition from rising to falling as in
-* games like Super Mario Brothers.
+* Note: In theory, we could do this as part
+* of a key script by checking for the Jump
+* key release event. On the surface, it would 
+* much more elegant, but there are a few reasons
+* to keep it in movea event:
 * 
-* Note: When there are transitions or delays
-* (such as a jump start animation) it is
-* possible that player can release Jump before
-* the jump actually begins. In that case, this 
-* function will not take effect unless they 
-* press and release Jump again. This results
-* in a very quick Jump tap causing entity to 
-* jump its full height. The previous workaround
-* was to read keys during the movea event and
-* stop upward momentum if player wasn't holding
-* Jump. This method is simple but a bit wasteful.
+* 1. With a key script, we have to handle 
+* players releasing the Jump key before the
+* jump delay animation is finished. Otherwise
+* tapping Jump very quickly causes a full
+* height jump. 
 * 
-* The current method is a bit more complex but
-* far less resouce intensive:
+* 2. We would need to handle our own scripted
+* jumps with similar logic to dealing with
+* delay animations. 
 * 
-* 1. Release Jump during jump - Reduce current
-* vertical velocity as described above.
+* 3. Due to key mixing, if player releases 
+* Jump key and then pauses game just before 
+* liftoff, the entity jumps full height once
+* the game is unpaused. 
 * 
-
-Normal jumps: As OpenBOR Script now allows access to
-* the prejump velocity properties, we can
-* handle jump taps for nby pres
+* 4. We may want different models to have
+* differing jump capabilities.
 * 
-* 
+* It is possible to handle all the above,
+* but doing so introduces a great deal of
+* complexity to the script. Also, as key
+* scripts constantly fire during any press
+* of any key, there is arguably less resource
+* use keeping Y axis control in movea even 
+* before considering the added complexity.
 */
 void dc_hansburg_try_axis_control_y()
 {
@@ -55,44 +52,55 @@ void dc_hansburg_try_axis_control_y()
 	* Before doing anything else, verify
 	* that Y axis control is enabled.
 	*/
-	if (!(dc_hansburg_get_member_config_flags() & DC_HANSBURG_CONFIG_ENABLE_CONTROL_Y))
+	int config_flags = dc_hansburg_get_member_config_flags();
+
+	if (!(config_flags & DC_HANSBURG_CONFIG_ENABLE_CONTROL_Y))
 	{
 		return;
 	}
-
+		
 	void acting_entity = dc_hansburg_get_member_entity();
 	int player_index = get_entity_property(acting_entity, "player_index");
-	int key_release = getplayerproperty(player_index, "releasekeys");
+	int key_hold = getplayerproperty(player_index, "keys");
 	float velocity_y = 0.0;
 
 	/* 
 	* Verify this is a jump key release 
 	* event.
 	*/
-	if (!(key_release & openborconstant("FLAG_JUMP")))
+	if (key_hold & openborconstant("FLAG_JUMP"))
 	{
 		return 0;
 	}
 
 	/* 
 	* Now we need to know if player entity is
-	* in a jumping state. If not, we need to
-	* check their pre-jump state instead.
+	* in a jumping state and moving upward.
+	*
+	* If so, we will reduce vertical velocity 
+	* by a slight percentage. The combined 
+	* effect of this occuring every engine 
+	* update along with the engine's native 
+	* gravity gravity will quickly but smoothly 
+	* stop upward movement. 
 	*/
-	if (dc_hansburg_check_normal_jump())
-	{
-		/* Jumping. */
-		float velocity_y = get_entity_property(acting_entity, "velocity_y");
-		velocity_y *= 0.9;
 
-		set_entity_property(acting_entity, "velocity_y");
-	}
-	else
-	{
-		/* Not jumping. */
-		get_entity_property(acting_entity, "jump_velocity_y");
-		velocity_y *= 0.25;
+	int normal_jump = get_entity_property(acting_entity, "jump_state");
 
-		set_entity_property(acting_entity, "jump_velocity_y");
+	if (!normal_jump)
+	{
+		return;
 	}
+		
+	
+	velocity_y = get_entity_property(acting_entity, "velocity_y");
+	
+	if (velocity_y < 0)
+	{
+		return;
+	}
+
+	velocity_y *= 0.95;
+
+	set_entity_property(acting_entity, "velocity_y", velocity_y);	
 }

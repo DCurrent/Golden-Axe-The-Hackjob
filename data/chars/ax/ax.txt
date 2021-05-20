@@ -28,7 +28,7 @@ dust				fall_land jump_land jump_liftoff
 komap				6 1
 hmap				5 9
 fmap				9
-jumpmove			1 1
+jumpmove			7 7
 aimove				chase
 aggression			-50
 #stealth				0 -10

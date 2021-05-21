@@ -30,7 +30,7 @@ dust				fall_land jump_land jump_liftoff
 komap				6 0
 #hmap				5 9
 fmap				9
-jumpmove			1 1
+jumpmove			7 1
 
 animationscript 	data/chars/alex/scripts/ani.c		#Animation update.
 didhitscript 		data/scripts/dc_common_didhit/event_didhit_player.c
@@ -40,7 +40,7 @@ onblockwscript		data/scripts/dc_common_onblock/event_onblockw_player.c
 onblockzscript		data/scripts/dc_common_onblock/event_onblockz_player.c
 ondeathscript		data/scripts/dc_common_ondeath/event_ondeath_player.c
 onfallscript		data/scripts/dc_common_onfall/event_onfall_player.c	
-onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.
+onmoveascript		data/scripts/dc_common_onmovea/event_onmovea.c	
 onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
 onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
 onpainscript		data/scripts/dc_common_onpain/event_onpain_player.c	

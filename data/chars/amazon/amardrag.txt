@@ -20,8 +20,8 @@ onblocksscript		data/scripts/dc_common_onblock/event_onblocks_enemy.c
 onblockwscript		data/scripts/dc_common_onblock/event_onblockw_enemy.c
 onblockzscript		data/scripts/dc_common_onblock/event_onblockz_enemy.c
 ondeathscript		data/scripts/dc_common_ondeath/event_ondeath_enemy.c
-onfallscript		data/scripts/dc_common_onfall/event_onfall_enemy.c				
-onmoveascript		data/scripts/z_movea.c				#Moving on Y axis.
+onfallscript		data/scripts/dc_common_onfall/event_onfall_enemy.c	
+onmoveascript		data/scripts/dc_common_onmovea/event_onmovea.c			
 onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
 onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
 onpainscript		data/scripts/dc_common_onpain/event_onpain_enemy.c

@@ -27,7 +27,6 @@
 #import "data/scripts/com/stat0001.h"		//Change MP or HP of target.
 #import "data/scripts/com/stat0003.h"      //Save MP.
 #import "data/scripts/com/stat0005.h"      //Set a timed property by string.
-#import "data/scripts/com/wake0001.h"		//Wait before attacking function.
 
 /*
 * 2021-02-26, Non-legacy Imports

@@ -18,9 +18,6 @@
 #import "data/scripts/com/stal0001.h"       // Add stalltime to target.
 
 #import "data/scripts/com/soun0005.h"		//Stereo sound handler.
-#import "data/scripts/com/wake0001.h"		//Deal with in/out of screen boundry.
-
-
 
 #import "data/scripts/com/dc_ai_avoid_jump_attack.c"        //Avoid jump attacks.
 

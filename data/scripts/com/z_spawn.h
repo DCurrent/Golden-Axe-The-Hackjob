@@ -3,7 +3,6 @@
 #import "data/scripts/com/draw0001.h"		//Drawing functions.
 #import "data/scripts/com/name0001.h"		//Random name.
 #import "data/scripts/com/rema0002.h"		//Random remap.
-#import "data/scripts/com/wake0001.h"		//"Wake" function for Golden Axe.
 #import "data/scripts/com/soun0005.h"		//Random capable stereo sound player.
 #import "data/scripts/com/path0002.h"		//Folder.
 
@@ -124,10 +123,6 @@ void z_spawn(void vEnt)
         {
             changeentityproperty(vEnt, "stealth", 1);                           //Become invisible to AI.
             changeentityproperty(vEnt, "animation", A_SLEEP);                   //Go into sleep animation.
-        }
-        else if(getglobalvar("inscreen")==1)                                    //Global inscreen variable on?
-        {
-            wake0001();                                                         //Run "wake" function.
         }
 		*/		
     }

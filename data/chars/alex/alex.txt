@@ -1010,7 +1010,7 @@ anim freespecial8
 	delay	15
 	@cmd	soun0005 ENT_SELF VOI_CHN -1 1 0 0
 	@cmd 	savemp
-	@cmd 	paus0001 1000 TYPE_ITEM TYPE_NONE -1 -1 -1
+	#cmd 	pause_others
 		frame	data/chars/alex/0061.png
    	delay   150
 	offset	55 100
@@ -1021,7 +1021,7 @@ anim freespecial8
 		frame	data/chars/alex/0078.png
 	delay	10
 	offset	60 98
-	@cmd 	paus0001 -1 -1 -1 -1 -1 -1
+	#cmd 	unpause_others
 		frame	data/chars/alex/0062.png
 
 anim  freespecial9

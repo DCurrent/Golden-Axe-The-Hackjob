@@ -18,7 +18,6 @@
 #import "data/scripts/com/dir0001.h"
 #import "data/scripts/com/jump0003.h"      //Change current animation to a real "jump".
 #import "data/scripts/com/jump0004.h"      //Key controlled jumpframe emulation.
-#import "data/scripts/com/paus0001.h"		//Pause action of free roaming entities.
 #import "data/scripts/com/proj0003.h"
 #import "data/scripts/com/seal0001.h"		//Turn off target specials.
 #import "data/scripts/com/soun0005.h"		//Random sound player.

@@ -13,7 +13,6 @@
 #import "data/scripts/com/dama0004.h"
 #import "data/scripts/com/dir0001.h"
 #import "data/scripts/com/jump0003.h"
-#import "data/scripts/com/paus0001.h"
 #import "data/scripts/com/proj0003.h"
 #import "data/scripts/com/seal0001.h"		// Place a seal & sealtime on target.
 #import "data/scripts/com/stal0001.h"		// Place a stalltime on target.

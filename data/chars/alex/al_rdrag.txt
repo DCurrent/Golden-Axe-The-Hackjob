@@ -18,10 +18,10 @@ bflash			bflash
 
 animationscript 	data/chars/alex/scripts/ani.c
 didhitscript 		data/scripts/dc_common_didhit/event_didhit.c
-onblockoscript		data/scripts/dc_common_onblock/event_onblocko_player.c
-onblocksscript		data/scripts/dc_common_onblock/event_onblocks_player.c
-onblockwscript		data/scripts/dc_common_onblock/event_onblockw_player.c
-onblockzscript		data/scripts/dc_common_onblock/event_onblockz_player.c
+onblockoscript		data/scripts/dc_common_onblock/event_onblocko.c
+onblocksscript		data/scripts/dc_common_onblock/event_onblocks.c
+onblockwscript		data/scripts/dc_common_onblock/event_onblockw.c
+onblockzscript		data/scripts/dc_common_onblock/event_onblockz.c
 ondeathscript		data/scripts/dc_common_ondeath/event_ondeath_player.c
 onfallscript		data/scripts/dc_common_onfall/event_onfall_player.c	
 onmoveascript		data/scripts/dc_common_onmovea/event_onmovea.c

@@ -1,7 +1,7 @@
 #include "data/scripts/dc_common_onblock/main.c"
 
 /*
-* Run by most enemy types as their onblockw (wall) script.
+* Run by most models as their onblockw (wall) script.
 */
 
 void main()

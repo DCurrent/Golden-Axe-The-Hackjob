@@ -27,10 +27,10 @@ load thief_escape_full
 
 
 animationscript 	data/chars/thief/scripts/event_animation.c
-onblockoscript		data/scripts/dc_common_onblock/event_onblocko_enemy.c
-onblocksscript		data/scripts/dc_common_onblock/event_onblocks_enemy.c
-onblockwscript		data/scripts/dc_common_onblock/event_onblockw_enemy.c			
-onblockzscript		data/scripts/dc_common_onblock/event_onblockz_enemy.c				
+onblockoscript		data/scripts/dc_common_onblock/event_onblocko.c
+onblocksscript		data/scripts/dc_common_onblock/event_onblocks.c
+onblockwscript		data/scripts/dc_common_onblock/event_onblockw.c			
+onblockzscript		data/scripts/dc_common_onblock/event_onblockz.c				
 ondeathscript		data/scripts/dc_common_ondeath/event_ondeath_enemy.c				
 onfallscript		data/scripts/dc_common_onfall/event_onfall_enemy.c				
 onmoveascript		data/scripts/dc_common_onmovea/event_onmovea.c

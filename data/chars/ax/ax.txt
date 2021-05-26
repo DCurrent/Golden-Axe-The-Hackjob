@@ -1991,7 +1991,7 @@ anim follow9 # Throw (air to ground).
 	offset	60 98
 	bbox	0
 	delay	10
-	@cmd	stat0005 0 "tosstime" 1000 0 0 0
+	#cmd	stat0005 0 "tosstime" 1000 0 0 0
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 -15 	185 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_EX3 1
 		frame	data/chars/ax/0070.png
 	delay	30

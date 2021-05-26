@@ -26,7 +26,6 @@
 #import "data/scripts/com/stal0001.h"       // Add stalltime to target.
 #import "data/scripts/com/stat0001.h"		//Change MP or HP of target.
 #import "data/scripts/com/stat0003.h"      //Save MP.
-#import "data/scripts/com/stat0005.h"      //Set a timed property by string.
 
 /*
 * 2021-02-26, Non-legacy Imports

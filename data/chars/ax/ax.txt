@@ -58,7 +58,7 @@ onblockoscript		data/scripts/dc_common_onblock/event_onblocko.c
 onblocksscript		data/scripts/dc_common_onblock/event_onblocks.c
 onblockwscript		data/scripts/dc_common_onblock/event_onblockw.c
 onblockzscript		data/scripts/dc_common_onblock/event_onblockz.c
-ondeathscript		data/scripts/dc_common_ondeath/event_ondeath_player.c
+ondeathscript		data/scripts/dc_common_ondeath/event_ondeath.c
 ondoattackscript	data/chars/ax/scripts/event_ondoattack.c		
 onfallscript		data/scripts/dc_common_onfall/event_onfall_player.c					
 onmoveascript		data/scripts/dc_common_onmovea/event_onmovea.c

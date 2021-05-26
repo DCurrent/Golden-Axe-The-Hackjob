@@ -1,6 +1,5 @@
 #include "data/scripts/vars/constants.h"	//http://www.caskeys.com/dc/?p=1314#constants
 #import "data/scripts/com/ani0009.h"
-#import "data/scripts/com/summ0001.h"
 
 int parr0001(void vEnt, void vOpp){
 
@@ -85,7 +84,7 @@ int parr0001(void vEnt, void vOpp){
 			
 			changeentityproperty(vEnt, "mp", iMP + (fMMP * 0.3));								//Recover 30% of maximum MP.
 			changeentityproperty(vEnt, "direction", iDir);										//Apply facing.
-			summ0001("pflash", "pflash", 0, 1, iHX, iHY, iHZ, iDir, 0, 0, 1);					//Spawn parry flash.
+			//summ0001("pflash", "pflash", 0, 1, iHX, iHY, iHZ, iDir, 0, 0, 1);					//Spawn parry flash.
 				
 			iNAni	= getentityproperty(vEnt, "nextanim") + 30;            	                
 	        iONAni	= getentityproperty(vOpp, "nextanim") + 75;

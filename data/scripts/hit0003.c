@@ -31,7 +31,6 @@ void main()
 #import "data/scripts/vars/constants.h"	//http://www.caskeys.com/dc/?p=1314#constants
 #import "data/scripts/com/hit0002.h"
 #import "data/scripts/com/host0001.h"
-#import "data/scripts/com/summ0001.h"
 
     void    vParent     = getentityproperty(vSelf, "parent");   //Parent.
     void    vTParent    = getentityproperty(vDef, "parent");    //Target Parent.
@@ -214,7 +213,7 @@ void main()
         iX = openborvariant("lasthitx") - openborvariant("xpos");                           //Last hit X - X pos.
         iY = openborvariant("lasthita");                                                    //Last hit Y.
         iZ = openborvariant("lasthitz");                                                    //Last hit Z.
-        summ0001("flash", "flash", 0, 1, iX, iY, iZ, 1, 0, 0, 1);                           //Spawn flash.    
+        //summ0001("flash", "flash", 0, 1, iX, iY, iZ, 1, 0, 0, 1);                           //Spawn flash.    
     
         iRush = getentityproperty(vParent, "rush_count");
 	    changeentityproperty(vParent, "rush_count", iRush + 1);                             //Increment parent's rush count.

@@ -15,7 +15,6 @@
 #import "data/scripts/com/jump0003.h"
 #import "data/scripts/com/paus0001.h"
 #import "data/scripts/com/proj0003.h"
-#import "data/scripts/com/summ0001.h"
 #import "data/scripts/com/seal0001.h"		// Place a seal & sealtime on target.
 #import "data/scripts/com/stal0001.h"		// Place a stalltime on target.
 #import "data/scripts/com/stat0002.h"
@@ -83,7 +82,7 @@ void summon(void vModel, int iMap)
 		iZ = getentityproperty(vSelf, "z");
 	}
 
-	vSpawn = summ0001(vModel, vModel,    0,          0,     iX,      0,     iZ,        0,        0,          0,         0);
+	// vSpawn = summ0001(vModel, vModel,    0,          0,     iX,      0,     iZ,        0,        0,          0,         0);
 	         //summ0001(vModel, vAlias, iMap, int iBlend, int iX, int iY, int iZ, int iDir, int iAni, int iFrame, int iKill)
 
 	//bind0015(vSpawn, "effe0001", "effe0001", iMap, 1, 0, 0, 1, 0, A_FOLLOW1, 0, 1);

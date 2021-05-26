@@ -17,8 +17,6 @@
 #import "data/scripts/com/proj0003.h"
 #import "data/scripts/com/seal0001.h"		// Place a seal & sealtime on target.
 #import "data/scripts/com/stal0001.h"		// Place a stalltime on target.
-#import "data/scripts/com/stat0002.h"
-#import "data/scripts/com/stat0003.h"      //Save MP.
 #import "data/scripts/com/soun0005.h"
 
 

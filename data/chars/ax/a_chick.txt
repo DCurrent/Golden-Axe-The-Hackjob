@@ -67,7 +67,7 @@ anim idle
 	bbox.position.y 84
 	bbox.size.x 25
 	bbox.size.y 59
-	@cmd stat0003
+	#cmd save_mp
 	
 	frame	data/chars/ax/chicken/idle_0.png
 	frame	data/chars/ax/chicken/idle_1.png

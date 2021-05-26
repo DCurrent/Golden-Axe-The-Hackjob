@@ -24,8 +24,6 @@
 #import "data/scripts/com/soun0005.h"		//Random sound player.
 
 #import "data/scripts/com/stal0001.h"       // Add stalltime to target.
-#import "data/scripts/com/stat0001.h"		//Change MP or HP of target.
-#import "data/scripts/com/stat0003.h"      //Save MP.
 
 /*
 * 2021-02-26, Non-legacy Imports

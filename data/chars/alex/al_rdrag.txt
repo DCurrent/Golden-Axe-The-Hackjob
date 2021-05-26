@@ -67,7 +67,7 @@ anim idle
 	delay	20
 	offset	80 142
     	bbox    66 68 24 47
-	@cmd stat0003
+	#cmd save_mp
 		frame	data/chars/alex/dragon/0018
 		frame	data/chars/alex/dragon/0017
 		frame	data/chars/alex/dragon/0016

@@ -20,7 +20,6 @@
 #import "data/scripts/com/soun0005.h"		//Random sound player.
 #import "data/scripts/com/dc_in_screen_setup.c"		//In screen check.
 #import "data/scripts/com/stal0001.h"
-#import "data/scripts/com/stat0003.h"      //Save MP.
 
 #include "data/scripts/dc_fidelity/main.c"  // Sound player.
 

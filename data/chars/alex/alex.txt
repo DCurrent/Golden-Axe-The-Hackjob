@@ -212,7 +212,7 @@ anim rise
 	delay	10
 		frame	data/chars/alex/0051.png
 		frame	data/chars/alex/0052.png
-	@cmd 	stat0002 200 0 0 0 0
+	#cmd set_invincibility 200
 		frame  data/chars/alex/0003.png
 
 anim  chargeattack

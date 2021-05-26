@@ -2,7 +2,6 @@
 
 #import "data/scripts/com/draw0001.h"		//Drawing functions.
 #import "data/scripts/com/name0001.h"		//Random name.
-#import "data/scripts/com/rema0002.h"		//Random remap.
 #import "data/scripts/com/soun0005.h"		//Random capable stereo sound player.
 #import "data/scripts/com/path0002.h"		//Folder.
 
@@ -130,7 +129,7 @@ void z_spawn(void vEnt)
 
     if (iKOMap && iMap == iKOMap)                                               //KO map?
     {
-        rema0002(vEnt,0,0,0,0,0);                                               //Apply random remap.
+        //rema0002(vEnt,0,0,0,0,0);                                               //Apply random remap.
     }
 
 	//soun0008(vEnt, 0,0,0,0,0,0);                                              //Set up sound counts.

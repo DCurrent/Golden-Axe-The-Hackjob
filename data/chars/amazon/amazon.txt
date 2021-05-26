@@ -104,7 +104,6 @@ anim respawn
 	offset	60 98
 	bbox	52 37 16 62
 	delay	20
-	@cmd	draw0003 1 1 0 0 0 1 0 0 0
 	delay	10
 	@cmd	soun0005 ENT_SELF SND_EFF7 -1 1 0 0
 		frame	data/chars/amazon/0020
@@ -114,7 +113,6 @@ anim respawn
 		frame	data/chars/amazon/0024
 		frame	data/chars/amazon/0025
 		frame	data/chars/amazon/idle1
-	@cmd	draw0003 1 1 0 0 0 0 0 0 0
 	@cmd	changeentityproperty getlocalvar("self") "subject_to_screen" 1
 	@cmd	soun0005 ENT_SELF VOI_GO -1 1 0 0
 	delay	20
@@ -363,7 +361,6 @@ anim  freespecial10
 	offset  60  98
 	bbox  0  0  0  0
 		frame  data/chars/amazon/idle1.png
-	@cmd	draw0003 1 1 0 0 0 1 0 0 0
 	@cmd	soun0005 ENT_SELF SND_EFF7 -1 1 0 0
 		frame  data/chars/amazon/0025.png
 		frame  data/chars/amazon/0024.png
@@ -380,7 +377,6 @@ anim  freespecial10
 		frame  data/chars/amazon/0023.png
 		frame  data/chars/amazon/0024.png
 		frame  data/chars/amazon/0025.png
-	@cmd	draw0003 1 1 0 0 0 0 0 0 0
 		frame  data/chars/amazon/idle1.png
 	delay  6
 	offset  60  97

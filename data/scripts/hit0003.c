@@ -30,7 +30,6 @@ void main()
 
 #import "data/scripts/vars/constants.h"	//http://www.caskeys.com/dc/?p=1314#constants
 #import "data/scripts/com/hit0002.h"
-#import "data/scripts/com/host0001.h"
 
     void    vParent     = getentityproperty(vSelf, "parent");   //Parent.
     void    vTParent    = getentityproperty(vDef, "parent");    //Target Parent.

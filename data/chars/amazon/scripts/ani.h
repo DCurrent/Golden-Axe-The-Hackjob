@@ -10,7 +10,6 @@
 #import "data/scripts/com/bind0014.h"		//Initialize index for binding other entities to self.
 #import "data/scripts/com/bind0018.h"		//Wall failsafe.
 #import "data/scripts/com/dama0004.h"		//Damage bound entity by index.
-#import "data/scripts/com/draw0003.h"		//Set caller's drawmethod variables.
 #import "data/scripts/com/jump0003.h"		// Set flags to jumping status.
 #import "data/scripts/com/proj0003.h"		//Basic projectile launcher.
 

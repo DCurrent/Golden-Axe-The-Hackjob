@@ -4,10 +4,6 @@
 #include    "data/scripts/dc_fidelity/main.c"
 #include    "data/scripts/dc_kanga/main.c"
 
-#import	"data/scripts/traileru.c"		//Shadow trails.
-//#import	"data/scripts/com/ani0013.h"	//Jump animation if steping off an edge.
-
-
 void oncreate()
 {
     dc_preload_hud_sprites();

@@ -19,9 +19,6 @@
 
 /******Adjustments and Settings******/
 #define CONF_DRAWMODE				1										//Draw scaling modes: 0 = SNK Style, 1 = Capcom style
-#define CONF_TRAILMAX				20										//Global shadow trail limit.
-#define CONF_TRAILCNT				5										//Character shadow trail limit.
-#define CONF_TRAILDLY				5										//Delay (to spawn next trailer, so trailer lasts for CONF_TRAILCNT*CONF_TRAILDLY)
 #define CONF_SETBLOCK				1                                       //1 = Automatically set blocking animation based on hit height.
 #define CONF_SETPAIN				0                                       //1 = Automatically set pain animation based on hit height.
 #define CONF_JUMPCON_X				0										//1 = Left/Right keys alter X plane veolcity during jump.

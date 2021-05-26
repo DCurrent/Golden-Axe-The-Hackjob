@@ -40,7 +40,7 @@ palette      			data/chars/tyris/0000				#0	Red/Silver
 alternatepal   			data/chars/tyris/pals/0001			#1 	Blue/Silver
 
 animationscript 	data/chars/tyris/scripts/ani.c
-didhitscript 		data/scripts/dc_common_didhit/event_didhit_enemy.c
+didhitscript 		data/scripts/dc_common_didhit/event_didhit.c
 keyscript			data/chars/tyris/scripts/key.c		#Controlling player press/release key.
 onblockoscript		data/scripts/dc_common_onblock/event_onblocko_player.c
 onblocksscript		data/scripts/dc_common_onblock/event_onblocks_player.c

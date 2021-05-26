@@ -9,6 +9,37 @@
 */
 void dc_common_didhit()
 {
+
+	void acting_entity = getlocalvar("self");
+	int model_type = getentityproperty(acting_entity, "type");
+	int animation_id = get_entity_property(acting_entity, "animation_id");
+	int blocked = getlocalvar("blocked");
+
+	if (model_type & openborconstant("TYPE_PLAYER"))
+	{		
+	}
+	else
+	{
+		if (!blocked)
+		{
+			dc_cancel_set_member_allow_idle_animation(animation_id);
+		}
+	}
+
+	dc_battle_talk();
+	
+}
+
+/*
+* Caskey, Damon V.
+* 2021-05-25 (Broken off from didhit ~2010).
+* 
+* Temporary function to run trash talk when
+* knocking an entity down.
+*/
+
+void dc_battle_talk()
+{
 	int blocked = 0;
 	void ent = NULL();
 	void target = NULL();

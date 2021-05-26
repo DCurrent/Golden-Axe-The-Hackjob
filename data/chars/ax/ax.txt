@@ -52,7 +52,7 @@ com 				d f a freespecial					#Power swing.
 com 				a2 freespecial8						#Magic.
 
 animationscript 	data/chars/ax/scripts/ani.c
-didhitscript 		data/scripts/dc_common_didhit/event_didhit_player.c
+didhitscript 		data/scripts/dc_common_didhit/event_didhit.c
 keyscript			data/chars/ax/scripts/key.c			
 onblockoscript		data/scripts/dc_common_onblock/event_onblocko_player.c
 onblocksscript		data/scripts/dc_common_onblock/event_onblocks_player.c

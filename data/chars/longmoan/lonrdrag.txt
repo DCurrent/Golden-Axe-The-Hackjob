@@ -15,7 +15,7 @@ nolife  1
 noquake 1 
 
 animationscript 	data/scripts/z_ani.c
-didhitscript 		data/scripts/dc_common_didhit/event_didhit_enemy.c
+didhitscript 		data/scripts/dc_common_didhit/event_didhit.c
 onblockoscript		data/scripts/dc_common_onblock/event_onblocko_enemy.c
 onblocksscript		data/scripts/dc_common_onblock/event_onblocks_enemy.c
 onblockwscript		data/scripts/dc_common_onblock/event_onblockw_enemy.c			

@@ -16,7 +16,7 @@ bflash					bflash
 fmap					9
 
 animationscript 		data/scripts/z_ani.c
-didhitscript 		data/scripts/dc_common_didhit/event_didhit_player.c
+didhitscript 		data/scripts/dc_common_didhit/event_didhit.c
 onblockoscript			data/scripts/dc_common_onblock/event_onblocko_player.c
 onblocksscript			data/scripts/dc_common_onblock/event_onblocks_player.c
 onblockwscript			data/scripts/dc_common_onblock/event_onblockw_player.c

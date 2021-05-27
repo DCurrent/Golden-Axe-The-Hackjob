@@ -22,7 +22,7 @@ height				60
 projectilehit 		player npc obstacle
 candamage 		    enemy npc obstacle
 noatflash 			0
-bflash 				bflash
+bflash 				flash_block
 holdblock 			0
 dust				fall_land jump_land jump_liftoff
 komap				6 1

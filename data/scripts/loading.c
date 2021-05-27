@@ -83,7 +83,7 @@ void load_sounds()
 	dc_fidelity_setup("slam_light", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/world_heroes_slam_0.wav");
 
 	/* Block flash. */
-	dc_fidelity_setup("block", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/cvs_block.wav");
+	dc_fidelity_setup("flash_block", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/metal_deflect_0.wav");
 
 	/*  Hit flash */
 	dc_fidelity_setup("flash_blunt_cut", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/shinobi_box.wav");

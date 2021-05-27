@@ -23,7 +23,7 @@ projectilehit 			enemy obstacle
 hostile				player npc
 candamage			player npc obstacle
 #noatflash 			0
-bflash 				bflash
+bflash 				flash_block
 holdblock 			0
 thold 				34
 dust				fallh fall_land jump_liftoff

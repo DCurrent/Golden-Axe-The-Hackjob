@@ -23,7 +23,7 @@ height				50
 projectilehit 			enemy obstacle
 hostile				player npc
 candamage			player npc obstacle
-bflash 				bflash
+bflash 				flash_block
 blockodds 			29
 nopassiveblock 		1
 thold     			14

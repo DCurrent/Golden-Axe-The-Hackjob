@@ -14,7 +14,7 @@ grabforce 		1
 grabdistance 		36
 aimove 			chase
 grabfinish 		1
-bflash			bflash
+bflash			flash_block
 
 animationscript 	data/chars/alex/scripts/ani.c
 didhitscript 		data/scripts/dc_common_didhit/event_didhit.c

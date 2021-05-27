@@ -12,7 +12,6 @@ throwdamage 		0
 running 			19 5 1 1 0
 shadow				2
 risetime 			25
-bflash  			none
 noquake 			1
 makeinv 			2
 grabfinish 			1
@@ -23,7 +22,7 @@ gfxshadow 			1
 candamage			enemy obstacle
 projectilehit 		npc player
 noatflash 			0
-bflash 				bflash
+bflash 				flash_block
 #holdblock 			1
 thold 				34
 dust				fall_land jump_land jump_liftoff

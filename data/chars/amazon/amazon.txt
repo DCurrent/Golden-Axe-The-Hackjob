@@ -24,7 +24,7 @@ dust			fall_land jump_land jump_liftoff
 blockodds		1
 #nopassiveblock	1
 projectilehit 	enemy
-bflash 			bflash
+bflash 			flash_block
 komap			4 1
 grabforce		1
 height			50

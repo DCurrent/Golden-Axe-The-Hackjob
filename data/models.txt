@@ -20,7 +20,6 @@ combodelay		220
 load	pselect	    data/chars/plselect/pselect.txt									#Player select roulette.
 
 #*****Flash/Dust (~ module specific use)*****
-load	bflash		data/chars/misc/effects/models/flash/bflash/bflash.txt			#Block flash.					~Weapon deflect.
 # load	bluh		data/chars/misc/effects/models/flash/bluh/bluh.txt				#Blunt hit, heavy.				~Hammer thunk.
 # load	bonem		data/chars/misc/effects/models/flash/bonem/bonem.txt			#Bone crush, medium.
 
@@ -39,6 +38,8 @@ load	wallm		data/chars/misc/effects/models/flash/wallm/wallm.txt			#Wall impact,
 # load	whifgm		data/chars/misc/effects/models/flash/whifgm/whifgm.txt			#Action dust, medium.			~Animal attack, large weapon swing.	
 
 # Flash/hit effects
+
+load flash_block					data/chars/misc/cvs_block_flash/flash_block.txt							# Block flash..
 
 load flash_bite						data/chars/misc/blood_splat/flash_bite.txt								# Bite chomp.
 #load flash_blunt					data/chars/misc/blood_splat/flash_impact_cut.txt						# Large blunt weapon (maul/giant club).

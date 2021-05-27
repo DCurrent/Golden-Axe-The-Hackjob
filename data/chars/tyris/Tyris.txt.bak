@@ -20,7 +20,7 @@ height				55
 
 projectilehit 		player npc obstacle
 dust				fall_land jump_land jump_liftoff
-bflash 				bflash
+bflash 				flash_block
 holdblock 			0
 thold 				34
 

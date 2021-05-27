@@ -15,7 +15,7 @@ height				50
 projectilehit 		enemy obstacle player npc
 hostile				enemy obstacle player npc
 candamage			enemy obstacle player npc
-bflash 				bflash
+bflash 				flash_block
 aimove 				wander
 
 # You can knock the animal around, but

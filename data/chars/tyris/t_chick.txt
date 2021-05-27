@@ -216,7 +216,7 @@ anim  chargeattack
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 		frame	data/chars/tyris/chicken/0011
 	delay	175
-	@cmd 	proj0003 "effe0001" 1 1 1 0 0 0 0 0 19 A_FOLLOW7
+	@cmd 	proj0003 "effe0001" 1 1 1 0 0 0 0 0 19 openborconstant("ANI_FOLLOW7")
 		frame	data/chars/tyris/chicken/0012
 	delay	10
 	bbox    68 66 34 54

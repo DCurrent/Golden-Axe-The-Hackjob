@@ -385,7 +385,7 @@ anim follow2
 		frame	data/chars/amazon/dragon/0025
 	delay	-1000
    	bbox    64 56 27 46
-	@cmd	jump0003 A_JUMP 0 0
+	@cmd	jump0003 openborconstant("ANI_JUMP") 0 0
 		frame	data/chars/amazon/dragon/0020
 
 anim jumpdelay

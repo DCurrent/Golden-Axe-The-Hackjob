@@ -9,6 +9,6 @@ void main()
 
 	if(iAni == A_FSPECIAL3)
 	{
-		ani0009(vPar, A_FOLLOW12, -1);
+		ani0009(vPar, openborconstant("ANI_FOLLOW12"), -1);
 	}
 }

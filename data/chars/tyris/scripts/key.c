@@ -41,7 +41,7 @@ void main(){
 
 	if(iKAtk)
 	{		
-		if(iAni == A_RUNJUMP)
+		if(iAni == openborconstant("ANI_RUNJUMP"))
 		{			
 			if(iKLtH || iKRtH)																	//Holding left or right?
 			{					
@@ -85,12 +85,12 @@ void main(){
 				
 		vTar	= findtarget(vSelf, AC_DBJMPP, 100);										//Look for target in range of grab.
 								
-		if(iKJmp && (iAni == A_JUMP || iAni == A_RUNJUMP || iAni == AC_DBJMP || iAni == AC_DBJMPW || iAni == AC_DBJMPP) && vTar)																		//Valid target?
+		if(iKJmp && (iAni == openborconstant("ANI_JUMP") || iAni == openborconstant("ANI_RUNJUMP") || iAni == AC_DBJMP || iAni == AC_DBJMPW || iAni == AC_DBJMPP) && vTar)																		//Valid target?
 		{
 			
 			if(iAniT != openborconstant("ANI_FOLLOW10")
-				&& iAniT != A_RISE
-				&& iAniT != A_RISEATK)													//Not falling, not rising, and not being thrown already?
+				&& iAniT != openborconstant("ANI_RISE")
+				&& iAniT != openborconstant("ANI_RISEATTACK"))													//Not falling, not rising, and not being thrown already?
 				
 			{						
 				bind0014(vTar, 0);														//Initialize bind variable.	
@@ -104,7 +104,7 @@ void main(){
 		/*
 		Wall jump
 		*/
-		if(iKJmp && (iAni == A_JUMP || iAni == A_RUNJUMP || iAni == AC_DBJMP || iAni == AC_DBJMPP) && fY-iB < 150)			//In jumping animation and less than 150 from base?
+		if(iKJmp && (iAni == openborconstant("ANI_JUMP") || iAni == openborconstant("ANI_RUNJUMP") || iAni == AC_DBJMP || iAni == AC_DBJMPP) && fY-iB < 150)			//In jumping animation and less than 150 from base?
 		{
 			if(iKLtH || iKRtH)																	//Holding left or right?
 			{					
@@ -132,7 +132,7 @@ void main(){
 		/*
 		Double Jump
 		*/
-		if(iKJmp && (iAni == A_JUMP || iAni == A_RUNJUMP || iAni == AC_DBJMPW || iAni == AC_DBJMPP) && fY-iB < 150)
+		if(iKJmp && (iAni == openborconstant("ANI_JUMP") || iAni == openborconstant("ANI_RUNJUMP") || iAni == AC_DBJMPW || iAni == AC_DBJMPP) && fY-iB < 150)
 		{		
 
 			tossentity(vSelf, getentityproperty(vSelf, "jumpheight")*0.85, 0.1, 0);

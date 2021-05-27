@@ -1,4 +1,3 @@
-#include "data/scripts/vars/constants.h"	//http://www.caskeys.com/dc/?p=1314#constants
 #import "data/scripts/com/ani0009.h"		//http://www.caskeys.com/dc/?p=1314#ani0009
 #import "data/scripts/com/bind0014.h"		//http://www.caskeys.com/dc/?p=1314#bind0014
 #import "data/scripts/com/bind0023.h"		//http://www.caskeys.com/dc/?p=1314#bind0023
@@ -32,7 +31,7 @@ void main(){
 
 	if(iKAtk)
 	{
-		if(iAni == A_FSPECIAL11)
+		if(iAni == openborconstant("ANI_FREESPECIAL11"))
 		{
 			iPos = getentityproperty(vSelf, "animpos");
 			iLnd = getentityproperty(vSelf, "landframe", "frame", iAni);			
@@ -41,26 +40,27 @@ void main(){
 			{
 				if(iKDnH)
 				{					
-					ani0009(vSelf, A_FOLLOW8, -1);
+					ani0009(vSelf, openborconstant("ANI_FOLLOW8"), -1);
 				}
 				else
 				{
-					ani0009(vSelf, A_FOLLOW9, -1);					
+					ani0009(vSelf, openborconstant("ANI_FOLLOW9"), -1);					
 				}
 				changeplayerproperty(vSelf, "playkeys", 0);										//Clear key event.
 			}
 		}
-		else if(iAni == A_RUN)
+		else if(iAni == openborconstant("ANI_RUN"))
 		{
 			/*
 			Tackle
 			*/
+
 			iPos = getentityproperty(vSelf, "animpos");
 			iLnd = getentityproperty(vSelf, "landframe", "frame", iAni);
 
 			if(iKLtH || iKRtH)																	//Holding left or right?
 			{
-				vTar	= findtarget(vSelf, A_FOLLOW18, 100);									//Look for target in range of grab.
+				vTar	= findtarget(vSelf, openborconstant("ANI_FOLLOW18"), 100);									//Look for target in range of grab.
 								
 				if(vTar)																		//Valid target?
 				{
@@ -71,8 +71,8 @@ void main(){
 					iH		= fY - iBase;
 
 					if(iAni != openborconstant("ANI_FOLLOW10")															//Not being thrown already?
-						&& iAni != A_RISE														//Not getting up?
-						&& iAni != A_RISEATK													//Not getting up?
+						&& iAni != openborconstant("ANI_RISE")														//Not getting up?
+						&& iAni != openborconstant("ANI_RISEATTACK")													//Not getting up?
 						&& (!iDrop || iH >= 10))												//Either not falling or falling and more then 10 pixels from floor?
 					{	
 						/*
@@ -83,24 +83,22 @@ void main(){
 						if(!getentityproperty(vTar, "animal") && getentityproperty(vTar, "animvalid", openborconstant("ANI_FOLLOW10")))
 						{							
 							bind0014(vTar, 0);													//Initialize bind variable.	
-							ani0009(0, A_FOLLOW18, 0);											//Apply animation.
+							ani0009(0, openborconstant("ANI_FOLLOW18"), 0);											//Apply animation.
 							changeentityproperty(vSelf, "velocity", 0, 0, 0);
 							changeplayerproperty(vSelf, "playkeys", 0);							//Clear key event.							
 						}
 					}
-				}
-			}
-
+				}				
+			}			
 		}
-		else if(iAni == A_JUMP
-			|| iAni == A_RUNJUMP)
+		else if(iAni == openborconstant("ANI_JUMP")	|| iAni == openborconstant("ANI_RUNJUMP"))
 		{
 			/*
 			Air to Air throw (Ax Destroyer). 
 			*/
 			if(iKLtH || iKRtH)																	//Holding left or right?
 			{				
-				vTar	= findtarget(vSelf, A_FOLLOW12, 100);									//Look for target in range of grab.
+				vTar	= findtarget(vSelf, openborconstant("ANI_FOLLOW12"), 100);									//Look for target in range of grab.
 								
 				if(vTar)																		//Valid target?
 				{
@@ -120,14 +118,14 @@ void main(){
 						if(!getentityproperty(vTar, "animal") && getentityproperty(vTar, "animvalid", openborconstant("ANI_FOLLOW10")))
 						{
 							bind0014(vTar, 0);													//Initialize bind variable.	
-							ani0009(0, A_FOLLOW12, -1);											//Apply animation.
+							ani0009(0, openborconstant("ANI_FOLLOW12"), -1);											//Apply animation.
 							changeentityproperty(vSelf, "velocity",0,0,0);
 							changeplayerproperty(vSelf, "playkeys", 0);							//Clear key event.
 						}
 					}
 				}
 
-				vTar	= findtarget(vSelf, A_FOLLOW15, 100);									//Look for target in range of grab.
+				vTar	= findtarget(vSelf, openborconstant("ANI_FOLLOW15"), 100);									//Look for target in range of grab.
 								
 				if(vTar)																		//Valid target?
 				{
@@ -138,8 +136,8 @@ void main(){
 					iAni	= getentityproperty(vTar, "animationid");
 
 					if(iAni != openborconstant("ANI_FOLLOW10")
-						&& iAni != A_RISE
-						&& iAni != A_RISEATK
+						&& iAni != openborconstant("ANI_RISE")
+						&& iAni != openborconstant("ANI_RISEATTACK")
 						&& iH < 5 
 						&& !iDrop)																//Less then 5 pixels from ground, not falling, not rising, and not being thrown already?
 					{	
@@ -151,17 +149,17 @@ void main(){
 						if(!getentityproperty(vTar, "animal") && getentityproperty(vTar, "animvalid", openborconstant("ANI_FOLLOW10")))
 						{
 							bind0014(vTar, 0);													//Initialize bind variable.	
-							ani0009(0, A_FOLLOW15, -1);											//Apply animation.
+							ani0009(0, openborconstant("ANI_FOLLOW15"), -1);											//Apply animation.
 							changeplayerproperty(vSelf, "playkeys", 0);							//Clear key event.
 						}
 					}
 				}
 			}
 		}
-		else if(iAni == A_FOLLOW7
-			|| iAni == A_FOLLOW8
-			|| iAni == A_FOLLOW9
-			|| iAni == A_FOLLOW13)
+		else if(iAni == openborconstant("ANI_FOLLOW7")
+			|| iAni == openborconstant("ANI_FOLLOW8")
+			|| iAni == openborconstant("ANI_FOLLOW9")
+			|| iAni == openborconstant("ANI_FOLLOW13"))
 		{
 			changeplayerproperty(vSelf, "playkeys", 0);
 		}

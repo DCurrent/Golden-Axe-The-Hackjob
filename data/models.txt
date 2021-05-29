@@ -33,7 +33,7 @@ load	pselect	    data/chars/plselect/pselect.txt									#Player select roulette
 # load	jumpmw		data/chars/misc/effects/models/flash/jumpmw/jumpmw.txt			#Jump liftoff, medium, from wall.
 # load	landh		data/chars/misc/effects/models/flash/landh/landh.txt			#Jump land, heavy.
 # load	skel		data/chars/misc/effects/models/flash/skel/skel.txt				#Skeletal hit, light.			~Skeleton warrior taking hit.
-load	wallm		data/chars/misc/effects/models/flash/wallm/wallm.txt			#Wall impact, medium.			~Slammed into wall.
+
 # load	whifgh		data/chars/misc/effects/models/flash/whifgh/whifgh.txt			#Action dust, heavy.			~All out attack shuffle.
 # load	whifgm		data/chars/misc/effects/models/flash/whifgm/whifgm.txt			#Action dust, medium.			~Animal attack, large weapon swing.	
 
@@ -54,15 +54,15 @@ load flash_stab_knockdown			data/chars/misc/blood_splat/flash_stab_knockdown.txt
 
 # Slam/Dust effects.
 
-load dust_heavy		data/chars/misc/cvs_dust_cloud/dust_heavy.txt
-load dust_heavy		data/chars/misc/cvs_dust_cloud/dust_light.txt
-load fall_land		data/chars/misc/cvs_land_dust/fall_land.txt
-load hop_liftoff	data/chars/misc/cvs_jump_dust/hop_liftoff.txt
-load jump_land		data/chars/misc/cvs_land_dust/jump_land.txt
-load jump_liftoff	data/chars/misc/cvs_jump_dust/jump_liftoff.txt
-load slam_heavy		data/chars/misc/cvs_land_dust/slam_heavy.txt		# Slam impact, heavy (Powerful grapple finish, unique ground landing, etc.).
-load slam_light		data/chars/misc/cvs_land_dust/slam_light.txt		# Slam impact, light (Heavy creature dive, body slam, etc.).
-
+load dust_heavy			data/chars/misc/cvs_dust_cloud/dust_heavy.txt
+load dust_heavy			data/chars/misc/cvs_dust_cloud/dust_light.txt
+load fall_land			data/chars/misc/cvs_land_dust/fall_land.txt
+load hop_liftoff		data/chars/misc/cvs_jump_dust/hop_liftoff.txt
+load jump_land			data/chars/misc/cvs_land_dust/jump_land.txt
+load jump_liftoff		data/chars/misc/cvs_jump_dust/jump_liftoff.txt
+load slam_heavy			data/chars/misc/cvs_land_dust/slam_heavy.txt			# Slam impact, heavy (Powerful grapple finish, unique ground landing, etc.).
+load slam_light			data/chars/misc/cvs_land_dust/slam_light.txt			# Slam impact, light (Heavy creature dive, body slam, etc.).
+load wall_impact_medium	data/chars/misc/cvs_wall_impact/wall_impact_medium.txt	# Wall impact, medium (slam into wall).
 
 load	effe0001	data/chars/misc/effects/effe0001.txt	#General effects/projectiles.
 

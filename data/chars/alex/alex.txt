@@ -1225,7 +1225,7 @@ anim	follow8
 	move  -1
 	@cmd  bind0010 FLAG_MODE_0 ENT_SELF  0  10  180  -1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_VERDNP  0
 	delay  50
-	@cmd	bind0008 MODEL_FLWALLM MODEL_FLWALLM 0 1 10 50 1 0 0 0 1				#Wall Dust.
+	@cmd	bind0008 "wall_impact_medium" "wall_impact_medium" 0 1 10 50 1 0 0 0 1				#Wall Dust.
 		frame  data/chars/alex/0081.png
 	delay  10
 	move  0
@@ -1287,7 +1287,7 @@ anim  follow9
 	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF  0  12  170  -1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP  0
 		frame  data/chars/alex/0086.png
 	delay  	40
-	@cmd	bind0008 MODEL_FLWALLM MODEL_FLWALLM 0 1 5 25 1 0 0 0 1
+	@cmd	bind0008 "wall_impact_medium" "wall_impact_medium" 0 1 5 25 1 0 0 0 1
 	@cmd	dama0004 0 0 7 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0		#Apply damage.
 	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF  0  20  170  -1  DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDP  0
 		frame  data/chars/alex/0087.png

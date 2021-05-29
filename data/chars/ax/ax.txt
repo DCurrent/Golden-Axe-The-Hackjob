@@ -2034,7 +2034,7 @@ anim  follow10 # Wall Slam to Atomic Drop.
 		frame  data/chars/ax/0085.png	#6
 	delay  30
 	@cmd	dama0004 0 0 7 10 openborconstant("ATK_NORMAL") 1 0 0 0 0 0 0 0	    	#Apply damage.
-	@cmd	bind0008 MODEL_FLWALLM MODEL_FLWALLM 0 1 -70 50 1 0 0 0 1				#Wall Dust.
+	@cmd	bind0008 "wall_impact_medium" "wall_impact_medium" 0 1 -70 50 1 0 0 0 1				#Wall Dust.
 	@cmd bind0010 FLAG_MODE_0 ENT_SELF 0 -32 175 1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_VERDNP 1
 		frame  data/chars/ax/0086.png	#7
 	delay  10

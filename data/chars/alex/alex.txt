@@ -98,10 +98,7 @@ anim waiting
 		frame   data/chars/alex/select/0008
 
 anim select
-
-	custpshotno effe0002
-	pshotframe  0
-
+	
 	delay   10
     	offset  80 200
     	fshadow 0

@@ -1376,9 +1376,6 @@ anim	waiting
 
 anim	select
 
-	custpshotno effe0002
-	pshotframe  0
-
 	delay   10
     offset  61 130
     fshadow 0

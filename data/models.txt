@@ -65,7 +65,6 @@ load slam_light		data/chars/misc/cvs_land_dust/slam_light.txt		# Slam impact, li
 
 
 load	effe0001	data/chars/misc/effects/effe0001.txt	#General effects/projectiles.
-load	effe0002	data/chars/misc/effects/effe0002.txt	#Char select burn.
 
 know    meat            data/chars/misc/meat.txt
 know    time            data/chars/misc/time.txt

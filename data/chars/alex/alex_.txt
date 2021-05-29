@@ -14,6 +14,7 @@ shadow	2
 load text1
 load text2
 load text3
+load dummy
 
 
 animationscript data/chars/alex/scripts/alex.c

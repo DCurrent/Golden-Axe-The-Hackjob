@@ -66,8 +66,7 @@ load slam_light		data/chars/misc/cvs_land_dust/slam_light.txt		# Slam impact, li
 
 load	effe0001	data/chars/misc/effects/effe0001.txt	#General effects/projectiles.
 
-know    meat            data/chars/misc/meat.txt
-know    time            data/chars/misc/time.txt
+know    meat            data/chars/misc/golden_axe_meat/meat.txt
 load    Magic           data/chars/misc/magic_pot/magic.txt
 know    Magic_Pot       data/chars/misc/magic_pot/magic_pot.txt
 load    bor_steam       data/chars/misc/bor_steam/bor_steam.txt
@@ -76,12 +75,6 @@ load    ga_dragon_fireball_ex	data/chars/misc/bionicle_lon_fireball/ga_dragon_fi
 load    fireball        data/chars/misc/effects/fire0003/fireball.txt		#Dragon fireball.
 
 know    kuna0001        data/chars/misc/effects/kuna0001/kuna0001.txt		#Thrown kunai.
-
-load    dummy           data/chars/misc/dummy.txt       			#dummy enemy
-know    scplayer        data/chars/misc/scplayer.txt    			#dummy enemy, ending player
-
-load    screen          data/chars/misc/screen.txt
-
 
 ######Players######
 
@@ -164,22 +157,6 @@ know    text1           data/chars/alex/text1.txt
 know    text2           data/chars/alex/text2.txt
 know    text3           data/chars/alex/text3.txt
 know    Alex_           data/chars/alex/alex_.txt
+know    dummy           data/chars/alex/dummy.txt
 
-#Other stuff
-know    palette_changer data/chars/misc/palchg.txt
-know    eyeball         data/chars/misc/eyeball.txt
-know    pillar          data/chars/misc/pillar.txt
-know    wing            data/chars/misc/wing.txt
-know    eagle_eye       data/chars/misc/eeyeball.txt
-know    door            data/chars/misc/door.txt
-know    sky             data/chars/misc/sky.txt
-know    hole            data/chars/misc/hole.txt
-know    feather         data/chars/misc/feather.txt
-know    cfire           data/chars/misc/effects/models/cfire/cfire.txt
-know    water           data/chars/misc/water.txt
-know    king            data/chars/misc/king.txt
-know    endlevel        data/chars/misc/endlevel.txt
-know	Knife		data/chars/misc/knife.txt
-know	Shot		data/chars/misc/shot.txt
-know	Star		data/chars/misc/star.txt
 

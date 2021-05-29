@@ -18,14 +18,15 @@ fmap				9
 height				55
 holdblock           2
 
-animationscript 	data/chars/ax/scripts/ani.c
+animationscript 	data/chars/chicken/scripts/event_animation.c
 didhitscript 		data/scripts/dc_common_didhit/event_didhit.c
 onblockoscript		data/scripts/dc_common_onblock/event_onblocko.c
 onblocksscript		data/scripts/dc_common_onblock/event_onblocks.c
 onblockwscript		data/scripts/dc_common_onblock/event_onblockw.c
 onblockzscript		data/scripts/dc_common_onblock/event_onblockz.c
 ondeathscript		data/scripts/dc_common_ondeath/event_ondeath.c
-onfallscript		data/scripts/dc_common_onfall/event_onfall_player.c	
+#ondoattackscript			
+onfallscript		data/scripts/dc_common_onfall/event_onfall_player.c					
 onmoveascript		data/scripts/dc_common_onmovea/event_onmovea.c
 onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
 onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
@@ -34,13 +35,10 @@ onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
 takedamagescript	data/scripts/dc_common_takedamage/event_takedamage.c	
 thinkscript			data/scripts/z_think.c				#Entity AI updates.
 
-com					a2 	freespecial2					#Backstep.
-
-modelflag 			1
+modelflag 			7
 weapons 			a_chick a_rdrag a_bdrag
 aggression 			60
-#nolife  			1
-jumpmove			0 1
+jumpmove			7 1
 
 palette      		data/chars/ax/palette_default.act
 
@@ -438,8 +436,8 @@ anim grab
     	delay   1
 	offset	78 142
     	bbox    66 80 34 64
-    	@cmd stal0001 1000
-	@cmd seal0001 1 1000
+    	#cmd stal0001 1000
+	#cmd seal0001 1 1000
 		frame	data/chars/ax/chicken/grab_0.png
 
 anim grabattack
@@ -457,7 +455,7 @@ anim grabattack
 	
 	delay	8
 	
-	@cmd stal0001 1000
+	#cmd stal0001 1000
 	
 	frame	data/chars/ax/chicken/grab_pommel_strike_1.png
 	

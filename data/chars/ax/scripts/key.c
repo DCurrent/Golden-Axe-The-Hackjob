@@ -31,6 +31,7 @@ void main(){
 
 	if(iKAtk)
 	{
+		/* Piledriver or air throw. */
 		if(iAni == openborconstant("ANI_FREESPECIAL11"))
 		{
 			iPos = getentityproperty(vSelf, "animpos");
@@ -40,10 +41,12 @@ void main(){
 			{
 				if(iKDnH)
 				{					
+					/* Piledriver */
 					ani0009(vSelf, openborconstant("ANI_FOLLOW8"), -1);
 				}
 				else
 				{
+					/* Air throw */
 					ani0009(vSelf, openborconstant("ANI_FOLLOW9"), -1);					
 				}
 				changeplayerproperty(vSelf, "playkeys", 0);										//Clear key event.
@@ -58,9 +61,13 @@ void main(){
 			iPos = getentityproperty(vSelf, "animpos");
 			iLnd = getentityproperty(vSelf, "landframe", "frame", iAni);
 
-			if(iKLtH || iKRtH)																	//Holding left or right?
+			/* 
+			* Holding left or right?
+			*/
+			if(iKLtH || iKRtH)
 			{
-				vTar	= findtarget(vSelf, openborconstant("ANI_FOLLOW18"), 100);									//Look for target in range of grab.
+				
+				vTar	= findtarget(vSelf, openborconstant("ANI_FOLLOW18"), 100);									
 								
 				if(vTar)																		//Valid target?
 				{

@@ -2,7 +2,7 @@
 
 #import "data/scripts/z_ani.c"
 
-#import "data/scripts/com/dc_ai_avoid_jump_attack.c"        //Avoid jump attacks by walking laterally.
+#import "data/scripts/dc_common_source/dc_ai_avoid_jump_attack.c"        //Avoid jump attacks by walking laterally.
 #import "data/scripts/com/ani0009.h"		//Animation switch wrapper.
 #import "data/scripts/com/ani0012.h"		//Switch animation when height is < 70% of target.
 #import "data/scripts/com/ani0017.h"		//Switch to alternate animation if nearest hostile is in range of alt and all checks match.

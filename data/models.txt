@@ -75,6 +75,7 @@ load    smoke           data/chars/misc/smoke.txt
 load    Steam           data/chars/misc/steam.txt
 know    shockwave       data/chars/misc/shockwav.txt
 load    fireexpl        data/chars/misc/effects/fire0004/fireexpl.txt		#Fireball explosion.
+load    ga_dragon_fireball_ex	data/chars/misc/bionicle_lon_fireball/ga_dragon_fireball_ex.txt
 load    chasball        data/chars/misc/effects/fire0003/chasball.txt		#Seeker fireball.
 load    fireball        data/chars/misc/effects/fire0003/fireball.txt		#Dragon fireball.
 

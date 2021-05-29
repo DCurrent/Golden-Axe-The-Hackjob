@@ -19,7 +19,7 @@
 #import "data/scripts/com/velo0003.h"
 
 
-#import "data/scripts/com/dc_ai_avoid_jump_attack.c"
+#import "data/scripts/dc_common_source/dc_ai_avoid_jump_attack.c"
 
 #include "data/scripts/dc_disney/main.c"
 #include "data/scripts/dc_fidelity/main.c"

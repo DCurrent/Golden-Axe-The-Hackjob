@@ -113,7 +113,7 @@ anim idle
 	offset	60 98
 	bbox	49 48 27 51
 	delay	15
-	@cmd savemp
+	@cmd dc_persistent_status_save
 		frame	data/chars/alex/0015.png
 		frame	data/chars/alex/0016.png
 		frame	data/chars/alex/0017.png
@@ -126,9 +126,9 @@ anim spawn
 	bbox	49 45 32 53
 	delay	25
 	@cmd killentity getglobalvar("a_npc")
-	@cmd adjustmp
+	@cmd dc_persistent_status_apply
 		frame	data/chars/alex/0017
-	@cmd adjustmp
+	@cmd dc_persistent_status_apply
 		frame	data/chars/alex/0016
 
 anim respawn
@@ -138,9 +138,9 @@ anim respawn
 	bbox	49 45 32 53
 	delay	25
 	@cmd killentity getglobalvar("a_npc")
-	@cmd adjustmp
+	@cmd dc_persistent_status_apply
 		frame	data/chars/alex/0017
-	@cmd adjustmp
+	@cmd dc_persistent_status_apply
 		frame	data/chars/alex/0016
 
 anim get
@@ -148,7 +148,7 @@ anim get
 	offset	66 98
 	bbox	0
 	delay	150
-	@cmd adjustmp
+	@cmd dc_persistent_status_apply
 		frame	data/chars/alex/0071.png
 		delay  20
 		offset  60  98
@@ -1008,7 +1008,7 @@ anim freespecial8
     		frame	data/chars/alex/0061.png
 	delay	15
 	@cmd	soun0005 ENT_SELF VOI_CHN -1 1 0 0
-	@cmd 	savemp
+	@cmd 	dc_persistent_status_save
 	#cmd 	pause_others
 		frame	data/chars/alex/0061.png
    	delay   150

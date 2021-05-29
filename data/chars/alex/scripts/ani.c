@@ -19,7 +19,7 @@
 #import "data/scripts/com/soun0005.h"
 
 
-#import "data/scripts/com/dc_ai_avoid_jump_attack.c"        //Avoid jump attacks.
+#import "data/scripts/dc_common_source/dc_ai_avoid_jump_attack.c"        //Avoid jump attacks.
 
 #include "data/scripts/dc_disney/main.c"
 #include "data/scripts/dc_fidelity/main.c"

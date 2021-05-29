@@ -1,5 +1,5 @@
-#import "data/scripts/com/dc_ai_terrain_turn_around.c"    // Get around walls.
-#import "data/scripts/com/dc_ai_escape.c"    // Find way out of screen.
+#import "data/scripts/dc_common_source/dc_ai_terrain_turn_around.c"    // Get around walls.
+#import "data/scripts/dc_common_source/dc_ai_escape.c"    // Find way out of screen.
 
 #import "data/chars/thief/scripts/thief_escape.c"
 

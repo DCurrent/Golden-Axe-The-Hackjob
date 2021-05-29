@@ -1113,7 +1113,7 @@ anim	rise
 	landframe	6 jump_land
 	offset	54 95
 	delay	8
-	@cmd	riseinv 200
+	@cmd	set_self_invincibility 200
 	frame	data/chars/tyris/0137.png
 	move	0
 	frame	data/chars/tyris/0142.png

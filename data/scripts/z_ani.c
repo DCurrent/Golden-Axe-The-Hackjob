@@ -2,7 +2,7 @@
 
 #include "data/scripts/vars/constants.h"	//http://www.caskeys.com/dc/?p=1314#constants
 
-#import "data/scripts/com/dc_ai_avoid_jump_attack.c"        //Avoid jump attacks by walking laterally.
+#import "data/scripts/dc_common_source/dc_ai_avoid_jump_attack.c"        //Avoid jump attacks by walking laterally.
 #import "data/scripts/com/ani0009.h"		//Animation switch wrapper.
 #import "data/scripts/com/ani0012.h"		//Switch animation when height is < 70% of target.
 #import "data/scripts/com/ani0017.h"		//Switch to alternate animation if nearest hostile is in range of alt and all checks match.
@@ -43,12 +43,12 @@ void backattack()
 		if((dx>-42 && dz<12 && dx < 0 && dir==0) || (dx<42 && dz<12 && dx>0 && dir==1) )
 		{
 			// back attack
-			changeentityproperty(self, "animation", A_ATKBACK);
+			changeentityproperty(self, "animation", openborconstant("ANI_ATTACKBACKWARD"));
 		}
 	}
 }
 
-void riseinv(int t)
+void set_self_invincibility(int t)
 {
     void self = getlocalvar("self");
 	changeentityproperty(self, "invincible", 1);
@@ -63,12 +63,12 @@ void change_slam_2()
     void target = getentityproperty(self, "opponent");
     if(target!=NULL())
     {
-        changeentityproperty(target, "animation", A_FALL5);
+        changeentityproperty(target, "animation", openborconstant("ANI_FALL5"));
         bindentity(target, self, 32, -1, 35, 1, 0);
     }
 }
 
-void savemp()
+void dc_persistent_status_save()
 {
 	void self = getlocalvar("self");
     int index = getentityproperty(self, "playerindex");
@@ -80,7 +80,7 @@ void savemp()
     }
 }
 
-void adjustmp()
+void dc_persistent_status_apply()
 {
 	void self = getlocalvar("self");
     int index = getentityproperty(self, "playerindex");

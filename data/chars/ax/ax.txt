@@ -41,7 +41,7 @@ load 				ax_chicken_motion					# Chicken Leg, motion blurs.
 load 				a_rdrag								# Red dragon.
 load 				a_bdrag								# Blue dragon.
 
-modelflag			1
+modelflag			4
 weapons 			a_chick a_rdrag a_bdrag
 combostyle 			1
 atchain 			1
@@ -113,10 +113,10 @@ anim spawn
 	delay	1
 	offset	60 98
 @cmd killentity getglobalvar("a_npc")
-@cmd adjustmp
+@cmd dc_persistent_status_apply
 		frame	data/chars/ax/idle_0.png
 	delay	50
-@cmd adjustmp
+@cmd dc_persistent_status_apply
 		frame	data/chars/ax/idle_0.png
 
 anim respawn
@@ -124,10 +124,10 @@ anim respawn
 	delay	1
 	offset	60 98
 @cmd killentity getglobalvar("a_npc")
-@cmd adjustmp
+@cmd dc_persistent_status_apply
 		frame	data/chars/ax/idle_0.png
 	delay	50
-@cmd adjustmp
+@cmd dc_persistent_status_apply
 		frame	data/chars/ax/idle_0.png
 
 anim idle
@@ -136,7 +136,7 @@ anim idle
 	delay	15
 	offset	60 98
 	bbox	43 38 26 60
-	@cmd savemp
+	@cmd dc_persistent_status_save
 		frame	data/chars/ax/idle_0.png
 		frame	data/chars/ax/idle_1.png
 		frame	data/chars/ax/idle_2.png
@@ -148,7 +148,7 @@ anim get
 	delay	150
 	offset	60 98
 
-	@cmd adjustmp
+	@cmd dc_persistent_status_apply
 		frame	data/chars/ax/sleep.png
 	delay	15
 		frame	data/chars/ax/rise_0.png
@@ -1201,7 +1201,7 @@ anim freespecial8 # Magic
 	offset	60 98
     delay   16
     @cmd throw_bottles
-    @cmd savemp
+    @cmd dc_persistent_status_save
 		frame	data/chars/ax/m1.png
     delay   40
 		frame	data/chars/ax/m2.png
@@ -2876,7 +2876,7 @@ anim rise
 		frame	data/chars/ax/die.png
 	delay  10
 		frame	data/chars/ax/rise_0.png
-	@cmd riseinv 200
+	@cmd set_self_invincibility 200
 	move  12
 		frame	data/chars/ax/rise_1.png
 	offset  60  98
@@ -3051,7 +3051,7 @@ anim death
 		frame  data/chars/ax/die.png
 	delay  12
 		frame  data/chars/ax/rise_0.png
-	@cmd  riseinv  200
+	@cmd  set_self_invincibility  200
 	move  12
 		frame  data/chars/ax/rise_1.png
 	offset  60  98

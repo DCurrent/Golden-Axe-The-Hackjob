@@ -72,11 +72,11 @@
 #define AC_PAINMID					A_PAIN2								    //Middle pain.
 #define AC_PAINLOW					A_PAIN								    //Low pain.
 #define AC_PAINHIGH					A_PAIN								    //High pain.
-#define AC_POWUP					openborconstant("ANI_FOLLOW9")4								//Power up animation.
+#define AC_POWUP					openborconstant("ANI_FOLLOW9")			//Power up animation.
 #define AC_SPLAT					A_FALL8									//Thrown hard onto head.
 #define AC_SWEPT					A_FALL3									//Foot sweep.
-#define AC_TEAM1					openborconstant("ANI_FOLLOW8")8								//Team call pose.
-#define AC_TOSS						A_FALL5									//Thrown.
+#define AC_TEAM1					openborconstant("ANI_FOLLOW8")			//Team call pose.
+#define AC_TOSS						openborconstant("ANI_FALL5")			//Thrown.
 
 /******Animations, engine defined******/
 #define A_ATK2						openborconstant("ANI_ATTACK2")
@@ -86,7 +86,6 @@
 #define A_ATK6						openborconstant("ANI_ATTACK6")
 #define A_ATK7						openborconstant("ANI_ATTACK7")
 #define A_ATKUP						openborconstant("ANI_ATTACKUP")
-#define A_ATKBACK					openborconstant("ANI_ATTACKBACKWARD")
 #define A_BLOCK						openborconstant("ANI_BLOCK")
 #define A_BLOCKP					openborconstant("ANI_BLOCKPAIN")
 #define A_BLOCKP2					openborconstant("ANI_BLOCKPAIN2")
@@ -111,7 +110,6 @@
 #define A_FALL2						openborconstant("ANI_FALL2")
 #define A_FALL3						openborconstant("ANI_FALL3")
 #define A_FALL4						openborconstant("ANI_FALL4")
-#define A_FALL5						openborconstant("ANI_FALL5")
 #define A_FALL6						openborconstant("ANI_FALL6")
 #define A_FALL7						openborconstant("ANI_FALL7")
 #define A_FALL8						openborconstant("ANI_FALL8")

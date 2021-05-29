@@ -2,7 +2,7 @@ name	Steamer
 type	steamer
 shadow	0
 
-load	Steam
+load	bor_steam
 
 anim idle
 	loop	0

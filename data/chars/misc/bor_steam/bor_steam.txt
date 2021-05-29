@@ -1,0 +1,27 @@
+name	bor_steam
+lifespan 1
+type	none
+shadow	0
+
+alpha 2
+
+palette data/chars/misc/bor_steam/idle_0.png
+
+anim idle
+	loop	0
+	delay	5
+	offset	50 50
+    movea 2 
+	frame	data/chars/misc/bor_steam/idle_0.png
+	frame	data/chars/misc/bor_steam/idle_1.png
+	frame	data/chars/misc/bor_steam/idle_2.png
+	frame	data/chars/misc/bor_steam/idle_3.png
+	frame	data/chars/misc/bor_steam/idle_4.png
+	frame	data/chars/misc/bor_steam/idle_5.png
+	frame	data/chars/misc/bor_steam/idle_6.png
+	frame	data/chars/misc/bor_steam/idle_7.png
+	frame	data/chars/misc/bor_steam/idle_8.png
+	frame	data/chars/misc/bor_steam/idle_9.png
+	frame	data/chars/misc/bor_steam/idle_10.png
+	frame	data/chars/misc/blank.png
+

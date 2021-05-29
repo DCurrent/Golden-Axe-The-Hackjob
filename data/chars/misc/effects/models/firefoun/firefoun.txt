@@ -12,7 +12,7 @@ anim spawn
     
     delay 4
     offset 51 132
-    hitflash Steam
+    hitflash bor_steam
     sound   data/sounds/burn.wav
     drawmethod 32 32 0 0 0 -1
     frame data/chars/misc/effects/fire0027/0001
@@ -33,7 +33,7 @@ anim respawn
     
     delay 4
     offset 51 132
-    hitflash Steam
+    hitflash bor_steam
     #sound   data/sounds/burn.wav
     drawmethod 32 32 0 0 0 -1
     frame data/chars/misc/effects/fire0027/0001
@@ -54,7 +54,7 @@ anim idle
     loop 1
     delay 5
     offset 51 132
-    hitflash Steam
+    hitflash bor_steam
     burn 0 0 102 160 16 1 1 0
     attackz 30
     frame data/chars/misc/effects/fire0027/0007

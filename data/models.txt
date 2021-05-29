@@ -70,7 +70,7 @@ know    meat            data/chars/misc/meat.txt
 know    time            data/chars/misc/time.txt
 load    Magic           data/chars/misc/magic_pot/magic.txt
 know    Magic_Pot       data/chars/misc/magic_pot/magic_pot.txt
-load    Steam           data/chars/misc/steam.txt
+load    bor_steam       data/chars/misc/bor_steam/bor_steam.txt
 load    fireexpl        data/chars/misc/effects/fire0004/fireexpl.txt		#Fireball explosion.
 load    ga_dragon_fireball_ex	data/chars/misc/bionicle_lon_fireball/ga_dragon_fireball_ex.txt
 load    fireball        data/chars/misc/effects/fire0003/fireball.txt		#Dragon fireball.

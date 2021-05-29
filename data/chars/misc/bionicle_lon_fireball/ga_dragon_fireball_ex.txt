@@ -24,7 +24,7 @@ anim idle
 	attack.size.y 62
 	attack.reaction.fall.velocity.x 1.0
 	attack.reaction.fall.velocity.y 2.0
-	attack.effect.hit.flash.model steam
+	attack.effect.hit.flash.model bor_steam
 	
 	drawmethod scale 0.5 0.5
 	
@@ -46,7 +46,7 @@ anim idle
 	attack.size.y 62
 	attack.reaction.fall.velocity.x 1.0
 	attack.reaction.fall.velocity.y 2.0
-	attack.effect.hit.flash.model steam
+	attack.effect.hit.flash.model bor_steam
 	
 	frame	data/chars/misc/bionicle_lon_fireball/idle_4.png
 	frame	data/chars/misc/bionicle_lon_fireball/idle_5.png
@@ -66,7 +66,7 @@ anim idle
 	attack.size.y 62
 	attack.reaction.fall.velocity.x 1.0
 	attack.reaction.fall.velocity.y 2.0
-	attack.effect.hit.flash.model steam
+	attack.effect.hit.flash.model bor_steam
 	
 	frame	data/chars/misc/bionicle_lon_fireball/idle_8.png
 	frame	data/chars/misc/bionicle_lon_fireball/idle_9.png
@@ -81,7 +81,7 @@ anim idle
 	attack.size.y 62
 	attack.reaction.fall.velocity.x 1.0
 	attack.reaction.fall.velocity.y 2.0
-	attack.effect.hit.flash.model steam
+	attack.effect.hit.flash.model bor_steam
 	
 	frame	data/chars/misc/bionicle_lon_fireball/idle_10.png	
 	frame	data/chars/misc/bionicle_lon_fireball/idle_11.png
@@ -101,7 +101,7 @@ anim idle
 	attack.size.y 62
 	attack.reaction.fall.velocity.x 1.0
 	attack.reaction.fall.velocity.y 2.0
-	attack.effect.hit.flash.model steam
+	attack.effect.hit.flash.model bor_steam
 	
 	frame	data/chars/misc/bionicle_lon_fireball/idle_14.png
 	frame	data/chars/misc/bionicle_lon_fireball/idle_15.png
@@ -121,7 +121,7 @@ anim idle
 	attack.size.y 62
 	attack.reaction.fall.velocity.x 1.0
 	attack.reaction.fall.velocity.y 2.0
-	attack.effect.hit.flash.model steam
+	attack.effect.hit.flash.model bor_steam
 	
 	frame	data/chars/misc/bionicle_lon_fireball/idle_18.png
 	frame	data/chars/misc/bionicle_lon_fireball/idle_19.png
@@ -141,7 +141,7 @@ anim idle
 	attack.size.y 62
 	attack.reaction.fall.velocity.x 1.0
 	attack.reaction.fall.velocity.y 2.0
-	attack.effect.hit.flash.model steam
+	attack.effect.hit.flash.model bor_steam
 	
 	frame	data/chars/misc/bionicle_lon_fireball/idle_22.png	
 	

@@ -17,5 +17,5 @@ anim idle
 @cmd setglobalvar "p" NULL()
 @cmd killentity getglobalvar("dummy")
 @cmd setglobalvar "dummy" NULL()
-	frame	Data\CHARS\misc\empty.gif
+	frame	Data\CHARS\misc\blank.png
 

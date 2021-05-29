@@ -17,7 +17,7 @@ anim spawn
     movea 4
     movez  2
     burn 0 0 48 48 8 1 1 0
-    hitflash steam
+    hitflash bor_steam
     frame data/chars/misc/effects/fire0026/0001
     frame data/chars/misc/effects/fire0026/0002
     frame data/chars/misc/effects/fire0026/0003
@@ -74,7 +74,7 @@ anim idle
     delay 6
     offset 24 48
     burn 0 0 48 48 8 1 1
-    hitflash steam
+    hitflash bor_steam
     hitfx data/sounds/imp.wav
 @script
 void self = getlocalvar("self");

@@ -12,19 +12,19 @@ hostile enemy
 
 alpha 1
 
-load steam
+load bor_steam
 
 script data/chars/misc/rock.c
 
 
 anim idle
-    subentity steam
+    subentity bor_steam
     spawnframe 1
     loop 1
     delay 6
     offset 74 96
     seta 32
-    hitflash steam
+    hitflash bor_steam
     hitfx data/sounds/burn.wav	
     burn 0 0 148 100 32 1 1 0
     frame data/chars/misc/effects/fire0025/0001
@@ -32,13 +32,13 @@ anim idle
     frame data/chars/misc/effects/fire0025/0003
 
 anim walk
-    subentity steam
+    subentity bor_steam
     spawnframe 1
     loop 1
     delay 6
     offset 74 96
     seta 32
-    hitflash steam
+    hitflash bor_steam
     hitfx data/sounds/burn.wav	
     burn 0 0 148 100 32 1 1 0
     frame data/chars/misc/effects/fire0025/0001
@@ -46,13 +46,13 @@ anim walk
     frame data/chars/misc/effects/fire0025/0003
 
 anim up
-    subentity steam
+    subentity bor_steam
     spawnframe 1
     loop 1
     delay 6
     seta 32
     offset 74 96
-    hitflash steam
+    hitflash bor_steam
     hitfx data/sounds/burn.wav	
     burn 0 0 148 100 32 1 1 0
     frame data/chars/misc/effects/fire0025/0004

@@ -128,7 +128,7 @@ anim follow3
 	#CVS2 Dhalsiem Yoga blast.	
 	#-Blue dragon's fire breath.
 	
-	hitflash steam
+	hitflash bor_steam
 
 	offset -40 0
     	delay   5    	
@@ -171,7 +171,7 @@ anim follow4
 	#CVS2 Dhalsiem Yoga stream.
     #-Blue Dragon's "charged" fire breath.
 
-    hitflash	steam	
+    hitflash	bor_steam	
 	
 	offset	-38 65
     delay   6    
@@ -226,7 +226,7 @@ anim follow5
 	#CVS2 Yoga Fire
 	#-Red Dragon Fireball.
 
-	hitflash   steam
+	hitflash   bor_steam
         followanim 1
         followcond 1
 	
@@ -286,7 +286,7 @@ anim follow7
 	#CVS2 Blanka ball electric
 	#-Chicken Leg elec shell.
 
-	hitflash   steam
+	hitflash   bor_steam
 
 	delay	8
 	offset 82 125

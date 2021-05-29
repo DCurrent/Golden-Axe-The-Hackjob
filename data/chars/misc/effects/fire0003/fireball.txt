@@ -15,7 +15,7 @@ didhitscript	data/scripts/hit0003.c
 
 anim idle
 	
-	hitflash   steam
+	hitflash   bor_steam
         followanim 1
         followcond 1
 	fastattack 1

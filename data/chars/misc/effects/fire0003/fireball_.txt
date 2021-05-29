@@ -16,7 +16,7 @@ alternatepal	data/chars/misc/effects/fire0004/0001
 
 anim idle
 
-	hitflash   steam
+	hitflash   bor_steam
         followanim 1
         followcond 1
 	fastattack 1

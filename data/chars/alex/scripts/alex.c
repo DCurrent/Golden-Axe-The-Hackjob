@@ -3,8 +3,6 @@
 //  Used by npc file alex_.txt
 //*****************************************************
 
-#include "data/scripts/vars/constants.h"
-
 // spawn a dummy enemy to hold level scrolling
 void spawndummy()
 {
@@ -118,7 +116,7 @@ void checktext()
             setspawnentry("name", "text3");
             text3 = spawn();
             adjustpos(text3);
-            changeentityproperty(self, "animation", A_DEATH10);
+            changeentityproperty(self, "animation", openborconstant("ANI_DIE10"));
             setlocalvar("text3", text3);
         }
     }// end of if

@@ -1028,42 +1028,65 @@ anim  freespecial9
 
 	offset  60  98
 	delay  8
+	
 	@cmd	bind0003 "alex0001" "bow" 1 0 0 0 -1 1 7
+	
 	bbox  53  45  23  53
-		frame  data/chars/alex/0091.png
+	
+	frame  data/chars/alex/0091.png
+
 	offset  65  97
 	bbox  58  45  26  52
-		frame  data/chars/alex/0067.png
+
+	frame  data/chars/alex/0067.png
+
 	offset  60  98
 	bbox  52  51  22  47
-		frame  data/chars/alex/0092.png
+
+	frame  data/chars/alex/0092.png
+
 	delay  10
 	bbox  45  47  22  51
-		frame  data/chars/alex/0093.png
+
+	frame  data/chars/alex/0093.png
+
 	delay  25
-		frame  data/chars/alex/0094.png
+
+	frame  data/chars/alex/0094.png
+
 	delay  8
+
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
 	@cmd 	proj0003 "effe0001" 25 40 -2 2.5 0 0 0 0 20 openborconstant("ANI_FOLLOW8")
-		frame  data/chars/alex/0095.png
+	
+	frame  data/chars/alex/0095.png
 	delay  5
-		frame  data/chars/alex/0094.png
-		frame  data/chars/alex/0094.png
-		frame  data/chars/alex/0094.png
-		frame  data/chars/alex/0094.png
-		frame  data/chars/alex/0094.png
-		frame  data/chars/alex/0094.png
+
+	frame  data/chars/alex/0094.png
+	frame  data/chars/alex/0094.png
+	frame  data/chars/alex/0094.png
+	frame  data/chars/alex/0094.png
+	frame  data/chars/alex/0094.png
+	frame  data/chars/alex/0094.png
+
 	delay  40
-		frame  data/chars/alex/0094.png
+
+	frame  data/chars/alex/0094.png
+
 	delay  8
 	bbox  50  51  22  47
-		frame  data/chars/alex/0092.png
+
+	frame  data/chars/alex/0092.png
+
 	offset  65  97
 	bbox  59  46  25  51
-		frame  data/chars/alex/0067.png
+
+	frame  data/chars/alex/0067.png
+
 	offset  60  98
 	bbox  54  44  20  54
-		frame  data/chars/alex/0091.png
+
+	frame  data/chars/alex/0091.png
 
 anim  freespecial10
 

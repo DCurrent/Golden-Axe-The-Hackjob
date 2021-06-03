@@ -78,14 +78,22 @@ know    kuna0001        data/chars/misc/effects/kuna0001/kuna0001.txt		#Thrown k
 
 ######Players######
 
-#Alex
-know	alex0001		data/chars/alex/effects/alex0001.txt		#Alex motion blurs.
-load	Alex			data/chars/alex/alex.txt					#Playable Alex.
-load    al_chick        data/chars/alex/al_chick.txt				#Alex on Chicken.
-load    al_bdrag        data/chars/alex/al_bdrag.txt				#Alex on Blue Dragon.
-load    al_rdrag        data/chars/alex/al_rdrag.txt				#Alex on Blue Dragon.
+# Alex
 
-#Ax Battler
+# cut scenes
+# know    text1           data/chars/alex/text1.txt
+# know    text2           data/chars/alex/text2.txt
+# know    text3           data/chars/alex/text3.txt
+know    alex_intro      data/chars/alex/alex_intro.txt
+#know    dummy           data/chars/alex/dummy.txt
+#know	alex0001		data/chars/alex/effects/alex0001.txt		#Alex motion blurs.
+#load	Alex			data/chars/alex/alex.txt					#Playable Alex.
+#load    al_chick        data/chars/alex/al_chick.txt				#Alex on Chicken.
+#load    al_bdrag        data/chars/alex/al_bdrag.txt				#Alex on Blue Dragon.
+#load    al_rdrag        data/chars/alex/al_rdrag.txt				#Alex on Blue Dragon.
+
+# Ax Battler
+
 know	ax0001				data/chars/ax/effects/ax0001.txt			# Motion blurs.
 know    a_chick				data/chars/ax/a_chick.txt					# Riding Chicken Leg.
 know    ax_chicken_motion	data/chars/ax/ax_chicken_motion.txt			# Riding Chicken Leg, motion blurs.
@@ -94,7 +102,8 @@ know	a_bdrag				data/chars/ax/a_bdrag.txt					# Riding Blue Dragon.
 know	ax_battler_motion	data/chars/ax/ax_motion.txt					# Motion blurs.
 load	ax					data/chars/ax/ax.txt						# Player.
 
-#Tyris Flare
+# Tyris Flare
+
 know    t_chick         data/chars/tyris/t_chick.txt
 know    t_rdrag         data/chars/tyris/t_rdrag.txt
 know    t_bdrag         data/chars/tyris/t_bdrag.txt
@@ -102,9 +111,9 @@ load	tyri0001		data/chars/tyris/effects/tyri0001.txt
 load	tyri0002		data/chars/tyris/effects/tyri0002.txt		#Thrown sword.
 load	Tyris_Flare     data/chars/Tyris/Tyris.txt
 
-######Enemies#####
+###### Enemies #####
 
-#Thieves
+# Thieves
 know    escthief        data/chars/thief/escthief.txt
 know    Thief           data/chars/thief/thief.txt
 know    thief_escape_empty  data/chars/thief/thief_escape_empty.txt
@@ -152,11 +161,6 @@ know    Kid_Villager    data/chars/villager/kid/kid.txt
 know    Old_Villager    data/chars/villager/oldman/oldman.txt
 #know    Dummy_Villager  data/chars/villager/dummy.txt
 
-#cut scenes
-know    text1           data/chars/alex/text1.txt
-know    text2           data/chars/alex/text2.txt
-know    text3           data/chars/alex/text3.txt
-know    Alex_           data/chars/alex/alex_.txt
-know    dummy           data/chars/alex/dummy.txt
+
 
 

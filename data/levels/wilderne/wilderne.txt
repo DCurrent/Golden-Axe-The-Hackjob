@@ -112,7 +112,7 @@ light 256 -128
 at 0
 
 # Alex dies!
-spawn	Alex_
+spawn	alex_intro
 health  12
 coords	530 160
 at	0

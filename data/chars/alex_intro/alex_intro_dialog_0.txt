@@ -1,0 +1,19 @@
+# Alex, what has happened?
+
+name alex_intro_dialog_0
+shadow 0
+nomove 1
+facing 1
+setlayer 2000
+
+palette data/chars/alex_intro/dialog_main_0.png
+
+script data/chars/alex/scripts/stay.c
+
+anim idle
+    
+    offset 106 27
+    delay   200
+	alphamask	data/chars/alex_intro/dialog_main_0_mask_0.png
+	frame		data/chars/alex_intro/dialog_main_0.png
+

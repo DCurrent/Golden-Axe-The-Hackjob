@@ -1,0 +1,21 @@
+# Alex...
+
+name text3
+shadow 0
+nomove 1
+facing 1
+lifespan 5
+setlayer 2000
+
+script data\chars\alex\scripts\stay.c
+
+anim idle
+    
+    offset 43 19
+    delay   200
+	frame	Data\CHARS\alex\t3.gif
+@cmd setglobalvar "p" NULL()
+@cmd killentity getglobalvar("dummy")
+@cmd setglobalvar "dummy" NULL()
+	frame	Data\CHARS\misc\blank.png
+

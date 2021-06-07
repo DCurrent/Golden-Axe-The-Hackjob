@@ -474,7 +474,8 @@ anim attack1
 	bbox.size.y 53
 	
 	@cmd dc_disney_macro_try_ai_random openborconstant("ANI_ATTACK3") 50
-    	frame   data/chars/longmoan/atk_swipe_0.png
+    frame   data/chars/longmoan/atk_swipe_0.png
+	
 	delay	8
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT	
@@ -483,33 +484,31 @@ anim attack1
 
 	frame   data/chars/longmoan/atk_swipe_1.png
     
-    	attack.effect.hit.flash.model flash_blunt_cut
+    attack.effect.hit.flash.model flash_blunt_cut
 	attack.damage.force 4
 	attack.position.x 60
 	attack.position.y 52
 	attack.size.x 41
 	attack.size.y 18
 	
-	
-	
-    	frame   data/chars/longmoan/atk_swipe_2.png
+	frame   data/chars/longmoan/atk_swipe_2.png
     
-    	attack 0
+    attack 0
     
-    	frame   data/chars/longmoan/atk_swipe_3.png
+    frame   data/chars/longmoan/atk_swipe_3.png
     
-    	delay 9
+    delay 9
     
-    	frame   data/chars/longmoan/atk_swipe_4.png
-		frame   data/chars/longmoan/atk_swipe_4.png
+    frame   data/chars/longmoan/atk_swipe_4.png
+	frame   data/chars/longmoan/atk_swipe_4.png
     
-    	delay 12
+    delay 12
 		
-		@cmd dc_cancel_try_set_idle    
+	@cmd dc_cancel_try_set_idle    
 
-    	frame   data/chars/longmoan/atk_swipe_3.png
-    	frame   data/chars/longmoan/idle_1.png
-    	frame   data/chars/longmoan/idle_0.png
+    frame   data/chars/longmoan/atk_swipe_3.png
+    frame   data/chars/longmoan/idle_1.png
+    frame   data/chars/longmoan/idle_0.png
 
 anim attack2
 	range	0 40

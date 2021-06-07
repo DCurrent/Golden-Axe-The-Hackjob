@@ -118,22 +118,22 @@ coords	530 160
 at	0
 
 
-#spawn	ax_e
-#alias	ax_e
-#coords	100 180
-#map		5
-#at 0
+# spawn	ax_e
+# alias	ax_e
+# coords	100 180
+# map		5
+# at 0
 
 #spawn	g_npc
 #coords	100 180
 #at 0
 
-spawn	Longmoan
-Alias   Club_Dude
-coords	600 160
-health  15
-map	2
-at 0
+#spawn	Longmoan
+#Alias   Club_Dude
+#coords	600 160
+#health  15
+#map	2
+#at 0
 
 #spawn	bad_brother
 #coords	300 160

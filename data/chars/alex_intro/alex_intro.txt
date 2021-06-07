@@ -1,15 +1,14 @@
 # Alex in opening scene
 
-name	alex_intro
-type	npc
-nomove 1 1
-nodrop 1
-falldie 1
-gfxshadow 1
-nodieblink 3
-aimove  nomove
-aiattack noattack
-shadow	2
+name		alex_intro
+type		npc
+nodrop		1
+falldie		1
+gfxshadow	1
+nodieblink	3
+aiattack	noattack
+shadow		2
+speedf		0.5
 
 # load text1
 # load text2
@@ -18,6 +17,7 @@ shadow	2
 
 
 # animationscript data/chars/alex_intro/scripts/event_animation.c
+thinkscript data/chars/alex_intro/scripts/event_think.c
 
 anim idle
 	loop	1
@@ -32,7 +32,23 @@ anim idle
 #cmd spawndummy
 	frame	data/chars/alex_intro/idle_0.png
 
+anim walk
+	loop	1
+	delay	11
+	offset	150 175
 	
+	bbox.position.x 144
+	bbox.position.y 130
+	bbox.size.x 17
+	bbox.size.y 48
+
+#cmd spawndummy
+
+	frame data/chars/alex_intro/walk_0.png
+	frame data/chars/alex_intro/walk_1.png
+	frame data/chars/alex_intro/walk_2.png
+	frame data/chars/alex_intro/walk_3.png
+	frame data/chars/alex_intro/walk_4.png
 
 anim pain
 	loop	0

@@ -5,7 +5,7 @@ void main()
 {
 	void acting_entity = getlocalvar("self");
 
-	ga_alex_intro_walk(acting_entity, 170.0, 150.0);
+	dc_alex_intro_walk(acting_entity, 170.0, 150.0);
 }
 
 /*
@@ -15,7 +15,7 @@ void main()
 * Force entity's AI to walk to spot, then 
 * die using normal damage.
 */
-void ga_alex_intro_walk(void acting_entity, float goal_pos_x, float goal_pos_z)
+void dc_alex_intro_walk(void acting_entity, float goal_pos_x, float goal_pos_z)
 {	
 	int health = get_entity_property(acting_entity, "hp");
 

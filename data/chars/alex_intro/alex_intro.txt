@@ -7,14 +7,15 @@ falldie		1
 gfxshadow	1
 nodieblink	3
 aiattack	noattack
-shadow		2
+gfxshadow	1
 speedf		0.5
+
+palette data/chars/alex/palette_default_0.act
 
 # load text1
 # load text2
 # load text3
 # load dummy
-
 
 # animationscript data/chars/alex_intro/scripts/event_animation.c
 thinkscript data/chars/alex_intro/scripts/event_think.c
@@ -64,11 +65,27 @@ anim pain
 	frame	data/chars/alex_intro/idle_0.png
 
 anim death
-	loop	1
-	delay	10
+	
+	delay 20
 	offset	150 175
-#cmd checktext
+
+	frame	data/chars/alex_intro/R_PAIN_0.png
+
+	delay 1
+	
+	# Loop back to this frame until dialog is finished.
+	frame	data/chars/alex_intro/idle_0.png
+	
+	delay 50
+
+	# Spawn the dialog text, or do nothing if dialog is finished.
+	frame	data/chars/alex_intro/idle_0.png
+
+	# Fall dead. :(
+
+	delay 20
 	frame	data/chars/alex_intro/death_0.png
+	frame	data/chars/alex_intro/death_1.png
 
 anim death10
 	loop	0

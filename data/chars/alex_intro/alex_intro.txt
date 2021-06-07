@@ -1,0 +1,63 @@
+# Alex in opening scene
+
+name	alex_intro
+type	npc
+nomove 1 1
+nodrop 1
+falldie 1
+gfxshadow 1
+nodieblink 3
+aimove  nomove
+aiattack noattack
+shadow	2
+
+# load text1
+# load text2
+# load text3
+# load dummy
+
+
+# animationscript data/chars/alex_intro/scripts/event_animation.c
+
+anim idle
+	loop	1
+	delay	11
+	offset	150 175
+	
+	bbox.position.x 144
+	bbox.position.y 130
+	bbox.size.x 17
+	bbox.size.y 48
+	
+#cmd spawndummy
+	frame	data/chars/alex_intro/idle_0.png
+
+	
+
+anim pain
+	loop	0
+	delay	8
+	offset	150 175
+	
+	bbox.position.x 138
+	bbox.position.y 123
+	bbox.size.x 27
+	bbox.size.y 52
+	
+	frame	data/chars/alex_intro/R_PAIN_0.png
+	frame	data/chars/alex_intro/idle_0.png
+
+anim death
+	loop	1
+	delay	10
+	offset	150 175
+#cmd checktext
+	frame	data/chars/alex_intro/death_0.png
+
+anim death10
+	loop	0
+	delay	10
+	offset	150 175
+	frame	data/chars/alex_intro/death_0.png
+    #fshadow 0
+	frame	data/chars/alex_intro/death_1.png

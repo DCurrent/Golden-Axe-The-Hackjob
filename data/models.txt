@@ -84,7 +84,7 @@ know    kuna0001        data/chars/misc/effects/kuna0001/kuna0001.txt		#Thrown k
 # know    text1           data/chars/alex/text1.txt
 # know    text2           data/chars/alex/text2.txt
 # know    text3           data/chars/alex/text3.txt
-know    alex_intro      data/chars/alex/alex_intro.txt
+know    alex_intro      data/chars/alex_intro/alex_intro.txt
 #know    dummy           data/chars/alex/dummy.txt
 #know	alex0001		data/chars/alex/effects/alex0001.txt		#Alex motion blurs.
 #load	Alex			data/chars/alex/alex.txt					#Playable Alex.

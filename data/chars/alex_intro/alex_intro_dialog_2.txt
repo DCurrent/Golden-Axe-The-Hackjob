@@ -1,21 +1,17 @@
 # Alex...
 
-name text3
+name alex_intro_dialog_2
 shadow 0
 nomove 1
 facing 1
 lifespan 5
 setlayer 2000
 
-script data\chars\alex\scripts\stay.c
-
 anim idle
     
     offset 43 19
     delay   200
-	frame	Data\CHARS\alex\t3.gif
-@cmd setglobalvar "p" NULL()
-@cmd killentity getglobalvar("dummy")
-@cmd setglobalvar "dummy" NULL()
-	frame	Data\CHARS\misc\blank.png
+	
+	alphamask	data/chars/alex_intro/dialog_main_3_mask_0.png
+	frame		data/chars/alex_intro/dialog_main_3.png
 

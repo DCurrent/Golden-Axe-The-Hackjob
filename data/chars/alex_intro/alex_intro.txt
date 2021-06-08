@@ -13,9 +13,8 @@ speedf		0.5
 palette data/chars/alex/palette_default_0.act
 
 load alex_intro_dialog_0
-# load text2
-# load text3
-# load dummy
+load alex_intro_dialog_1
+load alex_intro_dialog_2
 
 animationscript data/chars/alex_intro/scripts/event_animation.c
 thinkscript data/chars/alex_intro/scripts/event_think.c
@@ -76,9 +75,12 @@ anim death
 	# Loop back to this frame until dialog is finished.
 	frame	data/chars/alex_intro/idle_0.png
 	
-	delay 50
+	delay 250
 
 	# Spawn the dialog text, or do nothing if dialog is finished.
+	@cmd dc_run_dialog
+	frame	data/chars/alex_intro/idle_0.png
+
 	@cmd dc_run_dialog
 	frame	data/chars/alex_intro/idle_0.png
 

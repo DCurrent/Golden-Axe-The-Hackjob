@@ -2,7 +2,7 @@
 # have been taken by Death Adder!
 # Revenge them for me, my friend.
 
-name text2
+name alex_intro_dialog_1
 shadow 0
 nomove 1
 facing 1
@@ -12,8 +12,10 @@ anim idle
     
     delay   350
     offset 44 43
-	frame	Data\CHARS\alex\t1.gif
+	alphamask	data/chars/alex_intro/dialog_main_1_mask_0.png
+	frame		data/chars/alex_intro/dialog_main_1.png
     delay   200
     offset 44 27
-	frame	Data\CHARS\alex\t2.gif
+	alphamask	data/chars/alex_intro/dialog_main_2_mask_0.png
+	frame		data/chars/alex_intro/dialog_main_2.png
 

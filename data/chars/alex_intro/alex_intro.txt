@@ -75,9 +75,15 @@ anim death
 	# Loop back to this frame until dialog is finished.
 	frame	data/chars/alex_intro/idle_0.png
 	
-	delay 250
+	delay 400
 
 	# Spawn the dialog text, or do nothing if dialog is finished.
+	@cmd dc_run_dialog
+	frame	data/chars/alex_intro/idle_0.png
+
+	@cmd dc_run_dialog
+	frame	data/chars/alex_intro/idle_0.png
+
 	@cmd dc_run_dialog
 	frame	data/chars/alex_intro/idle_0.png
 

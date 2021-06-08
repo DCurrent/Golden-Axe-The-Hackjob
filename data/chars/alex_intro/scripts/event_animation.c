@@ -64,6 +64,8 @@ void dc_run_dialog()
     else if (dialog_step_1)
     {
 
+        log("\n step 2");
+
         /*
         * If previous dialog is in place, we 
         * want to eliminate it and spawn the 
@@ -74,7 +76,7 @@ void dc_run_dialog()
         
         if (dialog_entity_1)
         {
-            if (get_entity_property(dialog_step_1, "animation_state") == 0)
+            if (get_entity_property(dialog_entity_1, "animation_state") == 0)
             {
                 killentity(dialog_entity_1);
                 setlocalvar("alex_intro_dialog_1", NULL());
@@ -82,7 +84,8 @@ void dc_run_dialog()
                 // spawn text3: Alex...
                 dialog_entity_2 = dc_gauntlet_quick_spawn("alex_intro_dialog_2");
 
-                changeentityproperty(self, "animation", openborconstant("ANI_DIE10"));
+                dc_dialog_bind(dialog_entity_2, dialog_player_entity);
+
                 setlocalvar("alex_intro_dialog_2", dialog_entity_2);
             }
         }

@@ -6,9 +6,7 @@ nomove 1
 facing 1
 setlayer 2000
 
-palette data/chars/alex_intro/dialog_main_0.png
-
-script data/chars/alex/scripts/stay.c
+palette data/chars/alex_intro/pal_dialog_default_0.act
 
 anim idle
     

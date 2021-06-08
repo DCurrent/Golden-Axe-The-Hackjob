@@ -12,12 +12,12 @@ speedf		0.5
 
 palette data/chars/alex/palette_default_0.act
 
-# load text1
+load alex_intro_dialog_0
 # load text2
 # load text3
 # load dummy
 
-# animationscript data/chars/alex_intro/scripts/event_animation.c
+animationscript data/chars/alex_intro/scripts/event_animation.c
 thinkscript data/chars/alex_intro/scripts/event_think.c
 
 anim idle
@@ -79,6 +79,7 @@ anim death
 	delay 50
 
 	# Spawn the dialog text, or do nothing if dialog is finished.
+	@cmd dc_run_dialog
 	frame	data/chars/alex_intro/idle_0.png
 
 	# Fall dead. :(

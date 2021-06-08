@@ -1,64 +1,89 @@
+#include "data/scripts/dc_elmers/main.c"
+#include "data/scripts/dc_guantlet/main.c"
+
 
 /* spawn 3 text boxes, in a chain. */
 void checktext()
 {
-    int t1 = getlocalvar("t1");
-    int t2 = getlocalvar("t2");
-    int t3 = getlocalvar("t3");
-    
+    int dialog_step_0 = getlocalvar("dialog_step_0");
+    int dialog_step_1 = getlocalvar("dialog_step_1");
+
     void self = getlocalvar("self");
     
-    void text1;
-    void text2;
-    void text3;
+    void dialog_entity_0 = NULL();
+    void dialog_entity_1 = NULL();
+    void dialog_entity_2 = NULL();
 
-    if (!t1)
+    void bind = NULL();
+
+    if (!dialog_step_0)
     {
-        // spawn the text1: Alex, what has happened?
-        clearspawnentry();
-        setspawnentry("name", "alex_intro_dialog_0");
+        dialog_entity_0 = dc_gauntlet_quick_spawn("alex_intro_dialog_0");
+
         
-        text1 = spawn();
-        adjustpos(text1);
-
-        setlocalvar("t1", 1);
-        setlocalvar("alex_intro_dialog_0", text1);
+       
+        setlocalvar("dialog_step_0", 1);
+        setlocalvar("alex_intro_dialog_0", dialog_entity_0);
     }
-    else if (!t2)
+    else if (!dialog_step_1)
     {
-        text1 = getlocalvar("text1");
+        /*
+        * If previous dialog is in place, we
+        * want to eliminate it and spawn the
+        * next dialog model.
+        */
 
-        if (text1 && getentityproperty(text1, "animating") == 0)
+        dialog_entity_0 = getlocalvar("alex_intro_dialog_0");
+
+        if (dialog_entity_0 && get_entity_property(text1, "animation_state") == openborconstant("ANIMATING_NONE"))
         {
-            killentity(text1);
-            setlocalvar("text1", NULL());
+            killentity(dialog_entity_0);
+            setlocalvar("alex_intro_dialog_0", NULL());    
+            
             // spawn the text2 that Alex spoke
-            clearspawnentry();
-            setspawnentry("name", "text2");
-            text2 = spawn();
-            float x = getentityproperty(self, "x");
-            float z = getentityproperty(self, "z");
-            // move the text above Alex's head
-            changeentityproperty(text2, "position", x, z + 1, 53);
-            changeentityproperty(text2, "base", 53);
-            setlocalvar("t2", 1);
-            setlocalvar("text2", text2);
+            dialog_entity_1 = dc_gauntlet_quick_spawn("alex_intro_dialog_1");
+
+            // move the text 53 above Alex's head
+            
+            setlocalvar("dialog_step_1", 1);
+            setlocalvar("alex_intro_dialog_1", dialog_entity_1);
         }
     }
-    else if (t2)
+    else if (dialog_step_1)
     {
-        text2 = getlocalvar("text2");
-        if (text2 && getentityproperty(text2, "animating") == 0)
+
+        /*
+        * If previous dialog is in place, we 
+        * want to eliminate it and spawn the 
+        * next dialog model.
+        */
+
+        dialog_entity_1 = getlocalvar("alex_intro_dialog_1");
+        
+        if (dialog_entity_1 && get_entity_property(text2, "animation_state") == openborconstant("ANIMATING_NONE"))
         {
-            killentity(text2);
-            setlocalvar("text2", NULL());
+            killentity(dialog_entity_1);
+            setlocalvar("alex_intro_dialog_1", NULL());
+            
             // spawn text3: Alex...
-            clearspawnentry();
-            setspawnentry("name", "text3");
-            text3 = spawn();
-            adjustpos(text3);
+            dialog_entity_2 = dc_gauntlet_quick_spawn("alex_intro_dialog_2");
+                        
             changeentityproperty(self, "animation", openborconstant("ANI_DIE10"));
-            setlocalvar("text3", text3);
+            setlocalvar("alex_intro_dialog_2", dialog_entity_2);
         }
     }// end of if
+}
+
+void dc_dialog_bind(void acting_entity, void target_entity)
+{
+    bind = get_entity_property(bind, dialog_entity_0);
+
+    set_bind_property(bind, "target", self);
+    set_bind_property(bind, "animation_match", openborconstant("BIND_ANIMATION_NONE"));
+    set_bind_property(bind, "direction", openborconstant("DIRECTION_ADJUST_RIGHT"));
+    set_bind_property(bind, "offset_x", 0);
+    set_bind_property(bind, "offset_y", 53);
+    set_bind_property(bind, "offset_z", 0);
+
+    set_bind_property(bind, "sort_id", 1);
 }

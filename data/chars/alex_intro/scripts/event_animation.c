@@ -2,94 +2,98 @@
 #include "data/scripts/dc_gauntlet/main.c"
 
 
-/* spawn 3 text boxes, in a chain. */
+/*
+* Caskey, Damon V. (based on checktext by Untunnels)
+* 2021-06-08
+* 
+* Control intro dialog between Alex and player
+* by spawning and binding textbox dialog entities.
+* The controlling entity (Alex) runs this function
+* in a looping animation. As the dialog entity
+* animations finish, the function spawns next
+* dialog and removes the previous.
+*/
 void dc_run_dialog()
 {
-    int dialog_step_0 = getlocalvar("dialog_step_0");
-    int dialog_step_1 = getlocalvar("dialog_step_1");
-
     void self = getlocalvar("self");
-    
-    /* 
-    * Entity that talks to Alex. This was populated 
-    * by dc_dialog_setup() function in event_think.
+
+    /*
+    * Entity that talks to acting entity. This was 
+    * populated by dc_dialog_setup() function in 
+    * event_think script.
     */
     void dialog_player_entity = getentityvar(self, "dialog_player_entity");
     
-    void dialog_entity_0 = NULL();
-    void dialog_entity_1 = NULL();
-    void dialog_entity_2 = NULL();
+    /* 
+    * Dialog entity - it is the text box bound to 
+    * the entity that is currently speaking.
+    */
+    void dialog_entity = getlocalvar("dialog_entity_old");
        
-    if (!dialog_step_0)
+    /*
+    * Dialog steps are 0 indexed in order. Each
+    * time script runs, we check the step position.
+    * Whatever step we are at kills the dialog
+    * entity (if any) from previous step. It then
+    * spawns a new dialog entity. The new dialog
+    * entity is bound to player or acting, and
+    * its pointer is recorded so we can kill it 
+    * it in next step.
+    */
+
+    int dialog_step_position = getlocalvar("dialog_step_position");
+
+    if (!dialog_step_position)
     {
-        dialog_entity_0 = dc_gauntlet_quick_spawn("alex_intro_dialog_0");
-
-        dc_dialog_bind(dialog_entity_0, dialog_player_entity);
-       
-        setlocalvar("dialog_step_0", 1);
-        setlocalvar("alex_intro_dialog_0", dialog_entity_0);
-
-        log("\n step 0");
+        dialog_step_position = 0;
     }
-    else if (!dialog_step_1)
+
+    if (!dialog_step_position)
     {
+       dialog_entity = dc_gauntlet_quick_spawn("alex_intro_dialog_0");
+
+       dc_dialog_bind(dialog_entity, dialog_player_entity);
+
+       dialog_step_position++;       
+    }
+    else if (dialog_step_position <= 1)
+    {                
         /*
-        * If previous dialog is in place, we
-        * want to eliminate it and spawn the
-        * next dialog model.
+        * Only spawn this step's dialog and increment
+        * to next step if the previous step's dialog
+        * is already spawned AND is finished with
+        * its current animation. This allows us to
+        * control timing with the dialog's animation
+        * delay.
         */
 
-        log("\n step 1");
-
-        dialog_entity_0 = getlocalvar("alex_intro_dialog_0");
-
-        if(dialog_entity_0) 
+        if(dialog_entity && get_entity_property(dialog_entity, "animation_state") == 0)
         {
-            if(get_entity_property(dialog_entity_0, "animation_state") == 0)
-            {
-                killentity(dialog_entity_0);
-                setlocalvar("alex_intro_dialog_0", NULL());
+            killentity(dialog_entity);
+                
+            dialog_entity = dc_gauntlet_quick_spawn("alex_intro_dialog_1");
+            
+            dc_dialog_bind(dialog_entity, self);
 
-                // spawn the text2 that Alex spoke
-                dialog_entity_1 = dc_gauntlet_quick_spawn("alex_intro_dialog_1");
-
-                // move the text above Alex's head
-                dc_dialog_bind(dialog_entity_0, self);
-
-                setlocalvar("dialog_step_1", 1);
-                setlocalvar("alex_intro_dialog_1", dialog_entity_1);
-            }
+            dialog_step_position++;
         }
     }
-    else if (dialog_step_1)
+    else if (dialog_step_position <= 2)
     {
-
-        log("\n step 2");
-
-        /*
-        * If previous dialog is in place, we 
-        * want to eliminate it and spawn the 
-        * next dialog model.
-        */
-
-        dialog_entity_1 = getlocalvar("alex_intro_dialog_1");
-        
-        if (dialog_entity_1)
+        if (dialog_entity && get_entity_property(dialog_entity, "animation_state") == 0)
         {
-            if (get_entity_property(dialog_entity_1, "animation_state") == 0)
-            {
-                killentity(dialog_entity_1);
-                setlocalvar("alex_intro_dialog_1", NULL());
+            killentity(dialog_entity);
 
-                // spawn text3: Alex...
-                dialog_entity_2 = dc_gauntlet_quick_spawn("alex_intro_dialog_2");
+            dialog_entity = dc_gauntlet_quick_spawn("alex_intro_dialog_2");
 
-                dc_dialog_bind(dialog_entity_2, dialog_player_entity);
+            dc_dialog_bind(dialog_entity, dialog_player_entity);
 
-                setlocalvar("alex_intro_dialog_2", dialog_entity_2);
-            }
+            dialog_step_position++;
         }
     }
+
+    setlocalvar("dialog_step_position", dialog_step_position);
+    setlocalvar("dialog_entity_old", dialog_entity);
 }
 
 void dc_dialog_bind(void dialog_entity, void target_entity)

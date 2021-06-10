@@ -91,6 +91,24 @@ void dc_run_dialog()
             dialog_step_position++;
         }
     }
+    else
+    {
+        /*
+        * Previous step was final dialog. Now we
+        * need to end the dialog and take final
+        * actions.
+        */
+
+        if (dialog_entity && get_entity_property(dialog_entity, "animation_state") == 0)
+        {
+            killentity(dialog_entity);
+
+            dialog_step_position = NULL();
+            dialog_entity = NULL();
+
+            updateframe(self, 4);
+        }
+    }
 
     setlocalvar("dialog_step_position", dialog_step_position);
     setlocalvar("dialog_entity_old", dialog_entity);

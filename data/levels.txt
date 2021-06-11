@@ -45,11 +45,11 @@ p1icon 5 242
 p2icon 165 242
 p3icon 325 242
 
-#DC 05212010: Mp icons are used as enemy icons, so we move them off screen for players. This is so I can 
-#look for their presence in update script and place all enemy icons on screen at once. The catch is
-#that said icons must included in weapon texts as well. That means I would have to have separate weapon
-#texts for player/enemy versions of same character since they use different icons.
-#Using MP icon also
+# DC 05212010: Mp icons are used as enemy icons, so we move them off screen for players. This is so I can 
+# look for their presence in update script and place all enemy icons on screen at once. The catch is
+# that said icons must included in weapon texts as well. That means I would have to have separate weapon
+# texts for player/enemy versions of same character since they use different icons.
+# Using MP icon also
 
 mp1icon -2 240
 mp2icon 158 240

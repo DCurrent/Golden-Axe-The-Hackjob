@@ -156,8 +156,8 @@ know	Amazon          data/chars/amazon/amazon.txt				#Enemy Amazon
 load    Chickenlegs     data/chars/chicken/chicken.txt
 load    chicken_escape     data/chars/chicken/chicken_escape.txt
 
-load    Red_Dragon      data/chars/dragon/rdragon.txt
-load    Blue_Dragon     data/chars/dragon/bdragon.txt
+load    Red_Dragon      data/chars/dragon/red_dragon.txt
+load    Blue_Dragon     data/chars/dragon/blue_dragon.txt
 
 #villagers
 load    Male_Villager   data/chars/villager/male/male.txt

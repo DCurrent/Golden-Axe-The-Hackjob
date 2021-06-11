@@ -2,7 +2,7 @@
 #import "data/chars/alex_intro/scripts/dc_get_first_player.c"
 
 /*
-* Caskey, Damon V. (based on checktext by Untunnels)
+* Caskey, Damon V. (based on checktext by Utunnels)
 * 2021-06-08
 * 
 * Control intro dialog between Alex and player

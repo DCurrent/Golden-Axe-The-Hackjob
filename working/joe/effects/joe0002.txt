@@ -1,0 +1,189 @@
+#*****Notes***************************************************************************
+
+#Bound effects; spawned in synch with main enitity to produce transparent blur effect.
+
+#*****Settings***************************************************************************
+
+#*****icons*****
+#*****General*****
+
+name	     joe0002     
+type	     none   	
+health	     100	
+#speed	     10		
+alpha	     1		
+
+#*****Alternates*******
+
+palette	 	data/chars/joe/effects/mot0001
+
+#*****Basic********************************************************************************
+
+anim spawn
+	
+	delay	1
+	offset	75 150
+		frame	data/chars/misc/blank.png
+
+#anim waiting
+#anim select
+#anim faint
+#anim sleep
+#anim walk
+#anim backwalk
+#anim up 
+#anim down 
+#anim run
+#anim get
+#anim duck
+#anim charge
+#anim dodge
+
+#*****Attack*******************************************************************************
+
+anim attack1
+
+	#Kunai cross.
+
+	delay	-1000
+	offset	75 150
+		frame	data/chars/misc/blank.png
+		frame	data/chars/joe/effects/mot0001
+		frame	data/chars/joe/effects/mot0002
+		frame	data/chars/joe/effects/mot0003
+		frame	data/chars/joe/effects/mot0031
+		frame	data/chars/joe/effects/mot0032
+		frame	data/chars/joe/effects/mot0033
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blank.png	
+		
+
+anim attack2
+
+	#Kunai upper.
+
+	delay	-1000
+	offset	75 150
+		frame	data/chars/misc/blank.png
+		frame	data/chars/joe/effects/mot0004
+		frame	data/chars/joe/effects/mot0005
+		frame	data/chars/joe/effects/mot0006
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blank.png
+	
+
+anim attack3
+
+	#Overhead sword strike.
+	
+	delay	-1000
+	offset	75 150
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
+		frame	data/chars/joe/effects/mot0007
+		frame	data/chars/joe/effects/mot0008
+		frame	data/chars/joe/effects/mot0009
+		frame	data/chars/joe/effects/mot0010
+		frame	data/chars/joe/effects/mot0011
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blank.png			
+		
+anim attackboth	
+
+	delay	-1000
+	offset	75 150
+		frame	data/chars/misc/blank.png
+		frame	data/chars/joe/effects/mot0047
+		frame	data/chars/joe/effects/mot0048
+		frame	data/chars/joe/effects/mot0049
+		frame	data/chars/joe/effects/mot0050
+		frame	data/chars/joe/effects/mot0051
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
+		frame	data/chars/joe/effects/mot0019
+		frame	data/chars/joe/effects/mot0020
+		frame	data/chars/joe/effects/mot0021
+		frame	data/chars/joe/effects/mot0022
+		frame	data/chars/joe/effects/mot0023
+		frame	data/chars/joe/effects/mot0024
+		frame	data/chars/joe/effects/mot0025
+		frame	data/chars/joe/effects/mot0026
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blank.png	
+			
+
+anim runattack
+
+	delay	-1000
+	offset	75 150
+		frame	data/chars/misc/blank.png
+		frame	data/chars/misc/blank.png
+		frame	data/chars/joe/effects/mot0027
+		frame	data/chars/joe/effects/mot0028
+		frame	data/chars/joe/effects/mot0029
+		frame	data/chars/joe/effects/mot0030
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blank.png	
+				
+anim grabattack
+
+	#Chicken leg.
+    	
+    	offset	82 142
+    	delay	-1000
+		frame	data/chars/misc/blank.png	
+		frame	data/chars/misc/blank.png
+		frame	data/chars/joe/effects/mot0034
+		frame	data/chars/joe/effects/mot0035
+		frame	data/chars/joe/effects/mot0036
+		frame	data/chars/joe/effects/mot0037
+		frame	data/chars/joe/effects/mot0038
+		frame	data/chars/joe/effects/mot0039
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blank.png	
+		
+
+anim jumpattack
+
+	delay   -1000
+	offset	75 149
+		frame	data/chars/misc/blank.png	
+		frame	data/chars/misc/blank.png
+		frame	data/chars/joe/effects/mot0040
+		frame	data/chars/joe/effects/mot0041
+		frame	data/chars/joe/effects/mot0042
+		frame	data/chars/joe/effects/mot0043
+		frame	data/chars/joe/effects/mot0044
+		frame	data/chars/joe/effects/mot0045
+		frame	data/chars/joe/effects/mot0046
+	@cmd	killentity getlocalvar("self")
+		frame	data/chars/misc/blank.png	
+		
+
+anim freespecial8
+
+	#Ice Crystals
+
+	loop	1
+	delay	3
+	offset	75 150
+		frame	data/chars/joe/effects/ice0001
+		frame	data/chars/joe/effects/ice0002
+		frame	data/chars/joe/effects/ice0003
+		frame	data/chars/joe/effects/ice0004
+		frame	data/chars/joe/effects/ice0005
+		frame	data/chars/joe/effects/ice0006
+		frame	data/chars/joe/effects/ice0007
+		frame	data/chars/joe/effects/ice0008
+		frame	data/chars/joe/effects/ice0009
+		frame	data/chars/joe/effects/ice0010
+		frame	data/chars/joe/effects/ice0011
+		frame	data/chars/joe/effects/ice0012
+		frame	data/chars/joe/effects/ice0013
+		frame	data/chars/joe/effects/ice0014
+		frame	data/chars/joe/effects/ice0015
+		frame	data/chars/joe/effects/ice0016
+	
+
+

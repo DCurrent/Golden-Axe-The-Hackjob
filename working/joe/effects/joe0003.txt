@@ -1,0 +1,32 @@
+#Joe stealth dash effect. Leave behind a fading illusion of NPC type so enemies may be fooled into attacking it.
+
+name   		joe0003
+health 		1
+type   		npc
+antigravity	100
+nomove		1
+antigrab	100
+hostile		none
+
+palette		data/chars/joe/joe0001
+
+anim idle 
+	
+	delay	8
+	offset	75 150
+	bbox	0
+		frame	data/chars/joe/joe0053
+		frame	data/chars/joe/effects/fade0001
+		frame	data/chars/joe/effects/fade0002
+		frame	data/chars/joe/effects/fade0003		
+
+anim jump
+
+	delay	8
+	offset	75 150
+	bbox	0
+		frame	data/chars/joe/joe0037
+		frame	data/chars/joe/effects/fade0004
+		frame	data/chars/joe/effects/fade0005
+		frame	data/chars/joe/effects/fade0006
+

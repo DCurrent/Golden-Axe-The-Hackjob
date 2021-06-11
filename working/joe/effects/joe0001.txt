@@ -1,0 +1,40 @@
+#Joe Closeups.
+
+name   		joe0001
+health 		1
+speed  		5
+type   		text
+subtype		noskip
+setlayer	1000000000
+facing		1
+
+anim idle 
+	
+	delay	8
+	offset	240 210
+		frame	data/chars/joe/effects/joe0001
+		frame	data/chars/joe/effects/joe0002
+		frame	data/chars/joe/effects/joe0003
+		frame	data/chars/joe/effects/joe0001
+		frame	data/chars/joe/effects/joe0002
+		frame	data/chars/joe/effects/joe0003
+		frame	data/chars/joe/effects/joe0001
+		frame	data/chars/joe/effects/joe0002
+		frame	data/chars/joe/effects/joe0003
+		
+anim fall
+
+	delay	1
+		frame	data/chars/misc/blank.png
+		
+	
+anim follow1
+
+	#Hakuriu	
+	
+	delay	40
+	offset	240 210
+		frame	data/chars/joe/effects/joe0004
+
+
+

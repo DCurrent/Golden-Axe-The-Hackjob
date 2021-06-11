@@ -1,0 +1,287 @@
+# Joe on red dragon
+
+name	j_rdrag
+type	none
+health	98
+speed	11
+running 23 5 1 1 0
+gfxshadow 1
+shadow	3
+throwdamage 8
+throwframewait 2
+animal  2
+grabforce 1
+grabdistance 36
+grabfinish 1
+holdblock  1
+aimove chasez
+
+icon	data/chars/joe/hud
+
+animationscript data\scripts\common\beast.h
+
+#atchain  1 1 1 1 1
+
+modelflag 1
+
+weapons a_chick j_rdrag j_bdrag
+
+com d f a  	freespecial7 
+
+anim idle
+	loop	1
+	delay	100
+	offset	80 142
+    bbox    66 68 24 47
+@cmd savemp
+	frame	data/chars/joe/rdragon/idle2
+
+anim grab
+    loop    0
+    delay   16
+	offset	80 142
+    bbox    68 66 34 54
+    @cmd seal0001 1 400
+	frame	data/chars/joe/rdragon/ga
+
+anim get
+	loop	0
+	delay	20
+	offset	80 142
+	frame	data/chars/joe/rdragon/ride1
+	frame	data/chars/joe/rdragon/ride2
+	frame	data/chars/joe/rdragon/ride3
+
+anim walk
+    loop    1
+    delay   10
+    offset  80 142
+    bbox    74 74 20 54
+	frame	data/chars/joe/rdragon/wd1
+	frame	data/chars/joe/rdragon/wd2
+	frame	data/chars/joe/rdragon/wd3
+	frame	data/chars/joe/rdragon/wd4
+
+anim up
+    loop    1
+    delay   10
+    offset  80 142
+    bbox    64 72 22 54
+	frame	data/chars/joe/rdragon/wu1
+	frame	data/chars/joe/rdragon/wu2
+	frame	data/chars/joe/rdragon/wu3
+	frame	data/chars/joe/rdragon/wu4
+
+anim run
+    loop    1
+    delay   8
+	offset	80 142
+    bbox    64 72 22 54
+	frame	data/chars/joe/rdragon/r1
+	frame	data/chars/joe/rdragon/r2
+	frame	data/chars/joe/rdragon/r3
+	frame	data/chars/joe/rdragon/r4
+
+anim runattack
+    range 80 180
+    followanim 2
+    followcond 1
+    jumpframe  0 2 3
+    landframe 2
+	loop	0
+	delay	8
+	offset	80 142
+    bbox    64 56 27 46
+	frame	data/chars/joe/rdragon/j1
+	delay	1000
+    bbox    65 68 26 54
+    hitfx   data/sounds/hit4.wav
+	attack	80 96 54 28 8 1  1
+	frame	data/chars/joe/rdragon/ra
+	attack	0
+	delay	6
+    bbox    64 72 22 54
+@cmd slide  2.8
+	frame	data/chars/joe/rdragon/r4
+@cmd slide  2
+	frame	data/chars/joe/rdragon/r3
+@cmd slide  1
+	frame	data/chars/joe/rdragon/r2
+@cmd slide  0.5
+	frame	data/chars/joe/rdragon/r1
+	delay	1
+@cmd slide  0
+	frame	data/chars/joe/rdragon/r1
+
+# deflect
+anim follow2
+    jumpframe 0 1 0
+    landframe 2
+	loop	0
+	offset	80 142
+	delay	2
+    hitfx   data/sounds/hit4.wav
+	attack	80 96 54 28 8 1 1
+    bbox    65 68 26 54
+	frame	data/chars/joe/rdragon/ra
+	attack	0
+	delay	8
+	frame	data/chars/joe/rdragon/ra
+	delay	6
+    bbox    64 56 27 46
+	frame	data/chars/joe/rdragon/j2
+
+anim jump
+    range   10 64
+	loop	0
+	delay	30
+	offset	80 142
+    bbox    64 56 27 46
+	frame	data/chars/joe/rdragon/j1
+	delay	30
+    bbox    65 54 26 46
+	frame	data/chars/joe/rdragon/j2
+    bbox    64 56 27 46
+	frame	data/chars/joe/rdragon/j1
+
+anim attack1
+    range   60 400
+	loop	0
+	delay	10
+    custknife fireball
+    throwframe 2 33
+	offset	80 142
+    bbox    65 69 24 54
+    sound   data/sounds/dragfire.wav
+	frame	data/chars/joe/rdragon/a1
+	delay	8
+	frame	data/chars/joe/rdragon/a2
+	frame	data/chars/joe/rdragon/a3
+	frame	data/chars/joe/rdragon/a2
+    delay   10
+	frame	data/chars/joe/rdragon/a1
+    delay   30
+    bbox    66 68 24 47
+	frame	data/chars/joe/rdragon/idle2
+
+anim grabattack
+    loop    0
+	offset	80 142
+    bbox    68 66 34 54
+    # 1
+    delay   10
+    @cmd seal0001 1 400
+	frame	data/chars/joe/rdragon/ga
+    delay   20
+	frame	data/chars/joe/rdragon/ga1
+    delay   5
+	frame	data/chars/joe/rdragon/ga
+    delay   12
+    attack  101 101 24 24 8 0 0
+	frame	data/chars/joe/rdragon/ga2
+    attack  0 0 0 0 0
+    # 2
+    delay   10
+	frame	data/chars/joe/rdragon/ga
+    delay   20
+	frame	data/chars/joe/rdragon/ga1
+    delay   5
+	frame	data/chars/joe/rdragon/ga
+    delay   12
+    attack  101 101 24 24 8 0 0
+	frame	data/chars/joe/rdragon/ga2
+
+
+anim grabattack2
+
+    custentity fireexpl
+    spawnframe  2 50 0 33 0
+
+    loop	0
+	delay	10
+    	offset	80 142
+    bbox    65 69 24 54
+	frame	data/chars/joe/rdragon/a1
+	delay	8
+	frame	data/chars/joe/rdragon/a2
+    burn  101 101 24 24 16 1 1 1
+    dropv 2.5 3 0
+    damageonlanding 0 1
+	frame	data/chars/joe/rdragon/a3
+    attack 0
+	frame	data/chars/joe/rdragon/a2
+    delay   10
+	frame	data/chars/joe/rdragon/a1
+    delay   30
+    bbox    66 68 24 47
+	frame	data/chars/joe/rdragon/idle2
+
+anim grabbackward
+
+	loop	0
+	delay	9
+	offset	80 142 
+	@cmd adjust_ftoss 65 -1 14 1
+		frame	data/chars/joe/rdragon/g1
+	@cmd adjust_ftoss2 15 -1 12 0 1
+		frame	data/chars/joe/rdragon/idle2
+	delay	2
+	@cmd adjust_ftoss2 -1 -1 40 0 1
+	frame	data/chars/joe/rdragon/g2
+	delay	30
+	@cmd ftoss2 1 0 5 8 0
+		frame	data/chars/joe/rdragon/g2
+	delay	8
+		frame	data/chars/joe/rdragon/idle2
+
+anim attackboth
+	loop	0
+    weaponframe 3 0
+	delay	20
+	offset	80 142
+	frame	data/chars/joe/rdragon/idle2
+	frame	data/chars/joe/rdragon/ride2
+	frame	data/chars/joe/rdragon/ride1
+	frame	data/chars/joe/rdragon/ride1
+
+#for npc
+anim attack3
+    range   20 70
+    followanim 2
+    followcond 1
+    jumpframe  0 2 3
+    landframe 2
+	loop	0
+	delay	8
+	offset	80 142
+    bbox    64 56 27 46
+	frame	data/chars/joe/rdragon/j1
+	delay	1000
+    bbox    65 68 26 54
+    hitfx   data/sounds/hit4.wav
+	attack	80 96 54 28 8 1  1
+	frame	data/chars/joe/rdragon/ra
+	attack	0
+	delay	6
+    bbox    64 72 22 54
+@cmd slide  2.8
+	frame	data/chars/joe/rdragon/r4
+@cmd slide  2
+	frame	data/chars/joe/rdragon/r3
+@cmd slide  1
+	frame	data/chars/joe/rdragon/r2
+@cmd slide  0.5
+	frame	data/chars/joe/rdragon/r1
+
+anim freespecial7
+
+	#Throw kunai
+
+	delay	6
+	offset	80 142
+	bbox	65 90 15 60
+			frame	data/chars/joe/rdragon/k1	
+	@cmd 	proj0003 "kuna0001" 20 60 -1 1.4 0 1 1 0
+			frame	data/chars/joe/rdragon/k2
+	delay	12
+			frame	data/chars/joe/rdragon/k3

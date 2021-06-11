@@ -1,0 +1,154 @@
+name		yamoto
+type		npc
+subtype 	follow
+health		98
+speed		10
+jumpheight  	4
+grabdistance 	24
+paingrab 	1
+#throwframewait 1
+throwdamage 	8
+running 	19 5 1 1 0
+gfxshadow 	1
+shadow		2
+risetime 	25
+bflash  	none
+noquake 	1
+makeinv 	2
+falldie 	2
+grabfinish 	1
+diesound 	data/sounds/ax_die.wav
+defense 	all 0.25 0 1
+noatflash 	0
+stealth		1
+palette		data/chars/yamoto/0001
+dust		fl_fall fl_lnd fl_jmp
+
+projectilehit 	npc player
+hostile		none
+
+bflash 		none
+holdblock 	0
+thold 		34
+blockodds 	1
+#nopassiveblock 1
+
+escapehits 3
+aggression 100
+aimove chase
+
+#didhitscript data/scripts/z_hit.c
+#animationscript data/chars/ax/ax.c
+
+
+combostyle 	1
+atchain 	1 2 6 0 4 4 5 0 3 0
+modelflag 1
+
+#weapons a_chick a_rdrag a_bdrag
+
+anim idle
+	range  50 350
+	
+	loop	1
+	delay	18
+	offset	60 98
+	bbox    0
+	bbox	50 70 30 20
+	frame	data/chars/yamoto/0001
+	delay	24
+	frame	data/chars/yamoto/0002
+
+
+anim turn
+
+	delay	7
+	offset	60 98
+	bbox 0
+	#bbox	50 70 30 20
+		frame	data/chars/yamoto/0005
+		frame	data/chars/yamoto/0006
+		frame	data/chars/yamoto/0007
+		frame	data/chars/yamoto/0008
+
+anim walk
+	loop	1
+	delay	7
+	offset	60 98	
+	bbox	50 70 30 20
+		frame	data/chars/yamoto/0010
+		frame	data/chars/yamoto/0011
+		frame	data/chars/yamoto/0012
+		frame	data/chars/yamoto/0013
+		frame	data/chars/yamoto/0014
+		frame	data/chars/yamoto/0015
+
+anim run
+	loop	1
+	delay	4
+	offset	60 98
+	#	50 70 30 20
+	bbox	0
+		frame	data/chars/yamoto/0010
+		frame	data/chars/yamoto/0011
+		frame	data/chars/yamoto/0012
+		frame	data/chars/yamoto/0013
+		frame	data/chars/yamoto/0014
+		frame	data/chars/yamoto/0015
+
+anim jumpdelay
+
+	offset	60 98
+	bbox	50 70 30 20
+    	delay   10
+		frame	data/chars/yamoto/0016
+
+anim jump
+
+	dropframe 1
+	range	20 80   
+
+    	offset	60 98
+    	bbox	50 70 30 20
+    	delay   -1000
+		frame	data/chars/yamoto/0017
+		frame	data/chars/yamoto/0018
+
+anim runjump
+
+	dropframe 1
+	range	10 100   
+
+    	offset	60 98
+    	bbox	50 70 30 20
+    	delay   -1000
+		frame	data/chars/yamoto/0017
+		frame	data/chars/yamoto/0018
+
+anim jumpland
+	offset	60 98
+	#	50 70 30 20
+   	delay   10
+		frame	data/chars/yamoto/0003
+
+
+
+anim rise
+	offset	60 98
+	#	50 70 30 20
+   	delay   10
+		frame	data/chars/yamoto/0003
+
+anim pain
+	
+	offset	60 98
+	#	50 70 30 20
+   	delay   10
+		frame	data/chars/yamoto/0003
+
+anim fall
+	offset	60 98
+	#	50 70 30 20
+   	delay   10
+		frame	data/chars/yamoto/0003
+

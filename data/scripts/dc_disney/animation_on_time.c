@@ -75,8 +75,10 @@ void dc_disney_animation_on_time() {
 	/*
 	* If time expires, set animation.
 	*/
-	if (dc_eggball_check_interval())
+	int check_interval = dc_eggball_check_interval();
+	
+	if (check_interval)
 	{
-		dc_disney_try_animation_update(acting_entity, animation_id, DC_DISNEY_PLAY_METHOD_ENTITY_PROPERTY, 0);
-	}	
+		dc_disney_try_animation_update(acting_entity, animation_id, DC_DISNEY_PLAY_METHOD_EXECUTE_ANIMATION, 0);
+	}
 }

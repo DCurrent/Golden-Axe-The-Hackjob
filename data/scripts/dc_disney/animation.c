@@ -338,7 +338,7 @@ int dc_disney_try_animation_update(void acting_entity, int animation, int method
 	default:
 	case DC_DISNEY_PLAY_METHOD_ENTITY_PROPERTY:
 
-		set_entity_property(acting_entity, "animation_id", animation);
+		changeentityproperty(acting_entity, "animationid", animation);
 
 		break;
 
@@ -354,7 +354,6 @@ int dc_disney_try_animation_update(void acting_entity, int animation, int method
 		* Note: getlocalvar("self") returns NULL after
 		* perform attack.
 		*/
-
 		performattack(acting_entity, animation, reset);
 
 		break;

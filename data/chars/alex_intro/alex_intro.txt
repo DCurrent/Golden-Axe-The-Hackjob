@@ -17,7 +17,8 @@ load alex_intro_dialog_1
 load alex_intro_dialog_2
 
 animationscript data/chars/alex_intro/scripts/event_animation.c
-thinkscript data/chars/alex_intro/scripts/event_think.c
+onspawnscript	data/chars/alex_intro/scripts/event_spawn.c
+thinkscript		data/chars/alex_intro/scripts/event_think.c
 
 anim idle
 	loop	1
@@ -29,7 +30,6 @@ anim idle
 	bbox.size.x 17
 	bbox.size.y 48
 	
-#cmd spawndummy
 	frame	data/chars/alex_intro/idle_0.png
 
 anim walk
@@ -87,12 +87,4 @@ anim death
 
 	delay 20
 	frame	data/chars/alex_intro/death_0.png
-	frame	data/chars/alex_intro/death_1.png
-
-anim death10
-	loop	0
-	delay	10
-	offset	150 175
-	frame	data/chars/alex_intro/death_0.png
-    #fshadow 0
 	frame	data/chars/alex_intro/death_1.png

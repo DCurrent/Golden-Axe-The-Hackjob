@@ -76,6 +76,10 @@ load    fireball        data/chars/misc/effects/fire0003/fireball.txt		#Dragon f
 
 know    kuna0001        data/chars/misc/effects/kuna0001/kuna0001.txt		#Thrown kunai.
 
+# Dummy entities.
+load    dummy_enemy		data/chars/misc/dummy_enemy.txt
+
+
 ######Players######
 
 # Alex
@@ -86,7 +90,6 @@ know    alex_intro_dialog_1		data/chars/alex_intro/alex_intro_dialog_1.txt
 know    alex_intro_dialog_2		data/chars/alex_intro/alex_intro_dialog_2.txt
 know    alex_intro				data/chars/alex_intro/alex_intro.txt
 
-#know    dummy           data/chars/alex/dummy.txt
 #know	alex0001		data/chars/alex/effects/alex0001.txt		#Alex motion blurs.
 #load	Alex			data/chars/alex/alex.txt					#Playable Alex.
 #load    al_chick        data/chars/alex/al_chick.txt				#Alex on Chicken.

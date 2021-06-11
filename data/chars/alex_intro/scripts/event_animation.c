@@ -1,6 +1,4 @@
-#include "data/scripts/dc_elmers/main.c"
 #include "data/scripts/dc_gauntlet/main.c"
-
 
 /*
 * Caskey, Damon V. (based on checktext by Untunnels)
@@ -22,12 +20,14 @@ void dc_run_dialog()
     * populated by dc_dialog_setup() function in 
     * event_think script.
     */
+    
     void dialog_player_entity = getentityvar(self, "dialog_player_entity");
     
     /* 
     * Dialog entity - it is the text box bound to 
     * the entity that is currently speaking.
     */
+
     void dialog_entity = getlocalvar("dialog_entity_old");
        
     /*
@@ -103,6 +103,16 @@ void dc_run_dialog()
         {
             killentity(dialog_entity);
 
+            /* 
+            * The entity's spawn script spawned a
+            * dummy enemy to lock scrolling. Kill
+            * it here. This will cause engine
+            * to fire "go" arrow and let player
+            * proceed forward.
+            */
+
+            dc_gauntlet_remove_by_name("dummy_enemy");
+
             dialog_step_position = NULL();
             dialog_entity = NULL();
 
@@ -110,9 +120,17 @@ void dc_run_dialog()
         }
     }
 
+    /* 
+    * Store step position and dialog entitiy
+    * pointers for next function run.
+    */
+
     setlocalvar("dialog_step_position", dialog_step_position);
     setlocalvar("dialog_entity_old", dialog_entity);
 }
+
+
+/* Simple wrapper to handle dialog entity binding. */
 
 void dc_dialog_bind(void dialog_entity, void target_entity)
 {

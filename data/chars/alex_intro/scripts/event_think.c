@@ -27,7 +27,7 @@ void dc_alex_intro_walk(void acting_entity, float goal_pos_x, float goal_pos_z)
 	*/
 
 	if (health < 1)
-	{
+	{		
 		return;
 	}
 

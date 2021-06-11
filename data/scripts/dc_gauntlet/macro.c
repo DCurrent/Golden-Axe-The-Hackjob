@@ -137,3 +137,34 @@ void dc_gauntlet_quick_flash(char model_name)
 
 	return spawned_entity;
 }
+
+/*
+* Caskey, Damon V.
+* 2021-06-10
+*
+* Remove all entities matching provided name.
+* Return number of entities removed.
+*/
+int dc_gauntlet_remove_by_name(char name)
+{
+	int i = 0;
+	int entity_count = openborvariant("count_entities");
+	void target_entity = NULL();
+	char target_name = "";
+	int removed = 0;
+
+	for (i = 0; i < entity_count, i++)
+	{
+		target_entity = getentity(i);
+
+		target_name = get_entity_property(target_entity, "name");
+
+		if (target_name == name)
+		{
+			killentity(target_entity);
+			removed++;
+		}
+	}
+
+	return removed;
+}

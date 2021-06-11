@@ -1,0 +1,16 @@
+# Dummy enemy used to lock scrolling
+
+name 	dummy_enemy
+type 	enemy
+aimove	nomove
+aiattack noattack
+nomove 	1 1
+falldie 1
+noquake 1
+health 1
+shadow 0
+
+anim idle
+
+	delay 1000
+	frame data/chars/misc/blank.png

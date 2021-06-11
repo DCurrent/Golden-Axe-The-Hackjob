@@ -64,9 +64,9 @@ p1namej -100 1	0	0	36	243 1
 p2namej -100 1	0	0	196 243 1
 p3namej -100 1	0	0	356 243 1
 
-p1smenu 238 230 228 -235	#Player 1 middle.
-p2smenu 115 230 105 -235 #Player 2 left.
-p3smenu 362 230 352 -235 #Player 3 right.
+p1smenu 238 230 228 -235 # Player 1 middle.
+p2smenu 115 230 105 -235 # Player 2 left.
+p3smenu 362 230 352 -235 # Player 3 right.
 
 #timeloc  0 0 0 0 1
 hiscorebg 1
@@ -78,9 +78,9 @@ cansave 2
 lives   1
 credits 4
 nosame  1
-typemp 2
+typemp  2
 z       88 230
-file	data/levels/wilderne/wilderne.txt
+file	data/levels/wilderness/wilderness.txt
 
 set	The_Duel_Test
 #maxplayers 1

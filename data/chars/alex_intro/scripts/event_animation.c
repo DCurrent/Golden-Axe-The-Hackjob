@@ -1,4 +1,5 @@
 #include "data/scripts/dc_gauntlet/main.c"
+#import "data/chars/alex_intro/scripts/dc_get_first_player.c"
 
 /*
 * Caskey, Damon V. (based on checktext by Untunnels)
@@ -18,11 +19,18 @@ void dc_run_dialog()
     /*
     * Entity that talks to acting entity. This was 
     * populated by dc_dialog_setup() function in 
-    * event_think script.
+    * event_think script. If there's no value, then
+    * an enemy must have killed us first. In that
+    * case we'll get the first player here.
     */
     
     void dialog_player_entity = getentityvar(self, "dialog_player_entity");
     
+    if (!dialog_player_entity)
+    {
+        dialog_player_entity = dc_get_first_player(self, -1);
+    }
+
     /* 
     * Dialog entity - it is the text box bound to 
     * the entity that is currently speaking.
@@ -57,7 +65,7 @@ void dc_run_dialog()
        dialog_step_position++;       
     }
     else if (dialog_step_position <= 1)
-    {                
+    {       
         /*
         * Only spawn this step's dialog and increment
         * to next step if the previous step's dialog
@@ -76,10 +84,10 @@ void dc_run_dialog()
             dc_dialog_bind(dialog_entity, self);
 
             dialog_step_position++;
-        }
+        }     
     }
     else if (dialog_step_position <= 2)
-    {
+    {        
         if (dialog_entity && get_entity_property(dialog_entity, "animation_state") == 0)
         {
             killentity(dialog_entity);
@@ -90,9 +98,10 @@ void dc_run_dialog()
 
             dialog_step_position++;
         }
+
     }
     else
-    {
+    {        
         /*
         * Previous step was final dialog. Now we
         * need to end the dialog and take final

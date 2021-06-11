@@ -8,7 +8,9 @@ gfxshadow	1
 nodieblink	3
 aiattack	noattack
 gfxshadow	1
-speedf		0.5
+speedf		0.35
+facing		0
+nomove		0 1
 
 palette data/chars/alex/palette_default_0.act
 
@@ -42,8 +44,6 @@ anim walk
 	bbox.size.x 17
 	bbox.size.y 48
 
-#cmd spawndummy
-
 	frame data/chars/alex_intro/walk_0.png
 	frame data/chars/alex_intro/walk_1.png
 	frame data/chars/alex_intro/walk_2.png
@@ -51,6 +51,7 @@ anim walk
 	frame data/chars/alex_intro/walk_4.png
 
 anim pain
+
 	loop	0
 	delay	8
 	offset	150 175

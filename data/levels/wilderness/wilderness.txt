@@ -124,10 +124,6 @@ health  15
 map	2
 at 0
 
-spawn chicken_escape
-coords 100 180
-at 0
-
 spawn Chickenlegs
 coords 100 190
 at 0

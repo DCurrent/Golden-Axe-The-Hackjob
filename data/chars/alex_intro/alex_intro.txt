@@ -8,7 +8,7 @@ gfxshadow	1
 nodieblink	3
 aiattack	noattack
 gfxshadow	1
-speedf		0.35
+speedf		0.375
 facing		0
 nomove		0 1
 
@@ -53,7 +53,7 @@ anim walk
 anim pain
 
 	loop	0
-	delay	8
+	delay	20
 	offset	150 175
 	
 	bbox.position.x 138
@@ -62,6 +62,9 @@ anim pain
 	bbox.size.y 52
 	
 	frame	data/chars/alex_intro/R_PAIN_0.png
+
+	delay 50
+
 	frame	data/chars/alex_intro/idle_0.png
 
 anim death

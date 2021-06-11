@@ -2,7 +2,7 @@
 # have been taken by Death Adder!
 # Revenge them for me, my friend.
 
-name alex_intro_dialog_1
+name alex_intro_dialog_main_1
 shadow 0
 nomove 1
 facing 1

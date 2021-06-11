@@ -14,9 +14,12 @@ nomove		0 1
 
 palette data/chars/alex/palette_default_0.act
 
-load alex_intro_dialog_0
-load alex_intro_dialog_1
-load alex_intro_dialog_2
+load alex_intro_dialog_main_0
+load alex_intro_dialog_main_1
+load alex_intro_dialog_main_2
+load alex_intro_dialog_guest_0
+load alex_intro_dialog_guest_1
+load alex_intro_dialog_guest_2
 
 animationscript data/chars/alex_intro/scripts/event_animation.c
 onspawnscript	data/chars/alex_intro/scripts/event_spawn.c

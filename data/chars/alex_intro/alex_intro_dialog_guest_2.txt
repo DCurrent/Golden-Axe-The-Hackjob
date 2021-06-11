@@ -1,0 +1,17 @@
+# Player reacts to Alex death.
+
+name alex_intro_dialog_guest_2
+shadow 0
+nomove 1
+facing 1
+lifespan 5
+setlayer 2000
+
+anim idle
+    
+    offset 43 19
+    delay   200
+	
+	alphamask	data/chars/alex_intro/dialog_guest_3_mask_0.png
+	frame		data/chars/alex_intro/dialog_guest_3.png
+

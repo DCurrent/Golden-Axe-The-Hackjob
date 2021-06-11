@@ -85,9 +85,12 @@ load    dummy_enemy		data/chars/misc/dummy_enemy.txt
 # Alex
 
 # cut scenes
-know    alex_intro_dialog_0		data/chars/alex_intro/alex_intro_dialog_0.txt
-know    alex_intro_dialog_1		data/chars/alex_intro/alex_intro_dialog_1.txt
-know    alex_intro_dialog_2		data/chars/alex_intro/alex_intro_dialog_2.txt
+know    alex_intro_dialog_main_0		data/chars/alex_intro/alex_intro_dialog_main_0.txt
+know    alex_intro_dialog_main_1		data/chars/alex_intro/alex_intro_dialog_main_1.txt
+know    alex_intro_dialog_main_2		data/chars/alex_intro/alex_intro_dialog_main_2.txt
+know    alex_intro_dialog_guest_0		data/chars/alex_intro/alex_intro_dialog_guest_0.txt
+know    alex_intro_dialog_guest_1		data/chars/alex_intro/alex_intro_dialog_guest_1.txt
+know    alex_intro_dialog_guest_2		data/chars/alex_intro/alex_intro_dialog_guest_2.txt
 know    alex_intro				data/chars/alex_intro/alex_intro.txt
 
 #know	alex0001		data/chars/alex/effects/alex0001.txt		#Alex motion blurs.

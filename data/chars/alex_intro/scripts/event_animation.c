@@ -58,7 +58,7 @@ void dc_run_dialog()
 
     if (!dialog_step_position)
     {
-       dialog_entity = dc_gauntlet_quick_spawn("alex_intro_dialog_0");
+       dialog_entity = dialog_entity = dc_dialog_spawn(dialog_player_entity, 0);
 
        dc_dialog_bind(dialog_entity, dialog_player_entity);
 
@@ -79,7 +79,7 @@ void dc_run_dialog()
         {
             killentity(dialog_entity);
                 
-            dialog_entity = dc_gauntlet_quick_spawn("alex_intro_dialog_1");
+            dialog_entity = dc_dialog_spawn(dialog_player_entity, 1);
             
             dc_dialog_bind(dialog_entity, self);
 
@@ -92,7 +92,7 @@ void dc_run_dialog()
         {
             killentity(dialog_entity);
 
-            dialog_entity = dc_gauntlet_quick_spawn("alex_intro_dialog_2");
+            dialog_entity = dc_dialog_spawn(dialog_player_entity, 2);
 
             dc_dialog_bind(dialog_entity, dialog_player_entity);
 
@@ -138,6 +138,30 @@ void dc_run_dialog()
     setlocalvar("dialog_entity_old", dialog_entity);
 }
 
+/*
+* Caskey, Damon V.
+* 2021-06-10
+* 
+* Picks the dialog to spawn based on model
+* name of provided player entity and current
+* dialog step.
+*/
+void dc_dialog_spawn(void player_entity, int step)
+{
+    char player_name = get_entity_property(player_entity, "name");
+    char spawn_model = "";
+
+    if (player_name == "Lucia Blossom")
+    {
+        spawn_model = "alex_intro_dialog_guest_" + step;
+    }
+    else
+    {
+        spawn_model = "alex_intro_dialog_main_" + step;
+    }
+
+    return dc_gauntlet_quick_spawn(spawn_model);
+}
 
 /* Simple wrapper to handle dialog entity binding. */
 

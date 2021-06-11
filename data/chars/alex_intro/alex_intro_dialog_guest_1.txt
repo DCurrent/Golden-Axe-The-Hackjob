@@ -1,0 +1,20 @@
+# Alex says royal family taken, then
+# asks for help.
+
+name alex_intro_dialog_guest_1
+shadow 0
+nomove 1
+facing 1
+setlayer 2000
+
+anim idle
+    
+    delay   350
+    offset 44 43
+	alphamask	data/chars/alex_intro/dialog_guest_1_mask_0.png
+	frame		data/chars/alex_intro/dialog_guest_1.png
+    delay   200
+    offset 44 27
+	alphamask	data/chars/alex_intro/dialog_guest_2_mask_0.png
+	frame		data/chars/alex_intro/dialog_guest_2.png
+

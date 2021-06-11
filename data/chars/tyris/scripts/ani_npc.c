@@ -1,4 +1,4 @@
-#import "data/scripts/common/attack.h"
+// #import "data/scripts/common/attack.h"
 
 void suicide()
 {

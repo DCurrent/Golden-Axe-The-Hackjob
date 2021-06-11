@@ -1,0 +1,17 @@
+# What happened?
+
+name alex_intro_dialog_guest_0
+shadow 0
+nomove 1
+facing 1
+setlayer 2000
+
+palette data/chars/alex_intro/pal_dialog_default_0.act
+
+anim idle
+    
+    offset 106 27
+    delay   200
+	alphamask	data/chars/alex_intro/dialog_guest_0_mask_0.png
+	frame		data/chars/alex_intro/dialog_guest_0.png
+

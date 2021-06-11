@@ -1,6 +1,6 @@
 # Alex, what has happened?
 
-name alex_intro_dialog_0
+name alex_intro_dialog_main_0
 shadow 0
 nomove 1
 facing 1

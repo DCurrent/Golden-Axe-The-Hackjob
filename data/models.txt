@@ -159,6 +159,7 @@ load    chicken_escape     data/chars/chicken/chicken_escape.txt
 load    Red_Dragon			data/chars/dragon/red_dragon.txt
 load    Blue_Dragon			data/chars/dragon/blue_dragon.txt
 load    blue_dragon_escape	data/chars/dragon/blue_dragon_escape.txt
+know	blue_dragon_fire	data/chars/dragon/blue_dragon_fire.txt
 
 #villagers
 load    Male_Villager   data/chars/villager/male/male.txt

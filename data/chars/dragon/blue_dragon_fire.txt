@@ -1,0 +1,79 @@
+name		blue_dragon_fire
+type		none
+shadow		0
+antigravity	100
+alpha		1
+
+palette data/chars/misc/cvs_yoga_stream/idle_0.png
+
+anim spawn
+
+	delay 1
+	frame	data/chars/misc/blank.png
+
+anim attack1	
+	
+	loop	1
+	delay	4
+	offset	40 16
+	frame	data/chars/misc/cvs_yoga_stream/idle_0.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_1.png
+		
+	attack.damage.force 16
+	attack.damage.type fire
+	attack.position.x 3
+	attack.position.y 1
+	attack.size.x 52
+	attack.size.y 26
+		
+	frame	data/chars/misc/cvs_yoga_stream/idle_2.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_3.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_4.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_5.png
+	
+	attack.damage.force 0
+	attack.position.x 10
+	attack.position.y 4
+	attack.size.x 67
+	attack.size.y 25
+	
+	frame	data/chars/misc/cvs_yoga_stream/idle_6.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_7.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_8.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_9.png	
+	frame	data/chars/misc/cvs_yoga_stream/idle_10.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_11.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_12.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_13.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_14.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_15.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_16.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_17.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_18.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_19.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_20.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_21.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_22.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_23.png
+	
+	attack.damage.force 0
+	attack.position.x 18
+	attack.position.y 5
+	attack.size.x 46
+	attack.size.y 22
+	
+	frame	data/chars/misc/cvs_yoga_stream/idle_24.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_25.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_26.png
+	
+	attack 0
+	
+	frame	data/chars/misc/cvs_yoga_stream/idle_27.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_28.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_29.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_30.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_31.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_32.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_33.png
+	frame	data/chars/misc/cvs_yoga_stream/idle_34.png
+	

@@ -25,6 +25,8 @@ knockdowncount      2
 defense             all 0.0
 nograb              1 
 
+know blue_dragon_fire
+
 palette data/chars/dragon/palette_blue_0.png
 
 animationscript data/chars/chicken/scripts/event_animation.c
@@ -83,7 +85,7 @@ anim attack1
 	frame data/chars/dragon/fire_stream_1.png
 	
 	delay 84
-	
+	@cmd	dc_fidelity_quick_play "fire_stream"
 	frame data/chars/dragon/fire_stream_2.png
 	
 	delay 20

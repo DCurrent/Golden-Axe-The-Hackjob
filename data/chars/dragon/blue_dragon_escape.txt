@@ -1,0 +1,323 @@
+name		    blue_dragon_escape
+type				npc
+health				100
+speed				14
+jumpheight			4
+jumpmove			0 1
+aggression 			90
+risetime 			5
+grabdistance 			24
+running 			20 5 1 0 0
+gfxshadow 			1
+nolife  			1
+dust				fall_land fall_land jump_liftoff
+height				50
+projectilehit 			enemy obstacle player npc
+hostile				enemy obstacle player npc
+candamage			enemy obstacle player npc
+bflash 				flash_block
+aimove 				wander
+
+# You can knock the animal around, but
+# can't grab or kill it.
+risetime            1000
+knockdowncount      2
+defense             all 0.0
+nograb              1 
+
+palette data/chars/dragon/palette_blue_0.png
+
+animationscript data/chars/chicken/scripts/event_animation.c
+thinkscript data/chars/chicken/scripts/event_think.c
+
+anim spawn
+
+	loop	0
+	delay	12
+	offset	78 142
+	
+	bbox.position.x 57
+	bbox.position.y 70
+	bbox.size.x 46
+	bbox.size.y 71
+
+	frame	data/chars/dragon/pain_0.png
+
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_SPAWN_NEW
+
+	frame	data/chars/dragon/pain_1.png
+	frame	data/chars/dragon/pain_0.png
+
+    delay   30
+
+	bbox.position.x 39
+	bbox.position.y 82
+	bbox.size.x 76
+	bbox.size.y 60
+	
+	frame	data/chars/dragon/idle_0.png
+
+anim idle
+
+	loop	1
+	delay	18
+	offset	78 142
+
+	bbox.position.x 47
+	bbox.position.y 80
+	bbox.size.x 65
+	bbox.size.y 61
+
+	frame	data/chars/dragon/idle_0.png
+	frame	data/chars/dragon/idle_1.png
+	frame	data/chars/dragon/idle_2.png
+	
+	frame	data/chars/dragon/idle_1.png
+		
+anim attack1
+
+	delay	8
+	offset	78 142
+
+	frame data/chars/dragon/fire_stream_0.png
+	frame data/chars/dragon/fire_stream_1.png
+	
+	delay 84
+	
+	frame data/chars/dragon/fire_stream_2.png
+	
+	delay 20
+	
+	frame data/chars/dragon/fire_stream_0.png
+
+anim walk
+
+	loop	1
+	delay	8
+	offset	78 142
+	
+	bbox.position.x 68
+	bbox.position.y 108
+	bbox.size.x 30
+	bbox.size.y 34
+
+	frame	data/chars/dragon/run_0.png
+	frame	data/chars/dragon/run_1.png
+	frame	data/chars/dragon/run_2.png
+	frame	data/chars/dragon/run_3.png
+		
+anim down
+
+	loop	1
+	delay	8
+	offset	78 142
+
+	bbox.position.x 68
+	bbox.position.y 108
+	bbox.size.x 30
+	bbox.size.y 34
+
+	frame	data/chars/dragon/walk_0.png
+	frame	data/chars/dragon/walk_1.png
+	frame	data/chars/dragon/walk_2.png
+	frame	data/chars/dragon/walk_3.png
+		
+anim up
+
+	loop	1
+	delay	8
+
+	offset	78 142
+	bbox.position.x 68
+	bbox.position.y 108
+	bbox.size.x 30
+	bbox.size.y 34
+
+	frame	data/chars/dragon/walk_up_0.png
+	frame	data/chars/dragon/walk_up_1.png
+	frame	data/chars/dragon/walk_up_2.png
+	frame	data/chars/dragon/walk_up_3.png
+		
+anim run
+
+	loop	1
+	delay	8
+	offset	78 142
+
+	bbox.position.x 68
+	bbox.position.y 108
+	bbox.size.x 30
+	bbox.size.y 34
+
+	frame	data/chars/dragon/run_0.png
+	frame	data/chars/dragon/run_1.png
+	frame	data/chars/dragon/run_2.png
+	frame	data/chars/dragon/run_3.png
+
+
+anim jump
+
+	range   10 64
+	dropframe 1
+
+    delay	-1000
+    offset 78 142
+    
+	bbox.position.x 69
+	bbox.position.y 90
+	bbox.size.x 30
+	bbox.size.y 31
+	
+	frame	data/chars/dragon/jump_0.png
+	frame	data/chars/dragon/jump_1.png
+
+anim runjump
+
+	range   10 94
+	dropframe 1
+
+    delay	-1000
+    offset 78 142
+    
+	bbox.position.x 69
+	bbox.position.y 90
+	bbox.size.x 30
+	bbox.size.y 31
+	
+	frame	data/chars/dragon/jump_0.png
+	frame	data/chars/dragon/jump_1.png
+
+anim jumpdelay
+
+   	delay 	12
+    offset	78 142
+
+	bbox.position.x 48
+	bbox.position.y 92
+	bbox.size.x 65
+	bbox.size.y 50
+
+	frame	data/chars/dragon/fire_shot_0.png
+
+anim jumpland
+
+   	delay 	12
+    offset	78 142
+
+	bbox.position.x 48
+	bbox.position.y 92
+	bbox.size.x 65
+	bbox.size.y 50
+
+	frame	data/chars/dragon/fire_shot_0.png
+
+anim walkoff
+
+	dropframe 1
+	landframe 2 fall_land
+
+    delay	-1000
+    offset 78 142
+    
+	bbox.position.x 69
+	bbox.position.y 90
+	bbox.size.x 30
+	bbox.size.y 31
+	
+	frame	data/chars/dragon/jump_0.png
+	frame	data/chars/dragon/jump_1.png
+	
+	delay 12
+	
+	bbox.position.x 48
+	bbox.position.y 92
+	bbox.size.x 65
+	bbox.size.y 50
+
+	frame	data/chars/dragon/fire_shot_0.png
+		
+anim pain
+	loop	0
+	delay	30
+	offset	78 142
+
+		bbox.position.x 57
+	bbox.position.y 70
+	bbox.size.x 46
+	bbox.size.y 71
+
+	frame	data/chars/dragon/pain_1.png
+		
+	delay 12
+		
+	frame	data/chars/dragon/pain_0.png
+		
+anim fall
+
+	dropframe 1
+	landframe 2 fall_land
+
+    delay	-1000
+    offset 78 142
+    
+	bbox.position.x 59
+	bbox.position.y 80
+	bbox.size.x 55
+	bbox.size.y 55
+	
+	frame	data/chars/dragon/jump_0.png
+	frame	data/chars/dragon/jump_1.png
+	
+	delay 12
+	
+	bbox.position.x 48
+	bbox.position.y 92
+	bbox.size.x 65
+	bbox.size.y 50
+
+	frame	data/chars/dragon/fire_shot_0.png
+		
+anim rise
+
+    delay 	1
+    offset	78 142
+
+	frame	data/chars/dragon/fire_shot_0.png
+	
+	
+anim freespecial2 # Backstep.
+
+	range	1 -1
+
+	jumpframe 1 2 -1 0 jump_liftoff
+	dropframe 2
+	landframe 3 fall_land
+
+	delay	12
+	offset	78 142
+	
+	bbox.position.x 48
+	bbox.position.y 92
+	bbox.size.x 65
+	bbox.size.y 50
+
+	frame	data/chars/dragon/fire_shot_0.png
+	
+	delay	-1000
+   	
+	bbox.position.x 68
+	bbox.position.y 87
+	bbox.size.x 31
+	bbox.size.y 40
+		
+	frame	data/chars/dragon/jump_0.png
+	frame	data/chars/dragon/jump_1.png
+	
+	delay 12
+	
+	bbox.position.x 48
+	bbox.position.y 92
+	bbox.size.x 65
+	bbox.size.y 50
+
+	frame	data/chars/dragon/fire_shot_0.png

@@ -58,7 +58,7 @@ anim walk
 	delay	8
 	offset	78 142
 
-	@cmd dc_elmers_quick_spot dc_gauntlet_quick_spawn("chicken_escape")
+	@cmd dc_elmers_quick_spot dc_gauntlet_quick_spawn("blue_dragon_escape")
 	@cmd killentity getlocalvar("self")
 		frame	data/chars/dragon/run_0.png
 		frame	data/chars/dragon/run_1.png

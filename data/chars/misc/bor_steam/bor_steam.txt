@@ -5,6 +5,8 @@ shadow	0
 
 alpha 2
 
+onspawnscript data/chars/misc/bor_steam/scripts/event_spawn.c
+
 palette data/chars/misc/bor_steam/idle_0.png
 
 anim idle

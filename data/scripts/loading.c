@@ -129,6 +129,8 @@ void load_sounds()
 	
 	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_NEAR_KO, "data/chars/ax/sounds/voice_low_hp_0.wav");
 
+	/* bor_steam*/
+	dc_fidelity_setup("bor_steam", DC_FIDELITY_TYPE_VOICE_SPAWN_NEW, "data/sounds/custom/marvel_vs_capcom_2_fire_hit_0.wav");
 
 	/* Longmoan */
 	dc_fidelity_setup("longmoan", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/longmoan/sounds/atk_shout_0.wav");

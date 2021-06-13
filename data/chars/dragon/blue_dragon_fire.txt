@@ -1,8 +1,9 @@
 name		blue_dragon_fire
-type		none
+type		projectile
 shadow		0
 antigravity	100
 alpha		1
+remove		0
 
 palette data/chars/misc/cvs_yoga_stream/idle_0.png
 
@@ -11,16 +12,19 @@ anim spawn
 	delay 1
 	frame	data/chars/misc/blank.png
 
-anim attack1	
-	
-	loop	1
+anim idle	
+		
 	delay	4
 	offset	40 16
+
+	@cmd set_entity_property getlocalvar("self") "autokill" 1
 	frame	data/chars/misc/cvs_yoga_stream/idle_0.png
 	frame	data/chars/misc/cvs_yoga_stream/idle_1.png
 		
 	attack.damage.force 16
-	attack.damage.type fire
+	attack.damage.type burn
+	attack.reaction.fall.force 10
+	attack.effect.hit.flash.model bor_steam
 	attack.position.x 3
 	attack.position.y 1
 	attack.size.x 52
@@ -31,7 +35,6 @@ anim attack1
 	frame	data/chars/misc/cvs_yoga_stream/idle_4.png
 	frame	data/chars/misc/cvs_yoga_stream/idle_5.png
 	
-	attack.damage.force 0
 	attack.position.x 10
 	attack.position.y 4
 	attack.size.x 67
@@ -56,7 +59,6 @@ anim attack1
 	frame	data/chars/misc/cvs_yoga_stream/idle_22.png
 	frame	data/chars/misc/cvs_yoga_stream/idle_23.png
 	
-	attack.damage.force 0
 	attack.position.x 18
 	attack.position.y 5
 	attack.size.x 46
@@ -75,5 +77,4 @@ anim attack1
 	frame	data/chars/misc/cvs_yoga_stream/idle_31.png
 	frame	data/chars/misc/cvs_yoga_stream/idle_32.png
 	frame	data/chars/misc/cvs_yoga_stream/idle_33.png
-	frame	data/chars/misc/cvs_yoga_stream/idle_34.png
 	

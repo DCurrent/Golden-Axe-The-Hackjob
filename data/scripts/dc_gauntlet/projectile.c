@@ -131,6 +131,8 @@ void dc_guantlet_spawn_projectile()
 	int map;
 	void spawn;
 	
+	log("\n\n dc_guantlet_spawn_projectile()");
+
 	relative				= 0; //DC_GAUNTLET_DEFAULT_PROJECTILE_RELATIVE;
 	model_name				= dc_gauntlet_get_member_model_name();  
 	projectile_stationary	= dc_gauntlet_get_member_projectile_stationary();
@@ -140,6 +142,15 @@ void dc_guantlet_spawn_projectile()
 	pos_x = dc_gauntlet_find_position_with_offset_x();
 	pos_y = dc_gauntlet_find_position_with_offset_y();
 	pos_z = dc_gauntlet_find_position_with_offset_z();
+
+	log("\n\t relative: " + relative);
+	log("\n\t model_name: " + model_name);
+	log("\n\t projectile_stationary: " + projectile_stationary);
+	log("\n\t projectile_type: " + projectile_type);
+	log("\n\t map: " + map);
+	log("\n\t pos_x: " + pos_x);
+	log("\n\t pos_y: " + pos_y);
+	log("\n\t pos_z: " + pos_z);
 
 	/* 
 	* Adjust launching entity and projectile position
@@ -151,6 +162,7 @@ void dc_guantlet_spawn_projectile()
 	pos_x += dc_terrian_quick_shunt(pos_x, pos_y, pos_z);
 
 	/* Spawn the projectile. */
+	//projectile(      name,       x,     z,     a,    direction,                                 pytype,                type,            map)
 	spawn = projectile(model_name, pos_x, pos_z, pos_y, DC_GAUNTLET_DEFAULT_PROJECTILE_DIRECTION, projectile_stationary, projectile_type, map);
 
 	/* Store the spawn as a local var. */

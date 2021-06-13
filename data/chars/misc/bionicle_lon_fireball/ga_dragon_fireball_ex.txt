@@ -15,7 +15,7 @@ anim idle
 	offset	43 44
 
 	attack.damage.force 4
-	attack.damage.type fire
+	attack.damage.type burn
 	attack.position.x 12
 	attack.position.y 12
 	attack.reaction.fall.force 1
@@ -37,7 +37,7 @@ anim idle
 	frame	data/chars/misc/bionicle_lon_fireball/idle_3.png
 	
 	attack.damage.force 4
-	attack.damage.type fire
+	attack.damage.type burn
 	attack.position.x 12
 	attack.position.y 12
 	attack.reaction.fall.force 1
@@ -57,7 +57,7 @@ anim idle
 	frame	data/chars/misc/bionicle_lon_fireball/idle_7.png
 	
 	attack.damage.force 4
-	attack.damage.type fire
+	attack.damage.type burn
 	attack.position.x 12
 	attack.position.y 12
 	attack.reaction.fall.force 1
@@ -72,7 +72,7 @@ anim idle
 	frame	data/chars/misc/bionicle_lon_fireball/idle_9.png
 	
 	attack.damage.force 4
-	attack.damage.type fire
+	attack.damage.type burn
 	attack.position.x 12
 	attack.position.y 12
 	attack.reaction.fall.force 1
@@ -92,7 +92,7 @@ anim idle
 	frame	data/chars/misc/bionicle_lon_fireball/idle_13.png
 	
 	attack.damage.force 4
-	attack.damage.type fire
+	attack.damage.type burn
 	attack.position.x 12
 	attack.position.y 12
 	attack.reaction.fall.force 1
@@ -112,7 +112,7 @@ anim idle
 	frame	data/chars/misc/bionicle_lon_fireball/idle_17.png
 	
 	attack.damage.force 4
-	attack.damage.type fire
+	attack.damage.type burn
 	attack.position.x 12
 	attack.position.y 12
 	attack.reaction.fall.force 1
@@ -132,7 +132,7 @@ anim idle
 	frame	data/chars/misc/bionicle_lon_fireball/idle_21.png
 	
 	attack.damage.force 4
-	attack.damage.type fire
+	attack.damage.type burn
 	attack.position.x 12
 	attack.position.y 12
 	attack.reaction.fall.force 1

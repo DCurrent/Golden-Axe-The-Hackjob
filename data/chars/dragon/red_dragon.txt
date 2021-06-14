@@ -25,7 +25,7 @@ anim spawn
 	bbox.size.x 77
 	bbox.size.y 46
 	
-		frame	data/chars/dragon/pain_0.png
+		frame	data/chars/dragon/grab_toss_0.png
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 	
 	# Set up or reset the runaway timer.
@@ -33,8 +33,8 @@ anim spawn
 	@cmd dc_disney_set_member_time_delay 3000
 	@cmd dc_disney_reset_animation_on_time
 	
-		frame	data/chars/dragon/pain_1.png
-		frame	data/chars/dragon/pain_0.png
+		frame	data/chars/dragon/grab_toss_1.png
+		frame	data/chars/dragon/grab_toss_0.png
         delay   30
 		frame	data/chars/dragon/idle_0.png
 

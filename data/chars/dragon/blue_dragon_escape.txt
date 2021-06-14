@@ -43,12 +43,12 @@ anim spawn
 	bbox.size.x 46
 	bbox.size.y 71
 
-	frame	data/chars/dragon/pain_0.png
+	frame	data/chars/dragon/grab_toss_0.png
 
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_SPAWN_NEW
 
-	frame	data/chars/dragon/pain_1.png
-	frame	data/chars/dragon/pain_0.png
+	frame	data/chars/dragon/grab_toss_1.png
+	frame	data/chars/dragon/grab_toss_0.png
 
     delay   30
 
@@ -91,17 +91,17 @@ anim attack1
 	projectile_velocity_y 0.0
 	projectile_velocity_z 0.0
 
-	frame data/chars/dragon/fire_stream_0.png
-	frame data/chars/dragon/fire_stream_1.png
+	frame data/chars/dragon/atk_breath_diagonal_0.png
+	frame data/chars/dragon/atk_breath_diagonal_1.png
 	
-	delay 84
+	delay 94
 	@cmd	dc_fidelity_quick_play "fire_stream"	
 	
-	frame data/chars/dragon/fire_stream_2.png
+	frame data/chars/dragon/atk_breath_diagonal_2.png
 	
 	delay 20
 	
-	frame data/chars/dragon/fire_stream_0.png
+	frame data/chars/dragon/atk_breath_diagonal_0.png
 
 anim walk
 
@@ -210,7 +210,7 @@ anim jumpdelay
 	bbox.size.x 65
 	bbox.size.y 50
 
-	frame	data/chars/dragon/fire_shot_0.png
+	frame	data/chars/dragon/atk_breath_front_0.png
 
 anim jumpland
 
@@ -222,7 +222,7 @@ anim jumpland
 	bbox.size.x 65
 	bbox.size.y 50
 
-	frame	data/chars/dragon/fire_shot_0.png
+	frame	data/chars/dragon/atk_breath_front_0.png
 
 anim walkoff
 
@@ -247,7 +247,7 @@ anim walkoff
 	bbox.size.x 65
 	bbox.size.y 50
 
-	frame	data/chars/dragon/fire_shot_0.png
+	frame	data/chars/dragon/atk_breath_front_0.png
 		
 anim pain
 	loop	0
@@ -259,11 +259,11 @@ anim pain
 	bbox.size.x 46
 	bbox.size.y 71
 
-	frame	data/chars/dragon/pain_1.png
+	frame	data/chars/dragon/grab_toss_1.png
 		
 	delay 12
 		
-	frame	data/chars/dragon/pain_0.png
+	frame	data/chars/dragon/grab_toss_0.png
 		
 anim fall
 
@@ -288,14 +288,14 @@ anim fall
 	bbox.size.x 65
 	bbox.size.y 50
 
-	frame	data/chars/dragon/fire_shot_0.png
+	frame	data/chars/dragon/atk_breath_front_0.png
 		
 anim rise
 
     delay 	1
     offset	78 142
 
-	frame	data/chars/dragon/fire_shot_0.png
+	frame	data/chars/dragon/atk_breath_front_0.png
 	
 	
 anim freespecial2 # Backstep.
@@ -314,7 +314,7 @@ anim freespecial2 # Backstep.
 	bbox.size.x 65
 	bbox.size.y 50
 
-	frame	data/chars/dragon/fire_shot_0.png
+	frame	data/chars/dragon/atk_breath_front_0.png
 	
 	delay	-1000
    	
@@ -333,4 +333,4 @@ anim freespecial2 # Backstep.
 	bbox.size.x 65
 	bbox.size.y 50
 
-	frame	data/chars/dragon/fire_shot_0.png
+	frame	data/chars/dragon/atk_breath_front_0.png

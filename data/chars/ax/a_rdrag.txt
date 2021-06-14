@@ -40,120 +40,198 @@ aggression 			60
 #nolife  			1
 jumpmove			0 1
 
-palette				data/chars/ax/dragon/pals/r0		#Default.
-alternatepal		data/chars/ax/dragon/pals/r1		#Red.
-alternatepal		data/chars/ax/dragon/pals/r2		#Green.
-alternatepal		data/chars/ax/dragon/pals/r3		#Brown.
-alternatepal		data/chars/ax/dragon/pals/r4		#Black.
-alternatepal		data/chars/ax/dragon/pals/r5		#Dark.
-alternatepal		data/chars/ax/pals/KO				#KO.
+palette				data/chars/ax/palette.png		# Default
 
 anim spawn
 
 	delay	1
-	offset	80 142
-    	bbox    69 70 21 47
-		frame	data/chars/ax/dragon/0017
-	delay	25
-		frame	data/chars/ax/dragon/0017
+	offset	78 142
+	
+	bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+	
+	frame	data/chars/ax/dragon/idle_0.png
+	
+	delay	25	
+	
+	frame	data/chars/ax/dragon/idle_0.png
 
 anim idle
 
 	loop	1
 	delay	20
-	offset	80 142
-    	bbox    66 68 24 47
+	offset	78 142
+    
+    bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+	
 	#cmd save_mp
-		frame	data/chars/ax/dragon/0018
-		frame	data/chars/ax/dragon/0017
-		frame	data/chars/ax/dragon/0016
-		frame	data/chars/ax/dragon/0017
+		frame	data/chars/ax/dragon/idle_0.png
+		frame	data/chars/ax/dragon/idle_1.png
+		frame	data/chars/ax/dragon/idle_2.png
+		frame	data/chars/ax/dragon/idle_1.png
 
 anim walk
 
 	loop    1
-    	delay   10
-    	offset  80 142
-    	bbox    74 74 20 54
+    delay   15
+    offset  78 142
+    
+    bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+    
 	@script	
     		dc_ai_avoid_jump_attack();	
 	@end_script
-		frame	data/chars/ax/dragon/0029
-		frame	data/chars/ax/dragon/0030
-		frame	data/chars/ax/dragon/0031
-		frame	data/chars/ax/dragon/0032
+		frame	data/chars/ax/dragon/walk_0.png
+		frame	data/chars/ax/dragon/walk_1.png
+		frame	data/chars/ax/dragon/walk_2.png
+		frame	data/chars/ax/dragon/walk_3.png
 
 anim get
 
 	delay	20
-	offset	80 142
-		frame	data/chars/ax/dragon/0026
-		frame	data/chars/ax/dragon/0027
-	#cmd	soun0005 ENT_SELF VOI_ATK 0 1 "D" 0
-		frame	data/chars/ax/dragon/0028
+	offset	78 142
+	
+	frame	data/chars/ax/dragon/mount_0.png
+	frame	data/chars/ax/dragon/mount_1.png
+	
+	@cmd	dc_fidelity_set_member_model_name "Red_Dragon"
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_SPAWN_NEW
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
+	
+	frame	data/chars/ax/dragon/mount_2.png
 
 anim up
 
-    	loop    1
-    	delay   10
-    	offset  80 142
-    	bbox    64 72 22 54
+    loop    1
+    delay   15
+    offset  78 142
+    
+    bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+	
 	@script
 		dc_ai_avoid_jump_attack();
 	@end_script
-		frame	data/chars/ax/dragon/0033
-		frame	data/chars/ax/dragon/0034
-		frame	data/chars/ax/dragon/0035
-		frame	data/chars/ax/dragon/0036
+	
+	frame	data/chars/ax/dragon/walk_up_0.png
+	frame	data/chars/ax/dragon/walk_up_1.png
+	frame	data/chars/ax/dragon/walk_up_2.png
+	frame	data/chars/ax/dragon/walk_up_3.png
 
 anim run
 
-    	loop    1
-    	delay   6
-	offset	80 142
-    	bbox    64 72 22 54
-		frame	data/chars/ax/dragon/0021
-		frame	data/chars/ax/dragon/0022
-		frame	data/chars/ax/dragon/0023
-		frame	data/chars/ax/dragon/0024
+    loop    1
+    delay   10
+	offset	78 142
+	
+    bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+    
+	frame	data/chars/ax/dragon/run_0.png
+	frame	data/chars/ax/dragon/run_1.png
+	frame	data/chars/ax/dragon/run_2.png
+	frame	data/chars/ax/dragon/run_3.png
 
 anim runattack
 
-    	range 		80 180
-    	followanim 	2
-    	followcond 	1
-    	jumpframe  	0 2 3 0 jump_liftoff
-    	landframe 	2 jump_land
-    	hitflash 	flash_impact_cut
+    range 		80 180
+    followanim 	2
+    followcond 	1
+    jumpframe  	1 2 3 0 jump_liftoff
+    landframe 	2 fall_land
 
-	delay	8
-	offset	80 142
-    	bbox    64 56 27 46
-	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-		frame	data/chars/ax/dragon/0019
-	delay	1000
-    	bbox    65 68 26 54
-   	attack1	80 96 54 28 8 1 1
-		frame	data/chars/ax/dragon/0025
-	attack1	0
-	delay	6
-    	bbox    64 72 22 54
-	frame	data/chars/ax/dragon/0024
+	delay	4
+	offset	78 142
 	
-anim attackboth
+	bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+	
+	@cmd	dc_fidelity_set_member_model_name "Red_Dragon"
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME	
+	
+	frame	data/chars/ax/dragon/fire_breath_front_0.png
+	
+	delay	1000
+	
+	attack.damage.force 8
+	attack.effect.hit.flash.model flash_impact_cut
+	attack.position.x 80
+	attack.position.y 95
+	attack.reaction.fall.force 2
+	attack.size.x 48
+	attack.size.y 29
+	
+	frame	data/chars/ax/dragon/atk_ram_0.png
+	
+   	delay 12
+	attack 0
+	
+	frame	data/chars/ax/dragon/fire_breath_front_0.png
+	
 
-	#Dismount
+anim follow1 # runattack bounce.
+
+    jumpframe 	0 1 0
+    landframe 	2 fall_land	
+
+	offset	78 142
+	delay	2
+	
+	bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+	
+	attack	0
+    	
+	frame	data/chars/ax/dragon/atk_ram_0.png	
+	
+	delay	-1000
+	
+	bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	frame	data/chars/ax/dragon/jump_1.png
+	
+	delay 12
+	
+	bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+   		
+	frame	data/chars/ax/dragon/fire_breath_front_0.png
+anim attackboth	# Dismount
 
 	weaponframe 4 0
 
 	delay	20
-	offset	80 142
-		frame	data/chars/ax/dragon/0018
-		frame	data/chars/ax/dragon/0028
-		frame	data/chars/ax/dragon/0027
-		frame	data/chars/ax/dragon/0026
-	delay	1
-		frame	data/chars/ax/dragon/0026
+	offset	78 142
+	
+	frame	data/chars/ax/dragon/mount_2.png
+	frame	data/chars/ax/dragon/mount_1.png
+	frame	data/chars/ax/dragon/mount_0.png
+	
+	delay 1
+	
+	frame	data/chars/ax/dragon/mount_0.png
 
 anim attackup
 
@@ -346,40 +424,7 @@ anim freespecial6
 	attack1	80 96 54 28 12 1 1
 		frame	data/chars/ax/dragon/0025
 
-anim follow1
 
-	#Block reaction.
-
-	counterrange 	0 1 1 0
-	followanim 	1
-
-	delay	20
-	offset	80 142
-    	bbox    75 73 54 56
-		frame	data/chars/ax/dragon/0008.png
-	delay	10
-		frame	data/chars/ax/dragon/0007.png
-
-anim follow2
-
-	#runattack bounce.
-
-    	jumpframe 	0 1 0
-    	landframe 	3 jump_land
-	hitflash 	flash_impact_cut
-
-	offset	80 142
-	delay	2
-
-	attack1	80 96 54 28 8 1 1
-    	bbox    65 68 26 54
-		frame	data/chars/ax/dragon/0025
-	attack1	0
-	delay	8
-		frame	data/chars/ax/dragon/0025
-	delay	-1000
-   	bbox    64 56 27 46
-		frame	data/chars/ax/dragon/0020
 
 anim jumpdelay
 

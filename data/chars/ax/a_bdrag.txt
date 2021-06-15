@@ -42,6 +42,8 @@ jumpmove			0 1
 
 palette				data/chars/ax/palette.png		# Default
 
+load dragon_fireball
+
 anim spawn
 
 	delay	1
@@ -351,7 +353,7 @@ anim chargeattack # EX Fireball
 
 anim attack1 # Fireball
 
-	custknife fireball
+	custknife dragon_fireball
 	throwframe 2
 	projectile_offense parent
 	projectile_position_x -2

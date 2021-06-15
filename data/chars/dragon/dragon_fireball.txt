@@ -1,0 +1,118 @@
+name    	dragon_fireball
+type    	projectile
+speed   	10
+remove  	0
+alpha   	1
+antigravity 100
+
+thinkscript data/chars/dragon/scripts/dragon_fireball_event_think.c
+animationscript data/chars/dragon/scripts/dragon_fireball_event_animation.c
+
+anim spawn
+
+	delay 1
+	offset	28 35
+	@cmd dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_SPAWN
+	frame	data/chars/misc/cvs_yoga_fire/idle_0.png
+
+anim idle
+	
+    
+	loop	1
+	offset	28 35
+	delay	5   
+	
+	attack.damage.force 16
+	attack.damage.type burn
+	attack.effect.hit.flash.model bor_steam
+	attack.position.x 18
+	attack.position.y 19
+	attack.reaction.fall.force 5
+	attack.size.x 18
+	attack.size.y 29
+	
+	frame	data/chars/misc/cvs_yoga_fire/idle_0.png
+	frame	data/chars/misc/cvs_yoga_fire/idle_1.png
+	frame	data/chars/misc/cvs_yoga_fire/idle_2.png
+	frame	data/chars/misc/cvs_yoga_fire/idle_3.png
+	frame	data/chars/misc/cvs_yoga_fire/idle_4.png
+	frame	data/chars/misc/cvs_yoga_fire/idle_5.png
+	frame	data/chars/misc/cvs_yoga_fire/idle_6.png
+	frame	data/chars/misc/cvs_yoga_fire/idle_7.png
+	frame	data/chars/misc/cvs_yoga_fire/idle_8.png
+	frame	data/chars/misc/cvs_yoga_fire/idle_9.png
+	frame	data/chars/misc/cvs_yoga_fire/idle_10.png
+	frame	data/chars/misc/cvs_yoga_fire/idle_11.png
+	frame	data/chars/misc/cvs_yoga_fire/idle_12.png
+	frame	data/chars/misc/cvs_yoga_fire/idle_13.png
+	frame	data/chars/misc/cvs_yoga_fire/idle_14.png
+	frame	data/chars/misc/cvs_yoga_fire/idle_15.png
+	frame	data/chars/misc/cvs_yoga_fire/idle_16.png
+	
+anim attack1
+
+	offset	47 62
+	delay	3   
+	
+	attack.damage.force 16
+	attack.damage.type burn
+	attack.effect.hit.flash.model bor_steam
+	attack.position.x 18
+	attack.position.y 19
+	attack.reaction.fall.force 5
+	attack.size.x 18
+	attack.size.y 29
+	
+	@cmd dc_fidelity_quick_play "explode"
+	
+	frame	data/chars/misc/cvs_yoga_fire/hit_0.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_1.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_2.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_3.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_4.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_5.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_6.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_7.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_8.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_9.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_10.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_11.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_12.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_13.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_14.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_15.png
+
+
+anim attack2
+
+	offset	47 62
+	delay	3   
+	
+	attack.damage.force 16
+	attack.damage.type burn
+	attack.effect.hit.flash.model bor_steam
+	attack.position.x 18
+	attack.position.y 19
+	attack.reaction.fall.force 5
+	attack.size.x 18
+	attack.size.y 29
+	
+	@cmd dc_fidelity_quick_play "explode"
+	
+	frame	data/chars/misc/cvs_yoga_fire/hit_0.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_1.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_2.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_3.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_4.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_5.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_6.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_7.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_8.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_9.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_10.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_11.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_12.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_13.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_14.png
+	frame	data/chars/misc/cvs_yoga_fire/hit_15.png
+

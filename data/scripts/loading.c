@@ -236,8 +236,7 @@ void load_sounds()
 	dc_fidelity_setup("Red_Dragon", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/dragon/sounds/atk_shout_0.wav");
 	dc_fidelity_setup("Red_Dragon", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/dragon/sounds/atk_shout_1.wav");
 	dc_fidelity_setup("Red_Dragon", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/dragon/sounds/atk_shout_2.wav");
-
-	dc_fidelity_setup("Red_Dragon", "fireball", "data/sounds/custom/golden_axe_red_dragon_fireball_0.wav");
+	
 
 	dc_fidelity_setup("red_dragon_escape", DC_FIDELITY_TYPE_VOICE_SPAWN_NEW, "data/chars/dragon/sounds/loud_cry_0.wav");
 
@@ -283,6 +282,10 @@ void load_sounds()
 	dc_fidelity_setup("blue_dragon_escape", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/dragon/sounds/atk_shout_2.wav");
 
 	dc_fidelity_setup("blue_dragon_escape", "fire_stream", "data/chars/dragon/sounds/fire_stream_0.wav");
+
+	/* Dragon fireball */
+	dc_fidelity_setup("dragon_fireball", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_red_dragon_fireball_0.wav");
+	dc_fidelity_setup("dragon_fireball", "explode", "data/sounds/custom/golden_axe_red_dragon_fireball_impact_0.wav");
 
 	/* Thief */
 	dc_fidelity_setup("Thief", DC_FIDELITY_TYPE_VOICE_LAUGH, "data/chars/thief/sounds/laugh_0.wav");

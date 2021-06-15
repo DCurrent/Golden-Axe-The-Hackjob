@@ -220,7 +220,7 @@ anim follow1 # runattack bounce.
 	frame	data/chars/ax/dragon/atk_breath_front_0.png
 anim attackboth	# Dismount
 
-	weaponframe 4 0
+	weaponframe 3 0
 
 	delay	20
 	offset	78 142
@@ -351,10 +351,10 @@ anim chargeattack # EX Fireball
 
 anim attack1 # Fireball
 
-	custknife fireball
-	throwframe 2
+	custbomb dragon_fireball
+	tossframe 2
 	projectile_offense parent
-	projectile_position_x -2
+	projectile_position_x 50
 	projectile_position_y 32
 
 	projectile_velocity_x 1
@@ -380,11 +380,7 @@ anim attack1 # Fireball
 	frame	data/chars/ax/dragon/atk_breath_front_1.png
 	
 	delay 12
-	
-	@cmd	dc_fidelity_set_member_model_name "Red_Dragon"
-	@cmd	dc_fidelity_quick_play "fireball"
-	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
-	
+		
 	frame	data/chars/ax/dragon/atk_breath_front_2.png
 	frame	data/chars/ax/dragon/atk_breath_front_1.png
     
@@ -732,6 +728,8 @@ anim walkoff
 	dropframe 1
 	landframe 2 fall_land 
 	
+	offset 78 142
+	
 		delay	-1000
 	
 	
@@ -750,6 +748,8 @@ anim walkoff
 	frame	data/chars/ax/dragon/jump_1.png
 
 	delay 12
+
+	bbox 0
 
 	frame	data/chars/ax/dragon/atk_breath_front_0.png
 

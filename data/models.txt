@@ -70,9 +70,8 @@ know    meat            data/chars/misc/golden_axe_meat/meat.txt
 load    Magic           data/chars/misc/magic_pot/magic.txt
 know    Magic_Pot       data/chars/misc/magic_pot/magic_pot.txt
 load    bor_steam       data/chars/misc/bor_steam/bor_steam.txt
-load    fireexpl        data/chars/misc/effects/fire0004/fireexpl.txt		#Fireball explosion.
 load    ga_dragon_fireball_ex	data/chars/misc/bionicle_lon_fireball/ga_dragon_fireball_ex.txt
-load    fireball        data/chars/misc/effects/fire0003/fireball.txt		#Dragon fireball.
+
 
 know    kuna0001        data/chars/misc/effects/kuna0001/kuna0001.txt		#Thrown kunai.
 
@@ -153,13 +152,14 @@ know	Amazon          data/chars/amazon/amazon.txt				#Enemy Amazon
 
 
 #Animals
-load    Chickenlegs     data/chars/chicken/chicken.txt
+load    Chickenlegs			data/chars/chicken/chicken.txt
 load    chicken_escape     data/chars/chicken/chicken_escape.txt
 
 load    Red_Dragon			data/chars/dragon/red_dragon.txt
 load    Blue_Dragon			data/chars/dragon/blue_dragon.txt
 load    blue_dragon_escape	data/chars/dragon/blue_dragon_escape.txt
-know	blue_dragon_fire	data/chars/dragon/blue_dragon_fire.txt
+know	dragon_flame		data/chars/dragon/dragon_flame.txt
+know    dragon_fireball		data/chars/dragon/dragon_fireball.txt
 
 #villagers
 load    Male_Villager   data/chars/villager/male/male.txt

@@ -25,7 +25,7 @@ knockdowncount      2
 defense             all 0.0
 nograb              1 
 
-load blue_dragon_fire
+load dragon_flame
 
 palette data/chars/dragon/palette_blue_0.png
 
@@ -81,7 +81,7 @@ anim attack1
 	delay	8
 	offset	78 142
 
-	custknife blue_dragon_fire
+	custknife dragon_flame
 	throwframe 2
 	projectile_offense parent
 	projectile_position_x 80

@@ -2,365 +2,458 @@
 
 icon					data/chars/ax/icon_default.png
 name					a_bdrag
-speed					10
-running 				20 5 1 1 0
-dust					fall_land jump_land jump_liftoff
-gfxshadow 				1
-shadow					3
-animal  				2
-grabforce 				1
-grabdistance 			36
-aimove 					chase
-grabfinish 				1
-bflash					flash_block
-fmap					9
+speed				10
+running 			20 5 1 1 0
+dust				fall_land jump_land jump_liftoff
+gfxshadow 			1
+shadow				3
+animal  			2
+grabforce 			1
+grabdistance 		36
+aimove 				chase
+grabfinish 			1
+bflash				flash_block
+fmap				9
 
-animationscript 		data/scripts/z_ani.c
+animationscript 	data/scripts/dc_common_animation/main.c
 didhitscript 		data/scripts/dc_common_didhit/event_didhit.c
-onblockoscript			data/scripts/dc_common_onblock/event_onblocko.c
-onblocksscript			data/scripts/dc_common_onblock/event_onblocks.c
-onblockwscript			data/scripts/dc_common_onblock/event_onblockw.c
-onblockzscript			data/scripts/dc_common_onblock/event_onblockz.c
-ondeathscript			data/scripts/dc_common_ondeath/event_ondeath.c
-onfallscript			data/scripts/dc_common_onfall/event_onfall_player.c	
+onblockoscript		data/scripts/dc_common_onblock/event_onblocko.c
+onblocksscript		data/scripts/dc_common_onblock/event_onblocks.c
+onblockwscript		data/scripts/dc_common_onblock/event_onblockw.c
+onblockzscript		data/scripts/dc_common_onblock/event_onblockz.c
+ondeathscript		data/scripts/dc_common_ondeath/event_ondeath.c
+#ondoattackscript			
+onfallscript		data/scripts/dc_common_onfall/event_onfall_player.c					
 onmoveascript		data/scripts/dc_common_onmovea/event_onmovea.c
-onmovexscript			data/scripts/z_movex.c				#Moving on X axis.
-onmovezscript			data/scripts/z_movez.c				#Moving on Z axis.
-onpainscript			data/scripts/dc_common_onpain/event_onpain.c	
-onspawnscript			data/scripts/z_spawn.c				#Spawned to playfied.
-takedamagescript		data/scripts/dc_common_takedamage/event_takedamage.c	
-thinkscript				data/scripts/z_think.c				#Entity AI updates.
+onmovexscript		data/scripts/z_movex.c				#Moving on X axis.
+onmovezscript		data/scripts/z_movez.c				#Moving on Z axis.
+onpainscript		data/scripts/dc_common_onpain/event_onpain.c	
+onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
+takedamagescript	data/scripts/dc_common_takedamage/event_takedamage.c	
+thinkscript			data/scripts/z_think.c				#Entity AI updates.
 
-com						a2 	freespecial2					#Backstep.
+com					a2 	freespecial2					#Backstep.
 
-modelflag 				1
-weapons 				a_chick a_rdrag a_bdrag
-aggression 				60
-#nolife  				1
-jumpmove				0 1
+modelflag 			7
+weapons 			a_chick a_rdrag a_bdrag
+aggression 			60
+#nolife  			1
+jumpmove			0 1
 
-palette      			data/chars/ax/0001					#0	Blue
-alternatepal   			data/chars/ax/pals/1				#1 	Red
-alternatepal   			data/chars/ax/pals/2				#2 	Green
-alternatepal   			data/chars/ax/pals/3				#3 	Brown
-alternatepal   			data/chars/ax/pals/4				#4 	Black
-alternatepal   			data/chars/ax/pals/5				#5 	Dark
-alternatepal   			data/chars/ax/pals/KO				#6 	KO
+palette				data/chars/ax/palette.png		# Default
 
 anim spawn
 
 	delay	1
-	offset	80 142
-    	bbox    69 70 21 47
-		frame	data/chars/ax/dragon/0017
-	delay	25
-		frame	data/chars/ax/dragon/0017
+	offset	78 142
+	
+	bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+	
+	frame	data/chars/ax/dragon/idle_0.png
+	
+	delay	25	
+	
+	frame	data/chars/ax/dragon/idle_0.png
 
 anim idle
 
 	loop	1
 	delay	20
-	offset	80 142
-    	bbox    66 68 24 47
+	offset	78 142
+    
+    bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+	
 	#cmd save_mp
-		frame	data/chars/ax/dragon/0018
-		frame	data/chars/ax/dragon/0017
-		frame	data/chars/ax/dragon/0016
-		frame	data/chars/ax/dragon/0017
+		frame	data/chars/ax/dragon/idle_0.png
+		frame	data/chars/ax/dragon/idle_1.png
+		frame	data/chars/ax/dragon/idle_2.png
+		frame	data/chars/ax/dragon/idle_1.png
 
 anim walk
 
 	loop    1
-    	delay   10
-    	offset  80 142
-    	bbox    74 74 20 54
+    delay   15
+    offset  78 142
+    
+    bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+    
 	@script	
     		dc_ai_avoid_jump_attack();	
 	@end_script
-		frame	data/chars/ax/dragon/0029
-		frame	data/chars/ax/dragon/0030
-		frame	data/chars/ax/dragon/0031
-		frame	data/chars/ax/dragon/0032
+		frame	data/chars/ax/dragon/walk_0.png
+		frame	data/chars/ax/dragon/walk_1.png
+		frame	data/chars/ax/dragon/walk_2.png
+		frame	data/chars/ax/dragon/walk_3.png
 
 anim get
 
 	delay	20
-	offset	80 142
-		frame	data/chars/ax/dragon/0026
-		frame	data/chars/ax/dragon/0027
-	@cmd	soun0005 ENT_SELF VOI_ATK 0 1 "D" 0
-		frame	data/chars/ax/dragon/0028
+	offset	78 142
+	
+	frame	data/chars/ax/dragon/mount_0.png
+	frame	data/chars/ax/dragon/mount_1.png
+	
+	@cmd	dc_fidelity_set_member_model_name "Red_Dragon"
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_SPAWN_NEW
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
+	
+	frame	data/chars/ax/dragon/mount_2.png
 
 anim up
 
-    	loop    1
-    	delay   10
-    	offset  80 142
-    	bbox    64 72 22 54
+    loop    1
+    delay   15
+    offset  78 142
+    
+    bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+	
 	@script
 		dc_ai_avoid_jump_attack();
 	@end_script
-		frame	data/chars/ax/dragon/0033
-		frame	data/chars/ax/dragon/0034
-		frame	data/chars/ax/dragon/0035
-		frame	data/chars/ax/dragon/0036
+	
+	frame	data/chars/ax/dragon/walk_up_0.png
+	frame	data/chars/ax/dragon/walk_up_1.png
+	frame	data/chars/ax/dragon/walk_up_2.png
+	frame	data/chars/ax/dragon/walk_up_3.png
 
 anim run
 
-    	loop    1
-    	delay   6
-	offset	80 142
-    	bbox    64 72 22 54
-		frame	data/chars/ax/dragon/0021
-		frame	data/chars/ax/dragon/0022
-		frame	data/chars/ax/dragon/0023
-		frame	data/chars/ax/dragon/0024
+    loop    1
+    delay   10
+	offset	78 142
+	
+    bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+    
+	frame	data/chars/ax/dragon/run_0.png
+	frame	data/chars/ax/dragon/run_1.png
+	frame	data/chars/ax/dragon/run_2.png
+	frame	data/chars/ax/dragon/run_3.png
 
 anim runattack
 
-    	range 		80 180
-    	followanim 	2
-    	followcond 	1
-    	jumpframe  	0 2 3 0 jump_liftoff
-    	landframe 	2 jump_land
-    	hitflash 	flash_impact_cut
+    range 		80 180
+    followanim 	1
+    followcond 	1
+    jumpframe  	1 2 3 0 jump_liftoff
+    landframe 	2 fall_land
 
-	delay	8
-	offset	80 142
-    	bbox    64 56 27 46
-	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-		frame	data/chars/ax/dragon/0019
-	delay	-1000
-    	bbox    65 68 26 54
-   	attack1	80 96 54 28 8 1 1
-		frame	data/chars/ax/dragon/0025
-	attack1	0
-	delay	6
-    	bbox    64 72 22 54
-	frame	data/chars/ax/dragon/0024
+	delay	4
+	offset	78 142
 	
-anim attackboth
+	bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+	
+	@cmd	dc_fidelity_set_member_model_name "Red_Dragon"
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME	
+	
+	frame	data/chars/ax/dragon/atk_breath_front_0.png
+	
+	delay	1000
+	
+	attack.damage.force 8
+	attack.effect.hit.flash.model flash_impact_cut
+	attack.position.x 80
+	attack.position.y 95
+	attack.reaction.fall.force 2
+	attack.size.x 48
+	attack.size.y 29
+	
+	frame	data/chars/ax/dragon/atk_ram_0.png
+	
+   	delay 12
+	attack 0
+	
+	frame	data/chars/ax/dragon/atk_breath_front_0.png
+	
 
-    #Dismount
+anim follow1 # runattack bounce.
+
+    jumpframe 	0 1 0
+    landframe 	2 fall_land	
+
+	offset	78 142
+	delay	2
+	
+	bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+	
+	attack	0
+    	
+	frame	data/chars/ax/dragon/atk_ram_0.png	
+	
+	delay	-1000
+	
+	bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	frame	data/chars/ax/dragon/jump_1.png
+	
+	delay 12
+	
+	bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+   		
+	frame	data/chars/ax/dragon/atk_breath_front_0.png
+anim attackboth	# Dismount
 
 	weaponframe 4 0
 
 	delay	20
-	offset	80 142
-		frame	data/chars/ax/dragon/0018
-		frame	data/chars/ax/dragon/0028
-		frame	data/chars/ax/dragon/0027
-		frame	data/chars/ax/dragon/0026
-	delay	1
-		frame	data/chars/ax/dragon/0026
+	offset	78 142
+	
+	frame	data/chars/ax/dragon/mount_2.png
+	frame	data/chars/ax/dragon/mount_1.png
+	frame	data/chars/ax/dragon/mount_0.png
+	
+	delay 1
+	
+	frame	data/chars/ax/dragon/mount_0.png
 
-anim attackup
+anim attackup # sidestep.
 
-    	#sidestep.
+    jumpframe 1 1.5 -0.2 -1.5 jump_liftoff
+	dropframe 2
+	landframe 3 fall_land
 
-    	jumpframe 0 0 0.2 -1.5
-
-    	delay   5
-    	offset  80 142
-    	bbox    0
+    delay   4
+   	bbox    0
+	offset	78 142
+	
+	frame	data/chars/ax/dragon/atk_breath_front_0.png
+	
+		delay	-1000
+	
+	
+    bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	@cmd	dc_fidelity_set_member_model_name "Red_Dragon"
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-		frame	data/chars/ax/dragon/0033
-		frame	data/chars/ax/dragon/0034
-    		frame	data/chars/ax/dragon/0035
-    	bbox    64 72 22 54
-		frame	data/chars/ax/dragon/0036
-		frame	data/chars/ax/dragon/0033
-		frame	data/chars/ax/dragon/0034
-		frame	data/chars/ax/dragon/0035
-		frame	data/chars/ax/dragon/0036
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
+	
+	frame	data/chars/ax/dragon/jump_0.png
+    
+    bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	frame	data/chars/ax/dragon/jump_1.png
 
+	delay 12
 
-anim attackdown
+	frame	data/chars/ax/dragon/atk_breath_front_0.png
 
-    	#sidestep.
+anim attackdown # Sidestep
 
-    	jumpframe 0 0 0.2 1.5
+    jumpframe 1 1.5 -0.2 1.5 jump_liftoff
+	dropframe 2
+	landframe 3 fall_land
 
-    	delay   5
-    	offset  80 142
-    	bbox    0
+    delay   4
+   	bbox    0
+	offset	78 142
+	
+	frame	data/chars/ax/dragon/atk_breath_front_0.png
+	
+		delay	-1000
+	
+	
+    bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	@cmd	dc_fidelity_set_member_model_name "Red_Dragon"
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-		frame	data/chars/ax/dragon/0029
-		frame	data/chars/ax/dragon/0030
-    		frame	data/chars/ax/dragon/0031
-    	bbox    64 72 22 54
-		frame	data/chars/ax/dragon/0032
-		frame	data/chars/ax/dragon/0029
-		frame	data/chars/ax/dragon/0030
-		frame	data/chars/ax/dragon/0031
-		frame	data/chars/ax/dragon/0032
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
+	
+	frame	data/chars/ax/dragon/jump_0.png
+    
+    bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	frame	data/chars/ax/dragon/jump_1.png
 
-anim chargeattack
+	delay 12
 
-	#Big breath
+	frame	data/chars/ax/dragon/atk_breath_front_0.png
 
-	chargetime 2
+anim chargeattack # EX Fireball
 
-	delay	12
-    	offset	80 142
-    	bbox    0
-		frame	data/chars/ax/dragon/0001
-		frame	data/chars/ax/dragon/0002
-		frame	data/chars/ax/dragon/0003
-   	@cmd 	proj0003 "effe0001" 0 45 -1 0 0 0 0 0 16 A_FOLLOW4
-	delay	150
-		frame	data/chars/ax/dragon/0004
-    	delay	12
-		frame	data/chars/ax/dragon/0003
-    		delay   30
-   		bbox    66 68 24 47
-		frame	data/chars/ax/dragon/0017
+	custknife ga_dragon_fireball_ex
+	throwframe 2
+	projectile_offense parent
+	projectile_position_x 51
+	projectile_position_y 34
 
-anim Upper
+	projectile_velocity_x 0.7
+	projectile_velocity_y 0.0
+	projectile_velocity_z 0.0
 
-	#For AI, perform chargeattack.
+	projectile_color_set_adjust none
 
-	delay	1
-    	offset	80 142
-    	bbox    0
-	@cmd	changeentityproperty getlocalvar("self") "animation" A_CHARGEATK
-		frame	data/chars/ax/dragon/0001
+    range   50 400
 
-anim attack1
-
-	#Fire breath.
-
-    	range   	40 100
-
-	delay	8
-    	offset	80 142
-    	bbox    65 69 24 54
-		frame	data/chars/ax/dragon/0001
-		frame	data/chars/ax/dragon/0002
-    	delay   84
-	@cmd 	proj0003 "effe0001" 0 44 -2 0 0 0 0 0 15 A_FOLLOW3
-		frame	data/chars/ax/dragon/0006
-    	delay   20
-    	bbox    66 68 24 47
-		frame	data/chars/ax/dragon/0017
-
-anim freespecial2
-
-    	#Backstep.
-
-	range	  	1 -1
-    	jumpframe 	1 2 -2 0 jump_liftoff
-    	dropframe 	2
-
-    	delay	12
-    	offset	80 142
-		frame	data/chars/ax/dragon/0003
-    	bbox    64 56 27 46
-	delay	-1000
-	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-    		frame	data/chars/ax/dragon/0019
-    	bbox    64 56 27 46
-    	@cmd	jump0003 0 0 0
-		frame	data/chars/ax/dragon/0020
-
-anim freespecial5
-
-    	#Lateral jump attack up (for AI).
-
-	range     	0 100
-	rangez    	-80 -30
-	rangeb	  	-10 10
-    	jumpframe 	1  3  0.8  -1 jump_liftoff
-    	dropframe 	2
-	hitflash  	flash_impact_cut
-
-    	delay	20
-    	offset	80 142
-		frame	data/chars/ax/dragon/0003
-    	bbox    64 56 27 46
-	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-		frame	data/chars/ax/dragon/0019
-    	delay	15
-    	bbox    65 54 26 46
-		frame	data/chars/ax/dragon/0020
-	delay	-1000
-	attack1	80 96 54 28 12 1 1
-	@cmd	jump0003 0 0 0
-		frame	data/chars/ax/dragon/0025
-
-anim freespecial6
-
-    	#Lateral jump attack down (for AI).
-
-	range     	0 100
-	rangez    	30 80
-	rangeb	  	-10 10
-    	jumpframe 	1  3  0.8  1 jump_liftoff
-    	dropframe 	2
-	hitflash  	flash_impact_cut
-
-    	delay	20
-    	offset	80 142
-		frame	data/chars/ax/dragon/0003
-    	bbox    64 56 27 46
-	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-		frame	data/chars/ax/dragon/0019
-    	delay	15
-    	bbox    65 54 26 46
-		frame	data/chars/ax/dragon/0020
-	delay	-1000
-	attack1	80 96 54 28 12 1 1
-	@cmd	jump0003 0 0 0
-		frame	data/chars/ax/dragon/0025
-
-anim follow1
-
-	#Block reaction.
-
-	counterrange 	0 1 1 0
-	followanim 	1
-
-	delay	20
-	offset	80 142
-    	bbox    75 73 54 56
-		frame	data/chars/ax/dragon/0008.png
 	delay	10
-		frame	data/chars/ax/dragon/0007.png
-
-
-anim follow2
-
-	#runattack bounce.
-
-    	jumpframe 	0 1 0
-    	landframe 	3 jump_land
-	hitflash 	flash_impact_cut
-
-	offset	80 142
-	delay	2
-
-	attack1	80 96 54 28 8 1 1
-    	bbox    65 68 26 54
-		frame	data/chars/ax/dragon/0025
-	attack1	0
+    offset	78 142
+    	
+   	bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+	
+	frame	data/chars/ax/dragon/atk_breath_front_0.png
+	
 	delay	8
-		frame	data/chars/ax/dragon/0025
-	delay	-1000
-   	bbox    64 56 27 46
-	@cmd	jump0003 openborconstant("ANI_JUMP") 0 0
-		frame	data/chars/ax/dragon/0020
+	
+	frame	data/chars/ax/dragon/atk_breath_front_1.png
+	
+	delay 20
+	
+	frame	data/chars/ax/dragon/atk_breath_front_2.png
+	frame	data/chars/ax/dragon/atk_breath_front_1.png
+    
+    delay   10
+	
+	frame	data/chars/ax/dragon/atk_breath_front_0.png
+    	
+
+
+
+anim attack1 # Fireball
+
+	custknife fireball
+	throwframe 2
+	projectile_offense parent
+	projectile_position_x -2
+	projectile_position_y 32
+
+	projectile_velocity_x 1
+	projectile_velocity_y 0.0
+	projectile_velocity_z 0.0
+
+	projectile_color_set_adjust none
+
+	range   50 400
+
+	delay	10
+    offset	78 142
+    	
+   	bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+	@cmd dc_disney_macro_try_ai_random openborconstant("ANI_CHARGEATTACK") 20
+	frame	data/chars/ax/dragon/atk_breath_front_0.png
+	
+	delay	8
+	
+	frame	data/chars/ax/dragon/atk_breath_front_1.png
+	
+	delay 20
+	
+	@cmd	dc_fidelity_set_member_model_name "Red_Dragon"
+	@cmd	dc_fidelity_quick_play "fireball"
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
+	
+	frame	data/chars/ax/dragon/atk_breath_front_2.png
+	frame	data/chars/ax/dragon/atk_breath_front_1.png
+    
+    delay   10
+	
+	frame	data/chars/ax/dragon/atk_breath_front_0.png
+
+anim freespecial2 # Backstep
+
+    jumpframe 1 1.5 -3 0 jump_liftoff
+	dropframe 2
+	landframe 3 fall_land
+
+    delay   4
+   	bbox    0
+	offset	78 142
+	
+	frame	data/chars/ax/dragon/atk_breath_front_0.png
+	
+		delay	-1000
+	
+	
+    bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	@cmd	dc_fidelity_set_member_model_name "Red_Dragon"
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
+	
+	frame	data/chars/ax/dragon/jump_0.png
+    
+    bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	frame	data/chars/ax/dragon/jump_1.png
+
+	delay 12
+
+	frame	data/chars/ax/dragon/atk_breath_front_0.png
+
+
+
+
+
 
 anim jumpdelay
 
 	delay	12
-	offset	80 142
-		frame	data/chars/ax/dragon/0003
+	
+	offset	78 142
+	
+		frame	data/chars/ax/dragon/atk_breath_front_0.png
 
 anim jumpland
 
 	delay	12
-	offset	80 142
-		frame	data/chars/ax/dragon/0003
+	
+	offset	78 142
+	
+	  bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+	
+		frame	data/chars/ax/dragon/atk_breath_front_0.png
 
 anim jump
 
@@ -368,11 +461,21 @@ anim jump
 	dropframe 1
 
 	delay	-1000
-	offset	80 142
-    	bbox    64 56 27 46
-		frame	data/chars/ax/dragon/0019
-    	bbox    65 54 26 46
-		frame	data/chars/ax/dragon/0020
+	offset	78 142
+	
+    bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	frame	data/chars/ax/dragon/jump_0.png
+    
+    bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	frame	data/chars/ax/dragon/jump_1.png
 
 anim runjump
 
@@ -380,79 +483,120 @@ anim runjump
 	dropframe 1
 
 	delay	-1000
-	offset	80 142
-    	bbox    64 56 27 46
-		frame	data/chars/ax/dragon/0019
-	bbox    65 54 26 46
-		frame	data/chars/ax/dragon/0020
+	offset	78 142
+	
+    bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	frame	data/chars/ax/dragon/jump_0.png
+    
+    bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	frame	data/chars/ax/dragon/jump_1.png
 
 anim jumpattack
 
-	range		1 -1
-	hitflash 	flash_impact_cut
+	delay	4
+	offset	78 142
+	
+	bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT	
+			
+	frame	data/chars/ax/dragon/atk_jump_slash_0.png	
+	
+	#cmd dc_elmers_quick_particle dc_gauntlet_quick_spawn("ax_dragon_motion") 
+	
+	frame	data/chars/ax/dragon/atk_jump_slash_1.png
+	
+	delay	6
+	
+	attack.block.penetrate 0
+	attack.damage.force 8
+	attack.damage.type 10
+	attack.effect.hit.flash.model flash_cut_vertical_knockdown
+	attack.position.x 83
+	attack.position.y 46
+	attack.reaction.fall.force 1
+	attack.reaction.pause.time 0
+	attack.size.x 39
+	attack.size.y 70
+	attack.size.z.1 0
+	
+	frame	data/chars/ax/dragon/atk_jump_slash_2.png
+	
+	idle 1
+	
+	delay	20
 
-    	delay	8
-    	offset	80 142
-    	bbox    65 68 26 54
-   	attack10 80 96 54 28 12 1 1
-	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-		frame	data/chars/ax/dragon/0025
+	attack.damage.force 4
+	attack.position.x 94
+	attack.position.y 94
+	attack.size.x 25
+	attack.size.y 20
+	
+	frame	data/chars/ax/dragon/atk_jump_slash_2.png
 
-anim runjumpattack
+	delay	8
 
-	range		1 -1
-	hitflash 	flash_impact_cut
-    	jumpframe 	0 -1 2 0
+	attack 0
 
-    	delay	8
-    	offset	80 142
-    	bbox    65 68 26 54
-   	attack10 80 96 54 28 16 1 1
-	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-		frame	data/chars/ax/dragon/0025
+	frame	data/chars/ax/dragon/atk_jump_slash_1.png
+
+
 
 anim grab
 
     	delay   16
-	offset	80 142
+	offset	78 142
    	bbox    68 66 34 54
-		frame	data/chars/ax/dragon/0011
-    	@cmd stal0001 1000
-	@cmd seal0001 1 1000
-		frame	data/chars/ax/dragon/0011
+		frame	data/chars/ax/dragon/grab_0.png
+    	#cmd stal0001 1000
+	#cmd seal0001 1 1000
+		frame	data/chars/ax/dragon/grab_0.png
 
-anim grabattack
+anim grabattack	# Snack. >:)
 
-	#Snack. >:)
+    	
 
-    	hitflash    flash_bite
-
-    	offset	80 142
+    	offset	78 142
     	bbox    68 66 34 54
     	# 1
     	delay   10
-    	@cmd stal0001 1000
-	@cmd seal0001 1 1000
+    	#cmd stal0001 1000
+	#cmd seal0001 1 1000
+	
+	@cmd	dc_fidelity_set_member_model_name "Red_Dragon"
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-		frame	data/chars/ax/dragon/0011
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
+	
+		frame	data/chars/ax/dragon/grab_bite_0.png
     	delay   20
-		frame	data/chars/ax/dragon/0012
+		frame	data/chars/ax/dragon/grab_bite_1.png
     	delay   5
-		frame	data/chars/ax/dragon/0011
+		frame	data/chars/ax/dragon/grab_bite_2.png
     	delay   12
-    	attack10  101 101 24 24 4 0 1
-		frame	data/chars/ax/dragon/0013
-    	attack1  0 0 0 0 0
+    	
+		frame	data/chars/ax/dragon/grab_0.png
+    	
     	# 2
     	delay   10
-		frame	data/chars/ax/dragon/0011
+		frame	data/chars/ax/dragon/grab_bite_0.png
     	delay   20
-		frame	data/chars/ax/dragon/0012
+		frame	data/chars/ax/dragon/grab_bite_1.png
     	delay   5
-		frame	data/chars/ax/dragon/0011
+		frame	data/chars/ax/dragon/grab_bite_2.png
     	delay   12
-    	attack10  101 101 24 24 4 0 0
-		frame	data/chars/ax/dragon/0013
+    	
+		frame	data/chars/ax/dragon/grab_0.png
 
 
 anim grabattack2
@@ -460,94 +604,153 @@ anim grabattack2
 	#Lift and blast
 
 	delay	12
-    	offset	80 142
+    	offset	78 142
     	bbox    0
+	@cmd	dc_fidelity_set_member_model_name "Red_Dragon"
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-    	@cmd  	bind0014 1 0									#Initialize bind variable.
-	@cmd  	dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1				#Put into falling state.
-	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF 0 45 167 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP 0
-		frame	data/chars/ax/dragon/0003
-    @cmd  	bind0010 FLAG_MODE_0 ENT_SELF 0 65 145 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_EX3 0
-		frame	data/chars/ax/dragon/0004
-	@cmd  	bind0010 FLAG_MODE_0 ENT_SELF 0 40 180 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_EX3 0
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
+    
+	#cmd  	bind0014 1 0									#Initialize bind variable.
+	#cmd  	dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1				#Put into falling state.
+	#cmd  	bind0010 FLAG_MODE_0 ENT_SELF 0 45 167 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP 0
+		frame	data/chars/ax/dragon/atk_breath_front_0.png
+    #cmd  	bind0010 FLAG_MODE_0 ENT_SELF 0 65 145 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_EX3 0
+		frame	data/chars/ax/dragon/atk_breath_front_1.png
+	#cmd  	bind0010 FLAG_MODE_0 ENT_SELF 0 40 180 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_EX3 0
 	delay	20
-    		frame	data/chars/ax/dragon/0014
+    		frame	data/chars/ax/dragon/grab_toss_0.png
     	delay	40
-	@cmd	bind0018 0 0 0 0 0 0									#Wall failsafe.
-	@cmd	soun0005 ENT_SELF SND_EFF2 -1 1 0 0
-	@cmd 	bind0010 FLAG_MODE_0 ENT_SELF 0 10 40 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_RELEASE 0								#Release bind and restore AI control.
-   	@cmd	dama0004 0 -2 20 10 openborconstant("ATK_BURN") -1 1 0 0			#Apply damage.
-	@cmd	bind0008 "effe0001" "effe0001" 14 1 15 80 1 0 A_FOLLOW2 0 1	#Spawn effect.
-		frame	data/chars/ax/dragon/0015
+	#cmd	soun0005 ENT_SELF SND_EFF2 -1 1 0 0
+	#cmd	bind0018 0 0 0 0 0 0									#Wall failsafe.
+	#cmd 	bind0010 FLAG_MODE_0 ENT_SELF 0 10 40 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_RELEASE 0								#Release bind and restore AI control.
+   	#cmd	dama0004 0 -2 20 10 openborconstant("ATK_BURN") -1 1 0 0			#Apply damage.
+	#cmd	bind0008 "effe0001" "effe0001" 14 1 15 80 1 0 A_FOLLOW2 0 1	#Spawn effect.
+		frame	data/chars/ax/dragon/grab_toss_1.png
     	delay   12
-		frame	data/chars/ax/dragon/0014
+		frame	data/chars/ax/dragon/grab_toss_0.png
     	delay   30
     	bbox    66 68 24 47
-		frame	data/chars/ax/dragon/0017
+		frame	data/chars/ax/dragon/idle_2.png
 
 anim grabbackward
 
 	#Mangle
 
 	delay	10
-	offset	80 142
+	offset	78 142
+	@cmd	dc_fidelity_set_member_model_name "Red_Dragon"
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
-	@cmd  	bind0014 1 0								#Initialize bind variable.
-	@cmd  dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1			#Put into falling state.
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 30 165 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP 0
-		frame	data/chars/ax/dragon/0009
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 45 165 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HELDP 0
-		frame	data/chars/ax/dragon/0012
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 65 190 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HORUP 0
-		frame	data/chars/ax/dragon/0003
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 0  220 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_VERDN 0
-		frame	data/chars/ax/dragon/0010
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 65 190 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HORUP 0
-		frame	data/chars/ax/dragon/0003
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
+	
+	#cmd  	bind0014 1 0								#Initialize bind variable.
+	#cmd  dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1			#Put into falling state.
+	#cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 30 165 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP 0
+		frame	data/chars/ax/dragon/grab_bite_2.png
+	#cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 45 165 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HELDP 0
+		frame	data/chars/ax/dragon/grab_bite_1.png
+	#cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 65 190 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HORUP 0
+		frame	data/chars/ax/dragon/atk_breath_front_0.png
+	#cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 0  220 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_VERDN 0
+		frame	data/chars/ax/dragon/grab_toss_2.png
+	#cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 65 190 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HORUP 0
+		frame	data/chars/ax/dragon/atk_breath_front_0.png
 
-	@cmd    bind0023 0  "flash" "flash" 0 2 40 40 0 0 0 0 1							#Flash
-	@cmd	dama0004 0 0 5 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0		#Apply damage.
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 55 160 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HELDP 0
-		frame	data/chars/ax/dragon/0009
+	#cmd    bind0023 0  "flash" "flash" 0 2 40 40 0 0 0 0 1							#Flash
+	#cmd	dama0004 0 0 5 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0		#Apply damage.
+	#cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 55 160 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HELDP 0
+		frame	data/chars/ax/dragon/grab_bite_1.png
 	delay	10
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 65 190 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HORUP 0
-		frame	data/chars/ax/dragon/0003
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 0  220 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_VERDN 0
-		frame	data/chars/ax/dragon/0010
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 65 190 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HORUP 0
-		frame	data/chars/ax/dragon/0003
-	@cmd	bind0018 0 0 0 0 0 0								#Wall failsafe.
-	@cmd    bind0023 0 "flash" "flash" 0 2 40 40 0 0 0 0 1							#Flash
-	@cmd	dama0004 0 0 5 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0		#Apply damage.
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 55 160 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HELDP 0
-		frame	data/chars/ax/dragon/0009
+	#cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 65 190 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HORUP 0
+		frame	data/chars/ax/dragon/atk_breath_front_0.png
+	#cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 0  220 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_VERDN 0
+		frame	data/chars/ax/dragon/grab_toss_2.png
+	#cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 65 190 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HORUP 0
+		frame	data/chars/ax/dragon/atk_breath_front_0.png
+	#cmd	bind0018 0 0 0 0 0 0								#Wall failsafe.
+	#cmd    bind0023 0 "flash" "flash" 0 2 40 40 0 0 0 0 1							#Flash
+	#cmd	dama0004 0 0 5 10 openborconstant("ATK_NORMAL") 1 2.2 1 0 0 0 0 0		#Apply damage.
+	#cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 55 160 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HELDP 0
+		frame	data/chars/ax/dragon/grab_bite_1.png
 	delay	9
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 70 185 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HORDN 0
-		frame	data/chars/ax/dragon/0003
+	#cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 70 185 -1 DIR_ADJ_SAME openborconstant("ANI_FOLLOW10") G_HORDN 0
+		frame	data/chars/ax/dragon/atk_breath_front_0.png
 	delay	30
-	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM							#Sound.
-	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 15 60 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_RELEASE 0							#Release bind.
-	@cmd	dama0004 0 -2 5 10 openborconstant("ATK_NORMAL5") -1 1 0 0		#Apply damage.
-		frame	data/chars/ax/dragon/0010
+	
+	@cmd	dc_fidelity_set_member_model_name "Red_Dragon"
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
+	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
+	
+	#cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 15 60 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_RELEASE 0							#Release bind.
+	#cmd	dama0004 0 -2 5 10 openborconstant("ATK_NORMAL5") -1 1 0 0		#Apply damage.
+		frame	data/chars/ax/dragon/grab_toss_2.png
 	delay   12
-		frame	data/chars/ax/dragon/0014
+		frame	data/chars/ax/dragon/grab_toss_0.png
     	delay   30
     	bbox    66 68 24 47
-		frame	data/chars/ax/dragon/0017
+		frame	data/chars/ax/dragon/idle_0.png
 
+anim blockstart
+
+	delay	10
+	offset	78 142
+
+	bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+
+	frame	data/chars/ax/dragon/block_start_0.png
+	
 anim block
 
-	#Normal block isn't working here. Using counter as a quick fix.
+	delay	10
+	offset	78 142
+	
+    bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
 
-	counterrange 	0 2 1 0
-	followanim 	1
+	frame	data/chars/ax/dragon/block_0.png
+	
+anim blockrelease
 
 	delay	10
-	offset	80 142
-    	bbox    71 70 59 55
-		frame	data/chars/ax/dragon/0007.png
-	delay	30
-		frame	data/chars/ax/dragon/0008.png
-	delay	10
-		frame	data/chars/ax/dragon/0007.png
+	offset	78 142
+
+	bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+
+	frame	data/chars/ax/dragon/block_start_0.png
+
+
+
+anim walkoff
+	
+	dropframe 1
+	landframe 2 fall_land 
+	
+		delay	-1000
+	
+	
+    bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	frame	data/chars/ax/dragon/jump_0.png
+    
+    bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	frame	data/chars/ax/dragon/jump_1.png
+
+	delay 12
+
+	frame	data/chars/ax/dragon/atk_breath_front_0.png
+
 

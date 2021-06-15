@@ -281,9 +281,9 @@ void load_sounds()
 	dc_fidelity_setup("blue_dragon_escape", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/dragon/sounds/atk_shout_1.wav");
 	dc_fidelity_setup("blue_dragon_escape", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/dragon/sounds/atk_shout_2.wav");
 
-	dc_fidelity_setup("blue_dragon_escape", "fire_stream", "data/chars/dragon/sounds/fire_stream_0.wav");
+	/* Ridable dragon fire attacks. */
+	dc_fidelity_setup("dragon_flame", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/chars/dragon/sounds/fire_stream_0.wav");
 
-	/* Dragon fireball */
 	dc_fidelity_setup("dragon_fireball", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_red_dragon_fireball_0.wav");
 	dc_fidelity_setup("dragon_fireball", "explode", "data/sounds/custom/golden_axe_red_dragon_fireball_impact_0.wav");
 

@@ -94,8 +94,7 @@ anim attack1
 	frame data/chars/dragon/atk_breath_diagonal_0.png
 	frame data/chars/dragon/atk_breath_diagonal_1.png
 	
-	delay 94
-	@cmd	dc_fidelity_quick_play "fire_stream"	
+	delay 94	
 	
 	frame data/chars/dragon/atk_breath_diagonal_2.png
 	

@@ -1,6 +1,6 @@
 # Bite medium
 
-name			flash_bite
+name	flash_bite
 type	none
 shadow	0
 

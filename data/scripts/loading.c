@@ -86,6 +86,7 @@ void load_sounds()
 	dc_fidelity_setup("flash_block", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/metal_deflect_0.wav");
 
 	/*  Hit flash */
+	dc_fidelity_setup("flash_bite", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_2_arcade_eat_0.wav");
 	dc_fidelity_setup("flash_blunt_cut", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/shinobi_box.wav");
 	dc_fidelity_setup("flash_cut_vertical", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_hit_cut_0.wav");
 	dc_fidelity_setup("flash_cut_vertical_knockdown", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_hit_knockdown_0.wav");

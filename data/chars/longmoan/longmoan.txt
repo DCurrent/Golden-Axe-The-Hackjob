@@ -145,6 +145,7 @@ anim jumpland
 	frame	data/chars/longmoan/jump_start_0.png
 
 anim walkoff
+
 	landframe 1 jump_land
     range   20 70
 	offset	60 98
@@ -242,12 +243,14 @@ anim block
 	frame	data/chars/longmoan/block_0.png
 
 anim grabbed
-    loop    0
+
 	offset	150 175
+	
 	bbox.position.x 131
 	bbox.position.y 136
 	bbox.size.x 31
 	bbox.size.y 42
+    
     delay   24
 	frame	data/chars/longmoan/R_HELD_0.png
 

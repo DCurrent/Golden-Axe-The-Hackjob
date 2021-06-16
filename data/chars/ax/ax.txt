@@ -40,6 +40,7 @@ load 				a_chick								# Chicken Leg.
 load 				ax_chicken_motion					# Chicken Leg, motion blurs.
 load 				a_rdrag								# Red dragon.
 load 				a_bdrag								# Blue dragon.
+load 				ax_dragon_motion					# Dragons, motion blurs.
 
 modelflag			4
 weapons 			a_chick a_rdrag a_bdrag

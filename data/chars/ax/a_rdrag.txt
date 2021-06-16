@@ -546,6 +546,57 @@ anim jumpattack
 	attack 0
 
 	frame	data/chars/ax/dragon/atk_jump_slash_1.png
+	
+anim runjumpattack
+
+	delay	4
+	offset	78 142
+	
+	bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT	
+			
+	frame	data/chars/ax/dragon/atk_jump_slash_0.png	
+	
+	#cmd dc_elmers_quick_particle dc_gauntlet_quick_spawn("ax_dragon_motion") 
+	
+	frame	data/chars/ax/dragon/atk_jump_slash_1.png
+	
+	delay	6
+	
+	attack.block.penetrate 0
+	attack.damage.force 8
+	attack.damage.type 10
+	attack.effect.hit.flash.model flash_cut_vertical_knockdown
+	attack.position.x 83
+	attack.position.y 46
+	attack.reaction.fall.force 1
+	attack.reaction.pause.time 0
+	attack.size.x 39
+	attack.size.y 70
+	attack.size.z.1 0
+	
+	frame	data/chars/ax/dragon/atk_jump_slash_2.png
+	
+	idle 1
+	
+	delay	-1000
+
+	attack.damage.force 20
+	attack.position.x 90
+	attack.position.y 88
+	attack.size.x 8
+	attack.size.y 37
+	
+	bbox.position.x 69
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	frame	data/chars/ax/dragon/atk_jump_stab_0.png
 
 
 

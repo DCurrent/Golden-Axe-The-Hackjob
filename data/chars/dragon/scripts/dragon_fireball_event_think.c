@@ -27,9 +27,18 @@ void dc_kill_on_wall_impact()
 
 	if (checkwall(pos_x_current, pos_z_current) > pos_y_current)
 	{
-
 		set_entity_property(acting_entity, "speed_multiplier", 0.0);
-		
-		set_entity_property(acting_entity, "explode", openborconstant("EXPLODE_DETONATE"));
+				
+		/* 
+		* Play explode animation and then die.
+		* 
+		* If this was a bomb we could just set the 
+		* explode property to "EXPLODE_DETONATE", but
+		* we may need to spawn as a knife, in which 
+		* case explode is ignored.
+		*/
+	
+		executeanimation(acting_entity, openborconstant("ANI_ATTACK1"), 0);
+		set_entity_property(acting_entity, "autokill", 1);
 	}
 }

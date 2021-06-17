@@ -49,7 +49,7 @@ anim idle
 	frame	data/chars/misc/cvs_yoga_fire/idle_15.png
 	frame	data/chars/misc/cvs_yoga_fire/idle_16.png
 	
-anim attack1
+anim attack1 # Explode when hitting wall/platform.
 
 	offset	47 62
 	delay	3   
@@ -83,19 +83,10 @@ anim attack1
 	frame	data/chars/misc/cvs_yoga_fire/hit_15.png
 
 
-anim attack2
+anim attack2 # Explode when hitting enemy.
 
 	offset	47 62
 	delay	3   
-	
-	attack.damage.force 16
-	attack.damage.type burn
-	attack.effect.hit.flash.model bor_steam
-	attack.position.x 18
-	attack.position.y 19
-	attack.reaction.fall.force 5
-	attack.size.x 18
-	attack.size.y 29
 	
 	@cmd dc_fidelity_quick_play "explode"
 	

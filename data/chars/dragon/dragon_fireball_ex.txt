@@ -18,7 +18,7 @@ anim idle
 	    
 	loop	1
 	offset	90 62
-	delay	3   
+	delay	3
 	
 	attack.damage.force 18
 	attack.damage.type burn
@@ -45,4 +45,70 @@ anim idle
 	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_13.png
 	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_14.png
 	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_15.png
+	
+anim attack1
+	    
+	offset	90 62
+	delay	5
+	
+	attack.damage.force 18
+	attack.damage.type burn
+	attack.effect.hit.flash.model bor_steam
+	attack.position.x 74
+	attack.position.y 46
+	attack.reaction.fall.force 5
+	attack.size.x 28
+	attack.size.y 29
+	
+	@cmd dc_fidelity_quick_play "explode"
+
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_0.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_1.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_2.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_3.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_4.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_5.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_6.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_7.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_8.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_9.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_10.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_11.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_12.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_13.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_14.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_15.png
+
+anim attack2
+	    
+	offset	90 62
+	delay	5
+	
+	attack.damage.force 18
+	attack.damage.type burn
+	attack.effect.hit.flash.model bor_steam
+	attack.position.x 74
+	attack.position.y 46
+	attack.reaction.fall.force 5
+	attack.size.x 28
+	attack.size.y 29
+	
+	@cmd dc_fidelity_quick_play "explode"
+
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_0.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_1.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_2.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_3.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_4.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_5.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_6.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_7.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_8.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_9.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_10.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_11.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_12.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_13.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_14.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/explode_15.png
 

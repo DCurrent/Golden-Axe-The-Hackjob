@@ -316,7 +316,7 @@ anim chargeattack # EX Fireball
 	projectile_position_x 51
 	projectile_position_y 34
 
-	projectile_velocity_x 0.7
+	projectile_velocity_x 1.0
 	projectile_velocity_y 0.0
 	projectile_velocity_z 0.0
 
@@ -334,7 +334,7 @@ anim chargeattack # EX Fireball
 	
 	frame	data/chars/ax/dragon/atk_breath_front_0.png
 	
-	delay	8
+	delay	12
 	
 	frame	data/chars/ax/dragon/atk_breath_front_1.png
 	

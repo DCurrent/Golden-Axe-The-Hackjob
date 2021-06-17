@@ -288,6 +288,9 @@ void load_sounds()
 	dc_fidelity_setup("dragon_fireball", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_red_dragon_fireball_0.wav");
 	dc_fidelity_setup("dragon_fireball", "explode", "data/sounds/custom/golden_axe_red_dragon_fireball_impact_0.wav");
 
+	dc_fidelity_setup("dragon_fireball_ex", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/mvc3_ryu_se_hadou_charge_0.wav");
+	dc_fidelity_setup("dragon_fireball_ex", "explode", "data/sounds/custom/mvc3_ryu_se_hadou_exp_0.wav");
+
 	/* Thief */
 	dc_fidelity_setup("Thief", DC_FIDELITY_TYPE_VOICE_LAUGH, "data/chars/thief/sounds/laugh_0.wav");
 

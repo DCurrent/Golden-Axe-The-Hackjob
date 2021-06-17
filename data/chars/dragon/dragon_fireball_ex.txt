@@ -1,0 +1,48 @@
+name    	dragon_fireball_ex
+type    	projectile
+speed   	10
+remove  	0
+alpha   	1
+
+thinkscript data/chars/dragon/scripts/dragon_fireball_event_think.c
+animationscript data/chars/dragon/scripts/dragon_fireball_event_animation.c
+
+anim spawn
+
+	delay 1
+	offset	90 62
+	@cmd dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_SPAWN
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_0.png
+
+anim idle
+	    
+	loop	1
+	offset	90 62
+	delay	3   
+	
+	attack.damage.force 18
+	attack.damage.type burn
+	attack.effect.hit.flash.model bor_steam
+	attack.position.x 74
+	attack.position.y 46
+	attack.reaction.fall.force 5
+	attack.size.x 28
+	attack.size.y 29
+	
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_0.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_1.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_2.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_3.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_4.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_5.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_6.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_7.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_8.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_9.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_10.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_11.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_12.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_13.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_14.png
+	frame	data/chars/misc/cvs_akuma_blazing_hadouken/idle_15.png
+

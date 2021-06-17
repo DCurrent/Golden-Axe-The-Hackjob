@@ -70,7 +70,6 @@ know    meat            data/chars/misc/golden_axe_meat/meat.txt
 load    Magic           data/chars/misc/magic_pot/magic.txt
 know    Magic_Pot       data/chars/misc/magic_pot/magic_pot.txt
 load    bor_steam       data/chars/misc/bor_steam/bor_steam.txt
-load    ga_dragon_fireball_ex	data/chars/misc/bionicle_lon_fireball/ga_dragon_fireball_ex.txt
 
 
 know    kuna0001        data/chars/misc/effects/kuna0001/kuna0001.txt		#Thrown kunai.
@@ -161,6 +160,7 @@ load    Blue_Dragon			data/chars/dragon/blue_dragon.txt
 load    blue_dragon_escape	data/chars/dragon/blue_dragon_escape.txt
 know	dragon_flame		data/chars/dragon/dragon_flame.txt
 know    dragon_fireball		data/chars/dragon/dragon_fireball.txt
+load    dragon_fireball_ex	data/chars/dragon/dragon_fireball_ex.txt
 
 #villagers
 load    Male_Villager   data/chars/villager/male/male.txt

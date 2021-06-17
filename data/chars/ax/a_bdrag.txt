@@ -311,7 +311,7 @@ anim attackdown # Sidestep
 
 anim chargeattack # EX Fireball
 
-	custknife ga_dragon_fireball_ex
+	custknife dragon_fireball_ex
 	throwframe 2
 	projectile_offense parent
 	projectile_position_x 51

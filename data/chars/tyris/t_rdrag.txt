@@ -200,13 +200,13 @@ anim chargeattack
     		frame	data/chars/tyris/dragon/0003
 	delay	8
 		frame	data/chars/tyris/dragon/0004
-	@cmd 	proj0003 "ga_dragon_fireball_ex" -2 32 -1 1 0 0
+	@cmd 	proj0003 "dragon_fireball_ex" -2 32 -1 1 0 0
 		frame	data/chars/tyris/dragon/0005
 		frame	data/chars/tyris/dragon/0004
-	@cmd 	proj0003 "ga_dragon_fireball_ex" -2 32 -1 1 0 0
+	@cmd 	proj0003 "dragon_fireball_ex" -2 32 -1 1 0 0
 		frame	data/chars/tyris/dragon/0005
 		frame	data/chars/tyris/dragon/0004
-	@cmd 	proj0003 "ga_dragon_fireball_ex" -2 32 -1 1 0 0
+	@cmd 	proj0003 "dragon_fireball_ex" -2 32 -1 1 0 0
 		frame	data/chars/tyris/dragon/0005
 		frame	data/chars/tyris/dragon/0004
     	delay   10

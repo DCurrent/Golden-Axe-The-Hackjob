@@ -14,3 +14,4 @@
 * Buckle - Direct.
 * Cuirass - R128 G56 B165, 50%
 * Helmet, Spikes - R126, G29, B126, 50%
+* Helmet, Bane - R112, G182, B29, 50%

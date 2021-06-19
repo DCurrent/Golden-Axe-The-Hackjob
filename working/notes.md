@@ -6,3 +6,10 @@
 * 10 - Large blade cuts.
 * 11 - Small blade cuts.
 * 12 - Bites.
+
+# Colors
+
+## Longmoan
+
+* Buckle - Direct.
+* Cuirass - R128 G56 B165, 50%

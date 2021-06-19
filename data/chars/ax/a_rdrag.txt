@@ -678,9 +678,7 @@ anim grabattack	# Snack. >:)
     	
 	frame	data/chars/ax/dragon/grab_0.png
 
-anim grabattack2
-
-	#Lift and blast
+anim grabattack2 # Lift and blast
 
 	delay	12
     offset	78 142
@@ -694,6 +692,18 @@ anim grabattack2
 	#cmd  	bind0014 1 0									#Initialize bind variable.
 	#cmd  	dama0004 0 0 0 10 openborconstant("ATK_NORMAL") 0 0 0 0 0 0 1 -1				#Put into falling state.
 	#cmd  	bind0010 FLAG_MODE_0 ENT_SELF 0 45 167 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELDMP 0
+
+	# Set up the grapple.
+	@cmd dc_elmers_initialize_grapple
+
+	# Adjust grapple properties.
+	@cmd dc_elmers_set_member_offset_x 31
+	@cmd dc_elmers_set_member_offset_y -2
+	@cmd dc_elmers_set_bind_sorting DC_ELMERS_SORT_FRONT
+	@cmd dc_elmers_set_bind_frame DC_ELMERS_REACT_PAIN_0
+
+	# Apply grapple properties.
+	@cmd dc_elmers_apply_grapple
 		
 	frame	data/chars/ax/dragon/atk_breath_front_0.png
     

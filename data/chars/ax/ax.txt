@@ -42,7 +42,7 @@ load 				a_rdrag								# Red dragon.
 load 				a_bdrag								# Blue dragon.
 load 				ax_dragon_motion					# Dragons, motion blurs.
 
-modelflag			4
+modelflag			7
 weapons 			a_chick a_rdrag a_bdrag
 combostyle 			1
 atchain 			1

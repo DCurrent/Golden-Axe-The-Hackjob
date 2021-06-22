@@ -554,7 +554,7 @@ anim runattack
 	forcedirection -1
 	attack.block.penetrate 0
 	attack.damage.force 8
-	attack.damage.type 1
+	attack.damage.type 0
 	attack.effect.hit.flash.model flash_hit_knockdown
 	attack.effect.hit.flash.disable 0
 	attack.position.x 51

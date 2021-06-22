@@ -41,8 +41,8 @@ alternatepal data/chars/longmoan/bdragon/map3.gif # dark
 anim follow100
 	
 	offset	0 0
-	frame	data/chars/longmoan/icon_default.png	#AI icon.
-	frame	data/chars/longmoan/icon_pain.png	#AI icon (pain).
+	frame	data/chars/longmoan/icon_default_0.png	#AI icon.
+	frame	data/chars/longmoan/icon_pain_0.png	#AI icon (pain).
 
 anim idle
 	loop	1

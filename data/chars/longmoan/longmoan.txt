@@ -45,94 +45,97 @@ onfallscript		data/scripts/dc_common_onfall/event_onfall_enemy.c
 onmoveascript		data/scripts/dc_common_onmovea/event_onmovea.c
 onmovexscript		data/scripts/z_movex.c				# Moving on X axis.
 onmovezscript		data/scripts/z_movez.c				# Moving on Z axis.
-onpainscript		data/scripts/dc_common_onpain/event_onpain.c
+#onpainscript		data/scripts/dc_common_onpain/event_onpain.c
 onspawnscript		data/scripts/z_spawn.c				# Spawned to playfied.
 takedamagescript	data/scripts/dc_common_takedamage/event_takedamage.c	
 thinkscript			data/scripts/z_think.c				# Entity AI updates.
 
-palette		        data/chars/longmoan/palette_default.act
-alternatepal 	    data/chars/longmoan/palette_red.act
-alternatepal 	    data/chars/longmoan/palette_gold.act		
-alternatepal 	    data/chars/longmoan/palette_beige.act
-alternatepal 	    data/chars/longmoan/palette_dark.act
+palette		        data/chars/longmoan/palette_base_0.png
+#alternatepal 	    data/chars/longmoan/palette_red.act
+#alternatepal 	    data/chars/longmoan/palette_gold.act		
+#alternatepal 	    data/chars/longmoan/palette_beige.act
+#alternatepal 	    data/chars/longmoan/palette_dark.act
 
 anim follow100
 	
 	offset	0 0
-	frame	data/chars/longmoan/icon_default.png
-	frame	data/chars/longmoan/icon_pain.png
+	frame	data/chars/longmoan/icon_default_0.png
+	frame	data/chars/longmoan/icon_pain_0.png
 	
 
 anim idle
 	loop	1
-	offset	60 98
-	bbox	49 45 32 53
+	
+	offset	150 175
+	
+	bbox.position.x 138
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
+	
 	delay	25
 	frame	data/chars/longmoan/idle_0.png
-	frame	data/chars/longmoan/idle_1.png
+	frame	data/chars/longmoan/atk_upper_4.png
 
 anim sleep
 	loop	1
-	offset	60 98
+	offset	150 175
 	delay	25
 	frame	data/chars/longmoan/idle_0.png
-	frame	data/chars/longmoan/idle_1.png
+	frame	data/chars/longmoan/atk_upper_4.png
 
 anim spawn
-	loop	0
-	offset	60 98
-
-	bbox	49 45 32 53
+	
+	
+	offset	150 175
+	
+	bbox.position.x 138
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
+	
 	delay	25
 	frame	data/chars/longmoan/idle_0.png
-	frame	data/chars/longmoan/idle_1.png
+	frame	data/chars/longmoan/atk_upper_4.png
 
-anim respawn
 
-	loop	0
-	offset	60 98
-	delay	5
-	frame	data/chars/misc/blank.png
-	frame	data/chars/longmoan/idle_0.png
-	frame	data/chars/misc/blank.png
-	frame	data/chars/longmoan/idle_0.png
-	frame	data/chars/misc/blank.png
-	frame	data/chars/longmoan/idle_0.png
-	frame	data/chars/misc/blank.png
-	frame	data/chars/longmoan/idle_0.png
-	frame	data/chars/misc/blank.png
-	frame	data/chars/longmoan/idle_0.png
-	frame	data/chars/misc/blank.png
-	frame	data/chars/longmoan/idle_0.png
-	frame	data/chars/misc/blank.png
-	frame	data/chars/longmoan/idle_0.png
-	frame	data/chars/misc/blank.png
-	frame	data/chars/longmoan/idle_0.png
-	frame	data/chars/misc/blank.png
-	frame	data/chars/longmoan/idle_0.png
-	frame	data/chars/misc/blank.png
-	frame	data/chars/longmoan/idle_0.png
 
 anim get
-	loop	0
-	offset	60 98
-	bbox	49 45 32 53
+		
+	offset	150 175
+	
+	bbox.position.x 138
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
+	
 	delay	25
 	frame	data/chars/longmoan/idle_0.png
-	frame	data/chars/longmoan/idle_1.png
+	frame	data/chars/longmoan/atk_upper_4.png
 
 anim jumpdelay
     delay   12
-	offset	60 98
-	bbox	45 40 26 57
+    
+	offset	150 175
+	
+	bbox.position.x 134
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
+	
 	frame	data/chars/longmoan/jump_start_0.png
 
 anim jump
 
 	dropframe 1
     range   20 70
-	offset	60 98
-	bbox	45 40 26 57
+    
+	offset	150 175
+	
+	bbox.position.x 128
+	bbox.position.y 103
+	bbox.size.x 38
+	bbox.size.y 71
     
     delay   -1000
 	frame	data/chars/longmoan/jump_0.png
@@ -140,41 +143,71 @@ anim jump
 
 anim jumpland
     delay   12
-	offset	60 98
-	bbox	45 40 26 57
+	offset	150 175
+	offset	150 175
+	
+	bbox.position.x 134
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
+	
 	frame	data/chars/longmoan/jump_start_0.png
 
 anim walkoff
 
 	landframe 1 jump_land
     range   20 70
-	offset	60 98
-	bbox	45 40 26 57
+    
+	offset	150 175
+	
+	bbox.position.x 128
+	bbox.position.y 103
+	bbox.size.x 38
+	bbox.size.y 71
     
     delay   -1000
 	frame	data/chars/longmoan/jump_1.png
+	
     delay   12	
+    
+    bbox.position.x 134
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
+    
 	frame	data/chars/longmoan/jump_start_0.png
 
 anim riseattack
     jumpframe 3 2 0 0 hop_liftoff
-    landframe 6 jump_land
+    landframe 8 jump_land
     range   0 50
 	loop	0
-	offset	60 98
+	offset	150 175
 	delay	20
-    #bbox    60 98 1 1
+	
 	frame	data/chars/longmoan/rise_0.png
 	frame	data/chars/longmoan/rise_1.png
-	bbox.position.x 46
-	bbox.position.y 39
-	bbox.size.x 28
-	bbox.size.y 50
+	
+	bbox.position.x 126
+	bbox.position.y 129
+	bbox.size.x 35
+	bbox.size.y 48
+	
 	delay	10
+	
 	frame	data/chars/longmoan/atk_swing_0.png
+	
 	delay 4
+	
+	bbox.position.x 128
+	bbox.position.y 103
+	bbox.size.x 38
+	bbox.size.y 71
+	
 	frame	data/chars/longmoan/jump_0.png
+	
 	delay	8
+	
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_MEDIUM	
 	
@@ -182,18 +215,38 @@ anim riseattack
 	
 	frame	data/chars/longmoan/jump_1.png
 	
+	delay 12
+	
 	attack.block.penetrate 0
 	attack.damage.force 12
 	attack.effect.hit.flash.model flash_blunt_cut
-	attack.position.x 68
-	attack.position.y 25
+	attack.position.x 159
+	attack.position.y 117
 	attack.reaction.fall.force 2
 	attack.reaction.pause.time 20
-	attack.size.x 45
-	attack.size.y 74
+	attack.size.x 34
+	attack.size.y 58
 	attack.size.z.1 0
 	frame	data/chars/longmoan/atk_jump_down_swing_1.png
-	delay	12
+	
+	delay 40
+	
+	frame	data/chars/longmoan/atk_jump_down_swing_1.png
+	
+	
+	attack 0
+	
+	delay -1000
+	
+	bbox.position.x 128
+	bbox.position.y 103
+	bbox.size.x 38
+	bbox.size.y 71
+	
+	frame	data/chars/longmoan/jump_1.png
+	
+	delay 12
+	
 	frame	data/chars/longmoan/jump_start_0.png
 
 anim walk
@@ -209,9 +262,16 @@ else
 }
 @end_script
 	loop	1
-	offset	60 98
-	bbox	49 45 32 53
+	
+	offset	150 175
+	
+	bbox.position.x 138
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
+	
 	delay	10
+	
 	frame	data/chars/longmoan/walk_0.png
 	frame	data/chars/longmoan/walk_1.png
 	frame	data/chars/longmoan/walk_2.png
@@ -224,8 +284,14 @@ anim up
 dc_ai_avoid_jump_attack();
 @end_script
 	loop	1
-	offset	60 98
-	bbox	49 45 32 53
+	
+	offset	150 175
+	
+	bbox.position.x 138
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
+	
 	delay	10
 	frame	data/chars/longmoan/walk_up_0.png
 	frame	data/chars/longmoan/walk_up_1.png
@@ -237,8 +303,13 @@ dc_ai_avoid_jump_attack();
 anim block
 
 	loop	0
-	offset	60 98
-	bbox	49 45 32 53
+	offset	150 175
+	
+	bbox.position.x 130
+	bbox.position.y 111
+	bbox.size.x 32
+	bbox.size.y 65
+	
     delay   4
 	frame	data/chars/longmoan/block_0.png
 
@@ -439,25 +510,25 @@ anim fall
 
 anim rise
 	loop	0
-	offset	60 98	
+	offset	150 175	
 	delay	25
 	frame	data/chars/longmoan/rise_0.png
 	delay 4
-	offset	61 98
+	offset	151 175
 	frame	data/chars/longmoan/rise_0.png
-	offset	60 98
+	offset	150 175
 	frame	data/chars/longmoan/rise_0.png
-	offset	61 98
+	offset	151 175
 	frame	data/chars/longmoan/rise_0.png
-	offset	60 98
+	offset	150 175
 	frame	data/chars/longmoan/rise_0.png
-	offset	61 98
+	offset	151 175
 	frame	data/chars/longmoan/rise_0.png
-	offset	60 98
+	offset	150 175
 	frame	data/chars/longmoan/rise_0.png
-	offset	61 98
+	offset	151 175
 	frame	data/chars/longmoan/rise_0.png
-	offset	60 98
+	offset	150 175
 	frame	data/chars/longmoan/rise_0.png
 	delay 25
 	frame	data/chars/longmoan/rise_1.png
@@ -470,11 +541,13 @@ anim attack1
 	range	0 40
 	loop	0
 	delay	12
-	offset	60 98
-	bbox.position.x 49
-	bbox.position.y 45
-	bbox.size.x 32
-	bbox.size.y 53
+	
+	offset	150 175
+	
+	bbox.position.x 138
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
 		
     	frame   data/chars/longmoan/atk_swipe_0.png
 	
@@ -486,16 +559,26 @@ anim attack1
 
 	frame   data/chars/longmoan/atk_swipe_1.png
     
-    attack.effect.hit.flash.model flash_blunt_cut
 	attack.damage.force 4
-	attack.position.x 60
-	attack.position.y 52
-	attack.size.x 41
-	attack.size.y 18
+	attack.effect.hit.flash.model flash_blunt_cut
+	attack.position.x 150
+	attack.position.y 126
+	attack.size.x 40
+	attack.size.y 19
 	
 	frame   data/chars/longmoan/atk_swipe_2.png
     
-    attack 0
+	attack.block.penetrate 0
+	attack.damage.force 0
+	attack.damage.type 1
+	attack.effect.hit.flash.disable 0
+	attack.position.x 0
+	attack.position.y 0
+	attack.reaction.fall.force 0
+	attack.reaction.pause.time 0
+	attack.size.x 0
+	attack.size.y 0
+	attack.size.z.1 0
     
     frame   data/chars/longmoan/atk_swipe_3.png
     
@@ -509,15 +592,20 @@ anim attack1
 	@cmd dc_cancel_try_set_idle    
 
     frame   data/chars/longmoan/atk_swipe_3.png
-    frame   data/chars/longmoan/idle_1.png
     frame   data/chars/longmoan/idle_0.png
+    frame   data/chars/longmoan/atk_upper_4.png
 
 anim attack2
 	range	0 40
 	loop	0
-	delay	6
-	offset	60 98
-	bbox	49 45 32 53
+	delay	12
+	
+	offset	150 175
+	
+	bbox.position.x 138
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
 
 	delay 12
 	
@@ -531,34 +619,47 @@ anim attack2
     
     frame   data/chars/longmoan/atk_upper_1.png
     
-    attack.damage.type 4
 	attack.damage.force 4
+	attack.damage.type 4
 	attack.effect.hit.flash.model flash_blunt_cut
-	attack.position.x 59
-	attack.position.y 30
-	attack.size.x 45
-	attack.size.y 44
+	attack.position.x 150
+	attack.position.y 107
+	attack.size.x 40
+	attack.size.y 47
     frame   data/chars/longmoan/atk_upper_2.png
 	attack.damage.force 0
-	attack.position.x 62
-	attack.position.y 22
-	attack.size.x 34
-	attack.size.y 35
+	attack.position.x 151
+	attack.position.y 98
+	attack.size.x 33
+	attack.size.y 33
     frame   data/chars/longmoan/atk_upper_3.png
     
-    attack 0
+	attack.block.penetrate 0
+	attack.damage.force 0
+	attack.damage.type 1
+	attack.effect.hit.flash.disable 0
+	attack.position.x 0
+	attack.position.y 0
+	attack.reaction.fall.force 0
+	attack.reaction.pause.time 0
+	attack.size.x 0
+	attack.size.y 0
+	attack.size.z.1 0
     
-    frame   data/chars/longmoan/idle_0.png
+    frame   data/chars/longmoan/atk_upper_4.png
 
 anim attack3
+
 	range	0 40
 	loop	0
 	delay	12
-	offset	60 98
-	bbox.position.x 49
-	bbox.position.y 45
-	bbox.size.x 32
-	bbox.size.y 53
+	
+	offset	150 175
+	
+	bbox.position.x 138
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
 	
 	
     frame   data/chars/longmoan/atk_swing_0.png
@@ -575,29 +676,29 @@ anim attack3
     
 	attack.damage.force 8
 	attack.effect.hit.flash.model flash_blunt_cut
-	attack.position.x 60
-	attack.position.y 31
+	attack.position.x 150
+	attack.position.y 108
 	attack.reaction.fall.force 2
 	attack.reaction.pause.time 12
-	attack.size.x 41
-	attack.size.y 57
+	attack.size.x 40
+	attack.size.y 49
 	
     frame   data/chars/longmoan/atk_swing_3.png
     
     
     
 	attack.damage.force 0
-	attack.position.x 61
-	attack.position.y 21
+	attack.position.x 150
+	attack.position.y 99
 	attack.size.x 32
-	attack.size.y 29
-    frame   data/chars/longmoan/atk_swing_4.png
+	attack.size.y 35
+    frame   data/chars/longmoan/atk_upper_3.png
     
     delay 20
     
 	attack 0
     
-    frame   data/chars/longmoan/idle_0.png
+    frame   data/chars/longmoan/atk_upper_4.png
 	
 
 
@@ -605,8 +706,14 @@ anim attack4
 	range	0 40
 	loop	0
 	delay	30
-	offset	60 98
-	bbox	49 45 32 53
+	
+	offset	150 175
+	
+	bbox.position.x 122
+	bbox.position.y 125
+	bbox.size.x 44
+	bbox.size.y 50
+	
     frame   data/chars/longmoan/atk_stomp_0.png
     frame   data/chars/longmoan/atk_stomp_1.png
     frame   data/chars/longmoan/atk_stomp_0.png
@@ -620,13 +727,18 @@ anim attack4
 anim run
 	loop	1
 	delay	8
-	offset	60 98
-	bbox	49 45 32 53
+	offset	150 175
+	
+	bbox.position.x 130
+	bbox.position.y 118
+	bbox.size.x 41
+	bbox.size.y 58
+	
     frame   data/chars/longmoan/run_0.png
     frame   data/chars/longmoan/run_1.png
     frame   data/chars/longmoan/run_2.png
     frame   data/chars/longmoan/run_3.png
-    frame   data/chars/longmoan/run_4.png
+    frame   data/chars/longmoan/run_4.png	
     frame   data/chars/longmoan/run_5.png
 
 
@@ -636,37 +748,52 @@ anim runattack
     jumpframe 0 2 2
     followanim 2
     followcond 1
-	range	70 100
+	range	50 110
 	loop	0
-	offset	60 98
+	
+	offset	150 175
 	delay	-1000
-	bbox.position.x 50
-	bbox.position.y 55
-	bbox.size.x 26
-	bbox.size.y 36
+	
+	bbox.position.x 129
+	bbox.position.y 131
+	bbox.size.x 36
+	bbox.size.y 43
 
 	attack.block.penetrate 0
 	attack.damage.force 8
-	attack.damage.type 1
-	
-	attack.effect.hit.flash.model hith
-	attack.position.x 50
-	attack.position.y 55
+	attack.damage.type 0
+	attack.effect.hit.flash.model flash_hit_knockdown
+	attack.position.x 150
+	attack.position.y 137
 	attack.reaction.fall.force 1
 	attack.reaction.pause.time 0
-	attack.size.x 26
-	attack.size.y 36
-	attack.size.z.1 0	
+	attack.size.x 15
+	attack.size.y 20
+	attack.size.z.1 0
+	
+	attack.block.penetrate 0
+	attack.damage.force 8
+	attack.damage.type 1
+	attack.effect.hit.flash.model flash_hit_knockdown
+	attack.position.x 150
+	attack.position.y 137
+	attack.reaction.fall.force 1
+	attack.reaction.pause.time 0
+	attack.size.x 15
+	attack.size.y 20
+	attack.size.z.1 0
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 	
     frame   data/chars/longmoan/atk_shoulder_0.png
+    
 	attack 0
 	
-	bbox.position.x 49
-	bbox.position.y 45
-	bbox.size.x 32
-	bbox.size.y 53
+	bbox.position.x 127
+	bbox.position.y 129
+	bbox.size.x 37
+	bbox.size.y 47
+	
 	delay	12
 	frame	data/chars/longmoan/atk_swing_0.png
 
@@ -678,32 +805,48 @@ anim follow2
     jumpframe 0 1 0
     landframe 1 jump_land
     
-	offset	60 98
+	offset	150 175
 	delay	-1000
-	bbox.position.x 50
-	bbox.position.y 55
-	bbox.size.x 26
-	bbox.size.y 36
+	
+	bbox.position.x 129
+	bbox.position.y 131
+	bbox.size.x 36
+	bbox.size.y 43
 
 	attack.block.penetrate 0
 	attack.damage.force 8
-	attack.damage.type 1
-	
-	attack.effect.hit.flash.model blunt_heavy
-	attack.position.x 50
-	attack.position.y 55
+	attack.damage.type 0
+	attack.effect.hit.flash.model hith
+	attack.position.x 150
+	attack.position.y 137
 	attack.reaction.fall.force 1
 	attack.reaction.pause.time 0
-	attack.size.x 26
-	attack.size.y 36
+	attack.size.x 15
+	attack.size.y 20
 	attack.size.z.1 0
+	
+	attack.block.penetrate 0
+	attack.damage.force 8
+	attack.damage.type 1
+	attack.effect.hit.flash.model hith
+	attack.position.x 150
+	attack.position.y 137
+	attack.reaction.fall.force 1
+	attack.reaction.pause.time 0
+	attack.size.x 15
+	attack.size.y 20
+	attack.size.z.1 0
+	
+	
     frame   data/chars/longmoan/atk_shoulder_0.png
+    
 	attack 0
 	
-	bbox.position.x 49
-	bbox.position.y 45
-	bbox.size.x 32
-	bbox.size.y 53
+	bbox.position.x 127
+	bbox.position.y 129
+	bbox.size.x 37
+	bbox.size.y 47
+	
 	delay	12
 	frame	data/chars/longmoan/atk_swing_0.png
 	
@@ -715,16 +858,22 @@ anim special2
 	range	0 40
 	loop	0
 	delay	12
-	offset	60 98
-	bbox.position.x 49
-	bbox.position.y 45
-	bbox.size.x 32
-	bbox.size.y 53
+	
+	offset	150 175
+	
+	bbox.position.x 138
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
 	
 	
     frame   data/chars/longmoan/atk_swing_0.png
     
     delay 8
+    
+    @cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_MEDIUM
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
     
     frame   data/chars/longmoan/atk_swing_1.png
         frame   data/chars/longmoan/atk_swing_2.png
@@ -732,45 +881,53 @@ anim special2
     
 	attack.damage.force 8
 	attack.effect.hit.flash.model flash_blunt_cut
-	attack.position.x 60
-	attack.position.y 31
+	attack.position.x 150
+	attack.position.y 108
 	attack.reaction.fall.force 2
 	attack.reaction.pause.time 12
-	attack.size.x 41
-	attack.size.y 57
+	attack.size.x 40
+	attack.size.y 49
 	
     frame   data/chars/longmoan/atk_swing_3.png
     
     
     
 	attack.damage.force 0
-	attack.position.x 61
-	attack.position.y 21
+	attack.position.x 150
+	attack.position.y 99
 	attack.size.x 32
-	attack.size.y 29
-    frame   data/chars/longmoan/atk_swing_4.png
+	attack.size.y 35
+    frame   data/chars/longmoan/atk_upper_3.png
     
     delay 20
     
 	attack 0
     
-    frame   data/chars/longmoan/idle_0.png
+    frame   data/chars/longmoan/atk_upper_4.png
 
 anim special
+
     energycost 8
+    
 	range	0 40
 	loop	0
 	delay	12
-	offset	60 98
-	bbox.position.x 49
-	bbox.position.y 45
-	bbox.size.x 32
-	bbox.size.y 53
+	
+	offset	150 175
+	
+	bbox.position.x 138
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
 	
 	
     frame   data/chars/longmoan/atk_swing_0.png
     
     delay 8
+    
+    @cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_MEDIUM
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
     
     frame   data/chars/longmoan/atk_swing_1.png
         frame   data/chars/longmoan/atk_swing_2.png
@@ -778,29 +935,29 @@ anim special
     
 	attack.damage.force 8
 	attack.effect.hit.flash.model flash_blunt_cut
-	attack.position.x 60
-	attack.position.y 31
+	attack.position.x 150
+	attack.position.y 108
 	attack.reaction.fall.force 2
 	attack.reaction.pause.time 12
-	attack.size.x 41
-	attack.size.y 57
+	attack.size.x 40
+	attack.size.y 49
 	
     frame   data/chars/longmoan/atk_swing_3.png
     
     
     
 	attack.damage.force 0
-	attack.position.x 61
-	attack.position.y 21
+	attack.position.x 150
+	attack.position.y 99
 	attack.size.x 32
-	attack.size.y 29
-    frame   data/chars/longmoan/atk_swing_4.png
+	attack.size.y 35
+    frame   data/chars/longmoan/atk_upper_3.png
     
     delay 20
     
 	attack 0
     
-    frame   data/chars/longmoan/idle_0.png
+    frame   data/chars/longmoan/atk_upper_4.png
 
 anim fall10 # Thrown 
 
@@ -972,25 +1129,25 @@ anim death
 	flipframe 11
 
 	loop	0
-	offset	60 98	
+	offset	150	175
 	delay	25
 	frame	data/chars/longmoan/rise_0.png
 	delay 4
-	offset	61 98
+	offset	151 175
 	frame	data/chars/longmoan/rise_0.png
-	offset	60 98
+	offset	150 175
 	frame	data/chars/longmoan/rise_0.png
-	offset	61 98
+	offset	151 175
 	frame	data/chars/longmoan/rise_0.png
-	offset	60 98
+	offset	150 175
 	frame	data/chars/longmoan/rise_0.png
-	offset	61 98
+	offset	151 175
 	frame	data/chars/longmoan/rise_0.png
-	offset	60 98
+	offset	150 175
 	frame	data/chars/longmoan/rise_0.png
-	offset	61 98
+	offset	151 175
 	frame	data/chars/longmoan/rise_0.png
-	offset	60 98
+	offset	150 175
 	frame	data/chars/longmoan/rise_0.png
 	delay 25
 	frame	data/chars/longmoan/rise_1.png
@@ -1001,7 +1158,7 @@ anim death
 	
 	delay 12
 	
-	offset	60 98
+	offset	150 175
 	frame	data/chars/longmoan/rise_0.png
 	
 	offset 150 175	
@@ -1396,24 +1553,32 @@ anim attackup
 	landframe 3 jump_land
     
     delay  6	
-	offset	60 98
-	bbox.position.x 43
-	bbox.position.y 70
-	bbox.size.x 28
-	bbox.size.y 29
+	offset	150 175
+	
+	bbox.position.x 134
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
 	
 	frame	data/chars/longmoan/jump_start_0.png
 	
 	delay   -1000
 	frame	data/chars/longmoan/jump_0.png
 	
-	bbox.position.x 45
-	bbox.position.y 40
-	bbox.size.x 26
-	bbox.size.y 57
+	bbox.position.x 128
+	bbox.position.y 103
+	bbox.size.x 38
+	bbox.size.y 71
+	
 	frame	data/chars/longmoan/jump_1.png
 	
 	delay 12
+	
+	bbox.position.x 134
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
+	
 	frame	data/chars/longmoan/jump_start_0.png
 	
 anim attackdown
@@ -1427,23 +1592,31 @@ anim attackdown
 	landframe 3 jump_land
 	
 	
-	delay  6	
-	offset	60 98
-	bbox.position.x 43
-	bbox.position.y 70
-	bbox.size.x 28
-	bbox.size.y 29
+	 delay  6	
+	offset	150 175
+	
+	bbox.position.x 134
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
 	
 	frame	data/chars/longmoan/jump_start_0.png
 	
 	delay   -1000
 	frame	data/chars/longmoan/jump_0.png
 	
-	bbox.position.x 45
-	bbox.position.y 40
-	bbox.size.x 26
-	bbox.size.y 57
+	bbox.position.x 128
+	bbox.position.y 103
+	bbox.size.x 38
+	bbox.size.y 71
+	
 	frame	data/chars/longmoan/jump_1.png
 	
 	delay 12
+	
+	bbox.position.x 134
+	bbox.position.y 124
+	bbox.size.x 30
+	bbox.size.y 56
+	
 	frame	data/chars/longmoan/jump_start_0.png

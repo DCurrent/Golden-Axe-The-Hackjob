@@ -5,19 +5,19 @@ health	     100
 alpha	     1
 candamage none
 
-palette	 	data/chars/longmoan/palette_default.act
+palette	 	data/chars/longmoan/palette_base_0.png
 
 anim idle
 
 	delay	-1000
-	offset	60 98
+	offset	150 175
 
 	frame	data/chars/misc/blank.png
 
 anim attack1	
 	
 	delay	-1000
-	offset	60 98
+	offset	150 175
 		
     	frame	data/chars/misc/blank.png	
 	

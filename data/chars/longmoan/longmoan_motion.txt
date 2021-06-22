@@ -34,3 +34,24 @@ anim attack1
     	frame   	data/chars/longmoan/atk_swipe_4_motion_0.png    	
     
     	frame	data/chars/misc/blank.png
+
+anim attack2
+
+	offset	150 175
+	delay -1000
+	
+    frame	data/chars/misc/blank.png    
+    
+    alphamask   data/chars/longmoan/atk_upper_1_motion_0_mask_0.png   
+    frame       data/chars/longmoan/atk_upper_1_motion_0.png
+    
+	alphamask   data/chars/longmoan/atk_upper_2_motion_0_mask_0.png
+    frame       data/chars/longmoan/atk_upper_2_motion_0.png
+	
+    alphamask   data/chars/longmoan/atk_upper_3_motion_0_mask_0.png
+    frame       data/chars/longmoan/atk_upper_3_motion_0.png
+    
+	alphamask   data/chars/longmoan/atk_upper_4_motion_0_mask_0.png   
+    frame       data/chars/longmoan/atk_upper_4_motion_0.png
+	
+	frame	    data/chars/misc/blank.png

@@ -609,13 +609,14 @@ anim attack2
 
 	delay 12
 	
-   frame   data/chars/longmoan/atk_upper_0.png
+    frame   data/chars/longmoan/atk_upper_0.png
     
     delay 8
     
     @cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT	
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT
+	@cmd	dc_elmers_quick_overlay dc_gauntlet_quick_spawn_unique_sub_entity("longmoan_motion") DC_ELMERS_SORT_FRONT
     
     frame   data/chars/longmoan/atk_upper_1.png
     
@@ -647,6 +648,8 @@ anim attack2
 	attack.size.z.1 0
     
     frame   data/chars/longmoan/atk_upper_4.png
+	delay 4
+	frame   data/chars/longmoan/atk_upper_4.png
 
 anim attack3
 

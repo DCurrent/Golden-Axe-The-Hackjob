@@ -55,3 +55,46 @@ anim attack2
     frame       data/chars/longmoan/atk_upper_4_motion_0.png
 	
 	frame	    data/chars/misc/blank.png
+	
+anim attack3
+
+	delay	-1000
+	
+	offset	150 175
+
+	
+	
+    frame	data/chars/misc/blank.png
+    
+    alphamask   data/chars/longmoan/atk_swing_1_motion_0_mask_0.png   
+	frame       data/chars/longmoan/atk_swing_1_motion_0.png
+    
+    alphamask   data/chars/longmoan/atk_swing_2_motion_0_mask_0.png 
+    frame       data/chars/longmoan/atk_swing_2_motion_0.png
+    
+	alphamask   data/chars/longmoan/atk_swing_3_motion_0_mask_0.png 
+    frame       data/chars/longmoan/atk_swing_3_motion_0.png
+    
+    alphamask   data/chars/longmoan/atk_swing_4_motion_0_mask_0.png 
+    frame       data/chars/longmoan/atk_upper_3_motion_0.png    
+    
+    frame	data/chars/misc/blank.png
+    
+anim riseattack
+    
+	offset	150 175
+	delay	-1000
+	
+	frame	data/chars/misc/blank.png
+	frame	data/chars/misc/blank.png	
+	frame	data/chars/misc/blank.png	
+	frame	data/chars/misc/blank.png
+	
+	alphamask   data/chars/longmoan/jump_1_motion_0_mask_0.png	
+	frame	    data/chars/longmoan/jump_1_motion_0.png
+	
+	alphamask   data/chars/longmoan/atk_jump_down_swing_0_motion_0_mask_0.png
+	frame	    data/chars/longmoan/atk_jump_down_swing_0_motion_0.png
+
+	
+	frame	data/chars/misc/blank.png

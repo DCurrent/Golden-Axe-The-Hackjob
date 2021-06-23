@@ -19,7 +19,7 @@ notime  1
 load pc_skeleton
 load Male_Villager2
 load amachick
-load lonchick
+load longmoan_chicken
 load henchick
 load time
 

@@ -83,7 +83,7 @@ palette 	data/levels/wilderness/evening_24.act 		0 	0 	0 	0 	0 	0
 
 # Asset loading
 load Male_Villager2
-load lonchick
+load longmoan_chicken
 load henchick
 load Magic_Pot
 
@@ -120,8 +120,12 @@ at	0
 spawn	Longmoan
 coords	650 170
 aggression 200
-health  15
+health  150s
 map	2
+at 0
+
+spawn blue_dragon_escape
+coords 200 170
 at 0
 
 spawn Chickenlegs

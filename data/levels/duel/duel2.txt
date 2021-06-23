@@ -16,7 +16,7 @@ load meat
 load amardrag
 load amachick
 load lonrdrag
-load lonchick
+load longmoan_chicken
 load henrdrag
 load henchick
 load a_rdrag

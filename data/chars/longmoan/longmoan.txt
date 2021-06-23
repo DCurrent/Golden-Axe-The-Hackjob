@@ -29,9 +29,9 @@ nopassiveblock 		1
 thold     			14
 aimove 				chase
 escapehits 			5
-weapons 			lonchick lonrdrag lonbdrag
+weapons 			longmoan_chicken lonrdrag lonbdrag
 atchain 			1 2 3 0 0
-#modelflag 			1
+modelflag 			7
 load 				longmoan_motion
 
 animationscript 	data/chars/longmoan/scripts/event_animation.c
@@ -213,6 +213,8 @@ anim riseattack
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 	
+	@cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn_unique_sub_entity("longmoan_motion") DC_ELMERS_SORT_FRONT
+	
 	frame	data/chars/longmoan/jump_1.png
 	
 	delay 12
@@ -227,11 +229,11 @@ anim riseattack
 	attack.size.x 34
 	attack.size.y 58
 	attack.size.z.1 0
-	frame	data/chars/longmoan/atk_jump_down_swing_1.png
+	frame	data/chars/longmoan/atk_jump_down_swing_0.png
 	
 	delay 40
 	
-	frame	data/chars/longmoan/atk_jump_down_swing_1.png
+	frame	data/chars/longmoan/atk_jump_down_swing_0.png
 	
 	
 	attack 0
@@ -609,14 +611,15 @@ anim attack2
 
 	delay 12
 	
-    frame   data/chars/longmoan/atk_upper_0.png
+   frame   data/chars/longmoan/atk_upper_0.png
     
     delay 8
     
     @cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT	
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT
-	@cmd	dc_elmers_quick_overlay dc_gauntlet_quick_spawn_unique_sub_entity("longmoan_motion") DC_ELMERS_SORT_FRONT
+    
+    @cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn_unique_sub_entity("longmoan_motion") DC_ELMERS_SORT_FRONT
     
     frame   data/chars/longmoan/atk_upper_1.png
     
@@ -648,8 +651,6 @@ anim attack2
 	attack.size.z.1 0
     
     frame   data/chars/longmoan/atk_upper_4.png
-	delay 4
-	frame   data/chars/longmoan/atk_upper_4.png
 
 anim attack3
 
@@ -673,8 +674,10 @@ anim attack3
 	
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
     
+    @cmd dc_elmers_quick_overlay dc_gauntlet_quick_spawn_unique_sub_entity("longmoan_motion") DC_ELMERS_SORT_FRONT
+    
     frame   data/chars/longmoan/atk_swing_1.png
-        frame   data/chars/longmoan/atk_swing_2.png
+    frame   data/chars/longmoan/atk_swing_2.png
     
     
 	attack.damage.force 8
@@ -751,7 +754,7 @@ anim runattack
     jumpframe 0 2 2
     followanim 2
     followcond 1
-	range	50 110
+	range	50 105
 	loop	0
 	
 	offset	150 175

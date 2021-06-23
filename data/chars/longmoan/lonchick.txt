@@ -1,6 +1,6 @@
 # Longmoan on chickenlegs
 
-name		        lonchick
+name		        longmoan_chicken
 speed		        9
 running 	        19
 gfxshadow 	        1
@@ -30,7 +30,7 @@ aimove chase
 
 modelflag 1
 
-weapons lonchick lonrdrag lonbdrag
+weapons longmoan_chicken lonrdrag lonbdrag
 
 palette		        data/chars/longmoan/palette_default.act
 alternatepal 	    data/chars/longmoan/palette_red.act

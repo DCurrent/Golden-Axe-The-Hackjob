@@ -31,7 +31,7 @@ aimove chase
 
 modelflag 1
 
-weapons lonchick lonrdrag lonbdrag
+weapons longmoan_chicken lonrdrag lonbdrag
 
 palette data/chars/longmoan/bdragon/map.gif       # silver
 alternatepal data/chars/longmoan/bdragon/map1.gif # red

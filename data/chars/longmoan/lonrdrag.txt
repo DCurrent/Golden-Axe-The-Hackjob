@@ -34,7 +34,7 @@ aimove chasez
 
 modelflag 1
 
-weapons lonchick lonrdrag none
+weapons longmoan_chicken lonrdrag none
 
 palette data/chars/longmoan/rdragon/map.gif       # silver
 alternatepal data/chars/longmoan/rdragon/map1.gif # red

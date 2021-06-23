@@ -44,12 +44,6 @@ alternatepal		data/chars/amazon/dragon/aapa0001  	#Red
 alternatepal 		data/chars/amazon/dragon/aapa0002  	#Purple
 alternatepal 		data/chars/amazon/dragon/aapa0003  	#Dark
 
-anim follow100
-
-	offset	0 0
-	frame	data/chars/amazon/dragon/ico0001    #AI icon.
-	frame	data/chars/amazon/dragon/ico0002    #AI icon (pain).
-
 anim spawn
 
 

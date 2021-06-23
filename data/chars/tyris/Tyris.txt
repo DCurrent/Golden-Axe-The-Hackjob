@@ -1,3 +1,5 @@
+#icon				data/chars/tyris/icon_default_0.png 1
+#iconpain			data/chars/tyris/icon_pain_0.png 1
 name				Tyris_Flare
 health				98
 speed				9
@@ -605,7 +607,7 @@ anim	follow3
 	frame	data/chars/tyris/0019
 	frame	data/chars/tyris/0018
 
-anim	follow51
+anim	follow10
 	loop	1
 	delay	-1000
 	offset	100 0

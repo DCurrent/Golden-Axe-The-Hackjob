@@ -13,7 +13,7 @@ versusdamage 		1
 noaircancel 		0
 maxattacktypes  	15
 maxfreespecials 	50
-maxfollows		101
+maxfollows		60
 colourselect 		1
 combodelay		220
 

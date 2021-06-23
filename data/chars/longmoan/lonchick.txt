@@ -38,12 +38,6 @@ alternatepal 	    data/chars/longmoan/palette_gold.act
 alternatepal 	    data/chars/longmoan/palette_beige.act
 alternatepal 	    data/chars/longmoan/palette_dark.act
 
-anim follow100
-	
-	offset	0 0
-	frame	data/chars/longmoan/icon_default_0.png	#AI icon.
-	frame	data/chars/longmoan/icon_pain_0.png	#AI icon (pain).
-
 anim idle
 	loop	1
 	delay	25

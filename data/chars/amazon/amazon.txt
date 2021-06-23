@@ -1,3 +1,5 @@
+icon				data/chars/amazon/icon_default_0.png 1
+iconpain			data/chars/amazon/icon_pain_0.png 1
 name			Amazon
 type			enemy
 health			32
@@ -64,12 +66,6 @@ load		amardrag        	#On Red Dragon.
 load		amabdrag        	#On Blue Dragon.
 load		amaz0001			#Blur effects.
 load		amaz0002			#Thrown axe.
-
-anim follow100
-
-	offset	0 0
-	frame	data/chars/amazon/ico0001   #AI icon.
-	frame	data/chars/amazon/ico0002	#AI icon (pain).
 
 anim idle
 	loop	1 6 8

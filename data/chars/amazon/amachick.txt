@@ -45,12 +45,6 @@ alternatepal 	data/chars/amazon/chicken/aapa0001  	#red
 alternatepal 	data/chars/amazon/chicken/aapa0002  	#purple
 alternatepal 	data/chars/amazon/chicken/aapa0003  	#dark
 
-anim follow100
-
-	offset	0 0
-	frame	data/chars/amazon/chicken/ico0001   #AI icon.
-	frame	data/chars/amazon/chicken/ico0002	#AI icon (pain).
-
 anim spawn
 
 	delay	1

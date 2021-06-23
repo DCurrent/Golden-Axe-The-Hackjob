@@ -1,5 +1,6 @@
+icon				data/chars/bad_bros/icon_default_0.png 1
+iconpain			data/chars/bad_bros/icon_pain_0.png 1
 name				Bad_Brother
-icon				data/chars/ax/icon_default.png
 type				enemy
 health				98
 speed				8
@@ -64,11 +65,7 @@ alternatepal 		data/chars/bad_bros/pals/1			#Red
 alternatepal 		data/chars/bad_bros/pals/2			#Blue
 alternatepal		data/chars/bad_bros/pals/KO			#KO
 
-anim follow100
 
-	offset	0 0
-	frame	data/chars/bad_bros/ico0001	#AI icon.
-	frame	data/chars/bad_bros/ico0002	#AI icon (pain).
 
 anim idle
 	loop	1
@@ -569,7 +566,7 @@ anim grabbackward
 		frame	data/chars/bad_bros/g3.png
 		frame	data/chars/bad_bros/g1.png
 
-anim follow51
+anim follow10
 
 	#Defense poses
 

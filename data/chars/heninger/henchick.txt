@@ -43,12 +43,6 @@ alternatepal data/chars/heninger/chicken/map3.gif # grayblue
 alternatepal data/chars/heninger/chicken/map4.gif # golden
 alternatepal data/chars/heninger/chicken/map5.gif # dark
 
-anim follow100
-	
-	offset	0 0
-	frame	data/chars/heninger/ico0001	#AI icon.
-	frame	data/chars/heninger/ico0002	#AI icon (pain).
-
 anim idle
 	loop	1
 	delay	25

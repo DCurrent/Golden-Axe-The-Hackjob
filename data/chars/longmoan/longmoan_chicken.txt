@@ -1,7 +1,7 @@
 # On chickenleg
 
-icon				data/chars/longmoan/icon_default_0.png
-
+icon				data/chars/longmoan/icon_default_0.png 1
+iconpain	        data/chars/longmoan/icon_pain_0.png	1
 name				longmoan_chicken
 speed				10
 running 			20 5 1 1 0

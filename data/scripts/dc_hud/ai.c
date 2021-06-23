@@ -88,16 +88,18 @@ void dc_golden_axe_enemy_hud()
 
         if(is_hurt)
         {
-            sprite = getentityproperty(target, "spritea", "sprite", ANI_ICONS, ICON_AIPAIN);
+            sprite = getentityproperty(target, "icon", "pain");
+            //sprite = getentityproperty(target, "spritea", "sprite", ANI_ICONS, ICON_AIPAIN);
         }
         else
         {
-            sprite = getentityproperty(target, "spritea", "sprite", ANI_ICONS, ICON_AI);
+            sprite = getentityproperty(target, "icon", "default");
+            //sprite = getentityproperty(target, "spritea", "sprite", ANI_ICONS, ICON_AI);
         }
 
         // Did we find a valid icon sprite? Then let's display it along with
         // a health sprite.
-        if(sprite)
+        if(sprite != -1)
         {
             // To get the position, we use a preset value that is equal
             // to the icon, life block, and any extra margin padding.

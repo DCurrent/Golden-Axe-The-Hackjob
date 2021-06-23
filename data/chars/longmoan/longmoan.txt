@@ -1,3 +1,5 @@
+icon				data/chars/longmoan/icon_default_0.png 1
+iconpain	        data/chars/longmoan/icon_pain_0.png	1
 name				longmoan
 type				enemy
 health				32
@@ -56,11 +58,7 @@ palette		        data/chars/longmoan/palette_base_0.png
 #alternatepal 	    data/chars/longmoan/palette_beige.act
 #alternatepal 	    data/chars/longmoan/palette_dark.act
 
-anim follow100
-	
-	offset	0 0
-	frame	data/chars/longmoan/icon_default_0.png
-	frame	data/chars/longmoan/icon_pain_0.png
+
 	
 
 anim idle

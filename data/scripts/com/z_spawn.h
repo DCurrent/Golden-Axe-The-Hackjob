@@ -63,9 +63,9 @@ void z_spawn(void vEnt)
 	~2011_07_27. Discovered small but so far insurmountable bug where playable and enemy versions of same cahracter interact.
 	When scripted damage is applied, the damaging entity imediatly ceases performing animation certain scripts (inconsistent).
 
-    if(iType == TYPE_PLAYER && iSType == 1)
+    if(iType == openborconstant("TYPE_PLAYER") && iSType == 1)
     {
-        iType = TYPE_ENEMY;                                        //Set ENEMY type.
+        iType = openborconstant("TYPE_ENEMY");                                        //Set ENEMY type.
 
 		changeentityproperty(vEnt, "name", getentityproperty(vEnt, "defaultname")+"_e");
         changeentityproperty(vEnt, "type", iType);              //Apply type.

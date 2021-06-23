@@ -270,7 +270,6 @@
 #define ENT_SELF					0
 
 /******Entity Types*******/
-#define TYPE_ENEMY					openborconstant("TYPE_ENEMY")
 #define TYPE_ITEM					openborconstant("TYPE_ITEM")
 #define TYPE_NPC					openborconstant("TYPE_NPC")
 #define TYPE_NONE					openborconstant("TYPE_NONE")

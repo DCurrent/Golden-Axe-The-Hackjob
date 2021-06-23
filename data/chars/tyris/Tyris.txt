@@ -155,7 +155,7 @@ anim	attack4
 	offset	60 98
 	bbox	47 44 23 54
 	delay	12
-	@cmd	ani0012 A_ATK5 A_ATK3
+	@cmd	ani0012 openborconstant("ANI_ATTACK5") openborconstant("ANI_ATTACK3")
 	frame	data/chars/tyris/0046.png
 	delay	10
 	frame	data/chars/tyris/0047.png

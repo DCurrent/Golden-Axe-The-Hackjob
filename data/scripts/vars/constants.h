@@ -65,9 +65,8 @@
 #define AC_ESPLA					A_FOLLOW4								//Impact effect: Splash.
 #define AC_FFORE					A_FOLLOW52								//Fatality: Fly into foreground.
 #define AC_FWATER					A_FOLLOW53								//Fatality: Fall into background water.
-#define	AC_ICONS					A_FOLLOW100								//Icons placeholder.
 #define	AC_SCENENAP					A_GET									//Taking a nap (ex. Golden Axe bonus stage)
-#define	AC_SCENESTOMP				A_ATK4									//Stomping/kicking innocents (ex. Golden Axe Longmoan stomping peasents)
+#define	AC_SCENESTOMP				openborconstant("ANI_ATTACK4")									//Stomping/kicking innocents (ex. Golden Axe Longmoan stomping peasents)
 #define AC_PAINNOR					A_PAIN								    //Default pain.
 #define AC_PAINMID					A_PAIN2								    //Middle pain.
 #define AC_PAINLOW					A_PAIN								    //Low pain.
@@ -79,12 +78,6 @@
 #define AC_TOSS						openborconstant("ANI_FALL5")			//Thrown.
 
 /******Animations, engine defined******/
-#define A_ATK2						openborconstant("ANI_ATTACK2")
-#define A_ATK3						openborconstant("ANI_ATTACK3")
-#define A_ATK4						openborconstant("ANI_ATTACK4")
-#define A_ATK5						openborconstant("ANI_ATTACK5")
-#define A_ATK6						openborconstant("ANI_ATTACK6")
-#define A_ATK7						openborconstant("ANI_ATTACK7")
 #define A_ATKUP						openborconstant("ANI_ATTACKUP")
 #define A_BLOCK						openborconstant("ANI_BLOCK")
 #define A_BLOCKP					openborconstant("ANI_BLOCKPAIN")

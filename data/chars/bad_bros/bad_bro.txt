@@ -149,8 +149,8 @@ anim attack1
 	offset  80  135
 	delay	6
 	bbox	60 61 38 77
-	@cmd ani0017 A_ATK2 0 0 0 0 0 0 0
-	@cmd ani0017 A_ATK3 0 0 0 0 0 0 0
+	@cmd ani0017 openborconstant("ANI_ATTACK2") 0 0 0 0 0 0 0
+	@cmd ani0017 openborconstant("ANI_ATTACK3") 0 0 0 0 0 0 0
 	move  18
 		frame	data/chars/bad_bros/a1.png
 	delay  8

@@ -584,7 +584,7 @@ anim attack1
 	@cmd dc_chain_try_stun_series_simple openborconstant("ANI_FOLLOW3") 2 openborconstant("ANI_ATTACK7")
 	
 	@cmd 	ani0017 A_FOLLOW4 0 "Thief" 0 0 0 0 0			#Thief alt.
-	@cmd 	ani0018 A_ATK3 0					#Animal alt, far.
+	@cmd 	ani0018 openborconstant("ANI_ATTACK3") 0					#Animal alt, far.
 	@cmd 	ani0018 A_FOLLOW4 0					#Animal alt, close.
 	delay	4
 	frame	data/chars/ax/atk_swing_0.png
@@ -811,7 +811,7 @@ anim attack6
 
 	delay	1
 	offset	60 98
-	@cmd 	ani0012 A_ATK5 A_ATK3
+	@cmd 	ani0012 openborconstant("ANI_ATTACK5") openborconstant("ANI_ATTACK3")
 	@cmd  	bind0014 1 0														#Initialize bind variable.
 	@cmd	bind0010 FLAG_MODE_0 ENT_SELF 0 20 166 -1 DIR_ADJ_OPP openborconstant("ANI_FOLLOW10") G_HELD 0
 		frame	data/chars/ax/grab_0.png

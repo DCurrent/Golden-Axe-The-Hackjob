@@ -8,7 +8,7 @@
 * Caskey, Damon V.
 * 2021-03-16
 * 
-* Outputs a compisite color intended for overlay onto
+* Outputs a composite color intended for overlay onto
 * life meter blocks. Determines a base color from 
 * received block fraction value, then varies brightness
 * using a sine wave formula.

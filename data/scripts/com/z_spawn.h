@@ -81,7 +81,7 @@ void z_spawn(void vEnt)
     */
 
     //Golden Axe--------------------------------------------------------------------------------------------------------
-    if(iType == TYPE_PLAYER)                                                       //Player type?
+    if(iType == openborconstant("TYPE_PLAYER"))                                                       //Player type?
 	{
        //bind0017(vEnt, openborconstant("ANI_RISE"), -1, 1, 0, 0, 0, 0, 0, 0);							//Find old corpse and spawn there.
        

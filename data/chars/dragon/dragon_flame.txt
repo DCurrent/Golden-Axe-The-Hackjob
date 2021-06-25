@@ -28,6 +28,7 @@ anim idle
 	attack.damage.force 16
 	attack.damage.type burn
 	attack.reaction.fall.force 10
+	attack.reaction.reposition.direction -1
 	attack.effect.hit.flash.model bor_steam
 	attack.position.x 3
 	attack.position.y 1

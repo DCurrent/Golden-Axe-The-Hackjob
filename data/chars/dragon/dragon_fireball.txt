@@ -28,6 +28,7 @@ anim idle
 	attack.position.x 18
 	attack.position.y 19
 	attack.reaction.fall.force 5
+	attack.reaction.reposition.direction -1
 	attack.size.x 18
 	attack.size.y 29
 	
@@ -62,6 +63,7 @@ anim attack1 # Explode when hitting wall/platform.
 	attack.reaction.fall.force 5
 	attack.size.x 18
 	attack.size.y 29
+	attack.reaction.reposition.direction 1
 	
 	@cmd dc_fidelity_quick_play "explode"
 	

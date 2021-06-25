@@ -31,10 +31,13 @@ nopassiveblock 		1
 thold     			14
 aimove 				chase
 escapehits 			5
-weapons 			longmoan_chicken lonrdrag lonbdrag
+weapons 			longmoan_chicken longmoan_red_dragon longmoan_blue_dragon
 atchain 			1 2 3 0 0
 modelflag 			7
 load 				longmoan_motion
+load 				longmoan_chicken
+load 				longmoan_blue_dragon
+load 				longmoan_red_dragon
 
 animationscript 	data/chars/longmoan/scripts/event_animation.c
 didhitscript 		data/scripts/dc_common_didhit/event_didhit.c				# Hit another entity.

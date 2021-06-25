@@ -87,34 +87,29 @@ void z_spawn(void vEnt)
        
        dc_respawn_body(vEnt, openborconstant("ANI_RISE"));
 
-		if(getentityproperty(vEnt, "animvalid", A_SPECIAL))
+		if(getentityproperty(vEnt, "animvalid", openborconstant("ANI_SPECIAL")))
         {
-            changeentityproperty(vEnt, "energycost", "disable", A_SPECIAL, TYPE_PLAYER);
+            changeentityproperty(vEnt, "energycost", "disable", openborconstant("ANI_SPECIAL"), openborconstant("TYPE_PLAYER"));
         }
-		if(getentityproperty(vEnt, "animvalid", A_SPECIAL2))
+		if(getentityproperty(vEnt, "animvalid", openborconstant("ANI_SPECIAL2")))
         {
-            changeentityproperty(vEnt, "energycost", "disable", A_SPECIAL2, TYPE_PLAYER);
+            changeentityproperty(vEnt, "energycost", "disable", openborconstant("ANI_SPECIAL2"), openborconstant("TYPE_PLAYER"));
         }
 	}
     else
-    {
-        //Store some basic entity properties so we can reapply them after damage (bug workaround).
-        setentityvar(vEnt, IDXE_MAXHP, iMaxHP);                                      //Store MaxHP.
-        setentityvar(vEnt, IDXE_MAXMP, iMaxHP);                                      //Store MaxMP.
-        setentityvar(vEnt, IDXE_AGGRO, iAggro);                                      //Store Aggro.
-
-        if(getentityproperty(vEnt, "animvalid", A_FSPECIAL10))
+    {       
+        if(getentityproperty(vEnt, "animvalid", openborconstant("ANI_FREESPECIAL10")))
         {
-            changeentityproperty(vEnt, "energycost", "disable", A_FSPECIAL10, -2);
+            changeentityproperty(vEnt, "energycost", "disable", openborconstant("ANI_FREESPECIAL10"), -2);
         }
 
         if(iKOMap && iMap == iKOMap-1)                                          //"Dark" map?
         {
             changeentityproperty(vEnt, "animation", A_RESPAWN);                 //Play respawn animation.
 
-            if(getentityproperty(vEnt, "animvalid", A_FSPECIAL10))              //Has teleport move?
+            if(getentityproperty(vEnt, "animvalid", openborconstant("ANI_FREESPECIAL10")))              //Has teleport move?
             {
-                changeentityproperty(vEnt, "energycost", "disable", A_FSPECIAL10, 0);  //Enable teleport.
+                changeentityproperty(vEnt, "energycost", "disable", openborconstant("ANI_FREESPECIAL10"), 0);  //Enable teleport.
             }
         }
         /*

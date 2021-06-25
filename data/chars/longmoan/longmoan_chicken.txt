@@ -36,7 +36,7 @@ takedamagescript	data/scripts/dc_common_takedamage/event_takedamage.c
 thinkscript			data/scripts/z_think.c				#Entity AI updates.
 
 modelflag 			7
-weapons 			longmoan_chicken lonrdrag lonbdrag
+weapons 			longmoan_chicken longmoan_red_dragon lonbdrag
 aggression 			60
 jumpmove			7 1
 

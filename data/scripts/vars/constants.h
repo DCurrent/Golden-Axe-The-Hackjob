@@ -377,9 +377,6 @@
 #define IDXE_BOUNDZ					87										//Z this entity is bound to.
 #define	IDXE_BOUNDD					88										//Dir this entity is bound to.
 #define	IDXE_BOUNDF					89										//Frame entity is set to during grapple bind.
-#define	IDXE_MAXHP					90										//Maximum Health (to reset when damaged as workaround for weapon bug).
-#define IDXE_MAXMP					91										//Maximum MP (to reset when damaged as workaround for weapon bug).
-#define IDXE_AGGRO					92										//Aggression (to reset when damaged as workaround for weapon bug).
 #define IDXE_APUSHX					93                                      //Resistance to environment push X.
 #define IDXE_APUSHY					94                                      //Resistance to environment push Y.
 #define IDXE_APUSHZ					95                                      //Resistance to environment push Z.

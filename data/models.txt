@@ -130,11 +130,11 @@ know	bbro0001		data/chars/bad_bros/effects/bbro0001.txt
 load    Bad_Brother     data/chars/bad_bros/bad_bro.txt
 
 #Longmoan
-load	longmoan_chicken        data/chars/longmoan/longmoan_chicken.txt
-load	lonrdrag        data/chars/longmoan/lonrdrag.txt
-load	lonbdrag        data/chars/longmoan/lonbdrag.txt
-know	longmoan_motion data/chars/longmoan/longmoan_motion.txt
-load	Longmoan        data/chars/longmoan/longmoan.txt
+know	longmoan_chicken		data/chars/longmoan/longmoan_chicken.txt
+know	longmoan_red_dragon		data/chars/longmoan/longmoan_red_dragon.txt
+know	longmoan_blue_dragon	data/chars/longmoan/longmoan_blue_dragon.txt
+know	longmoan_motion			data/chars/longmoan/longmoan_motion.txt
+load	Longmoan				data/chars/longmoan/longmoan.txt
 
 #Heninger
 know	henchick        data/chars/heninger/henchick.txt

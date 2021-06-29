@@ -1,7 +1,7 @@
-load dragon_flame
-load dragon_flame_ex
+load	dragon_fireball
+load	dragon_fireball_ex
 
-name		    blue_dragon_escape
+name		    red_dragon_escape
 type				npc
 health				100
 speed				14
@@ -28,7 +28,7 @@ knockdowncount      2
 defense             all 0.0
 nograb              1 
 
-palette data/chars/dragon/palette_blue_0.png
+palette data/chars/dragon/palette_red_0.png
 
 animationscript data/chars/chicken/scripts/event_animation.c
 thinkscript data/chars/chicken/scripts/event_think.c
@@ -77,69 +77,86 @@ anim idle
 	
 	frame	data/chars/dragon/idle_1.png
 
-anim chargeattack # EX flame
+anim chargeattack # EX Fireball
 
-	delay	8
-	offset	78 142
-	
-	range 40 130
-
-	custknife dragon_flame_ex
-	throwframe 3
+	custknife dragon_fireball_ex
+	throwframe 2
 	projectile_offense parent
-	projectile_position_x 115
-	projectile_position_y 36
+	projectile_position_x 51
+	projectile_position_y 34
 
-	projectile_velocity_x 0.0
+	projectile_velocity_x 1.0
 	projectile_velocity_y 0.0
 	projectile_velocity_z 0.0
 
-	frame data/chars/dragon/atk_breath_diagonal_0.png
-	frame data/chars/dragon/atk_breath_diagonal_1.png
+	projectile_color_set_adjust none
+
+    range   50 400
+
+	delay	10
+    offset	78 142
     	
    	bbox.position.x 64
 	bbox.position.y 73
 	bbox.size.x 34
 	bbox.size.y 56
 	
-	frame	data/chars/dragon/atk_breath_front_0.png
+	frame	data/chars/ax/dragon/atk_breath_front_0.png
 	
-	delay	100
+	delay	12
 	
-	frame	data/chars/dragon/atk_breath_front_1.png
-	
-	delay 10
-	
-	frame	data/chars/dragon/atk_breath_front_2.png	
-	frame	data/chars/dragon/atk_breath_front_0.png
-		
-anim attack1
-
-	delay	8
-	offset	78 142
-
-	custknife dragon_flame
-	throwframe 2
-	projectile_offense parent
-	projectile_position_x 80
-	projectile_position_y 31
-
-	projectile_velocity_x 0.0
-	projectile_velocity_y 0.0
-	projectile_velocity_z 0.0
-
-	@cmd dc_disney_macro_try_ai_random openborconstant("ANI_CHARGEATTACK") 20
-
-	frame data/chars/dragon/atk_breath_diagonal_0.png
-	frame data/chars/dragon/atk_breath_diagonal_1.png
-	
-	delay 94	
-	
-	frame data/chars/dragon/atk_breath_diagonal_2.png
+	frame	data/chars/ax/dragon/atk_breath_front_1.png
 	
 	delay 20
 	
-	frame data/chars/dragon/atk_breath_diagonal_0.png
+	frame	data/chars/ax/dragon/atk_breath_front_2.png
+	frame	data/chars/ax/dragon/atk_breath_front_1.png
+    
+    delay   10
+	
+	frame	data/chars/ax/dragon/atk_breath_front_0.png
+
+		
+anim attack1 # Fireball
+
+	custbomb dragon_fireball
+	tossframe 2
+	projectile_offense parent
+	projectile_position_x 50
+	projectile_position_y 32
+
+	projectile_velocity_x 1
+	projectile_velocity_y 0.0
+	projectile_velocity_z 0.0
+
+	projectile_color_set_adjust none
+
+	range   50 400
+
+	delay	10
+    offset	78 142
+    	
+   	bbox.position.x 64
+	bbox.position.y 73
+	bbox.size.x 34
+	bbox.size.y 56
+	
+	@cmd dc_disney_macro_try_ai_random openborconstant("ANI_CHARGEATTACK") 20
+	
+	frame	data/chars/dragon/atk_breath_front_0.png
+	
+	delay	8
+	
+	frame	data/chars/dragon/atk_breath_front_1.png
+	
+	delay 12
+		
+	frame	data/chars/dragon/atk_breath_front_2.png
+	frame	data/chars/dragon/atk_breath_front_1.png
+    
+    delay   10
+	
+	frame	data/chars/dragon/atk_breath_front_0.png
 
 anim walk
 

@@ -1,3 +1,5 @@
+load blue_dragon_escape
+
 name		    Blue_Dragon
 speed   	    0
 nomove  	    0

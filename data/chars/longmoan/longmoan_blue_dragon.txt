@@ -1,3 +1,7 @@
+load	blue_dragon_escape
+load	dragon_flame
+load	dragon_flame_ex
+
 icon				data/chars/longmoan/icon_default_0.png
 name				longmoan_blue_dragon
 speed				10
@@ -56,22 +60,24 @@ anim spawn
 	
 	frame	data/chars/longmoan/dragon/idle_0.png
 
-anim idle
-
-	loop	1
 	delay	20
+
 	offset	78 142
-    
+
     bbox.position.x 64
 	bbox.position.y 73
 	bbox.size.x 34
 	bbox.size.y 56
 	
 	#cmd save_mp
-		frame	data/chars/longmoan/dragon/idle_0.png
-		frame	data/chars/longmoan/dragon/atk_breath_diagonal_0.png
-		frame	data/chars/longmoan/dragon/atk_breath_diagonal_1.png
-		frame	data/chars/longmoan/dragon/atk_breath_diagonal_0.png
+
+	frame	data/chars/longmoan/dragon/idle_0.png
+
+	frame	data/chars/longmoan/dragon/atk_breath_diagonal_1.png
+	frame	data/chars/longmoan/dragon/atk_breath_diagonal_0.png
+
+	frame	data/chars/longmoan/dragon/atk_breath_diagonal_1.png
+	frame	data/chars/longmoan/dragon/atk_breath_diagonal_0.png
 
 anim walk
 
@@ -244,8 +250,7 @@ anim attackup # sidestep.
 	
 	frame	data/chars/longmoan/dragon/atk_breath_front_0.png
 	
-		delay	-1000
-	
+	delay	-1000
 	
     bbox.position.x 60
 	bbox.position.y 55
@@ -281,8 +286,7 @@ anim attackdown # Sidestep
 	
 	frame	data/chars/longmoan/dragon/atk_breath_front_0.png
 	
-		delay	-1000
-	
+	delay	-1000
 	
     bbox.position.x 60
 	bbox.position.y 55
@@ -306,24 +310,25 @@ anim attackdown # Sidestep
 
 	frame	data/chars/longmoan/dragon/atk_breath_front_0.png
 
-anim chargeattack # EX Fireball
+anim chargeattack # EX flame
 
-	custknife dragon_fireball_ex
-	throwframe 2
+	delay	8
+	offset	78 142
+	
+	range 40 130
+
+	custknife dragon_flame_ex
+	throwframe 3
 	projectile_offense parent
-	projectile_position_x 51
-	projectile_position_y 34
+	projectile_position_x 115
+	projectile_position_y 36
 
-	projectile_velocity_x 1.0
+	projectile_velocity_x 0.0
 	projectile_velocity_y 0.0
 	projectile_velocity_z 0.0
 
-	projectile_color_set_adjust none
-
-    range   50 400
-
-	delay	10
-    offset	78 142
+	frame data/chars/longmoan/dragon/atk_breath_diagonal_0.png
+	frame data/chars/longmoan/dragon/atk_breath_diagonal_1.png
     	
    	bbox.position.x 64
 	bbox.position.y 73
@@ -332,20 +337,18 @@ anim chargeattack # EX Fireball
 	
 	frame	data/chars/longmoan/dragon/atk_breath_front_0.png
 	
-	delay	12
+	delay	100
 	
 	frame	data/chars/longmoan/dragon/atk_breath_front_1.png
 	
-	delay 20
+	delay 10
 	
-	frame	data/chars/longmoan/dragon/atk_breath_front_2.png
-	frame	data/chars/longmoan/dragon/atk_breath_front_1.png
-    
-    delay   10
-	
+	frame	data/chars/longmoan/dragon/atk_breath_front_2.png	
 	frame	data/chars/longmoan/dragon/atk_breath_front_0.png
 
 anim attack1 # Fire stream
+
+	range 35 120
 
 	delay	8
 	offset	78 142
@@ -359,6 +362,8 @@ anim attack1 # Fire stream
 	projectile_velocity_x 0.0
 	projectile_velocity_y 0.0
 	projectile_velocity_z 0.0
+
+	@cmd dc_disney_macro_try_ai_random openborconstant("ANI_CHARGEATTACK") 20
 
 	frame data/chars/longmoan/dragon/atk_breath_diagonal_0.png
 	frame data/chars/longmoan/dragon/atk_breath_diagonal_1.png
@@ -385,7 +390,7 @@ anim freespecial2 # Backstep
 	
 	frame	data/chars/longmoan/dragon/atk_breath_front_0.png
 	
-		delay	-1000	
+	delay	-1000	
 	
     bbox.position.x 60
 	bbox.position.y 55
@@ -423,7 +428,7 @@ anim jumpland
 	
 	offset	78 142
 	
-	  bbox.position.x 64
+	bbox.position.x 64
 	bbox.position.y 73
 	bbox.size.x 34
 	bbox.size.y 56
@@ -473,8 +478,6 @@ anim runjump
 	bbox.size.y 65
 	
 	frame	data/chars/longmoan/dragon/jump_1.png
-
-
 
 anim grab
 
@@ -705,14 +708,6 @@ anim grabbackward # Mangle
    	bbox    66 68 24 47
 	frame	data/chars/longmoan/dragon/idle_0.png
 
-
-	
-
-	
-
-
-
-
 anim walkoff
 	
 	dropframe 1
@@ -720,8 +715,7 @@ anim walkoff
 	
 	offset 78 142
 	
-		delay	-1000
-	
+	delay	-1000	
 	
     bbox.position.x 60
 	bbox.position.y 55

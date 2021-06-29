@@ -8,13 +8,7 @@ remove		0
 palette data/chars/misc/cvs_yoga_stream/idle_0.png
 
 animationscript data/chars/dragon/scripts/dragon_fireball_event_animation.c
-
-anim spawn
-
-	delay 1
-
-	@cmd dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_SPAWN
-	frame	data/chars/misc/blank.png
+onspawnscript	data/chars/dragon/scripts/dragon_fireball_event_spawn.c
 
 anim idle	
 		
@@ -82,4 +76,4 @@ anim idle
 	frame	data/chars/misc/cvs_yoga_stream/idle_31.png
 	frame	data/chars/misc/cvs_yoga_stream/idle_32.png
 	frame	data/chars/misc/cvs_yoga_stream/idle_33.png
-	
+

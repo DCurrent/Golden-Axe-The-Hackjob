@@ -1,10 +1,13 @@
-# ax on blue dragon
+load 	ax_dragon_motion
+load	blue_dragon_escape
+load	dragon_flame
+load	dragon_flame_ex
 
 icon					data/chars/ax/icon_default.png
 name					a_bdrag
 speed				10
 running 			20 5 1 1 0
-dust				fall_land jump_land jump_liftoff
+dust				fall_land fall_land jump_liftoff
 gfxshadow 			1
 shadow				3
 animal  			2
@@ -41,9 +44,6 @@ aggression 			60
 jumpmove			0 1
 
 palette				data/chars/ax/palette.png		# Default
-
-load dragon_flame
-load dragon_flame_ex
 
 anim spawn
 
@@ -224,7 +224,7 @@ anim follow1 # runattack bounce.
 
 anim attackboth	# Dismount
 
-	weaponframe 4 0
+	weaponframe 3 0
 
 	delay	20
 	offset	78 142
@@ -362,6 +362,8 @@ anim attack1 # Flame
 	projectile_velocity_y 0.0
 	projectile_velocity_z 0.0
 
+	@cmd dc_disney_macro_try_ai_random openborconstant("ANI_CHARGEATTACK") 20
+
 	frame data/chars/ax/dragon/atk_breath_diagonal_0.png
 	frame data/chars/ax/dragon/atk_breath_diagonal_1.png
 	frame data/chars/ax/dragon/atk_breath_diagonal_0.png
@@ -491,7 +493,7 @@ anim jumpattack
 			
 	frame	data/chars/ax/dragon/atk_jump_slash_0.png	
 	
-	#cmd dc_elmers_quick_particle dc_gauntlet_quick_spawn("ax_dragon_motion") 
+	@cmd dc_elmers_quick_particle dc_gauntlet_quick_spawn("ax_dragon_motion")
 	
 	frame	data/chars/ax/dragon/atk_jump_slash_1.png
 	
@@ -528,7 +530,57 @@ anim jumpattack
 	attack 0
 
 	frame	data/chars/ax/dragon/atk_jump_slash_1.png
+	
+anim runjumpattack
 
+	delay	4
+	offset	78 142
+	
+	bbox.position.x 60
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_ATTACK_LIGHT	
+			
+	frame	data/chars/ax/dragon/atk_jump_slash_0.png	
+	
+	@cmd dc_elmers_quick_particle dc_gauntlet_quick_spawn("ax_dragon_motion")
+	
+	frame	data/chars/ax/dragon/atk_jump_slash_1.png
+	
+	delay	6
+	
+	attack.block.penetrate 0
+	attack.damage.force 8
+	attack.damage.type 10
+	attack.effect.hit.flash.model flash_cut_vertical_knockdown
+	attack.position.x 83
+	attack.position.y 46
+	attack.reaction.fall.force 1
+	attack.reaction.pause.time 0
+	attack.size.x 39
+	attack.size.y 70
+	attack.size.z.1 0
+	
+	frame	data/chars/ax/dragon/atk_jump_slash_2.png
+	
+	idle 1
+	
+	delay	-1000
+
+	attack.damage.force 20
+	attack.position.x 90
+	attack.position.y 88
+	attack.size.x 8
+	attack.size.y 37
+	
+	bbox.position.x 69
+	bbox.position.y 55
+	bbox.size.x 40
+	bbox.size.y 65
+	
+	frame	data/chars/ax/dragon/atk_jump_stab_0.png
 
 
 anim grab
@@ -703,14 +755,14 @@ anim blockrelease
 
 	frame	data/chars/ax/dragon/block_start_0.png
 
-
-
 anim walkoff
 	
+	offset 78 142
+
 	dropframe 1
 	landframe 2 fall_land 
 	
-		delay	-1000
+	delay	-1000
 	
 	
     bbox.position.x 60

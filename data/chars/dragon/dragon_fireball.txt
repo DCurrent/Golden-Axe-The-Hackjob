@@ -5,18 +5,11 @@ remove  	0
 alpha   	1
 antigravity 100
 
-thinkscript data/chars/dragon/scripts/dragon_fireball_event_think.c
+onspawnscript	data/chars/dragon/scripts/dragon_fireball_event_spawn.c
+thinkscript		data/chars/dragon/scripts/dragon_fireball_event_think.c
 animationscript data/chars/dragon/scripts/dragon_fireball_event_animation.c
 
-anim spawn
-
-	delay 1
-	offset	28 35
-	@cmd dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_SPAWN
-	frame	data/chars/misc/cvs_yoga_fire/idle_0.png
-
 anim idle
-	
     
 	loop	1
 	offset	28 35

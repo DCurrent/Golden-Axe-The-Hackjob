@@ -1,3 +1,5 @@
+load	chicken_escape
+
 name		    Chickenlegs
 speed   	    0
 nomove  	    0

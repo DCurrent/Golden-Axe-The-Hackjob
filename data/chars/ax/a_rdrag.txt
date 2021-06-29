@@ -1,4 +1,7 @@
-# ax on red dragon
+load 	ax_dragon_motion
+load	red_dragon_escape
+load	dragon_fireball
+load	dragon_fireball_ex
 
 icon				data/chars/ax/icon_default.png
 name				a_rdrag
@@ -855,8 +858,6 @@ anim blockrelease
 
 	frame	data/chars/ax/dragon/block_start_0.png
 
-
-
 anim walkoff
 	
 	dropframe 1
@@ -864,9 +865,8 @@ anim walkoff
 	
 	offset 78 142
 	
-		delay	-1000
-	
-	
+	delay	-1000
+		
     bbox.position.x 60
 	bbox.position.y 55
 	bbox.size.x 40

@@ -8,21 +8,14 @@ remove		0
 palette data/chars/misc/cvs_raiden_fire_breath/palette_base_0.png
 
 animationscript data/chars/dragon/scripts/dragon_fireball_event_animation.c
+onspawnscript	data/chars/dragon/scripts/dragon_fireball_event_spawn.c
 
-anim spawn
-
-	delay 1
-
-	@cmd dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_SPAWN
-	frame	data/chars/misc/blank.png
 
 anim idle	
 		
 	delay	4
 	offset	64 52
 
-	@cmd set_entity_property getlocalvar("self") "autokill" 1
-	
 	attack.damage.force 20
 	attack.damage.type burn
 	attack.effect.hit.flash.model bor_steam
@@ -42,8 +35,6 @@ anim idle
 	attack.size.y 38
 	
 	frame	data/chars/misc/cvs_raiden_fire_breath/idle_1.png
-		
-	
 		
 	attack.damage.force 0
 	attack.position.x 7

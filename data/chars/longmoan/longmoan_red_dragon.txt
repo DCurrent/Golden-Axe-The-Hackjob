@@ -1,3 +1,7 @@
+load	blue_dragon_escape
+load	dragon_fireball
+load	dragon_fireball_ex
+
 icon				data/chars/longmoan/icon_default_0.png
 name				longmoan_red_dragon
 speed				10
@@ -281,8 +285,7 @@ anim attackdown # Sidestep
 	
 	frame	data/chars/longmoan/dragon/atk_breath_front_0.png
 	
-		delay	-1000
-	
+	delay	-1000
 	
     bbox.position.x 60
 	bbox.position.y 55
@@ -368,7 +371,9 @@ anim attack1 # Fireball
 	bbox.position.y 73
 	bbox.size.x 34
 	bbox.size.y 56
+	
 	@cmd dc_disney_macro_try_ai_random openborconstant("ANI_CHARGEATTACK") 20
+	
 	frame	data/chars/longmoan/dragon/atk_breath_front_0.png
 	
 	delay	8

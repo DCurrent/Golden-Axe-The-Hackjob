@@ -1,3 +1,8 @@
+load 				longmoan_motion
+load 				longmoan_chicken
+load 				longmoan_blue_dragon
+load 				longmoan_red_dragon
+
 icon				data/chars/longmoan/icon_default_0.png 1
 iconpain	        data/chars/longmoan/icon_pain_0.png	1
 name				longmoan
@@ -34,10 +39,6 @@ escapehits 			5
 weapons 			longmoan_chicken longmoan_red_dragon longmoan_blue_dragon
 atchain 			1 2 3 0 0
 modelflag 			7
-load 				longmoan_motion
-load 				longmoan_chicken
-load 				longmoan_blue_dragon
-load 				longmoan_red_dragon
 
 animationscript 	data/chars/longmoan/scripts/event_animation.c
 didhitscript 		data/scripts/dc_common_didhit/event_didhit.c				# Hit another entity.

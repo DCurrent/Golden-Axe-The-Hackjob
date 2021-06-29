@@ -1,3 +1,9 @@
+load 				ax_battler_motion					# Motion blurs.
+load 				a_chick								# Chicken Leg.
+load 				ax_chicken_motion					# Chicken Leg, motion blurs.
+load 				a_rdrag								# Red dragon.
+load 				a_bdrag								# Blue dragon.
+
 icon				data/chars/ax/icon_default.png
 name				ax
 type				player
@@ -34,13 +40,7 @@ aggression			-50
 #stealth				0 -10
 #grabforce			10
 
-load 				ax0001								#Motion blurs.
-load 				ax_battler_motion					# Motion blurs.
-load 				a_chick								# Chicken Leg.
-load 				ax_chicken_motion					# Chicken Leg, motion blurs.
-load 				a_rdrag								# Red dragon.
-load 				a_bdrag								# Blue dragon.
-load 				ax_dragon_motion					# Dragons, motion blurs.
+
 
 modelflag			7
 weapons 			a_chick a_rdrag a_bdrag
@@ -2318,7 +2318,6 @@ anim jumpattack
 			
 	frame	data/chars/ax/jump_0.png
 	
-	#cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
 	@cmd dc_elmers_quick_particle dc_gauntlet_quick_spawn_unique_sub_entity("ax_battler_motion") 
 	
 	bbox.position.x 55
@@ -2451,7 +2450,7 @@ anim runjumpattack
 	@cmd	soun0005 ENT_SELF SND_WIFFL -1 1 0 0
 	@cmd	soun0005 ENT_SELF VOI_ATK -1 1 0 0
 		frame	data/chars/ax/jump_0.png
-	@cmd	bind0003 "ax0001" "blur" -1 1 0 0 1 1 7
+	
 		frame	data/chars/ax/jump_1.png
 	delay	2
 	attack.block.penetrate 0

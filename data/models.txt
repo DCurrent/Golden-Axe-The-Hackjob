@@ -99,12 +99,11 @@ know    alex_intro				data/chars/alex_intro/alex_intro.txt
 
 # Ax Battler
 
-know	ax0001				data/chars/ax/effects/ax0001.txt			# Motion blurs.
 know    a_chick				data/chars/ax/a_chick.txt					# Riding Chicken Leg.
 know    ax_chicken_motion	data/chars/ax/ax_chicken_motion.txt			# Riding Chicken Leg, motion blurs.
 know    a_rdrag				data/chars/ax/a_rdrag.txt					# Riding Red Dragon.
 know	a_bdrag				data/chars/ax/a_bdrag.txt					# Riding Blue Dragon.
-know    ax_chicken_motion	data/chars/ax/ax_dragon_motion.txt			# Riding dragons, motion blurs.
+know    ax_dragon_motion	data/chars/ax/ax_dragon_motion.txt			# Riding dragons, motion blurs.
 know	ax_battler_motion	data/chars/ax/ax_motion.txt					# Motion blurs.
 load	ax					data/chars/ax/ax.txt						# Player.
 
@@ -152,16 +151,17 @@ know	Amazon          data/chars/amazon/amazon.txt				#Enemy Amazon
 
 
 #Animals
-load    Chickenlegs			data/chars/chicken/chicken.txt
-load    chicken_escape     data/chars/chicken/chicken_escape.txt
+know    Chickenlegs			data/chars/chicken/chicken.txt
+know    chicken_escape     data/chars/chicken/chicken_escape.txt
 
-load    Red_Dragon			data/chars/dragon/red_dragon.txt
-load    Blue_Dragon			data/chars/dragon/blue_dragon.txt
-load    blue_dragon_escape	data/chars/dragon/blue_dragon_escape.txt
+know    Red_Dragon			data/chars/dragon/red_dragon.txt
+know    red_dragon_escape	data/chars/dragon/red_dragon_escape.txt
+know    Blue_Dragon			data/chars/dragon/blue_dragon.txt
+know    blue_dragon_escape	data/chars/dragon/blue_dragon_escape.txt
 know	dragon_flame		data/chars/dragon/dragon_flame.txt
 know	dragon_flame_ex		data/chars/dragon/dragon_flame_ex.txt
 know    dragon_fireball		data/chars/dragon/dragon_fireball.txt
-load    dragon_fireball_ex	data/chars/dragon/dragon_fireball_ex.txt
+know    dragon_fireball_ex	data/chars/dragon/dragon_fireball_ex.txt
 
 #villagers
 load    Male_Villager   data/chars/villager/male/male.txt

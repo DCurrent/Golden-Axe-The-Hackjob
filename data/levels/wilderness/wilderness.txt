@@ -120,12 +120,12 @@ at	0
 spawn	Longmoan
 coords	650 170
 aggression 200
-health  150s
+health  15
 map	2
 at 0
 
-spawn blue_dragon_escape
-coords 200 170
+spawn red_dragon_escape
+coords 240 170
 at 0
 
 spawn Chickenlegs

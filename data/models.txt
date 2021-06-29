@@ -159,6 +159,7 @@ load    Red_Dragon			data/chars/dragon/red_dragon.txt
 load    Blue_Dragon			data/chars/dragon/blue_dragon.txt
 load    blue_dragon_escape	data/chars/dragon/blue_dragon_escape.txt
 know	dragon_flame		data/chars/dragon/dragon_flame.txt
+know	dragon_flame_ex		data/chars/dragon/dragon_flame_ex.txt
 know    dragon_fireball		data/chars/dragon/dragon_fireball.txt
 load    dragon_fireball_ex	data/chars/dragon/dragon_fireball_ex.txt
 

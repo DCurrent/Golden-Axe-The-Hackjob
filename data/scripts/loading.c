@@ -284,6 +284,7 @@ void load_sounds()
 
 	/* Ridable dragon fire attacks. */
 	dc_fidelity_setup("dragon_flame", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/chars/dragon/sounds/fire_stream_0.wav");
+	dc_fidelity_setup("dragon_flame_ex", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/chars/dragon/sounds/fire_stream_ex_0.wav");
 
 	dc_fidelity_setup("dragon_fireball", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_red_dragon_fireball_0.wav");
 	dc_fidelity_setup("dragon_fireball", "explode", "data/sounds/custom/golden_axe_red_dragon_fireball_impact_0.wav");

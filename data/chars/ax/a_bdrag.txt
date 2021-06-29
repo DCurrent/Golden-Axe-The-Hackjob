@@ -42,7 +42,8 @@ jumpmove			0 1
 
 palette				data/chars/ax/palette.png		# Default
 
-load dragon_fireball
+load dragon_flame
+load dragon_flame_ex
 
 anim spawn
 
@@ -312,22 +313,23 @@ anim attackdown # Sidestep
 
 anim chargeattack # EX flame
 
-	custknife dragon_fireball_ex
-	throwframe 2
-	projectile_offense parent
-	projectile_position_x 51
-	projectile_position_y 34
+	delay	8
+	offset	78 142
+	
+	range 40 130
 
-	projectile_velocity_x 0.7
+	custknife dragon_flame_ex
+	throwframe 3
+	projectile_offense parent
+	projectile_position_x 115
+	projectile_position_y 36
+
+	projectile_velocity_x 0.0
 	projectile_velocity_y 0.0
 	projectile_velocity_z 0.0
 
-	projectile_color_set_adjust none
-
-    range   50 400
-
-	delay	10
-    offset	78 142
+	frame data/chars/ax/dragon/atk_breath_diagonal_0.png
+	frame data/chars/ax/dragon/atk_breath_diagonal_1.png
     	
    	bbox.position.x 64
 	bbox.position.y 73
@@ -336,17 +338,13 @@ anim chargeattack # EX flame
 	
 	frame	data/chars/ax/dragon/atk_breath_front_0.png
 	
-	delay	8
+	delay	100
 	
 	frame	data/chars/ax/dragon/atk_breath_front_1.png
 	
-	delay 20
+	delay 10
 	
-	frame	data/chars/ax/dragon/atk_breath_front_2.png
-	frame	data/chars/ax/dragon/atk_breath_front_1.png
-    
-    delay   10
-	
+	frame	data/chars/ax/dragon/atk_breath_front_2.png	
 	frame	data/chars/ax/dragon/atk_breath_front_0.png
 
 anim attack1 # Flame
@@ -355,7 +353,7 @@ anim attack1 # Flame
 	offset	78 142
 
 	custknife dragon_flame
-	throwframe 2
+	throwframe 3
 	projectile_offense parent
 	projectile_position_x 80
 	projectile_position_y 31
@@ -366,6 +364,7 @@ anim attack1 # Flame
 
 	frame data/chars/ax/dragon/atk_breath_diagonal_0.png
 	frame data/chars/ax/dragon/atk_breath_diagonal_1.png
+	frame data/chars/ax/dragon/atk_breath_diagonal_0.png
 	
 	delay 94	
 	

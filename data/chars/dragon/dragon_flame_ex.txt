@@ -1,0 +1,141 @@
+name		dragon_flame_ex
+type		projectile
+shadow		0
+antigravity	100
+alpha		1
+remove		0
+
+palette data/chars/misc/cvs_raiden_fire_breath/palette_base_0.png
+
+animationscript data/chars/dragon/scripts/dragon_fireball_event_animation.c
+
+anim spawn
+
+	delay 1
+
+	@cmd dc_fidelity_quick_play DC_FIDELITY_TYPE_SOUND_SPAWN
+	frame	data/chars/misc/blank.png
+
+anim idle	
+		
+	delay	4
+	offset	64 52
+
+	@cmd set_entity_property getlocalvar("self") "autokill" 1
+	
+	attack.damage.force 20
+	attack.damage.type burn
+	attack.effect.hit.flash.model bor_steam
+	attack.reaction.reposition.direction -1
+	attack.position.x 7
+	attack.position.y 52
+	attack.reaction.fall.force 10
+	attack.size.x 26
+	attack.size.y 20
+	
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_0.png
+	
+	attack.damage.force 0
+	attack.position.x 8
+	attack.position.y 41
+	attack.size.x 46
+	attack.size.y 38
+	
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_1.png
+		
+	
+		
+	attack.damage.force 0
+	attack.position.x 7
+	attack.position.y 36
+	attack.size.x 56
+	attack.size.y 45
+	
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_2.png
+		
+	attack.damage.force 0
+	attack.position.x 7
+	attack.position.y 28
+	attack.size.x 63
+	attack.size.y 53
+	
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_3.png
+	
+	attack.damage.force 0
+	attack.position.x 6
+	attack.position.y 17
+	attack.size.x 77
+	attack.size.y 66
+	
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_4.png
+	
+	delay 5
+	
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_5.png
+	
+	attack.damage.force 0
+	attack.position.x 5
+	attack.position.y 15
+	attack.size.x 93
+	attack.size.y 72
+	
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_6.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_7.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_8.png	
+	
+	attack.damage.force 0
+	attack.position.x 2
+	attack.position.y 14
+	attack.size.x 108
+	attack.size.y 74
+	
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_8.png
+	
+	# Can loop 9-15 for longer duration.
+		
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_9.png	
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_10.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_11.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_12.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_13.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_14.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_15.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_16.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_17.png
+	
+	attack.damage.force 0
+	attack.position.x 39
+	attack.position.y 18
+	attack.size.x 67
+	attack.size.y 59
+	
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_18.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_19.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_20.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_21.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_22.png
+	
+	attack.damage.force 0
+	attack.position.x 50
+	attack.position.y 25
+	attack.size.x 52
+	attack.size.y 47
+	
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_23.png
+	
+	attack.damage.force 0
+	attack.position.x 55
+	attack.position.y 25
+	attack.size.x 43
+	attack.size.y 41
+	
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_24.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_25.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_26.png
+	
+	attack 0
+	
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_27.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_28.png
+	frame	data/chars/misc/cvs_raiden_fire_breath/idle_29.png
+	

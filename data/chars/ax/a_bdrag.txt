@@ -43,7 +43,7 @@ aggression 			60
 #nolife  			1
 jumpmove			0 1
 
-palette				data/chars/ax/palette.png		# Default
+palette				data/chars/ax/palette_default_blue_dragon_0.png
 
 anim spawn
 

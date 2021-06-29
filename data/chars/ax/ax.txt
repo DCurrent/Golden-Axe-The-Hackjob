@@ -47,7 +47,7 @@ weapons 			a_chick a_rdrag a_bdrag
 combostyle 			1
 atchain 			1
 
-palette      		data/chars/ax/palette_default.act
+palette      		data/chars/ax/palette_default_0.png
 
 com 				d f a freespecial					#Power swing.
 com 				a2 freespecial8						#Magic.

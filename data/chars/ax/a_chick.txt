@@ -40,7 +40,7 @@ weapons 			a_chick a_rdrag a_bdrag
 aggression 			60
 jumpmove			7 1
 
-palette      		data/chars/ax/palette_default.act
+palette      		data/chars/ax/palette_default_0.png
 
 anim spawn
 

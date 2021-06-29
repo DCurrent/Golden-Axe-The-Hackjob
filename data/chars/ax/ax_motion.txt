@@ -5,7 +5,7 @@ health	     100
 alpha	     1
 candamage none
 
-palette	 	data/chars/ax/palette_default.act
+palette	 	data/chars/ax/palette_default_0.png
 
 anim idle
 

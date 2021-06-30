@@ -438,6 +438,9 @@ int dc_chain_check_stun()
 	int stun_current = dc_chain_get_member_stun_current();
 	int stun_threshold = dc_chain_get_member_stun_threshold();
 
+	//settextobj(0, 10, 60, 1, 999999994, "stun_current: " + stun_current);
+	//settextobj(1, 10, 70, 1, 999999994, "stun_threshold: " + stun_threshold);
+
 	/* 
 	* If at over over threshold then 
 	* acting entity should be stunned.
@@ -473,32 +476,42 @@ int dc_chain_try_stun_animation()
 	int animation_new = 0;
 	int stun_initial = 0;  
 	int stun_pain = dc_chain_get_member_stun_animation_pain();
+			
+	/*
+	* Have we accured enough stun to
+	* be in the stunned status?
+	*/
 
-	/* 
+	int is_stunned = dc_chain_check_stun();
+
+	if (!is_stunned)
+	{
+		return DC_CHAIN_ANIMATION_NONE;
+	}
+
+	/*
 	* We may already be in a stunned animation.
 	* If so we go into stun pain and exit.
+	* 
+	* Otherwise we put ourselves into the
+	* initial stunned animation.
 	*/
-	
-	if (dc_chain_check_in_stun_animation(acting_entity))
-	{		
+
+	int in_stun_animation = dc_chain_check_in_stun_animation(acting_entity);
+
+	if (in_stun_animation)
+	{
 		animation_new = dc_chain_get_member_stun_animation_pain();
 
 		executeanimation(acting_entity, animation_new, 1);
 		set_entity_property(acting_entity, "animation_id_previous", animation_old);
 		set_entity_property(acting_entity, "in_pain", 1);
 
+		// settextobj(4, 10, 70, 1, openborconstant("FRONTPANEL_Z") + 10000, "animation_new: " + animation_new);
+
 		return animation_new;
 	}
-
-
-	/*
-	* If we got here we aren't in a stun
-	* animation but may have accrued enough
-	* stun that we need to be. If so, go
-	* into initial stun animation.
-	*/
-
-	if (dc_chain_check_stun())
+	else
 	{
 		animation_new = dc_chain_get_member_stun_animation_initial();
 
@@ -507,9 +520,7 @@ int dc_chain_try_stun_animation()
 		set_entity_property(acting_entity, "in_pain", 1);
 
 		return animation_new;
-	}
-
-	return DC_CHAIN_ANIMATION_NONE;
+	}	
 }
 
 /*
@@ -605,6 +616,9 @@ void dc_chain_adjust_stun(int value)
 
 	stun_new = stun_new - dc_chain_calculate_stun_recovery();
 
+	//settextobj(0, 10, 60, 1, 999999994, "stun_current: " + stun_current);
+	//settextobj(1, 10, 70, 1, 999999994, "stun_new: " + stun_current);
+
 	dc_chain_set_member_stun_current(stun_new);
 
 	/*
@@ -612,6 +626,8 @@ void dc_chain_adjust_stun(int value)
 	* since last recovery.
 	*/
 	dc_chain_set_member_recovery_last(openborvariant("elapsed_time"));
+
+
 }
 
 /*

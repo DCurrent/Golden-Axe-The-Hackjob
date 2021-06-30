@@ -23,16 +23,16 @@ void dc_common_onpain()
     * defense ratings and fatalities.
     */
 
-    if (dc_chain_try_stun_animation() == DC_CHAIN_ANIMATION_NONE)
+    int stun_result = dc_chain_try_stun_animation();
+
+    if (stun_result == DC_CHAIN_ANIMATION_NONE)
     {
         executeanimation(acting_entity, openborconstant("ANI_PAIN"), 0);
         set_entity_property(acting_entity, "animation_id_previous", animation_old);
         set_entity_property(acting_entity, "in_pain", 1);
     }
-
-    /*
-    * settextobj(1, 10, 30, 1, openborconstant("FRONTPANEL_Z") + 10000, "Stun: " + dc_chain_get_member_stun_current() + "/" + dc_chain_get_member_stun_threshold());
-    * settextobj(1, 10, 30, 1, openborconstant("FRONTPANEL_Z") + 10000, "animation_previous: " + animation_old);
-    */
-
+    
+    // settextobj(0, 10, 30, 1, openborconstant("FRONTPANEL_Z") + 10000, "Stun: " + dc_chain_get_member_stun_current() + "/" + dc_chain_get_member_stun_threshold());
+    // settextobj(1, 10, 40, 1, openborconstant("FRONTPANEL_Z") + 10000, "animation_previous: " + animation_old);
+    // settextobj(2, 10, 50, 1, openborconstant("FRONTPANEL_Z") + 10000, "stun_result: " + stun_result);
 }

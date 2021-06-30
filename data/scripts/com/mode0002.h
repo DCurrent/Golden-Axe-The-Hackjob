@@ -20,17 +20,17 @@ void mode0002()
 		if(p!=NULL())
 		{
 			a = getentityproperty(p, "model");
-			if(a=="a_chick" || a=="al_chick" || a=="g_chick" || a=="j_chick" || a=="t_chick")
+			if(a=="ax_chicken" || a=="al_chick" || a=="g_chick" || a=="j_chick" || a=="t_chick")
 			{
 				setglobalvar("runanimal", "Chickenlegs");
 				break;
 			}
-			else if(a=="a_rdrag" || a=="al_rdrag" || a=="g_rdrag" || a=="j_rdrag" || a=="t_rdrag")
+			else if(a=="ax_red_dragon" || a=="al_rdrag" || a=="g_rdrag" || a=="j_rdrag" || a=="t_rdrag")
 			{
 				setglobalvar("runanimal", "Red_Dragon");
 				break;
 			}
-			else if(a=="a_bdrag" || a=="al_bdrag" || a=="g_bdrag" || a=="j_bdrag" || a=="t_bdrag")
+			else if(a=="ax_blue_dragon" || a=="al_bdrag" || a=="g_bdrag" || a=="j_bdrag" || a=="t_bdrag")
 			{
 				setglobalvar("runanimal", "Blue_Dragon");
 				break;

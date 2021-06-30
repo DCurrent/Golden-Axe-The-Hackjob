@@ -192,7 +192,7 @@ anim follow1 # runattack bounce.
     landframe 	2 fall_land	
 
 	offset	78 142
-	delay	2
+	delay	500
 	
 	bbox.position.x 64
 	bbox.position.y 73

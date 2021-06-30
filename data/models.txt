@@ -99,10 +99,10 @@ know    alex_intro				data/chars/alex_intro/alex_intro.txt
 
 # Ax Battler
 
-know    a_chick				data/chars/ax/a_chick.txt					# Riding Chicken Leg.
+know    ax_chicken				data/chars/ax/ax_chicken.txt					# Riding Chicken Leg.
 know    ax_chicken_motion	data/chars/ax/ax_chicken_motion.txt			# Riding Chicken Leg, motion blurs.
-know    a_rdrag				data/chars/ax/a_rdrag.txt					# Riding Red Dragon.
-know	a_bdrag				data/chars/ax/a_bdrag.txt					# Riding Blue Dragon.
+know    ax_red_dragon				data/chars/ax/ax_red_dragon.txt					# Riding Red Dragon.
+know	ax_blue_dragon				data/chars/ax/ax_blue_dragon.txt					# Riding Blue Dragon.
 know    ax_dragon_motion	data/chars/ax/ax_dragon_motion.txt			# Riding dragons, motion blurs.
 know	ax_battler_motion	data/chars/ax/ax_motion.txt					# Motion blurs.
 load	ax					data/chars/ax/ax.txt						# Player.

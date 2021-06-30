@@ -2,7 +2,7 @@
 
 icon				data/chars/ax/icon_default.png
 
-name				a_chick
+name				ax_chicken
 speed				10
 running 			20 5 1 1 0
 dust				fall_land fall_land jump_liftoff
@@ -36,7 +36,7 @@ takedamagescript	data/scripts/dc_common_takedamage/event_takedamage.c
 thinkscript			data/scripts/z_think.c				#Entity AI updates.
 
 modelflag 			7
-weapons 			a_chick a_rdrag a_bdrag
+weapons 			ax_chicken ax_red_dragon ax_blue_dragon
 aggression 			60
 jumpmove			7 1
 

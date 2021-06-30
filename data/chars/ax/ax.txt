@@ -1,8 +1,8 @@
 load 				ax_battler_motion					# Motion blurs.
-load 				a_chick								# Chicken Leg.
+load 				ax_chicken								# Chicken Leg.
 load 				ax_chicken_motion					# Chicken Leg, motion blurs.
-load 				a_rdrag								# Red dragon.
-load 				a_bdrag								# Blue dragon.
+load 				ax_red_dragon								# Red dragon.
+load 				ax_blue_dragon								# Blue dragon.
 
 icon				data/chars/ax/icon_default.png
 name				ax
@@ -43,7 +43,7 @@ aggression			-50
 
 
 modelflag			7
-weapons 			a_chick a_rdrag a_bdrag
+weapons 			ax_chicken ax_red_dragon ax_blue_dragon
 combostyle 			1
 atchain 			1
 

@@ -4,7 +4,7 @@ load	dragon_fireball
 load	dragon_fireball_ex
 
 icon				data/chars/ax/icon_default.png
-name				a_rdrag
+name				ax_red_dragon
 speed				10
 running 			20 5 1 1 0
 dust				fall_land fall_land jump_liftoff
@@ -38,7 +38,7 @@ thinkscript			data/scripts/z_think.c				#Entity AI updates.
 com					a2 	freespecial2					#Backstep.
 
 modelflag 			7
-weapons 			a_chick a_rdrag a_bdrag
+weapons 			ax_chicken ax_red_dragon ax_blue_dragon
 aggression 			60
 #nolife  			1
 jumpmove			0 1
@@ -193,7 +193,7 @@ anim follow1 # runattack bounce.
     landframe 	2 fall_land	
 
 	offset	78 142
-	delay	2
+	delay	500
 	
 	bbox.position.x 64
 	bbox.position.y 73

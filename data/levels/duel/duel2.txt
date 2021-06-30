@@ -19,8 +19,8 @@ load lonrdrag
 load longmoan_chicken
 load henrdrag
 load henchick
-load a_rdrag
-load a_chick
+load ax_red_dragon
+load ax_chicken
 load t_rdrag
 load t_chick
 load g_rdrag

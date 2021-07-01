@@ -14,18 +14,19 @@ void dc_common_onpain()
     int animation_old = get_entity_property(acting_entity, "animation_id_previous");
 
     /*
-    * Try a stun animation. If we aren't stunned, then
-    * reset pain back to Pain1. This forces the same pain
-    * animations no matter which attack type we are hit
-    * with. That in turn lets us freely use Pain# for
-    * custom reactions (example: The stun system), but 
-    * also have various attack types to interact with  
-    * defense ratings and fatalities.
+    * Try a stun animation. If we aren't stunned or
+    * grabbed, then reset pain back to Pain1. This 
+    * forces the same pain animations no matter which 
+    * attack type we are hit with. That in turn lets 
+    * us freely use Pain# for* custom reactions like
+    * stun system, but also have various attack types 
+    * to interact with defense ratings and fatalities.
     */
 
     int stun_result = dc_chain_try_stun_animation();
+    int check_grabbed = dc_chain_check_grabbed(acting_entity);
 
-    if (stun_result == DC_CHAIN_ANIMATION_NONE)
+    if (stun_result == DC_CHAIN_ANIMATION_NONE && !check_grabbed)
     {
         executeanimation(acting_entity, openborconstant("ANI_PAIN"), 0);
         set_entity_property(acting_entity, "animation_id_previous", animation_old);
@@ -35,4 +36,6 @@ void dc_common_onpain()
     // settextobj(0, 10, 30, 1, openborconstant("FRONTPANEL_Z") + 10000, "Stun: " + dc_chain_get_member_stun_current() + "/" + dc_chain_get_member_stun_threshold());
     // settextobj(1, 10, 40, 1, openborconstant("FRONTPANEL_Z") + 10000, "animation_previous: " + animation_old);
     // settextobj(2, 10, 50, 1, openborconstant("FRONTPANEL_Z") + 10000, "stun_result: " + stun_result);
+    // settextobj(3, 10, 60, 1, openborconstant("FRONTPANEL_Z") + 10000, "check_grabbed: " + check_grabbed);
+
 }

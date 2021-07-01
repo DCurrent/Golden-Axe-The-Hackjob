@@ -560,6 +560,46 @@ int dc_chain_check_target_in_stun_animation(int acting_animation)
 /*
 * Caskey, Damon V.
 * 2021-04-11
+*
+* Return TRUE if an opponent is grabbing
+* active entity.
+*/
+int dc_chain_check_grabbed(void acting_entity)
+{
+	if (!acting_entity)
+	{
+		acting_entity = dc_chain_get_member_entity();
+	}
+
+	void opponent = get_entity_property(acting_entity, "opponent");
+
+	// settextobj(2, 10, 40, 1, openborconstant("FRONTPANEL_Z") + 10000, "opponent: " + opponent);
+
+	if (!opponent)
+	{
+		return 0;
+	}
+	
+	/* 
+	* Get the our link property. It should be same
+	* as our opponent.
+	*/
+
+	void link_grabbed = get_entity_property(acting_entity, "link");
+
+	// settextobj(4, 10, 60, 1, openborconstant("FRONTPANEL_Z") + 10000, "link_grabbed: " + link_grabbed);
+
+	if (opponent != link_grabbed)
+	{
+		return 0;
+	}
+
+	return 1;
+}
+
+/*
+* Caskey, Damon V.
+* 2021-04-11
 * 
 * Return TRUE if currently playing a designated
 * stun animation.

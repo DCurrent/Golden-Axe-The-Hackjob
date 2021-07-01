@@ -634,6 +634,7 @@ anim grabattack	# Snack. >:)
     	
 	attack.damage.force 3
 	attack.damage.type 2
+	attack.damage.lethal.disable 1
 	attack.effect.hit.flash.model flash_bite
 	attack.position.x 107
 	attack.position.y 102
@@ -664,6 +665,7 @@ anim grabattack	# Snack. >:)
 	
 	attack.damage.force 3
 	attack.damage.type 2
+	attack.damage.lethal.disable 0
 	attack.effect.hit.flash.model flash_bite
 	attack.position.x 107
 	attack.position.y 102

@@ -595,38 +595,80 @@ anim grab
 
 anim grabattack	# Snack. >:)
 
-    	
-
-    	offset	78 142
-    	bbox    68 66 34 54
-    	# 1
-    	delay   10
-    	#cmd stal0001 1000
+    offset	78 142
+	
+	bbox.position.x 68
+	bbox.position.y 66
+	bbox.size.x 34
+	bbox.size.y 54
+    
+    delay   10
+    
+    #cmd stal0001 1000
 	#cmd seal0001 1 1000
 	
 	@cmd	dc_fidelity_set_member_model_name "Red_Dragon"
 	@cmd	dc_fidelity_quick_play DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM
 	@cmd	dc_fidelity_set_member_model_name DC_FIDELITY_DEFAULT_MODEL_NAME
 	
-		frame	data/chars/ax/dragon/grab_bite_0.png
-    	delay   20
-		frame	data/chars/ax/dragon/grab_bite_1.png
-    	delay   5
-		frame	data/chars/ax/dragon/grab_bite_2.png
-    	delay   12
+	frame	data/chars/ax/dragon/grab_bite_0.png
+    
+    delay   20
+	
+	frame	data/chars/ax/dragon/grab_bite_1.png
+    
+    delay   5
     	
-		frame	data/chars/ax/dragon/grab_0.png
+	attack.damage.force 3
+	attack.damage.type 2
+	attack.damage.lethal.disable 1
+	attack.effect.hit.flash.model flash_bite
+	attack.position.x 107
+	attack.position.y 102
+	attack.size.x 19
+	attack.size.y 26
+	attack.size.z.1 0
+	attack.seal.cost 1
+	attack.seal.time 100
+		
+	frame	data/chars/ax/dragon/grab_bite_2.png
+    
+	delay   12
+    
+    attack 0
+    
+	frame	data/chars/ax/dragon/grab_0.png
     	
-    	# 2
-    	delay   10
-		frame	data/chars/ax/dragon/grab_bite_0.png
-    	delay   20
-		frame	data/chars/ax/dragon/grab_bite_1.png
-    	delay   5
-		frame	data/chars/ax/dragon/grab_bite_2.png
-    	delay   12
+    # Second bite
+    delay   10
+	
+	frame	data/chars/ax/dragon/grab_bite_0.png
+    
+    delay   20
+	
+	frame	data/chars/ax/dragon/grab_bite_1.png
+    
+    delay   5
+	
+	attack.damage.force 3
+	attack.damage.type 2
+	attack.damage.lethal.disable 0
+	attack.effect.hit.flash.model flash_bite
+	attack.position.x 107
+	attack.position.y 102
+	attack.size.x 19
+	attack.size.y 26
+	attack.size.z.1 0
+	attack.seal.cost 1
+	attack.seal.time 200
+	
+	frame	data/chars/ax/dragon/grab_bite_2.png
+    
+    attack 0
+    
+    delay   12
     	
-		frame	data/chars/ax/dragon/grab_0.png
+	frame	data/chars/ax/dragon/grab_0.png
 
 
 anim grabattack2

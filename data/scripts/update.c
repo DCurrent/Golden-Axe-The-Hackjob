@@ -11,7 +11,7 @@
 #define WAIT_NAME_FONT		3
 #define SELECT_NAME_FONT	4
 #define FONT_Y				18	// Vertical size of font (unavailable as of 2019-02-22). Includes margin.
-#define SELECT_Y_BASE		75
+#define SELECT_Y_BASE		100
 #define SPACE_CHAR			"_"
 #define	MAX_DRAW_SIZE		256 * 10
 #define MAX_DRAW_SIZE_TIME	100
@@ -102,13 +102,14 @@ void dc_draw_select_screen()
     * everything here and easy to find.
     */
 
-    void wall_screen = dc_get_screen(0, 480, 79);
+    void wall_screen = dc_get_screen(0, 480, 84);
     void wall_sprite = loadsprite("data/bgs/select_wall_0.png");
-    int wall_sprite_size_x = getgfxproperty(wall_sprite, "width");
     int wall_sprite_offset_x = 0;
 
-    drawspritetoscreen(wall_sprite, wall_screen, wall_sprite_offset_x, 0);
-    drawspritetoscreen(wall_sprite, wall_screen, wall_sprite_offset_x + wall_sprite_size_x, 0);
+    dc_draw_sprite_to_screen_width(wall_screen, wall_sprite, wall_sprite_offset_x, 0);
+
+    //drawspritetoscreen(wall_sprite, wall_screen, wall_sprite_offset_x, 0);
+   // drawspritetoscreen(wall_sprite, wall_screen, wall_sprite_offset_x + wall_sprite_size_x, 0);
 
     void common_drawmethod = openborvariant("drawmethod_common");
     void default_drawmethod = openborvariant("drawmethod_default");
@@ -116,7 +117,7 @@ void dc_draw_select_screen()
     
     //set_drawmethod_property(common_drawmethod, "enable", 1);
 
-    drawscreen(wall_screen, 0, 112, openborconstant("PANEL_Z"));
+    drawscreen(wall_screen, 0, 94, openborconstant("PANEL_Z"));
 
     //copy_drawmethod(default_drawmethod, common_drawmethod);
     //set_drawmethod_property(common_drawmethod, "enable", 0);
@@ -124,21 +125,18 @@ void dc_draw_select_screen()
     //drawsprite(wall_sprite, wall_sprite_offset_x, 112, openborconstant("PANEL_Z"), 0);
     //drawsprite(wall_sprite, wall_sprite_offset_x + wall_sprite_size_x, 112, openborconstant("PANEL_Z"), 0);
     
-    void floor_screen = dc_get_screen(1, 480, 81);
-    void floor_sprite = loadsprite("data/bgs/select_floor_0.png");
-    
-    int floor_sprite_size_x = getgfxproperty(floor_sprite, "width");
+    void floor_screen = dc_get_screen(1, 480, 94);
+    void floor_sprite = loadsprite("data/bgs/select_floor_0.png");    
     int floor_sprite_offset_x = 0;
 
-    drawspritetoscreen(floor_sprite, floor_screen, floor_sprite_offset_x, 0);
-    drawspritetoscreen(floor_sprite, floor_screen, floor_sprite_offset_x + floor_sprite_size_x, 0);
+    dc_draw_sprite_to_screen_width(floor_screen, floor_sprite, floor_sprite_offset_x, 0);
 
     set_drawmethod_property(common_drawmethod, "water_mode", openborconstant("WATER_MODE_SHEAR"));
     set_drawmethod_property(common_drawmethod, "water_size_begin", 1.0);
     set_drawmethod_property(common_drawmethod, "water_size_end", 2.0);
     set_drawmethod_property(common_drawmethod, "enable", 1);
 
-    drawscreen(floor_screen, 0, 191, openborconstant("PANEL_Z")+1);
+    drawscreen(floor_screen, 0, 178, openborconstant("PANEL_Z")+1);
 
     copy_drawmethod(default_drawmethod, common_drawmethod);
     set_drawmethod_property(common_drawmethod, "enable", 0);
@@ -146,9 +144,110 @@ void dc_draw_select_screen()
     //drawsprite(floor_sprite, floor_sprite_offset_x, 191, openborconstant("PANEL_Z"), 0);
     //drawsprite(floor_sprite, floor_sprite_offset_x + floor_sprite_size_x, 191, openborconstant("PANEL_Z"), 0);
 
+    void ceiling_screen = dc_get_screen(1, 480, 94);
+    
+    dc_draw_sprite_to_screen_width(ceiling_screen, floor_sprite, floor_sprite_offset_x, 0);
+
+    set_drawmethod_property(common_drawmethod, "water_mode", openborconstant("WATER_MODE_SHEAR"));
+    set_drawmethod_property(common_drawmethod, "water_size_begin", 2.0);
+    set_drawmethod_property(common_drawmethod, "water_size_end", 1.0);
+    set_drawmethod_property(common_drawmethod, "enable", 1);
+
+    drawscreen(ceiling_screen, 0, 0, openborconstant("PANEL_Z") + 1);
+
+    copy_drawmethod(default_drawmethod, common_drawmethod);
+    set_drawmethod_property(common_drawmethod, "enable", 0);
+
+
+    /* Seleton */
+
     void skeleton_sprite = loadsprite("data/bgs/select_skeleton_0.png");
     
     drawsprite(skeleton_sprite, 80, 102, openborconstant("PANEL_Z")+2, 1);
+
+    /* Select Player text */
+
+    void select_text_sprite = loadsprite("data/bgs/select_text_0.png");
+
+    drawsprite(select_text_sprite, 140, 25, openborconstant("PANEL_Z") + 2, 1);
+
+    /* Columns */
+
+    void select_column_sprite = loadsprite("data/bgs/select_column_0.png");
+
+    drawsprite(select_column_sprite, 0, 0, openborconstant("PANEL_Z") + 2, 1);
+    drawsprite(select_column_sprite, 440, 0, openborconstant("PANEL_Z") + 2, 1);
+}
+
+/*
+* Caskey, Damon V.
+* 2021-07-02
+* 
+* Draw sprites repeated as needed to
+* fill width of screen object.
+*/
+void dc_draw_sprite_to_screen_width(void screen, void sprite, int offset_x, int offset_y)
+{
+    int screen_width = getgfxproperty(screen, "width");
+    int sprite_width = getgfxproperty(sprite, "width");
+    int offset_x_final = 0;
+    int i = 0;
+    int repeats = 2 + screen_width / sprite_width;
+    
+    int elapsed_time = openborvariant("elapsed_time");
+    int scroll_delay = 5;
+    int scroll_time = getlocalvar("dc_dstsw_scroll_time" + screen);
+
+    if (!scroll_time)
+    {
+        scroll_time = 0;
+    }
+    
+    /* 
+    * Get current scroll and increment. Reset
+    * once we scroll the length of our sprite
+    * to create an endless visual loop.
+    */
+    int scroll_x = getlocalvar("dc_dstsw_scroll_x" + screen);
+
+    if (!scroll_x)
+    {
+        scroll_x = 0;
+    }
+
+    /* Time to incrment scroll position? */
+    if (scroll_time < elapsed_time)
+    {
+        if (scroll_x > -sprite_width)
+        {
+            scroll_x = scroll_x - 1;
+        }
+        else
+        {
+            scroll_x = 0;
+        }
+
+        /* 
+        * Add current time and delay to
+        * give us the time for for next 
+        * scroll increment. 
+        */
+        scroll_time = elapsed_time + scroll_delay;
+    }  
+
+    setlocalvar("dc_dstsw_scroll_x" + screen, scroll_x);
+    setlocalvar("dc_dstsw_scroll_time" + screen, scroll_time);
+    
+    /* Add offset to scroll. */
+    offset_x = scroll_x + offset_x;    
+
+    for (i = 0; i < repeats; i++)
+    {    
+        offset_x_final = (sprite_width * i);
+        offset_x_final = offset_x_final + offset_x;
+
+        drawspritetoscreen(sprite, screen, offset_x_final, offset_y);
+    }
 }
 
 void dc_get_screen(int index, int size_x, int size_y)

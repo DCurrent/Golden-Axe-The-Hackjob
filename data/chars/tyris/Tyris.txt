@@ -1350,39 +1350,19 @@ anim	up
 
 anim	waiting
 
-	fshadow 0
-	delay	2
-	offset	61 130
-		frame	data/chars/plselect/0001
-		frame	data/chars/plselect/0002
-		frame	data/chars/plselect/0003
-		frame	data/chars/plselect/0004
-		frame	data/chars/plselect/0005
-		frame	data/chars/plselect/0006
-		frame	data/chars/plselect/0007
-		frame	data/chars/plselect/0008
-		frame	data/chars/plselect/0009
-		frame	data/chars/plselect/0010
-		frame	data/chars/plselect/0011
-		frame	data/chars/plselect/0012
-		frame	data/chars/plselect/0013
-		frame	data/chars/plselect/0014
-		frame	data/chars/plselect/0015
-		frame	data/chars/plselect/0016
-		frame	data/chars/plselect/0017
-		frame	data/chars/plselect/0018
-		frame	data/chars/plselect/0019
-		frame	data/chars/plselect/0020
-		frame	data/chars/plselect/0021
-		frame   data/chars/tyris/select/0000
+	delay   10
+    	offset  60 98
+
+	frame   data/chars/tyris/wait_0.png
 
 anim	select
 
 	delay   10
-    offset  61 130
-    fshadow 0
-    sound	data/sounds/welcome.wav
-		frame   data/chars/tyris/select/0001
+    	offset  60 98
+    	
+    	sound	data/sounds/welcome.wav
+
+	frame   data/chars/tyris/wait_0.png
 
 anim	walk
 	loop	1

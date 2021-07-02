@@ -90,6 +90,8 @@ void dc_draw_select_screen()
     {
         return;
     }
+
+    
    
     /* 
     * It's more optimal to put loadsprite()
@@ -100,25 +102,53 @@ void dc_draw_select_screen()
     * everything here and easy to find.
     */
 
-
+    void wall_screen = dc_get_screen(0, 480, 79);
     void wall_sprite = loadsprite("data/bgs/select_wall_0.png");
     int wall_sprite_size_x = getgfxproperty(wall_sprite, "width");
     int wall_sprite_offset_x = 0;
 
-    drawsprite(wall_sprite, wall_sprite_offset_x, 112, openborconstant("PANEL_Z"), 0);
-    drawsprite(wall_sprite, wall_sprite_offset_x + wall_sprite_size_x, 112, openborconstant("PANEL_Z"), 0);
+    drawspritetoscreen(wall_sprite, wall_screen, wall_sprite_offset_x, 0);
+    drawspritetoscreen(wall_sprite, wall_screen, wall_sprite_offset_x + wall_sprite_size_x, 0);
 
+    void common_drawmethod = openborvariant("drawmethod_common");
+    void default_drawmethod = openborvariant("drawmethod_default");
+
+    
+    //set_drawmethod_property(common_drawmethod, "enable", 1);
+
+    drawscreen(wall_screen, 0, 112, openborconstant("PANEL_Z"));
+
+    //copy_drawmethod(default_drawmethod, common_drawmethod);
+    //set_drawmethod_property(common_drawmethod, "enable", 0);
+
+    //drawsprite(wall_sprite, wall_sprite_offset_x, 112, openborconstant("PANEL_Z"), 0);
+    //drawsprite(wall_sprite, wall_sprite_offset_x + wall_sprite_size_x, 112, openborconstant("PANEL_Z"), 0);
+    
+    void floor_screen = dc_get_screen(1, 480, 81);
     void floor_sprite = loadsprite("data/bgs/select_floor_0.png");
     
-    int floor_sprite_size_x = getgfxproperty(wall_sprite, "width");
+    int floor_sprite_size_x = getgfxproperty(floor_sprite, "width");
     int floor_sprite_offset_x = 0;
 
-    drawsprite(floor_sprite, floor_sprite_offset_x, 191, openborconstant("PANEL_Z"), 0);
-    drawsprite(floor_sprite, floor_sprite_offset_x + floor_sprite_size_x, 191, openborconstant("PANEL_Z"), 0);
+    drawspritetoscreen(floor_sprite, floor_screen, floor_sprite_offset_x, 0);
+    drawspritetoscreen(floor_sprite, floor_screen, floor_sprite_offset_x + floor_sprite_size_x, 0);
+
+    set_drawmethod_property(common_drawmethod, "water_mode", openborconstant("WATER_MODE_SHEAR"));
+    set_drawmethod_property(common_drawmethod, "water_size_begin", 1.0);
+    set_drawmethod_property(common_drawmethod, "water_size_end", 2.0);
+    set_drawmethod_property(common_drawmethod, "enable", 1);
+
+    drawscreen(floor_screen, 0, 191, openborconstant("PANEL_Z")+1);
+
+    copy_drawmethod(default_drawmethod, common_drawmethod);
+    set_drawmethod_property(common_drawmethod, "enable", 0);
+
+    //drawsprite(floor_sprite, floor_sprite_offset_x, 191, openborconstant("PANEL_Z"), 0);
+    //drawsprite(floor_sprite, floor_sprite_offset_x + floor_sprite_size_x, 191, openborconstant("PANEL_Z"), 0);
 
     void skeleton_sprite = loadsprite("data/bgs/select_skeleton_0.png");
     
-    drawsprite(skeleton_sprite, 80, 102, openborconstant("PANEL_Z"), 1);
+    drawsprite(skeleton_sprite, 80, 102, openborconstant("PANEL_Z")+2, 1);
 }
 
 void dc_get_screen(int index, int size_x, int size_y)
@@ -244,7 +274,7 @@ void dc_draw_select_names()
         }
 
         //string_width = 20;
-        log("\n str w(" + i +"): +" + screen_width);
+        // log("\n str w(" + i +"): +" + screen_width);
         //screen = dc_get_screen(i, screen_width, screen_height);
         //dc_draw_text_screen(screen, screen_scale_x, screen_scale_y);
     }

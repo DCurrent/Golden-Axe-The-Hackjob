@@ -4,6 +4,24 @@
 #include    "data/scripts/dc_fidelity/main.c"
 #include    "data/scripts/dc_kanga/main.c"
 
+#define DC_UPDATED_KEY_SCREEN          "key_screen"
+#define OG_SCREEN_SIZE_MAX_X			openborvariant("hresolution")
+#define OG_SCREEN_SIZE_MAX_Y			openborvariant("vresolution")
+
+#define WAIT_NAME_FONT		3
+#define SELECT_NAME_FONT	4
+#define FONT_Y				18	// Vertical size of font (unavailable as of 2019-02-22). Includes margin.
+#define SELECT_Y_BASE		75
+#define SPACE_CHAR			"_"
+#define	MAX_DRAW_SIZE		256 * 10
+#define MAX_DRAW_SIZE_TIME	100
+
+#define OG_SCREEN_BASE_POS_X openborvariant("hresolution") / 2
+#define OG_SCREEN_BASE_POS_Y openborvariant("vresolution") / 2
+
+#define OG_SCREEN_SCALE_MAX_X 256
+#define OG_SCREEN_SCALE_MAX_Y 256
+
 void oncreate()
 {
     dc_preload_hud_sprites();
@@ -23,6 +41,8 @@ void main()
 	}
 
 	//tupdate();
+    dc_draw_select_screen();
+    dc_draw_select_names();
 
     /* Draw enemy HUD. */
     dc_golden_axe_enemy_hud();
@@ -52,6 +72,233 @@ void main()
 
     }
    
+}
+
+/*
+* Draw layers and animation for select screen.
+* OpenBOR select screens are highly optimised at
+* the cost of being mostly hardcoded and very
+* plain looking. We could code our own through
+* model switching in a regular stage, but I'd
+* rather try dressing up the native select 
+* screen first. :)
+*/
+void dc_draw_select_screen()
+{    
+    /* Not in select screen? Exit now! */
+    if (!openborvariant("in_selectscreen"))
+    {
+        return;
+    }
+   
+    /* 
+    * It's more optimal to put loadsprite()
+    * in another location that only runs one
+    * time (ex: oncreate), but we're only using
+    * these in the select screen, so we can
+    * afford to trade some CPU cycles to keep 
+    * everything here and easy to find.
+    */
+
+
+    void wall_sprite = loadsprite("data/bgs/select_wall_0.png");
+    int wall_sprite_size_x = getgfxproperty(wall_sprite, "width");
+    int wall_sprite_offset_x = 0;
+
+    drawsprite(wall_sprite, wall_sprite_offset_x, 112, openborconstant("PANEL_Z"), 0);
+    drawsprite(wall_sprite, wall_sprite_offset_x + wall_sprite_size_x, 112, openborconstant("PANEL_Z"), 0);
+
+    void floor_sprite = loadsprite("data/bgs/select_floor_0.png");
+    
+    int floor_sprite_size_x = getgfxproperty(wall_sprite, "width");
+    int floor_sprite_offset_x = 0;
+
+    drawsprite(floor_sprite, floor_sprite_offset_x, 191, openborconstant("PANEL_Z"), 0);
+    drawsprite(floor_sprite, floor_sprite_offset_x + floor_sprite_size_x, 191, openborconstant("PANEL_Z"), 0);
+
+    void skeleton_sprite = loadsprite("data/bgs/select_skeleton_0.png");
+    
+    drawsprite(skeleton_sprite, 80, 102, openborconstant("PANEL_Z"), 1);
+}
+
+void dc_get_screen(int index, int size_x, int size_y)
+{
+    void screen;
+    char screen_key;
+    char size_x_key;
+    char size_y_key;
+
+    screen_key = DC_UPDATED_KEY_SCREEN + index;
+
+    // Get current screen.
+    screen = getlocalvar(screen_key);
+
+    // If no screen is set up,
+    // initialize it here.
+    if (!screen)
+    {
+        // Allocate screen and use it to populate
+        // the screen variable, then populate
+        // background variable.
+        screen = allocscreen(size_x, size_y);
+        setlocalvar(screen_key, screen);
+    }
+
+    return screen;
+}
+
+// Caskey, Damon V.
+// 2019-02-22
+//
+// Draws names of characters during select screen.
+void dc_draw_select_names()
+{
+    // Don't waste any more cycles if we aren't 
+    // in select screen.
+    if (!openborvariant("in_selectscreen"))
+    {
+        return;
+    }
+
+    int i;
+    int maxplayers;
+    char name_full;
+    char name_last;
+    char name_first;
+
+    int font;
+    int x_base;
+    int x_pos;
+    int y_pos;
+    int string_width;
+
+    int section_size;
+    int section_half;
+
+    int elapsed_time;
+    int select_time;
+
+    void screen;
+
+    int screen_scale_x;
+    int screen_scale_y;
+
+    int scale_add;
+
+    int screen_width;
+    int screen_height;
+
+
+    elapsed_time = openborvariant("elapsed_time");
+    maxplayers = openborvariant("maxplayers");
+
+    // Divide up the screen into even sections for each player.
+    section_size = openborvariant("hresolution") / maxplayers;
+    section_half = section_size / 2;
+
+    for (i = 0; i < maxplayers; i++)
+    {
+        // Get to start of our section, and add half to find the center.
+        x_base = (dc_player_multiplier(i) * section_size) + section_half;
+
+        name_full = getplayerproperty(i, "name");
+        name_last = strinfirst(name_full, SPACE_CHAR);
+
+        // No last name?
+        if (name_last == -1)
+        {
+            x_pos = dc_center_string_x(x_base, name_full, WAIT_NAME_FONT);
+            y_pos = dc_center_string_y(SELECT_Y_BASE, name_full, FONT_Y);
+
+            screen_width = strwidth(name_full, WAIT_NAME_FONT);
+            screen_height = FONT_Y;
+
+            drawstring(x_pos, y_pos, WAIT_NAME_FONT, name_full);
+            //drawstringtoscreen(screen, x_pos, y_pos, WAIT_NAME_FONT, name_full);			
+        }
+        else
+        {
+            // Get a Y center based on two lines (first name, last name).
+            y_pos = dc_center_string_y(SELECT_Y_BASE, name_last, FONT_Y * 2);
+
+            // Get first name string and center x position.
+            name_first = strleft(name_full, strlength(name_full) - strlength(name_last));
+            x_pos = dc_center_string_x(x_base, name_first, WAIT_NAME_FONT);
+
+            drawstring(x_pos, y_pos, WAIT_NAME_FONT, name_first);
+            //drawstringtoscreen(screen, x_pos, y_pos, WAIT_NAME_FONT, name_first);
+
+            // Remove sapce character from last name.
+            name_last = strright(name_last, 1);
+
+            x_pos = dc_center_string_x(x_base, name_last, WAIT_NAME_FONT);
+
+            // Add vertical font space.
+            y_pos += FONT_Y;
+
+            drawstring(x_pos, y_pos, WAIT_NAME_FONT, name_last);
+            //drawstringtoscreen(screen, x_pos, y_pos, WAIT_NAME_FONT, name_last);
+
+            screen_width = strwidth(name_first, WAIT_NAME_FONT);
+            screen_height = FONT_Y;
+        }
+
+        //string_width = 20;
+        log("\n str w(" + i +"): +" + screen_width);
+        //screen = dc_get_screen(i, screen_width, screen_height);
+        //dc_draw_text_screen(screen, screen_scale_x, screen_scale_y);
+    }
+
+#undef SELECT_NAME_FONT
+#undef SELECT_NAME_FONT_Y
+#undef SELECT_Y_BASE
+}
+
+// Caskey, Damon V.
+// 2019-02-22
+//
+// Return position to horizontaly center a string.
+int dc_center_string_x(int x_base, char string, int font)
+{
+    return x_base - (strwidth(string, font) / 2);
+}
+
+// Caskey, Damon V.
+// 2019-02-22
+//
+// Return position to horizontaly center a string. At time of
+// coding, font height is not available, so we have to use
+// a known static font size.
+int dc_center_string_y(int y_base, char string, int font_size)
+{
+    return y_base - (font_size / 2);
+}
+
+// Caskey, Damon V.
+// 2019-02-22
+//
+// Dirty function to deal with first player being in 
+// the middle when we want to use player number as a
+// position multiplier.
+int dc_player_multiplier(int player)
+{
+    switch (player)
+    {
+    case 0:
+
+        return 1;
+        break;
+
+    case 1:
+
+        return 0;
+        break;
+
+    default:
+
+        return player;
+        break;
+    }
 }
 
 // Auto apply stealth.

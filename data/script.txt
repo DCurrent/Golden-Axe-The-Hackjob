@@ -3,3 +3,4 @@ maxindexedvars 	100
 maxentityvars  	100
 keyscriptrate 	1
 nocmdcompatible 1
+alwaysupdate	1

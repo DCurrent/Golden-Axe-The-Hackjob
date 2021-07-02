@@ -105,7 +105,7 @@ know    ax_red_dragon				data/chars/ax/ax_red_dragon.txt					# Riding Red Dragon
 know	ax_blue_dragon				data/chars/ax/ax_blue_dragon.txt					# Riding Blue Dragon.
 know    ax_dragon_motion	data/chars/ax/ax_dragon_motion.txt			# Riding dragons, motion blurs.
 know	ax_battler_motion	data/chars/ax/ax_motion.txt					# Motion blurs.
-load	ax					data/chars/ax/ax.txt						# Player.
+load	Ax_Battler			data/chars/ax/ax.txt						# Player.
 
 # Tyris Flare
 

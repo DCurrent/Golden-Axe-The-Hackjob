@@ -5,7 +5,7 @@ load 				ax_red_dragon								# Red dragon.
 load 				ax_blue_dragon								# Blue dragon.
 
 icon				data/chars/ax/icon_default.png
-name				ax
+name				Ax_Battler
 type				player
 health				98
 mp      			61

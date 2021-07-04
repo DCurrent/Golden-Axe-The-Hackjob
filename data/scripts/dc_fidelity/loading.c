@@ -128,12 +128,16 @@ void dc_fidelity_terminate()
 	
 	void category_list = dc_fidelity_get_member_category_list();
 	
+	log("\n\n DC Fidelity - Freeing resources");
+
 	/* 
 	* Free the category list of sounds.
 	* Also frees each type and the type's
 	* sound indexes.
 	*/
 	dc_fidelity_free_category_list(category_list);
+
+	log("\n ...done.\n");
 }
 
 /*
@@ -156,7 +160,7 @@ void dc_fidelity_free_category_list(void target_list)
 	void element_value = NULL();
 	void element_key = "";
 
-	log("\n\t Freeing " + target_list_size + " sound categories");
+	log("\n\t Freeing sound categories, " + target_list_size + " found");
 
 	reset(target_list);
 
@@ -208,7 +212,7 @@ void dc_fidelity_free_type_list(void target_list)
 	void element_value = NULL();
 	void element_key = "";
 
-	log("\n\t\t\t Freeing " + target_list_size + " sound types");
+	log("\n\t\t\t Freeing sound types, " + target_list_size + " found");
 
 	reset(target_list);
 
@@ -260,7 +264,7 @@ void dc_fidelity_free_index_list(void target_list)
 	void element_value = NULL();
 	void element_key = "";
 
-	log("\n\t\t\t\t\t Freeing " + target_list_size + " sample indexes");
+	log("\n\t\t\t\t\t Freeing samples, " + target_list_size + " found");
 
 	reset(target_list);
 
@@ -287,7 +291,7 @@ void dc_fidelity_free_index_list(void target_list)
 		//next(target_list);
 	}
 	
-	log("\n\t\t\t\t\t Freeing sample index list");
+	log("\n\t\t\t\t\t Freeing sample list");
 
 	free(target_list);
 	

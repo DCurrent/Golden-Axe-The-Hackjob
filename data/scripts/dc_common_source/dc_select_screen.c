@@ -44,12 +44,12 @@ void dc_module_select_screen_initialize()
 void dc_module_select_screen_terminate()
 {
 
-    log("\n\n dc_module_select_screen_terminate...");
+    log("\n\n DC Module Select Screen - Freeing resources");
 
     dc_module_select_screen_unload_screens();
     dc_module_select_screen_unload_sprites();
 
-    log("\n\n ...done \n");
+    log("\n ...done. \n");
 }
 
 void dc_module_select_screen_unload_screens()
@@ -62,7 +62,7 @@ void dc_module_select_screen_unload_screens()
     * free each one.
     */
 
-    log("\n\t Unloading screens...");
+    log("\n\t Freeing screens");
 
     int size = size(screens_list);
     int i = 0;
@@ -81,20 +81,16 @@ void dc_module_select_screen_unload_screens()
         next(screens_list);
     }
 
-    log("\n\t ...done.");
-
     /*
     * Now we free the array itself, and then
     * delete the variable that held its pointer.
     */
 
-    log("\n\t Remove screen array...");
+    log("\n\t Freeing screen list");
 
     free(screens_list);
 
     setlocalvar("dc_mssi_screens", NULL());
-
-    log("\t ...done.");
 }
 
 void dc_module_select_screen_unload_sprites()
@@ -107,7 +103,7 @@ void dc_module_select_screen_unload_sprites()
     * free each one.
     */
 
-    log("\n\t Unloading sprites...");
+    log("\n\t Freeing sprites");
 
     int size = size(sprites_list);
     int i = 0;
@@ -126,20 +122,16 @@ void dc_module_select_screen_unload_sprites()
         next(sprites_list);
     }
 
-    log("\n\t ...done.");
-
     /*
     * Now we free the array itself, and then
     * delete the variable that held its pointer.
     */
 
-    log("\n\t Remove sprite array...");
+    log("\n\t Freeing sprite list");
 
     free(sprites_list);
 
     setlocalvar("dc_mssi_sprites", NULL());
-
-    log("\t ...done.");
 }
 
 /*

@@ -3,11 +3,13 @@
 #import "data/scripts/dc_fidelity/sound_config.c"
 #import "data/scripts/dc_fidelity/category.c"
 
-// Caskey, Damon V.
-// 2018-10-23
-//
-// Load a sound file and place its sample ID with designated category 
-// and type into the sound array for later use.
+/* 
+* Caskey, Damon V.
+* 2018-10-23
+*
+* Load a sound file and place its sample ID with designated category 
+* and type into the sound array for later use.
+*/
 void dc_fidelity_setup(char category, int type, char file)
 {
 	void category_list;	// Key - Category, Value - Sound types array.
@@ -18,62 +20,82 @@ void dc_fidelity_setup(char category, int type, char file)
 	int size;	// Array size.
 	int i;		// Loop index.
 
-	// Get the category list array.
-	category_list = dc_fidelity_get_member_category_list();
+	/* 
+	* Get the category list array. 
+	* If we don't have an array, initialize a new one.
+	*/
 
-	// Initialize array if it doesn't exist.
+	category_list = dc_fidelity_get_member_category_list();
+	
 	if (!category_list)
 	{
-		// Create the array.
-		category_list = array(0);
+		/*
+		* Create array and store its pointer in
+		* a globalvar for future access.
+		*/
 
-		// Store pointer to array in a globalvar for
-		// future access.
+		category_list = array(0);
+		
 		dc_fidelity_set_member_category_list(category_list);
 	}
 
-	// Get array of sound types for a category.
-	type_list = get(category_list, category);
+	/* 
+	* Get array of sound types for a category. 
+	* If we don't have an array, initialize a new one.
+	*/
 
-	// Initialize array if it doesn't exist.
+	type_list = get(category_list, category);
+	
 	if (!type_list)
 	{
-		// Create the array.
-		type_list = array(0);
+		/*
+		* Create array and store its pointer in
+		* a globalvar for future access.
+		*/
 
-		// Store pointer to array in an element of
-		// the parent array.
+		type_list = array(0);
+		
 		set(category_list, category, type_list);
 	}
 
-	// Get array of sound indexes for a sound type.
-	index_list = get(type_list, type);
+	/* 
+	* Get array of sound indexes for a sound type. 
+	* If we don't have an array, initialize a new one.
+	*/
 
-	// Initialize array if it doesn't exist.
+	index_list = get(type_list, type);
+	
 	if (!index_list)
 	{
-		// Create the array.
-		index_list = array(0);
+		/*
+		* Create array and store its pointer in
+		* a globalvar for future access.
+		*/
 
-		// Store pointer to array in an element of
-		// the parent array.
+		index_list = array(0);
+		
 		set(type_list, type, index_list);
 	}
 
-	// Get the array size, we can use this as
-	// the index since we want to add an element.
+	/* 
+	* Get the array size, we can use this as
+	* the index since we want to add an element.
+	*/
 	size = size(index_list);
 
-	// Load the sample and get ID.
-	sample_id	= loadsample(file);
+	/* 
+	* Load the same, then add a new
+	* array element and populate its
+	* value with the sample ID.
+	*/
+	
+	sample_id = loadsample(file);
 
-	// Add new array element and populate its
-	// value with sample ID.
 	add(index_list, size, sample_id);
 
 	if (DC_FIDELITY_LOG_LOAD)
 	{
-		// Output to the log.
+		/* Output to the log. */
 		log("\n Sound sample loaded: ");
 		log("\n");
 		log("\t");
@@ -92,6 +114,183 @@ void dc_fidelity_setup(char category, int type, char file)
 		log("Sample ID:\t" + sample_id);
 		log("\n");
 	}	
+}
+
+/*
+* Caskey, Damon V.
+* 2018-10-23
+*
+* Unload sounds and free the arrays we
+* used to store sample IDs and lists.
+*/
+void dc_fidelity_terminate()
+{
+	
+	void category_list = dc_fidelity_get_member_category_list();
+	
+	/* 
+	* Free the category list of sounds.
+	* Also frees each type and the type's
+	* sound indexes.
+	*/
+	dc_fidelity_free_category_list(category_list);
+}
+
+/*
+* Caskey, Damon V.
+* 2021-07-03
+*
+* Unload all categories from the sound
+* category list.
+*/
+void dc_fidelity_free_category_list(void target_list)
+{
+	/*
+	* Set cursor to first element of array.
+	* Then iterate through all entries and
+	* free each one.
+	*/
+	
+	int target_list_size = size(target_list);
+	int i = 0;
+	void element_value = NULL();
+	void element_key = "";
+
+	log("\n\t Freeing " + target_list_size + " sound categories");
+
+	reset(target_list);
+
+	for (i = 0; i < target_list_size; i++)
+	{
+		element_key = key(target_list);
+		element_value = value(target_list);
+
+		log("\n\t\t Category " + i + ": " + element_key + ", " + element_value);
+
+		if (element_value)
+		{
+			/*
+			* Clear all types for the category.
+			*/
+			dc_fidelity_free_type_list(element_value);
+		}
+		else
+		{
+			log("\t ...category not found.");
+		}
+
+		next(target_list);
+	}
+
+	log("\n\t Freeing category list");
+
+	free(target_list);
+}
+
+/*
+* Caskey, Damon V.
+* 2021-07-03
+*
+* Unload all types from a sound category.
+*/
+void dc_fidelity_free_type_list(void target_list)
+{
+	/*
+	* Set cursor to first element of array.
+	* Then iterate through all entries and
+	* free each one.
+	*/
+
+	
+
+	int target_list_size = size(target_list);
+	int i = 0;
+	void element_value = NULL();
+	void element_key = "";
+
+	log("\n\t\t\t Freeing " + target_list_size + " sound types");
+
+	reset(target_list);
+
+	for (i = 0; i < target_list_size; i++)
+	{
+		element_key = key(target_list);
+		element_value = value(target_list);
+
+		log("\n\t\t\t\t Type " + i + ": " + element_key + ", " + element_value);
+		
+		if (element_value)
+		{
+			/* 
+			* Clear all sample indexes for the type, then
+			* free the type element.
+			*/
+			dc_fidelity_free_index_list(element_value);			
+		}
+		else
+		{
+			log("\t ...type not found.");
+		}
+
+		next(target_list);
+	}
+	
+
+	log("\n\t\t\t Freeing type list");
+
+	free(target_list);	
+}
+
+/*
+* Caskey, Damon V.
+* 2021-07-03
+*  
+* Unload all samples from a sound type.
+*/
+void dc_fidelity_free_index_list(void target_list)
+{
+	/*
+	* Set cursor to first element of array.
+	* Then iterate through all entries and
+	* free each one.
+	*/
+	
+	int target_list_size = size(target_list);
+	int i = 0;
+	void element_value = NULL();
+	void element_key = "";
+
+	log("\n\t\t\t\t\t Freeing " + target_list_size + " sample indexes");
+
+	reset(target_list);
+
+	for (i = 0; i < target_list_size; i++)
+	{
+		//element_key = key(target_list);
+		element_value = get(target_list, i); //value(target_list);
+
+		log("\n\t\t\t\t\t\t Sample " + i + ": " + element_value);
+
+		if (element_value)
+		{
+			/* 
+			* The element value contains an index to sound
+			* sample. Unload the sample.
+			*/
+			unloadsample(element_value);
+		}
+		else
+		{
+			log("\t ...sample not found.");
+		}
+
+		//next(target_list);
+	}
+	
+	log("\n\t\t\t\t\t Freeing sample index list");
+
+	free(target_list);
+	
 }
 
 // Caskey, Damon V.

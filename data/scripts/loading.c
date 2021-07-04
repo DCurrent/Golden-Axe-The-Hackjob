@@ -99,36 +99,36 @@ void load_sounds()
 
 	
 	/* Ax Battler */
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/ax/sounds/voice_attack_0.wav");
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/ax/sounds/voice_attack_1.wav");
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/ax/sounds/voice_attack_2.wav");
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/ax/sounds/voice_attack_3.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/ax/sounds/voice_attack_0.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/ax/sounds/voice_attack_1.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/ax/sounds/voice_attack_2.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_LIGHT, "data/chars/ax/sounds/voice_attack_3.wav");
 
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM, "data/chars/ax/sounds/voice_attack_1.wav");
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM, "data/chars/ax/sounds/voice_attack_2.wav");
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM, "data/chars/ax/sounds/voice_attack_3.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM, "data/chars/ax/sounds/voice_attack_1.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM, "data/chars/ax/sounds/voice_attack_2.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_MEDIUM, "data/chars/ax/sounds/voice_attack_3.wav");
 
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/ax/sounds/voice_attack_1.wav");
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/ax/sounds/voice_attack_2.wav");
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/ax/sounds/voice_attack_3.wav");
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/ax/sounds/voice_ga2_stern_special_0.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/ax/sounds/voice_attack_1.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/ax/sounds/voice_attack_2.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/ax/sounds/voice_attack_3.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_ATTACK_SHOUT_HEAVY, "data/chars/ax/sounds/voice_ga2_stern_special_0.wav");
 
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_BATTLE_TAUNT, "data/chars/ax/sounds/voice_battle_cry_destroy.wav");
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_BATTLE_TAUNT, "data/chars/ax/sounds/voice_battle_cry_die.wav");
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_BATTLE_TAUNT, "data/chars/ax/sounds/voice_battle_cry_fall.wav");
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_BATTLE_TAUNT, "data/chars/ax/sounds/voice_battle_cry_steel.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_BATTLE_TAUNT, "data/chars/ax/sounds/voice_battle_cry_destroy.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_BATTLE_TAUNT, "data/chars/ax/sounds/voice_battle_cry_die.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_BATTLE_TAUNT, "data/chars/ax/sounds/voice_battle_cry_fall.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_BATTLE_TAUNT, "data/chars/ax/sounds/voice_battle_cry_steel.wav");
 
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_PAIN, "data/chars/ax/sounds/voice_hurt_0.wav");
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_PAIN, "data/chars/ax/sounds/voice_hurt_1.wav");
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_PAIN, "data/chars/ax/sounds/voice_hurt_2.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_PAIN, "data/chars/ax/sounds/voice_hurt_0.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_PAIN, "data/chars/ax/sounds/voice_hurt_1.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_PAIN, "data/chars/ax/sounds/voice_hurt_2.wav");
 
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_PAIN_FALL, "data/chars/ax/sounds/voice_hurt_0.wav");
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_PAIN_FALL, "data/chars/ax/sounds/voice_hurt_1.wav");
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_PAIN_FALL, "data/chars/ax/sounds/voice_hurt_2.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_PAIN_FALL, "data/chars/ax/sounds/voice_hurt_0.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_PAIN_FALL, "data/chars/ax/sounds/voice_hurt_1.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_PAIN_FALL, "data/chars/ax/sounds/voice_hurt_2.wav");
 
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_KO, "data/chars/ax/sounds/voice_ko_0.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_KO, "data/chars/ax/sounds/voice_ko_0.wav");
 	
-	dc_fidelity_setup("ax", DC_FIDELITY_TYPE_VOICE_NEAR_KO, "data/chars/ax/sounds/voice_low_hp_0.wav");
+	dc_fidelity_setup("Ax_Battler", DC_FIDELITY_TYPE_VOICE_NEAR_KO, "data/chars/ax/sounds/voice_low_hp_0.wav");
 
 	/* bor_steam*/
 	dc_fidelity_setup("bor_steam", DC_FIDELITY_TYPE_VOICE_SPAWN_NEW, "data/sounds/custom/marvel_vs_capcom_2_fire_hit_0.wav");
@@ -323,6 +323,8 @@ void ondestroy()
 	//log("\t");
 	//log("- ondestroy().");
 	//log("\n");
+
+	dc_fidelity_terminate();
 }
 
 void main()

@@ -96,6 +96,5 @@ int dc_eggball_check_interval()
         dc_eggball_reset_interval();
     }
         
-
     return result;
 }

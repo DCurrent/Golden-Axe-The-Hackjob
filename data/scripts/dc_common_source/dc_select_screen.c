@@ -244,16 +244,7 @@ void dc_draw_sprite_to_screen_width(void screen, void sprite, int offset_x, int 
     int offset_x_final = 0;
     int i = 0;
     int repeats = 2 + screen_width / sprite_width;
-
-    int elapsed_time = openborvariant("elapsed_time");
-    int scroll_delay = 5;
-    int scroll_time = getlocalvar("dc_dstsw_scroll_time" + screen);
-
-    if (!scroll_time)
-    {
-        scroll_time = 0;
-    }
-
+       
     /*
     * Get current scroll and increment. Reset
     * once we scroll the length of our sprite

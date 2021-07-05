@@ -80,11 +80,11 @@ int dc_eggball_check_interval()
     next            = dc_eggball_get_member_next();
 
     /* Initialize next if this is first run. */
-    if (next == DC_EGGBALL_DEFAULT_NEXT)
+    if (next == DC_EGGBALL_DEFAULT_NEXT || (!elapsed_time && next))
     {
         next = dc_eggball_reset_interval();
     }
-
+    
     /* 
     * Time expired? Set time for next interval and
     * set result true.

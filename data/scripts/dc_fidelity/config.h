@@ -47,14 +47,16 @@
 * Enable flags to log events.
 */
 
-#define DC_FIDELITY_LOG_LOAD							1	// Loading and setup of sound files.
-#define DC_FIDELITY_LOG_BALANCE_INVALID_ENTITY			1	// Entity is not valid pointer (probably NULL). 
-#define DC_FIDELITY_LOG_CATEGORY_MISSING				1   // Category argument is blank. 
-#define DC_FIDELITY_LOG_CATEGORY_TYPE_NOT_FOUND			1	// Specified category (containing a type list) not found.
-#define DC_FIDELITY_LOG_PLAY							1	// Sound plays.
-#define DC_FIDELITY_LOG_UNLOAD							1	// Unloading of sounds.
-#define DC_FIDELITY_LOG_TIMED_SETUP						1	// Set up timed delay sound.
+#define DC_FIDELITY_LOG_NONE							0
+#define DC_FIDELITY_LOG_LOAD							(1 << 0)			// Loading and setup of sound files.
+#define DC_FIDELITY_LOG_BALANCE_INVALID_ENTITY			(1 << 1)	// Entity is not valid pointer (probably NULL). 
+#define DC_FIDELITY_LOG_CATEGORY_MISSING				(1 << 2)	// Category argument is blank. 
+#define DC_FIDELITY_LOG_CATEGORY_TYPE_NOT_FOUND			(1 << 3)	// Specified category (containing a type list) not found.
+#define DC_FIDELITY_LOG_PLAY							(1 << 4)	// Sound plays.
+#define DC_FIDELITY_LOG_UNLOAD							(1 << 5)	// Unloading of sounds.
+#define DC_FIDELITY_LOG_TIMED_SETUP						(1 << 6)	// Set up timed delay sound.
 				
+#define DC_FIDELITY_LOGGING								(DC_FIDELITY_LOG_LOAD | DC_FIDELITY_LOG_UNLOAD)
 
 /** Sound Categories
 *

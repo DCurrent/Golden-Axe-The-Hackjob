@@ -84,7 +84,7 @@ void dc_fidelity_setup(char category, int type, char file)
 	size = size(index_list);
 
 	/* 
-	* Load the same, then add a new
+	* Load the sample, then add a new
 	* array element and populate its
 	* value with the sample ID.
 	*/
@@ -92,11 +92,11 @@ void dc_fidelity_setup(char category, int type, char file)
 	sample_id = loadsample(file);
 
 	add(index_list, size, sample_id);
-
-	if (DC_FIDELITY_LOG_LOAD)
+	
+	if (DC_FIDELITY_LOGGING & DC_FIDELITY_LOG_LOAD)
 	{
 		/* Output to the log. */
-		log("\n Sound sample loaded: ");
+		log("\n DC Fidelity - Loading sound sample");
 		log("\n");
 		log("\t");
 		log("File:\t\t" + file);
@@ -112,7 +112,7 @@ void dc_fidelity_setup(char category, int type, char file)
 		log("\n");
 		log("\t");
 		log("Sample ID:\t" + sample_id);
-		log("\n");
+		log("\n...done. \n");
 	}	
 }
 
@@ -269,9 +269,8 @@ void dc_fidelity_free_index_list(void target_list)
 	reset(target_list);
 
 	for (i = 0; i < target_list_size; i++)
-	{
-		//element_key = key(target_list);
-		element_value = get(target_list, i); //value(target_list);
+	{		
+		element_value = get(target_list, i);
 
 		log("\n\t\t\t\t\t\t Sample " + i + ": " + element_value);
 
@@ -287,8 +286,6 @@ void dc_fidelity_free_index_list(void target_list)
 		{
 			log("\t ...sample not found.");
 		}
-
-		//next(target_list);
 	}
 	
 	log("\n\t\t\t\t\t Freeing sample list");

@@ -142,7 +142,7 @@ int dc_fidelity_find_category_sound(char category, int type)
 	if (typeof(category) == openborconstant("VT_EMPTY"))
 	{
 		/* Logging */
-		if (DC_FIDELITY_LOG_CATEGORY_MISSING)
+		if (DC_FIDELITY_LOGGING & DC_FIDELITY_LOG_CATEGORY_MISSING)
 		{
 			log("\n\n");
 			log("Error: " + DC_FIDELITY_BASE_ID);
@@ -174,7 +174,7 @@ int dc_fidelity_find_category_sound(char category, int type)
 		
 	if (!type_list)
 	{
-		if (DC_FIDELITY_LOG_CATEGORY_TYPE_NOT_FOUND)
+		if (DC_FIDELITY_LOGGING & DC_FIDELITY_LOG_CATEGORY_TYPE_NOT_FOUND)
 		{
 			log("\n\n");
 			log("Error: " + DC_FIDELITY_BASE_ID);
@@ -358,7 +358,7 @@ int dc_fidelity_play_balanced(int sample_id)
 	else
 	{
 		/* Logging */
-		if (DC_FIDELITY_LOG_BALANCE_INVALID_ENTITY)
+		if (DC_FIDELITY_LOGGING & DC_FIDELITY_LOG_BALANCE_INVALID_ENTITY)
 		{
 			log("\n\n");
 			log("Error: " + DC_FIDELITY_BASE_ID);

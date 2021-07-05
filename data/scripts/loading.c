@@ -63,7 +63,6 @@ void load_sounds()
 	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, DC_FIDELITY_TYPE_VOICE_KO, "data/sounds/custom/punisher_ko_2.wav");
 	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, DC_FIDELITY_TYPE_VOICE_KO, "data/sounds/custom/sor2_ko_0.wav");
 	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, DC_FIDELITY_TYPE_VOICE_KO, "data/sounds/custom/sor2_ko_1.wav");
-	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, DC_FIDELITY_TYPE_VOICE_KO, "data/sounds/custom/sor3_ko_0.wav");
 	dc_fidelity_setup(DC_FIDELITY_CATEGORY_GLOBAL, DC_FIDELITY_TYPE_VOICE_KO, "data/sounds/custom/unknown_ko.wav");
 
 	/* Jump and hop liftoff. */
@@ -90,7 +89,6 @@ void load_sounds()
 	dc_fidelity_setup("flash_blunt_cut", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/shinobi_box.wav");
 	dc_fidelity_setup("flash_cut_vertical", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_hit_cut_0.wav");
 	dc_fidelity_setup("flash_cut_vertical_knockdown", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_hit_knockdown_0.wav");
-	dc_fidelity_setup("flash_fatal_fury", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/fatal_fury_1_hit.wav");
 	dc_fidelity_setup("flash_hit_head_knock", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_knock_head_0.wav");
 	dc_fidelity_setup("flash_hit_knockdown", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_hit_knockdown_0.wav");
 	dc_fidelity_setup("flash_impact_cut", DC_FIDELITY_TYPE_SOUND_SPAWN, "data/sounds/custom/golden_axe_hit_ram_0.wav");

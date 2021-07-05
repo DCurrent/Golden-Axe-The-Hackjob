@@ -87,7 +87,7 @@ void dc_fidelity_timed_setup(int sample_id, int delay)
 	// created earlier.
 	add(timed_list, size, timed_sample);
 
-	if (DC_FIDELITY_LOG_TIMED_SETUP)
+	if (DC_FIDELITY_LOGGING & DC_FIDELITY_LOG_TIMED_SETUP)
 	{
 		// Output to the log.
 		log("\n Timed sample loaded: ");

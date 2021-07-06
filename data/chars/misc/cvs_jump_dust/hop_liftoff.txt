@@ -8,7 +8,7 @@ mp 64
 onspawnscript 	data/scripts/common/event_spawn_dust.c
 onkillscript	data/scripts/common/event_kill.c
 
-palette		data/chars/misc/cvs_jump_dust/0_0.png
+palette		data/chars/misc/cvs_jump_dust/idle_0.png
 
 anim idle
 
@@ -17,15 +17,15 @@ anim idle
 	delay	2
 	offset	85 105
 
-		frame	data/chars/misc/cvs_jump_dust/0_0.png
-		frame	data/chars/misc/cvs_jump_dust/0_1.png
-		frame	data/chars/misc/cvs_jump_dust/1_2.png
-		frame	data/chars/misc/cvs_jump_dust/1_3.png
-		frame	data/chars/misc/cvs_jump_dust/1_4.png
-		frame	data/chars/misc/cvs_jump_dust/1_5.png
-		frame	data/chars/misc/cvs_jump_dust/1_6.png
-		frame	data/chars/misc/cvs_jump_dust/1_7.png
-		frame	data/chars/misc/cvs_jump_dust/1_8.png
-		frame	data/chars/misc/cvs_jump_dust/1_9.png
-		frame	data/chars/misc/cvs_jump_dust/1_10.png
-		frame	data/chars/misc/cvs_jump_dust/1_11.png
+		frame	data/chars/misc/cvs_jump_dust/idle_0.png
+		frame	data/chars/misc/cvs_jump_dust/idle_1.png
+		frame	data/chars/misc/cvs_jump_dust/hop_0.png
+		frame	data/chars/misc/cvs_jump_dust/hop_1.png
+		frame	data/chars/misc/cvs_jump_dust/hop_2.png
+		frame	data/chars/misc/cvs_jump_dust/hop_3.png
+		frame	data/chars/misc/cvs_jump_dust/hop_4.png
+		frame	data/chars/misc/cvs_jump_dust/hop_5.png
+		frame	data/chars/misc/cvs_jump_dust/hop_6.png
+		frame	data/chars/misc/cvs_jump_dust/hop_7.png
+		frame	data/chars/misc/cvs_jump_dust/hop_8.png
+		frame	data/chars/misc/cvs_jump_dust/hop_9.png

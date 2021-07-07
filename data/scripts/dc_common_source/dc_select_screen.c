@@ -1,4 +1,5 @@
 #include    "data/scripts/dc_eggball/main.c"
+#include    "data/scripts/dc_gauntlet/main.c"
 
 #ifndef DC_MODULE_SELECT_SCREEN_CONFIG
 #define DC_MODULE_SELECT_SCREEN_CONFIG 1
@@ -21,6 +22,9 @@
 
 #define OG_SCREEN_SCALE_MAX_X 256
 #define OG_SCREEN_SCALE_MAX_Y 256
+
+#define OG_SELECT_SCREEN_HIGHLIGHT_MODEL "select_waiting_flame"
+#define OG_SELECT_SCREEN_HIGHLIGHT_ENTITY_KEY "dc_select_hl"
 
 #endif
 
@@ -228,6 +232,178 @@ void dc_draw_select_screen()
 
     drawsprite(select_column_sprite, 0, 0, openborconstant("PANEL_Z") + 2, 1);
     drawsprite(select_column_sprite, 440, 0, openborconstant("PANEL_Z") + 2, 1);
+
+    /* Ground fire loop entity. */
+    dc_draw_select_waiting_highlight();
+}
+
+/*
+* Caskey, Damon V.
+* 2021-07-06
+* 
+* Remove highlight entity from select screen
+* if it exists.
+*/
+void dc_draw_kill_inactive_select_highlight_entity(int player_index)
+{
+    void acting_entity = getlocalvar(OG_SELECT_SCREEN_HIGHLIGHT_ENTITY_KEY + player_index);
+
+    if (!acting_entity)
+    {
+        return;
+    }
+
+    if (get_entity_property(acting_entity, "exists"))
+    {
+        killentity(acting_entity);
+    }
+
+}
+
+void dc_draw_select_waiting_highlight()
+{
+
+    int max_players = openborvariant("maxplayers");
+    int player_index = 0;
+    void player_select_entity = NULL();
+    void select_highlight_entity = NULL();
+    void select_highlight_entity_old = NULL();
+    int select_highlight_entity_exists = 0;
+    float pos_x = 0.0;
+    float pos_y = 0.0;
+    float pos_z = 0.0;
+    int sort_id = 0;
+
+    int entity_count = openborvariant("count_entities");
+    int entity_index = 0;
+    int entity_cursor = NULL();
+    int entity_exists = 0;
+    char entity_model_name = "";
+    char player_model_name = "";
+
+    // log("\n\n dc_draw_ground_fire_loop_entity");
+
+    /*
+    * Before we can spawn the select highlight
+    * entity we need to know if a player is
+    * active and get some of the properties of
+    * their selection entity. 
+    * 
+    * Unfortunatly The <entity> player property 
+    * is not populated during selection screen. 
+    * So to get the player#'s select entity, we'll 
+    * have to first get the <name> property of 
+    * player#. This is the model name player# is 
+    * currently highlighting in selection screen.
+    * 
+    * Next, we loop through the collection of onscreen
+    * entities and match the model name to player#'s
+    * model name. 
+    */
+
+    /*
+    * Loop each player index and get the player's 
+    * model name.
+    */
+
+    for (player_index = 0; player_index < max_players; player_index++)
+    {
+        player_model_name = getplayerproperty(player_index, "name");
+
+        // log("\n\t player_index: " + player_index);
+
+        /* 
+        * If there's no player model name at all
+        * this isn't an active player. We'll make
+        * sure any existing highlight entity for
+        * this player is removed, and then exit.
+        */
+
+        if (!player_model_name)
+        {
+            dc_draw_kill_inactive_select_highlight_entity(player_index);
+
+            continue;
+        }
+
+        // log("\n\t player_model_name: " + player_model_name);
+
+        /*
+        * We might already have a highlight entity spawned
+        * for this player #. If so we can exit now.
+        */
+
+        select_highlight_entity_old = getlocalvar(OG_SELECT_SCREEN_HIGHLIGHT_ENTITY_KEY + player_index);
+
+        if (select_highlight_entity_old)
+        {
+            select_highlight_entity_exists = get_entity_property(select_highlight_entity_old, "exists");
+
+            if (select_highlight_entity_exists)
+            {
+                continue;
+            }
+        }                
+
+        /*
+        * Loop entity collection, and make sure the 
+        * entity in loop iteration is valid before
+        * trying to use it.
+        */
+
+        for (entity_index = 0; entity_index < entity_count; entity_index++)
+        {
+            entity_cursor = getentity(entity_index);
+
+            entity_exists = get_entity_property(entity_cursor, "exists");
+
+            // log("\n\t\t entity_index: " + entity_index);
+            // log("\n\t\t entity_cursor: " + entity_cursor);
+            // log("\n\t\t entity_exists: " + entity_exists);
+
+            if (!entity_exists)
+            {
+                continue;
+            }
+
+            entity_model_name = getentityproperty(entity_cursor, "model");
+
+            // log("\n\t\t entity_model_name: " + entity_model_name);
+
+            /*
+            * If the player# and entity model names
+            * don't match, then we leave this entity 
+            * loop iteration. Otherwise we can move 
+            * on to the spawn logic.
+            */
+
+            if (entity_model_name != player_model_name)
+            {
+                continue;
+            }
+
+            select_highlight_entity = dc_gauntlet_quick_spawn(OG_SELECT_SCREEN_HIGHLIGHT_MODEL);
+
+            pos_x = get_entity_property(entity_cursor, "position_x");
+            pos_y = get_entity_property(entity_cursor, "position_y");
+            pos_z = get_entity_property(entity_cursor, "position_z");
+            sort_id = get_entity_property(entity_cursor, "sort_id");
+
+            sort_id = sort_id - 5;
+
+            set_entity_property(select_highlight_entity, "position_x", pos_x);
+            set_entity_property(select_highlight_entity, "position_y", pos_y);
+            set_entity_property(select_highlight_entity, "position_z", pos_z);
+            set_entity_property(select_highlight_entity, "sort_id", sort_id);
+            
+            setlocalvar(OG_SELECT_SCREEN_HIGHLIGHT_ENTITY_KEY + player_index, select_highlight_entity);
+
+            // log("\n\t\t pos_x: " + pos_x);
+            // log("\n\t\t pos_y: " + pos_y);
+            // log("\n\t\t pos_z: " + pos_z);
+            // log("\n\t\t sort_id: " + sort_id);
+        }
+    }
 }
 
 /*

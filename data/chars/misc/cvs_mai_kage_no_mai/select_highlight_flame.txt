@@ -1,0 +1,40 @@
+name	select_highlight_flame
+type	none
+shadow	0
+
+palette		data/chars/misc/cvs_mai_kage_no_mai/idle_0.png
+
+anim idle	
+
+	delay	2
+	offset	40 98
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_0.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_1.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_2.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_3.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_4.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_5.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_6.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_7.png
+	#frame	data/chars/misc/cvs_mai_kage_no_mai/idle_8.png
+	#frame	data/chars/misc/cvs_mai_kage_no_mai/idle_9.png
+	#frame	data/chars/misc/cvs_mai_kage_no_mai/idle_10.png
+	#frame	data/chars/misc/cvs_mai_kage_no_mai/idle_11.png
+	#frame	data/chars/misc/cvs_mai_kage_no_mai/idle_12.png
+	#frame	data/chars/misc/cvs_mai_kage_no_mai/idle_13.png
+	#frame	data/chars/misc/cvs_mai_kage_no_mai/idle_14.png
+	#frame	data/chars/misc/cvs_mai_kage_no_mai/idle_15.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_16.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_17.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_18.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_19.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_20.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_21.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_22.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_23.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_24.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_25.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_26.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_27.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_28.png
+

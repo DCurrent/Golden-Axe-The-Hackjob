@@ -64,6 +64,10 @@ load slam_heavy			data/chars/misc/cvs_land_dust/slam_heavy.txt			# Slam impact, 
 load slam_light			data/chars/misc/cvs_land_dust/slam_light.txt			# Slam impact, light (Heavy creature dive, body slam, etc.).
 load wall_impact_medium	data/chars/misc/cvs_wall_impact/wall_impact_medium.txt	# Wall impact, medium (slam into wall).
 
+# Select screen
+load select_highlight_flame	data/chars/misc/cvs_mai_kage_no_mai/select_highlight_flame.txt
+load select_waiting_flame	data/chars/misc/cvs_mai_kage_no_mai/select_waiting_flame.txt
+
 load	effe0001	data/chars/misc/effects/effe0001.txt	#General effects/projectiles.
 
 know    meat            data/chars/misc/golden_axe_meat/meat.txt

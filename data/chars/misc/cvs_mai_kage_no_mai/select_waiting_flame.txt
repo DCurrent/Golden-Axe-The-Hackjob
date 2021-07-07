@@ -1,0 +1,27 @@
+name	select_waiting_flame
+type	none
+shadow	0
+alpha 1
+palette		data/chars/misc/cvs_mai_kage_no_mai/idle_0.png
+
+anim idle	
+
+	loop	1
+	delay	6
+	offset	40 98
+
+	frame	data/chars/misc/cvs_mai_kage_no_mai/ground_spark/idle_0.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/ground_spark/idle_1.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/ground_spark/idle_2.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/ground_spark/idle_3.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/ground_spark/idle_4.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/ground_spark/idle_5.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/ground_spark/idle_6.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/ground_spark/idle_7.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/ground_spark/idle_8.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/ground_spark/idle_9.png
+	#frame	data/chars/misc/cvs_mai_kage_no_mai/ground_spark/idle_10.png
+	#frame	data/chars/misc/cvs_mai_kage_no_mai/ground_spark/idle_11.png
+	#frame	data/chars/misc/cvs_mai_kage_no_mai/ground_spark/idle_12.png
+	#frame	data/chars/misc/cvs_mai_kage_no_mai/ground_spark/idle_13.png
+	#frame	data/chars/misc/cvs_mai_kage_no_mai/ground_spark/idle_14.png

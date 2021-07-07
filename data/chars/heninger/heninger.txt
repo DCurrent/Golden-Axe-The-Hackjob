@@ -446,37 +446,19 @@ anim attack1
 	hitflash  flash_blunt_cut
 	range	24 40
 	loop	0
-	delay	3
+	delay	7
 	offset	60 98
 	bbox	49 37 28 62
     frame   data/chars/heninger/a1.gif
-    frame   data/chars/heninger/a1t.gif
-    frame   data/chars/heninger/a1.gif
-    frame   data/chars/heninger/a1t.gif
     frame   data/chars/heninger/a2.gif
-    frame   data/chars/heninger/a2t.gif
-    frame   data/chars/heninger/a2.gif
-    frame   data/chars/heninger/a2t.gif
     
     attack1  55 53 43 31 4
     frame   data/chars/heninger/a3.gif
-    frame   data/chars/heninger/a3t.gif
-    frame   data/chars/heninger/a3.gif
-    frame   data/chars/heninger/a3t.gif
     attack1  0 0 0 0 0
-    frame   data/chars/heninger/a4.gif
-    frame   data/chars/heninger/a4t.gif
-	delay	2
-    frame   data/chars/heninger/a4.gif
-    frame   data/chars/heninger/a4t.gif
+    frame   data/chars/heninger/a4.gif	
     frame   data/chars/heninger/a5.gif
-    frame   data/chars/heninger/a5t.gif
-    frame   data/chars/heninger/a5.gif
-    frame   data/chars/heninger/a5t.gif
-    frame   data/chars/heninger/a6.gif
-    frame   data/chars/heninger/a6t.gif
-    frame   data/chars/heninger/a6.gif
-    frame   data/chars/heninger/a6t.gif
+    frame   data/chars/heninger/a4.gif
+    
 
 
 anim attack2

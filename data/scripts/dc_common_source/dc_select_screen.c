@@ -278,6 +278,7 @@ void dc_draw_select_waiting_highlight()
     int entity_index = 0;
     int entity_cursor = NULL();
     int entity_exists = 0;
+    int entity_type = 0;
     char entity_model_name = "";
     char player_model_name = "";
 
@@ -348,7 +349,8 @@ void dc_draw_select_waiting_highlight()
         /*
         * Loop entity collection, and make sure the 
         * entity in loop iteration is valid before
-        * trying to use it.
+        * trying to use it. We are looking for player
+        * types, so we can skip anything else.
         */
 
         for (entity_index = 0; entity_index < entity_count; entity_index++)
@@ -366,9 +368,21 @@ void dc_draw_select_waiting_highlight()
                 continue;
             }
 
-            entity_model_name = getentityproperty(entity_cursor, "model");
+            /* Check type. We only want player entities. */
 
-            // log("\n\t\t entity_model_name: " + entity_model_name);
+            entity_type = getentityproperty(entity_cursor, "type");
+
+            // log("\n\t\t entity_type: " + entity_type);
+
+            if (entity_type != openborconstant("TYPE_PLAYER"))
+            {
+                continue;
+            }    
+
+            if (getentityvar(entity_cursor, "highlight_entity")==1)
+            {
+                continue;
+            }
 
             /*
             * If the player# and entity model names
@@ -376,6 +390,10 @@ void dc_draw_select_waiting_highlight()
             * loop iteration. Otherwise we can move 
             * on to the spawn logic.
             */
+
+            entity_model_name = getentityproperty(entity_cursor, "model");
+
+            // log("\n\t\t entity_model_name: " + entity_model_name);
 
             if (entity_model_name != player_model_name)
             {
@@ -397,6 +415,8 @@ void dc_draw_select_waiting_highlight()
             set_entity_property(select_highlight_entity, "sort_id", sort_id);
             
             setlocalvar(OG_SELECT_SCREEN_HIGHLIGHT_ENTITY_KEY + player_index, select_highlight_entity);
+
+            setentityvar(entity_cursor, "highlight_entity", 1);
 
             // log("\n\t\t pos_x: " + pos_x);
             // log("\n\t\t pos_y: " + pos_y);

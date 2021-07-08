@@ -70,6 +70,19 @@ onspawnscript		data/scripts/z_spawn.c				#Spawned to playfied.
 takedamagescript	data/scripts/dc_common_takedamage/event_takedamage.c	
 thinkscript			data/scripts/z_think.c				#Entity AI updates.
 
+anim selectin
+	
+	custpshotno select_highlight_flame
+	projectile_position_x 0
+	projectile_position_y 0
+	projectile_position_z 1
+	pshotframe 0
+    	fshadow 0
+	delay	10
+	offset	60 98
+
+	frame	data/chars/ax/wait_0.png
+
 anim waiting
 
     	fshadow 0

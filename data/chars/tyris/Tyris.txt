@@ -1348,11 +1348,28 @@ anim	up
 	frame	data/chars/tyris/0113
 	frame	data/chars/tyris/0114
 
-anim	waiting
+anim	selectin
+
+	custpshotno select_highlight_flame
+	projectile_position_x 0
+	projectile_position_y 0
+	projectile_position_z 1
+	pshotframe 0
+
+	fshadow 0
 
 	delay   10
     	offset  60 98
+	
+	frame   data/chars/tyris/wait_0.png
 
+anim	waiting
+
+	fshadow 0
+
+	delay   10
+    	offset  60 98
+	
 	frame   data/chars/tyris/wait_0.png
 
 anim	select

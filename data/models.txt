@@ -111,6 +111,13 @@ know    ax_dragon_motion	data/chars/ax/ax_dragon_motion.txt			# Riding dragons, 
 know	ax_battler_motion	data/chars/ax/ax_motion.txt					# Motion blurs.
 load	Ax_Battler			data/chars/ax/ax.txt						# Player.
 
+# Gilius Thunderhead
+
+load Gilius_Thunderhead	data/chars/gilius/gilius.txt
+#load g_bdrag data/chars/gilius/g_bdrag.txt
+#load g_bdrag data/chars/gilius/g_rdrag.txt
+#load g_bdrag data/chars/gilius/g_chick.txt
+
 # Tyris Flare
 
 know    t_chick         data/chars/tyris/t_chick.txt

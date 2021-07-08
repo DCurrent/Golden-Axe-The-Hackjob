@@ -1,13 +1,18 @@
 name	select_highlight_flame
 type	none
 shadow	0
-
+alpha 1
 palette		data/chars/misc/cvs_mai_kage_no_mai/idle_0.png
+nomove 1
 
 anim idle	
 
 	delay	2
 	offset	40 98
+	
+	@cmd set_entity_property getlocalvar("self") "autokill" 1
+	
+	sound data/sounds/custom/marvel_vs_capcom_2_fire_hit_0.wav
 	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_0.png
 	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_1.png
 	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_2.png
@@ -16,14 +21,16 @@ anim idle
 	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_5.png
 	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_6.png
 	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_7.png
-	#frame	data/chars/misc/cvs_mai_kage_no_mai/idle_8.png
-	#frame	data/chars/misc/cvs_mai_kage_no_mai/idle_9.png
-	#frame	data/chars/misc/cvs_mai_kage_no_mai/idle_10.png
-	#frame	data/chars/misc/cvs_mai_kage_no_mai/idle_11.png
-	#frame	data/chars/misc/cvs_mai_kage_no_mai/idle_12.png
-	#frame	data/chars/misc/cvs_mai_kage_no_mai/idle_13.png
-	#frame	data/chars/misc/cvs_mai_kage_no_mai/idle_14.png
-	#frame	data/chars/misc/cvs_mai_kage_no_mai/idle_15.png
+	
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_8.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_9.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_10.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_11.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_12.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_13.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_14.png
+	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_15.png
+	
 	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_16.png
 	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_17.png
 	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_18.png
@@ -37,4 +44,5 @@ anim idle
 	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_26.png
 	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_27.png
 	frame	data/chars/misc/cvs_mai_kage_no_mai/idle_28.png
+
 

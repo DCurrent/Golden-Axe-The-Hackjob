@@ -1,0 +1,21 @@
+name    lv2lt
+type    none
+subtype arrow
+speed   20
+shadow  0
+nolife  1
+remove  0
+alpha   4
+
+
+anim idle
+	loop	1
+	offset	60 280
+	delay	6
+        shock   0 0 120 284 16 1 0 1
+	frame	data/chars/gilius/magic/l2_l1.gif
+	frame	data/chars/gilius/magic/l2_l2.gif
+	frame	data/chars/gilius/magic/l2_l3.gif
+	frame	data/chars/gilius/magic/l2_l4.gif
+	frame	data/chars/gilius/magic/l2_l5.gif
+	frame	data/chars/gilius/magic/l2_l6.gif

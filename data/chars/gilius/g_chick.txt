@@ -1,0 +1,248 @@
+# Gilius on chickenlegs
+
+name	g_chick
+health	98
+speed	10
+running 22 5 1 1 0
+gfxshadow 1
+shadow	3
+throwdamage 8
+animal  2
+grabforce 1
+grabdistance 30
+aimove chase
+grabfinish 1
+icon	data/chars/gilius/hud.gif
+
+animationscript data\scripts\common\beast.h
+
+#atchain  1 1 1 1 1
+
+modelflag 1
+
+weapons g_chick g_rdrag g_bdrag
+
+anim spawn
+	loop	0
+	delay	100
+	offset	78 142
+    bbox    66 80 34 64
+	frame	data/chars/gilius/chicken/idle2.gif
+
+anim idle
+	loop	1
+	delay	100
+	offset	78 142
+    bbox    66 80 34 64
+@cmd savemp
+	frame	data/chars/gilius/chicken/idle2.gif
+
+anim get
+	loop	0
+	delay	20
+	offset	78 142
+	frame	data/chars/gilius/chicken/ride1.gif
+	frame	data/chars/gilius/chicken/ride2.gif
+	frame	data/chars/gilius/chicken/idle2.gif
+
+anim grab
+    loop    0
+    delay   1
+	offset	82 142
+    bbox    66 80 34 64
+	frame	data/chars/gilius/chicken/g1.gif
+
+
+anim walk
+    loop    1
+    delay   10
+    offset  80 142
+    bbox    64 80 30 60
+	frame	data/chars/gilius/chicken/wd1.gif
+	frame	data/chars/gilius/chicken/wd2.gif
+	frame	data/chars/gilius/chicken/wd3.gif
+	frame	data/chars/gilius/chicken/wd4.gif
+
+anim up
+    loop    1
+    delay   10
+    offset  82 142
+    bbox    70 78 28 60
+	frame	data/chars/gilius/chicken/wu1.gif
+	frame	data/chars/gilius/chicken/wu2.gif
+	frame	data/chars/gilius/chicken/wu3.gif
+	frame	data/chars/gilius/chicken/wu4.gif
+
+anim run
+    loop    1
+    delay   6
+	offset	78 142
+    bbox    66 80 34 64
+	frame	data/chars/gilius/chicken/r1.gif
+	frame	data/chars/gilius/chicken/r2.gif
+	frame	data/chars/gilius/chicken/r3.gif
+	frame	data/chars/gilius/chicken/r4.gif
+
+anim runattack
+    range 80 180
+    followanim 2
+    followcond 1
+    jumpframe  1 2 3
+    landframe  2
+	loop	0
+    delay   6
+	offset	78 142
+    bbox    68 66 34 54
+	frame	data/chars/gilius/chicken/land.gif
+    bbox    67 70 34 54
+    delay   1000
+    hitfx   data/sounds/hit4.wav
+	attack	99 98 26 37 8 1 1
+	frame	data/chars/gilius/chicken/ra2.gif
+	attack	0
+    delay   10
+    bbox    68 66 34 54
+@cmd slide 2
+	frame	data/chars/gilius/chicken/land.gif
+    delay   1
+@cmd slide 0
+	frame	data/chars/gilius/chicken/land.gif
+
+# deflect
+anim follow2
+    jumpframe 0 1 0
+	loop	0
+	offset	78 142
+    bbox    68 66 34 54
+	delay	1
+	attack	99 98 26 37 8 1 1
+	frame	data/chars/gilius/chicken/ra2.gif
+	attack	0
+	delay	6
+	frame	data/chars/gilius/chicken/ra2.gif
+	delay	12
+	frame	data/chars/gilius/chicken/land.gif
+
+anim jump
+    range   10 64
+	loop	0
+	delay	10
+	offset	78 142
+    bbox    68 66 34 54
+	frame	data/chars/gilius/chicken/land.gif
+	delay	70
+    bbox    68 58 34 54
+	frame	data/chars/gilius/chicken/j.gif
+    bbox    68 66 34 54
+	frame	data/chars/gilius/chicken/land.gif
+
+anim attack1
+    range   0 70
+	loop	0
+    flipframe 4
+	delay	6
+	offset	82 142
+    bbox    68 79 31 55
+    hitfx   data/sounds/hit2.wav
+	attack	41 129 28 18 16 1 0 1
+	frame	data/chars/gilius/chicken/a1.gif
+	offset	76 142
+    bbox    60 79 31 55
+	attack	52 126 48 24 16 1 1 1
+	frame	data/chars/gilius/chicken/a2.gif
+	offset	78 142
+	attack	85 123 38 22 16 1 1 1
+	frame	data/chars/gilius/chicken/a3.gif
+	attack	87 116 66 22 16 1 1 1
+	frame	data/chars/gilius/chicken/a4.gif
+	attack	0 0 0 0 0
+	offset	78 142
+    bbox    66 80 34 64
+	frame	data/chars/gilius/chicken/idle2.gif
+
+
+anim grabattack
+@script
+void self = getlocalvar("self");
+void target = getentityproperty(self, "opponent");
+if(target==NULL())
+{
+    target = getentityproperty(self, "grabbing");
+}
+if(target!=NULL())
+{
+    char tname = getentityproperty(target, "defaultname");
+    if(tname == "Bad_Brother")
+    {
+        //  kick
+        changeentityproperty(self, "animation", openborconstant("ANI_GRABATTACK2"));
+    }
+}
+@end_script
+    hitfx   data/sounds/head.wav
+	loop	0
+	offset	82 142
+    bbox    66 80 34 64
+	delay	10
+	frame	data/chars/gilius/chicken/ga1.gif
+	delay	6
+	frame	data/chars/gilius/chicken/ga2.gif
+	delay	12
+    attack2 99 90 12 26 4 0 0 1
+    dropv 0 0 0
+	frame	data/chars/gilius/chicken/ga3.gif
+
+
+anim grabattack2
+	loop	0
+    flipframe 4
+	delay	6
+	offset	82 142
+    bbox    68 79 31 55
+    hitfx   data/sounds/hit2.wav
+	attack	41 129 28 18 16 1 0 1
+	frame	data/chars/gilius/chicken/a1.gif
+	offset	76 142
+    bbox    60 79 31 55
+	attack	52 126 48 24 16 1 0 1
+	frame	data/chars/gilius/chicken/a2.gif
+	offset	78 142
+	attack	85 123 38 22 16 1 0 1
+	frame	data/chars/gilius/chicken/a3.gif
+	attack	87 116 66 22 16 1 0 1
+	frame	data/chars/gilius/chicken/a4.gif
+	attack	0 0 0 0 0
+	offset	78 142
+    bbox    66 80 34 64
+	frame	data/chars/gilius/chicken/idle2.gif
+
+anim throw
+	loop	0
+	delay	6
+	offset	82 142
+	frame	data/chars/gilius/chicken/g1.gif
+	offset	82 142
+	frame	data/chars/gilius/chicken/a1.gif
+	offset	76 142
+	frame	data/chars/gilius/chicken/a2.gif
+    delay   16
+	offset	78 142
+	frame	data/chars/gilius/chicken/a3.gif
+    delay   10
+	offset	76 142
+	frame	data/chars/gilius/chicken/a2.gif
+	offset	82 142
+	frame	data/chars/gilius/chicken/a1.gif
+	offset	78 140
+	frame	data/chars/gilius/chicken/idle2.gif
+
+#get off
+anim attackboth
+    weaponframe 3 0
+	loop	0
+	delay	20
+	offset	78 142
+	frame	data/chars/gilius/chicken/idle2.gif
+	frame	data/chars/gilius/chicken/ride2.gif
+	frame	data/chars/gilius/chicken/ride1.gif
+	frame	data/chars/gilius/chicken/ride1.gif

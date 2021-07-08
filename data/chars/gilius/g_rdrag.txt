@@ -1,0 +1,253 @@
+# Gilius on red dragon
+
+name	g_rdrag
+type	none
+health	98
+speed	11
+running 23 5 1 1 0
+gfxshadow 1
+shadow	3
+throwdamage 8
+throwframewait 2
+animal  2
+grabfinish 1
+grabforce 1
+grabdistance 36
+aimove chasez
+icon	data/chars/gilius/hud.gif
+
+animationscript data\scripts\common\beast.h
+
+#atchain  1 1 1 1 1
+
+modelflag 1
+
+weapons g_chick g_rdrag g_bdrag
+
+anim idle
+	loop	1
+	delay	100
+	offset	80 142
+    bbox    66 68 24 47
+@cmd savemp
+	frame	data/chars/gilius/rdragon/idle2.gif
+
+anim grab
+    loop    0
+    delay   16
+	offset	80 142
+    bbox    68 66 34 54
+	frame	data/chars/gilius/rdragon/ga.gif
+
+anim get
+	loop	0
+	delay	20
+	offset	80 142
+	frame	data/chars/gilius/rdragon/ride1.gif
+	frame	data/chars/gilius/rdragon/ride2.gif
+	frame	data/chars/gilius/rdragon/idle2.gif
+
+anim walk
+    loop    1
+    delay   10
+    offset  80 142
+    bbox    74 74 20 54
+	frame	data/chars/gilius/rdragon/wd1.gif
+	frame	data/chars/gilius/rdragon/wd2.gif
+	frame	data/chars/gilius/rdragon/wd3.gif
+	frame	data/chars/gilius/rdragon/wd4.gif
+
+anim up
+    loop    1
+    delay   10
+    offset  80 142
+    bbox    64 72 22 54
+	frame	data/chars/gilius/rdragon/wu1.gif
+	frame	data/chars/gilius/rdragon/wu2.gif
+	frame	data/chars/gilius/rdragon/wu3.gif
+	frame	data/chars/gilius/rdragon/wu4.gif
+
+anim run
+    loop    1
+    delay   6
+	offset	80 142
+    bbox    64 72 22 54
+	frame	data/chars/gilius/rdragon/r1.gif
+	frame	data/chars/gilius/rdragon/r2.gif
+	frame	data/chars/gilius/rdragon/r3.gif
+	frame	data/chars/gilius/rdragon/r4.gif
+
+anim runattack
+    range 80 180
+    followanim 2
+    followcond 1
+    jumpframe  0 2 3
+    landframe 2
+	loop	0
+	delay	8
+	offset	80 142
+    bbox    64 56 27 46
+	frame	data/chars/gilius/rdragon/j1.gif
+	delay	1000
+    bbox    65 68 26 54
+    hitfx   data/sounds/hit4.wav
+	attack	80 96 54 28 8 1  1
+	frame	data/chars/gilius/rdragon/ra.gif
+	attack	0
+	delay	6
+    bbox    64 72 22 54
+@cmd slide  2.8
+	frame	data/chars/gilius/rdragon/r4.gif
+@cmd slide 2
+	frame	data/chars/gilius/rdragon/r3.gif
+@cmd slide 1
+	frame	data/chars/gilius/rdragon/r2.gif
+@cmd slide 0.5
+	frame	data/chars/gilius/rdragon/r1.gif
+	delay	1
+@cmd slide 0
+	frame	data/chars/gilius/rdragon/r1.gif
+
+# deflect
+anim follow2
+    jumpframe 0 1 0
+    landframe 2
+	loop	0
+	offset	80 142
+	delay	2
+    hitfx   data/sounds/hit4.wav
+	attack	80 96 54 28 8 1 1
+    bbox    65 68 26 54
+	frame	data/chars/gilius/rdragon/ra.gif
+	attack	0
+	delay	8
+	frame	data/chars/gilius/rdragon/ra.gif
+	delay	6
+    bbox    64 56 27 46
+	frame	data/chars/gilius/rdragon/j2.gif
+
+anim jump
+    range   0 64
+	loop	0
+	delay	30
+	offset	80 142
+    bbox    64 56 27 46
+	frame	data/chars/gilius/rdragon/j1.gif
+	delay	30
+    bbox    65 54 26 46
+	frame	data/chars/gilius/rdragon/j2.gif
+    bbox    64 56 27 46
+	frame	data/chars/gilius/rdragon/j1.gif
+
+anim attack1
+    range   60 400
+	loop	0
+    custknife fireball
+    throwframe 2 33
+	offset	80 142
+	delay	10
+    bbox    65 69 24 54
+    sound   data/sounds/dragfire.wav
+	frame	data/chars/gilius/rdragon/a1.gif
+	delay	8
+	frame	data/chars/gilius/rdragon/a2.gif
+	frame	data/chars/gilius/rdragon/a3.gif
+	frame	data/chars/gilius/rdragon/a2.gif
+	delay	10
+	frame	data/chars/gilius/rdragon/a1.gif
+    bbox    66 68 24 47
+	delay	30
+	frame	data/chars/gilius/rdragon/idle2.gif
+
+anim grabattack
+    loop    0
+	offset	80 142
+    bbox    68 66 34 54
+    # 1
+    delay   10
+	frame	data/chars/gilius/rdragon/ga.gif
+    delay   20
+	frame	data/chars/gilius/rdragon/ga1.gif
+    delay   5
+	frame	data/chars/gilius/rdragon/ga.gif
+    delay   12
+    attack  101 101 24 24 8 0 0
+	frame	data/chars/gilius/rdragon/ga2.gif
+    attack  0 0 0 0 0
+    # 2
+    delay   10
+	frame	data/chars/gilius/rdragon/ga.gif
+    delay   20
+	frame	data/chars/gilius/rdragon/ga1.gif
+    delay   5
+	frame	data/chars/gilius/rdragon/ga.gif
+    delay   12
+    attack  101 101 24 24 8 0 0
+	frame	data/chars/gilius/rdragon/ga2.gif
+
+
+anim grabattack2
+    followanim 2
+    followcond 1
+    jumpframe  0 2 3
+	loop	0
+	delay	8
+	offset	80 142
+    bbox    64 56 27 46
+	frame	data/chars/gilius/rdragon/j1.gif
+	delay	38
+    bbox    65 68 26 54
+    sound   data/sounds/hit4.wav
+	attack	80 96 54 28 8 1 0
+	frame	data/chars/gilius/rdragon/ra.gif
+
+anim throw
+	loop	0
+	delay	9
+	offset	80 142
+	frame	data/chars/gilius/rdragon/g1.gif
+	delay	10
+	frame	data/chars/gilius/rdragon/idle2.gif
+	delay	30
+	frame	data/chars/gilius/rdragon/g2.gif
+	delay	8
+	frame	data/chars/gilius/rdragon/idle2.gif
+
+anim attackboth
+	loop	0
+    weaponframe 3 0
+	delay	20
+	offset	80 142
+	frame	data/chars/gilius/rdragon/idle2.gif
+	frame	data/chars/gilius/rdragon/ride2.gif
+	frame	data/chars/gilius/rdragon/ride1.gif
+	frame	data/chars/gilius/rdragon/ride1.gif
+
+#for npc
+anim attack3
+    range   20 70
+    followanim 2
+    followcond 1
+    jumpframe  0 2 3
+    landframe 2
+	loop	0
+	delay	8
+	offset	80 142
+    bbox    64 56 27 46
+	frame	data/chars/gilius/rdragon/j1.gif
+	delay	1000
+    bbox    65 68 26 54
+    hitfx   data/sounds/hit4.wav
+	attack	80 96 54 28 8 1  1
+	frame	data/chars/gilius/rdragon/ra.gif
+	attack	0
+	delay	6
+    bbox    64 72 22 54
+@cmd slide  2.8
+	frame	data/chars/gilius/rdragon/r4.gif
+@cmd slide 2
+	frame	data/chars/gilius/rdragon/r3.gif
+@cmd slide 1
+	frame	data/chars/gilius/rdragon/r2.gif
+@cmd slide 0.5
+	frame	data/chars/gilius/rdragon/r1.gif

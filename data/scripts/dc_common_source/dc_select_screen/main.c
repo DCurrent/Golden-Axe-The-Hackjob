@@ -34,9 +34,11 @@ void dc_module_select_screen_initialize()
     
     set(sprites_list, "ceiling", loadsprite("data/bgs/select/ceiling_0.png"));
     set(sprites_list, "column", loadsprite("data/bgs/select/column_0.png"));
+    set(sprites_list, "column_far", loadsprite("data/bgs/select/column_far_0.png"));
     set(sprites_list, "floor", loadsprite("data/bgs/select/floor_0.png"));
     set(sprites_list, "select_text", loadsprite("data/bgs/select/text_0.png"));
     set(sprites_list, "skeleton", loadsprite("data/bgs/select/skeleton_0.png"));
+    set(sprites_list, "throne", loadsprite("data/bgs/select/throne_0.png"));
     set(sprites_list, "wall", loadsprite("data/bgs/select/wall_0.png"));
 
     setlocalvar("dc_mssi_sprites", sprites_list);
@@ -145,7 +147,7 @@ void dc_module_select_screen_unload_sprites()
 * 
 * Draw the wall background in select screen.
 */
-void dc_select_screen_draw_layer(int index, void sprite, int size_x, int size_y, int pos_x, int pos_y, int pos_z, int sprite_offset_x, int sprite_offset_y)
+void dc_select_screen_draw_layer(int index, void sprite, int size_x, int size_y, int pos_x, int pos_y, int pos_z, int sprite_offset_x, int sprite_offset_y, int scroll_delay)
 {    
     
     /* 
@@ -159,7 +161,7 @@ void dc_select_screen_draw_layer(int index, void sprite, int size_x, int size_y,
     //log("\n sprite: " + sprite);
        
     /* Repeats the sprite enough to fill a screen seamlessly. */
-    dc_draw_sprite_to_screen_width(screen, sprite, sprite_offset_x, sprite_offset_y);
+    dc_draw_sprite_to_screen_width(screen, sprite, sprite_offset_x, sprite_offset_y, scroll_delay);
   
     /* Draws the screen to player's display. */
     drawscreen(screen, pos_x, pos_y, pos_z);
@@ -223,36 +225,84 @@ void dc_draw_select_screen()
     void sprite = NULL();
     int sprite_offset_x = 0;
     int sprite_offset_y = 0;
+    int scroll_delay = 5;
 
     void sprite_list = getlocalvar("dc_mssi_sprites");
     void common_drawmethod = openborvariant("drawmethod_common");
     void default_drawmethod = openborvariant("drawmethod_default");
 
-    /* Temple wall. */
+    /* Columns (far) */
 
     index = 0;
+    size_x = openborvariant("hresolution");
+    size_y = 62;
+    pos_x = 0;
+    pos_y = 102;
+    pos_z = openborconstant("PANEL_Z");
+    sprite = get(sprite_list, "column_far");
+    sprite_offset_x = 0;
+    sprite_offset_y = 0;
+    scroll_delay = 8;
+
+    set_drawmethod_property(common_drawmethod, "background_transparency", 1);
+    set_drawmethod_property(common_drawmethod, "enable", 1);
+
+    dc_select_screen_draw_layer(index, sprite, size_x, size_y, pos_x, pos_y, pos_z, sprite_offset_x, sprite_offset_y, scroll_delay);
+
+    copy_drawmethod(default_drawmethod, common_drawmethod);
+
+    /* Throne */
+
+    index = 1;
+    size_x = openborvariant("hresolution");
+    size_y = 62;
+    pos_x = 0;
+    pos_y = 102;
+    pos_z = openborconstant("PANEL_Z") + 3;
+    sprite = get(sprite_list, "throne");
+    sprite_offset_x = 0;
+    sprite_offset_y = 0;
+    scroll_delay = 7;
+
+    set_drawmethod_property(common_drawmethod, "background_transparency", 1);
+    set_drawmethod_property(common_drawmethod, "enable", 1);
+
+    dc_select_screen_draw_layer(index, sprite, size_x, size_y, pos_x, pos_y, pos_z, sprite_offset_x, sprite_offset_y, scroll_delay);
+
+    copy_drawmethod(default_drawmethod, common_drawmethod);
+
+    /* Temple wall. */
+
+    index = 2;
     size_x = openborvariant("hresolution");
     size_y = 94;
     pos_x = 0;
     pos_y = 94;
-    pos_z = openborconstant("PANEL_Z");
+    pos_z = openborconstant("PANEL_Z") + 4;
     sprite = get(sprite_list, "wall");
     sprite_offset_x = 0;
     sprite_offset_y = 0;
+    scroll_delay = 6;
 
-    dc_select_screen_draw_layer(index, sprite, size_x, size_y, pos_x, pos_y, pos_z, sprite_offset_x, sprite_offset_y);    
+    set_drawmethod_property(common_drawmethod, "background_transparency", 1);
+    set_drawmethod_property(common_drawmethod, "enable", 1);
+
+    dc_select_screen_draw_layer(index, sprite, size_x, size_y, pos_x, pos_y, pos_z, sprite_offset_x, sprite_offset_y, scroll_delay);    
+
+    copy_drawmethod(default_drawmethod, common_drawmethod);
 
     /* Ceiling */        
 
-    index = 1;
+    index = 3;
     size_x = openborvariant("hresolution") + 240;
-    size_y = 94;
+    size_y = 102;
     pos_x = -240;
     pos_y = 0;
     pos_z = openborconstant("PANEL_Z") + 2;
     sprite = get(sprite_list, "ceiling");
     sprite_offset_x = 0;
     sprite_offset_y = 0;
+    scroll_delay = 8;
 
     set_drawmethod_property(common_drawmethod, "water_perspective", openborconstant("WATER_PERSPECTIVE_NONE"));
     set_drawmethod_property(common_drawmethod, "water_mode", openborconstant("WATER_MODE_SHEAR"));
@@ -261,21 +311,22 @@ void dc_draw_select_screen()
     set_drawmethod_property(common_drawmethod, "flip_y", 1);
     set_drawmethod_property(common_drawmethod, "enable", 1);
 
-    dc_select_screen_draw_layer(index, sprite, size_x, size_y, pos_x, pos_y, pos_z, sprite_offset_x, sprite_offset_y);
+    dc_select_screen_draw_layer(index, sprite, size_x, size_y, pos_x, pos_y, pos_z, sprite_offset_x, sprite_offset_y, scroll_delay);
 
     copy_drawmethod(default_drawmethod, common_drawmethod);   
     
     /* Floor */
 
-    index = 2;
+    index = 4;
     size_x = 480;
-    size_y = 94;
+    size_y = 109;
     pos_x = 0;
-    pos_y = 178;
-    pos_z = openborconstant("PANEL_Z") + 1;
+    pos_y = 163;
+    pos_z = openborconstant("PANEL_Z") + 3;
     sprite = get(sprite_list, "floor");   
     sprite_offset_x = 0;
     sprite_offset_y = 0;
+    scroll_delay = 8;
     
     set_drawmethod_property(common_drawmethod, "water_perspective", openborconstant("WATER_PERSPECTIVE_NONE"));
     set_drawmethod_property(common_drawmethod, "water_mode", openborconstant("WATER_MODE_SHEAR"));
@@ -283,7 +334,7 @@ void dc_draw_select_screen()
     set_drawmethod_property(common_drawmethod, "water_size_end", 2.0);    
     set_drawmethod_property(common_drawmethod, "enable", 1);
 
-    dc_select_screen_draw_layer(index, sprite, size_x, size_y, pos_x, pos_y, pos_z, sprite_offset_x, sprite_offset_y);
+    dc_select_screen_draw_layer(index, sprite, size_x, size_y, pos_x, pos_y, pos_z, sprite_offset_x, sprite_offset_y, scroll_delay);
 
     copy_drawmethod(default_drawmethod, common_drawmethod);
 
@@ -291,7 +342,7 @@ void dc_draw_select_screen()
 
     pos_x = 80;
     pos_y = 102;
-    pos_z = openborconstant("PANEL_Z") + 2;
+    pos_z = openborconstant("PANEL_Z") + 5;
     sprite = get(sprite_list, "skeleton");
     sort_id = 1;
     
@@ -301,7 +352,7 @@ void dc_draw_select_screen()
 
     pos_x = 140;
     pos_y = 25;
-    pos_z = openborconstant("PANEL_Z") + 2;
+    pos_z = openborconstant("PANEL_Z") + 5;
     sprite = get(sprite_list, "select_text");
     sort_id = 1;
 
@@ -311,7 +362,7 @@ void dc_draw_select_screen()
 
     pos_x = 0;
     pos_y = 0;
-    pos_z = openborconstant("PANEL_Z") + 2;
+    pos_z = openborconstant("PANEL_Z") + 5;
     sprite = get(sprite_list, "column");
     sort_id = 1;
 
@@ -525,7 +576,7 @@ void dc_draw_select_waiting_highlight()
 * Draw sprites repeated as needed to
 * fill width of screen object.
 */
-void dc_draw_sprite_to_screen_width(void screen, void sprite, int offset_x, int offset_y)
+void dc_draw_sprite_to_screen_width(void screen, void sprite, int offset_x, int offset_y, int scroll_delay)
 {
     int screen_width = getgfxproperty(screen, "width");
     int sprite_width = getgfxproperty(sprite, "width");
@@ -547,7 +598,7 @@ void dc_draw_sprite_to_screen_width(void screen, void sprite, int offset_x, int 
 
     /* Time to incrment scroll position? */
     dc_eggball_set_instance(screen);
-    dc_eggball_set_member_interval(5);
+    dc_eggball_set_member_interval(scroll_delay);
 
     if (dc_eggball_check_interval())
     {

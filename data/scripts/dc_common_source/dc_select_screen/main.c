@@ -40,6 +40,7 @@ void dc_module_select_screen_initialize()
     set(sprites_list, "skeleton", loadsprite("data/bgs/select/skeleton_0.png"));
     set(sprites_list, "throne", loadsprite("data/bgs/select/throne_0.png"));
     set(sprites_list, "wall", loadsprite("data/bgs/select/wall_0.png"));
+    set(sprites_list, "wall_far", loadsprite("data/bgs/select/wall_far_0.png"));
 
     setlocalvar("dc_mssi_sprites", sprites_list);
 
@@ -231,14 +232,29 @@ void dc_draw_select_screen()
     void common_drawmethod = openborvariant("drawmethod_common");
     void default_drawmethod = openborvariant("drawmethod_default");
 
-    /* Columns (far) */
+    /* Wall (far) */
 
     index = 0;
+    size_x = openborvariant("hresolution");
+    size_y = 60;
+    pos_x = 0;
+    pos_y = 102;
+    pos_z = openborconstant("PANEL_Z");
+    sprite = get(sprite_list, "wall_far");
+    sprite_offset_x = 0;
+    sprite_offset_y = 0;
+    scroll_delay = 9;
+
+    dc_select_screen_draw_layer(index, sprite, size_x, size_y, pos_x, pos_y, pos_z, sprite_offset_x, sprite_offset_y, scroll_delay);
+
+    /* Columns (far) */
+
+    index = 1;
     size_x = openborvariant("hresolution");
     size_y = 62;
     pos_x = 0;
     pos_y = 102;
-    pos_z = openborconstant("PANEL_Z");
+    pos_z = openborconstant("PANEL_Z")+1;
     sprite = get(sprite_list, "column_far");
     sprite_offset_x = 0;
     sprite_offset_y = 0;
@@ -253,12 +269,12 @@ void dc_draw_select_screen()
 
     /* Throne */
 
-    index = 1;
+    index = 2;
     size_x = openborvariant("hresolution");
     size_y = 62;
     pos_x = 0;
     pos_y = 102;
-    pos_z = openborconstant("PANEL_Z") + 3;
+    pos_z = openborconstant("PANEL_Z") + 4;
     sprite = get(sprite_list, "throne");
     sprite_offset_x = 0;
     sprite_offset_y = 0;
@@ -273,12 +289,12 @@ void dc_draw_select_screen()
 
     /* Temple wall. */
 
-    index = 2;
+    index = 3;
     size_x = openborvariant("hresolution");
     size_y = 94;
     pos_x = 0;
     pos_y = 94;
-    pos_z = openborconstant("PANEL_Z") + 4;
+    pos_z = openborconstant("PANEL_Z") + 5;
     sprite = get(sprite_list, "wall");
     sprite_offset_x = 0;
     sprite_offset_y = 0;
@@ -293,12 +309,12 @@ void dc_draw_select_screen()
 
     /* Ceiling */        
 
-    index = 3;
+    index = 4;
     size_x = openborvariant("hresolution") + 240;
     size_y = 102;
     pos_x = -240;
     pos_y = 0;
-    pos_z = openborconstant("PANEL_Z") + 2;
+    pos_z = openborconstant("PANEL_Z") + 3;
     sprite = get(sprite_list, "ceiling");
     sprite_offset_x = 0;
     sprite_offset_y = 0;
@@ -317,7 +333,7 @@ void dc_draw_select_screen()
     
     /* Floor */
 
-    index = 4;
+    index = 5;
     size_x = 480;
     size_y = 109;
     pos_x = 0;
@@ -342,7 +358,7 @@ void dc_draw_select_screen()
 
     pos_x = 80;
     pos_y = 102;
-    pos_z = openborconstant("PANEL_Z") + 5;
+    pos_z = openborconstant("PANEL_Z") + 6;
     sprite = get(sprite_list, "skeleton");
     sort_id = 1;
     
@@ -352,7 +368,7 @@ void dc_draw_select_screen()
 
     pos_x = 140;
     pos_y = 25;
-    pos_z = openborconstant("PANEL_Z") + 5;
+    pos_z = openborconstant("PANEL_Z") + 6;
     sprite = get(sprite_list, "select_text");
     sort_id = 1;
 
@@ -362,7 +378,7 @@ void dc_draw_select_screen()
 
     pos_x = 0;
     pos_y = 0;
-    pos_z = openborconstant("PANEL_Z") + 5;
+    pos_z = openborconstant("PANEL_Z") + 6;
     sprite = get(sprite_list, "column");
     sort_id = 1;
 

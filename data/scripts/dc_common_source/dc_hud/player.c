@@ -1,8 +1,8 @@
-#include "data/scripts/dc_module_hud/config.h"
+#include "data/scripts/dc_common_source/dc_hud/config.h"
 #include "data/scripts/dc_spinner/main.c"
 
-#import "data/scripts/dc_module_hud/block-sprites.c"
-#import "data/scripts/dc_module_hud/health-fraction.c"
+#import "data/scripts/dc_common_source/dc_hud/block-sprites.c"
+#import "data/scripts/dc_common_source/dc_hud/health-fraction.c"
 
 /*
 * Caskey, Damon V.

@@ -1,7 +1,7 @@
 #include	"data/scripts/vars/constants.h"
 
-#include	"data/scripts/dc_common_source/dc_select_screen.c"
-#include	"data/scripts/dc_module_hud/main.c"
+#include	"data/scripts/dc_common_source/dc_select_screen/main.c"
+#include	"data/scripts/dc_common_source/dc_hud/main.c"
 #include    "data/scripts/dc_fidelity/main.c"
 #include    "data/scripts/dc_kanga/main.c"
 

@@ -1,4 +1,4 @@
-#include "data/scripts/dc_module_hud/config.h"
+#include "data/scripts/dc_common_source/dc_hud/config.h"
 
 // Get a pre-loaded colored block sprite based on
 // fraction argument.

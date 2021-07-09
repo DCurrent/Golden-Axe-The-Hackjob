@@ -1,4 +1,4 @@
-#include "data/scripts/dc_module_hud/config.h"
+#include "data/scripts/dc_common_source/dc_hud/config.h"
 
 // Return true if target is currently
 // receiving an attack, being grappled,

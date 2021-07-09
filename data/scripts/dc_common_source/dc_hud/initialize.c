@@ -1,4 +1,4 @@
-#include "data/scripts/dc_module_hud/config.h"
+#include "data/scripts/dc_common_source/dc_hud/config.h"
 
 // Run in the on create event. Preloads
 // sprites that will be drawn to HUD.

@@ -32,11 +32,12 @@ void dc_module_select_screen_initialize()
 {
     void sprites_list = array(0);
     
-    set(sprites_list, "column", loadsprite("data/bgs/select_column_0.png"));
-    set(sprites_list, "floor", loadsprite("data/bgs/select_floor_0.png"));
-    set(sprites_list, "select_text", loadsprite("data/bgs/select_text_0.png"));
-    set(sprites_list, "skeleton", loadsprite("data/bgs/select_skeleton_0.png"));
-    set(sprites_list, "wall", loadsprite("data/bgs/select_wall_0.png"));
+    set(sprites_list, "ceiling", loadsprite("data/bgs/select/ceiling_0.png"));
+    set(sprites_list, "column", loadsprite("data/bgs/select/column_0.png"));
+    set(sprites_list, "floor", loadsprite("data/bgs/select/floor_0.png"));
+    set(sprites_list, "select_text", loadsprite("data/bgs/select/text_0.png"));
+    set(sprites_list, "skeleton", loadsprite("data/bgs/select/skeleton_0.png"));
+    set(sprites_list, "wall", loadsprite("data/bgs/select/wall_0.png"));
 
     setlocalvar("dc_mssi_sprites", sprites_list);
 
@@ -139,12 +140,69 @@ void dc_module_select_screen_unload_sprites()
 }
 
 /*
-* Draw layers and animation for select screen.
-* OpenBOR select screens are highly optimised at
-* the cost of being mostly hardcoded and very
-* plain looking. We could code our own through
-* model switching in a regular stage, but I'd
-* rather try dressing up the native select
+* Caskey, Damon V.
+* 2021-07-08
+* 
+* Draw the wall background in select screen.
+*/
+void dc_select_screen_draw_layer(int index, void sprite, int size_x, int size_y, int pos_x, int pos_y, int pos_z, int sprite_offset_x, int sprite_offset_y)
+{    
+    
+    /* 
+    * Get the sprite we need by key from an 
+    * from array of preloaded select screen
+    * sprites.
+    */
+
+    void screen = dc_get_screen(index, size_x, size_y);
+
+    //log("\n sprite: " + sprite);
+       
+    /* Repeats the sprite enough to fill a screen seamlessly. */
+    dc_draw_sprite_to_screen_width(screen, sprite, sprite_offset_x, sprite_offset_y);
+  
+    /* Draws the screen to player's display. */
+    drawscreen(screen, pos_x, pos_y, pos_z);
+}
+
+/*
+void dc_draw_multiscreen_perspective(int pos_x, int pos_y, int size_x, int size_y, int screen_size_y, int scale_x_top, int scale_x_bottom)
+{
+    int i = 0;
+    
+    int screen_count = size_y / screen_size_y;
+    void screen = NULL();
+    
+    // What is the difference between start and end?
+    float diff = scale_x_top - scale_x_bottom;
+
+    // Divide difference between start and end by the
+    // number of steps we want to take, and that
+    // gets us our increment size.
+    float increment = diff / screen_count;
+
+
+
+    for (i = 0; i < screen_count; i++)
+    {
+        screen = dc_get_screen(index, size_x, screen_size_y);
+    
+    }
+}*/
+
+
+/*
+* Caskey, Damon V.
+* 2021-07-06
+* 
+* Controller for drawing layers and animation 
+* to build a custom select screen.
+* 
+* The OpenBOR native select screen is highly 
+* optimised at the cost of being mostly hardcoded 
+* and very plain looking. We could code our own 
+* through model switching in a regular stage, but 
+* I'd rather try dressing up the native select
 * screen first. :)
 */
 void dc_draw_select_screen()
@@ -155,83 +213,117 @@ void dc_draw_select_screen()
         return;
     }
 
-    void sprites_list = getlocalvar("dc_mssi_sprites");
+    int index = 0;
+    int size_x = 0;
+    int size_y = 0;
+    int pos_x = 0;
+    int pos_y = 0;
+    int pos_z = 0;
+    int sort_id = 0;
+    void sprite = NULL();
+    int sprite_offset_x = 0;
+    int sprite_offset_y = 0;
 
-    void wall_screen = dc_get_screen(0, 480, 84);
-    void wall_sprite = get(sprites_list, "wall");
-    int wall_sprite_offset_x = 0;
-
-    dc_draw_sprite_to_screen_width(wall_screen, wall_sprite, wall_sprite_offset_x, 0);
-
-    //drawspritetoscreen(wall_sprite, wall_screen, wall_sprite_offset_x, 0);
-   // drawspritetoscreen(wall_sprite, wall_screen, wall_sprite_offset_x + wall_sprite_size_x, 0);
-
+    void sprite_list = getlocalvar("dc_mssi_sprites");
     void common_drawmethod = openborvariant("drawmethod_common");
     void default_drawmethod = openborvariant("drawmethod_default");
 
+    /* Temple wall. */
 
-    //set_drawmethod_property(common_drawmethod, "enable", 1);
+    index = 0;
+    size_x = openborvariant("hresolution");
+    size_y = 94;
+    pos_x = 0;
+    pos_y = 94;
+    pos_z = openborconstant("PANEL_Z");
+    sprite = get(sprite_list, "wall");
+    sprite_offset_x = 0;
+    sprite_offset_y = 0;
 
-    drawscreen(wall_screen, 0, 94, openborconstant("PANEL_Z"));
+    dc_select_screen_draw_layer(index, sprite, size_x, size_y, pos_x, pos_y, pos_z, sprite_offset_x, sprite_offset_y);    
 
-    //copy_drawmethod(default_drawmethod, common_drawmethod);
-    //set_drawmethod_property(common_drawmethod, "enable", 0);
+    /* Ceiling */        
 
-    //drawsprite(wall_sprite, wall_sprite_offset_x, 112, openborconstant("PANEL_Z"), 0);
-    //drawsprite(wall_sprite, wall_sprite_offset_x + wall_sprite_size_x, 112, openborconstant("PANEL_Z"), 0);
+    index = 1;
+    size_x = openborvariant("hresolution") + 240;
+    size_y = 94;
+    pos_x = -240;
+    pos_y = 0;
+    pos_z = openborconstant("PANEL_Z") + 2;
+    sprite = get(sprite_list, "ceiling");
+    sprite_offset_x = 0;
+    sprite_offset_y = 0;
 
-    void floor_screen = dc_get_screen(1, 480, 94);
-    void floor_sprite = get(sprites_list, "floor");
-    int floor_sprite_offset_x = 0;
-
-    dc_draw_sprite_to_screen_width(floor_screen, floor_sprite, floor_sprite_offset_x, 0);
-
-    set_drawmethod_property(common_drawmethod, "water_mode", openborconstant("WATER_MODE_SHEAR"));
-    set_drawmethod_property(common_drawmethod, "water_size_begin", 1.0);
-    set_drawmethod_property(common_drawmethod, "water_size_end", 2.0);
-    set_drawmethod_property(common_drawmethod, "enable", 1);
-
-    drawscreen(floor_screen, 0, 178, openborconstant("PANEL_Z") + 1);
-
-    copy_drawmethod(default_drawmethod, common_drawmethod);
-    set_drawmethod_property(common_drawmethod, "enable", 0);
-
-    //drawsprite(floor_sprite, floor_sprite_offset_x, 191, openborconstant("PANEL_Z"), 0);
-    //drawsprite(floor_sprite, floor_sprite_offset_x + floor_sprite_size_x, 191, openborconstant("PANEL_Z"), 0);
-
-    void ceiling_screen = dc_get_screen(1, 480, 94);
-
-    dc_draw_sprite_to_screen_width(ceiling_screen, floor_sprite, floor_sprite_offset_x, 0);
-
+    set_drawmethod_property(common_drawmethod, "water_perspective", openborconstant("WATER_PERSPECTIVE_NONE"));
     set_drawmethod_property(common_drawmethod, "water_mode", openborconstant("WATER_MODE_SHEAR"));
     set_drawmethod_property(common_drawmethod, "water_size_begin", 2.0);
     set_drawmethod_property(common_drawmethod, "water_size_end", 1.0);
+    set_drawmethod_property(common_drawmethod, "flip_y", 1);
     set_drawmethod_property(common_drawmethod, "enable", 1);
 
-    drawscreen(ceiling_screen, 0, 0, openborconstant("PANEL_Z") + 1);
+    dc_select_screen_draw_layer(index, sprite, size_x, size_y, pos_x, pos_y, pos_z, sprite_offset_x, sprite_offset_y);
+
+    copy_drawmethod(default_drawmethod, common_drawmethod);   
+    
+    /* Floor */
+
+    index = 2;
+    size_x = 480;
+    size_y = 94;
+    pos_x = 0;
+    pos_y = 178;
+    pos_z = openborconstant("PANEL_Z") + 1;
+    sprite = get(sprite_list, "floor");   
+    sprite_offset_x = 0;
+    sprite_offset_y = 0;
+    
+    set_drawmethod_property(common_drawmethod, "water_perspective", openborconstant("WATER_PERSPECTIVE_NONE"));
+    set_drawmethod_property(common_drawmethod, "water_mode", openborconstant("WATER_MODE_SHEAR"));
+    set_drawmethod_property(common_drawmethod, "water_size_begin", 1.0);
+    set_drawmethod_property(common_drawmethod, "water_size_end", 2.0);    
+    set_drawmethod_property(common_drawmethod, "enable", 1);
+
+    dc_select_screen_draw_layer(index, sprite, size_x, size_y, pos_x, pos_y, pos_z, sprite_offset_x, sprite_offset_y);
 
     copy_drawmethod(default_drawmethod, common_drawmethod);
-    set_drawmethod_property(common_drawmethod, "enable", 0);
-
 
     /* Seleton */
 
-    void skeleton_sprite = get(sprites_list, "skeleton");
-
-    drawsprite(skeleton_sprite, 80, 102, openborconstant("PANEL_Z") + 2, 1);
-
+    pos_x = 80;
+    pos_y = 102;
+    pos_z = openborconstant("PANEL_Z") + 2;
+    sprite = get(sprite_list, "skeleton");
+    sort_id = 1;
+    
+    drawsprite(sprite, pos_x, pos_y, pos_z, sort_id);
+    
     /* Select Player text */
 
-    void select_text_sprite = get(sprites_list, "select_text");
+    pos_x = 140;
+    pos_y = 25;
+    pos_z = openborconstant("PANEL_Z") + 2;
+    sprite = get(sprite_list, "select_text");
+    sort_id = 1;
 
-    drawsprite(select_text_sprite, 140, 25, openborconstant("PANEL_Z") + 2, 1);
+    drawsprite(sprite, pos_x, pos_y, pos_z, sort_id);
 
-    /* Columns */
+    /* Columns */    
 
-    void select_column_sprite = get(sprites_list, "column");
+    pos_x = 0;
+    pos_y = 0;
+    pos_z = openborconstant("PANEL_Z") + 2;
+    sprite = get(sprite_list, "column");
+    sort_id = 1;
 
-    drawsprite(select_column_sprite, 0, 0, openborconstant("PANEL_Z") + 2, 1);
-    drawsprite(select_column_sprite, 440, 0, openborconstant("PANEL_Z") + 2, 1);
+    /* -- left */
+
+    drawsprite(sprite, pos_x, pos_y, pos_z, sort_id);
+    
+    /* -- right */
+   
+    pos_x = 440;
+
+    drawsprite(sprite, pos_x, pos_y, pos_z, sort_id);
 
     /* Ground fire loop entity. */
     dc_draw_select_waiting_highlight();
@@ -467,28 +559,24 @@ void dc_draw_sprite_to_screen_width(void screen, void sprite, int offset_x, int 
         {
             scroll_x = 0;
         }
-
-        /*
-        * Add current time and delay to
-        * give us the time for for next
-        * scroll increment.
-        */
-        //scroll_time = elapsed_time + scroll_delay;
     }
 
     setlocalvar("dc_dstsw_scroll_x" + screen, scroll_x);
-    //setlocalvar("dc_dstsw_scroll_time" + screen, scroll_time);
-
+    
     /* Add offset to scroll. */
     offset_x = scroll_x + offset_x;
 
+    clearscreen(screen);
+    
     for (i = 0; i < repeats; i++)
     {
         offset_x_final = (sprite_width * i);
         offset_x_final = offset_x_final + offset_x;
 
         drawspritetoscreen(sprite, screen, offset_x_final, offset_y);
-    }
+    }    
+        
+    //drawspritetoscreen(sprite, screen, offset_x, offset_y);
 }
 
 void dc_get_screen(int index, int size_x, int size_y)

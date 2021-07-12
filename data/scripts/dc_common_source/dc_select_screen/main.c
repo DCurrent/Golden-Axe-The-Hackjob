@@ -194,6 +194,8 @@ void dc_draw_multiscreen_perspective(int pos_x, int pos_y, int size_x, int size_
 }*/
 
 
+
+
 /*
 * Caskey, Damon V.
 * 2021-07-06
@@ -393,7 +395,9 @@ void dc_draw_select_screen()
     drawsprite(sprite, pos_x, pos_y, pos_z, sort_id);
 
     /* Ground fire loop entity. */
-    dc_draw_select_waiting_highlight();
+    //dc_draw_select_waiting_highlight();
+
+    dc_draw_select_screen_player_control_loop();
 }
 
 /*
@@ -419,11 +423,143 @@ void dc_draw_kill_inactive_select_highlight_entity(int player_index)
 
 }
 
-void dc_draw_select_waiting_highlight()
+/*
+* check key.
+*/
+void dc_draw_select_screen_button(int player_index)
 {
+    int key_press = getplayerproperty(player_index, "newkeys");
 
+    if (key_press & openborconstant("FLAG_ANYBUTTON"))
+    {
+        log("\n " + key_press);
+
+        changeplayerproperty(player_index, "newkeys", 0);
+    }
+}
+
+/*
+* Caskey, Damon V.
+* 
+* Loop player collection and run the functions we 
+* to act on player index or player entity.
+*/
+void dc_draw_select_screen_player_control_loop()
+{
     int max_players = openborvariant("maxplayers");
     int player_index = 0;
+    void player_select_entity = NULL();
+    char player_model_name = "";
+
+    for (player_index = 0; player_index < max_players; player_index++)
+    {
+        player_model_name = getplayerproperty(player_index, "name");
+
+        // log("\n\t player_index: " + player_index);
+
+        /*
+        * If there's no player model name at all
+        * this isn't an active player. 
+        *
+        * Run any cleanup functions to get rid of 
+        * items we need removed or reset on players
+        * that are non-active.
+        */
+
+        if (!player_model_name)
+        {
+            /*
+            * Actions we want to run on inactive players only.
+            */
+
+            /* Removes player highlight entity. */
+            dc_draw_kill_inactive_select_highlight_entity(player_index);
+        }
+        else
+        {
+            /*
+            *Actions we want to run on active players only.
+            */
+
+            /*
+            * Run actions on player entity. This requires
+            * a second loop that matches player model to
+            * entity model name.
+            */
+            dc_draw_select_screen_player_entity_control_loop(player_index, player_model_name);
+
+            /* Kills button. */
+            dc_draw_select_screen_button(player_index);            
+        }
+        /*  */
+        
+    }
+}
+
+void dc_draw_select_screen_player_entity_control_loop(int player_index, char player_model_name)
+{
+    int entity_count = openborvariant("count_entities");
+    int entity_index = 0;
+    int entity_cursor = NULL();
+    int entity_exists = 0;
+    int entity_type = 0;
+    char entity_model_name = "";
+
+    for (entity_index = 0; entity_index < entity_count; entity_index++)
+    {
+        entity_cursor = getentity(entity_index);
+
+        entity_exists = get_entity_property(entity_cursor, "exists");
+
+        // log("\n\t\t entity_index: " + entity_index);
+        // log("\n\t\t entity_cursor: " + entity_cursor);
+        // log("\n\t\t entity_exists: " + entity_exists);
+
+        if (!entity_exists)
+        {
+            continue;
+        }
+
+        /* Check type. We only want player entities. */
+
+        entity_type = getentityproperty(entity_cursor, "type");
+
+        // log("\n\t\t entity_type: " + entity_type);
+
+        if (entity_type != openborconstant("TYPE_PLAYER"))
+        {
+            continue;
+        }
+
+        /*
+        * If the player# and entity model names
+        * don't match, then we leave this entity
+        * loop iteration. If they DO match, we
+        * found this player index's entity.
+        */
+
+        entity_model_name = getentityproperty(entity_cursor, "model");
+
+        // log("\n\t\t entity_model_name: " + entity_model_name);
+
+        if (entity_model_name != player_model_name)
+        {
+            continue;
+        }
+
+        /* Now run player entity actions. */
+    
+        /*
+        * Draws a highlight effect on player's
+        * current entity.
+        */
+        dc_draw_select_waiting_highlight(player_index, entity_cursor);
+    }
+}
+
+
+void dc_draw_select_waiting_highlight(int player_index, void entity_cursor)
+{
     void player_select_entity = NULL();
     void select_highlight_entity = NULL();
     void select_highlight_entity_old = NULL();
@@ -431,15 +567,7 @@ void dc_draw_select_waiting_highlight()
     float pos_x = 0.0;
     float pos_y = 0.0;
     float pos_z = 0.0;
-    int sort_id = 0;
-
-    int entity_count = openborvariant("count_entities");
-    int entity_index = 0;
-    int entity_cursor = NULL();
-    int entity_exists = 0;
-    int entity_type = 0;
-    char entity_model_name = "";
-    char player_model_name = "";
+    int sort_id = 0;    
 
     // log("\n\n dc_draw_ground_fire_loop_entity");
 
@@ -461,128 +589,62 @@ void dc_draw_select_waiting_highlight()
     * model name. 
     */
 
+    
+    
+
+    // log("\n\t player_model_name: " + player_model_name);
+
     /*
-    * Loop each player index and get the player's 
-    * model name.
+    * We might already have a highlight entity spawned
+    * for this player #. If so we can exit now.
     */
 
-    for (player_index = 0; player_index < max_players; player_index++)
+    select_highlight_entity_old = getlocalvar(OG_SELECT_SCREEN_HIGHLIGHT_ENTITY_KEY + player_index);
+
+    if (select_highlight_entity_old)
     {
-        player_model_name = getplayerproperty(player_index, "name");
+        select_highlight_entity_exists = get_entity_property(select_highlight_entity_old, "exists");
 
-        // log("\n\t player_index: " + player_index);
-
-        /* 
-        * If there's no player model name at all
-        * this isn't an active player. We'll make
-        * sure any existing highlight entity for
-        * this player is removed, and then exit.
-        */
-
-        if (!player_model_name)
+        if (select_highlight_entity_exists)
         {
-            dc_draw_kill_inactive_select_highlight_entity(player_index);
-
-            continue;
+            return;
         }
+    }                
 
-        // log("\n\t player_model_name: " + player_model_name);
+    /*
+    * Loop entity collection, and make sure the 
+    * entity in loop iteration is valid before
+    * trying to use it. We are looking for player
+    * types, so we can skip anything else.
+    */
 
-        /*
-        * We might already have a highlight entity spawned
-        * for this player #. If so we can exit now.
-        */
-
-        select_highlight_entity_old = getlocalvar(OG_SELECT_SCREEN_HIGHLIGHT_ENTITY_KEY + player_index);
-
-        if (select_highlight_entity_old)
-        {
-            select_highlight_entity_exists = get_entity_property(select_highlight_entity_old, "exists");
-
-            if (select_highlight_entity_exists)
-            {
-                continue;
-            }
-        }                
-
-        /*
-        * Loop entity collection, and make sure the 
-        * entity in loop iteration is valid before
-        * trying to use it. We are looking for player
-        * types, so we can skip anything else.
-        */
-
-        for (entity_index = 0; entity_index < entity_count; entity_index++)
-        {
-            entity_cursor = getentity(entity_index);
-
-            entity_exists = get_entity_property(entity_cursor, "exists");
-
-            // log("\n\t\t entity_index: " + entity_index);
-            // log("\n\t\t entity_cursor: " + entity_cursor);
-            // log("\n\t\t entity_exists: " + entity_exists);
-
-            if (!entity_exists)
-            {
-                continue;
-            }
-
-            /* Check type. We only want player entities. */
-
-            entity_type = getentityproperty(entity_cursor, "type");
-
-            // log("\n\t\t entity_type: " + entity_type);
-
-            if (entity_type != openborconstant("TYPE_PLAYER"))
-            {
-                continue;
-            }    
-
-            if (getentityvar(entity_cursor, "highlight_entity")==1)
-            {
-                continue;
-            }
-
-            /*
-            * If the player# and entity model names
-            * don't match, then we leave this entity 
-            * loop iteration. Otherwise we can move 
-            * on to the spawn logic.
-            */
-
-            entity_model_name = getentityproperty(entity_cursor, "model");
-
-            // log("\n\t\t entity_model_name: " + entity_model_name);
-
-            if (entity_model_name != player_model_name)
-            {
-                continue;
-            }
-
-            select_highlight_entity = dc_gauntlet_quick_spawn(OG_SELECT_SCREEN_HIGHLIGHT_MODEL);
-
-            pos_x = get_entity_property(entity_cursor, "position_x");
-            pos_y = get_entity_property(entity_cursor, "position_y");
-            pos_z = get_entity_property(entity_cursor, "position_z");
-            sort_id = get_entity_property(entity_cursor, "sort_id");
-
-            sort_id = sort_id - 5;
-
-            set_entity_property(select_highlight_entity, "position_x", pos_x);
-            set_entity_property(select_highlight_entity, "position_y", pos_y);
-            set_entity_property(select_highlight_entity, "position_z", pos_z);
-            set_entity_property(select_highlight_entity, "sort_id", sort_id);
-            
-            setlocalvar(OG_SELECT_SCREEN_HIGHLIGHT_ENTITY_KEY + player_index, select_highlight_entity);
-
-            setentityvar(entity_cursor, "highlight_entity", 1);
-
-            // log("\n\t\t pos_x: " + pos_x);
-            // log("\n\t\t pos_y: " + pos_y);
-            // log("\n\t\t pos_z: " + pos_z);
-            // log("\n\t\t sort_id: " + sort_id);
-        }
+    if (getentityvar(entity_cursor, "highlight_entity")==1)
+    {
+        return;
     }
+
+    select_highlight_entity = dc_gauntlet_quick_spawn(OG_SELECT_SCREEN_HIGHLIGHT_MODEL);
+
+    pos_x = get_entity_property(entity_cursor, "position_x");
+    pos_y = get_entity_property(entity_cursor, "position_y");
+    pos_z = get_entity_property(entity_cursor, "position_z");
+    sort_id = get_entity_property(entity_cursor, "sort_id");
+
+    sort_id = sort_id - 5;
+
+    set_entity_property(select_highlight_entity, "position_x", pos_x);
+    set_entity_property(select_highlight_entity, "position_y", pos_y);
+    set_entity_property(select_highlight_entity, "position_z", pos_z);
+    set_entity_property(select_highlight_entity, "sort_id", sort_id);
+            
+    setlocalvar(OG_SELECT_SCREEN_HIGHLIGHT_ENTITY_KEY + player_index, select_highlight_entity);
+
+    setentityvar(entity_cursor, "highlight_entity", 1);
+
+    // log("\n\t\t pos_x: " + pos_x);
+    // log("\n\t\t pos_y: " + pos_y);
+    // log("\n\t\t pos_z: " + pos_z);
+    // log("\n\t\t sort_id: " + sort_id);
 }
 
 /*

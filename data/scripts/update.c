@@ -28,8 +28,8 @@ void main()
 	}
 
 	//tupdate();
-    dc_draw_select_screen();
-    dc_draw_select_names();
+    dc_select_screen_main();
+    dc_select_screen_draw_names();
 
     /* Draw enemy HUD. */
     dc_golden_axe_enemy_hud();

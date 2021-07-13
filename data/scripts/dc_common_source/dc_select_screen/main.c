@@ -162,14 +162,14 @@ void dc_select_screen_draw_layer(int index, void sprite, int size_x, int size_y,
     //log("\n sprite: " + sprite);
        
     /* Repeats the sprite enough to fill a screen seamlessly. */
-    dc_draw_sprite_to_screen_width(screen, sprite, sprite_offset_x, sprite_offset_y, scroll_delay);
+    dc_select_screen_sprite_to_screen_width(screen, sprite, sprite_offset_x, sprite_offset_y, scroll_delay);
   
     /* Draws the screen to player's display. */
     drawscreen(screen, pos_x, pos_y, pos_z);
 }
 
 /*
-void dc_draw_multiscreen_perspective(int pos_x, int pos_y, int size_x, int size_y, int screen_size_y, int scale_x_top, int scale_x_bottom)
+void dc_select_screen_multiscreen_perspective(int pos_x, int pos_y, int size_x, int size_y, int screen_size_y, int scale_x_top, int scale_x_bottom)
 {
     int i = 0;
     
@@ -210,7 +210,7 @@ void dc_draw_multiscreen_perspective(int pos_x, int pos_y, int size_x, int size_
 * I'd rather try dressing up the native select
 * screen first. :)
 */
-void dc_draw_select_screen()
+void dc_select_screen_main()
 {
     /* Not in select screen? Exit now! */
     if (!openborvariant("in_selectscreen"))
@@ -395,9 +395,9 @@ void dc_draw_select_screen()
     drawsprite(sprite, pos_x, pos_y, pos_z, sort_id);
 
     /* Ground fire loop entity. */
-    //dc_draw_select_waiting_highlight();
+    //dc_select_screen_select_waiting_highlight();
 
-    dc_draw_select_screen_player_control_loop();
+    dc_select_screen_player_control_loop();
 }
 
 /*
@@ -407,7 +407,7 @@ void dc_draw_select_screen()
 * Remove highlight entity from select screen
 * if it exists.
 */
-void dc_draw_kill_inactive_select_highlight_entity(int player_index)
+void dc_select_screen_kill_inactive_select_highlight_entity(int player_index)
 {
     void acting_entity = getlocalvar(OG_SELECT_SCREEN_HIGHLIGHT_ENTITY_KEY + player_index);
 
@@ -426,7 +426,7 @@ void dc_draw_kill_inactive_select_highlight_entity(int player_index)
 /*
 * check key.
 */
-void dc_draw_select_screen_button(int player_index)
+void dc_select_screen_button(int player_index)
 {
     int key_press = getplayerproperty(player_index, "newkeys");
 
@@ -440,11 +440,12 @@ void dc_draw_select_screen_button(int player_index)
 
 /*
 * Caskey, Damon V.
+* 2021-07-12
 * 
 * Loop player collection and run the functions we 
 * to act on player index or player entity.
 */
-void dc_draw_select_screen_player_control_loop()
+void dc_select_screen_player_control_loop()
 {
     int max_players = openborvariant("maxplayers");
     int player_index = 0;
@@ -473,7 +474,7 @@ void dc_draw_select_screen_player_control_loop()
             */
 
             /* Removes player highlight entity. */
-            dc_draw_kill_inactive_select_highlight_entity(player_index);
+            dc_select_screen_kill_inactive_select_highlight_entity(player_index);
         }
         else
         {
@@ -486,17 +487,37 @@ void dc_draw_select_screen_player_control_loop()
             * a second loop that matches player model to
             * entity model name.
             */
-            dc_draw_select_screen_player_entity_control_loop(player_index, player_model_name);
+            dc_select_screen_player_entity_control_loop(player_index, player_model_name);
 
             /* Kills button. */
-            dc_draw_select_screen_button(player_index);            
+            dc_select_screen_button(player_index);            
         }
         /*  */
         
     }
 }
 
-void dc_draw_select_screen_player_entity_control_loop(int player_index, char player_model_name)
+/*
+* Caskey, Damon V.
+* 2021-07-12
+*
+* Loop player example entities and run the functions
+* to act on them. We run this function is run inside
+* the player loop. The function then loops all entities
+* on screen and compares player model name to the
+* entity's model name.
+*
+* We have to use this nested loop technique to get
+* player entities because the player property for
+* entity is available outside of gameplay.
+*
+* It's also important to note this check is not 100%
+* accurate, since more than one player may have the
+* same model name. Any functions that rely on knowing
+* the exact entity a player is using may need to
+* record entity vars to ensure accuracy.
+*/
+void dc_select_screen_player_entity_control_loop(int player_index, char player_model_name)
 {
     int entity_count = openborvariant("count_entities");
     int entity_index = 0;
@@ -553,47 +574,27 @@ void dc_draw_select_screen_player_entity_control_loop(int player_index, char pla
         * Draws a highlight effect on player's
         * current entity.
         */
-        dc_draw_select_waiting_highlight(player_index, entity_cursor);
+        dc_select_screen_select_waiting_highlight(player_index, entity_cursor);
     }
 }
 
-
-void dc_draw_select_waiting_highlight(int player_index, void entity_cursor)
+/*
+* Caskey, Damon V.
+* 2021-07-12
+* 
+* Draw highlights around player's current
+* example entity in select screen.
+*/
+void dc_select_screen_select_waiting_highlight(int player_index, void entity_cursor)
 {
-    void player_select_entity = NULL();
     void select_highlight_entity = NULL();
     void select_highlight_entity_old = NULL();
     int select_highlight_entity_exists = 0;
     float pos_x = 0.0;
     float pos_y = 0.0;
     float pos_z = 0.0;
-    int sort_id = 0;    
-
-    // log("\n\n dc_draw_ground_fire_loop_entity");
-
-    /*
-    * Before we can spawn the select highlight
-    * entity we need to know if a player is
-    * active and get some of the properties of
-    * their selection entity. 
-    * 
-    * Unfortunatly The <entity> player property 
-    * is not populated during selection screen. 
-    * So to get the player#'s select entity, we'll 
-    * have to first get the <name> property of 
-    * player#. This is the model name player# is 
-    * currently highlighting in selection screen.
-    * 
-    * Next, we loop through the collection of onscreen
-    * entities and match the model name to player#'s
-    * model name. 
-    */
-
+    int sort_id = 0;   
     
-    
-
-    // log("\n\t player_model_name: " + player_model_name);
-
     /*
     * We might already have a highlight entity spawned
     * for this player #. If so we can exit now.
@@ -612,17 +613,24 @@ void dc_draw_select_waiting_highlight(int player_index, void entity_cursor)
     }                
 
     /*
-    * Loop entity collection, and make sure the 
-    * entity in loop iteration is valid before
-    * trying to use it. We are looking for player
-    * types, so we can skip anything else.
+    * We need to know if the entity we are looking at is
+    * a player highlight entity. If we don't make this
+    * check, we could double up highlight entities when
+    * two players have the same model.
+    * 
+    * When highlight entities are spawned, we mark them 
+    * with the variable we are evaluating here.
     */
-
     if (getentityvar(entity_cursor, "highlight_entity")==1)
     {
         return;
     }
 
+    /*
+    * Spawn the new highlight entity. Then we move it
+    * to player entity's position and one step back
+    * in the layer order (appears behind player entity).
+    */
     select_highlight_entity = dc_gauntlet_quick_spawn(OG_SELECT_SCREEN_HIGHLIGHT_MODEL);
 
     pos_x = get_entity_property(entity_cursor, "position_x");
@@ -639,6 +647,10 @@ void dc_draw_select_waiting_highlight(int player_index, void entity_cursor)
             
     setlocalvar(OG_SELECT_SCREEN_HIGHLIGHT_ENTITY_KEY + player_index, select_highlight_entity);
 
+    /* 
+    * Mark the highlight entity as a highlight entity.
+    * See above for details.
+    */
     setentityvar(entity_cursor, "highlight_entity", 1);
 
     // log("\n\t\t pos_x: " + pos_x);
@@ -654,7 +666,7 @@ void dc_draw_select_waiting_highlight(int player_index, void entity_cursor)
 * Draw sprites repeated as needed to
 * fill width of screen object.
 */
-void dc_draw_sprite_to_screen_width(void screen, void sprite, int offset_x, int offset_y, int scroll_delay)
+void dc_select_screen_sprite_to_screen_width(void screen, void sprite, int offset_x, int offset_y, int scroll_delay)
 {
     int screen_width = getgfxproperty(screen, "width");
     int sprite_width = getgfxproperty(sprite, "width");
@@ -741,7 +753,7 @@ void dc_get_screen(int index, int size_x, int size_y)
 // 2019-02-22
 //
 // Draws names of characters during select screen.
-void dc_draw_select_names()
+void dc_select_screen_draw_names()
 {
     // Don't waste any more cycles if we aren't 
     // in select screen.
@@ -836,7 +848,7 @@ void dc_draw_select_names()
         //string_width = 20;
         // log("\n str w(" + i +"): +" + screen_width);
         //screen = dc_get_screen(i, screen_width, screen_height);
-        //dc_draw_text_screen(screen, screen_scale_x, screen_scale_y);
+        //dc_select_screen_text_screen(screen, screen_scale_x, screen_scale_y);
     }
 
 #undef SELECT_NAME_FONT

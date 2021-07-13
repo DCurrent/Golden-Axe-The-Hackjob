@@ -1,5 +1,6 @@
 #include    "data/scripts/dc_eggball/main.c"
 #include    "data/scripts/dc_gauntlet/main.c"
+#include    "data/scripts/dc_kanga/main.c"
 
 #ifndef DC_MODULE_SELECT_SCREEN_CONFIG
 #define DC_MODULE_SELECT_SCREEN_CONFIG 1
@@ -157,7 +158,7 @@ void dc_select_screen_draw_layer(int index, void sprite, int size_x, int size_y,
     * sprites.
     */
 
-    void screen = dc_get_screen(index, size_x, size_y);
+    void screen = dc_kanga_get_screen(index, size_x, size_y);
 
     //log("\n sprite: " + sprite);
        
@@ -188,7 +189,7 @@ void dc_select_screen_multiscreen_perspective(int pos_x, int pos_y, int size_x, 
 
     for (i = 0; i < screen_count; i++)
     {
-        screen = dc_get_screen(index, size_x, screen_size_y);
+        screen = dc_kanga_get_screen(index, size_x, screen_size_y);
     
     }
 }*/
@@ -720,34 +721,7 @@ void dc_select_screen_sprite_to_screen_width(void screen, void sprite, int offse
     //drawspritetoscreen(sprite, screen, offset_x, offset_y);
 }
 
-void dc_get_screen(int index, int size_x, int size_y)
-{
-    char screen_key;
-    char size_x_key;
-    char size_y_key;
 
-    char screen_key = "key_screen" + index;
-
-    // Get current screen.
-    void screen_list = getlocalvar("dc_mssi_screens");
-    void screen = get(screen_list, screen_key);
-
-    //screen = getlocalvar(screen_key);
-
-    // If no screen is set up,
-    // initialize it here.
-    if (!screen)
-    {
-        // Allocate screen and use it to populate
-        // the screen variable, then populate
-        // background variable.
-        screen = allocscreen(size_x, size_y);
-        
-        add(screen_list, screen_key, screen);
-    }
-
-    return screen;
-}
 
 // Caskey, Damon V.
 // 2019-02-22
@@ -847,7 +821,7 @@ void dc_select_screen_draw_names()
 
         //string_width = 20;
         // log("\n str w(" + i +"): +" + screen_width);
-        //screen = dc_get_screen(i, screen_width, screen_height);
+        //screen = dc_kanga_get_screen(i, screen_width, screen_height);
         //dc_select_screen_text_screen(screen, screen_scale_x, screen_scale_y);
     }
 

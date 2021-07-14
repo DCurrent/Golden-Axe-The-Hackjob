@@ -2,8 +2,8 @@
 #include    "data/scripts/dc_gauntlet/main.c"
 #include    "data/scripts/dc_kanga/main.c"
 
-#ifndef DC_MODULE_SELECT_SCREEN_CONFIG
-#define DC_MODULE_SELECT_SCREEN_CONFIG 1
+#ifndef DC_select_screen_CONFIG
+#define DC_select_screen_CONFIG 1
 
 #define WAIT_NAME_FONT		3
 #define DC_UPDATED_KEY_SCREEN          "key_screen"
@@ -29,7 +29,7 @@
 
 #endif
 
-void dc_module_select_screen_initialize()
+void dc_select_screen_initialize()
 {
     void sprites_list = array(0);
     
@@ -50,18 +50,18 @@ void dc_module_select_screen_initialize()
     setlocalvar("dc_mssi_screens", screens_list);
 }
 
-void dc_module_select_screen_terminate()
+void dc_select_screen_terminate()
 {
 
     log("\n\n DC Module Select Screen - Freeing resources");
 
-    dc_module_select_screen_unload_screens();
-    dc_module_select_screen_unload_sprites();
+    dc_select_screen_unload_screens();
+    dc_select_screen_unload_sprites();
 
     log("\n ...done. \n");
 }
 
-void dc_module_select_screen_unload_screens()
+void dc_select_screen_unload_screens()
 {
     void screens_list = getlocalvar("dc_mssi_screens");
 
@@ -102,7 +102,7 @@ void dc_module_select_screen_unload_screens()
     setlocalvar("dc_mssi_screens", NULL());
 }
 
-void dc_module_select_screen_unload_sprites()
+void dc_select_screen_unload_sprites()
 {
     void sprites_list = getlocalvar("dc_mssi_sprites");
 
@@ -150,8 +150,7 @@ void dc_module_select_screen_unload_sprites()
 * Draw the wall background in select screen.
 */
 void dc_select_screen_draw_layer(int index, void sprite, int size_x, int size_y, int pos_x, int pos_y, int pos_z, int sprite_offset_x, int sprite_offset_y, int scroll_delay)
-{    
-    
+{   
     /* 
     * Get the sprite we need by key from an 
     * from array of preloaded select screen
@@ -170,32 +169,65 @@ void dc_select_screen_draw_layer(int index, void sprite, int size_x, int size_y,
 }
 
 /*
-void dc_select_screen_multiscreen_perspective(int pos_x, int pos_y, int size_x, int size_y, int screen_size_y, int scale_x_top, int scale_x_bottom)
+* Caskey, Damon V.
+* 2021-07-02
+*
+* Draw sprites repeated as needed to
+* fill width of screen object.
+*/
+void dc_select_screen_sprite_to_screen_width(void screen, void sprite, int offset_x, int offset_y, int scroll_delay)
 {
+    int screen_width = getgfxproperty(screen, "width");
+    int sprite_width = getgfxproperty(sprite, "width");
+    int offset_x_final = 0;
     int i = 0;
-    
-    int screen_count = size_y / screen_size_y;
-    void screen = NULL();
-    
-    // What is the difference between start and end?
-    float diff = scale_x_top - scale_x_bottom;
+    int repeats = 2 + screen_width / sprite_width;
 
-    // Divide difference between start and end by the
-    // number of steps we want to take, and that
-    // gets us our increment size.
-    float increment = diff / screen_count;
+    /*
+    * Get current scroll and increment. Reset
+    * once we scroll the length of our sprite
+    * to create an endless visual loop.
+    */
+    int scroll_x = getlocalvar("dc_dstsw_scroll_x" + screen);
 
-
-
-    for (i = 0; i < screen_count; i++)
+    if (!scroll_x)
     {
-        screen = dc_kanga_get_screen(index, size_x, screen_size_y);
-    
+        scroll_x = 0;
     }
-}*/
 
+    /* Time to incrment scroll position? */
+    dc_eggball_set_instance(screen);
+    dc_eggball_set_member_interval(scroll_delay);
 
+    if (dc_eggball_check_interval())
+    {
+        if (scroll_x > -sprite_width)
+        {
+            scroll_x = scroll_x - 1;
+        }
+        else
+        {
+            scroll_x = 0;
+        }
+    }
 
+    setlocalvar("dc_dstsw_scroll_x" + screen, scroll_x);
+
+    /* Add offset to scroll. */
+    offset_x = scroll_x + offset_x;
+
+    clearscreen(screen);
+
+    for (i = 0; i < repeats; i++)
+    {
+        offset_x_final = (sprite_width * i);
+        offset_x_final = offset_x_final + offset_x;
+
+        drawspritetoscreen(sprite, screen, offset_x_final, offset_y);
+    }
+
+    //drawspritetoscreen(sprite, screen, offset_x, offset_y);
+}
 
 /*
 * Caskey, Damon V.
@@ -571,6 +603,9 @@ void dc_select_screen_player_entity_control_loop(int player_index, char player_m
 
         /* Now run player entity actions. */
     
+        /* Draws the name text for player's entity. */
+        dc_select_screen_draw_name_text(player_index, entity_cursor);
+
         /*
         * Draws a highlight effect on player's
         * current entity.
@@ -660,74 +695,73 @@ void dc_select_screen_select_waiting_highlight(int player_index, void entity_cur
     // log("\n\t\t sort_id: " + sort_id);
 }
 
-/*
+/* 
 * Caskey, Damon V.
-* 2021-07-02
+* 2019-02-22
 *
-* Draw sprites repeated as needed to
-* fill width of screen object.
+* Draws names of characters during select screen.
 */
-void dc_select_screen_sprite_to_screen_width(void screen, void sprite, int offset_x, int offset_y, int scroll_delay)
+void dc_select_screen_draw_name_text(int player_index, int player_entity)
 {
-    int screen_width = getgfxproperty(screen, "width");
-    int sprite_width = getgfxproperty(sprite, "width");
-    int offset_x_final = 0;
-    int i = 0;
-    int repeats = 2 + screen_width / sprite_width;
-       
-    /*
-    * Get current scroll and increment. Reset
-    * once we scroll the length of our sprite
-    * to create an endless visual loop.
+    int pos_x = 0;
+    int pos_y = 0;
+    int screen_width = 0;
+    int screen_height = 0;
+
+    /* X base is entity's X location. */
+    int entity_pos_x = get_entity_property(player_entity, "position_x");
+    int entity_pos_z = get_entity_property(player_entity, "position_z");
+
+    char name_first = "";
+    char name_full = getplayerproperty(player_index, "name");
+    char name_last = strinfirst(name_full, "_");
+
+    /* 
+    * No last name? Then just center 
+    * and draw text for first name.
     */
-    int scroll_x = getlocalvar("dc_dstsw_scroll_x" + screen);
-
-    if (!scroll_x)
+    if (name_last == -1)
     {
-        scroll_x = 0;
+        pos_x = dc_center_string_x(entity_pos_x, name_full, WAIT_NAME_FONT);
+        pos_y = dc_center_string_y(SELECT_Y_BASE, name_full, FONT_Y);
+
+        screen_width = strwidth(name_full, WAIT_NAME_FONT);
+        screen_height = FONT_Y;
+
+        drawstring(pos_x, pos_y, WAIT_NAME_FONT, name_full);
     }
-
-    /* Time to incrment scroll position? */
-    dc_eggball_set_instance(screen);
-    dc_eggball_set_member_interval(scroll_delay);
-
-    if (dc_eggball_check_interval())
+    else
     {
-        if (scroll_x > -sprite_width)
-        {
-            scroll_x = scroll_x - 1;
-        }
-        else
-        {
-            scroll_x = 0;
-        }
-    }
+        /* Get a Y center based on two lines (first name, last name). */
+        pos_y = dc_center_string_y(SELECT_Y_BASE, name_last, FONT_Y * 2);
 
-    setlocalvar("dc_dstsw_scroll_x" + screen, scroll_x);
-    
-    /* Add offset to scroll. */
-    offset_x = scroll_x + offset_x;
+        /* Get first name string and center x position. */
+        name_first = strleft(name_full, strlength(name_full) - strlength(name_last));
+        pos_x = dc_center_string_x(entity_pos_x, name_first, WAIT_NAME_FONT);
 
-    clearscreen(screen);
-    
-    for (i = 0; i < repeats; i++)
-    {
-        offset_x_final = (sprite_width * i);
-        offset_x_final = offset_x_final + offset_x;
-
-        drawspritetoscreen(sprite, screen, offset_x_final, offset_y);
-    }    
+        drawstring(pos_x, pos_y, WAIT_NAME_FONT, name_first);
         
-    //drawspritetoscreen(sprite, screen, offset_x, offset_y);
-}
+        /* Remove sapce character from last name. */
+        name_last = strright(name_last, 1);
 
+        pos_x = dc_center_string_x(entity_pos_x, name_last, WAIT_NAME_FONT);
+
+        /* Add vertical font space. */
+        pos_y += FONT_Y;
+
+        drawstring(pos_x, pos_y, WAIT_NAME_FONT, name_last);
+
+        screen_width = strwidth(name_first, WAIT_NAME_FONT);
+        screen_height = FONT_Y;
+    }
+}
 
 
 // Caskey, Damon V.
 // 2019-02-22
 //
 // Draws names of characters during select screen.
-void dc_select_screen_draw_names()
+void dc_select_screen_draw_names_legacy()
 {
     // Don't waste any more cycles if we aren't 
     // in select screen.

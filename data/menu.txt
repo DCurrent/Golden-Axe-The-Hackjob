@@ -1,3 +1,4 @@
+
 renamekey	attack	Attack
 renamekey	attack2 Magic
 renamekey	special	Defend

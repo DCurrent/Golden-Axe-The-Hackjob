@@ -10,13 +10,13 @@
 void oncreate()
 {
     dc_preload_hud_sprites();
-    dc_module_select_screen_initialize();
+    dc_select_screen_initialize();
 }
 
 void ondestroy()
 {
     dc_unload_hud_sprites();
-    dc_module_select_screen_terminate();
+    dc_select_screen_terminate();
 }
 
 void main()
@@ -29,7 +29,6 @@ void main()
 
 	//tupdate();
     dc_select_screen_main();
-    dc_select_screen_draw_names();
 
     /* Draw enemy HUD. */
     dc_golden_axe_enemy_hud();

@@ -707,6 +707,8 @@ void dc_select_screen_draw_name_text(int player_index, int player_entity)
     int pos_y = 0;
     int screen_width = 0;
     int screen_height = 0;
+    void common_drawmethod = openborvariant("drawmethod_common");
+    void default_drawmethod = openborvariant("drawmethod_default");
 
     /* X base is entity's X location. */
     int entity_pos_x = get_entity_property(player_entity, "position_x");
@@ -739,8 +741,14 @@ void dc_select_screen_draw_name_text(int player_index, int player_entity)
         name_first = strleft(name_full, strlength(name_full) - strlength(name_last));
         pos_x = dc_center_string_x(entity_pos_x, name_first, WAIT_NAME_FONT);
 
+        set_drawmethod_property(common_drawmethod, "tint_mode", openborconstant("BLEND_MODE_ALPHA"));
+        set_drawmethod_property(common_drawmethod, "tint_color", rgbcolor(235, 0, 0));        
+        set_drawmethod_property(common_drawmethod, "enable", 1);
+                
         drawstring(pos_x, pos_y, WAIT_NAME_FONT, name_first);
         
+        copy_drawmethod(default_drawmethod, common_drawmethod);
+
         /* Remove sapce character from last name. */
         name_last = strright(name_last, 1);
 

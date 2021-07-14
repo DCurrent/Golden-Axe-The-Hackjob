@@ -2,8 +2,8 @@
 #include    "data/scripts/dc_gauntlet/main.c"
 #include    "data/scripts/dc_kanga/main.c"
 
-#ifndef DC_select_screen_CONFIG
-#define DC_select_screen_CONFIG 1
+#ifndef DC_SELECT_SCREEN_CONFIG
+#define DC_SELECT_SCREEN_CONFIG 1
 
 #define WAIT_NAME_FONT		3
 #define DC_UPDATED_KEY_SCREEN          "key_screen"

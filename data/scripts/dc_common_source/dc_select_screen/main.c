@@ -13,7 +13,7 @@
 
 #define SELECT_NAME_FONT	4
 #define FONT_Y				18	// Vertical size of font (unavailable as of 2019-02-22). Includes margin.
-#define SELECT_Y_BASE		100
+#define SELECT_NAME_POSITION_Y_ADJUST		-150
 #define SPACE_CHAR			"_"
 #define	MAX_DRAW_SIZE		256 * 10
 #define MAX_DRAW_SIZE_TIME	100
@@ -711,7 +711,7 @@ void dc_select_screen_draw_name_text(int player_index, int player_entity)
     /* X base is entity's X location. */
     int entity_pos_x = get_entity_property(player_entity, "position_x");
     int entity_pos_z = get_entity_property(player_entity, "position_z");
-
+    
     char name_first = "";
     char name_full = getplayerproperty(player_index, "name");
     char name_last = strinfirst(name_full, "_");
@@ -723,7 +723,7 @@ void dc_select_screen_draw_name_text(int player_index, int player_entity)
     if (name_last == -1)
     {
         pos_x = dc_center_string_x(entity_pos_x, name_full, WAIT_NAME_FONT);
-        pos_y = dc_center_string_y(SELECT_Y_BASE, name_full, FONT_Y);
+        pos_y = dc_center_string_y(entity_pos_z + SELECT_NAME_POSITION_Y_ADJUST, name_full, FONT_Y);
 
         screen_width = strwidth(name_full, WAIT_NAME_FONT);
         screen_height = FONT_Y;
@@ -733,7 +733,7 @@ void dc_select_screen_draw_name_text(int player_index, int player_entity)
     else
     {
         /* Get a Y center based on two lines (first name, last name). */
-        pos_y = dc_center_string_y(SELECT_Y_BASE, name_last, FONT_Y * 2);
+        pos_y = dc_center_string_y(entity_pos_z + SELECT_NAME_POSITION_Y_ADJUST, name_last, FONT_Y * 2);
 
         /* Get first name string and center x position. */
         name_first = strleft(name_full, strlength(name_full) - strlength(name_last));

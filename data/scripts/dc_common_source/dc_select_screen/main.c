@@ -162,8 +162,8 @@ void dc_select_screen_draw_layer(int index, void sprite, int size_x, int size_y,
     //log("\n sprite: " + sprite);
        
     /* Repeats the sprite enough to fill a screen seamlessly. */
-    dc_select_screen_sprite_to_screen_width(screen, sprite, sprite_offset_x, sprite_offset_y, scroll_delay);
-  
+    dc_select_screen_sprite_to_screen_width(screen, sprite, sprite_offset_x, sprite_offset_y, scroll_delay);    
+
     /* Draws the screen to player's display. */
     drawscreen(screen, pos_x, pos_y, pos_z);
 }
@@ -225,7 +225,7 @@ void dc_select_screen_sprite_to_screen_width(void screen, void sprite, int offse
 
         drawspritetoscreen(sprite, screen, offset_x_final, offset_y);
     }
-
+    
     //drawspritetoscreen(sprite, screen, offset_x, offset_y);
 }
 
@@ -465,9 +465,9 @@ void dc_select_screen_button(int player_index)
 
     if (key_press & openborconstant("FLAG_ANYBUTTON"))
     {
-        log("\n " + key_press);
+        //log("\n " + key_press);
 
-        changeplayerproperty(player_index, "newkeys", 0);
+        //changeplayerproperty(player_index, "newkeys", 0);
     }
 }
 
@@ -695,6 +695,50 @@ void dc_select_screen_select_waiting_highlight(int player_index, void entity_cur
     // log("\n\t\t sort_id: " + sort_id);
 }
 
+/*
+* Caskey, Damon V.
+* 2021-07-14
+* 
+* Accept font and two strings. Returns
+* greatest width of the strings. 
+*/
+int dc_select_screen_get_size_x(int font, char string_a, char string_b)
+{
+    int string_a_size_x = strwidth(string_a, font);
+    int string_b_size_x = strwidth(string_b, font);
+
+    if (string_a_size_x >= string_b_size_x)
+    {
+        return string_a_size_x;
+    }
+
+    return string_b_size_x;
+}
+
+/*
+* Caskey, Damon V.
+* 2021-07-14
+* 
+* Return color to use on player text during
+* select screen.
+*/
+int dc_select_screen_get_player_name_text_color(int player_index)
+{
+    switch (player_index)
+    {
+        default:
+        case 0:
+            return rgbcolor(153, 0, 0);
+            break;
+        case 1:
+            return rgbcolor(0, 51, 153);
+            break;
+        case 2:
+            return rgbcolor(9, 105, 47);
+            break;
+    }
+}
+
 /* 
 * Caskey, Damon V.
 * 2019-02-22
@@ -703,10 +747,20 @@ void dc_select_screen_select_waiting_highlight(int player_index, void entity_cur
 */
 void dc_select_screen_draw_name_text(int player_index, int player_entity)
 {
-    int pos_x = 0;
-    int pos_y = 0;
-    int screen_width = 0;
-    int screen_height = 0;
+
+    void screen = NULL();
+
+    int name_text_color = 0;
+
+    int string_pos_x = 0;
+    int string_pos_y = 0;
+
+    int screen_pos_x = 0;
+    int screen_pos_y = 0;
+    int screen_size_x = 0;
+    int screen_size_y = 0;
+    int screen_center_x = 0;
+
     void common_drawmethod = openborvariant("drawmethod_common");
     void default_drawmethod = openborvariant("drawmethod_default");
 
@@ -724,43 +778,67 @@ void dc_select_screen_draw_name_text(int player_index, int player_entity)
     */
     if (name_last == -1)
     {
-        pos_x = dc_center_string_x(entity_pos_x, name_full, WAIT_NAME_FONT);
-        pos_y = dc_center_string_y(entity_pos_z + SELECT_NAME_POSITION_Y_ADJUST, name_full, FONT_Y);
+        string_pos_x = dc_center_string_x(entity_pos_x, name_full, WAIT_NAME_FONT);
+        string_pos_y = dc_center_string_y(entity_pos_z + SELECT_NAME_POSITION_Y_ADJUST, name_full, FONT_Y);
 
-        screen_width = strwidth(name_full, WAIT_NAME_FONT);
-        screen_height = FONT_Y;
+        screen_size_x = strwidth(name_full, WAIT_NAME_FONT);
+        screen_size_y = FONT_Y;
 
-        drawstring(pos_x, pos_y, WAIT_NAME_FONT, name_full);
+        drawstring(string_pos_x, string_pos_y, WAIT_NAME_FONT, name_full);
     }
     else
     {
         /* Get a Y center based on two lines (first name, last name). */
-        pos_y = dc_center_string_y(entity_pos_z + SELECT_NAME_POSITION_Y_ADJUST, name_last, FONT_Y * 2);
+        screen_pos_y = dc_center_string_y(entity_pos_z + SELECT_NAME_POSITION_Y_ADJUST, name_last, FONT_Y * 2);
 
-        /* Get first name string and center x position. */
+        /* Get first name string. */
         name_first = strleft(name_full, strlength(name_full) - strlength(name_last));
-        pos_x = dc_center_string_x(entity_pos_x, name_first, WAIT_NAME_FONT);
-
-        set_drawmethod_property(common_drawmethod, "tint_mode", openborconstant("BLEND_MODE_ALPHA"));
-        set_drawmethod_property(common_drawmethod, "tint_color", rgbcolor(235, 0, 0));        
-        set_drawmethod_property(common_drawmethod, "enable", 1);
-                
-        drawstring(pos_x, pos_y, WAIT_NAME_FONT, name_first);
         
-        copy_drawmethod(default_drawmethod, common_drawmethod);
+        /* 
+        * The screen is width of longest text, so 
+        * to get the X position it, we take half 
+        * the width and subtract that from our 
+        * center point.
+        */
+        screen_size_x = dc_select_screen_get_size_x(WAIT_NAME_FONT, name_first, name_last);
+        screen_size_y = FONT_Y * 2;
+        screen_center_x = screen_size_x / 2;
+                    
+        screen = dc_kanga_get_screen("nl_" + name_last, screen_size_x, screen_size_y);
 
-        /* Remove sapce character from last name. */
+        screen_pos_x = entity_pos_x - screen_size_x / 2;
+                        
+        clearscreen(screen);
+
+        /* Draw first name text to screen. */
+        string_pos_x = dc_center_string_x(screen_center_x, name_first, WAIT_NAME_FONT);
+        drawstringtoscreen(screen, string_pos_x, 0, WAIT_NAME_FONT, name_first);
+            
+        /* Add vertical font space to simulate a carriage return. */
+        string_pos_y += FONT_Y;
+            
+        /* Remove the space in front of last name. */
         name_last = strright(name_last, 1);
 
-        pos_x = dc_center_string_x(entity_pos_x, name_last, WAIT_NAME_FONT);
+        string_pos_x = dc_center_string_x(screen_center_x, name_last, WAIT_NAME_FONT);
+        drawstringtoscreen(screen, string_pos_x, string_pos_y, WAIT_NAME_FONT, name_last);
 
-        /* Add vertical font space. */
-        pos_y += FONT_Y;
 
-        drawstring(pos_x, pos_y, WAIT_NAME_FONT, name_last);
+        /* 
+        * Set drawmethods, draw the screen, and then reset
+        * drawmethods for whatever engine draws next.
+        */
+        name_text_color = dc_select_screen_get_player_name_text_color(player_index);
 
-        screen_width = strwidth(name_first, WAIT_NAME_FONT);
-        screen_height = FONT_Y;
+        set_drawmethod_property(common_drawmethod, "background_transparency", 1);
+        set_drawmethod_property(common_drawmethod, "tint_mode", openborconstant("BLEND_MODE_ALPHA_NEGATIVE"));
+        set_drawmethod_property(common_drawmethod, "tint_color", name_text_color);
+        set_drawmethod_property(common_drawmethod, "enable", 1);
+
+        drawscreen(screen, screen_pos_x, screen_pos_y, openborconstant("PANEL_Z") + 10);
+        
+        copy_drawmethod(default_drawmethod, common_drawmethod);
+        
     }
 }
 

@@ -749,6 +749,7 @@ void dc_select_screen_draw_name_text(int player_index, int player_entity)
 {
 
     void screen = NULL();
+    void screen_b = NULL();
 
     int name_text_color = 0;
 
@@ -805,14 +806,17 @@ void dc_select_screen_draw_name_text(int player_index, int player_entity)
         screen_center_x = screen_size_x / 2;
                     
         screen = dc_kanga_get_screen("nl_" + name_last, screen_size_x, screen_size_y);
+        screen_b = dc_kanga_get_screen("nlb_" + name_last, screen_size_x, screen_size_y);
 
         screen_pos_x = entity_pos_x - screen_size_x / 2;
                         
         clearscreen(screen);
+        clearscreen(screen_b);
 
         /* Draw first name text to screen. */
         string_pos_x = dc_center_string_x(screen_center_x, name_first, WAIT_NAME_FONT);
         drawstringtoscreen(screen, string_pos_x, 0, WAIT_NAME_FONT, name_first);
+        drawstringtoscreen(screen_b, string_pos_x, 0, WAIT_NAME_FONT, name_first);
             
         /* Add vertical font space to simulate a carriage return. */
         string_pos_y += FONT_Y;
@@ -822,6 +826,7 @@ void dc_select_screen_draw_name_text(int player_index, int player_entity)
 
         string_pos_x = dc_center_string_x(screen_center_x, name_last, WAIT_NAME_FONT);
         drawstringtoscreen(screen, string_pos_x, string_pos_y, WAIT_NAME_FONT, name_last);
+        drawstringtoscreen(screen_b, string_pos_x, string_pos_y, WAIT_NAME_FONT, name_last);
 
 
         /* 
@@ -837,6 +842,17 @@ void dc_select_screen_draw_name_text(int player_index, int player_entity)
 
         drawscreen(screen, screen_pos_x, screen_pos_y, openborconstant("PANEL_Z") + 10);
         
+        copy_drawmethod(default_drawmethod, common_drawmethod);
+
+        /* Text shadow. */
+        set_drawmethod_property(common_drawmethod, "background_transparency", 1);
+        set_drawmethod_property(common_drawmethod, "alpha", openborconstant("BLEND_MODE_AVERAGE"));
+        set_drawmethod_property(common_drawmethod, "tint_mode", openborconstant("BLEND_MODE_ALPHA_NEGATIVE"));
+        set_drawmethod_property(common_drawmethod, "tint_color", rgbcolor(128,128,128));
+        set_drawmethod_property(common_drawmethod, "enable", 1);
+
+        drawscreen(screen_b, screen_pos_x+1, screen_pos_y+1, openborconstant("PANEL_Z") + 9);
+
         copy_drawmethod(default_drawmethod, common_drawmethod);
         
     }

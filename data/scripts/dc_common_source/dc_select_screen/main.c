@@ -851,7 +851,7 @@ void dc_select_screen_draw_name_text(int player_index, int player_entity)
         set_drawmethod_property(common_drawmethod, "tint_color", rgbcolor(128,128,128));
         set_drawmethod_property(common_drawmethod, "enable", 1);
 
-        drawscreen(screen_b, screen_pos_x+1, screen_pos_y+1, openborconstant("PANEL_Z") + 9);
+        //drawscreen(screen_b, screen_pos_x+1, screen_pos_y+1, openborconstant("PANEL_Z") + 9);
 
         copy_drawmethod(default_drawmethod, common_drawmethod);
         

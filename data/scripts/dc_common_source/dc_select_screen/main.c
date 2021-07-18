@@ -5,7 +5,7 @@
 #ifndef DC_SELECT_SCREEN_CONFIG
 #define DC_SELECT_SCREEN_CONFIG 1
 
-#define WAIT_NAME_FONT		3
+#define WAIT_NAME_FONT		4
 #define DC_UPDATED_KEY_SCREEN          "key_screen"
 #define OG_SCREEN_SIZE_MAX_X			openborvariant("hresolution")
 #define OG_SCREEN_SIZE_MAX_Y			openborvariant("vresolution")
@@ -402,7 +402,7 @@ void dc_select_screen_main()
     /* Select Player text */
 
     pos_x = 140;
-    pos_y = 25;
+    pos_y = 15;
     pos_z = openborconstant("PANEL_Z") + 6;
     sprite = get(sprite_list, "select_text");
     sort_id = 1;
@@ -848,10 +848,10 @@ void dc_select_screen_draw_name_text(int player_index, int player_entity)
         set_drawmethod_property(common_drawmethod, "background_transparency", 1);
         set_drawmethod_property(common_drawmethod, "alpha", openborconstant("BLEND_MODE_AVERAGE"));
         set_drawmethod_property(common_drawmethod, "tint_mode", openborconstant("BLEND_MODE_ALPHA_NEGATIVE"));
-        set_drawmethod_property(common_drawmethod, "tint_color", rgbcolor(128,128,128));
+        set_drawmethod_property(common_drawmethod, "tint_color", rgbcolor(64,64,64));
         set_drawmethod_property(common_drawmethod, "enable", 1);
 
-        //drawscreen(screen_b, screen_pos_x+1, screen_pos_y+1, openborconstant("PANEL_Z") + 9);
+        drawscreen(screen_b, screen_pos_x+1, screen_pos_y+1, openborconstant("PANEL_Z") + 9);
 
         copy_drawmethod(default_drawmethod, common_drawmethod);
         

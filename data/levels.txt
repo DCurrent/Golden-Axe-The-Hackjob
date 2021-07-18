@@ -73,8 +73,8 @@ hiscorebg 1
 
 maxplayers 3
 
-set	Stage_1_Demo
-cansave 2
+set	^_Stage_1_Demo_^
+cansave 0
 lives   1
 credits 4
 nosame  1
@@ -82,7 +82,8 @@ typemp  2
 z       88 230
 file	data/levels/wilderness/wilderness.txt
 
-set	The_Duel_Test
+set	^_The_Duel_Test_^
+cansave 0
 #maxplayers 1
 lives   1
 credits 3

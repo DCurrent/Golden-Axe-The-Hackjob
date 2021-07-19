@@ -32,17 +32,35 @@
 void dc_select_screen_initialize()
 {
     void sprites_list = array(0);
-    
+    log("\n sprites_list size(): " + size(sprites_list));
     set(sprites_list, "ceiling", loadsprite("data/bgs/select/ceiling_0.png"));
     set(sprites_list, "column", loadsprite("data/bgs/select/column_0.png"));
     set(sprites_list, "column_far", loadsprite("data/bgs/select/column_far_0.png"));
     set(sprites_list, "floor", loadsprite("data/bgs/select/floor_0.png"));
+
+    log("\n sprites_list size(): " + size(sprites_list));
+
     set(sprites_list, "select_text", loadsprite("data/bgs/select/text_0.png"));
     set(sprites_list, "skeleton", loadsprite("data/bgs/select/skeleton_0.png"));
     set(sprites_list, "throne", loadsprite("data/bgs/select/throne_0.png"));
     set(sprites_list, "wall", loadsprite("data/bgs/select/wall_0.png"));
     set(sprites_list, "wall_far", loadsprite("data/bgs/select/wall_far_0.png"));
-
+    
+    log("\n sprites_list size(): " + size(sprites_list));
+    
+    reset(sprites_list);
+    
+    do
+    {        
+        log("\n\t sprites_list(key) " + key(sprites_list));
+        log("\n\t sprites_list(value) " + value(sprites_list));
+        log("\n");
+    }     
+    while (next(sprites_list));
+        
+    //log("\n sprites_list (wall): " + get(sprites_list, "wall"));
+    //log("\n sprites_list (7): " + get(sprites_list, 7));
+    
     setlocalvar("dc_mssi_sprites", sprites_list);
 
     void screens_list = array(0);
@@ -254,6 +272,8 @@ void dc_select_screen_main()
     int index = 0;
     int size_x = 0;
     int size_y = 0;
+    int scale_x = 256;
+    int scale_y = 256;
     int pos_x = 0;
     int pos_y = 0;
     int pos_z = 0;
@@ -407,7 +427,30 @@ void dc_select_screen_main()
     sprite = get(sprite_list, "select_text");
     sort_id = 1;
 
-    drawsprite(sprite, pos_x, pos_y, pos_z, sort_id);
+    int spinner = 15 * dc_spinner_sine(4.0, 1);
+    int spinner_round = trunc(round(spinner));
+    int spinner_post = spinner_round;
+    log("\n\n");
+    log("\n spinner: " + spinner);
+    log("\n spinner_round: " + spinner_round);
+    log("\n spinner_post: " + spinner_post);
+
+    scale_x = 271 + spinner_post;
+    scale_y = scale_x;
+
+    log("\n scale_x: " + scale_x);
+    log("\n scale_y: " + scale_y);
+
+    set_drawmethod_property(common_drawmethod, "background_transparency", 1);
+    set_drawmethod_property(common_drawmethod, "tint_mode", openborconstant("BLEND_MODE_HARDLIGHT"));
+    set_drawmethod_property(common_drawmethod, "tint_color", rgbcolor(192, 0 ,0));
+    set_drawmethod_property(common_drawmethod, "scale_x", scale_x);
+    set_drawmethod_property(common_drawmethod, "scale_y", scale_y);
+    set_drawmethod_property(common_drawmethod, "enable", 1);
+
+    drawsprite(sprite, pos_x, pos_y, pos_z, sort_id);    
+
+    copy_drawmethod(default_drawmethod, common_drawmethod);
 
     /* Columns */    
 
@@ -762,6 +805,8 @@ void dc_select_screen_draw_name_text(int player_index, int player_entity)
     int screen_size_y = 0;
     int screen_center_x = 0;
 
+    int shift_x = 0;
+
     void common_drawmethod = openborvariant("drawmethod_common");
     void default_drawmethod = openborvariant("drawmethod_default");
 
@@ -829,6 +874,22 @@ void dc_select_screen_draw_name_text(int player_index, int player_entity)
         drawstringtoscreen(screen_b, string_pos_x, string_pos_y, WAIT_NAME_FONT, name_last);
 
 
+        /* Let's lean the text toward center 
+        switch(player_index)
+        {
+
+        default:
+        case 0:
+            shift_x = 0;
+            break;
+        case 1:
+            shift_x = -128;
+            break;
+        case 2:
+            shift_x = 128;
+            break;
+        }*/
+
         /* 
         * Set drawmethods, draw the screen, and then reset
         * drawmethods for whatever engine draws next.
@@ -840,6 +901,9 @@ void dc_select_screen_draw_name_text(int player_index, int player_entity)
         set_drawmethod_property(common_drawmethod, "tint_color", name_text_color);
         set_drawmethod_property(common_drawmethod, "enable", 1);
 
+        //set_drawmethod_property(common_drawmethod, "shift_x", shift_x);
+        //set_drawmethod_property(common_drawmethod, "enable", 1);
+
         drawscreen(screen, screen_pos_x, screen_pos_y, openborconstant("PANEL_Z") + 10);
         
         copy_drawmethod(default_drawmethod, common_drawmethod);
@@ -849,6 +913,7 @@ void dc_select_screen_draw_name_text(int player_index, int player_entity)
         set_drawmethod_property(common_drawmethod, "alpha", openborconstant("BLEND_MODE_AVERAGE"));
         set_drawmethod_property(common_drawmethod, "tint_mode", openborconstant("BLEND_MODE_ALPHA_NEGATIVE"));
         set_drawmethod_property(common_drawmethod, "tint_color", rgbcolor(64,64,64));
+        //set_drawmethod_property(common_drawmethod, "shift_x", shift_x);
         set_drawmethod_property(common_drawmethod, "enable", 1);
 
         drawscreen(screen_b, screen_pos_x+1, screen_pos_y+1, openborconstant("PANEL_Z") + 9);

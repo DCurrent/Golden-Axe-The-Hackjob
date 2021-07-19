@@ -9,6 +9,8 @@
 
 void oncreate()
 {
+    log("\n\t ...update.c\n");
+
     dc_preload_hud_sprites();
     dc_select_screen_initialize();
 }
